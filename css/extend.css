@@ -1,0 +1,44 @@
+/* @media (max-width: 575.98px) {
+	#link-col {
+		display: none;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	#link-col {
+		display: none;
+	}
+	#photo-col {
+		width: auto;
+	}
+} */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+hr {
+	margin: 0;
+}
+
+.backdrop-filter {
+	background-color: rgba(255, 255, 255, 0.1);
+	-webkit-backdrop-filter: blur(40px);
+			backdrop-filter: blur(40px);
+}
+
+.em-tight {
+	letter-spacing: -0.05em;
+}
+
+.em-wide {
+	letter-spacing: 0.01em;
+}
