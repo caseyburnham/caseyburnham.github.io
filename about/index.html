@@ -23,9 +23,9 @@
 			crossorigin="anonymous"
 		/>
 
-		<link rel="stylesheet" href="css/extend.css" />
+		<link rel="stylesheet" href="/css/extend.css" />
 
-		<link rel="stylesheet" href="css/hover.css" />
+		<link rel="stylesheet" href="/css/hover.css" />
 
 		<!-- Title -->
 		<title>Casey Burnham | ABOUT</title>
@@ -262,18 +262,5 @@
 			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 			crossorigin="anonymous"
 		></script>
-		<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-		<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-		<script>
-			// init Masonry
-			var $grid = $(".grid").masonry({
-				// options...
-			});
-
-			// layout Masonry after each image loads
-			$grid.imagesLoaded().progress(function () {
-				$grid.masonry("layout");
-			});
-		</script>
 	</body>
 </html>
