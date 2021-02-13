@@ -310,13 +310,12 @@
 		<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 		<script>
 			// init Masonry
-			var $grid = $(".grid").masonry({
-				// options...
-			});
-			// layout Masonry after each image loads
-			$grid.imagesLoaded().progress(function () {
-				$grid.masonry("layout");
-			});
+			var $grid = $('.grid').imagesLoaded( function() {
+				  // init Masonry after all images have loaded
+				  $grid.masonry({
+					// options...
+				  });
+				});
 		</script>
 	</body>
 </html>
