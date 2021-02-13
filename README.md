@@ -1,5 +1,7 @@
-# Crash & Burnham
+# **Crash & Burnham**
 Portfolio Website for Casey Burnham
+
+[crashandburnham.com](https://crashandburnham.com)
 
 ## Thanks to
 
@@ -7,4 +9,4 @@ Portfolio Website for Casey Burnham
 - [Masonry](https://github.com/desandro/masonry)
 - [imagesLoaded](https://github.com/desandro/imagesloaded)
 - [ImageOptim](https://github.com/ImageOptim/ImageOptim)
-- [Emojipedia](📙.la)
+- [Emojipedia](http://📙.la)
