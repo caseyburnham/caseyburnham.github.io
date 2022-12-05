@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="/css/hover.css" />
 
 		<!-- Title -->
-		<title>Casey Burnham | ABOUT</title>
+		<title>Casey Burnham</title>
 	</head>
 
 	<!-- Navbar -->
@@ -25,14 +25,23 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarToggle">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link" href="/">Photography</a>
-					</li>
+					<li class="nav-item dropdown">
+						  <a class="nav-link dropdown-toggle" href="#" id="photoDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Photo
+						  </a>
+						  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="photoDrop">
+							<li><a class="dropdown-item" href="#">✨ Abstract</a></li>
+							<li><a class="dropdown-item" href="#">🧑‍🎤 Concert</a></li>
+							<li><a class="dropdown-item" href="#">🌸 Floral</a></li>
+							<li><a class="dropdown-item" href="#">🌄 Landscape</a></li>
+							<li><a class="dropdown-item" href="#">🍳 Panoramic</a></li>
+						  </ul>
+						</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/audio">Audio</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" href="/about">About</a>
+						<a class="nav-link" href="/about">About</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/stats">Stats</a>
@@ -45,19 +54,11 @@
 
 					<div class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end">
 						<h6 class="dropdown-header user-select-none">Call</h6>
-						<a class="dropdown-item" href="tel:+17204773788">
-							+1 (720) 477-3788
-						</a>
-
+						<a class="dropdown-item" href="tel:+17204773788">+1 (720) 477-3788</a>
 						<h6 class="dropdown-header user-select-none">Email</h6>
-						<a class="dropdown-item" href="mailto:casey@crashandbunrham.com">
-							casey@crashandburnham.com
-						</a>
-
+						<a class="dropdown-item" href="mailto:casey@crashandbunrham.com">casey@crashandburnham.com</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item text-right text-primary font-italic" href="/resources/contact/burnham-c.vcf/">
-							Download vCard
-						</a>
+						<a class="dropdown-item text-right text-primary font-italic" href="/resources/contact/burnham-c.vcf/">Download vCard</a>
 					</div>
 				</div>
 			</div>
@@ -67,315 +68,40 @@
 	<!-- Body -->
 	<body class="bg-dark">
 		<!-- Begin Content -->
-		<div class="container mt-5">
-			<div class="row">
-				<div class="col-lg">
-					<!-- ABOUT -->
-					<h1 class="fw-bold em-tight text-light">About</h1>
-					<p class="lead text-light">
-						Casey is an accomplished Sound & Mix Engineer with years of real-world experience in both live and studio settings.
-					</p>
-					<p class="text-secondary">
-						After first moving to Colorado in 2011, Casey dove headfirst into the world of sound working at his college radio station — serving as engineer, DJ, and producer. From there, he earned a
-						<abbr class="initialism" title="Bachelor of Science">B.S.</abbr> in Audio Engineering from <abbr class="initialism" title="University of Colorado, Denver">UCD</abbr>, and now strives to broaden his skills working as a freelance audio engineer specializing in vocal engineering and production.
-					</p>
-					
-					<br />
-					
-					<!-- EDU -->
-					<table class="table table-sm table-dark table-borderless table-striped">
-						<thead>
-							<tr>
-								<th scope="col" colspan="5"><h3 class="fw-bold em-tight">🎓 Education</h3></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row" class="rounded-start">
-									Audio Engineering <small><abbr class="initialism text-muted fw-normal" title="Bachelor of Science">B.S.</abbr></small>
-								</th>
-								<td><abbr title="University of Colorado, Denver">UCD</abbr></td>
-								<td><abbr title="Colorado">CO</abbr></td>
-								<td class="text-muted">2017</td>
-								<td class="rounded-end">📜</td>
-							</tr>
-							<tr>
-								<td colspan="5">
-									<table class="table table-sm table-dark table-borderless">
-										<tbody>
-											<tr>
-												<td class="text-secondary">
-													Studied Audio Engineering, Mixing, and Mastering; Music Production and Editing; Live Sound Reinforcement; Film Sound, Dialogue Editing, Foley, and Sync; Production and Location Sound, Field Recordings. Trained on an <abbr class="initialism" title="Solid State Logic">SSL</abbr> 9000J, Yamaha DM1000, and Pro Tools.
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row" class="rounded-start">
-									Computer Science <small><abbr class="initialism text-muted fw-normal" title="Bachelor of Science">B.S.</abbr></small>
-								</th>
-								<td>Regis University</td>
-								<td><abbr title="Colorado">CO</abbr></td>
-								<td>—</td>
-								<td class="rounded-end">—</td>
-							</tr>
-							<tr>
-								<td colspan="5">
-									<table class="table table-sm table-dark table-borderless">
-										<tbody>
-											<tr>
-												<td class="text-secondary">
-													Studied Automata Theory, Object Oriented Software Development, and Photography w/ Honors level English, Philosophy, and Psychology.
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<!-- EXPERIENCE -->
-					<table class="table table-sm table-dark table-borderless table-striped">
-						<thead>
-							<tr>
-								<th scope="col" colspan="4"><h3 class="fw-bold em-tight">👔 Experience</h3></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row" class="rounded-start">Aurora Fox</th>
-								<td><i class="text-muted">2022 - Present</i></td>
-								<td><abbr title="Colorado">CO</abbr></td>
-								<td class="rounded-end">🎭</td>
-							</tr>
-							<tr>
-								<td colspan="4">
-									<table class="table table-sm table-dark table-borderless align-middle">
-										<tbody>
-											<tr>
-												<th scope="row" class="text-muted text-end">AUDIO ENGINEER<hr>SOUND DESIGNER<hr>THEATER TECH</th>
-												<td class="text-secondary">
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id viverra orci. Vivamus ut iaculis mi. Sed nec velit bibendum mi faucibus blandit ac id est. Vivamus nec lorem interdum, feugiat urna sit amet, imperdiet erat. 
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row" class="rounded-start">Epiphany Lutheran</th>
-								<td><i class="text-muted">2021 - 2022</i></td>
-								<td><abbr title="Colorado">CO</abbr></td>
-								<td class="rounded-end">⛪</td>
-							</tr>
-							<tr>
-								<td colspan="4">
-									<table class="table table-sm table-dark table-borderless align-middle">
-										<tbody>
-											<tr>
-												<th scope="row" class="text-muted text-end">AUDIO ENGINEER</th>
-												<td class="text-secondary">
-													Stage and strike microphones for church services. Manage multiple mixes for reinforcement, live stream, and overflow and cry rooms. Edit and mix multi-track recordings as podcasts. Install, maintain, test, and repair audio/video equipment. Mixer: Allen & Heath Qu-32.
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row" class="rounded-start">Broomfield Auditorium</th>
-								<td><i class="text-muted">2020 - 2022</i></td>
-								<td><abbr title="Colorado">CO</abbr></td>
-								<td class="rounded-end">🎭</td>
-							</tr>
-							<tr>
-								<td colspan="4">
-									<table class="table table-sm table-dark table-borderless align-middle">
-										<tbody>
-											<tr>
-												<th scope="row" class="text-muted text-end">STREAM ENGINEER<hr>AUDIO ENGINEER</th>
-												<td class="text-secondary">
-													<!-- <b>LIVE-STREAM &amp; AUDIO ENGINEER</b><br /> -->
-													Stage/strike microphones and cameras for different performances. Mix sound for live reinforcement, live stream, and video recording; Mix monitors; Program stage lighting; color balancing; Build, install, maintain, test, and repair audio/video equipment. Mixer: Midas M32.
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row" class="rounded-start">The Lab Studios</th>
-								<td><i class="text-muted">2019 - 2021</i></td>
-								<td><abbr title="Colorado">CO</abbr></td>
-								<td class="rounded-end">🎙️</td>
-							</tr>
-							<tr>
-								<td colspan="4">
-									<table class="table table-sm table-dark table-borderless align-middle">
-										<tbody>
-											<tr>
-												<th scope="row" class="text-muted text-end">AUDIO ENGINEER</th>
-												<td class="text-secondary">
-													Professional studio recording/audio tracking through analog EQs and compressors; Record, edit, mix, and master audio (music, vocals, audio books, voiceover, etc...) to industry standard levels and stream friendly formats; Install, maintain, test, and repair audio equipment. Track and mix with Pro Tools.
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-
-							<tr>
-								<th scope="row" class="rounded-start">Open Media Foundation</th>
-								<td><i class="text-muted">2019 - 2020</i></td>
-								<td><abbr title="Colorado">CO</abbr></td>
-								<td class="rounded-end">📺</td>
-							</tr>
-							<tr>
-								<td colspan="4">
-									<table class="table table-sm table-dark table-borderless align-middle">
-										<tbody>
-											<tr>
-												<th scope="row" class="text-muted text-end">STUDIO ASSISTANT</th>
-												<td class="text-secondary">
-													Engineer and mix live sound for TV broadcast and live stream; Direct and operate cameras; Produce, record, sound design, and edit music for radio adverts in Audition; Mic guests and instruments for video interviews and live performances. Mixer: PreSonus StudioLive.
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr>
-
-<!-- 							<tr>
-								<th scope="row" class="rounded-start">AC Investments</th>
-								<td><i class="text-muted">2014 - 2019</i></td>
-								<td><abbr title="Colorado">CO</abbr></td>
-								<td class="rounded-end">🏛️</td>
-							</tr>
-							<tr>
-								<td colspan="4">
-									<table class="table table-sm table-dark table-borderless align-middle">
-										<tbody>
-											<tr><th scope="row" class="text-muted text-end">CONTENT CREATOR</th>
-												<td class="text-secondary">
-													Develop marketing campaigns; Create content for business marketing and communications products; Handle all graphic design, photography, audio/video capture, asset management, and copy writing. Software: Adobe CC.
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr> -->
-
-<!-- 							<tr>
-								<th scope="row" class="rounded-start">KRCX Radio</th>
-								<td><i class="text-muted">2012 - 2014</i></td>
-								<td><abbr title="Colorado">CO</abbr></td>
-								<td class="rounded-end">📻</td>
-							</tr>
-							<tr>
-								<td colspan="4">
-									<table class="table table-sm table-dark table-borderless align-middle">
-										<tbody>
-											<tr>
-												<th scope="row" class="text-muted text-end">AUDIO ENGINEER</th>
-												<td class="text-secondary">
-													Audio production, engineering, recording, mixing, and mastering; Stage and operate monitors, mics, and mixer for live sound reinforcement; Live board operation and mixing for radio broadcast; Produce, record, sound design, and edit music for radio adverts. Track and mix with Pro Tools.
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</td>
-							</tr> -->
-							
-						</tbody>
-					</table>
-				</div>
-
-				<div class="col-sm">
-					<figure>
-						<img src="/resources/photos/casey.jpg" loading="lazy" class="img-fluid border border-dark rounded-3" />
-						<figcaption class="figure-caption">
-							When he's not in the studio, you can find him sauntering about a botanic garden (🌿), digging through record crates (📦), or somewhere on a mountain (🥾).
-						</figcaption>
-					</figure>
-					
-					<!-- OUTBOUND -->
-					<table class="table table-dark table-sm table-borderless">
-						<thead>
-							<tr>
-								<th scope="col" colspan="2" class="text-light">Outbound Links</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="font-monospace">
-									<a href="https://github.com/caseyburnham/" target="_blank">
-										github.com/
-									</a>
-								</td>
-								<td>🔗</td>
-							</tr>
-							<tr>
-								<td class="font-monospace">
-									<a href="https://linkedin.com/in/burnhamc/" target="_blank">
-										linkedin.com/
-									</a>
-								</td>
-								<td>🔗</td>
-							</tr>
-							<tr>
-								<td class="font-monospace">
-									<a href="https://discogs.com/seller/crashandburnham/" target="_blank">
-										discogs.com/
-									</a>
-								</td>
-								<td>🔗</td>
-							</tr>
-							<tr>
-								<td class="font-monospace">
-									<a href="https://music.apple.com/profile/crashandburnham/" target="_blank">
-										music.apple.com/
-									</a>
-								</td>
-								<td>🔗</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<!-- End About -->
+		<div class="container  text-center border-bottom mt-5">
+			<h1 class="fw-bold em-tight text-light">Welcome 👋</h1>
+			
+			<a class="h1 text-decoration-none" href="/photography">📸</a>
+			<br />
+			<br />
+			<a class="h1 text-decoration-none" href="/audio_engineering">🎙️</a>
+			<br />
+			<br />
+			<a class="h1 text-decoration-none" href="/about">😎</a>
+			<br />
+			<br />
+			<a class="h1 text-decoration-none" href="/stats">📋</a>
+			<br />
+			<br />
+			<br />
+			
+			<h1>🏳️‍🌈🕊️🏴‍☠️📿🏳️‍⚧️</h1>
+			
 		</div>
-
-		<!-- Footer -->
+		<br />
 		<footer class="footer mt-auto py-3">
 			<div class="container">
-				<p class="text-muted text-center">
-					<small>
-						Coded in
-						<a href="https://osm.org/go/T2JoUUl-?relation=253750" target="_blank">
-							Denver, Colorado
-						</a>
-						as a personal, artistic, and engineering showcase.
-					</small>
-				</p>
-				<br />
 				<div class="row text-center text-muted">
 					<div class="col-sm">
-						<a class="text-muted text-decoration-none" href="tel:+17204773788"><small>(720) 477-3788</small> </a>
+						<a class="text-muted text-decoration-none" href="tel:+17204773788"><small>(720) 477-3788</small></a>
 					</div>
 
 					<div class="col-sm">
-						<span class="text-muted">
-							<small>&copy;2021 CASEY BURNHAM</small>
-						</span>
+						<span class="text-muted"><small>&copy;2021 CASEY BURNHAM</small></span>
 					</div>
 
 					<div class="col-sm">
-						<a class="text-muted text-decoration-none" href="mailto:casey@crashandburnham.com">
-							<small>casey@crashandburnham.com</small>
-						</a>
+						<a class="text-muted text-decoration-none" href="mailto:casey@crashandburnham.com"><small>casey@crashandburnham.com</small></a>
 					</div>
 				</div>
 			</div>
@@ -384,5 +110,18 @@
 		<!-- End Content-->
 		<!-- JavaScript -->
 		<script src="/js/bootstrap.bundle.min.js"></script>
+		<script src="/js/masonry.pkgd.min.js"></script>
+		<script src="/js/imagesloaded.pkgd.min.js"></script>
+		<script>
+			$(function () {
+				var $container = $(".masonry");
+
+				$container.imagesLoaded(function () {
+					$container.masonry({
+						itemSelector: ".item",
+					});
+				});
+			});
+		</script>
 	</body>
 </html>
