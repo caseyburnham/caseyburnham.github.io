@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Crash & Burnham</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+	<main>
+		
+		<header class="hero">
+			<h1>Casey Burnham</h1>
+		</header>
+
+		<section>
+			<p class="bio-text">
+			I'm Casey, a sound engineer who's been mixing theater in Colorado for about a decade. I spend most of my time making sure audiences can actually hear the actors, troubleshooting feedback loops, and pretending I'm not stressed during tech week. I started in college radio, got my Audio Engineering degree from CU Denver, and learned that live theater has a special talent for breaking equipment at the worst possible moment.
+			
+			Originally from Idaho, I traded dirt and potatoes for mountains and mines. When the weather cooperates, I drive old roads that test my truck's suspension and my mental fortitude,  hike above tree-line, and hunt for pioneer cemeteries. When it doesn't, I'll be digging through record bins. My dog usually has opinions about all of this.
+			</p>
+			<div class="square-container">
+				<img class="image-wrapper" src="/images/selfie.jpeg" />
+			</div>
+		</section>
+		
+		<br />
+		<!-- EXPERIENCE -->
+		<section class="column">
+		<!-- <h2>Experience</h2> -->
+			<!-- FREELANCE -->
+			<details>
+				<summary class="column">Freelance Engineering and Competencies</summary>
+				<h4>Audio Engineering</h4>
+				<ul>
+					<li>Studio engineering</li>
+					<li>Recording, Mixing, and Mastering for streaming distribution</li>
+					<li>Corporate A1/A2</li>
+					<li>Line-by-line Mixing</li>
+				</ul>
+				<h4>Hardware & Software</h4>
+				<ul>
+					<li>Yamaha Rivage PM10</li>
+					<li>macOS</li>
+					<li>QLab 5</li>
+					<li>SMAART, ArrayCalc</li>
+					<li>DANTE Certified</li>
+				</ul>
+			</details>
+
+			<!-- ARVADA -->
+			<details>
+				<summary>Arvada Center for the Arts and Humanities</summary>
+				<h4>Audio Director</h4>
+				<ul>
+					<li>Audio Department lead, supervising engineers and overseeing system design, installation, and integration</li>
+					<li>Design and implement networked audio, RF coordination, and practical effect speakers</li>
+					<li>Mix musicals and myriad concerts, recitals, and other events throughout the year</li>
+					<li>Program and operate audio consoles, QLab, and automation protocols</li>
+					<li>Develop technical documentation, signal flow diagrams, and system layouts</li>
+					<li>Collaborate with designers and production teams to bring creative visions to life</li>
+				</ul>
+			</details>
+
+			<!-- AURORA -->
+			<details>
+				<summary>Aurora Fox Arts Center</summary>
+				<h4>Audio Engineer & Theater Technician</h4>
+				<ul>
+					<li>System design and FOH mix for all musicals, concerts, and more</li>
+					<li>Design and program laser shows</li>
+					<li>Inventory and maintenance all audio equipment</li>
+					<li>Network management for digital audio and show control</li>
+					<li>Projector hang, focus, and mapping</li>
+					<li>Continued consulting and freelance engineering</li>
+				</ul>
+			</details>
+		</section>
+		
+		<hr />
+
+		<!-- PRODUCTIONS -->
+		<section>
+			<table class="sortable-table" id="productions">
+				<thead>
+					<tr>
+						<th scope="col">Production</th>
+						<th scope="col">Company</th>
+						<th scope="col">A1</th>
+						<th scope="col">A2</th>
+						<th scope="col"><abbr title="Sound Designer">SD</abbr></th>
+						<th scope="col"><abbr title="Audio Director">AD</abbr></th>
+						<th scope="col"><abbr title="Laserist">LZ</abbr></th>
+						<th scope="col">😀</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- POPULATED BY productions.json -->
+				</tbody>
+			</table>
+		</section>
+		<!-- END PRODUCTIONS -->
+		
+		<hr />
+		
+		<!-- PHOTOS -->
+		<section>
+			<img class="image-wrapper" src="/images/img-4.jpeg" />
+			<img class="image-wrapper" src="/images/img-3.jpeg" alt="taylor-mtn" />
+			<img class="image-wrapper" src="/images/img-2.jpeg" />
+			<img class="image-wrapper" src="/images/pano-1.jpeg" />
+		</section>
+		<!-- END PHOTOS -->
+
+		<hr />
+
+		<!-- TABLES -->
+		<!-- <h2>📋 Tabulations</h2> -->
+		<section>
+			<!-- MOUNTAINS -->
+			<table class="sortable-table" id="mountains">
+				<caption>
+					<small><i><a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank">14ers.com</a></i></small>
+				</caption>
+				<thead>
+					<tr>
+						<th scope="col">⛰️ Peak <span class="arrow"></span></th>
+						<th scope="col">Elevation <span class="arrow"></span></th>
+						<th scope="col">Range <span class="arrow"></span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- POPULATED BY mountains.json -->
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="2">14ers</td>
+						<td><i><span id="fourteeners">0</span>/58</i></td>
+					</tr>
+					<tr>
+						<td colspan="2">13ers</td>
+						<td><i><span id="thirteeners">0</span>/600+</i></td>
+					</tr>
+					<tr>
+						<td colspan="2">Peaks Bagged</td>
+						<td><i><span id="totalMountains">0</span></i></td>
+					</tr>
+				</tfoot>
+			</table>
+
+			<!-- CONCERTS -->
+			<table class="sortable-table" id="concerts">
+				<caption>
+					<small><i>Non-exhaustive; Chronology approximate</i></small>
+				</caption>
+				<thead>
+					<tr>
+						<th scope="col">🎵 Artist</th>
+						<th scope="col">Venue</th>
+						<th scope="col">Year</th>
+						<th scope="col">😃</th>
+						<th scope="col">📷</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- POPULATED BY concerts.json -->
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="5">
+							<span id="top-artists"></span>
+							
+							<hr  />
+							
+							<span id="top-venues"></span>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</section>
+		<!-- END TABELS -->
+	</main>
+	
+	<footer>
+		<section>©2025 CASEY BURNHAM<br />🏳️‍🌈🏳️‍⚧️🏴‍☠️🏴󠁵󠁳󠁣󠁯󠁿<br />CODED w/ ❤️ & VIBES IN COLORADO</section>
+	</footer>
+	
+	<!-- SCRIPTS -->
+	<script src="/scripts/scripts.js" defer></script>
+
+</body>
+</html>
