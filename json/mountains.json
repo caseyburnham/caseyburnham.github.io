@@ -1,11 +1,29 @@
 [{
+		"Peak": "Thirsty Peak",
+		"Elevation": "13,195",
+		"Range": "Sangre de Christo",
+		"Count": 1
+	},
+	{
+		"Peak": "UN 13,128",
+		"Elevation": "13,128",
+		"Range": "Sangre de Christo",
+		"Count": 1
+	},
+	{
+		"Peak": "Cottonwood Peak",
+		"Elevation": "13,596",
+		"Range": "Sangre de Christo",
+		"Count": 1
+	},
+	{
 		"Peak": "Horseshoe Mountain",
 		"Elevation": "13,894",
 		"Range": "Mosquito",
 		"Count": 1
 	},
 	{
-		"Peak": "Mount Sheridan",
+		"Peak": "Mt. Sheridan",
 		"Elevation": "13,743",
 		"Range": "Mosquito",
 		"Count": 1
@@ -31,6 +49,12 @@
 	{
 		"Peak": "Hancock Peak",
 		"Elevation": "13,111",
+		"Range": "Sawatch",
+		"Count": 1
+	},
+	{
+		"Peak": "Mt. Guyot",
+		"Elevation": "13,297",
 		"Range": "Sawatch",
 		"Count": 1
 	},
@@ -311,7 +335,7 @@
 		"Count": 1
 	},
 	{
-		"Peak": "Mount Galbraith",
+		"Peak": "Mt. Galbraith",
 		"Elevation": "7,303",
 		"Range": "Front",
 		"Count": 1

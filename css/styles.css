@@ -148,6 +148,10 @@ ul {
 	list-style: star;
 }
 
+header {
+	transform: skew(-10deg)
+}
+
 /* Style for each table */
 #mountains {
 	flex: 1;
@@ -165,6 +169,8 @@ ul {
 	text-align: center;
 
 }
+
+
 
 .square-container {
 	position: relative;
@@ -214,6 +220,25 @@ ul {
 
 .column {
 	flex-direction: column;
+}
+
+.details-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.details-container details {
+  flex: 1 1 calc(33.333% - 1rem);
+  min-width: 250px;
+}
+
+/* Optional: make them stack on narrower screens */
+@media (max-width: 800px) {
+  .details-container details {
+	flex: 1 1 100%;
+  }
 }
 
 .selfie {

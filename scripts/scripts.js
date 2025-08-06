@@ -23,8 +23,8 @@ fetch('/json/productions.json')
   })
   .catch(error => console.error('Error loading productions:', error));
   
-  //END PRODUCTIONS
-  //
+//END PRODUCTIONS
+//
 
 //
 //MOUNTAINS
@@ -110,6 +110,11 @@ async function loadConcerts() {
 			tbody.appendChild(row);
 		});
 		
+		const countSpan = document.getElementById('concert-count');
+		if (countSpan) {
+			countSpan.textContent = concertData.length;
+		}
+				
 		countTopArtistsAndVenues(concertData);
 		highlightVenues();
 		
