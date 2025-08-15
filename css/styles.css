@@ -1,4 +1,18 @@
+/* THEME */
+:root {
+	--accent: #00d4c3;
+	--bar-bg: rgba(0, 212, 195, 0.15);
+	--bar-fill: #00d4c3;
+	--text-color: #000;
+	--modal-blur: blur(24px);
+	--main-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+	--details-shadow: rgba(0, 128, 128, 0.4) -5px 5px, rgba(0, 128, 128, 0.3) -10px 10px, rgba(0, 128, 128, 0.2) -15px 15px, rgba(0, 128, 128, 0.1) -20px 20px, rgba(0, 128, 128, 0.05) -25px 25px;
+	--media-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+/* SEMANTIC */
 html {
+	color: var(--text-color);
 	font-family: "Noto Sans Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 	font-size: 16px;
 	font-weight: 400;
@@ -11,7 +25,7 @@ main {
 	padding-right: 5rem;
 	padding-bottom: 5rem;
 	border-radius: 20px;
-	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+	box-shadow: var(--main-shadow);
 }
 
 abbr {
@@ -44,7 +58,7 @@ details summary {
 details ul {
 	padding-bottom: 1rem;
 	line-height: 1.3;
-	box-shadow: rgba(0, 128, 128, 0.4) -5px 5px, rgba(0, 128, 128, 0.3) -10px 10px, rgba(0, 128, 128, 0.2) -15px 15px, rgba(0, 128, 128, 0.1) -20px 20px, rgba(0, 128, 128, 0.05) -25px 25px;
+	box-shadow: var(--details-shadow);
 }
 
 details li {
@@ -61,12 +75,13 @@ hr {
 	margin-top: 2em;
 	margin-bottom: 2em;
 	width: 50%;
-	opacity: 50%;
+	opacity: 75%;
 }
 
-img {
+
+video {
 	border-radius: 5px;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+	box-shadow: var(--media-shadow);
 }
 
 section {
@@ -74,7 +89,6 @@ section {
 	gap: 20px;
 	flex-wrap: wrap;
 	justify-content: center;
-	/* padding-bottom: 1rem; */
 }
 
 section p {
@@ -83,7 +97,6 @@ section p {
 	margin-right: 10px;
 	line-height: 1.5
 }
-
 
 small {
 	font-weight: lighter;
@@ -101,6 +114,20 @@ table {
 	border-collapse: collapse;
 }
 
+table hr {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+tbody {
+	max-height: 500px;
+	overflow-y: scroll;
+}
+
+td {
+	position: relative;
+}
+
 td,
 th {
 	border: 1px solid;
@@ -111,16 +138,8 @@ th {
 	text-wrap: nowrap;
 }
 
-th.asc::after {
-	content: '↑';
-}
-
-th.desc::after {
-	content: '↓';
-}
-
 tbody tr {
-	transition: opacity 0.3s ease, transform 0.3s ease;
+	/* transition: opacity 0.3s ease, transform 0.3s ease; */
 }
 
 th,
@@ -148,37 +167,31 @@ ul {
 	list-style: star;
 }
 
-header {
-	transform: skew(-10deg)
-}
-
-/* Style for each table */
+/* TABLE STYLES */
 #mountains {
 	flex: 1;
-	/* Allow tables to grow and take equal space */
-	min-width: 300px;
-	/* Minimum width for each table */
-	text-wrap: nowrap;
+	/* text-wrap: nowrap; */
 }
 
 #concerts {
-	flex: 2;
+	flex: 1;
 }
 
 #productions td:nth-last-child(-n+6) {
 	text-align: center;
-
 }
 
-
+.table-scroll {
+  height: 400px; /* You can use px, em, rem, or % */
+  overflow-y: auto;
+}
 
 .square-container {
 	position: relative;
 	width: 30%;
-	/* Takes up 30% of the section */
 }
 
-.square-container img {
+.square-container video {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -187,66 +200,224 @@ header {
 	object-fit: cover;
 }
 
-.bio-text {
-	width: 70%;
-	/* Takes up the remaining 70% */
-}
-
-/* Wrapper for each image to enforce square framing */
-.image-wrapper {
-	flex: 1 1 calc(33.333% - 20px);
-	/* Three images per row with gap accounted for */
-	/* Ensures the wrapper is square */
-	overflow: hidden;
-	/* Ensures the image fills the square */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-/* Ensure the image fills the square */
-.image-wrapper img {
+.video-wrapper video {
 	width: 100%;
 	object-fit: cover;
 	height: auto;
-	transition: opacity 0.5s ease-in-out;
-	/* Ensures the image fills the square without distortion */
 }
 
-.image-container img {
-	width: 100%;
-
-}
-
-.column {
-	flex-direction: column;
-}
-
+/* WORK DETAILS */
 .details-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: space-between;
 }
 
 .details-container details {
-  flex: 1 1 calc(33.333% - 1rem);
-  min-width: 250px;
+	flex: 1 1 calc(33.333% - 1rem);
+	min-width: 250px;
 }
 
-/* Optional: make them stack on narrower screens */
-@media (max-width: 800px) {
-  .details-container details {
-	flex: 1 1 100%;
+@counter-style star {
+	system: cyclic;
+	symbols: "\2726";
+	suffix: " ";
+}
+
+/* BAG BAR */
+.peak-progress {
+	position: relative;
+	z-index: 0;
+}
+
+.peak-progress>* {
+	color: var(--text-color);
+	position: relative;
+	z-index: 1;
+}
+
+.peak-progress::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-color: var(--bar-bg);
+	z-index: 0;
+}
+
+.peak-progress::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	width: var(--width);
+	background-color: var(--bar-fill);
+	z-index: 0;
+	transition: width 0.5s ease;
+}
+
+/* PHOTOS */
+.photo-grid {
+	display: grid;
+	gap: 1em;
+}
+
+.landscape {
+}
+
+.landscape-row {
+  grid-template-columns: repeat(auto-fit, minmax(max-content, 1fr));
+}
+
+.pano {
+	grid-column: 1 / -1;
+}
+
+.pano-row {
+  grid-template-columns: 1fr;
+}
+
+.portrait {}
+
+.portrait-row {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+@media (min-width: 600px) {
+  .landscape-row,
+  .portrait-row {
+	grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   }
 }
 
-.selfie {
-	max-width: 30%;
+.photo-thumb {
+	overflow: hidden;
+	cursor: pointer;
+	position: relative;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+	will-change: transform;
+	z-index: 10;
+	border-radius: 4px;
 }
 
-/* Concert Coloring */
+.photo-thumb img {
+	width: 100%;
+	height: auto;
+	transition: transform 0.3s ease, filter 0.3s ease;
+	filter: grayscale(100%) contrast(1.1);
+	will-change: transform, filter, box-shadow;
+	display: block;
+}
 
+.photo-thumb:hover {
+	transform: translateY(-4px) scale(1.02);
+	box-shadow: var(--media-shadow);
+	z-index: 10;
+	border-radius: 4px;
+}
+
+.photo-thumb:hover img {
+	transform: scale(1.1);
+	filter: grayscale(0%) contrast(1.2);
+}
+
+/* MODAL */
+.modal {
+	position: fixed;
+	top:0 ;
+	left: 0;
+	inset: 0;
+	background: rgba(255, 255, 255, 0.25);
+	backdrop-filter: var(--modal-blur);
+	-webkit-backdrop-filter: var(--modal-blur);
+	z-index: 998;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* flex-direction: column; */
+	padding: 2em;
+	text-align: center;
+	transition: opacity 0.3s ease-in;
+	pointer-events: none;
+	opacity: 0;
+}
+
+.modal-card {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: var(--media-shadow)
+}
+
+.modal img {
+	max-width: 90vw;
+	max-height: 80vh;
+	display: block;
+}
+
+.modal-caption {
+	/* position: absolute; */
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	font-family: ui-rounded;
+	background: rgba(255, 255, 255, 0.5);
+	backdrop-filter: var(--modal-blur);
+	-webkit-backdrop-filter: var(--modal-blur);
+	box-sizing: border-box;
+}
+
+.modal-caption h2 {
+	font-size: 1em;
+	color: #333;
+	font-weight: bold;
+	padding: 0.75em;
+	margin: 0;
+}
+
+.modal-caption hr {
+	width: 100%;
+	border: none;
+	border-top: 1px solid turquoise;
+	height: 1px;
+	overflow: visible;
+	margin: initial;
+}
+
+.exif-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3vmin 2vmax;
+  font-family: sans-serif;
+  font-size: 0.85em;
+  font-style: normal;
+  padding: 1em;
+  text-wrap: nowrap;
+}
+
+.format {
+  font-size: smaller;
+  font-weight: bold;
+  background: gray;
+  border-radius: 4px;
+  color: white;
+  padding: .1em .4em; /* small vertical pad */
+  display: inline-block;
+  vertical-align: middle; /* keeps it aligned with text */
+}
+
+.modal-close {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	cursor: pointer;
+	font-size: 1.5em;
+	color: var(--accent);
+}
+
+
+/* CONCERT COLORS */
 .red-rocks {
 	color: orangered;
 }
@@ -267,20 +438,15 @@ header {
 	color: rebeccapurple;
 }
 
-.fiddlers {}
+.fiddlers { 
+	color: green;
+}
 
 .golden-tri {
 	color: gold;
 }
 
-/* End Concert Coloring */
-
-@counter-style star {
-	system: cyclic;
-	symbols: "\2726";
-	suffix: " ";
-}
-
+/* SCALING */
 @media (max-width: 768px) {
 	section {
 		flex-direction: column;
@@ -288,15 +454,23 @@ header {
 	}
 }
 
-/* Responsive behavior: Stack images into a column on smaller screens */
-@media (max-width: 768px) {
-	.image-wrapper {
+@media (max-width: 800px) {
+	.details-container details {
 		flex: 1 1 100%;
-		/* Each image takes full width */
 	}
 }
 
+/* DARK MODE */
 @media (prefers-color-scheme: dark) {
+	:root {
+		--bar-bg: rgba(0, 212, 195, 0.25);
+		--bar-fill: rgba(128, 255, 230, 0.7);
+		--text-color: #e0f7f4;
+		--bar-bg-dark: rgba(0, 212, 195, 0.25);
+		--bar-fill-dark: rgba(128, 255, 230, 0.7); /* lighter cyan */
+		--text-dark: #e0f7f4; 
+	}
+
 	a {
 		color: aqua;
 	}
@@ -305,10 +479,21 @@ header {
 		background-color: #121212;
 		color: turquoise;
 		border-color: turquoise;
+		--bar-bg-dark: rgba(0, 212, 195, 0.25);
+		--bar-fill-dark: rgba(128, 255, 230, 0.7);
+		--text-dark: #e0f7f4;
+	}
+	
+	main {
+		box-shadow: rgba(0, 255, 255, 0.4) 0px 2px 4px, rgba(0, 255, 255, 0.3) 0px 7px 13px -3px, rgba(0, 255, 255, 0.2) 0px -3px 0px inset;
 	}
 
 	summary {
 		outline: 1px solid turquoise;
+	}
+
+	hr {
+		color: turquoise;
 	}
 
 	img {
@@ -316,8 +501,19 @@ header {
 		box-shadow: rgba(0, 255, 255, 0.1) 0px 2px 4px, rgba(0, 255, 255, 0.05) 0px 8px 16px, rgba(0, 255, 255, 0.02) 0px 16px 32px;
 	}
 
-	main {
-		box-shadow: rgba(0, 255, 255, 0.4) 0px 2px 4px, rgba(0, 255, 255, 0.3) 0px 7px 13px -3px, rgba(0, 255, 255, 0.2) 0px -3px 0px inset;
-
-		/* Add more selectors here to adjust other elements as needed */
+	.modal img {
+		box-shadow: rgba(0, 255, 255, 0.1) 0px 2px 4px, rgba(0, 255, 255, 0.05) 0px 8px 16px, rgba(0, 255, 255, 0.02) 0px 16px 32px;
 	}
+	
+	.peak-progress {
+	  color: var(--text-dark);
+	}
+	
+	.peak-progress::before {
+	  background-color: var(--bar-bg-dark);
+	}
+	
+	.peak-progress::after {
+	  background-color: var(--bar-fill-dark);
+	}
+}

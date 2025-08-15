@@ -1,0 +1,101 @@
+{
+	"summit-lake.jpeg": {
+		"title": "Summit Lake, Mt. Blue Sky",
+		"iso": "100",
+		"lens": "13",
+		"ev": "0",
+		"aperture": "8",
+		"shutter": "1/250",
+		"format": "JPEG"
+	},
+	"img-3.jpeg": {
+		"title": "Morning Fog at the Ridge",
+		"iso": "200",
+		"lens": "26",
+		"ev": "0",
+		"aperture": "11",
+		"shutter": "1/320",
+		"format": "JPEG"
+	},
+	"animas-forks.jpeg": {
+		"title": "Animas Forks, CO",
+		"iso": "32",
+		"lens": "77",
+		"ev": "0",
+		"aperture": "2.8",
+		"shutter": "1/815",
+		"format": "JPEG"
+	},
+	"taylor-mountain.jpeg": {
+		"title": "Views from Taylor Mountain",
+		"iso": "32",
+		"lens": "77",
+		"ev": "0",
+		"aperture": "2.8",
+		"shutter": "1/853",
+		"format": "JPEG"
+	},
+	"savage-flora.jpeg": {
+		"title": "Fireweed in the Holy Cross",
+		"iso": "50",
+		"lens": "26",
+		"ev": "0",
+		"aperture": "1.5",
+		"shutter": "1/2208",
+		"format": "JPEG"
+	},
+	"kendall-peak.jpeg": {
+		"title": "Kendall Peak from Silver Lake Basin",
+		"iso": "32",
+		"lens": "77",
+		"ev": "0",
+		"aperture": "2.8",
+		"shutter": "1/349",
+		"format": "JPEG"
+	},
+	"img-2.jpeg": {
+		"title": "Wildflowers in Bloom",
+		"iso": "400",
+		"lens": "77",
+		"ev": "0",
+		"aperture": "4",
+		"shutter": "1/500",
+		"format": "JPEG"
+	},
+	"taylor-mountain-pano.jpeg": {
+		"title": "Taylor Mountain Summit",
+		"iso": "40",
+		"lens": "26",
+		"ev": "0",
+		"aperture": "1.5",
+		"shutter": "1/8000",
+		"format": "JPEG"
+	},
+	"thirsty-peak.jpeg": {
+		"title": "Thirsty Peak",
+		"iso": "50",
+		"lens": "26",
+		"ev": "0",
+		"aperture": "1.5",
+		"shutter": "1/5882",
+		"format": "JPEG"
+	},
+	"silver-lake-flowers.jpeg": {
+		"title": "Flowers, Silver Lake",
+		"iso": "32",
+		"lens": "77",
+		"ev": "0",
+		"aperture": "2.8",
+		"shutter": "1/99",
+		"format": "JPEG"
+	},
+	"hibiscus.jpeg": {
+		"title": "Hibiscus, Big Water",
+		"iso": "32",
+		"lens": "25",
+		"ev": "0",
+		"aperture": "1.8",
+		"shutter": "1/2801",
+		"format": "JPEG"
+	}
+}

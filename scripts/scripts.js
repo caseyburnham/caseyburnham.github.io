@@ -3,12 +3,12 @@
 
 //PROD TABEL GEN
 fetch('/json/productions.json')
-  .then(response => response.json())
-  .then(data => {
-	const tableBody = document.querySelector('#productions tbody');
-	data.forEach(entry => {
-	  const row = document.createElement('tr');
-	  row.innerHTML = `
+	.then(response => response.json())
+	.then(data => {
+		const tableBody = document.querySelector('#productions tbody');
+		data.forEach(entry => {
+			const row = document.createElement('tr');
+			row.innerHTML = `
 		<td>${entry.Production}</td>
 		<td>${entry.Company}</td>
 		<td>${entry.A1}</td>
@@ -18,11 +18,11 @@ fetch('/json/productions.json')
 		<td>${entry.LZ}</td>
 		<td>${entry.Notes || ''}</td>
 	  `;
-	  tableBody.appendChild(row);
-	});
-  })
-  .catch(error => console.error('Error loading productions:', error));
-  
+			tableBody.appendChild(row);
+		});
+	})
+	.catch(error => console.error('Error loading productions:', error));
+
 //END PRODUCTIONS
 //
 
@@ -58,7 +58,6 @@ function renderTable(data) {
 
 window.addEventListener('DOMContentLoaded', loadMountains);
 
-// COUNT CLIMBS
 function countElevations(mountains) {
 	let count13ers = 0;
 	let count14ers = 0;
@@ -74,11 +73,55 @@ function countElevations(mountains) {
 
 	const total = mountains.length;
 
-	// Inject into the DOM however you like
+	// Inject counts into spans
 	document.querySelector('#totalMountains').textContent = total;
 	document.querySelector('#thirteeners').textContent = count13ers;
 	document.querySelector('#fourteeners').textContent = count14ers;
+
+	// *** NEW: Update progress bars ***
+	document.querySelectorAll('td.peak-progress').forEach(cell => {
+		const total = +cell.dataset.total || 1;
+		let current = 0;
+
+		if (cell.dataset.peakType === 'thirteeners') {
+			current = count13ers;
+		} else if (cell.dataset.peakType === 'fourteeners') {
+			current = count14ers;
+		}
+
+		const percent = Math.min((current / total) * 100, 100);
+		cell.style.setProperty('--width', percent + '%');
+	});
 }
+
+//BAG BAR
+function updatePeakProgress(thirteenersCount, fourteenersCount) {
+	const thirteenersSpan = document.getElementById('thirteeners');
+	const fourteenersSpan = document.getElementById('fourteeners');
+
+	thirteenersSpan.textContent = thirteenersCount;
+	fourteenersSpan.textContent = fourteenersCount;
+
+	document.querySelectorAll('td.peak-progress').forEach(cell => {
+		const total = +cell.dataset.total || 1;
+
+		if (cell.dataset.peakType === 'thirteeners') {
+			const percent = Math.min((thirteenersCount / total) * 100, 100);
+			cell.style.setProperty('--width', percent + '%');
+		} else if (cell.dataset.peakType === 'fourteeners') {
+			const percent = Math.min((fourteenersCount / total) * 100, 100);
+			cell.style.setProperty('--width', percent + '%');
+		}
+	});
+}
+
+// Initial call with current values
+window.addEventListener('DOMContentLoaded', () => {
+	updatePeakProgress(
+		+document.getElementById('thirteeners').textContent || 0,
+		+document.getElementById('fourteeners').textContent || 0
+	);
+});
 
 //END MOUNTAINS
 //
@@ -109,19 +152,19 @@ async function loadConcerts() {
 		`;
 			tbody.appendChild(row);
 		});
-		
+
 		const countSpan = document.getElementById('concert-count');
 		if (countSpan) {
 			countSpan.textContent = concertData.length;
 		}
-				
+
 		countTopArtistsAndVenues(concertData);
 		highlightVenues();
-		
+
 	} catch (err) {
 		console.error('Failed to load or parse concerts.json:', err);
 	}
-	
+
 }
 
 window.addEventListener('DOMContentLoaded', loadConcerts);
@@ -135,9 +178,9 @@ function countTopArtistsAndVenues(data) {
 		const { Headliner, Support, Venue } = concert;
 
 		const mainArtist = Headliner.trim();
-		const supportActs = Support
-			? Support.split(',').map(act => act.trim())
-			: [];
+		const supportActs = Support ?
+			Support.split(',').map(act => act.trim()) :
+			[];
 
 		if (mainArtist.toLowerCase() !== 'et al.') {
 			artistCounts.set(mainArtist, (artistCounts.get(mainArtist) || 0) + 1);
@@ -208,80 +251,222 @@ document.addEventListener('DOMContentLoaded', highlightVenues);
 // SORT & ANIMATE TABLES
 
 document.addEventListener('DOMContentLoaded', () => {
-  const sortableTables = document.querySelectorAll('.sortable-tables');
+	const sortableTables = document.querySelectorAll('.sortable-tables');
 
-  sortableTables.forEach(table => {
-	const tableBody = table.querySelector('tbody');
-	const tableRows = Array.from(tableBody.querySelectorAll('tr'));
-	let originalOrder = [...tableRows];
+	sortableTables.forEach(table => {
+		const tableBody = table.querySelector('tbody');
+		const tableRows = Array.from(tableBody.querySelectorAll('tr'));
+		let originalOrder = [...tableRows];
 
-	// Add a data attribute to each row to hold its original index
-	tableRows.forEach((row, index) => {
-	  row.dataset.originalIndex = index;
-	});
-
-	const tableHeaders = table.querySelectorAll('th');
-	tableHeaders.forEach((header, index) => {
-	  header.addEventListener('click', () => {
-		let currentSortState = header.dataset.sortState || 'none';
-
-		// Clear sort state from other headers
-		tableHeaders.forEach(h => {
-		  if (h !== header) {
-			h.dataset.sortState = 'none';
-			h.classList.remove('sorted-asc', 'sorted-desc');
-		  }
+		// Add a data attribute to each row to hold its original index
+		tableRows.forEach((row, index) => {
+			row.dataset.originalIndex = index;
 		});
 
-		// Determine the next sort state
-		let newSortState;
-		if (currentSortState === 'asc') {
-		  newSortState = 'desc';
-		} else if (currentSortState === 'desc') {
-		  newSortState = 'none';
-		} else {
-		  newSortState = 'asc';
-		}
-		header.dataset.sortState = newSortState;
+		const tableHeaders = table.querySelectorAll('th');
+		tableHeaders.forEach((header, index) => {
+			header.addEventListener('click', () => {
+				let currentSortState = header.dataset.sortState || 'none';
 
-		// Update CSS classes for styling
-		header.classList.remove('sorted-asc', 'sorted-desc');
-		if (newSortState === 'asc') {
-		  header.classList.add('sorted-asc');
-		} else if (newSortState === 'desc') {
-		  header.classList.add('sorted-desc');
-		}
+				// Clear sort state from other headers
+				tableHeaders.forEach(h => {
+					if (h !== header) {
+						h.dataset.sortState = 'none';
+						h.classList.remove('sorted-asc', 'sorted-desc');
+					}
+				});
 
-		let sortedRows;
-		if (newSortState === 'none') {
-		  // Sort by original index
-		  sortedRows = [...originalOrder];
-		  sortedRows.sort((a, b) => a.dataset.originalIndex - b.dataset.originalIndex);
-		} else {
-		  sortedRows = [...tableRows];
-		  sortedRows.sort((rowA, rowB) => {
-			const cellA = rowA.children[index].innerText.toLowerCase();
-			const cellB = rowB.children[index].innerText.toLowerCase();
+				// Determine the next sort state
+				let newSortState;
+				if (currentSortState === 'asc') {
+					newSortState = 'desc';
+				} else if (currentSortState === 'desc') {
+					newSortState = 'none';
+				} else {
+					newSortState = 'asc';
+				}
+				header.dataset.sortState = newSortState;
 
-			if (newSortState === 'asc') {
-			  return cellA.localeCompare(cellB, undefined, { numeric: true, sensitivity: 'base' });
-			} else {
-			  return cellB.localeCompare(cellA, undefined, { numeric: true, sensitivity: 'base' });
-			}
-		  });
-		}
+				// Update CSS classes for styling
+				header.classList.remove('sorted-asc', 'sorted-desc');
+				if (newSortState === 'asc') {
+					header.classList.add('sorted-asc');
+				} else if (newSortState === 'desc') {
+					header.classList.add('sorted-desc');
+				}
 
-		// Animate and re-render the rows
-		tableBody.style.opacity = 0;
-		setTimeout(() => {
-		  tableBody.innerHTML = '';
-		  sortedRows.forEach(row => tableBody.appendChild(row));
-		  tableBody.style.opacity = 1;
-		}, 300); // Wait for the fade-out to complete
-	  });
+				let sortedRows;
+				if (newSortState === 'none') {
+					// Sort by original index
+					sortedRows = [...originalOrder];
+					sortedRows.sort((a, b) => a.dataset.originalIndex - b.dataset.originalIndex);
+				} else {
+					sortedRows = [...tableRows];
+					sortedRows.sort((rowA, rowB) => {
+						const cellA = rowA.children[index].innerText.toLowerCase();
+						const cellB = rowB.children[index].innerText.toLowerCase();
+
+						if (newSortState === 'asc') {
+							return cellA.localeCompare(cellB, undefined, { numeric: true, sensitivity: 'base' });
+						} else {
+							return cellB.localeCompare(cellA, undefined, { numeric: true, sensitivity: 'base' });
+						}
+					});
+				}
+
+				// Animate and re-render the rows
+				tableBody.style.opacity = 0;
+				setTimeout(() => {
+					tableBody.innerHTML = '';
+					sortedRows.forEach(row => tableBody.appendChild(row));
+					tableBody.style.opacity = 1;
+				}, 300); // Wait for the fade-out to complete
+			});
+		});
 	});
-  });
 });
 
 //END SORT TABLES
+//
+
+//
+//VIDEO CONTROLS
+const video = document.getElementById('livephoto');
+
+video.addEventListener('ended', () => video.pause());
+
+// Replay on hover
+video.addEventListener('mouseenter', () => {
+	video.currentTime = 0;
+	video.play();
+});
+
+// Replay on tap (for touch devices)
+video.addEventListener('click', () => {
+	if (video.paused) {
+		video.currentTime = 0;
+		video.play();
+	} else {
+		video.pause();
+	}
+});
+//END VIDEO
+//
+
+//
+//PHOTO MODAL
+let exifData = {};
+let photoKeys = [];
+let currentIndex = 0;
+
+// Create modal once, hidden initially
+const modal = document.createElement('div');
+modal.className = 'modal';
+modal.innerHTML = `
+  <span class="modal-close">&times;</span>
+  <div class="modal-card">
+   <img src="" alt="">
+   <div class="modal-caption"></div>
+ </div>
+`;
+document.body.appendChild(modal);
+
+const modalImg = modal.querySelector('img');
+const caption = modal.querySelector('.modal-caption');
+const closeBtn = modal.querySelector('.modal-close');
+
+function openModal(filename) {
+  const photo = exifData[filename];
+  if (!photo) return;
+
+  currentIndex = photoKeys.indexOf(filename);
+
+  modalImg.src = `/images/${filename}`;
+  modalImg.alt = photo.title;
+  caption.innerHTML = `
+	<h2>${photo.title}</h2>
+	<hr>
+	<small class="exif-row">
+	<span>ISO ${photo.iso}</span>
+	<span>${photo.lens}mm</span>
+	<span>${photo.ev} ev</span>
+	<span><i>&#402;</i>${photo.aperture}</span>
+	<span>${photo.shutter}s</span>
+	<span class="format">${photo.format}</span>
+	</small>
+  `;
+
+  modal.style.display = 'flex';
+  // Allow pointer events and fade in
+  requestAnimationFrame(() => {
+	modal.style.pointerEvents = 'auto';
+	modal.style.opacity = '1';
+  });
+}
+
+function closeModal() {
+  modal.style.opacity = '0';
+  modal.style.pointerEvents = 'none';
+
+  modal.addEventListener('transitionend', function handler() {
+	modal.style.display = 'none';
+	modal.removeEventListener('transitionend', handler);
+  });
+}
+
+closeBtn.addEventListener('click', closeModal);
+modal.addEventListener('click', e => {
+  if (e.target === modal) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (modal.style.display !== 'flex') return;
+
+  if (e.key === 'ArrowRight') {
+	currentIndex = (currentIndex + 1) % photoKeys.length;
+	openModal(photoKeys[currentIndex]);
+  } else if (e.key === 'ArrowLeft') {
+	currentIndex = (currentIndex - 1 + photoKeys.length) % photoKeys.length;
+	openModal(photoKeys[currentIndex]);
+  } else if (e.key === 'Escape') {
+	closeModal();
+  }
+});
+
+fetch('/json/exif-data.json')
+  .then(res => res.json())
+  .then(data => {
+	exifData = data;
+	photoKeys = Object.keys(exifData);
+	initModal();
+  });
+
+function initModal() {
+  document.querySelectorAll('.photo-thumb img').forEach(img => {
+	img.parentElement.addEventListener('click', () => {
+	  const filename = img.src.split('/').pop();
+	  openModal(filename);
+	});
+  });
+}
+//END PHOTO MODAL
+//
+
+//
+//PHOTO ASPECT
+document.querySelectorAll('.photo-thumb img').forEach(img => {
+	img.addEventListener('load', () => {
+		const ratio = img.naturalWidth / img.naturalHeight;
+		if (ratio > 2) {
+			img.parentElement.classList.add('pano');
+		} else if (ratio < 0.8) {
+			img.parentElement.classList.add('portrait');
+		} else if (Math.abs(ratio - 1) < 0.1) {
+			img.parentElement.classList.add('square'); // optional
+		} else {
+			img.parentElement.classList.add('landscape');
+		}
+	});
+});
+//END ASPECT
 //
