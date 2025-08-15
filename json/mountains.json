@@ -1,4 +1,9 @@
 [{
+		"Peak": "Savage Peak",
+		"Elevation": "13,135",
+		"Range": "Sawatch",
+		"Count": 1
+	},{
 		"Peak": "Thirsty Peak",
 		"Elevation": "13,195",
 		"Range": "Sangre de Christo",
@@ -55,7 +60,7 @@
 	{
 		"Peak": "Mt. Guyot",
 		"Elevation": "13,297",
-		"Range": "Sawatch",
+		"Range": "Front",
 		"Count": 1
 	},
 	{
