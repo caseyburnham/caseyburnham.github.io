@@ -5,7 +5,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Crash & Burnham</title>
+	<!-- CSS -->
 	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="/css/dark-mode.css" />
+	<link rel="stylesheet" href="css/photos.css">
+	<link rel="stylesheet" href="/css/concert-colors.css">
+	<link rel="stylesheet" href="/css/tables.css" />
+	
 </head>
 
 <body>
@@ -22,8 +28,8 @@
 
 				Originally from Idaho, I traded dirt roads for mountain trails (and potatoes for peaches). When I’m not in a black box or behind a console, I’m usually above the treeline – scrambling up peaks, letting the trail handle my truck’s detailing, and dragging my dog along for the ride. (He’s not always impressed.)
 			</p>
-			<div class="square-container">
-				<video id="livephoto" class="video-wrapper" autoplay muted playsinline onended="this.pause();">
+			<div class="video-wrapper">
+				<video id="livephoto" autoplay muted playsinline onended="this.pause();">
 					<source src="/videos/rocky.webm" type="video/webm">
 					<source src="/videos/rocky.mp4" type="video/mp4">
 					Your browser does not support the video tag.
@@ -82,7 +88,7 @@
 
 		<!-- PRODUCTIONS -->
 		<section>
-			<table class="sortable-table" id="productions">
+			<table id="productions">
 				<thead>
 					<tr>
 						<th scope="col">Production</th>
@@ -142,7 +148,7 @@
 		<!-- TABLES -->
 		<section>
 			<!-- MOUNTAINS -->
-			<table class="sortable-table" id="mountains">
+			<table id="mountains">
 				<caption>
 					<small><i><a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank">14ers.com</a></i></small>
 				</caption>
@@ -173,7 +179,7 @@
 			</table>
 
 			<!-- CONCERTS -->
-			<table class="sortable-table" id="concerts">
+			<table id="concerts">
 				<caption>
 					<small><i>Non-exhaustive; Chronology approximate</i></small>
 				</caption>
@@ -221,7 +227,9 @@
 	</footer>
 
 	<!-- SCRIPTS -->
-	<script src="/scripts/scripts.js" defer></script>
+	<script src="/scripts/video.js" defer></script>
+	<script src="/scripts/tables.js" defer></script>
+	<script src="/scripts/modal.js" defer></script>
 
 </body>
 
