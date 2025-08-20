@@ -1,0 +1,57 @@
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bar-bg: rgba(0, 212, 195, 0.25);
+		--bar-fill: rgba(128, 255, 230, 0.7);
+		--text-color: #e0f7f4;
+		--bar-bg-dark: rgba(0, 212, 195, 0.25);
+		--bar-fill-dark: rgba(128, 255, 230, 0.7); /* lighter cyan */
+		--text-dark: #e0f7f4; 
+	}
+
+	a {
+		color: aqua;
+	}
+
+	body {
+		background-color: #121212;
+		color: turquoise;
+		border-color: turquoise;
+		--bar-bg-dark: rgba(0, 212, 195, 0.25);
+		--bar-fill-dark: rgba(128, 255, 230, 0.7);
+		--text-dark: #e0f7f4;
+	}
+	
+	main {
+		box-shadow: rgba(0, 255, 255, 0.4) 0px 2px 4px, rgba(0, 255, 255, 0.3) 0px 7px 13px -3px, rgba(0, 255, 255, 0.2) 0px -3px 0px inset;
+	}
+
+	summary {
+		outline: 1px solid turquoise;
+	}
+
+	hr {
+		color: turquoise;
+	}
+
+	img {
+		filter: saturate(75%);
+		box-shadow: rgba(0, 255, 255, 0.1) 0px 2px 4px, rgba(0, 255, 255, 0.05) 0px 8px 16px, rgba(0, 255, 255, 0.02) 0px 16px 32px;
+	}
+
+	.modal img {
+		box-shadow: rgba(0, 255, 255, 0.1) 0px 2px 4px, rgba(0, 255, 255, 0.05) 0px 8px 16px, rgba(0, 255, 255, 0.02) 0px 16px 32px;
+	}
+	
+	.peak-progress {
+	  color: var(--text-dark);
+	}
+	
+	.peak-progress::before {
+	  background-color: var(--bar-bg-dark);
+	}
+	
+	.peak-progress::after {
+	  background-color: var(--bar-fill-dark);
+	}
+}

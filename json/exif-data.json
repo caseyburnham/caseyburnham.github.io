@@ -1,101 +1,205 @@
 {
-	"summit-lake.jpeg": {
-		"title": "Summit Lake, Mt. Blue Sky",
-		"iso": "100",
-		"lens": "13",
-		"ev": "0",
-		"aperture": "8",
-		"shutter": "1/250",
-		"format": "JPEG"
-	},
-	"img-3.jpeg": {
-		"title": "Morning Fog at the Ridge",
-		"iso": "200",
-		"lens": "26",
-		"ev": "0",
-		"aperture": "11",
-		"shutter": "1/320",
-		"format": "JPEG"
-	},
-	"animas-forks.jpeg": {
-		"title": "Animas Forks, CO",
-		"iso": "32",
-		"lens": "77",
-		"ev": "0",
-		"aperture": "2.8",
-		"shutter": "1/815",
-		"format": "JPEG"
-	},
-	"taylor-mountain.jpeg": {
-		"title": "Views from Taylor Mountain",
-		"iso": "32",
-		"lens": "77",
-		"ev": "0",
-		"aperture": "2.8",
-		"shutter": "1/853",
-		"format": "JPEG"
-	},
-	"savage-flora.jpeg": {
-		"title": "Fireweed in the Holy Cross",
-		"iso": "50",
-		"lens": "26",
-		"ev": "0",
-		"aperture": "1.5",
-		"shutter": "1/2208",
-		"format": "JPEG"
-	},
-	"kendall-peak.jpeg": {
-		"title": "Kendall Peak from Silver Lake Basin",
-		"iso": "32",
-		"lens": "77",
-		"ev": "0",
-		"aperture": "2.8",
-		"shutter": "1/349",
-		"format": "JPEG"
-	},
-	"img-2.jpeg": {
-		"title": "Wildflowers in Bloom",
-		"iso": "400",
-		"lens": "77",
-		"ev": "0",
-		"aperture": "4",
-		"shutter": "1/500",
-		"format": "JPEG"
-	},
-	"taylor-mountain-pano.jpeg": {
-		"title": "Taylor Mountain Summit",
-		"iso": "40",
-		"lens": "26",
-		"ev": "0",
-		"aperture": "1.5",
-		"shutter": "1/8000",
-		"format": "JPEG"
-	},
-	"thirsty-peak.jpeg": {
-		"title": "Thirsty Peak",
-		"iso": "50",
-		"lens": "26",
-		"ev": "0",
-		"aperture": "1.5",
-		"shutter": "1/5882",
-		"format": "JPEG"
-	},
-	"silver-lake-flowers.jpeg": {
-		"title": "Flowers, Silver Lake",
-		"iso": "32",
-		"lens": "77",
-		"ev": "0",
-		"aperture": "2.8",
-		"shutter": "1/99",
-		"format": "JPEG"
-	},
-	"hibiscus.jpeg": {
-		"title": "Hibiscus, Big Water",
-		"iso": "32",
-		"lens": "25",
-		"ev": "0",
-		"aperture": "1.8",
-		"shutter": "1/2801",
-		"format": "JPEG"
-	}
+  "animas-forks.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2023,
+      "month": 6,
+      "day": 20,
+      "hour": 9,
+      "minute": 23,
+      "second": 22,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2023:06:20 09:23:22",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 32,
+    "lens": "9.0 mm",
+    "aperture": 2.8,
+    "shutter": "1/815",
+    "format": "JPEG",
+    "gps": null
+  },
+  "kendall-peak.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 7,
+      "day": 20,
+      "hour": 8,
+      "minute": 25,
+      "second": 14,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:07:20 08:25:14",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 32,
+    "lens": "9.0 mm",
+    "aperture": 2.8,
+    "shutter": "1/349",
+    "format": "JPEG",
+    "gps": {
+      "lat": 37.793994,
+      "lon": -107.605369,
+      "alt": 3719.274841,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "savage-flora.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 8,
+      "day": 12,
+      "hour": 9,
+      "minute": 32,
+      "second": 38,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:08:12 09:32:38",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/2208",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.388156,
+      "lon": -106.521119,
+      "alt": 3646.989286,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "silver-lake-flowers.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 7,
+      "day": 20,
+      "hour": 8,
+      "minute": 22,
+      "second": 30,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:07:20 08:22:30",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 32,
+    "lens": "9.0 mm",
+    "aperture": 2.8,
+    "shutter": "1/99",
+    "format": "JPEG",
+    "gps": {
+      "lat": 37.794206,
+      "lon": -107.605164,
+      "alt": 3724.916722,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "summit-lake.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2023,
+      "month": 8,
+      "day": 1,
+      "hour": 7,
+      "minute": 31,
+      "second": 37,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2023:08:01 07:31:37",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/902",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.598389,
+      "lon": -105.640669,
+      "alt": 3910.269373,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "taylor-mountain-pano.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 9,
+      "day": 24,
+      "hour": 9,
+      "minute": 51,
+      "second": 3,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2024:09:24 09:51:03",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 40,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/8000",
+    "format": "JPEG",
+    "gps": {
+      "lat": 38.583436,
+      "lon": -106.299514,
+      "alt": 4162.535047,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "taylor-mountain.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 9,
+      "day": 24,
+      "hour": 10,
+      "minute": 17,
+      "second": 48,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2024:09:24 10:17:48",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 32,
+    "lens": "9.0 mm",
+    "aperture": 2.8,
+    "shutter": "1/853",
+    "format": "JPEG",
+    "gps": {
+      "lat": 38.583511,
+      "lon": -106.299386,
+      "alt": 4158.047985,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "thirsty-peak.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 8,
+      "day": 4,
+      "hour": 11,
+      "minute": 48,
+      "second": 29,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:08:04 11:48:29",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/5882",
+    "format": "JPEG",
+    "gps": {
+      "lat": 38.209469,
+      "lon": -105.736497,
+      "alt": 4030.102381,
+      "altRef": "Above Sea Level"
+    }
+  }
 }
