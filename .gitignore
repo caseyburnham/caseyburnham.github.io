@@ -1,0 +1,34 @@
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Compiled source #
+*.class
+*.o
+*.so
+
+# Node modules
+node_modules/
+package-lock.json
+package.json
+
+# exif-reader
+exif-reader.js
+scripts/extract-exif.js
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Log files
+*.log
+
+# Build artifacts
+/dist/
+/build/
+
+# Environment variables (dangerous!)
+.env
+
+# Old Files
+old/
