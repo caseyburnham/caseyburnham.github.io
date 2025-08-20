@@ -1,9 +1,22 @@
 [{
+		"Peak": "Mount Champion",
+		"Elevation": "13,645",
+		"Range": "Sawatch",
+		"Count": 1
+	}, 
+	{
+		"Peak": "UN 13,738",
+		"Elevation": "13,738",
+		"Range": "Sawatch",
+		"Count": 1
+	}, 
+	{
 		"Peak": "Savage Peak",
 		"Elevation": "13,135",
 		"Range": "Sawatch",
 		"Count": 1
-	},{
+	}, 
+	{
 		"Peak": "Thirsty Peak",
 		"Elevation": "13,195",
 		"Range": "Sangre de Christo",
