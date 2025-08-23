@@ -65,11 +65,13 @@ class TableManager {
 	if (!tbody || !data.length) return;
 
 	// Generate table rows
-	const rows = data.map(({ Peak, Elevation, Range, Count }) => 
+	const rows = data.map(({ Peak, Elevation, Range, Count, Date, Image }) => 
 	  this.createRow([
 		`${Peak}${Count > 1 ? ` <small>x${Count}</small>` : ''}`,
 		Elevation,
-		Range
+		Range,
+		Date ? `<time class="nowrap" datetime="${Date}">${Date}</time>` : "",
+		Image ? `<button class="camera-link" data-title="${Peak}" data-image="${Image}"></button>` : ""
 	  ])
 	);
 
@@ -190,13 +192,12 @@ class TableManager {
   // VENUE HIGHLIGHTING
   highlightVenues() {
 	const venues = [
-	  { name: 'Red Rocks', className: 'red-rocks' },
-	  { name: 'Bluebird Theater', className: 'bluebird' },
-	  { name: 'Ogden Theater', className: 'ogden' },
-	  { name: 'Belly Up', className: 'belly-up' },
-	  { name: 'Vortex Music Fest', className: 'vortex' },
-	  { name: 'Fiddlers Green', className: 'fiddlers' },
-	  { name: 'Golden Triangle', className: 'golden-tri' }
+	  { name: 'Red Rocks', className: 'venue--red-rocks' },
+	  { name: 'Bluebird Theater', className: 'venue--bluebird' },
+	  { name: 'Ogden Theater', className: 'venue--ogden' },
+	  { name: 'Belly Up', className: 'venue--belly-up' },
+	  { name: 'Vortex Music Fest', className: 'venue--vortex' },
+	  { name: 'Golden Triangle', className: 'venue--golden-tri' }
 	];
 
 	venues.forEach(({ name, className }) => this.styleWord(name, className));

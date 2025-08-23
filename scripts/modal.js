@@ -6,6 +6,7 @@ class PhotoModal {
 	this.modal = null;
 	this.modalImg = null;
 	this.caption = null;
+	this.closeBtn = null;
 	
 	this.init();
   }
@@ -36,27 +37,39 @@ class PhotoModal {
   }
 
   setupEventListeners() {
-	// Close button
 	this.closeBtn.addEventListener('click', () => this.closeModal());
 	
-	// Click outside modal
 	this.modal.addEventListener('click', (e) => {
 	  if (e.target === this.modal) this.closeModal();
 	});
 
-	// Keyboard navigation
 	document.addEventListener('keydown', (e) => this.handleKeydown(e));
-
-	// Photo click handlers - set up immediately
 	this.setupPhotoClickHandlers();
   }
 
   setupPhotoClickHandlers() {
+	// Photo thumbnail handlers
 	document.querySelectorAll('.photo-thumb').forEach(thumb => {
 	  thumb.addEventListener('click', () => {
 		const img = thumb.querySelector('img');
 		if (img) this.openModal(img, thumb);
 	  });
+	});
+
+	// Camera button handlers (event delegation)
+	document.addEventListener('click', (e) => {
+	  if (e.target.classList.contains('camera-link')) {
+		const imageUrl = e.target.dataset.image;
+		
+		if (imageUrl) {
+		  const tempImg = new Image();
+		  tempImg.src = imageUrl;
+		  tempImg.alt = e.target.title || e.target.getAttribute('aria-label') || 'Camera Image';
+		  
+		  tempImg.onload = () => this.openModal(tempImg, e.target);
+		  tempImg.onerror = () => this.openModal(tempImg, e.target);
+		}
+	  }
 	});
   }
 
@@ -74,7 +87,6 @@ class PhotoModal {
 	const ratio = img.naturalWidth / img.naturalHeight;
 	const parent = img.parentElement;
 	
-	// Remove existing aspect classes
 	parent.classList.remove('pano', 'portrait', 'square', 'landscape');
 	
 	if (ratio > 2) {
@@ -88,6 +100,25 @@ class PhotoModal {
 	}
   }
 
+  classifyModalAspectRatio(img) {
+	const ratio = img.naturalWidth / img.naturalHeight;
+	const modalCard = this.modal.querySelector('.modal-card');
+	
+	this.modal.classList.remove('pano', 'portrait', 'square', 'landscape');
+	modalCard.classList.remove('modal-card--pano');
+	
+	if (ratio > 2) {
+	  this.modal.classList.add('pano');
+	  modalCard.classList.add('modal-card--pano');
+	} else if (ratio < 0.8) {
+	  this.modal.classList.add('portrait');
+	} else if (Math.abs(ratio - 1) < 0.1) {
+	  this.modal.classList.add('square');
+	} else {
+	  this.modal.classList.add('landscape');
+	}
+  }
+
   async loadExifData() {
 	try {
 	  const response = await fetch('/json/exif-data.json');
@@ -95,33 +126,73 @@ class PhotoModal {
 		this.exifData = await response.json();
 	  }
 	} catch (error) {
-	  console.warn('Could not load EXIF data:', error);
-	  // Modal still works without EXIF data
+	  // Silently fail - modal works without EXIF data
 	}
   }
 
   openModal(img, thumbElement) {
-	const allImages = Array.from(document.querySelectorAll('.photo-thumb img'));
-	this.currentIndex = allImages.indexOf(img);
-
+	const allThumbImages = Array.from(document.querySelectorAll('.photo-thumb img'));
+	this.currentIndex = allThumbImages.indexOf(img);
+	const modalCard = this.modal.querySelector('.modal-card');
+	
 	this.modalImg.src = img.src;
 	this.modalImg.alt = img.alt || "Untitled";
 
-	// Toggle pano class based on thumbnail
-	this.modal.classList.toggle('pano', thumbElement?.classList.contains('pano'));
+	// Handle aspect ratio classification
+	if (thumbElement?.classList?.contains('photo-thumb')) {
+	  // Use thumbnail's classification
+	  this.modal.classList.toggle('pano', thumbElement.classList.contains('pano'));
+	  this.modal.classList.toggle('portrait', thumbElement.classList.contains('portrait'));
+	  this.modal.classList.toggle('square', thumbElement.classList.contains('square'));
+	  this.modal.classList.toggle('landscape', thumbElement.classList.contains('landscape'));
+	  
+	  // Add modal card class for panos
+	  modalCard.classList.toggle('modal-card--pano', thumbElement.classList.contains('pano'));
+	} else {
+	  // For button-triggered modals, classify based on image
+	  if (img.complete && img.naturalWidth) {
+		this.classifyModalAspectRatio(img);
+	  } else {
+		img.addEventListener('load', () => this.classifyModalAspectRatio(img), { once: true });
+	  }
+	}
 
-	this.updateCaption(img);
+	this.updateCaption(img, thumbElement);
 	this.showModal();
   }
 
-  updateCaption(img) {
-	const title = img.alt || "Untitled";
+  updateCaption(img, sourceElement = null) {
+	// Get title from multiple sources
+	let title = "Untitled";
+	
+	if (sourceElement?.dataset?.title) {
+	  title = sourceElement.dataset.title;
+	} else if (img.dataset?.title) {
+	  title = img.dataset.title;
+	} else if (sourceElement?.title) {
+	  title = sourceElement.title;
+	} else if (sourceElement?.getAttribute('aria-label')) {
+	  title = sourceElement.getAttribute('aria-label');
+	} else if (img.alt && img.alt) {
+	  title = img.alt;
+	}
+	
 	const filename = img.src.split('/').pop();
-	const photo = this.exifData[filename] || {};
+	
+	// Find EXIF data
+	let photo = this.exifData[filename];
+	if (!photo) {
+	  const pathParts = img.src.split('/');
+	  if (pathParts.length >= 2) {
+		const subPath = pathParts.slice(-2).join('/');
+		photo = this.exifData[subPath];
+	  }
+	}
+	photo = photo || {};
 
 	this.caption.innerHTML = `
-	  <div class="caption-header inline">
-		<span class="date">${this.formatExifDate(photo.date)}</span>
+	  <div class="caption-header">
+		<time datetime="${this.formatExifDate(photo.date)}">${this.formatExifDate(photo.date)}</time>
 		<h2 class="title">${title}</h2>
 		${photo.gps ? `
 		  <span class="gps">
@@ -163,8 +234,17 @@ class PhotoModal {
 
   handleKeydown(e) {
 	if (this.modal.style.display !== 'flex') return;
-
+	
 	const allImages = Array.from(document.querySelectorAll('.photo-thumb img'));
+	
+	// Only allow navigation if opened from thumbnail
+	if (this.currentIndex < 0 || this.currentIndex >= allImages.length) {
+	  if (e.key === 'Escape') {
+		e.preventDefault();
+		this.closeModal();
+	  }
+	  return;
+	}
 	
 	switch (e.key) {
 	  case 'ArrowRight':
@@ -187,7 +267,7 @@ class PhotoModal {
   formatExifDate(dateObj) {
 	if (!dateObj) return "";
 	const pad = n => String(n).padStart(2, "0");
-	return `${pad(dateObj.month)}-${pad(dateObj.day)}-${dateObj.year}`;
+	return `${dateObj.year}-${pad(dateObj.month)}-${pad(dateObj.day)}`;
   }
 }
 
