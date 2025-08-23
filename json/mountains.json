@@ -1,403 +1,407 @@
 [{
-		"Peak": "Mount Champion",
-		"Elevation": "13,645",
-		"Range": "Sawatch",
-		"Count": 1
-	}, 
-	{
-		"Peak": "UN 13,738",
-		"Elevation": "13,738",
-		"Range": "Sawatch",
-		"Count": 1
-	}, 
-	{
-		"Peak": "Savage Peak",
-		"Elevation": "13,135",
-		"Range": "Sawatch",
-		"Count": 1
-	}, 
-	{
-		"Peak": "Thirsty Peak",
-		"Elevation": "13,195",
-		"Range": "Sangre de Christo",
-		"Count": 1
-	},
-	{
-		"Peak": "UN 13,128",
-		"Elevation": "13,128",
-		"Range": "Sangre de Christo",
-		"Count": 1
-	},
-	{
-		"Peak": "Cottonwood Peak",
-		"Elevation": "13,596",
-		"Range": "Sangre de Christo",
-		"Count": 1
-	},
-	{
-		"Peak": "Horseshoe Mountain",
-		"Elevation": "13,894",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Sheridan",
-		"Elevation": "13,743",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Peerless Mountain",
-		"Elevation": "13,336",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Canby Mountain",
-		"Elevation": "13,458",
-		"Range": "San Juan",
-		"Count": 1
-	},
-	{
-		"Peak": "Green Mountain",
-		"Elevation": "13,048",
-		"Range": "San Juan",
-		"Count": 1
-	},
-	{
-		"Peak": "Hancock Peak",
-		"Elevation": "13,111",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Guyot",
-		"Elevation": "13,297",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Quail Mountain",
-		"Elevation": "13,465",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Huron Peak",
-		"Elevation": "14,006",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "La Plata Peak",
-		"Elevation": "14,344",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Lincoln",
-		"Elevation": "14,293",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Grays Peak",
-		"Elevation": "14,275",
-		"Range": "Front",
-		"Count": 2
-	},
-	{
-		"Peak": "Torreys Peak",
-		"Elevation": "14,272",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Antero",
-		"Elevation": "14,271",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Blue Sky",
-		"Elevation": "14,268",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Longs Peak",
-		"Elevation": "14,259",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Cameron",
-		"Elevation": "14,248",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Shavano",
-		"Elevation": "14,230",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Belford",
-		"Elevation": "14,202",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Princeton",
-		"Elevation": "14,200",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Yale",
-		"Elevation": "14,200",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Bross",
-		"Elevation": "14,178",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Oxford",
-		"Elevation": "14,158",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Tabeguache Peak",
-		"Elevation": "14,158",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Democrat",
-		"Elevation": "14,154",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Columbia",
-		"Elevation": "14,075",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Bierstadt",
-		"Elevation": "14,066",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Sherman",
-		"Elevation": "14,043",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. of the Holy Cross",
-		"Elevation": "14,007",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Gemini Peak",
-		"Elevation": "13,961",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Spalding",
-		"Elevation": "13,863",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Dyer Mountain",
-		"Elevation": "13,861",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Rito Alto Peak",
-		"Elevation": "13,801",
-		"Range": "Sangre de Cristo",
-		"Count": 1
-	},
-	{
-		"Peak": "Mosquito Peak",
-		"Elevation": "13,787",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Argentine Peak",
-		"Elevation": "13,743",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Treasurevault Mountain",
-		"Elevation": "13,706",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Mamma",
-		"Elevation": "13,672",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Taylor Mountain",
-		"Elevation": "13,655",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Evans",
-		"Elevation": "13,591",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Kuss Peak",
-		"Elevation": "13,560",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Boulder Mountain",
-		"Elevation": "13,530",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "James Peak",
-		"Elevation": "13,272",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Audubon",
-		"Elevation": "13,217",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Jones Mountain",
-		"Elevation": "13,214",
-		"Range": "Sawatch",
-		"Count": 1
-	},
-	{
-		"Peak": "Santa Fe Peak",
-		"Elevation": "13,181",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Whale Peak",
-		"Elevation": "13,080",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Elephant Butte",
-		"Elevation": "8,399",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Breckeinridge Peak",
-		"Elevation": "12,894",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Sheep Mountain",
-		"Elevation": "12,802",
-		"Range": "Mosquito",
-		"Count": 1
-	},
-	{
-		"Peak": "Inspiration Point",
-		"Elevation": "8,222",
-		"Range": "Paunsaugunt Plateau",
-		"Count": 1
-	},
-	{
-		"Peak": "Turkey Rock",
-		"Elevation": "8,642",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Table Mountain",
-		"Elevation": "6,188",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Mestaa’ėhehe Mountain",
-		"Elevation": "11,483",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Mt. Galbraith",
-		"Elevation": "7,303",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Chief Mountain",
-		"Elevation": "11,712",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Greyrock Mountain",
-		"Elevation": "7,605",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Evergreen Mountain",
-		"Elevation": "8,533",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Bergen Peak",
-		"Elevation": "9,705",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Spruce Mountain",
-		"Elevation": "7,625",
-		"Range": "Front",
-		"Count": 1
-	},
-	{
-		"Peak": "Zabrinsky Point",
-		"Elevation": "705",
-		"Range": "Amargosa",
-		"Count": 1
-	},
-	{
-		"Peak": "Bennett Mountain",
-		"Elevation": "8,032",
-		"Range": "Front",
-		"Count": 1
-	}
+    "Peak": "Mount Champion",
+    "Elevation": "13,645",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2025-08-17",
+    "Image": "/images/summits/mount-champion.jpeg"
+  },
+  {
+    "Peak": "UN 13,738",
+    "Elevation": "13,738",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2025-08-17",
+    "Image": "/images/summits/un-13738.jpeg"
+  },
+  {
+    "Peak": "Savage Peak",
+    "Elevation": "13,135",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2025-08-12",
+    "Image": "/images/summits/savage-peak.jpeg"
+  },
+  {
+    "Peak": "Thirsty Peak",
+    "Elevation": "13,195",
+    "Range": "Sangre de Christo",
+    "Count": 1,
+    "Date": "2025-08-04",
+    "Image": "/images/summits/thirsty-peak.jpeg"
+  },
+  {
+    "Peak": "UN 13,128",
+    "Elevation": "13,128",
+    "Range": "Sangre de Christo",
+    "Count": 1,
+    "Date": "2025-08-04",
+    "Image": "/images/summits/un-13128.jpeg"
+  },
+  {
+    "Peak": "Cottonwood Peak",
+    "Elevation": "13,596",
+    "Range": "Sangre de Christo",
+    "Count": 1,
+    "Date": "2025-08-04",
+    "Image": "/images/summits/cottonwood-peak.jpeg"
+  },
+  {
+    "Peak": "Horseshoe Mountain",
+    "Elevation": "13,894",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "2025-07-28",
+    "Image": "/images/summits/horseshoe-mountain.jpeg"
+  }, {
+    "Peak": "Mt. Sheridan",
+    "Elevation": "13,743",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "2025-07-28",
+    "Image": "/images/summits/mount-sheridan.jpeg"
+  }, {
+    "Peak": "Peerless Mountain",
+    "Elevation": "13,336",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "2025-07-28",
+    "Image": "/images/summits/peerless-mountain.jpeg"
+  }, {
+    "Peak": "Canby Mountain",
+    "Elevation": "13,458",
+    "Range": "San Juan",
+    "Count": 1,
+    "Date": "2025-07-19",
+    "Image": "/images/summits/canby-mountain.jpeg"
+  }, {
+    "Peak": "Green Mountain",
+    "Elevation": "13,048",
+    "Range": "San Juan",
+    "Count": 1,
+    "Date": "2025-07-19",
+    "Image": "/images/summits/green-mountain.jpeg"
+  }, {
+    "Peak": "Weston Peak",
+    "Elevation": "13,573",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "2025-07-14",
+    "Image": "/images/summits/weston-peak.jpeg"
+  }, {
+    "Peak": "Ptarmigan Peak",
+    "Elevation": "13,749",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "2025-07-14",
+    "Image": "/images/summits/ptarmigan-peak.jpeg"
+  }, {
+    "Peak": "Mt. Guyot",
+    "Elevation": "13,297",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "2025-07-13",
+    "Image": "/images/summits/mount-guyot.jpeg"
+  }, {
+    "Peak": "Hancock Peak",
+    "Elevation": "13,111",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2025-07-04",
+    "Image": "/images/summits/hancock-peak.jpeg"
+  }, {
+    "Peak": "Quail Mountain",
+    "Elevation": "13,465",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2025-06-15",
+    "Image": "/images/summits/quail-mountain.jpeg"
+  }, {
+    "Peak": "Huron Peak",
+    "Elevation": "14,006",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2025-06-10",
+    "Image": "/images/summits/huron-peak.jpeg"
+  }, {
+    "Peak": "Mt. Cameron",
+    "Elevation": "14,248",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "2023-08-23",
+    "Image": "/images/summits/mount-cameron.jpeg"
+  }, {
+    "Peak": "Mt. Bross",
+    "Elevation": "14,178",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "2023-08-23",
+    "Image": "/images/summits/mount-bross.jpeg"
+  }, {
+    "Peak": "Mt. Democrat",
+    "Elevation": "14,154",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "2023-08-23",
+    "Image": "/images/summits/mount-democrat.jpeg"
+  }, {
+    "Peak": "Mt. Lincoln",
+    "Elevation": "14,293",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "2023-08-23",
+    "Image": "/images/summits/mount-lincoln.jpeg"
+  }, {
+    "Peak": "Mt. Antero",
+    "Elevation": "14,271",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2023-07-09",
+    "Image": "/images/summits/mount-antero.jpeg"
+  }, {
+    "Peak": "Mt. Blue Sky",
+    "Elevation": "14,268",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "2023-08-01",
+    "Image": "/images/summits/mount-blue-sky.jpeg"
+  }, {
+    "Peak": "Longs Peak",
+    "Elevation": "14,259",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "2021-08-17",
+    "Image": "/images/summits/longs-peak.jpeg"
+  }, {
+    "Peak": "Grays Peak",
+    "Elevation": "14,275",
+    "Range": "Front",
+    "Count": 2,
+    "Date": "2021-06-22",
+    "Image": "/images/summits/grays-peak.jpeg"
+  }, {
+    "Peak": "Torreys Peak",
+    "Elevation": "14,272",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "2021-06-22",
+    "Image": "/images/summits/torreys-peak.jpeg"
+  },{
+    "Peak": "Mt. Shavano",
+    "Elevation": "14,230",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2021-08-05",
+    "Image": "/images/summits/mount-shavano.jpeg"
+  }, {
+    "Peak": "Tabeguache Peak",
+    "Elevation": "14,158",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2021-08-05",
+    "Image": "/images/summits/tabeguache-peak.jpeg"
+  },{
+    "Peak": "Mt. Belford",
+    "Elevation": "14,202",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2021-07-28",
+    "Image": "/images/summits/mount-belford.jpeg"
+  }, {
+    "Peak": "Mt. Oxford",
+    "Elevation": "14,158",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "2021-07-28",
+    "Image": "/images/summits/mount-oxford.jpeg"
+  }, {
+    "Peak": "Mt. Princeton",
+    "Elevation": "14,200",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mount-princeton.jpeg"
+  }, {
+    "Peak": "Mt. Yale",
+    "Elevation": "14,200",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mount-yale.jpeg"
+  }, {
+    "Peak": "Mt. Columbia",
+    "Elevation": "14,075",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mount-columbia.jpeg"
+  }, {
+    "Peak": "Mt. Bierstadt",
+    "Elevation": "14,066",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mount-bierstadt.jpeg"
+  }, {
+    "Peak": "Mt. Sherman",
+    "Elevation": "14,043",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mount-sherman.jpeg"
+  }, {
+    "Peak": "Mt. of the Holy Cross",
+    "Elevation": "14,007",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/holy-cross.jpeg"
+  }, {
+    "Peak": "Gemini Peak",
+    "Elevation": "13,961",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/germini-peak.jpeg"
+  }, {
+    "Peak": "Mt. Spalding",
+    "Elevation": "13,863",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mount-spalding.jpeg"
+  }, {
+    "Peak": "Dyer Mountain",
+    "Elevation": "13,861",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/dyer-mountain.jpeg"
+  }, {
+    "Peak": "Rito Alto Peak",
+    "Elevation": "13,801",
+    "Range": "Sangre de Cristo",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/rito-alto.jpeg"
+  }, {
+    "Peak": "Mosquito Peak",
+    "Elevation": "13,787",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mosquito-peak.jpeg"
+  }, {
+    "Peak": "Argentine Peak",
+    "Elevation": "13,743",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/argentine-peak.jpeg"
+  }, {
+    "Peak": "Treasurevault Mountain",
+    "Elevation": "13,706",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/treasurevault-mountain.jpeg"
+  }, {
+    "Peak": "Mt. Mamma",
+    "Elevation": "13,672",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mount-mamma.jpeg"
+  }, {
+    "Peak": "Taylor Mountain",
+    "Elevation": "13,655",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/taylor-mountain.jpeg"
+  }, {
+    "Peak": "Mt. Evans",
+    "Elevation": "13,591",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mount-evans.jpeg"
+  }, {
+    "Peak": "Kuss Peak",
+    "Elevation": "13,560",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/kuss-peak.jpeg"
+  }, {
+    "Peak": "Boulder Mountain",
+    "Elevation": "13,530",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/boulder-mountain.jpeg"
+  }, {
+    "Peak": "James Peak",
+    "Elevation": "13,272",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/james-peak.jpeg"
+  }, {
+    "Peak": "Mt. Audubon",
+    "Elevation": "13,217",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mount-audubon.jpeg"
+  }, {
+    "Peak": "Jones Mountain",
+    "Elevation": "13,214",
+    "Range": "Sawatch",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/jones-mountain.jpeg"
+  }, {
+    "Peak": "Santa Fe Peak",
+    "Elevation": "13,181",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/santa-fe-peak.jpeg"
+  }, {
+    "Peak": "Whale Peak",
+    "Elevation": "13,080",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/whale-peak.jpeg"
+  }, {
+    "Peak": "Breckeinridge Peak",
+    "Elevation": "12,894",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/brekeinridge-peak.jpeg"
+  }, {
+    "Peak": "Sheep Mountain",
+    "Elevation": "12,802",
+    "Range": "Mosquito",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/sheep-mountain.jpeg"
+  }, {
+    "Peak": "Mestaa\u2019\u0117hehe Mountain",
+    "Elevation": "11,483",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/mestaa-mountain.jpeg"
+  }, {
+    "Peak": "Chief Mountain",
+    "Elevation": "11,712",
+    "Range": "Front",
+    "Count": 1,
+    "Date": "YYYY-MM-DD",
+    "Image": "/images/summits/chief-mountain.jpeg"
+  }
 ]

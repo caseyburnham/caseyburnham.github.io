@@ -32,9 +32,9 @@
   {
 	"Production": "The Prom",
 	"Company": "Arvada Center",
-	"A1": "✘",
-	"A2": "",
-	"SD": "✘",
+	"A1": "",
+	"A2": "✘",
+	"SD": "✘<sup>&#8224;</sup>",
 	"AD": "✘",
 	"LZ": "",
 	"Notes": "🪩"
@@ -104,7 +104,7 @@
 	"Company": "Aurora Fox Arts Center",
 	"A1": "✘",
 	"A2": "",
-	"SD": "✘",
+	"SD": "✘<sup>&#8224;</sup>",
 	"AD": "",
 	"LZ": "✘",
 	"Notes": "⚡️"
@@ -174,7 +174,7 @@
 	"Company": "Aurora Fox Arts Center",
 	"A1": "✘",
 	"A2": "",
-	"SD": "✘",
+	"SD": "✘<sup>&#8225;</sup>",
 	"AD": "",
 	"LZ": "",
 	"Notes": "🌀"

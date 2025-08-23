@@ -6,11 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Crash & Burnham</title>
 	<!-- CSS -->
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="/css/dark-mode.css" />
-	<link rel="stylesheet" href="css/photos.css">
-	<link rel="stylesheet" href="/css/concert-colors.css">
-	<link rel="stylesheet" href="/css/tables.css" />
+	<link rel="stylesheet" href="css/styles-c.css" />
 	
 </head>
 
@@ -24,12 +20,12 @@
 		<!-- BIO  -->
 		<section>
 			<p>
-				I’ve spent the last ten years chasing clean mixes and fixing gear that swore it was working yesterday. With a degree in Audio Engineering from CU Denver – mostly good for knowing which cable to blame – I now spend my days keeping mics alive, fixing things no one else saw break, and convincing everyone it was fine all along.
+				I’ve spent the last ten years chasing clean mixes and fixing gear that swore it was working yesterday. With a degree in Audio Engineering from <abbr title="University of Colorado, Denver">CU Denver</abbr> – mostly good for knowing which cable to blame – I now spend my days keeping mics alive, fixing things no one else saw break, and convincing everyone it was fine all along.
 
 				Originally from Idaho, I traded dirt roads for mountain trails (and potatoes for peaches). When I’m not in a black box or behind a console, I’m usually above the treeline – scrambling up peaks, letting the trail handle my truck’s detailing, and dragging my dog along for the ride. (He’s not always impressed.)
 			</p>
 			<div class="video-wrapper">
-				<video id="livephoto" autoplay muted playsinline onended="this.pause();">
+				<video id="livephoto" poster="" autoplay muted playsinline onended="this.pause();">
 					<source src="/videos/rocky.webm" type="video/webm">
 					<source src="/videos/rocky.mp4" type="video/mp4">
 					Your browser does not support the video tag.
@@ -91,14 +87,14 @@
 			<table id="productions">
 				<thead>
 					<tr>
-						<th scope="col">Production</th>
+						<th scope="col">🎭 Production</th>
 						<th scope="col">Company</th>
-						<th scope="col">A1</th>
-						<th scope="col">A2</th>
-						<th scope="col"><abbr title="Sound Designer">SD</abbr></th>
-						<th scope="col"><abbr title="Audio Director">AD</abbr></th>
-						<th scope="col"><abbr title="Laserist">LZ</abbr></th>
-						<th scope="col">😀</th>
+						<th scope="col" class="text-center">A1</th>
+						<th scope="col" class="text-center">A2</th>
+						<th scope="col" class="text-center"><abbr title="Sound Designer">SD</abbr></th>
+						<th scope="col" class="text-center"><abbr title="Audio Director">AD</abbr></th>
+						<th scope="col" class="text-center"><abbr title="Laserist">LZ</abbr></th>
+						<th scope="col" class="text-center">😀</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -114,31 +110,31 @@
 			<!-- LANDSCAPES -->
 			<div class="photo-grid landscape-row">
 				<div class="photo-thumb">
-					<img src="/images/savage-flora.jpeg" alt="Holy Cross Fireweed">
+					<img src="/images/main/savage-flora.jpeg" data-title="Holy Cross Fireweed">
 				</div>
 				<div class="photo-thumb">
-					<img src="/images/animas-forks.jpeg" alt="Animas Forks">
+					<img src="/images/main/animas-forks.jpeg" data-title="Animas Forks">
 				</div>
 				<div class="photo-thumb">
-					<img src="/images/summit-lake.jpeg" alt="Summit Lake">
+					<img src="/images/main/summit-lake.jpeg" data-title="Summit Lake">
 				</div>
 			</div>
 			<!-- PANOS -->
 			<div class="photo-grid pano-row">
 				<div class="photo-thumb">
-					<img src="/images/taylor-mountain-pano.jpeg" alt="Taylor Mountain Summit">
+					<img src="/images/main/taylor-mountain-pano.jpeg" data-title="Taylor Mountain Summit">
 				</div>
 			</div>
 			<!-- PORTS -->
 			<div class="photo-grid portrait-row">
 				<div class="photo-thumb">
-					<img src="/images/silver-lake-flowers.jpeg" alt="Silver Lake">
+					<img src="/images/main/silver-lake-flowers.jpeg" data-title="Silver Lake">
 				</div>
 				<div class="photo-thumb">
-					<img src="/images/taylor-mountain.jpeg" alt="View from Taylor Mountain">
+					<img src="/images/main/taylor-mountain.jpeg" data-title="View from Taylor Mountain">
 				</div>
 				<div class="photo-thumb">
-					<img src="/images/kendall-peak.jpeg" alt="Kendall Peak">
+					<img src="/images/main/kendall-peak.jpeg" data-title="Kendall Peak">
 				</div>
 			</div>
 		</section>
@@ -148,38 +144,40 @@
 		<!-- TABLES -->
 		<section>
 			<!-- MOUNTAINS -->
-			<table id="mountains">
+			<table class="flex-item" id="mountains">
 				<caption>
 					<small><i><a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank">14ers.com</a></i></small>
 				</caption>
 				<thead>
 					<tr>
-						<th scope="col">⛰️ Peak <span class="arrow"></span></th>
-						<th scope="col">Elevation <span class="arrow"></span></th>
-						<th scope="col">Range <span class="arrow"></span></th>
+						<th scope="col">⛰️ Peak</th>
+						<th scope="col">Elevation</th>
+						<th scope="col">Range</th>
+						<th scope="col" class="text-center"><abbr title="First Ascent">FA</abbr></th>
+						<th scope="col" class="text-center">📸</th>
 					</tr>
 				</thead>
 				<tbody>
-					<!-- POPULATED BY mountains.json -->
+					<!-- POPULATED BY tables.js & mountains.json -->
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="2">13ers</td>
-						<td class="peak-progress" data-peak-type="thirteeners" data-total="600"><i><span id="thirteeners">0</span>/600+</i></td>
+						<td colspan="3">13ers</td>
+						<td colspan="2" class="peak-progress" data-peak-type="thirteeners" data-total="600"><i><span id="thirteeners">0</span>/600+</i></td>
 					</tr>
 					<tr>
-						<td colspan="2">14ers</td>
-						<td class="peak-progress" data-peak-type="fourteeners" data-total="58"><i><span id="fourteeners">0</span>/58</i></td>
+						<td colspan="3">14ers</td>
+						<td colspan="2" class="peak-progress" data-peak-type="fourteeners" data-total="58"><i><span id="fourteeners">0</span>/58</i></td>
 					</tr>
 					<tr>
-						<td colspan="2">Peaks Bagged</td>
-						<td><i><span id="totalMountains">0</span></i></td>
+						<td colspan="3">Peaks Bagged</td>
+						<td colspan="2"><i><span id="totalMountains">0</span></i></td>
 					</tr>
 				</tfoot>
 			</table>
 
 			<!-- CONCERTS -->
-			<table id="concerts">
+			<table class="flex-item" id="concerts">
 				<caption>
 					<small><i>Non-exhaustive; Chronology approximate</i></small>
 				</caption>
@@ -195,7 +193,7 @@
 				<tbody>
 					<!-- POPULATED BY concerts.json -->
 				</tbody>
-				<tfoot>
+				<tfoot class="">
 					<tr>
 						<td colspan="5">
 							<span id="top-artists"></span>
@@ -218,7 +216,7 @@
 		<br>
 
 		<div class="photo-thumb">
-			<img src="/images/thirsty-peak.jpeg" alt="Thirsty Peak Summit">
+			<img src="/images/main/thirsty-peak.jpeg" data-title="Thirsty Peak Summit">
 		</div>
 	</main>
 
@@ -227,9 +225,9 @@
 	</footer>
 
 	<!-- SCRIPTS -->
-	<script src="/scripts/video.js" defer></script>
-	<script src="/scripts/tables.js" defer></script>
-	<script src="/scripts/modal.js" defer></script>
+	<script src="scripts/video.js" defer></script>
+	<script src="scripts/tables.js" defer></script>
+	<script src="scripts/modal.js" defer></script>
 
 </body>
 

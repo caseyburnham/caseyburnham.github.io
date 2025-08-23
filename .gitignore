@@ -13,12 +13,13 @@ package-lock.json
 package.json
 
 # exif-reader
-exif-reader.js
-scripts/extract-exif.js
+-exif-reader.js
+extract-exif.js
 
 # Python cache
 __pycache__/
 *.pyc
+json/add.py
 
 # Log files
 *.log
@@ -32,3 +33,4 @@ __pycache__/
 
 # Old Files
 old/
+css/og-css/
