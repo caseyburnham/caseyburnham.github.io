@@ -4,231 +4,262 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Crash & Burnham</title>
-	<!-- CSS -->
-	<link rel="stylesheet" href="css/styles-c.css" />
-	
+	<meta name="description" content="Casey Burnham - Audio Engineer specializing in live sound, theater audio, and system design">
+	<meta name="author" content="Casey Burnham">
+	<title>Casey Burnham - Audio Engineer</title>
+
+	<!-- Preload critical resources -->
+	<!-- <link rel="-preload" href="css/styles-c.css" as="style"> -->
+	<link rel="stylesheet" href="css/styles-c.css">
+
+	<!-- Open Graph meta tags for social sharing -->
+	<meta property="og:title" content="Casey Burnham - Audio Engineer">
+	<meta property="og:description" content="Audio Engineer specializing in live sound, theater audio, and system design">
+	<meta property="og:type" content="website">
 </head>
 
 <body>
-	<main>
-		<!-- HEADER -->
+
+	<main id="main-content">
 		<header>
 			<h1>Casey Burnham</h1>
+			<p class="tagline">Audio Engineer & Mountain Enthusiast</p>
 		</header>
 
-		<!-- BIO  -->
-		<section>
+		<!-- Personal Bio Section -->
+		<section aria-labelledby="bio-heading">
+			<h2 id="bio-heading" class="sr-only">About Casey</h2>
 			<p>
-				I’ve spent the last ten years chasing clean mixes and fixing gear that swore it was working yesterday. With a degree in Audio Engineering from <abbr title="University of Colorado, Denver">CU Denver</abbr> – mostly good for knowing which cable to blame – I now spend my days keeping mics alive, fixing things no one else saw break, and convincing everyone it was fine all along.
+				I've spent the last ten years chasing clean mixes and fixing gear that swore it was working yesterday.
+				With a degree in Audio Engineering from <abbr title="University of Colorado, Denver">UCD</abbr> — mostly good for knowing which cable to blame — I now spend my days keeping mics alive, fixing things no one else saw break, and convincing everyone it was fine all along.
 
-				Originally from Idaho, I traded dirt roads for mountain trails (and potatoes for peaches). When I’m not in a black box or behind a console, I’m usually above the treeline – scrambling up peaks, letting the trail handle my truck’s detailing, and dragging my dog along for the ride. (He’s not always impressed.)
+				Originally from Idaho, I traded dirt roads for mountain trails (and potatoes for peaches). When I'm not in a black box or behind a console, I'm usually above the treeline — scrambling up peaks, letting the trail handle my truck's detailing, and dragging my dog along for the ride. He's not always impressed.
 			</p>
+
 			<div class="video-wrapper">
-				<video id="livephoto" poster="" autoplay muted playsinline onended="this.pause();">
+				<video id="livephoto" poster="/images/posters/casey-rocky.jpeg" autoplay muted playsinline onended="this.pause();" aria-label="Casey hiking with dog in the mountains">
 					<source src="/videos/rocky.webm" type="video/webm">
 					<source src="/videos/rocky.mp4" type="video/mp4">
-					Your browser does not support the video tag.
+					<p>Your browser does not support the video tag. <a href="/videos/rocky.mp4">Download the video</a>.</p>
 				</video>
 			</div>
 		</section>
 
-		<br>
-
-		<!-- EXPERIENCE -->
-		<section class="details-container">
-			<!-- FREELANCE -->
+		<!-- Skills and Experience Section -->
+		<section aria-labelledby="experience-heading" class="experience">
+			<h2 id="details-heading" class="sr-only">Casey's Skills & Experience</h2>
 			<details>
-				<summary>Audio Engineering</summary>
-				<h4>Audio Engineering</h4>
-				<ul>
-					<li>Studio engineering</li>
-					<li>Recording, Mixing, and Mastering for streaming distribution</li>
-					<li>Corporate A1/A2</li>
-					<li>Line-by-line Mixing</li>
-					<li>QLab 5 proficient</li>
-					<li>DANTE Certified</li>
-				</ul>
-			</details>
+				<summary id="experience-heading">Skills & Experience</summary>
 
-			<!-- ARVADA -->
-			<details>
-				<summary>Arvada Center</summary>
-				<h4>Audio Director</h4>
-				<ul>
-					<li>Audio Department lead, supervising engineers and overseeing system design, installation, and integration</li>
-					<li>Design and implement networked audio, RF coordination, and practical effect speakers</li>
-					<li>Mix musicals and myriad concerts, recitals, and other events throughout the year</li>
-					<li>Program and operate audio consoles, QLab, and automation protocols</li>
-					<li>Develop technical documentation, signal flow diagrams, and system layouts</li>
-					<li>Collaborate with designers and production teams to bring creative visions to life</li>
-				</ul>
-			</details>
+				<article>
+					<h3>Live Sound & Theater Audio</h3>
+					<ul>
+						<li><abbr title="Front of House">FOH</abbr> / streaming mixes and system design for large-scale musicals, concerts, recitals, and special events</li>
+						<li>Precision line-by-line mixing for musicals, with live orchestra balancing in high-pressure environments</li>
+						<li>Partnering with directors, designers, and production teams to translate creative concepts into impactful soundscapes</li>
+						<li>Advanced programming and operation of digital audio consoles, QLab, and complex show automation systems</li>
+					</ul>
+				</article>
 
-			<!-- AURORA -->
-			<details>
-				<summary>Aurora Fox Arts Center</summary>
-				<h4>Audio Engineer & Theater Technician</h4>
-				<ul>
-					<li>System design and FOH mix for all musicals, concerts, and more</li>
-					<li>Design and program laser shows</li>
-					<li>Inventory and maintenance all audio equipment</li>
-					<li>Network management for digital audio and show control</li>
-					<li>Projector hang, focus, and mapping</li>
-					<li>Continued consulting and freelance engineering</li>
-				</ul>
+				<article>
+					<h3>System Design & Integration</h3>
+					<ul>
+						<li>Led teams of engineers through full system lifecycles: design, installation, testing, and integration</li>
+						<li>Specialized in network architecture, RF coordination, and distributed/practical speaker placement for theatrical effects</li>
+						<li>Developed detailed system documentation, signal flow diagrams, and technical standards for long-term sustainability</li>
+						<li>Oversaw and maintained robust digital audio and show control networks across multi-venue environments</li>
+					</ul>
+				</article>
+
+				<article>
+					<h3>Studio & Post-Production</h3>
+					<ul>
+						<li>Recording, editing, mixing, and mastering projects for distribution across digital platforms</li>
+						<li>Freelance consulting for artists, theaters, and organizations seeking professional audio solutions</li>
+					</ul>
+				</article>
+
+				<article>
+					<h3>Additional Technical Experience</h3>
+					<ul>
+						<li>Designed and programmed immersive laser shows synchronized with live performance</li>
+						<li>Executed projector hangs, focus, and mapping for theatrical and concert applications</li>
+					</ul>
+				</article>
+
+				<article>
+					<h3>Software & Certifications</h3>
+					<ul>
+						<li>Dante Level 2 Certified (networked audio interoperability and troubleshooting)</li>
+						<li>QLab 5: advanced cue programming, <abbr title="Open Sound Control">OSC</abbr> & <abbr title="Musical Instrument Digital Interface">MIDI</abbr> integration, and show automation</li>
+						<li>Yamaha Rivage series mixers: console programming, system setup, and live mix workflows</li>
+						<li>Experienced across macOS production environments with software integration and troubleshooting</li>
+					</ul>
+				</article>
 			</details>
 		</section>
 
-		<br>
-
-		<!-- PRODUCTIONS -->
-		<section>
-			<table id="productions">
+		<!-- Productions Table Section -->
+		<section aria-labelledby="productions-heading">
+			<h2 id="productions-heading" class="sr-only">Theater Productions</h2>
+			<table id="productions" aria-label="Theater productions with role assignments">
+				<!-- <caption>Theater Productions and Role Assignments</caption> -->
 				<thead>
 					<tr>
-						<th scope="col">🎭 Production</th>
+						<th scope="col">
+							<span>🎭</span>
+							Production
+						</th>
 						<th scope="col">Company</th>
 						<th scope="col" class="text-center">A1</th>
-						<th scope="col" class="text-center">A2</th>
-						<th scope="col" class="text-center"><abbr title="Sound Designer">SD</abbr></th>
-						<th scope="col" class="text-center"><abbr title="Audio Director">AD</abbr></th>
-						<th scope="col" class="text-center"><abbr title="Laserist">LZ</abbr></th>
-						<th scope="col" class="text-center">😀</th>
+						<!-- <th scope="col" class="text-center">A2</th> -->
+						<th scope="col" class="text-center">
+							<abbr title="Sound Designer">SD</abbr>
+						</th>
+						<th scope="col" class="text-center">
+							<abbr title="Audio Director">AD</abbr>
+						</th>
+						<th scope="col" class="text-center">
+							<abbr title="Laserist">LZ</abbr>
+						</th>
+						<th scope="col" class="text-center">
+							<span aria-label="Rating">😀</span>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
-					<!-- POPULATED BY productions.json -->
+					<!-- Content populated by productions.json -->
 				</tbody>
 			</table>
 		</section>
 
 		<hr>
 
-		<!-- PHOTOS -->
-		<section>
-			<!-- LANDSCAPES -->
-			<div class="photo-grid landscape-row">
-				<div class="photo-thumb">
-					<img src="/images/main/savage-flora.jpeg" data-title="Holy Cross Fireweed">
-				</div>
-				<div class="photo-thumb">
-					<img src="/images/main/animas-forks.jpeg" data-title="Animas Forks">
-				</div>
-				<div class="photo-thumb">
-					<img src="/images/main/summit-lake.jpeg" data-title="Summit Lake">
-				</div>
-			</div>
-			<!-- PANOS -->
-			<div class="photo-grid pano-row">
-				<div class="photo-thumb">
-					<img src="/images/main/taylor-mountain-pano.jpeg" data-title="Taylor Mountain Summit">
-				</div>
-			</div>
-			<!-- PORTS -->
-			<div class="photo-grid portrait-row">
-				<div class="photo-thumb">
-					<img src="/images/main/silver-lake-flowers.jpeg" data-title="Silver Lake">
-				</div>
-				<div class="photo-thumb">
-					<img src="/images/main/taylor-mountain.jpeg" data-title="View from Taylor Mountain">
-				</div>
-				<div class="photo-thumb">
-					<img src="/images/main/kendall-peak.jpeg" data-title="Kendall Peak">
-				</div>
-			</div>
+		<!-- Photo Gallery Section -->
+		<section aria-labelledby="gallery-heading">
+			<h2 id="gallery-heading" class="sr-only">Photography</h2>
+
+			
 		</section>
 
 		<hr>
 
-		<!-- TABLES -->
-		<section>
-			<!-- MOUNTAINS -->
-			<table class="flex-item" id="mountains">
-				<caption>
-					<small><i><a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank">14ers.com</a></i></small>
+		<!-- Data Tables Section -->
+		<section class="data-tables" aria-labelledby="data-heading">
+			<h2 id="data-heading" class="sr-only">Personal Statistics</h2>
+
+			<!-- Mountains Climbed -->
+			<table id="mountains" class="flex-item" aria-labelledby="mountains-caption">
+				<caption id="mountains-caption">
+					<small><a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank" rel="noopener noreferrer" aria-label="View full climbing record on 14ers.com">14ers.com</a></small>
 				</caption>
 				<thead>
 					<tr>
-						<th scope="col">⛰️ Peak</th>
+						<th scope="col">
+							<span aria-label="Mountain">⛰️</span>
+							Peak
+						</th>
 						<th scope="col">Elevation</th>
 						<th scope="col">Range</th>
-						<th scope="col" class="text-center"><abbr title="First Ascent">FA</abbr></th>
-						<th scope="col" class="text-center">📸</th>
+						<th scope="col" class="text-center">
+							<abbr title="First Ascent">FA</abbr>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
-					<!-- POPULATED BY tables.js & mountains.json -->
+					<!-- Content populated by mountains.json -->
 				</tbody>
 				<tfoot>
 					<tr>
 						<td colspan="3">13ers</td>
-						<td colspan="2" class="peak-progress" data-peak-type="thirteeners" data-total="600"><i><span id="thirteeners">0</span>/600+</i></td>
+						<td class="peak-progress" data-peak-type="thirteeners" data-total="600">
+							<i><span id="thirteeners">0</span>/600+</i>
+						</td>
 					</tr>
 					<tr>
 						<td colspan="3">14ers</td>
-						<td colspan="2" class="peak-progress" data-peak-type="fourteeners" data-total="58"><i><span id="fourteeners">0</span>/58</i></td>
+						<td class="peak-progress" data-peak-type="fourteeners" data-total="58">
+							<i><span id="fourteeners">0</span>/58</i>
+						</td>
 					</tr>
 					<tr>
 						<td colspan="3">Peaks Bagged</td>
-						<td colspan="2"><i><span id="totalMountains">0</span></i></td>
+						<td><strong><span id="totalMountains">0</span></strong></td>
 					</tr>
 				</tfoot>
 			</table>
 
-			<!-- CONCERTS -->
-			<table class="flex-item" id="concerts">
-				<caption>
-					<small><i>Non-exhaustive; Chronology approximate</i></small>
+			<!-- Concert History -->
+			<table id="concerts" class="flex-item" aria-labelledby="concerts-caption">
+				<caption id="concerts-caption">
+					<small>Non-exhaustive; Chronology approximate</small>
 				</caption>
 				<thead>
 					<tr>
-						<th scope="col">🎵 Artist</th>
+						<th scope="col">
+							<span aria-label="Music">🎵</span>
+							Artist
+						</th>
 						<th scope="col">Venue</th>
 						<th scope="col">Year</th>
-						<th scope="col">😃</th>
-						<th scope="col">📷</th>
+						<th scope="col">
+							<span aria-label="Rating">😃</span>
+						</th>
+						<!-- <th scope="col">📷</th> -->
 					</tr>
 				</thead>
 				<tbody>
-					<!-- POPULATED BY concerts.json -->
+					<!-- Content populated by concerts.json -->
 				</tbody>
-				<tfoot class="">
+				<tfoot>
 					<tr>
-						<td colspan="5">
-							<span id="top-artists"></span>
+						<td colspan="4" class="statistics">
+							<div id="top-artists" aria-label="Most seen artists"></div>
 							<hr>
-							<span id="top-venues"></span>
+							<div id="top-venues" aria-label="Most visited venues"></div>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
-							Concerts Attended
-						</td>
-						<td colspan="3">
-							<i><span id="concert-count"></span></i>
-						</td>
+						<td colspan="2">Concerts Attended</td>
+						<td colspan="2"><strong><span id="concert-count">0</span></strong></td>
 					</tr>
 				</tfoot>
 			</table>
 		</section>
 
-		<br>
-
-		<div class="photo-thumb">
-			<img src="/images/main/thirsty-peak.jpeg" data-title="Thirsty Peak Summit">
-		</div>
+		<!-- Final Image -->
+		<section aria-labelledby="closing-image">
+			<h2 id="closing-image" class="sr-only">Featured Mountain Photo</h2>
+			<div class="photo-thumb featured-image">
+				<img src="/images/main/thirsty-peak.jpeg" alt="Summit view from Thirsty Peak showing expansive Colorado mountain ranges" data-title="Thirsty Peak Summit" loading="lazy">
+			</div>
+		</section>
 	</main>
 
 	<footer>
-		<section>©2025 CASEY BURNHAM<br>🏳️‍🌈🏳️‍⚧️🏴‍☠️🏴󠁵󠁳󠁣󠁯󠁿<br>CODED w/ ❤️ & VIBES IN COLORADO</section>
+		<p>
+			&copy;2025
+			<a href="mailto:casey@crashburnham.com" aria-label="Email Casey Burnham">Casey Burnham</a>
+		</p>
+		<p class="flags" aria-label="Pride flags">
+			<span aria-label="Pride flag">🏳️‍🌈</span>
+			<span aria-label="Trans pride flag">🏳️‍⚧️</span>
+			<span aria-label="Pirate flag">🏴‍☠️</span>
+			<span aria-label="Colorado flag">🏴󠁵󠁳󠁣󠁯󠁿</span>
+		</p>
 	</footer>
 
-	<!-- SCRIPTS -->
+	<!-- Scripts -->
 	<script src="scripts/video.js" defer></script>
 	<script src="scripts/tables.js" defer></script>
-	<script src="scripts/modal.js" defer></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			window.photoModal = new PhotoModal();
+		});
+	</script>
 
+	<script src="scripts/galley-swap.js" defer></script>
+	<script src="scripts/modal.js" defer></script>
 </body>
 
 </html>

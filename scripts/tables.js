@@ -47,7 +47,7 @@ class TableManager {
 	  entry.Production,
 	  entry.Company,
 	  entry.A1,
-	  entry.A2,
+	  //entry.A2,
 	  entry.SD,
 	  entry.AD,
 	  entry.LZ,
@@ -70,8 +70,8 @@ class TableManager {
 		`${Peak}${Count > 1 ? ` <small>x${Count}</small>` : ''}`,
 		Elevation,
 		Range,
-		Date ? `<time class="nowrap" datetime="${Date}">${Date}</time>` : "",
-		Image ? `<button class="camera-link" data-title="${Peak}" data-image="${Image}"></button>` : ""
+		Date ? `<time class="nowrap" datetime="${Date}">${Date}</time>` : ""
+		//Image ? `<button class="camera-link" data-title="${Peak}" data-image="${Image}"></button>` : ""
 	  ])
 	);
 
@@ -127,9 +127,9 @@ class TableManager {
 	  return this.createRow([
 		`${Headliner}${Support ? `<br><small>${Support}</small>` : ''}`,
 		Venue,
-		Year,
-		vibe,
-		photo
+		Year ? `<time class="nowrap" datetime="${Year}">${Year}</time>` : "",
+		vibe
+		//photo
 	  ]);
 	});
 
@@ -158,21 +158,23 @@ class TableManager {
 	data.forEach(concert => {
 	  const { Headliner, Support, Venue } = concert;
 
-	  // Count main artist
+// Count main artist
 	  const mainArtist = Headliner.trim();
-	  if (mainArtist.toLowerCase() !== 'et al.') {
+	  if (mainArtist.toLowerCase() !== 'et al.' && mainArtist.toLowerCase() !== 'decadence') {
 		artistCounts.set(mainArtist, (artistCounts.get(mainArtist) || 0) + 1);
 	  }
-
+	  
 	  // Count support acts
 	  if (Support) {
 		const supportActs = Support.split(',').map(act => act.trim());
 		supportActs.forEach(act => {
-		  if (act.toLowerCase() !== 'et al.') {
+		  const lower = act.toLowerCase();
+		  if (lower !== 'et al.' && lower !== 'decadence') {
 			artistCounts.set(act, (artistCounts.get(act) || 0) + 1);
 		  }
 		});
 	  }
+
 
 	  // Count venues
 	  venueCounts.set(Venue, (venueCounts.get(Venue) || 0) + 1);
@@ -185,7 +187,7 @@ class TableManager {
 	return Array.from(countMap.entries())
 	  .sort((a, b) => b[1] - a[1])
 	  .slice(0, limit)
-	  .map(([name, count]) => `${name} <small>x${count}</small>`)
+	  .map(([name, count]) => `<span class="nowrap">${name} <small>x${count}</small></span><wbr>`)
 	  .join(', ');
   }
 
