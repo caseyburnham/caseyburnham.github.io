@@ -1,0 +1,127 @@
+{
+  "_config": {
+	"defaultGallery": "mountains"
+  },
+  "mountains": {
+	"name": "Alpine",
+	"images": [
+	  {
+		"src": "/images/galleries/mountains/savage-flora.jpeg",
+		"alt": "Fireweed flowers blooming near Holy Cross mountain peak",
+		"title": "Holy Cross Fireweed",
+		"layout": "landscape"
+	  },
+	  {
+		"src": "/images/galleries/mountains/animas-forks.jpeg",
+		"alt": "Historic mining town ruins at Animas Forks",
+		"title": "Animas Forks",
+		"layout": "landscape"
+	  },
+	  {
+		  "src": "/images/galleries/mountains/summit-lake.jpeg",
+		  "alt": "Summit Lake at Mt. Blue Sky",
+		  "title": "Summit Lake",
+		  "layout": "landscape"
+	  },
+	  {
+		"src": "/images/galleries/mountains/summit-lake.jpeg",
+		"alt": "Alpine lake reflection at Summit Lake",
+		"title": "Summit Lake",
+		"layout": "landscape"
+	  },
+	  {
+		"src": "/images/galleries/mountains/taylor-mountain-pano.jpeg",
+		"alt": "Panoramic view from Taylor Mountain summit",
+		"title": "Taylor Mountain Summit",
+		"layout": "pano"
+	  },
+	  {
+		"src": "/images/galleries/mountains/silver-lake-flowers.jpeg",
+		"alt": "Wildflowers blooming beside Silver Lake",
+		"title": "Silver Lake",
+		"layout": "portrait"
+	  },
+	  {
+		"src": "/images/galleries/mountains/taylor-mountain.jpeg",
+		"alt": "Mountain vista view from Taylor Mountain trail",
+		"title": "View from Taylor Mountain",
+		"layout": "portrait"
+	  },
+	  {
+		"src": "/images/galleries/mountains/kendall-peak.jpeg",
+		"alt": "Rocky summit approach to Kendall Peak",
+		"title": "Kendall Peak",
+		"layout": "portrait"
+	  }
+	]
+  },
+  "flora": {
+	  "name": "Flora",
+	  "images": [
+		{
+		  "src": "/images/galleries/flora/hibiscus.jpeg",
+		  "alt": "Hibiscus",
+		  "title": "Hibiscus",
+		  "layout": "landscape"
+		},
+		{
+		  "src": "/images/galleries/flora/indian-paintbrush.jpeg",
+		  "alt": "Indian Paintbrush",
+		  "title": "Indian Paintbrush",
+		  "layout": "landscape"
+		},
+		{
+			"src": "/images/galleries/flora/purple-flower.jpeg",
+			"alt": "Purple",
+			"title": "Purple",
+			"layout": "landscape"
+		  }
+	  ]
+	},
+  "concerts": {
+	"name": "Concert",
+	"images": [
+	  {
+		"src": "/images/galleries/concerts/flume.jpeg",
+		"alt": "Flume @ Belly Up, Aspen",
+		"title": "Flume",
+		"layout": "landscape"
+	  },
+	  {
+		"src": "/images/galleries/concerts/100-gecs.jpeg",
+		"alt": "Band performing under stage lights",
+		"title": "100 gecs",
+		"layout": "landscape"
+	  },
+	  {
+		  "src": "/images/galleries/concerts/mura-masa.jpeg",
+		  "alt": "Band performing under stage lights",
+		  "title": "Mura Masa",
+		  "layout": "landscape"
+		}
+	]
+  },
+  "off-road": {
+	  "name": "Off-Road",
+	  "images": [
+		{
+		  "src": "/images/galleries/off-road/hibiscus.jpeg",
+		  "alt": "Hibiscus",
+		  "title": "Hibiscus",
+		  "layout": "landscape"
+		},
+		{
+		  "src": "/images/galleries/off-road/indian-paintbrush.jpeg",
+		  "alt": "Indian Paintbrush",
+		  "title": "Indian Paintbrush",
+		  "layout": "landscape"
+		},
+		{
+			"src": "/images/galleries/off-road/purple-flower.jpeg",
+			"alt": "Purple",
+			"title": "Purple",
+			"layout": "landscape"
+		  }
+	  ]
+	}
+}

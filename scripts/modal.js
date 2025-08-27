@@ -201,14 +201,14 @@ class PhotoModal {
 			</a>
 		  </span>` : ""}
 	  </div>
-	  
-	  <small class="exif-row">
-		${photo.iso ? `<span>ISO ${photo.iso}</span>` : ""}
-		${photo.lens ? `<span>${photo.lens}</span>` : ""}
-		${photo.aperture ? `<span><i>&#402;</i>${photo.aperture}</span>` : ""}
-		${photo.shutter ? `<span>${photo.shutter}s</span>` : ""}
+	  <hr >
+	  <span class="exif-row">
+		${photo.iso ? `<span>ISO ${photo.iso}</span>` : ""} | 
+		${photo.lens ? `<span>${photo.lens}</span>` : ""} | 
+		${photo.aperture ? `<span><i>&#402;</i>${photo.aperture}</span>` : ""} | 
+		${photo.shutter ? `<span>${photo.shutter}s</span>` : ""} | 
 		${photo.format ? `<span class="format">${photo.format}</span>` : ""}
-	  </small>
+	  </span>
 	`;
   }
 

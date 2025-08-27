@@ -1,5 +1,187 @@
 {
-  "main/animas-forks.jpeg": {
+  "concerts/100-gecs.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2021,
+      "month": 10,
+      "day": 16,
+      "hour": 22,
+      "minute": 33,
+      "second": 56,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2021:10:16 22:33:56",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 125,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/75",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.740333,
+      "lon": -104.975333,
+      "alt": 1611.721068,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "concerts/flume.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2023,
+      "month": 1,
+      "day": 4,
+      "hour": 22,
+      "minute": 42,
+      "second": 45,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2023:01:04 22:42:45",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    },
+    "iso": 500,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/60",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.187411,
+      "lon": -106.818803,
+      "alt": 2414.803468,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "concerts/mura-masa.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 2,
+      "day": 22,
+      "hour": 22,
+      "minute": 27,
+      "second": 3,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2024:02:22 22:27:03",
+      "zoneName": "UTC-7",
+      "inferredZone": true
+    },
+    "iso": 1000,
+    "lens": "1.6 mm",
+    "aperture": 1.8,
+    "shutter": "1/4",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.740894,
+      "lon": -105.015669,
+      "alt": 1588.636486,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "flora/hibiscus.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 5,
+      "day": 7,
+      "hour": 10,
+      "minute": 18,
+      "second": 32,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2024:05:07 10:18:32",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 32,
+    "lens": "1.6 mm",
+    "aperture": 1.8,
+    "shutter": "1/2801",
+    "format": "JPEG",
+    "gps": {
+      "lat": 37.322839,
+      "lon": -111.012428,
+      "alt": 1216.66729,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "flora/indian-paintbrush.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 7,
+      "day": 13,
+      "hour": 18,
+      "minute": 0,
+      "second": 19,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:07:13 18:00:19",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 32,
+    "lens": "1.6 mm",
+    "aperture": 1.8,
+    "shutter": "1/99",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.117353,
+      "lon": -106.166725,
+      "alt": 3429.113372,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "flora/mallow.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2023,
+      "month": 8,
+      "day": 12,
+      "hour": 8,
+      "minute": 38,
+      "second": 0,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2023:08:12 08:38:00",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "1.6 mm",
+    "aperture": 1.8,
+    "shutter": "1/99",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.245933,
+      "lon": -105.339828,
+      "alt": 2504.575155,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "flora/purple-flower.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 7,
+      "day": 4,
+      "hour": 7,
+      "minute": 45,
+      "second": 50,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:07:04 07:45:50",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 100,
+    "lens": "1.6 mm",
+    "aperture": 1.8,
+    "shutter": "1/99",
+    "format": "JPEG",
+    "gps": {
+      "lat": 38.618753,
+      "lon": -106.356972,
+      "alt": 3566.673317,
+      "altRef": "Above Sea Level"
+    }
+  },
+  "mountains/animas-forks.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -20,7 +202,7 @@
     "format": "JPEG",
     "gps": null
   },
-  "main/kendall-peak.jpeg": {
+  "mountains/kendall-peak.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -46,7 +228,7 @@
       "altRef": "Above Sea Level"
     }
   },
-  "main/savage-flora.jpeg": {
+  "mountains/savage-flora.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -72,7 +254,7 @@
       "altRef": "Above Sea Level"
     }
   },
-  "main/silver-lake-flowers.jpeg": {
+  "mountains/silver-lake-flowers.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -98,7 +280,7 @@
       "altRef": "Above Sea Level"
     }
   },
-  "main/summit-lake.jpeg": {
+  "mountains/summit-lake.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -124,7 +306,7 @@
       "altRef": "Above Sea Level"
     }
   },
-  "main/taylor-mountain-pano.jpeg": {
+  "mountains/taylor-mountain-pano.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2024,
@@ -150,7 +332,7 @@
       "altRef": "Above Sea Level"
     }
   },
-  "main/taylor-mountain.jpeg": {
+  "mountains/taylor-mountain.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2024,
@@ -199,781 +381,6 @@
       "lat": 38.209469,
       "lon": -105.736497,
       "alt": 4030.102381,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/canby-mountain.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 19,
-      "hour": 9,
-      "minute": 38,
-      "second": 0,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:19 09:38:00",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 32,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/11364",
-    "format": "JPEG",
-    "gps": {
-      "lat": 37.799514,
-      "lon": -107.545875,
-      "alt": 4116.875862,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/cottonwood-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 8,
-      "day": 4,
-      "hour": 9,
-      "minute": 41,
-      "second": 51,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:08:04 09:41:51",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 32,
-    "lens": "1.6 mm",
-    "aperture": 1.8,
-    "shutter": "1/2137",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.219428,
-      "lon": -105.756508,
-      "alt": 4147.43295,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/grays-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 6,
-      "day": 22,
-      "hour": 10,
-      "minute": 36,
-      "second": 9,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2021:06:22 10:36:09",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 32,
-    "lens": "4.2 mm",
-    "aperture": 1.8,
-    "shutter": "1/3497",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.633778,
-      "lon": -105.817558,
-      "alt": 4345.931925,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/green-mountain.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 19,
-      "hour": 11,
-      "minute": 20,
-      "second": 47,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:19 11:20:47",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/8000",
-    "format": "JPEG",
-    "gps": {
-      "lat": 37.794564,
-      "lon": -107.5617,
-      "alt": 3990.861386,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/hancock-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 4,
-      "hour": 8,
-      "minute": 51,
-      "second": 8,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:04 08:51:08",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/4444",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.617169,
-      "lon": -106.366836,
-      "alt": 3997.745935,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/horseshoe-mountain.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 28,
-      "hour": 10,
-      "minute": 39,
-      "second": 18,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:28 10:39:18",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/8000",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.184764,
-      "lon": -106.184464,
-      "alt": 4245.119417,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/huron-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 6,
-      "day": 10,
-      "hour": 10,
-      "minute": 2,
-      "second": 7,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:06:10 10:02:07",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 32,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/8000",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.945525,
-      "lon": -106.437997,
-      "alt": 4271.967619,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/longs-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 8,
-      "day": 17,
-      "hour": 8,
-      "minute": 53,
-      "second": 54,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2021:08:17 08:53:54",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 32,
-    "lens": "4.2 mm",
-    "aperture": 1.8,
-    "shutter": "1/1898",
-    "format": "JPEG",
-    "gps": {
-      "lat": 40.254353,
-      "lon": -105.618233,
-      "alt": 4235.649231,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-antero.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2023,
-      "month": 7,
-      "day": 9,
-      "hour": 13,
-      "minute": 7,
-      "second": 21,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2023:07:09 13:07:21",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/8000",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.674164,
-      "lon": -106.246239,
-      "alt": 4352.77809,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-belford.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 7,
-      "day": 28,
-      "hour": 8,
-      "minute": 39,
-      "second": 53,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2021:07:28 08:39:53",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 32,
-    "lens": "4.2 mm",
-    "aperture": 1.8,
-    "shutter": "1/7692",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.9607,
-      "lon": -106.360694,
-      "alt": 4321.53317,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-bross.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2023,
-      "month": 8,
-      "day": 23,
-      "hour": 12,
-      "minute": 15,
-      "second": 15,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2023:08:23 12:15:15",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/4630",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.334994,
-      "lon": -106.10785,
-      "alt": 4326.023739,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-cameron.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2023,
-      "month": 8,
-      "day": 23,
-      "hour": 10,
-      "minute": 55,
-      "second": 50,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2023:08:23 10:55:50",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/7463",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.347314,
-      "lon": -106.118736,
-      "alt": 4341.093857,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-champion.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 8,
-      "day": 17,
-      "hour": 9,
-      "minute": 44,
-      "second": 58,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:08:17 09:44:58",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 40,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/8000",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.131778,
-      "lon": -106.521531,
-      "alt": 4158.834808,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-democrat.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2023,
-      "month": 8,
-      "day": 23,
-      "hour": 9,
-      "minute": 36,
-      "second": 22,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2023:08:23 09:36:22",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/4115",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.339631,
-      "lon": -106.140014,
-      "alt": 4309.27892,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-guyot.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 13,
-      "hour": 11,
-      "minute": 54,
-      "second": 2,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:13 11:54:02",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/7463",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.458619,
-      "lon": -105.937744,
-      "alt": 4075.363653,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-lincoln.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2023,
-      "month": 8,
-      "day": 23,
-      "hour": 11,
-      "minute": 22,
-      "second": 22,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2023:08:23 11:22:22",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/5587",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.351428,
-      "lon": -106.111519,
-      "alt": 4347.919951,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-oxford.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 7,
-      "day": 28,
-      "hour": 9,
-      "minute": 48,
-      "second": 35,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2021:07:28 09:48:35",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 32,
-    "lens": "4.2 mm",
-    "aperture": 1.8,
-    "shutter": "1/4115",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.964856,
-      "lon": -106.338822,
-      "alt": 4311.327366,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-shavano.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 8,
-      "day": 5,
-      "hour": 8,
-      "minute": 54,
-      "second": 9,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2021:08:05 08:54:09",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 32,
-    "lens": "4.2 mm",
-    "aperture": 1.8,
-    "shutter": "1/2817",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.619189,
-      "lon": -106.239342,
-      "alt": 4330.67313,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mount-sheridan.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 28,
-      "hour": 9,
-      "minute": 2,
-      "second": 22,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:28 09:02:22",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/3831",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.209769,
-      "lon": -106.185914,
-      "alt": 4194.120448,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/mt-blue-sky.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2023,
-      "month": 8,
-      "day": 1,
-      "hour": 9,
-      "minute": 24,
-      "second": 47,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2023:08:01 09:24:47",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/11364",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.588364,
-      "lon": -105.643592,
-      "alt": 4346.887967,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/peerless-mountain.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 28,
-      "hour": 8,
-      "minute": 15,
-      "second": 6,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:28 08:15:06",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/3831",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.198128,
-      "lon": -106.178925,
-      "alt": 4072.051613,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/ptarmigan-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 14,
-      "hour": 9,
-      "minute": 54,
-      "second": 6,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:14 09:54:06",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/6579",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.150356,
-      "lon": -106.174117,
-      "alt": 4186.485194,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/quail-mountain.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 6,
-      "day": 15,
-      "hour": 11,
-      "minute": 35,
-      "second": 31,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:06:15 11:35:31",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/6993",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.018089,
-      "lon": -106.394639,
-      "alt": 4099.595547,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/savage-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 8,
-      "day": 12,
-      "hour": 10,
-      "minute": 43,
-      "second": 58,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:08:12 10:43:58",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/6993",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.380569,
-      "lon": -106.520653,
-      "alt": 4004.233038,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/tabeguache-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 8,
-      "day": 5,
-      "hour": 9,
-      "minute": 55,
-      "second": 13,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2021:08:05 09:55:13",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 20,
-    "lens": "1.5 mm",
-    "aperture": 2.4,
-    "shutter": "1/1332",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.625497,
-      "lon": -106.250839,
-      "alt": 4309.619647,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/thirsty-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 8,
-      "day": 4,
-      "hour": 11,
-      "minute": 48,
-      "second": 29,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:08:04 11:48:29",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/5882",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.209469,
-      "lon": -105.736497,
-      "alt": 4030.102381,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/torreys-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 6,
-      "day": 22,
-      "hour": 9,
-      "minute": 53,
-      "second": 44,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2021:06:22 09:53:44",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 32,
-    "lens": "4.2 mm",
-    "aperture": 1.8,
-    "shutter": "1/8197",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.642778,
-      "lon": -105.82125,
-      "alt": 4343.431507,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/un-13128.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 8,
-      "day": 4,
-      "hour": 10,
-      "minute": 43,
-      "second": 36,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:08:04 10:43:36",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/5587",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.214528,
-      "lon": -105.744828,
-      "alt": 4001.598475,
-      "altRef": "Above Sea Level"
-    }
-  },
-  "summits/un-13738.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 8,
-      "day": 17,
-      "hour": 10,
-      "minute": 27,
-      "second": 3,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:08:17 10:27:03",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/5076",
-    "format": "JPEG",
-    "gps": null
-  },
-  "summits/weston-peak.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 14,
-      "hour": 8,
-      "minute": 35,
-      "second": 3,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:14 08:35:03",
-      "zoneName": "UTC-6",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/6993",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.136531,
-      "lon": -106.164231,
-      "alt": 4140.687523,
       "altRef": "Above Sea Level"
     }
   }

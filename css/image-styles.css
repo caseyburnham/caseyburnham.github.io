@@ -16,13 +16,11 @@
   /* Colors */
   --color-accent: #ff4f00;
   --color-text-primary: #333;
-  --color-text-muted: #666;
-  --color-exif: white;
+  --color-text-muted: rgba(0, 0, 0, 0.6);
+  --color-exif-text: rgb(185, 185, 185);
   --color-overlay: rgba(255, 255, 255, 0.25);
-  --color-modal-bg: rgba(255, 255, 255, 0.35);
-  --color-divider: turquoise;
-  --color-format-bg: #666;
-  --color-format-text: white;
+  --color-modal-bg: rgba(255, 255, 255, 0.6);
+  --color-divider: #666;
   
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -33,22 +31,8 @@
   --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-elevated: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   --shadow-modal: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-  --shadow-neumorphic: 
-    -0.25rem -0.25rem 0.5rem rgba(255, 255, 255, 0.07),
-    0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.12),
-    -0.75rem -0.75rem 1.75rem rgba(255, 255, 255, 0.07),
-    0.75rem 0.75rem 1.75rem rgba(0, 0, 0, 0.12),
-    inset 8rem 8rem 8rem rgba(0, 0, 0, 0.05),
-    inset -8rem -8rem 8rem rgba(255, 255, 255, 0.05);
-  
-  /* Typography */
-  --font-family-ui: ui-rounded, system-ui, sans-serif;
-  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.85rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.2rem;
-  --font-size-xl: 1.5rem;
+  --caption-text-shadow:  0 2px 3px rgba(255, 255, 255, 0.25);
+  --format-box-shadow: 0 2px 3px rgba(255, 255, 255, 0.25);
   
   /* Layout Breakpoints */
   --breakpoint-sm: 480px;
@@ -61,8 +45,9 @@
   
   /* Modal Settings */
   --modal-max-width: 90vw;
-  --modal-max-height: 80vh;
+  --modal-max-height: 85vh;
   --modal-blur: blur(24px);
+  --modal-caption-blur: blur(4px);
   
   /* Aspect Ratio Thresholds */
   --pano-aspect-ratio: 2.5; /* Images wider than this are considered panoramic */
@@ -239,16 +224,23 @@
 
 .modal-caption {
   position: absolute;
+  margin: .25rem;
+  padding-left: .25rem;
+  padding-right: .25rem;
+  border-radius: var(--border-radius-sm);
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: stretch;
+    width: -moz-available;
+    width: -webkit-fill-available;
   font-family: var(--font-family-ui);
   box-sizing: border-box;
-  padding: 0.5rem;
   background: var(--color-modal-bg);
-  backdrop-filter: var(--modal-blur);
-    -webkit-backdrop-filter: var(--modal-blur);
-    -moz-backgrop-filter: var(--modal-blur);
+  backdrop-filter: var(--modal-caption-blur);
+    -webkit-backdrop-filter: var(--modal-caption-blur);
+    -moz-backdrop-filter: var(--modal-caption-blur);
+    /* border: none; */
+    border: 1px solid var(--color-divider);
 }
 
 /* Caption positioning for panoramic images */
@@ -256,7 +248,14 @@
   position: static;
   bottom: auto;
   left: auto;
-  width: 100%;
+  width: stretch;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  border: none;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  -moz-backdrop-filter: none;
 }
 
 .caption-header {
@@ -264,8 +263,8 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 1rem;
-  padding-bottom: 0.5rem;
-  text-shadow: 0 2px 3px rgba(255, 255, 255, 0.5);
+  padding: .25rem;
+  text-shadow: var(--caption-text-shadow);
 }
 
 .caption-header h2 {
@@ -274,31 +273,6 @@
   font-weight: 700;
   margin: 0;
   justify-self: center;
-}
-
-.caption-header time {
-  justify-self: end;
-  color: var(--color-text-muted);
-  font-size: var(--font-size-xs);
-  white-space: nowrap;
-}
-
-.caption-header .gps {
-  justify-self: start;
-  font-size: var(--font-size-xs);
-  white-space: nowrap;
-}
-
-.gps a {
-  font-family: var(--font-family-mono);
-  text-decoration: none;
-  color: var(--color-accent);
-  transition: color var(--transition-fast);
-}
-
-.gps a:hover,
-.gps a:focus {
-  text-decoration: underline;
 }
 
 /* Caption Divider */
@@ -314,31 +288,114 @@
    -------------------------------------------------------------------------- */
 
 .exif-row {
+  color: var(--color-text-muted);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 3vmin 2vmax;
   font-family: system-ui, sans-serif;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-style: normal;
-  padding: 0.5rem;
+  padding: .25rem;
   white-space: nowrap;
   letter-spacing: 0.025em;
-  background: var(--color-exif);
-  border-bottom-left-radius: var(--thumbnail-radius);
-  border-bottom-right-radius: var(--thumbnail-radius);
-  box-shadow: var(--shadow-neumorphic);
+  text-shadow: var(--caption-text-shadow);
 }
 
-.format {
+.caption-header time {
+  justify-self: end;
+  color: var(--color-text-muted);
   font-size: var(--font-size-xs);
-  font-weight: 700;
-  background: var(--color-format-bg);
-  color: var(--color-format-text);
+  white-space: nowrap;
+}
+
+.caption-header .gps {
+  justify-self: start;
+}
+
+.caption-header .gps a {
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  font-family: var(--font-family-mono);
+  text-decoration: none;
+  color: var(--color-accent);
+  transition: color var(--transition-fast);
+}
+
+.caption-header .gps a:hover,
+.caption-header .gps a:focus {
+  text-decoration: underline;
+}
+
+.exif-row span {
+ 
+}
+
+.exif-row .format {
+  font-size: var(--font-size-xs);
+  /* font-weight: 700; */
+  background: none;
+  border: solid 1px #666;
   border-radius: var(--thumbnail-radius);
   padding: 0.1em 0.4em;
   display: inline-block;
   vertical-align: middle;
+  text-shadow: none;
+  box-shadow: var(--format-box-shadow);
+}
+
+
+/* --------------------------------------------------------------------------
+GALLARY
+ -------------------------------------------------------------------------- */
+.gallery-controls {
+  text-align: center;
+}
+
+.gallery-buttons {
+  display: inline-flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gallery-btn {
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  color: var(--text-color-primary);
+  padding: 0.7em 1.7em;
+  border: 1px solid black;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) var(--transition-easing);
+}
+
+.gallery-btn:hover {
+  background-color: var(--primary-color-alpha);
+}
+
+.gallery-btn.active {
+  color: var(--color-accent);
+box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.gallery-btn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Loading state for smooth transitions */
+.photo-grid {
+  transition: opacity 0.3s ease;
+}
+
+.photo-grid.loading {
+  opacity: 0.6;
 }
 
 /* --------------------------------------------------------------------------
@@ -410,7 +467,6 @@
   }
 }
 
-/* Reduce Motion for Accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -418,5 +474,18 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .gallery-buttons {
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+    
+    .gallery-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+    }
   }
 }
