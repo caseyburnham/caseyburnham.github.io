@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Casey Burnham - Audio Engineer specializing in live sound, theater audio, and system design">
 	<meta name="author" content="Casey Burnham">
 	<title>Casey Burnham - Audio Engineer</title>
-
-	<!-- Preload critical resources -->
-	<!-- <link rel="-preload" href="css/styles-c.css" as="style"> -->
+	
 	<link rel="stylesheet" href="css/styles-c.css">
-
-	<!-- Open Graph meta tags for social sharing -->
+	
+	<!-- Open Graph meta tags -->
 	<meta property="og:title" content="Casey Burnham - Audio Engineer">
 	<meta property="og:description" content="Audio Engineer specializing in live sound, theater audio, and system design">
 	<meta property="og:type" content="website">
+	
+	<!-- Preconnect to external resources -->
+	<link rel="preconnect" href="https://www.14ers.com">
+	<link rel="dns-prefetch" href="https://www.openstreetmap.org">
 </head>
 
 <body>
+	<!-- Loading indicator -->
+	<div id="loading-indicator" class="loading-indicator" aria-hidden="true">
+		<div class="spinner"></div>
+	</div>
+
+	<!-- Error message container -->
+	<div id="error-container" class="error-container" role="alert" aria-live="polite"></div>
 
 	<main id="main-content">
 		<header>
@@ -32,12 +40,16 @@
 			<p>
 				I've spent the last ten years chasing clean mixes and fixing gear that swore it was working yesterday.
 				With a degree in Audio Engineering from <abbr title="University of Colorado, Denver">UCD</abbr> — mostly good for knowing which cable to blame — I now spend my days keeping mics alive, fixing things no one else saw break, and convincing everyone it was fine all along.
-
 				Originally from Idaho, I traded dirt roads for mountain trails (and potatoes for peaches). When I'm not in a black box or behind a console, I'm usually above the treeline — scrambling up peaks, letting the trail handle my truck's detailing, and dragging my dog along for the ride. He's not always impressed.
 			</p>
 
 			<div class="video-wrapper">
-				<video id="livephoto" poster="/images/posters/casey-rocky.jpeg" autoplay muted playsinline onended="this.pause();" aria-label="Casey hiking with dog in the mountains">
+				<video id="livephoto" 
+					   poster="/images/posters/casey-rocky.jpeg" 
+					   autoplay 
+					   muted 
+					   playsinline 
+					   aria-label="Casey hiking with dog in the mountains">
 					<source src="/videos/rocky.webm" type="video/webm">
 					<source src="/videos/rocky.mp4" type="video/mp4">
 					<p>Your browser does not support the video tag. <a href="/videos/rocky.mp4">Download the video</a>.</p>
@@ -101,18 +113,16 @@
 
 		<!-- Productions Table Section -->
 		<section aria-labelledby="productions-heading">
-			<h2 id="productions-heading" class="sr-only">Theater Productions</h2>
+			<h2 id="productions-heading">Theater Productions</h2>
 			<table id="productions" aria-label="Theater productions with role assignments">
-				<!-- <caption>Theater Productions and Role Assignments</caption> -->
 				<thead>
 					<tr>
 						<th scope="col">
-							<span>🎭</span>
+							<span aria-label="Theater mask">🎭</span>
 							Production
 						</th>
 						<th scope="col">Company</th>
 						<th scope="col" class="text-center">A1</th>
-						<!-- <th scope="col" class="text-center">A2</th> -->
 						<th scope="col" class="text-center">
 							<abbr title="Sound Designer">SD</abbr>
 						</th>
@@ -128,7 +138,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<!-- Content populated by productions.json -->
+					<!-- Content populated by JavaScript -->
 				</tbody>
 			</table>
 		</section>
@@ -136,22 +146,26 @@
 		<hr>
 
 		<!-- Photo Gallery Section -->
-		<section aria-labelledby="gallery-heading">
-			<h2 id="gallery-heading" class="sr-only">Photography</h2>
-
-			
+		<section aria-labelledby="gallery-heading" id="gallery-section">
+			<h2 id="gallery-heading">Photography</h2>
+			<div id="gallery-container">
+				<!-- Gallery controls and images will be inserted here -->
+			</div>
 		</section>
 
 		<hr>
 
 		<!-- Data Tables Section -->
 		<section class="data-tables" aria-labelledby="data-heading">
-			<h2 id="data-heading" class="sr-only">Personal Statistics</h2>
+			<h2 id="data-heading">Personal Statistics</h2>
 
 			<!-- Mountains Climbed -->
 			<table id="mountains" class="flex-item" aria-labelledby="mountains-caption">
 				<caption id="mountains-caption">
-					<small><a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank" rel="noopener noreferrer" aria-label="View full climbing record on 14ers.com">14ers.com</a></small>
+					<small><a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" 
+							  target="_blank" 
+							  rel="noopener noreferrer" 
+							  aria-label="View full climbing record on 14ers.com">14ers.com</a></small>
 				</caption>
 				<thead>
 					<tr>
@@ -164,22 +178,24 @@
 						<th scope="col" class="text-center">
 							<abbr title="First Ascent">FA</abbr>
 						</th>
-						<th class="text-center" scope="col">📸</th>
+						<th class="text-center" scope="col">
+							<span aria-label="Photo">📸</span>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
-					<!-- Content populated by mountains.json -->
+					<!-- Content populated by JavaScript -->
 				</tbody>
 				<tfoot>
 					<tr>
 						<td colspan="3">13ers</td>
-						<td colspan="2"class="peak-progress" data-peak-type="thirteeners" data-total="600">
+						<td colspan="2" class="peak-progress" data-peak-type="thirteeners" data-total="600">
 							<i><span id="thirteeners">0</span>/600+</i>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="3">14ers</td>
-						<td colspan="2"class="peak-progress" data-peak-type="fourteeners" data-total="58">
+						<td colspan="2" class="peak-progress" data-peak-type="fourteeners" data-total="58">
 							<i><span id="fourteeners">0</span>/58</i>
 						</td>
 					</tr>
@@ -198,7 +214,7 @@
 				<thead>
 					<tr>
 						<th scope="col">
-							<span aria-label="Music">🎵</span>
+							<span aria-label="Music note">🎵</span>
 							Artist
 						</th>
 						<th scope="col">Venue</th>
@@ -206,11 +222,10 @@
 						<th scope="col">
 							<span aria-label="Rating">😃</span>
 						</th>
-						<!-- <th scope="col">📷</th> -->
 					</tr>
 				</thead>
 				<tbody>
-					<!-- Content populated by concerts.json -->
+					<!-- Content populated by JavaScript -->
 				</tbody>
 				<tfoot>
 					<tr>
@@ -227,36 +242,33 @@
 				</tfoot>
 			</table>
 		</section>
+
 		<!-- Final Image -->
 		<section aria-labelledby="closing-image">
 			<h2 id="closing-image" class="sr-only">Featured Mountain Photo</h2>
-			<div class="photo-thumb footer-image">
-				<img src="/images/main/thirsty-peak.jpeg" alt="Summit view from Thirsty Peak showing expansive Colorado mountain ranges" data-title="Thirsty Peak Summit" loading="lazy">
+			<div class="photo-thumb featured-image">
+				<img src="/images/main/thirsty-peak.jpeg" 
+					 alt="Summit view from Thirsty Peak showing expansive Colorado mountain ranges" 
+					 data-title="Thirsty Peak Summit" 
+					 loading="lazy">
 			</div>
 		</section>
 	</main>
 
 	<footer>
+		<p>
+			&copy;2025
+			<a href="mailto:casey@crashburnham.com" aria-label="Email Casey Burnham">Casey Burnham</a>
+		</p>
 		<p class="flags" aria-label="Pride flags">
 			<span aria-label="Pride flag">🏳️‍🌈</span>
 			<span aria-label="Trans pride flag">🏳️‍⚧️</span>
 			<span aria-label="Pirate flag">🏴‍☠️</span>
 			<span aria-label="Colorado flag">🏴󠁵󠁳󠁣󠁯󠁿</span>
 		</p>
-		<address>
-		<p>
-			&copy;2025
-			<a href="mailto:casey@crashburnham.com" aria-label="Email Casey Burnham">Casey Burnham</a>
-		</p>
-		</address>
-		
 	</footer>
 
 	<!-- Scripts -->
-	<script src="scripts/video.js" defer></script>
-	<script src="scripts/tables.js" defer></script>
-	<script src="scripts/galley-swap.js" defer></script>
-	<script src="scripts/modal.js" defer></script>
+	<script src="scripts/app.js" type="module"></script>
 </body>
-
 </html>

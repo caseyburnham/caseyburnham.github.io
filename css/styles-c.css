@@ -18,7 +18,7 @@
 	--text-color-secondary: rgba(0, 0, 0, 0.7);
 	--text-color-muted: rgba(0, 0, 0, 0.5);
 	--border-color: #000000;
-	--accent-hover: #f3ad00; /* International Orange */
+	--accent-color: #f3ad00; /* International Orange */
 	
 	/* Venue Colors */
 	--venue-red-rocks: #ff4500;
@@ -46,6 +46,8 @@
 	--font-family-ui: ui-rounded, system-ui, sans-serif;
 	--font-family-mono: "Noto Sans Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 	
+	--font-size-xxxs: 0.45rem;
+	--font-size-xxs: 0.65rem;
 	--font-size-xs: 0.75rem;
 	--font-size-sm: 0.85rem;
 	--font-size-base: 1rem;
@@ -119,7 +121,7 @@ html {
 	font-size: var(--font-size-base);
 	font-weight: var(--font-weight-normal);
 	line-height: var(--line-height-base);
-	padding: var(--space-2xl);
+	padding: var(--space-2xl) var(--space-2xl) var(--space-lg) var(--space-2xl);
 }
 
 /* ==========================================================================
@@ -159,6 +161,15 @@ abbr {
 	cursor: help;
 }
 
+address {
+	font-style: normal;
+	font-variant: all-petite-caps;
+}
+
+footer p {
+	margin: 0;
+}
+
 section p {
 	flex: 1;
 	text-indent: 5em;
@@ -180,7 +191,7 @@ sup {
 }
 
 .tagline {
-	   color: var(--text-color-muted)
+	   color: var(--color-accent)
 }
 
 /* ==========================================================================
@@ -225,10 +236,6 @@ details li {
 }
 
 details li::marker {
-transition: color var(--transition-duration) var(--transition-easing);
-}
-
-details li:hover::marker {
 	color: var(--color-accent);
 }
 
@@ -249,8 +256,9 @@ table {
 }
 
 table hr {
-	margin-top: var(--space-md);
-	margin-bottom: var(--space-md);
+	margin-top: var(--space-sm);
+	margin-bottom: var(--space-sm);
+	width: 50%
 }
 
 tbody {
@@ -272,6 +280,7 @@ td {
 td time {
 	/* font-size: var(--font-size-xs); */
 	text-align: center;
+	text-wrap: nowrap;
 }
 
 td sup {
@@ -300,6 +309,28 @@ caption {
 
 #productions td:nth-last-child(-n+5) {
 	text-align: center;
+}
+
+.statistics {
+	text-align: center;
+}
+
+.year-summary-row {
+	background-color: var(--primary-color-alpha);
+	border: none;
+}
+
+.year-summary-row td {
+	vertical-align: middle;
+}
+
+/* Specific styling for the text part of the summary */
+.year-summary-row td:first-child {
+	text-align: left; /* Keep text aligned to the left */
+}
+
+.year-summary-row td:last-child {
+	text-align: left; /* Keep text aligned to the left */
 }
 
 /* ===========================================
@@ -377,13 +408,12 @@ caption {
    ========================================================================== */
 /* Horizontal Rules */
 hr {
-	margin-top: 2em;
-	margin-bottom: 2em;
-	width: 50%;
-	/* opacity: 0.25; */
-	border: none;
-	height: 1px;
-	background-color: var(--color-accent);
+	margin-top: var(--space-md);
+	margin-bottom: var(--space-md);
+	  border: none;         /* remove default border */
+	  height: 1px;          /* set thickness */
+	  background: #333;     /* set color */
+	  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
 }
 
 /* Video Components */
@@ -406,10 +436,7 @@ video {
 	object-fit: cover;
 }
 
-/* Featured Footer Image */
-.featured-image {
-	margin: var(--space-md);
-}
+
 
 /* ==========================================================================
    10. UTILITY CLASSES
@@ -531,6 +558,8 @@ video {
 	section p {
 		text-indent: 1em;
 	}
+	
+	
 }
 
 @media (max-width: 768px) {
@@ -540,6 +569,10 @@ video {
 	
 	section.data-tables .flex-item {
 		min-width: 100%;
+	}
+	td time {
+		font-size: var(--font-size-xs);
+		text-wrap: wrap;
 	}
 }
 
