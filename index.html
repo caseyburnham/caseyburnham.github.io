@@ -164,6 +164,7 @@
 						<th scope="col" class="text-center">
 							<abbr title="First Ascent">FA</abbr>
 						</th>
+						<th class="text-center" scope="col">📸</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -172,19 +173,19 @@
 				<tfoot>
 					<tr>
 						<td colspan="3">13ers</td>
-						<td class="peak-progress" data-peak-type="thirteeners" data-total="600">
+						<td colspan="2"class="peak-progress" data-peak-type="thirteeners" data-total="600">
 							<i><span id="thirteeners">0</span>/600+</i>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="3">14ers</td>
-						<td class="peak-progress" data-peak-type="fourteeners" data-total="58">
+						<td colspan="2"class="peak-progress" data-peak-type="fourteeners" data-total="58">
 							<i><span id="fourteeners">0</span>/58</i>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="3">Peaks Bagged</td>
-						<td><strong><span id="totalMountains">0</span></strong></td>
+						<td colspan="2"><strong><span id="totalMountains">0</span></strong></td>
 					</tr>
 				</tfoot>
 			</table>
@@ -226,38 +227,34 @@
 				</tfoot>
 			</table>
 		</section>
-
 		<!-- Final Image -->
 		<section aria-labelledby="closing-image">
 			<h2 id="closing-image" class="sr-only">Featured Mountain Photo</h2>
-			<div class="photo-thumb featured-image">
+			<div class="photo-thumb footer-image">
 				<img src="/images/main/thirsty-peak.jpeg" alt="Summit view from Thirsty Peak showing expansive Colorado mountain ranges" data-title="Thirsty Peak Summit" loading="lazy">
 			</div>
 		</section>
 	</main>
 
 	<footer>
-		<p>
-			&copy;2025
-			<a href="mailto:casey@crashburnham.com" aria-label="Email Casey Burnham">Casey Burnham</a>
-		</p>
 		<p class="flags" aria-label="Pride flags">
 			<span aria-label="Pride flag">🏳️‍🌈</span>
 			<span aria-label="Trans pride flag">🏳️‍⚧️</span>
 			<span aria-label="Pirate flag">🏴‍☠️</span>
 			<span aria-label="Colorado flag">🏴󠁵󠁳󠁣󠁯󠁿</span>
 		</p>
+		<address>
+		<p>
+			&copy;2025
+			<a href="mailto:casey@crashburnham.com" aria-label="Email Casey Burnham">Casey Burnham</a>
+		</p>
+		</address>
+		
 	</footer>
 
 	<!-- Scripts -->
 	<script src="scripts/video.js" defer></script>
 	<script src="scripts/tables.js" defer></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', () => {
-			window.photoModal = new PhotoModal();
-		});
-	</script>
-
 	<script src="scripts/galley-swap.js" defer></script>
 	<script src="scripts/modal.js" defer></script>
 </body>

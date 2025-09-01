@@ -2,6 +2,7 @@
 class TableManager {
   constructor() {
 	this.data = {};
+	this.exifData = {}; // To store exif-data.json
 	this.init();
   }
 
@@ -14,12 +15,15 @@ class TableManager {
   }
 
   async loadAllTables() {
+	// Load exif data first as it might be needed by other loaders
+	await this.fetchExifData();
+
 	const loaders = [
 	  this.loadProductions(),
-	  this.loadMountains(),
+	  this.loadMountains(), // loadMountains now depends on exifData
 	  this.loadConcerts()
 	];
-	
+
 	await Promise.allSettled(loaders);
 	this.highlightVenues(); // Apply highlighting after all tables are loaded
   }
@@ -37,7 +41,22 @@ class TableManager {
 	}
   }
 
-  // PRODUCTIONS TABLE
+  /**
+   * Fetches EXIF data from 'exif-data.json' and stores it.
+   */
+  async fetchExifData() {
+	try {
+	  // Assuming exif-data.json is in the same directory as the HTML or accessible via this path
+	  const response = await fetch('json/exif-data.json');
+	  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+	  this.exifData = await response.json();
+	} catch (error) {
+	  console.error('Error loading exif data:', error);
+	  this.exifData = {}; // Ensure it's an empty object on failure
+	}
+  }
+
+  // PRODUCTIONS TABLE (remains unchanged)
   async loadProductions() {
 	const data = await this.fetchData('/json/productions.json', 'productions');
 	const tableBody = document.querySelector('#productions tbody');
@@ -58,28 +77,100 @@ class TableManager {
 	tableBody.append(...rows);
   }
 
-  // MOUNTAINS TABLE
+  // MOUNTAINS TABLE (modified to incorporate EXIF dates and yearly summaries)
   async loadMountains() {
 	const data = await this.fetchData('json/mountains.json', 'mountains');
 	const tbody = document.querySelector('#mountains tbody');
 	if (!tbody || !data.length) return;
 
-	// Generate table rows
-	const rows = data.map(({ Peak, Elevation, Range, Count, Date, Image }) => 
-	  this.createRow([
-		`${Peak}${Count > 1 ? ` <small>x${Count}</small>` : ''}`,
-		Elevation,
-		Range,
-		Date ? `<time class="nowrap" datetime="${Date}">${Date}</time>` : ""
-		//Image ? `<button class="camera-link" data-title="${Peak}" data-image="${Image}"></button>` : ""
-	  ])
-	);
+	const allTableRows = []; // To store all generated TR elements (mountains and summaries)
+
+	// First, process each mountain to get its final display date and sort it
+	const processedMountains = data.map(mountain => {
+	  let displayDate = mountain.Date;
+	  let dateTimeAttr = mountain.Date;
+
+	  if (mountain.Image && this.exifData && typeof this.exifData === 'object') {
+		const normalizedImagePath = mountain.Image.replace(/^\/images\//, '');
+		const exifEntry = this.exifData[normalizedImagePath];
+
+		if (exifEntry && exifEntry.date) {
+		  const { year, month, day } = exifEntry.date;
+		  // Format the date as YYYY-MM-DD, ensuring month and day are two digits
+		  displayDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+		  dateTimeAttr = displayDate;
+		}
+	  }
+	  return { ...mountain, displayDate, dateTimeAttr, year: displayDate ? displayDate.substring(0, 4) : 'N/A' };
+	});
+
+	// Sort mountains by date in descending order (most recent first)
+	processedMountains.sort((a, b) => {
+	  if (a.displayDate < b.displayDate) return 1;
+	  if (a.displayDate > b.displayDate) return -1;
+	  return 0;
+	});
+
+	let currentYear = null;
+	let peaksInCurrentYear = 0;
+
+	// Iterate through sorted mountains to add year summary rows
+	processedMountains.forEach((mountain, index) => {
+	  const year = mountain.year;
+
+	  if (currentYear === null) {
+		// First mountain, initialize currentYear
+		currentYear = year;
+	  } else if (year !== currentYear) {
+		// Year changed, add summary for the previous year
+		allTableRows.push(this.createYearSummaryRow(currentYear, peaksInCurrentYear, 5)); // 5 is the total number of columns
+		currentYear = year;
+		peaksInCurrentYear = 0; // Reset count for the new year
+	  }
+
+	  // Add the mountain row
+	  allTableRows.push(
+		this.createRow([
+		  `${mountain.Peak}${mountain.Count > 1 ? ` <small>x${mountain.Count}</small>` : ''}`,
+		  mountain.Elevation,
+		  mountain.Range,
+		  mountain.displayDate ? `<time datetime="${mountain.dateTimeAttr}">${mountain.displayDate}</time>` : "",
+		  mountain.Image ? `<button class="camera-link" data-title="${mountain.Peak}" data-image="${mountain.Image}"></button>` : ""
+		])
+	  );
+	  peaksInCurrentYear++;
+
+	  // If this is the last mountain, add the summary for its year
+	  if (index === processedMountains.length - 1) {
+		allTableRows.push(this.createYearSummaryRow(currentYear, peaksInCurrentYear, 5));
+	  }
+	});
 
 	tbody.innerHTML = '';
-	tbody.append(...rows);
+	tbody.append(...allTableRows);
 
-	// Update statistics and progress bars
+	// Update statistics and progress bars (using the original data for consistency)
 	this.updateMountainStats(data);
+  }
+
+  // Helper to create a year summary row with two cells
+  createYearSummaryRow(year, count, totalColumns) {
+	const row = document.createElement('tr');
+	row.classList.add('year-summary-row'); // Add a class for styling
+
+	// First cell for the descriptive text, spanning all columns but the last
+	const textCell = document.createElement('td');
+	textCell.setAttribute('colspan', totalColumns - 2);
+	textCell.innerHTML = `Bags in <i>${year}</i>`;
+	row.append(textCell);
+
+	// Second cell for the count, spanning the last column
+	const countCell = document.createElement('td');
+	countCell.setAttribute('colspan', 2);
+	countCell.innerHTML = `<strong>${count}</strong>`;
+	row.append(countCell);
+
+	return row;
   }
 
   updateMountainStats(mountains) {
@@ -113,7 +204,7 @@ class TableManager {
 	});
   }
 
-  // CONCERTS TABLE
+  // CONCERTS TABLE (remains unchanged)
   async loadConcerts() {
 	const data = await this.fetchData('json/concerts.json', 'concerts');
 	const tbody = document.querySelector('#concerts tbody');
@@ -143,7 +234,7 @@ class TableManager {
 
   updateConcertStats(data) {
 	const { artists, venues } = this.countArtistsAndVenues(data);
-	
+
 	const topArtists = this.getTopItems(artists, 8);
 	const topVenues = this.getTopItems(venues, 8);
 
@@ -158,12 +249,12 @@ class TableManager {
 	data.forEach(concert => {
 	  const { Headliner, Support, Venue } = concert;
 
-// Count main artist
+	  // Count main artist
 	  const mainArtist = Headliner.trim();
 	  if (mainArtist.toLowerCase() !== 'et al.' && mainArtist.toLowerCase() !== 'decadence') {
 		artistCounts.set(mainArtist, (artistCounts.get(mainArtist) || 0) + 1);
 	  }
-	  
+
 	  // Count support acts
 	  if (Support) {
 		const supportActs = Support.split(',').map(act => act.trim());
@@ -187,11 +278,11 @@ class TableManager {
 	return Array.from(countMap.entries())
 	  .sort((a, b) => b[1] - a[1])
 	  .slice(0, limit)
-	  .map(([name, count]) => `<span class="nowrap">${name} <small>x${count}</small></span><wbr>`)
-	  .join(', ');
+	  .map(([name, count]) => `<span class="nowrap">${name} <small>x${count}</small></span>`)
+	  .join(', <wbr>');
   }
 
-  // VENUE HIGHLIGHTING
+  // VENUE HIGHLIGHTING (remains unchanged)
   highlightVenues() {
 	const venues = [
 	  { name: 'Red Rocks', className: 'venue--red-rocks' },
@@ -207,14 +298,14 @@ class TableManager {
 
   styleWord(word, className) {
 	const walker = document.createTreeWalker(
-	  document.body, 
+	  document.body,
 	  NodeFilter.SHOW_TEXT,
 	  {
 		acceptNode: (node) => {
 		  // Skip script and style tags
 		  const parent = node.parentElement;
-		  return parent && !['SCRIPT', 'STYLE'].includes(parent.tagName) 
-			? NodeFilter.FILTER_ACCEPT 
+		  return parent && !['SCRIPT', 'STYLE'].includes(parent.tagName)
+			? NodeFilter.FILTER_ACCEPT
 			: NodeFilter.FILTER_REJECT;
 		}
 	  }
@@ -229,7 +320,7 @@ class TableManager {
 	textNodes.forEach(textNode => {
 	  const text = textNode.nodeValue;
 	  const regex = new RegExp(`\\b(${this.escapeRegex(word)})\\b`, 'gi');
-	  
+
 	  if (regex.test(text)) {
 		const newText = text.replace(regex, `<span class="${className}">$1</span>`);
 		const wrapper = document.createElement('span');
@@ -243,7 +334,7 @@ class TableManager {
 	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
-  // UTILITY METHODS
+  // UTILITY METHODS (remains unchanged)
   createRow(cells) {
 	const row = document.createElement('tr');
 	row.innerHTML = cells.map(cell => `<td>${cell}</td>`).join('');

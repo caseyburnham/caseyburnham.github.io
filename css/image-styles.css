@@ -102,11 +102,6 @@
   transform: scale(1.1);
 }
 
-.camera-link:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
 /* Emoji State Management */
 .camera-link::before {
   content: "📷";
@@ -176,6 +171,11 @@
   outline-offset: 2px;
 }
 
+/* Featured Footer Image */
+.footer-image {
+  margin: var(--space-md) 0 0 0;
+}
+
 /* --------------------------------------------------------------------------
    MODAL OVERLAY & CONTENT
    -------------------------------------------------------------------------- */
@@ -231,8 +231,8 @@
   bottom: 0;
   left: 0;
   width: stretch;
-    width: -moz-available;
-    width: -webkit-fill-available;
+  width: -moz-available;
+  width: -webkit-fill-available;
   font-family: var(--font-family-ui);
   box-sizing: border-box;
   background: var(--color-modal-bg);
@@ -292,7 +292,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 3vmin 2vmax;
+  gap: .5rem;
   font-family: system-ui, sans-serif;
   font-size: var(--font-size-xs);
   font-style: normal;
@@ -303,19 +303,21 @@
 }
 
 .caption-header time {
-  justify-self: end;
+  justify-self: center;
   color: var(--color-text-muted);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-xxs);
   white-space: nowrap;
 }
 
 .caption-header .gps {
-  justify-self: start;
+  display: flex;
+  justify-self: center;
+  align-items: center;
 }
 
 .caption-header .gps a {
-  font-size: var(--font-size-xs);
-  white-space: nowrap;
+  font-size: var(--font-size-xxs);
+  white-space: wrap;
   font-family: var(--font-family-mono);
   text-decoration: none;
   color: var(--color-accent);
@@ -325,10 +327,6 @@
 .caption-header .gps a:hover,
 .caption-header .gps a:focus {
   text-decoration: underline;
-}
-
-.exif-row span {
- 
 }
 
 .exif-row .format {
@@ -349,31 +347,40 @@
 GALLARY
  -------------------------------------------------------------------------- */
 .gallery-controls {
-  text-align: center;
-}
-
-.gallery-buttons {
-  display: inline-flex;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.gallery-btn {
-  font-family: inherit;
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  color: var(--text-color-primary);
-  padding: 0.7em 1.7em;
-  border: 1px solid black;
-  background: transparent;
-  cursor: pointer;
-  transition: background-color var(--transition-duration) var(--transition-easing);
-}
+   text-align: center;
+   width: 100%;
+ }
+ 
+ .gallery-buttons {
+   display: flex; /* Changed from inline-flex to flex */
+   flex-wrap: wrap; /* Allow buttons to wrap on narrow screens */
+   gap: 0.5rem;
+   background: rgba(255, 255, 255, 0.1);
+   backdrop-filter: blur(10px);
+   border-radius: 12px;
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   width: 100%; /* Make container span full width */
+   max-width: 100%; /* Prevent overflow */
+ }
+ 
+ .gallery-btn {
+   font-family: inherit;
+   font-size: var(--font-size-base);
+   font-weight: 500;
+   transition: all 0.2s ease;
+   white-space: nowrap;
+   color: var(--text-color-primary);
+   padding: 0.7em 1.7em;
+   border: 1px solid black;
+   background: transparent;
+   cursor: pointer;
+   transition: background-color var(--transition-duration) var(--transition-easing);
+   
+   /* Make buttons flex to fill available space */
+   flex: 1; /* Equal distribution of space */
+   min-width: 0; /* Allow buttons to shrink below content width */
+   text-align: center; /* Center text within each button */
+ }
 
 .gallery-btn:hover {
   background-color: var(--primary-color-alpha);
@@ -456,7 +463,6 @@ box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
   }
   
   .caption-header {
-    grid-template-columns: 1fr;
     text-align: center;
     gap: 0.5rem;
   }
@@ -486,6 +492,31 @@ box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
     .gallery-btn {
       padding: 0.5rem 1rem;
       font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-buttons {
+      flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+    
+    .gallery-btn {
+      flex: none; /* Reset flex on mobile for natural height */
+      width: 100%; /* Full width on mobile */
+    }
+  }
+  
+  /* Alternative approach: Keep horizontal but allow more wrapping */
+  @media (max-width: 480px) {
+    .gallery-btn {
+      flex: 1 1 calc(50% - 0.25rem); /* Two buttons per row on very small screens */
+      min-width: calc(50% - 0.25rem);
+    }
+  }
+  
+  @media (max-height: 400px) {
+    .caption-header .gps a {
+      font-size: var(--font-size-xxxs);
     }
   }
 }
