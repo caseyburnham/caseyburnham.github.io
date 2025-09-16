@@ -1,0 +1,249 @@
+/* --------------------------------------------------------------------------
+GALLERY
+ -------------------------------------------------------------------------- */
+.gallery-controls {
+	text-align: center;
+	width: 100%;
+}
+
+.gallery-buttons {
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: var(--border-radius-lg);
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-sm);
+	max-width: 100%;
+	width: 100%;
+}
+
+.gallery-btn {
+	background: transparent;
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius-sm);
+	color: var(--text-color-primary);
+	cursor: pointer;
+	flex: 1;
+	font-family: inherit;
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-normal);
+	min-width: 0;
+	text-align: center;
+	transition: background-color var(--transition-medium);
+	white-space: nowrap;
+}
+
+.gallery-btn:hover {
+	background-color: var(--accent-color-alpha);
+}
+
+.gallery-btn.active {
+	/* box-shadow: var(--shadow-btn); */
+	color: var(--text-color-light);
+	font-weight: var(--font-weight-heavy);
+	background: var(--accent-color-light);
+}
+
+.gallery-btn:focus {
+	outline: 2px solid rgba(255, 255, 255, 0.5);
+	outline-offset: 2px;
+}
+
+.photo-grid {
+	transition: opacity 0.3s ease;
+}
+
+.photo-grid.loading {
+	opacity: 0.6;
+}
+
+/* --------------------------------------------------------------------------
+   PHOTO GRID LAYOUT
+   -------------------------------------------------------------------------- */
+
+.photo-grid {
+	display: grid;
+	gap: var(--grid-gap);
+}
+
+/* Grid Layout Variants */
+.landscape-row {
+	grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-landscape), 1fr));
+}
+
+.portrait-row {
+	grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-portrait), 1fr));
+}
+
+.pano-row {
+	grid-template-columns: 1fr;
+}
+
+/* Grid Item Types */
+.pano {
+	grid-column: 1 / -1;
+}
+
+.landscape,
+.portrait {}
+
+/* --------------------------------------------------------------------------
+   INTERACTIVE BUTTONS
+   -------------------------------------------------------------------------- */
+
+.camera-link {
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: var(--font-size-lg);
+	padding: var(--space-xs);
+	position: relative;
+	transition: transform var(--transition-fast);
+}
+
+.camera-link:hover {
+	transform: scale(1.1);
+}
+
+/* Emoji State Management */
+.camera-link::before {
+	content: "📷";
+	opacity: 1;
+	transition: opacity var(--transition-medium);
+}
+
+.camera-link::after {
+	content: "📸";
+	left: var(--space-xs);
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	top: var(--space-xs);
+	transition: opacity var(--transition-medium);
+}
+
+.camera-link:hover::before {
+	opacity: 0;
+}
+
+.camera-link:hover::after {
+	opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   PHOTO THUMBNAILS
+   -------------------------------------------------------------------------- */
+
+.photo-thumb {
+	border-radius: var(--border-radius-sm);
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+	transition:
+		transform var(--transition-medium),
+		box-shadow var(--transition-medium);
+	will-change: transform;
+	z-index: 10;
+}
+
+.photo-thumb img {
+	display: block;
+	filter: grayscale(100%) contrast(1.1);
+	height: 100%;
+	object-fit: cover;
+	transition:
+		transform var(--transition-medium),
+		filter var(--transition-medium);
+	width: 100%;
+	will-change: transform, filter;
+}
+
+/* Hover Effects */
+.photo-thumb:hover {
+	box-shadow: var(--shadow-elevated);
+	transform: translateY(-0.25rem) scale(1.02);
+}
+
+.photo-thumb:hover img{
+	filter: grayscale(0%) contrast(1.2);
+	transform: scale(1.1);
+}
+
+/* Focus State for Accessibility */
+.photo-thumb:focus {
+	outline: 2px solid var(--accent-color);
+	outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+VIDEO
+ -------------------------------------------------------------------------- */
+video {
+	border-radius: var(--border-radius-sm);
+	box-shadow: var(--shadow-media);
+	height: 100%;
+	left: 0;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.video-wrapper {
+	position: relative;
+	width: 30%;
+}
+
+/* --------------------------------------------------------------------------
+RESPONSIVE DESIGN
+ -------------------------------------------------------------------------- */
+/* Tablet and Desktop */
+@media (min-width: 600px) {
+
+	.landscape-row,
+	.portrait-row {
+		width: 100%;
+		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+	}
+}
+
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+	.gallery-btn {
+		flex: 1 1 calc(50% - var(--space-xs));
+		min-width: calc(50% - var(--space-xs));
+	}
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+	.gallery-buttons {
+		flex-wrap: wrap;
+		gap: var(--space-sm);
+	}
+
+	.gallery-btn {
+		font-size: var(--font-size-sm);
+		padding: var(--space-sm) var(--space-md);
+	}
+}
+
+@media (max-width: 768px) {
+	.gallery-buttons {
+		flex-direction: column;
+		/* Stack buttons vertically on small screens */
+	}
+
+	.gallery-btn {
+		flex: none;
+		/* Reset flex on mobile for natural height */
+		width: 100%;
+		/* Full width on mobile */
+	}
+}
+@media (max-width: 1200px) {
+
+	.gallery-btn {
+		font-size: var(--font-size-xs);
+	}
+}

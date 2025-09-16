@@ -12,14 +12,15 @@ node_modules/
 package-lock.json
 package.json
 
-# exif-reader
--exif-reader.js
-extract-exif.js
+# Utility Scripts
+utility/
+how-to-update-gal.txt
+update-gal.py
 
-# Python cache
+# Python
 __pycache__/
 *.pyc
-json/add.py
+venv/
 
 # Log files
 *.log
