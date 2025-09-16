@@ -51,6 +51,10 @@
 	padding: var(--container-padding);
 	pointer-events: none;
 	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	text-align: center;
 	transition: opacity var(--transition-medium);
 	z-index: 998;
@@ -68,6 +72,10 @@
 	max-width: var(--modal-max-width);
 	overflow: hidden;
 	position: relative;
+	padding-top: env(safe-area-inset-top);
+	  padding-right: env(safe-area-inset-right);
+	  padding-bottom: env(safe-area-inset-bottom);
+	  padding-left: env(safe-area-inset-left);
 }
 
 .modal-card img {
@@ -96,12 +104,30 @@
 	position: absolute;
 	transform: translateY(10px);
 	transition: opacity var(--transition-medium), transform var(--transition-medium);
+	width: stretch;
 	width: -webkit-fill-available;
+	width: -moz-available;
 }
 
-.modal-card:hover .modal-caption {
+.modal-card:hover .modal-caption,
+.modal-card.caption-active .modal-caption {
 	opacity: 1;
 	transform: translateY(0);
+	pointer-events: auto;
+}
+
+@media (hover: hover) {
+  .modal-card.caption-active .modal-caption {
+	opacity: 0; /* Hide caption if active class is present on hover-capable device */
+	pointer-events: none;
+	transform: translateY(20px);
+  }
+  
+  .modal-card:hover .modal-caption {
+	opacity: 1; /* Ensure hover still works */
+	transform: translateY(0);
+	pointer-events: auto;
+  }
 }
 
 .caption-header {
@@ -170,7 +196,20 @@
 	border-top: 1px solid var(--color-border);
 	margin: var(--space-sm);
 	opacity: 50%;
+	width: stretch;
 	width: -webkit-fill-available;
+	width: -moz-available;
+}
+
+.modal-copyright {
+  padding: var(--space-sm);
+  text-align: center;
+  font-family: var(--font-family-ui);
+  font-variant: lining-nums;
+  font-size: var(--font-size-xxs);
+  color: var(--text-color-muted);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
@@ -209,8 +248,8 @@
 
 .modal-close {
 	align-items: center;
-	background: var(--primary-color-alpha);
-	border: none;
+	background: var(--bg-color-main);
+	border: 1px solid var(--accent-color);
 	border-radius: 50%;
 	color: var(--accent-color);
 	cursor: pointer;

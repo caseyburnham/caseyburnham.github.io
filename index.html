@@ -4,7 +4,7 @@
 <head>
 	<!-- META -->
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<meta name="description" content="Casey Burnham - Audio Engineer specializing in live sound, theater audio, and system design">
 	<meta name="author" content="Casey Burnham">
 	<meta name="web_author" content="Casey Burnham">
@@ -32,8 +32,8 @@
 
 	<main id="main-content">
 		<header>
-			<span><h1>Casey Burnham, </h1><h2><small>Audio Director</small></h2></span>
-			<p class="tagline">Audio Engineer & Elevation Enthusiast</p>
+			<span><h1>Casey Burnham</h1>
+			<p class="tagline">Audio Director, Engineer & Elevation Enthusiast</p>
 		</header>
 
 		<!-- Personal Bio Section -->
@@ -157,7 +157,19 @@
 		<!-- Photo Gallery Section -->
 		<section aria-labelledby="gallery-heading">
 			<h2 id="gallery-heading" class="sr-only">Photography</h2>
-
+				<!-- Populated by galleries.js -->
+				
+				<template id="gallery-button-template">
+				  <button type="button" class="gallery-btn" role="tab" aria-selected="false" data-gallery="">
+					</button>
+				</template>
+				
+				<template id="photo-thumb-template">
+				  <div class="photo-thumb">
+					<img src="" alt="" loading="lazy" decoding="async">
+				  </div>
+				</template>
+				
 		</section>
 
 		<hr />

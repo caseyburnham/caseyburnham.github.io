@@ -7,9 +7,6 @@ GALLERY
 }
 
 .gallery-buttons {
-	background: rgba(255, 255, 255, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-radius: var(--border-radius-lg);
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--space-sm);
@@ -28,9 +25,10 @@ GALLERY
 	font-size: var(--font-size-sm);
 	font-weight: var(--font-weight-normal);
 	min-width: 0;
+	padding: var(--space-sm);
 	text-align: center;
 	transition: background-color var(--transition-medium);
-	white-space: nowrap;
+	text-wrap: wrap;
 }
 
 .gallery-btn:hover {
@@ -38,7 +36,6 @@ GALLERY
 }
 
 .gallery-btn.active {
-	/* box-shadow: var(--shadow-btn); */
 	color: var(--text-color-light);
 	font-weight: var(--font-weight-heavy);
 	background: var(--accent-color-light);
@@ -88,7 +85,7 @@ GALLERY
 .portrait {}
 
 /* --------------------------------------------------------------------------
-   INTERACTIVE BUTTONS
+   CAMERA BUTTONS
    -------------------------------------------------------------------------- */
 
 .camera-link {
@@ -135,6 +132,8 @@ GALLERY
    -------------------------------------------------------------------------- */
 
 .photo-thumb {
+	aspect-ratio: 4 / 3;
+	background: var(--bg-color-loading);
 	border-radius: var(--border-radius-sm);
 	cursor: pointer;
 	overflow: hidden;
@@ -143,7 +142,15 @@ GALLERY
 		transform var(--transition-medium),
 		box-shadow var(--transition-medium);
 	will-change: transform;
-	z-index: 10;
+	z-index: 10;	
+}
+
+.photo-grid.portrait-row .photo-thumb {
+  aspect-ratio: 3 / 4;
+}
+
+.photo-grid.pano-row .photo-thumb {
+  aspect-ratio: 16 / 9;
 }
 
 .photo-thumb img {
@@ -199,7 +206,6 @@ RESPONSIVE DESIGN
  -------------------------------------------------------------------------- */
 /* Tablet and Desktop */
 @media (min-width: 600px) {
-
 	.landscape-row,
 	.portrait-row {
 		width: 100%;
@@ -223,7 +229,6 @@ RESPONSIVE DESIGN
 	}
 
 	.gallery-btn {
-		font-size: var(--font-size-sm);
 		padding: var(--space-sm) var(--space-md);
 	}
 }
@@ -231,18 +236,14 @@ RESPONSIVE DESIGN
 @media (max-width: 768px) {
 	.gallery-buttons {
 		flex-direction: column;
-		/* Stack buttons vertically on small screens */
 	}
 
 	.gallery-btn {
 		flex: none;
-		/* Reset flex on mobile for natural height */
 		width: 100%;
-		/* Full width on mobile */
 	}
 }
 @media (max-width: 1200px) {
-
 	.gallery-btn {
 		font-size: var(--font-size-xs);
 	}

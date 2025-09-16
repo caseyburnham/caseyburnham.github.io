@@ -114,6 +114,7 @@ class PhotoModal {
 			modalContent: modal.querySelector('.modal-content'),
 			modalImg: modal.querySelector('img'),
 			caption: modal.querySelector('.modal-caption'),
+			copyright: modal.querySelector('.modal-copyright'), 
 			closeBtn: modal.querySelector('.modal-close'),
 			modalCard: modal.querySelector('.modal-card'),
 		};
@@ -395,33 +396,39 @@ class PhotoModal {
 		return {};
 	}
 
-
 	// ----- UI/DOM Manipulation -----
-
-
-
-
+	
 	/**
 	 * Updates the modal caption with a title and EXIF data.
 	 * @private
 	 */
-	#updateCaption(title, imageSrc, sourceElement) {
-		const {
-			caption,
-			modal
-		} = this.#state.elements;
-		const exifData = this.#findExifData(imageSrc);
-		caption.innerHTML = this.#buildCaptionHTML(title, exifData);
-
-		const titleElement = caption.querySelector('.caption-header .title');
-		if (titleElement) {
-			const id = `modal-title-${Date.now()}`;
-			titleElement.id = id;
-			modal.setAttribute('aria-labelledby', id);
-		} else {
-			modal.removeAttribute('aria-labelledby');
-		}
-	}
+	 #updateCaption(title, imageSrc, sourceElement) {
+	   const { caption, modal, copyright } = this.#state.elements;
+	   const exifData = this.#findExifData(imageSrc);
+	   
+	   console.log('EXIF data for this image:', exifData);
+	 
+	   // --- Update Caption ---
+	   caption.innerHTML = this.#buildCaptionHTML(title, exifData);
+	 
+	   const titleElement = caption.querySelector('.caption-header .title');
+	   if (titleElement) {
+		 const id = `modal-title-${Date.now()}`;
+		 titleElement.id = id;
+		 modal.setAttribute('aria-labelledby', id);
+	   } else {
+		 modal.removeAttribute('aria-labelledby');
+	   }
+	 
+	   // --- Update Copyright ---
+	   if (copyright && exifData?.copyright) {
+		 copyright.textContent = exifData.copyright; 
+		 copyright.style.display = 'block';
+	   } else if (copyright) {
+		 copyright.textContent = ''; 
+		 copyright.style.display = 'none';
+	   }
+	 }
 
 	/**
 	 * Builds the HTML for the caption using EXIF data.

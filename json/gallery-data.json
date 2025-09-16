@@ -1,9 +1,9 @@
 {
     "_config": {
-        "defaultGallery": "abstractions"
+        "defaultGallery": "abstract"
     },
-    "abstractions": {
-        "name": "Abstractions",
+    "abstract": {
+        "name": "Abstract",
         "images": [
             {
                 "id": "aztec-rug",
@@ -11,9 +11,9 @@
                 "title": "Aztec Rug",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/abstractions/avif/aztec-rug.avif"
+                    "avif": "/images/galleries/abstract/avif/aztec-rug.avif"
                 },
-                "thumbnail": "/images/galleries/abstractions/thumbnails/aztec-rug.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/aztec-rug.avif"
             },
             {
                 "id": "birds-of-a-feather",
@@ -21,9 +21,9 @@
                 "title": "Birds of A Feather",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/abstractions/avif/birds-of-a-feather.avif"
+                    "avif": "/images/galleries/abstract/avif/birds-of-a-feather.avif"
                 },
-                "thumbnail": "/images/galleries/abstractions/thumbnails/birds-of-a-feather.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/birds-of-a-feather.avif"
             },
             {
                 "id": "bordello-carpet",
@@ -31,9 +31,9 @@
                 "title": "Bordello Carpet",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/abstractions/avif/bordello-carpet.avif"
+                    "avif": "/images/galleries/abstract/avif/bordello-carpet.avif"
                 },
-                "thumbnail": "/images/galleries/abstractions/thumbnails/bordello-carpet.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/bordello-carpet.avif"
             },
             {
                 "id": "frozen-rocks",
@@ -41,9 +41,9 @@
                 "title": "Frozen Rocks",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/abstractions/avif/frozen-rocks.avif"
+                    "avif": "/images/galleries/abstract/avif/frozen-rocks.avif"
                 },
-                "thumbnail": "/images/galleries/abstractions/thumbnails/frozen-rocks.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/frozen-rocks.avif"
             },
             {
                 "id": "medano-creek",
@@ -51,9 +51,9 @@
                 "title": "Medano Creek",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/abstractions/avif/medano-creek.avif"
+                    "avif": "/images/galleries/abstract/avif/medano-creek.avif"
                 },
-                "thumbnail": "/images/galleries/abstractions/thumbnails/medano-creek.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/medano-creek.avif"
             },
             {
                 "id": "paint",
@@ -61,9 +61,9 @@
                 "title": "Paint",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/abstractions/avif/paint.avif"
+                    "avif": "/images/galleries/abstract/avif/paint.avif"
                 },
-                "thumbnail": "/images/galleries/abstractions/thumbnails/paint.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/paint.avif"
             },
             {
                 "id": "sloans-lake",
@@ -71,9 +71,9 @@
                 "title": "Sloans Lake",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/abstractions/avif/sloans-lake.avif"
+                    "avif": "/images/galleries/abstract/avif/sloans-lake.avif"
                 },
-                "thumbnail": "/images/galleries/abstractions/thumbnails/sloans-lake.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/sloans-lake.avif"
             },
             {
                 "id": "upper-pomeroy",
@@ -81,9 +81,9 @@
                 "title": "Upper Pomeroy",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/abstractions/avif/upper-pomeroy.avif"
+                    "avif": "/images/galleries/abstract/avif/upper-pomeroy.avif"
                 },
-                "thumbnail": "/images/galleries/abstractions/thumbnails/upper-pomeroy.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/upper-pomeroy.avif"
             },
             {
                 "id": "yellowstone",
@@ -91,9 +91,9 @@
                 "title": "Yellowstone",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/abstractions/avif/yellowstone.avif"
+                    "avif": "/images/galleries/abstract/avif/yellowstone.avif"
                 },
-                "thumbnail": "/images/galleries/abstractions/thumbnails/yellowstone.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/yellowstone.avif"
             }
         ]
     },
