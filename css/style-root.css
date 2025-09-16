@@ -1,0 +1,234 @@
+/* ==========================================================================
+   ROOT PROPERTIES & VARIABLES
+   ========================================================================== */
+:root {
+	/* -------------------- Theme -------------------- */
+	--primary-color: #00d4c3;
+	--primary-color-alpha: rgba(0, 212, 195, 0.15);
+	--accent-color: #ff4f00;
+	--accent-color-light: rgba(255, 79, 0, 0.90);
+	--accent-color-alpha: rgba(255, 79, 0, 0.15);
+	--color-border: #333333;
+	
+	/* -------------------- Background Colors -------------------- */
+	--bg-color-main: #ffffff;
+	--bg-color-alpha: rgba(255, 255, 255, 0.5);
+	--bg-color-tooltip: rgba(151, 151, 151, 0.75);
+	
+	/* -------------------- HR -------------------- */
+	--hr-color: #ff4f00;
+
+	/* -------------------- Text -------------------- */
+	--text-color-primary: #333333;
+	--text-color-secondary: rgba(0, 0, 0, 0.7);
+	--text-color-muted: rgba(0, 0, 0, 0.5);
+	--text-color-light: #ffffff;
+
+	/* -------------------- Venue Theme Colors -------------------- */
+	--venue-red-rocks: #ff4500;
+	--venue-bluebird: #2b529c;
+	--venue-ogden: #ee2738;
+	--venue-belly-up: #1174b9;
+	--venue-golden-tri: #ffd700;
+	--venue-summit: rgb(114, 48, 223);
+	--venue-fillmore: rgb(236, 210, 77);
+	--venue-ball-arena: rgb(77, 169, 201);
+	--venue-gothic: rgb(220, 82, 52);
+	
+	/* -------------------- Progress Bars -------------------- */
+	--color-progress-bg: lightgray;
+	--color-bar-fill: linear-gradient(270deg,rgba(255, 79, 0, 1) 0%, rgba(240, 74, 0, 1) 100%);
+
+	/* -------------------- Spacing (8px base) -------------------- */
+	--space-xs: 0.25rem;
+	/* 4px */
+	--space-sm: 0.5rem;
+	/* 8px */
+	--space-ms: 0.75rem;
+	/* 12px */
+	--space-md: 1rem;
+	/* 16px */
+	--space-lg: 1.5rem;
+	/* 24px */
+	--space-xl: 2.5rem;
+	/* 40px */
+	--space-2xl: 5rem;
+	/* 80px */
+
+	/* -------------------- Typography -------------------- */
+	--font-family-ui: ui-rounded, system-ui, sans-serif;
+	--font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+	--font-size-xxs: 0.65rem;
+	--font-size-xs: 0.75rem;
+	--font-size-sm: 0.85rem;
+	--font-size-base: 1rem;
+	--font-size-lg: 1.2rem;
+	--font-size-xl: 1.5rem;
+	--font-size-h1: 5rem;
+
+	--font-weight-light: 300;
+	--font-weight-normal: 400;
+	--font-weight-heavy: 600;
+
+	--line-height-base: 1;
+	--line-height-compact: 1.3;
+	--line-height-airy: 1.5;
+	--line-height-loose: 2;
+
+	/* -------------------- Layout & Borders -------------------- */
+	--border-radius-sm: 0.25rem;
+	--border-radius-md: 20px;
+	--border-radius-lg: 0.5rem;
+
+	--container-max-width: 1200px;
+	--container-padding: 2rem;
+
+	--section-gap: 1em;
+	--grid-gap: 1rem;
+
+	--breakpoint-sm: 480px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+
+	--grid-min-width-portrait: 150px;
+	--grid-min-width-landscape: max-content;
+
+	/* -------------------- Effects & Transitions -------------------- */
+	--transition-fast: 0.2s ease;
+	--transition-medium: 0.3s ease;
+	--transition-slow: 0.4s ease;
+
+	/* -------------------- Shadows -------------------- */
+	--shadow-main:
+		rgba(0, 0, 0, 0.4) 0px 2px 4px,
+		rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+		rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+	--shadow-details:
+		rgba(0, 128, 128, 0.4) -5px 5px,
+		rgba(0, 128, 128, 0.3) -10px 10px,
+		rgba(0, 128, 128, 0.2) -15px 15px,
+		rgba(0, 128, 128, 0.1) -20px 20px;
+
+	--shadow-media:
+		rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+		rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+		rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+
+	--shadow-btn:
+		#c5c5c5 4px 4px 12px inset,
+		#ffffff -4px -4px 12px inset;
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+.flex-item {
+	flex: 1;
+	min-width: 300px;
+}
+
+.nowrap {
+	text-wrap: nowrap;
+}
+
+.sr-only {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.mb-sm {
+	margin-bottom: var(--space-sm);
+}
+
+.mb-md {
+	margin-bottom: var(--space-md);
+}
+
+.mb-lg {
+	margin-bottom: var(--space-lg);
+}
+
+.mt-sm {
+	margin-top: var(--space-sm);
+}
+
+.mt-md {
+	margin-top: var(--space-md);
+}
+
+.mt-lg {
+	margin-top: var(--space-lg);
+}
+
+.p-sm {
+	padding: var(--space-sm);
+}
+
+.p-md {
+	padding: var(--space-md);
+}
+
+.p-lg {
+	padding: var(--space-lg);
+}
+
+/* ==========================================================================
+   VENUE COLOR CLASSES
+   ========================================================================== */
+
+.venue--red-rocks {
+	color: var(--venue-red-rocks);
+}
+
+.venue--bluebird {
+	color: var(--venue-bluebird);
+}
+
+.venue--ogden {
+	color: var(--venue-ogden);
+}
+
+.venue--belly-up {
+	color: var(--venue-belly-up);
+}
+
+.venue--golden-tri {
+	color: var(--venue-golden-tri);
+}
+
+.venue--summit {
+	color: var(--venue-summit);
+}
+
+.venue--fillmore {
+	color: var(--venue-fillmore);
+}
+
+.venue--ball-arena {
+	color: var(--venue-ball-arena);
+}
+
+.venue--gothic {
+	color: var(--venue-gothic);
+}

@@ -1,0 +1,1185 @@
+{
+    "_config": {
+        "defaultGallery": "abstractions"
+    },
+    "abstractions": {
+        "name": "Abstractions",
+        "images": [
+            {
+                "id": "aztec-rug",
+                "alt": "Aztec Rug",
+                "title": "Aztec Rug",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/abstractions/avif/aztec-rug.avif"
+                },
+                "thumbnail": "/images/galleries/abstractions/thumbnails/aztec-rug.avif"
+            },
+            {
+                "id": "birds-of-a-feather",
+                "alt": "Birds of A Feather",
+                "title": "Birds of A Feather",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/abstractions/avif/birds-of-a-feather.avif"
+                },
+                "thumbnail": "/images/galleries/abstractions/thumbnails/birds-of-a-feather.avif"
+            },
+            {
+                "id": "bordello-carpet",
+                "alt": "Bordello Carpet",
+                "title": "Bordello Carpet",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/abstractions/avif/bordello-carpet.avif"
+                },
+                "thumbnail": "/images/galleries/abstractions/thumbnails/bordello-carpet.avif"
+            },
+            {
+                "id": "frozen-rocks",
+                "alt": "Frozen Rocks",
+                "title": "Frozen Rocks",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/abstractions/avif/frozen-rocks.avif"
+                },
+                "thumbnail": "/images/galleries/abstractions/thumbnails/frozen-rocks.avif"
+            },
+            {
+                "id": "medano-creek",
+                "alt": "Medano Creek",
+                "title": "Medano Creek",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/abstractions/avif/medano-creek.avif"
+                },
+                "thumbnail": "/images/galleries/abstractions/thumbnails/medano-creek.avif"
+            },
+            {
+                "id": "paint",
+                "alt": "Paint",
+                "title": "Paint",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/abstractions/avif/paint.avif"
+                },
+                "thumbnail": "/images/galleries/abstractions/thumbnails/paint.avif"
+            },
+            {
+                "id": "sloans-lake",
+                "alt": "Sloans Lake",
+                "title": "Sloans Lake",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/abstractions/avif/sloans-lake.avif"
+                },
+                "thumbnail": "/images/galleries/abstractions/thumbnails/sloans-lake.avif"
+            },
+            {
+                "id": "upper-pomeroy",
+                "alt": "Upper Pomeroy",
+                "title": "Upper Pomeroy",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/abstractions/avif/upper-pomeroy.avif"
+                },
+                "thumbnail": "/images/galleries/abstractions/thumbnails/upper-pomeroy.avif"
+            },
+            {
+                "id": "yellowstone",
+                "alt": "Yellowstone",
+                "title": "Yellowstone",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/abstractions/avif/yellowstone.avif"
+                },
+                "thumbnail": "/images/galleries/abstractions/thumbnails/yellowstone.avif"
+            }
+        ]
+    },
+    "botanic": {
+        "name": "Botanic",
+        "images": [
+            {
+                "id": "campanula",
+                "alt": "Campanula",
+                "title": "Campanula",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/campanula.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/campanula.avif"
+            },
+            {
+                "id": "chinese-fir",
+                "alt": "Chinese Fir",
+                "title": "Chinese Fir",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/chinese-fir.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/chinese-fir.avif"
+            },
+            {
+                "id": "dahlia-pinnata",
+                "alt": "Dahlia Pinnata",
+                "title": "Dahlia Pinnata",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/dahlia-pinnata.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/dahlia-pinnata.avif"
+            },
+            {
+                "id": "droplets",
+                "alt": "Droplets",
+                "title": "Droplets",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/droplets.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/droplets.avif"
+            },
+            {
+                "id": "fan",
+                "alt": "Fan",
+                "title": "Fan",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/fan.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/fan.avif"
+            },
+            {
+                "id": "flowing-fronds",
+                "alt": "Flowing Fronds",
+                "title": "Flowing Fronds",
+                "layout": "landscape",
+                "sources": {
+                    "jpeg": "/images/galleries/botanic/jpeg/flowing-fronds.jpg"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/flowing-fronds.avif"
+            },
+            {
+                "id": "geranium",
+                "alt": "Geranium",
+                "title": "Geranium",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/geranium.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/geranium.avif"
+            },
+            {
+                "id": "musk-thistle",
+                "alt": "Musk Thistle",
+                "title": "Musk Thistle",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/musk-thistle.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/musk-thistle.avif"
+            },
+            {
+                "id": "red-and-green",
+                "alt": "Red and Green",
+                "title": "Red and Green",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/red-and-green.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/red-and-green.avif"
+            },
+            {
+                "id": "trifolium-alpinum",
+                "alt": "Trifolium Alpinum",
+                "title": "Trifolium Alpinum",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/trifolium-alpinum.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/trifolium-alpinum.avif"
+            },
+            {
+                "id": "tulip",
+                "alt": "Tulip",
+                "title": "Tulip",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/tulip.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/tulip.avif"
+            },
+            {
+                "id": "violet",
+                "alt": "Violet",
+                "title": "Violet",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/violet.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/violet.avif"
+            },
+            {
+                "id": "yellow-rose",
+                "alt": "Yellow Rose",
+                "title": "Yellow Rose",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/yellow-rose.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/yellow-rose.avif"
+            }
+        ]
+    },
+    "high-country": {
+        "name": "High Country",
+        "images": [
+            {
+                "id": "american-gulch-sky",
+                "alt": "American Gulch Sky",
+                "title": "American Gulch Sky",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/american-gulch-sky.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/american-gulch-sky.avif"
+            },
+            {
+                "id": "indian-paintbrush",
+                "alt": "Indian Paintbrush",
+                "title": "Indian Paintbrush",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/indian-paintbrush.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/indian-paintbrush.avif"
+            },
+            {
+                "id": "silver-lake-flora",
+                "alt": "Silver Lake Flora",
+                "title": "Silver Lake Flora",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/silver-lake-flora.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/silver-lake-flora.avif"
+            },
+            {
+                "id": "fireweed",
+                "alt": "Fireweed",
+                "title": "Fireweed",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/fireweed.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/fireweed.avif"
+            },
+            {
+                "id": "bierstadt-billy",
+                "alt": "Bierstadt Billy",
+                "title": "Bierstadt Billy",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/bierstadt-billy.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/bierstadt-billy.avif"
+            },
+            {
+                "id": "blue-lake",
+                "alt": "Blue Lake",
+                "title": "Blue Lake",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/blue-lake.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/blue-lake.avif"
+            },
+            {
+                "id": "brainard-lake-area",
+                "alt": "Brainard Lake Area",
+                "title": "Brainard Lake Area",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/brainard-lake-area.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/brainard-lake-area.avif"
+            },
+            {
+                "id": "deer-in-american-gulch",
+                "alt": "Deer in American Gulch",
+                "title": "Deer in American Gulch",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/deer-in-american-gulch.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/deer-in-american-gulch.avif"
+            },
+            {
+                "id": "fall-on-jones-mountain",
+                "alt": "Fall on Jones Mountain",
+                "title": "Fall on Jones Mountain",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/fall-on-jones-mountain.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/fall-on-jones-mountain.avif"
+            },
+            {
+                "id": "kendall-peak",
+                "alt": "Kendall Peak",
+                "title": "Kendall Peak",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/kendall-peak.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/kendall-peak.avif"
+            },
+            {
+                "id": "king-lake",
+                "alt": "King Lake",
+                "title": "King Lake",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/king-lake.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/king-lake.avif"
+            },
+            {
+                "id": "lake-haiyaha",
+                "alt": "Lake Haiyaha",
+                "title": "Lake Haiyaha",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/lake-haiyaha.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/lake-haiyaha.avif"
+            },
+            {
+                "id": "longs-peak",
+                "alt": "Longs Peak",
+                "title": "Longs Peak",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/longs-peak.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/longs-peak.avif"
+            },
+            {
+                "id": "missouri-lake",
+                "alt": "Missouri Lake",
+                "title": "Missouri Lake",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/missouri-lake.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/missouri-lake.avif"
+            },
+            {
+                "id": "missouri-lakes",
+                "alt": "Missouri Lakes",
+                "title": "Missouri Lakes",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/missouri-lakes.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/missouri-lakes.avif"
+            },
+            {
+                "id": "mosquito-range",
+                "alt": "Mosquito Range",
+                "title": "Mosquito Range",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/mosquito-range.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/mosquito-range.avif"
+            },
+            {
+                "id": "mount-audubon",
+                "alt": "Mount Audubon",
+                "title": "Mount Audubon",
+                "layout": "pano",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/mount-audubon.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/mount-audubon.avif"
+            },
+            {
+                "id": "mount-blue-sky",
+                "alt": "Mount Blue Sky",
+                "title": "Mount Blue Sky",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/mount-blue-sky.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/mount-blue-sky.avif"
+            },
+            {
+                "id": "mount-blue-sky-trail",
+                "alt": "Mount Blue Sky Trail",
+                "title": "Mount Blue Sky Trail",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/mount-blue-sky-trail.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/mount-blue-sky-trail.avif"
+            },
+            {
+                "id": "ptarmigan-lake",
+                "alt": "Ptarmigan Lake",
+                "title": "Ptarmigan Lake",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/ptarmigan-lake.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/ptarmigan-lake.avif"
+            },
+            {
+                "id": "stoney-pass",
+                "alt": "Stoney Pass",
+                "title": "Stoney Pass",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/stoney-pass.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/stoney-pass.avif"
+            },
+            {
+                "id": "summit-lake",
+                "alt": "Summit Lake",
+                "title": "Summit Lake",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/summit-lake.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/summit-lake.avif"
+            },
+            {
+                "id": "thirsty-peak",
+                "alt": "Thirsty Peak",
+                "title": "Thirsty Peak",
+                "layout": "pano",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/thirsty-peak.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/thirsty-peak.avif"
+            },
+            {
+                "id": "view-from-canby-mountain",
+                "alt": "View From Canby Mountain",
+                "title": "View From Canby Mountain",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/view-from-canby-mountain.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/view-from-canby-mountain.avif"
+            },
+            {
+                "id": "view-from-green-mountain",
+                "alt": "View From Green Mountain",
+                "title": "View From Green Mountain",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/view-from-green-mountain.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/view-from-green-mountain.avif"
+            },
+            {
+                "id": "view-from-mount-mamma",
+                "alt": "View From Mount Mamma",
+                "title": "View From Mount Mamma",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/view-from-mount-mamma.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/view-from-mount-mamma.avif"
+            },
+            {
+                "id": "wheeler-lake",
+                "alt": "Wheeler Lake",
+                "title": "Wheeler Lake",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/wheeler-lake.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/wheeler-lake.avif"
+            }
+        ]
+    },
+    "live-sound": {
+        "name": "Live Sound",
+        "images": [
+            {
+                "id": "100-gecs",
+                "alt": "100 gecs",
+                "title": "100 gecs",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/100-gecs.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs.avif"
+            },
+            {
+                "id": "100-gecs-10k",
+                "alt": "100 gecs 10k",
+                "title": "100 gecs 10k",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/100-gecs-10k.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs-10k.avif"
+            },
+            {
+                "id": "100-gecs-dj-set",
+                "alt": "100 gecs DJ Set",
+                "title": "100 gecs DJ Set",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/100-gecs-dj-set.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs-dj-set.avif"
+            },
+            {
+                "id": "ashnikko",
+                "alt": "Ashnikko",
+                "title": "Ashnikko",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/ashnikko.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/ashnikko.avif"
+            },
+            {
+                "id": "flume-at-belly-up",
+                "alt": "Flume at Belly Up",
+                "title": "Flume at Belly Up",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/flume-at-belly-up.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-at-belly-up.avif"
+            },
+            {
+                "id": "flume-dj-set",
+                "alt": "Flume DJ Set",
+                "title": "Flume DJ Set",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/flume-dj-set.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-dj-set.avif"
+            },
+            {
+                "id": "flume-feat-laurel",
+                "alt": "Flume feat Laurel",
+                "title": "Flume feat Laurel",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/flume-feat-laurel.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-feat-laurel.avif"
+            },
+            {
+                "id": "flume-palaces-tour",
+                "alt": "Flume Palaces Tour",
+                "title": "Flume Palaces Tour",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/flume-palaces-tour.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-palaces-tour.avif"
+            },
+            {
+                "id": "glass-animals",
+                "alt": "Glass Animals",
+                "title": "Glass Animals",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/glass-animals.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/glass-animals.avif"
+            },
+            {
+                "id": "glass-animals-ogden",
+                "alt": "Glass Animals Ogden",
+                "title": "Glass Animals Ogden",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/glass-animals-ogden.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/glass-animals-ogden.avif"
+            },
+            {
+                "id": "mura-masa-dj-set",
+                "alt": "Mura Masa DJ Set",
+                "title": "Mura Masa DJ Set",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/mura-masa-dj-set.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/mura-masa-dj-set.avif"
+            },
+            {
+                "id": "tame-impala",
+                "alt": "Tame Impala",
+                "title": "Tame Impala",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/tame-impala.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/tame-impala.avif"
+            },
+            {
+                "id": "vampire-weekend",
+                "alt": "Vampire Weekend",
+                "title": "Vampire Weekend",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/vampire-weekend.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/vampire-weekend.avif"
+            }
+        ]
+    },
+    "mines": {
+        "name": "Mines",
+        "images": [
+            {
+                "id": "alpine-tunnel",
+                "alt": "Alpine Tunnel",
+                "title": "Alpine Tunnel",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/alpine-tunnel.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/alpine-tunnel.avif"
+            },
+            {
+                "id": "buffalo-boy-arial-tram",
+                "alt": "Buffalo Boy Arial Tram",
+                "title": "Buffalo Boy Arial Tram",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/buffalo-boy-arial-tram.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/buffalo-boy-arial-tram.avif"
+            },
+            {
+                "id": "champion-mill",
+                "alt": "Champion Mill",
+                "title": "Champion Mill",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/champion-mill.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/champion-mill.avif"
+            },
+            {
+                "id": "champion-mill-abstract",
+                "alt": "Champion Mill Abstract",
+                "title": "Champion Mill Abstract",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/champion-mill-abstract.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/champion-mill-abstract.avif"
+            },
+            {
+                "id": "champion-mine",
+                "alt": "Champion Mine",
+                "title": "Champion Mine",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/champion-mine.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/champion-mine.avif"
+            },
+            {
+                "id": "crystal-mill",
+                "alt": "Crystal Mill",
+                "title": "Crystal Mill",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/crystal-mill.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/crystal-mill.avif"
+            },
+            {
+                "id": "mayflower-gulch-in-winter",
+                "alt": "Mayflower Gulch in Winter",
+                "title": "Mayflower Gulch in Winter",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/mayflower-gulch-in-winter.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/mayflower-gulch-in-winter.avif"
+            },
+            {
+                "id": "mining-structure",
+                "alt": "Mining Structure",
+                "title": "Mining Structure",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/mining-structure.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/mining-structure.avif"
+            },
+            {
+                "id": "mount-sherman-cabin",
+                "alt": "Mount Sherman Cabin",
+                "title": "Mount Sherman Cabin",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/mount-sherman-cabin.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/mount-sherman-cabin.avif"
+            },
+            {
+                "id": "pomeroy-gulch-marmot",
+                "alt": "Pomeroy Gulch Marmot",
+                "title": "Pomeroy Gulch Marmot",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/pomeroy-gulch-marmot.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/pomeroy-gulch-marmot.avif"
+            },
+            {
+                "id": "red-mountain-mill",
+                "alt": "Red Mountain Mill",
+                "title": "Red Mountain Mill",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/red-mountain-mill.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/red-mountain-mill.avif"
+            },
+            {
+                "id": "silver-lake-cabins",
+                "alt": "Silver Lake Cabins",
+                "title": "Silver Lake Cabins",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/mines/avif/silver-lake-cabins.avif"
+                },
+                "thumbnail": "/images/galleries/mines/thumbnails/silver-lake-cabins.avif"
+            }
+        ]
+    },
+    "off-road": {
+        "name": "Off Road",
+        "images": [
+            {
+                "id": "buffalo-boy-trail",
+                "alt": "Buffalo Boy Trail",
+                "title": "Buffalo Boy Trail",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/buffalo-boy-trail.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/buffalo-boy-trail.avif"
+            },
+            {
+                "id": "bunce-school-road",
+                "alt": "Bunce School Road",
+                "title": "Bunce School Road",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/bunce-school-road.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/bunce-school-road.avif"
+            },
+            {
+                "id": "iowa-gulch",
+                "alt": "Iowa Gulch",
+                "title": "Iowa Gulch",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/iowa-gulch.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/iowa-gulch.avif"
+            },
+            {
+                "id": "james-peak-trail",
+                "alt": "James Peak Trail",
+                "title": "James Peak Trail",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/james-peak-trail.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/james-peak-trail.avif"
+            },
+            {
+                "id": "kingston-peak-trail",
+                "alt": "Kingston Peak Trail",
+                "title": "Kingston Peak Trail",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/kingston-peak-trail.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/kingston-peak-trail.avif"
+            },
+            {
+                "id": "lead-king-basin",
+                "alt": "Lead King Basin",
+                "title": "Lead King Basin",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/lead-king-basin.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/lead-king-basin.avif"
+            },
+            {
+                "id": "leavenworth-creek-road",
+                "alt": "Leavenworth Creek Road",
+                "title": "Leavenworth Creek Road",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/leavenworth-creek-road.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/leavenworth-creek-road.avif"
+            },
+            {
+                "id": "lincoln-amphitheater",
+                "alt": "Lincoln Amphitheater",
+                "title": "Lincoln Amphitheater",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/lincoln-amphitheater.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/lincoln-amphitheater.avif"
+            },
+            {
+                "id": "mosquito-pass",
+                "alt": "Mosquito Pass",
+                "title": "Mosquito Pass",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/mosquito-pass.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/mosquito-pass.avif"
+            },
+            {
+                "id": "mosquito-pass-shelf",
+                "alt": "Mosquito Pass Shelf",
+                "title": "Mosquito Pass Shelf",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/mosquito-pass-shelf.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/mosquito-pass-shelf.avif"
+            },
+            {
+                "id": "mount-antero",
+                "alt": "Mount Antero",
+                "title": "Mount Antero",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/mount-antero.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/mount-antero.avif"
+            },
+            {
+                "id": "quail-mountain",
+                "alt": "Quail Mountain",
+                "title": "Quail Mountain",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/quail-mountain.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/quail-mountain.avif"
+            },
+            {
+                "id": "round-mountain",
+                "alt": "Round Mountain",
+                "title": "Round Mountain",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/round-mountain.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/round-mountain.avif"
+            },
+            {
+                "id": "santa-fe-peak",
+                "alt": "Santa Fe Peak",
+                "title": "Santa Fe Peak",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/santa-fe-peak.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/santa-fe-peak.avif"
+            }
+        ]
+    },
+    "rocks": {
+        "name": "Rocks",
+        "images": [
+            {
+                "id": "arches",
+                "alt": "Arches",
+                "title": "Arches",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/arches.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/arches.avif"
+            },
+            {
+                "id": "bryce-canyon",
+                "alt": "Bryce Canyon",
+                "title": "Bryce Canyon",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/bryce-canyon.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/bryce-canyon.avif"
+            },
+            {
+                "id": "bryce-canyon-from-below",
+                "alt": "Bryce Canyon From Below",
+                "title": "Bryce Canyon From Below",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/bryce-canyon-from-below.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/bryce-canyon-from-below.avif"
+            },
+            {
+                "id": "craters-of-the-moon",
+                "alt": "Craters of the Moon",
+                "title": "Craters of the Moon",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/craters-of-the-moon.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/craters-of-the-moon.avif"
+            },
+            {
+                "id": "devils-garden",
+                "alt": "Devils Garden",
+                "title": "Devils Garden",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/devils-garden.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/devils-garden.avif"
+            },
+            {
+                "id": "escalante-arch",
+                "alt": "Escalante Arch",
+                "title": "Escalante Arch",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/escalante-arch.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/escalante-arch.avif"
+            },
+            {
+                "id": "fire-rock",
+                "alt": "Fire Rock",
+                "title": "Fire Rock",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/fire-rock.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/fire-rock.avif"
+            },
+            {
+                "id": "granite",
+                "alt": "Granite",
+                "title": "Granite",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/granite.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/granite.avif"
+            },
+            {
+                "id": "hole-in-the-rock",
+                "alt": "Hole in the Rock",
+                "title": "Hole in the Rock",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/hole-in-the-rock.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/hole-in-the-rock.avif"
+            },
+            {
+                "id": "iron-fens",
+                "alt": "Iron Fens",
+                "title": "Iron Fens",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/iron-fens.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/iron-fens.avif"
+            },
+            {
+                "id": "navajo-loop-feature",
+                "alt": "Navajo Loop Feature",
+                "title": "Navajo Loop Feature",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/navajo-loop-feature.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/navajo-loop-feature.avif"
+            },
+            {
+                "id": "near-balanced-rock",
+                "alt": "Near Balanced Rock",
+                "title": "Near Balanced Rock",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/near-balanced-rock.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/near-balanced-rock.avif"
+            },
+            {
+                "id": "quarry-rock",
+                "alt": "Quarry Rock",
+                "title": "Quarry Rock",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/quarry-rock.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/quarry-rock.avif"
+            },
+            {
+                "id": "sandstone-divot",
+                "alt": "Sandstone Divot",
+                "title": "Sandstone Divot",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/sandstone-divot.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/sandstone-divot.avif"
+            },
+            {
+                "id": "shandstone",
+                "alt": "Shandstone",
+                "title": "Shandstone",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/shandstone.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/shandstone.avif"
+            },
+            {
+                "id": "split-rock",
+                "alt": "Split Rock",
+                "title": "Split Rock",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/split-rock.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/split-rock.avif"
+            }
+        ]
+    },
+    "summit-dog": {
+        "name": "Summit Dog",
+        "images": [
+            {
+                "id": "rocky-at-pomeroy-lake",
+                "alt": "Rocky at Pomeroy Lake",
+                "title": "Rocky at Pomeroy Lake",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-at-pomeroy-lake.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-at-pomeroy-lake.avif"
+            },
+            {
+                "id": "rocky-climbing-argentine-peak",
+                "alt": "Rocky Climbing Argentine Peak",
+                "title": "Rocky Climbing Argentine Peak",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-climbing-argentine-peak.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-argentine-peak.avif"
+            },
+            {
+                "id": "rocky-climbing-mount-champion",
+                "alt": "Rocky Climbing Mount Champion",
+                "title": "Rocky Climbing Mount Champion",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-climbing-mount-champion.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-mount-champion.avif"
+            },
+            {
+                "id": "rocky-climbing-ptarmigan-peak",
+                "alt": "Rocky Climbing Ptarmigan Peak",
+                "title": "Rocky Climbing Ptarmigan Peak",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-climbing-ptarmigan-peak.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-ptarmigan-peak.avif"
+            },
+            {
+                "id": "rocky-in-south-park",
+                "alt": "Rocky in South Park",
+                "title": "Rocky in South Park",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-in-south-park.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-south-park.avif"
+            },
+            {
+                "id": "rocky-in-the-flowers",
+                "alt": "Rocky in the Flowers",
+                "title": "Rocky in the Flowers",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-in-the-flowers.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-the-flowers.avif"
+            },
+            {
+                "id": "rocky-in-the-lincoln-amphitheater",
+                "alt": "Rocky in the Lincoln Amphitheater",
+                "title": "Rocky in the Lincoln Amphitheater",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-in-the-lincoln-amphitheater.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-the-lincoln-amphitheater.avif"
+            },
+            {
+                "id": "rocky-on-jones-mountain",
+                "alt": "Rocky on Jones Mountain",
+                "title": "Rocky on Jones Mountain",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-on-jones-mountain.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-jones-mountain.avif"
+            },
+            {
+                "id": "rocky-on-mount-sheridan",
+                "alt": "Rocky on Mount Sheridan",
+                "title": "Rocky on Mount Sheridan",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-on-mount-sheridan.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-mount-sheridan.avif"
+            },
+            {
+                "id": "rocky-on-taylor-mountain",
+                "alt": "Rocky on Taylor Mountain",
+                "title": "Rocky on Taylor Mountain",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-on-taylor-mountain.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-taylor-mountain.avif"
+            }
+        ]
+    }
+}

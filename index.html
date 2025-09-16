@@ -2,38 +2,47 @@
 <html lang="en">
 
 <head>
+	<!-- META -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Casey Burnham - Audio Engineer specializing in live sound, theater audio, and system design">
 	<meta name="author" content="Casey Burnham">
-	<title>Casey Burnham - Audio Engineer</title>
+	<meta name="web_author" content="Casey Burnham">
+	<meta name="designer" content="Casey Burnham">
+	<meta name="contact" content="casey@crashandburnham.com 'Denver, Colorado' ">
+	<meta name="geo.country" content="US" />
+	<meta name="geo.a1" content="CO" />
+	<meta name="geo.a3" content="Denver" />
 
-	<!-- Preload critical resources -->
-	<!-- <link rel="-preload" href="css/styles-c.css" as="style"> -->
-	<link rel="stylesheet" href="css/styles-c.css">
-
-	<!-- Open Graph meta tags for social sharing -->
+	<!-- Open Graph-->
 	<meta property="og:title" content="Casey Burnham - Audio Engineer">
 	<meta property="og:description" content="Audio Engineer specializing in live sound, theater audio, and system design">
 	<meta property="og:type" content="website">
+
+	<!-- TITLE -->
+	<title>Casey Burnham - Audio Engineer</title>
+
+	<!-- Preload critical resources -->
+	<link rel="preload" href="css/style-imports.css" as="style">
+	<link rel="stylesheet" href="css/style-imports.css">
+
 </head>
 
 <body>
 
 	<main id="main-content">
 		<header>
-			<h1>Casey Burnham</h1>
-			<p class="tagline">Audio Engineer & Mountain Enthusiast</p>
+			<span><h1>Casey Burnham, </h1><h2><small>Audio Director</small></h2></span>
+			<p class="tagline">Audio Engineer & Elevation Enthusiast</p>
 		</header>
 
 		<!-- Personal Bio Section -->
 		<section aria-labelledby="bio-heading">
 			<h2 id="bio-heading" class="sr-only">About Casey</h2>
 			<p>
-				I've spent the last ten years chasing clean mixes and fixing gear that swore it was working yesterday.
-				With a degree in Audio Engineering from <abbr title="University of Colorado, Denver">UCD</abbr> — mostly good for knowing which cable to blame — I now spend my days keeping mics alive, fixing things no one else saw break, and convincing everyone it was fine all along.
-
-				Originally from Idaho, I traded dirt roads for mountain trails (and potatoes for peaches). When I'm not in a black box or behind a console, I'm usually above the treeline — scrambling up peaks, letting the trail handle my truck's detailing, and dragging my dog along for the ride. He's not always impressed.
+			As former Idahoan who traded potato fields for mountain trails, I earned a degree in Audio Engineering from the University of Colorado, Denver. I've spent the last decade dialing in mixes and troubleshooting gear that swore it was working just yesterday. I spend my days wrangling mics, fixing things no one else saw break, and convincing everyone it was fine all along.
+			
+			When I'm not in a black box or behind a console, you can find me above the treeline — scrambling up peaks, letting the trail detail my truck, and dragging my dog along for the ride. Though, he's not always impressed.
 			</p>
 
 			<div class="video-wrapper">
@@ -103,7 +112,6 @@
 		<section aria-labelledby="productions-heading">
 			<h2 id="productions-heading" class="sr-only">Theater Productions</h2>
 			<table id="productions" aria-label="Theater productions with role assignments">
-				<!-- <caption>Theater Productions and Role Assignments</caption> -->
 				<thead>
 					<tr>
 						<th scope="col">
@@ -128,21 +136,31 @@
 					</tr>
 				</thead>
 				<tbody>
-					<!-- Content populated by productions.json -->
+					<!-- Content populated by tables and productions.json -->
+					<template id="production-row-template">
+					  <tr>
+						<td class="prod-production"></td>
+						<td class="prod-company"></td>
+						<td class="prod-a1"></td>
+						<td class="prod-sd"></td>
+						<td class="prod-ad"></td>
+						<td class="prod-lz"></td>
+						<td class="prod-notes"></td>
+					  </tr>
+					</template>
 				</tbody>
 			</table>
 		</section>
 
-		<hr>
+		<hr />
 
 		<!-- Photo Gallery Section -->
 		<section aria-labelledby="gallery-heading">
 			<h2 id="gallery-heading" class="sr-only">Photography</h2>
 
-			
 		</section>
 
-		<hr>
+		<hr />
 
 		<!-- Data Tables Section -->
 		<section class="data-tables" aria-labelledby="data-heading">
@@ -151,7 +169,10 @@
 			<!-- Mountains Climbed -->
 			<table id="mountains" class="flex-item" aria-labelledby="mountains-caption">
 				<caption id="mountains-caption">
-					<small><a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank" rel="noopener noreferrer" aria-label="View full climbing record on 14ers.com">14ers.com</a></small>
+					<small>
+						Non-exhaustive, detailing peaks over 10,000ft;
+						<a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank" rel="noopener noreferrer" aria-label="View full climbing record on 14ers.com">14ers.com</a>
+					</small>
 				</caption>
 				<thead>
 					<tr>
@@ -168,19 +189,34 @@
 					</tr>
 				</thead>
 				<tbody>
-					<!-- Content populated by mountains.json -->
+					<!-- Content populated by tables and mountains.json -->
+					<template id="mountain-row-template">
+					  <tr>
+						<td class="mtn-peak"></td>
+						<td class="mtn-elevation"></td>
+						<td class="mtn-range"></td>
+						<td class="mtn-date"></td>
+						<td class="mtn-image"></td>
+					  </tr>
+					</template>
 				</tbody>
 				<tfoot>
 					<tr>
 						<td colspan="3">13ers</td>
-						<td colspan="2"class="peak-progress" data-peak-type="thirteeners" data-total="600">
-							<i><span id="thirteeners">0</span>/600+</i>
+						<td colspan="2">
+							<div class="progress-container">
+								<progress class="peak-progress" data-peak-type="thirteeners" data-total="600" value="0" max="600"></progress>
+								<small>(<span id="thirteeners">0</span>/600+)</small>
+							</div>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="3">14ers</td>
-						<td colspan="2"class="peak-progress" data-peak-type="fourteeners" data-total="58">
-							<i><span id="fourteeners">0</span>/58</i>
+						<td colspan="2">
+							<div class="progress-container">
+								<progress class="peak-progress" data-peak-type="fourteeners" data-total="58" value="0" max="58"></progress>
+								<small>(<span id="fourteeners">0</span>/58)</small>
+							</div>
 						</td>
 					</tr>
 					<tr>
@@ -210,13 +246,21 @@
 					</tr>
 				</thead>
 				<tbody>
-					<!-- Content populated by concerts.json -->
+					<!-- Content populated by tables and concerts.json -->
+					<template id="concert-row-template">
+					  <tr>
+						<td class="concert-artist"></td>
+						<td class="concert-venue"></td>
+						<td class="concert-year"></td>
+						<td class="concert-emoji"></td>
+					  </tr>
+					</template>
 				</tbody>
 				<tfoot>
 					<tr>
 						<td colspan="4" class="statistics">
 							<div id="top-artists" aria-label="Most seen artists"></div>
-							<hr>
+							<hr />
 							<div id="top-venues" aria-label="Most visited venues"></div>
 						</td>
 					</tr>
@@ -226,13 +270,14 @@
 					</tr>
 				</tfoot>
 			</table>
+			
 		</section>
-		<!-- Final Image -->
-		<section aria-labelledby="closing-image">
-			<h2 id="closing-image" class="sr-only">Featured Mountain Photo</h2>
-			<div class="photo-thumb footer-image">
-				<img src="/images/main/thirsty-peak.jpeg" alt="Summit view from Thirsty Peak showing expansive Colorado mountain ranges" data-title="Thirsty Peak Summit" loading="lazy">
-			</div>
+
+		<hr />
+		<!-- Map -->
+		<section aria-labelledby="mountain-map">
+			<h2 id="mountain-map" class="sr-only">Mountain Map</h2>
+			<div id="map"></div>
 		</section>
 	</main>
 
@@ -244,19 +289,16 @@
 			<span aria-label="Colorado flag">🏴󠁵󠁳󠁣󠁯󠁿</span>
 		</p>
 		<address>
-		<p>
-			&copy;2025
-			<a href="mailto:casey@crashburnham.com" aria-label="Email Casey Burnham">Casey Burnham</a>
-		</p>
+			<p>
+				&copy;2025
+				<a href="mailto:casey@crashburnham.com" aria-label="Email Casey Burnham">Casey Burnham</a>
+			</p>
 		</address>
-		
+
 	</footer>
 
 	<!-- Scripts -->
-	<script src="scripts/video.js" defer></script>
-	<script src="scripts/tables.js" defer></script>
-	<script src="scripts/galley-swap.js" defer></script>
-	<script src="scripts/modal.js" defer></script>
+	<script type="module" src="js/js-imports.js"></script>
 </body>
 
 </html>
