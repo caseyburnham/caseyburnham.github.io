@@ -27,7 +27,8 @@
       "lonDMS": "104°51'30.54\" W",
       "alt": 1662.344423,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2022 Casey Burnham"
   },
   "galleries/abstractions/avif/birds-of-a-feather.avif": {
     "date": {
@@ -57,7 +58,8 @@
       "lonDMS": "111°52'27.58\" W",
       "alt": 1301.019802,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2017 Casey Burnham"
   },
   "galleries/abstractions/avif/bordello-carpet.avif": {
     "date": {
@@ -87,7 +89,8 @@
       "lonDMS": "105°10'30.23\" W",
       "alt": 2887.572727,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/abstractions/avif/frozen-rocks.avif": {
     "date": {
@@ -117,37 +120,8 @@
       "lonDMS": "105°52'53.43\" W",
       "alt": 3292.720779,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/abstractions/avif/headstone-carving.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2020,
-      "month": 11,
-      "day": 18,
-      "hour": 14,
-      "minute": 23,
-      "second": 17,
-      "tzoffsetMinutes": -420,
-      "rawValue": "2020:11:18 14:23:17",
-      "zoneName": "UTC-7",
-      "inferredZone": true
     },
-    "iso": 32,
-    "lens": "4.2 mm",
-    "aperture": 1.8,
-    "shutter": "1/2410",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 11 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 39.710292,
-      "lon": -104.899375,
-      "latDMS": "39°42'37.05\" N",
-      "lonDMS": "104°53'57.75\" W",
-      "alt": 1652.679245,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2022 Casey Burnham"
   },
   "galleries/abstractions/avif/medano-creek.avif": {
     "date": {
@@ -177,7 +151,8 @@
       "lonDMS": "105°31'3.89\" W",
       "alt": 2447.45583,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/abstractions/avif/paint.avif": {
     "date": {
@@ -207,7 +182,8 @@
       "lonDMS": "83°3'52.99\" W",
       "alt": 191.9900056,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2019 Casey Burnham"
   },
   "galleries/abstractions/avif/sloans-lake.avif": {
     "date": {
@@ -237,7 +213,8 @@
       "lonDMS": "105°2'39.60\" W",
       "alt": 1623.343802,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2018 Casey Burnham"
   },
   "galleries/abstractions/avif/upper-pomeroy.avif": {
     "date": {
@@ -267,7 +244,8 @@
       "lonDMS": "106°20'26.57\" W",
       "alt": 3740.009852,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/abstractions/avif/yellowstone.avif": {
     "date": {
@@ -297,37 +275,8 @@
       "lonDMS": "110°50'14.92\" W",
       "alt": 2237.640719,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/abstractions/jpeg/foam-waves.jpg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2013,
-      "month": 11,
-      "day": 29,
-      "hour": 20,
-      "minute": 21,
-      "second": 3,
-      "tzoffsetMinutes": -420,
-      "rawValue": "2013:11:29 20:21:03",
-      "zoneName": "America/Denver",
-      "inferredZone": true
     },
-    "iso": 160,
-    "lens": "4.1 mm",
-    "aperture": 2.4,
-    "shutter": "1/20",
-    "exposureCompensation": "",
-    "cameraModel": "iPhone 5",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.752383,
-      "lon": -105.00415,
-      "latDMS": "39°45'8.58\" N",
-      "lonDMS": "105°0'14.94\" W",
-      "alt": 1608.036036,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2020 Casey Burnham"
   },
   "galleries/abstractions/thumbnails/aztec-rug.avif": {
     "date": {
@@ -357,7 +306,8 @@
       "lonDMS": "104°51'30.54\" W",
       "alt": 1662.344423,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2022 Casey Burnham"
   },
   "galleries/abstractions/thumbnails/birds-of-a-feather.avif": {
     "date": {
@@ -387,7 +337,8 @@
       "lonDMS": "111°52'27.58\" W",
       "alt": 1301.019802,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2017 Casey Burnham"
   },
   "galleries/abstractions/thumbnails/bordello-carpet.avif": {
     "date": {
@@ -417,37 +368,8 @@
       "lonDMS": "105°10'30.23\" W",
       "alt": 2887.572727,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/abstractions/thumbnails/foam-waves.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2013,
-      "month": 11,
-      "day": 29,
-      "hour": 20,
-      "minute": 21,
-      "second": 3,
-      "tzoffsetMinutes": -420,
-      "rawValue": "2013:11:29 20:21:03",
-      "zoneName": "America/Denver",
-      "inferredZone": true
     },
-    "iso": 160,
-    "lens": "4.1 mm",
-    "aperture": 2.4,
-    "shutter": "1/20",
-    "exposureCompensation": "",
-    "cameraModel": "iPhone 5",
-    "format": "AVIF",
-    "gps": {
-      "lat": 39.752383,
-      "lon": -105.00415,
-      "latDMS": "39°45'8.58\" N",
-      "lonDMS": "105°0'14.94\" W",
-      "alt": 1608.036036,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/abstractions/thumbnails/frozen-rocks.avif": {
     "date": {
@@ -477,37 +399,8 @@
       "lonDMS": "105°52'53.43\" W",
       "alt": 3292.720779,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/abstractions/thumbnails/headstone-carving.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2020,
-      "month": 11,
-      "day": 18,
-      "hour": 14,
-      "minute": 23,
-      "second": 17,
-      "tzoffsetMinutes": -420,
-      "rawValue": "2020:11:18 14:23:17",
-      "zoneName": "UTC-7",
-      "inferredZone": true
     },
-    "iso": 32,
-    "lens": "4.2 mm",
-    "aperture": 1.8,
-    "shutter": "1/2410",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 11 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 39.710292,
-      "lon": -104.899375,
-      "latDMS": "39°42'37.05\" N",
-      "lonDMS": "104°53'57.75\" W",
-      "alt": 1652.679245,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2022 Casey Burnham"
   },
   "galleries/abstractions/thumbnails/medano-creek.avif": {
     "date": {
@@ -537,7 +430,8 @@
       "lonDMS": "105°31'3.89\" W",
       "alt": 2447.45583,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/abstractions/thumbnails/paint.avif": {
     "date": {
@@ -567,7 +461,8 @@
       "lonDMS": "83°3'52.99\" W",
       "alt": 191.9900056,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2019 Casey Burnham"
   },
   "galleries/abstractions/thumbnails/sloans-lake.avif": {
     "date": {
@@ -597,7 +492,8 @@
       "lonDMS": "105°2'39.60\" W",
       "alt": 1623.343802,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2018 Casey Burnham"
   },
   "galleries/abstractions/thumbnails/upper-pomeroy.avif": {
     "date": {
@@ -627,7 +523,8 @@
       "lonDMS": "106°20'26.57\" W",
       "alt": 3740.009852,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/abstractions/thumbnails/yellowstone.avif": {
     "date": {
@@ -657,9 +554,10 @@
       "lonDMS": "110°50'14.92\" W",
       "alt": 2237.640719,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2020 Casey Burnham"
   },
-  "galleries/botanical/avif/campanula.avif": {
+  "galleries/botanic/avif/campanula.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -687,9 +585,10 @@
       "lonDMS": "106°21'57.89\" W",
       "alt": 3839.763077,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/avif/chinese-fir.avif": {
+  "galleries/botanic/avif/chinese-fir.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2019,
@@ -717,9 +616,10 @@
       "lonDMS": "83°39'41.56\" W",
       "alt": 243.2418773,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2019 Casey Burnham"
   },
-  "galleries/botanical/avif/dahlia-pinnata.avif": {
+  "galleries/botanic/avif/dahlia-pinnata.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -747,9 +647,10 @@
       "lonDMS": "104°57'45.09\" W",
       "alt": 1643.410853,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
-  "galleries/botanical/avif/droplets.avif": {
+  "galleries/botanic/avif/droplets.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -777,9 +678,10 @@
       "lonDMS": "79°56'53.12\" W",
       "alt": 284.1473029,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/avif/fan.avif": {
+  "galleries/botanic/avif/fan.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2018,
@@ -807,39 +709,10 @@
       "lonDMS": "104°57'38.85\" W",
       "alt": 1638.331858,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/botanical/avif/fireweed.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 8,
-      "day": 12,
-      "hour": 9,
-      "minute": 32,
-      "second": 38,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:08:12 09:32:38",
-      "zoneName": "UTC-6",
-      "inferredZone": true
     },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/2208",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 39.388156,
-      "lon": -106.521119,
-      "latDMS": "39°23'17.36\" N",
-      "lonDMS": "106°31'16.03\" W",
-      "alt": 3646.989286,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2018 Casey Burnham"
   },
-  "galleries/botanical/avif/geranium.avif": {
+  "galleries/botanic/avif/geranium.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2024,
@@ -867,39 +740,10 @@
       "lonDMS": "112°13'58.01\" W",
       "alt": 1960.408163,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/botanical/avif/indian-paintbrush.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 20,
-      "hour": 8,
-      "minute": 59,
-      "second": 37,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:20 08:59:37",
-      "zoneName": "UTC-6",
-      "inferredZone": true
     },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/2008",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 37.786625,
-      "lon": -107.606742,
-      "latDMS": "37°47'11.85\" N",
-      "lonDMS": "107°36'24.27\" W",
-      "alt": 3722.348684,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2024 Casey Burnham"
   },
-  "galleries/botanical/avif/musk-thistle.avif": {
+  "galleries/botanic/avif/musk-thistle.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -927,9 +771,10 @@
       "lonDMS": "105°20'23.38\" W",
       "alt": 2504.575163,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
-  "galleries/botanical/avif/red-and-green.avif": {
+  "galleries/botanic/avif/red-and-green.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2018,
@@ -957,39 +802,10 @@
       "lonDMS": "87°56'46.45\" W",
       "alt": 199.0115425,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/botanical/avif/silver-lake-flora.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 20,
-      "hour": 8,
-      "minute": 39,
-      "second": 16,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:20 08:39:16",
-      "zoneName": "UTC-6",
-      "inferredZone": true
     },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/859",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 37.791192,
-      "lon": -107.604544,
-      "latDMS": "37°47'28.29\" N",
-      "lonDMS": "107°36'16.36\" W",
-      "alt": 3723.941176,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2018 Casey Burnham"
   },
-  "galleries/botanical/avif/trifolium-alpinum.avif": {
+  "galleries/botanic/avif/trifolium-alpinum.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -1017,9 +833,10 @@
       "lonDMS": "106°22'32.64\" W",
       "alt": 3555.557471,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/avif/tulip.avif": {
+  "galleries/botanic/avif/tulip.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -1047,9 +864,10 @@
       "lonDMS": "79°56'50.51\" W",
       "alt": 287.0856793,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/avif/violet.avif": {
+  "galleries/botanic/avif/violet.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -1077,9 +895,10 @@
       "lonDMS": "79°56'49.83\" W",
       "alt": 285.6068884,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/avif/yellow-rose.avif": {
+  "galleries/botanic/avif/yellow-rose.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -1107,39 +926,10 @@
       "lonDMS": "79°56'52.71\" W",
       "alt": 286.5079114,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/botanical/avif/zamia-sandovalii.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 5,
-      "day": 25,
-      "hour": 11,
-      "minute": 44,
-      "second": 52,
-      "tzoffsetMinutes": -240,
-      "rawValue": "2021:05:25 11:44:52",
-      "zoneName": "UTC-4",
-      "inferredZone": true
     },
-    "iso": 32,
-    "lens": "4.2 mm",
-    "aperture": 1.8,
-    "shutter": "1/487",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 11 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 39.732086,
-      "lon": -86.14135,
-      "latDMS": "39°43'55.51\" N",
-      "lonDMS": "86°8'28.86\" W",
-      "alt": 217.9058945,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/jpeg/flowing-fronds.jpg": {
+  "galleries/botanic/jpeg/flowing-fronds.jpg": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2019,
@@ -1158,9 +948,10 @@
     "exposureCompensation": "0",
     "cameraModel": "PENTAX K-50",
     "format": "JPEG",
-    "gps": null
+    "gps": null,
+    "copyright": "©2019 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/campanula.avif": {
+  "galleries/botanic/thumbnails/campanula.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -1188,9 +979,10 @@
       "lonDMS": "106°21'57.89\" W",
       "alt": 3839.763077,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/chinese-fir.avif": {
+  "galleries/botanic/thumbnails/chinese-fir.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2019,
@@ -1218,9 +1010,10 @@
       "lonDMS": "83°39'41.56\" W",
       "alt": 243.2418773,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2019 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/dahlia-pinnata.avif": {
+  "galleries/botanic/thumbnails/dahlia-pinnata.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -1248,9 +1041,10 @@
       "lonDMS": "104°57'45.09\" W",
       "alt": 1643.410853,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/droplets.avif": {
+  "galleries/botanic/thumbnails/droplets.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -1278,9 +1072,10 @@
       "lonDMS": "79°56'53.12\" W",
       "alt": 284.1473029,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/fan.avif": {
+  "galleries/botanic/thumbnails/fan.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2018,
@@ -1308,39 +1103,10 @@
       "lonDMS": "104°57'38.85\" W",
       "alt": 1638.331858,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/botanical/thumbnails/fireweed.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 8,
-      "day": 12,
-      "hour": 9,
-      "minute": 32,
-      "second": 38,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:08:12 09:32:38",
-      "zoneName": "UTC-6",
-      "inferredZone": true
     },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/2208",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 39.388156,
-      "lon": -106.521119,
-      "latDMS": "39°23'17.36\" N",
-      "lonDMS": "106°31'16.03\" W",
-      "alt": 3646.989286,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2018 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/flowing-fronds.avif": {
+  "galleries/botanic/thumbnails/flowing-fronds.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2019,
@@ -1359,9 +1125,10 @@
     "exposureCompensation": "0",
     "cameraModel": "PENTAX K-50",
     "format": "AVIF",
-    "gps": null
+    "gps": null,
+    "copyright": "©2019 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/geranium.avif": {
+  "galleries/botanic/thumbnails/geranium.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2024,
@@ -1389,39 +1156,10 @@
       "lonDMS": "112°13'58.01\" W",
       "alt": 1960.408163,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/botanical/thumbnails/indian-paintbrush.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 20,
-      "hour": 8,
-      "minute": 59,
-      "second": 37,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:20 08:59:37",
-      "zoneName": "UTC-6",
-      "inferredZone": true
     },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/2008",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 37.786625,
-      "lon": -107.606742,
-      "latDMS": "37°47'11.85\" N",
-      "lonDMS": "107°36'24.27\" W",
-      "alt": 3722.348684,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2024 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/musk-thistle.avif": {
+  "galleries/botanic/thumbnails/musk-thistle.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -1449,9 +1187,10 @@
       "lonDMS": "105°20'23.38\" W",
       "alt": 2504.575163,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/red-and-green.avif": {
+  "galleries/botanic/thumbnails/red-and-green.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2018,
@@ -1479,39 +1218,10 @@
       "lonDMS": "87°56'46.45\" W",
       "alt": 199.0115425,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/botanical/thumbnails/silver-lake-flora.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 20,
-      "hour": 8,
-      "minute": 39,
-      "second": 16,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:20 08:39:16",
-      "zoneName": "UTC-6",
-      "inferredZone": true
     },
-    "iso": 50,
-    "lens": "5.7 mm",
-    "aperture": 1.5,
-    "shutter": "1/859",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 37.791192,
-      "lon": -107.604544,
-      "latDMS": "37°47'28.29\" N",
-      "lonDMS": "107°36'16.36\" W",
-      "alt": 3723.941176,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2018 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/trifolium-alpinum.avif": {
+  "galleries/botanic/thumbnails/trifolium-alpinum.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -1539,9 +1249,10 @@
       "lonDMS": "106°22'32.64\" W",
       "alt": 3555.557471,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/tulip.avif": {
+  "galleries/botanic/thumbnails/tulip.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -1569,9 +1280,10 @@
       "lonDMS": "79°56'50.51\" W",
       "alt": 287.0856793,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/violet.avif": {
+  "galleries/botanic/thumbnails/violet.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -1599,9 +1311,10 @@
       "lonDMS": "79°56'49.83\" W",
       "alt": 285.6068884,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
-  "galleries/botanical/thumbnails/yellow-rose.avif": {
+  "galleries/botanic/thumbnails/yellow-rose.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -1629,37 +1342,8 @@
       "lonDMS": "79°56'52.71\" W",
       "alt": 286.5079114,
       "altRef": "Above Sea Level"
-    }
-  },
-  "galleries/botanical/thumbnails/zamia-sandovalii.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 5,
-      "day": 25,
-      "hour": 11,
-      "minute": 44,
-      "second": 52,
-      "tzoffsetMinutes": -240,
-      "rawValue": "2021:05:25 11:44:52",
-      "zoneName": "UTC-4",
-      "inferredZone": true
     },
-    "iso": 32,
-    "lens": "4.2 mm",
-    "aperture": 1.8,
-    "shutter": "1/487",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 11 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 39.732086,
-      "lon": -86.14135,
-      "latDMS": "39°43'55.51\" N",
-      "lonDMS": "86°8'28.86\" W",
-      "alt": 217.9058945,
-      "altRef": "Above Sea Level"
-    }
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/avif/american-gulch-sky.avif": {
     "date": {
@@ -1689,7 +1373,8 @@
       "lonDMS": "107°30'47.85\" W",
       "alt": 3462.689189,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/avif/bierstadt-billy.avif": {
     "date": {
@@ -1719,7 +1404,8 @@
       "lonDMS": "105°40'21.30\" W",
       "alt": 4191.578767,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/high-country/avif/blue-lake.avif": {
     "date": {
@@ -1749,7 +1435,8 @@
       "lonDMS": "105°36'56.99\" W",
       "alt": 4022.015915,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2020 Casey Burnham"
   },
   "galleries/high-country/avif/brainard-lake-area.avif": {
     "date": {
@@ -1779,7 +1466,8 @@
       "lonDMS": "105°36'57.70\" W",
       "alt": 3457.319948,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/avif/deer-in-american-gulch.avif": {
     "date": {
@@ -1809,7 +1497,8 @@
       "lonDMS": "107°30'47.93\" W",
       "alt": 3464.1248,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/avif/fall-on-jones-mountain.avif": {
     "date": {
@@ -1839,7 +1528,70 @@
       "lonDMS": "106°23'8.18\" W",
       "alt": 3717.400576,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
+  },
+  "galleries/high-country/avif/fireweed.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 8,
+      "day": 12,
+      "hour": 9,
+      "minute": 32,
+      "second": 38,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:08:12 09:32:38",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/2208",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.388156,
+      "lon": -106.521119,
+      "latDMS": "39°23'17.36\" N",
+      "lonDMS": "106°31'16.03\" W",
+      "alt": 3646.989286,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "©2025 Casey Burnham"
+  },
+  "galleries/high-country/avif/indian-paintbrush.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 7,
+      "day": 20,
+      "hour": 8,
+      "minute": 59,
+      "second": 37,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:07:20 08:59:37",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/2008",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 37.786625,
+      "lon": -107.606742,
+      "latDMS": "37°47'11.85\" N",
+      "lonDMS": "107°36'24.27\" W",
+      "alt": 3722.348684,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/avif/kendall-peak.avif": {
     "date": {
@@ -1869,7 +1621,8 @@
       "lonDMS": "107°36'18.45\" W",
       "alt": 3726.898496,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/avif/king-lake.avif": {
     "date": {
@@ -1899,7 +1652,8 @@
       "lonDMS": "105°41'12.67\" W",
       "alt": 3548.667431,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/avif/lake-haiyaha.avif": {
     "date": {
@@ -1929,7 +1683,8 @@
       "lonDMS": "105°39'40.00\" W",
       "alt": 3113.90184,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2022 Casey Burnham"
   },
   "galleries/high-country/avif/longs-peak.avif": {
     "date": {
@@ -1959,7 +1714,8 @@
       "lonDMS": "105°35'32.75\" W",
       "alt": 3508.966527,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/high-country/avif/missouri-lake.avif": {
     "date": {
@@ -1989,7 +1745,8 @@
       "lonDMS": "106°30'50.84\" W",
       "alt": 3482.019481,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/avif/missouri-lakes.avif": {
     "date": {
@@ -2019,7 +1776,8 @@
       "lonDMS": "106°31'14.35\" W",
       "alt": 4003.077778,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/avif/mosquito-range.avif": {
     "date": {
@@ -2049,7 +1807,8 @@
       "lonDMS": "106°10'50.12\" W",
       "alt": 4086.20979,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/high-country/avif/mount-audubon.avif": {
     "date": {
@@ -2079,7 +1838,8 @@
       "lonDMS": "105°36'56.82\" W",
       "alt": 4019.944606,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2020 Casey Burnham"
   },
   "galleries/high-country/avif/mount-blue-sky-trail.avif": {
     "date": {
@@ -2109,7 +1869,8 @@
       "lonDMS": "105°38'48.63\" W",
       "alt": 4017.455446,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/avif/mount-blue-sky.avif": {
     "date": {
@@ -2139,7 +1900,8 @@
       "lonDMS": "105°39'12.26\" W",
       "alt": 4178.652893,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/avif/ptarmigan-lake.avif": {
     "date": {
@@ -2169,7 +1931,39 @@
       "lonDMS": "106°23'6.01\" W",
       "alt": 3692.606145,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
+  },
+  "galleries/high-country/avif/silver-lake-flora.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 7,
+      "day": 20,
+      "hour": 8,
+      "minute": 39,
+      "second": 16,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:07:20 08:39:16",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/859",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 37.791192,
+      "lon": -107.604544,
+      "latDMS": "37°47'28.29\" N",
+      "lonDMS": "107°36'16.36\" W",
+      "alt": 3723.941176,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/avif/stoney-pass.avif": {
     "date": {
@@ -2199,7 +1993,8 @@
       "lonDMS": "107°33'11.79\" W",
       "alt": 3998.556962,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/avif/summit-lake.avif": {
     "date": {
@@ -2229,7 +2024,8 @@
       "lonDMS": "105°38'26.41\" W",
       "alt": 3910.269373,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/avif/thirsty-peak.avif": {
     "date": {
@@ -2259,7 +2055,8 @@
       "lonDMS": "105°44'11.39\" W",
       "alt": 4030.102362,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/avif/view-from-canby-mountain.avif": {
     "date": {
@@ -2289,7 +2086,8 @@
       "lonDMS": "107°32'44.90\" W",
       "alt": 4117.767857,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/avif/view-from-green-mountain.avif": {
     "date": {
@@ -2319,7 +2117,8 @@
       "lonDMS": "107°33'36.68\" W",
       "alt": 3972.942387,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/avif/view-from-mount-mamma.avif": {
     "date": {
@@ -2349,7 +2148,8 @@
       "lonDMS": "106°18'22.70\" W",
       "alt": 3985.020896,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/high-country/avif/wheeler-lake.avif": {
     "date": {
@@ -2379,7 +2179,8 @@
       "lonDMS": "106°7'36.73\" W",
       "alt": 4192.96988,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/thumbnails/american-gulch-sky.avif": {
     "date": {
@@ -2409,7 +2210,8 @@
       "lonDMS": "107°30'47.85\" W",
       "alt": 3462.689189,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/thumbnails/bierstadt-billy.avif": {
     "date": {
@@ -2439,7 +2241,8 @@
       "lonDMS": "105°40'21.30\" W",
       "alt": 4191.578767,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/high-country/thumbnails/blue-lake.avif": {
     "date": {
@@ -2469,7 +2272,8 @@
       "lonDMS": "105°36'56.99\" W",
       "alt": 4022.015915,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2020 Casey Burnham"
   },
   "galleries/high-country/thumbnails/brainard-lake-area.avif": {
     "date": {
@@ -2499,7 +2303,8 @@
       "lonDMS": "105°36'57.70\" W",
       "alt": 3457.319948,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/thumbnails/deer-in-american-gulch.avif": {
     "date": {
@@ -2529,7 +2334,8 @@
       "lonDMS": "107°30'47.93\" W",
       "alt": 3464.1248,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/thumbnails/fall-on-jones-mountain.avif": {
     "date": {
@@ -2559,7 +2365,70 @@
       "lonDMS": "106°23'8.18\" W",
       "alt": 3717.400576,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
+  },
+  "galleries/high-country/thumbnails/fireweed.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 8,
+      "day": 12,
+      "hour": 9,
+      "minute": 32,
+      "second": 38,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:08:12 09:32:38",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/2208",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.388156,
+      "lon": -106.521119,
+      "latDMS": "39°23'17.36\" N",
+      "lonDMS": "106°31'16.03\" W",
+      "alt": 3646.989286,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "©2025 Casey Burnham"
+  },
+  "galleries/high-country/thumbnails/indian-paintbrush.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 7,
+      "day": 20,
+      "hour": 8,
+      "minute": 59,
+      "second": 37,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:07:20 08:59:37",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/2008",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 37.786625,
+      "lon": -107.606742,
+      "latDMS": "37°47'11.85\" N",
+      "lonDMS": "107°36'24.27\" W",
+      "alt": 3722.348684,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/thumbnails/kendall-peak.avif": {
     "date": {
@@ -2589,7 +2458,8 @@
       "lonDMS": "107°36'18.45\" W",
       "alt": 3726.898496,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/thumbnails/king-lake.avif": {
     "date": {
@@ -2619,7 +2489,8 @@
       "lonDMS": "105°41'12.67\" W",
       "alt": 3548.667431,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/thumbnails/lake-haiyaha.avif": {
     "date": {
@@ -2649,7 +2520,8 @@
       "lonDMS": "105°39'40.00\" W",
       "alt": 3113.90184,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2022 Casey Burnham"
   },
   "galleries/high-country/thumbnails/longs-peak.avif": {
     "date": {
@@ -2679,7 +2551,8 @@
       "lonDMS": "105°35'32.75\" W",
       "alt": 3508.966527,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/high-country/thumbnails/missouri-lake.avif": {
     "date": {
@@ -2709,7 +2582,8 @@
       "lonDMS": "106°30'50.84\" W",
       "alt": 3482.019481,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/thumbnails/missouri-lakes.avif": {
     "date": {
@@ -2739,7 +2613,8 @@
       "lonDMS": "106°31'14.35\" W",
       "alt": 4003.077778,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/thumbnails/mosquito-range.avif": {
     "date": {
@@ -2769,7 +2644,8 @@
       "lonDMS": "106°10'50.12\" W",
       "alt": 4086.20979,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/high-country/thumbnails/mount-audubon.avif": {
     "date": {
@@ -2799,7 +2675,8 @@
       "lonDMS": "105°36'56.82\" W",
       "alt": 4019.944606,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2020 Casey Burnham"
   },
   "galleries/high-country/thumbnails/mount-blue-sky-trail.avif": {
     "date": {
@@ -2829,7 +2706,8 @@
       "lonDMS": "105°38'48.63\" W",
       "alt": 4017.455446,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/thumbnails/mount-blue-sky.avif": {
     "date": {
@@ -2859,7 +2737,8 @@
       "lonDMS": "105°39'12.26\" W",
       "alt": 4178.652893,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/thumbnails/ptarmigan-lake.avif": {
     "date": {
@@ -2889,7 +2768,39 @@
       "lonDMS": "106°23'6.01\" W",
       "alt": 3692.606145,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
+  },
+  "galleries/high-country/thumbnails/silver-lake-flora.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 7,
+      "day": 20,
+      "hour": 8,
+      "minute": 39,
+      "second": 16,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:07:20 08:39:16",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/859",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 37.791192,
+      "lon": -107.604544,
+      "latDMS": "37°47'28.29\" N",
+      "lonDMS": "107°36'16.36\" W",
+      "alt": 3723.941176,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/thumbnails/stoney-pass.avif": {
     "date": {
@@ -2919,7 +2830,8 @@
       "lonDMS": "107°33'11.79\" W",
       "alt": 3998.556962,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/thumbnails/summit-lake.avif": {
     "date": {
@@ -2949,7 +2861,8 @@
       "lonDMS": "105°38'26.41\" W",
       "alt": 3910.269373,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/high-country/thumbnails/thirsty-peak.avif": {
     "date": {
@@ -2979,7 +2892,8 @@
       "lonDMS": "105°44'11.39\" W",
       "alt": 4030.102362,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/thumbnails/view-from-canby-mountain.avif": {
     "date": {
@@ -3009,7 +2923,8 @@
       "lonDMS": "107°32'44.90\" W",
       "alt": 4117.767857,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/thumbnails/view-from-green-mountain.avif": {
     "date": {
@@ -3039,7 +2954,8 @@
       "lonDMS": "107°33'36.68\" W",
       "alt": 3972.942387,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/high-country/thumbnails/view-from-mount-mamma.avif": {
     "date": {
@@ -3069,7 +2985,8 @@
       "lonDMS": "106°18'22.70\" W",
       "alt": 3985.020896,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/high-country/thumbnails/wheeler-lake.avif": {
     "date": {
@@ -3099,7 +3016,8 @@
       "lonDMS": "106°7'36.73\" W",
       "alt": 4192.96988,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/live-sound/avif/100-gecs-10k.avif": {
     "date": {
@@ -3129,7 +3047,8 @@
       "lonDMS": "104°58'8.38\" W",
       "alt": 1571.777344,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/live-sound/avif/100-gecs-dj-set.avif": {
     "date": {
@@ -3159,7 +3078,8 @@
       "lonDMS": "105°0'55.73\" W",
       "alt": 1586.355224,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2022 Casey Burnham"
   },
   "galleries/live-sound/avif/100-gecs.avif": {
     "date": {
@@ -3189,7 +3109,8 @@
       "lonDMS": "104°58'31.20\" W",
       "alt": 1611.721053,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/live-sound/avif/ashnikko.avif": {
     "date": {
@@ -3219,7 +3140,8 @@
       "lonDMS": "104°58'8.98\" W",
       "alt": 1579.897461,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/live-sound/avif/flume-at-belly-up.avif": {
     "date": {
@@ -3249,7 +3171,8 @@
       "lonDMS": "106°49'7.74\" W",
       "alt": 2414.803468,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/live-sound/avif/flume-dj-set.avif": {
     "date": {
@@ -3279,7 +3202,8 @@
       "lonDMS": "106°49'8.07\" W",
       "alt": 2416.322034,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2019 Casey Burnham"
   },
   "galleries/live-sound/avif/flume-feat-laurel.avif": {
     "date": {
@@ -3309,7 +3233,8 @@
       "lonDMS": "106°49'7.82\" W",
       "alt": 2414.803468,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/live-sound/avif/flume-palaces-tour.avif": {
     "date": {
@@ -3339,7 +3264,8 @@
       "lonDMS": "105°12'19.52\" W",
       "alt": 1933.815436,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2022 Casey Burnham"
   },
   "galleries/live-sound/avif/glass-animals-ogden.avif": {
     "date": {
@@ -3360,7 +3286,8 @@
     "exposureCompensation": "0",
     "cameraModel": "iPhone 5",
     "format": "AVIF",
-    "gps": null
+    "gps": null,
+    "copyright": "©2015 Casey Burnham"
   },
   "galleries/live-sound/avif/glass-animals.avif": {
     "date": {
@@ -3390,7 +3317,8 @@
       "lonDMS": "105°12'20.70\" W",
       "alt": 1910.957399,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/live-sound/avif/mura-masa-dj-set.avif": {
     "date": {
@@ -3420,7 +3348,8 @@
       "lonDMS": "105°0'56.44\" W",
       "alt": 1587.966118,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/live-sound/avif/tame-impala.avif": {
     "date": {
@@ -3450,7 +3379,8 @@
       "lonDMS": "105°0'26.75\" W",
       "alt": 1589.79235,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/live-sound/avif/vampire-weekend.avif": {
     "date": {
@@ -3480,7 +3410,8 @@
       "lonDMS": "105°12'21.58\" W",
       "alt": 1958.088608,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/100-gecs-10k.avif": {
     "date": {
@@ -3510,7 +3441,8 @@
       "lonDMS": "104°58'8.38\" W",
       "alt": 1571.777344,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/100-gecs-dj-set.avif": {
     "date": {
@@ -3540,7 +3472,8 @@
       "lonDMS": "105°0'55.73\" W",
       "alt": 1586.355224,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2022 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/100-gecs.avif": {
     "date": {
@@ -3570,7 +3503,8 @@
       "lonDMS": "104°58'31.20\" W",
       "alt": 1611.721053,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/ashnikko.avif": {
     "date": {
@@ -3600,7 +3534,8 @@
       "lonDMS": "104°58'8.98\" W",
       "alt": 1579.897461,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/flume-at-belly-up.avif": {
     "date": {
@@ -3630,7 +3565,8 @@
       "lonDMS": "106°49'7.74\" W",
       "alt": 2414.803468,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/flume-dj-set.avif": {
     "date": {
@@ -3660,7 +3596,8 @@
       "lonDMS": "106°49'8.07\" W",
       "alt": 2416.322034,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2019 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/flume-feat-laurel.avif": {
     "date": {
@@ -3690,7 +3627,8 @@
       "lonDMS": "106°49'7.82\" W",
       "alt": 2414.803468,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/flume-palaces-tour.avif": {
     "date": {
@@ -3720,7 +3658,8 @@
       "lonDMS": "105°12'19.52\" W",
       "alt": 1933.815436,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2022 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/glass-animals-ogden.avif": {
     "date": {
@@ -3741,7 +3680,8 @@
     "exposureCompensation": "0",
     "cameraModel": "iPhone 5",
     "format": "AVIF",
-    "gps": null
+    "gps": null,
+    "copyright": "©2015 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/glass-animals.avif": {
     "date": {
@@ -3771,7 +3711,8 @@
       "lonDMS": "105°12'20.70\" W",
       "alt": 1910.957399,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/mura-masa-dj-set.avif": {
     "date": {
@@ -3801,7 +3742,8 @@
       "lonDMS": "105°0'56.44\" W",
       "alt": 1587.966118,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/tame-impala.avif": {
     "date": {
@@ -3831,7 +3773,8 @@
       "lonDMS": "105°0'26.75\" W",
       "alt": 1589.79235,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/live-sound/thumbnails/vampire-weekend.avif": {
     "date": {
@@ -3861,7 +3804,8 @@
       "lonDMS": "105°12'21.58\" W",
       "alt": 1958.088608,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/mines/avif/alpine-tunnel.avif": {
     "date": {
@@ -3891,7 +3835,8 @@
       "lonDMS": "106°24'27.77\" W",
       "alt": 3520.953052,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/avif/buffalo-boy-arial-tram.avif": {
     "date": {
@@ -3921,7 +3866,8 @@
       "lonDMS": "107°33'19.29\" W",
       "alt": 3821.805505,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/avif/champion-mill-abstract.avif": {
     "date": {
@@ -3951,7 +3897,8 @@
       "lonDMS": "106°30'16.34\" W",
       "alt": 3578.437086,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/avif/champion-mill.avif": {
     "date": {
@@ -3981,7 +3928,8 @@
       "lonDMS": "106°30'18.37\" W",
       "alt": 3582.920065,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/avif/champion-mine.avif": {
     "date": {
@@ -4011,7 +3959,8 @@
       "lonDMS": "106°31'11.14\" W",
       "alt": 3892.81962,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/avif/crystal-mill.avif": {
     "date": {
@@ -4041,7 +3990,8 @@
       "lonDMS": "107°6'17.93\" W",
       "alt": 2717.519774,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/mines/avif/mayflower-gulch-in-winter.avif": {
     "date": {
@@ -4071,7 +4021,8 @@
       "lonDMS": "106°8'49.65\" W",
       "alt": 3540.568807,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/mines/avif/mining-structure.avif": {
     "date": {
@@ -4101,7 +4052,8 @@
       "lonDMS": "107°34'50.67\" W",
       "alt": 3484.997555,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/mines/avif/mount-sherman-cabin.avif": {
     "date": {
@@ -4131,7 +4083,8 @@
       "lonDMS": "106°10'23.89\" W",
       "alt": 3932.524887,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/mines/avif/pomeroy-gulch-marmot.avif": {
     "date": {
@@ -4161,7 +4114,8 @@
       "lonDMS": "106°21'28.61\" W",
       "alt": 3400.964706,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/mines/avif/red-mountain-mill.avif": {
     "date": {
@@ -4191,7 +4145,8 @@
       "lonDMS": "107°41'46.39\" W",
       "alt": 3227.999599,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/mines/avif/silver-lake-cabins.avif": {
     "date": {
@@ -4221,7 +4176,8 @@
       "lonDMS": "107°36'24.80\" W",
       "alt": 3713.735426,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/thumbnails/alpine-tunnel.avif": {
     "date": {
@@ -4251,7 +4207,8 @@
       "lonDMS": "106°24'27.77\" W",
       "alt": 3520.953052,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/thumbnails/buffalo-boy-arial-tram.avif": {
     "date": {
@@ -4281,7 +4238,8 @@
       "lonDMS": "107°33'19.29\" W",
       "alt": 3821.805505,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/thumbnails/champion-mill-abstract.avif": {
     "date": {
@@ -4311,7 +4269,8 @@
       "lonDMS": "106°30'16.34\" W",
       "alt": 3578.437086,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/thumbnails/champion-mill.avif": {
     "date": {
@@ -4341,7 +4300,8 @@
       "lonDMS": "106°30'18.37\" W",
       "alt": 3582.920065,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/thumbnails/champion-mine.avif": {
     "date": {
@@ -4371,7 +4331,8 @@
       "lonDMS": "106°31'11.14\" W",
       "alt": 3892.81962,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/mines/thumbnails/crystal-mill.avif": {
     "date": {
@@ -4401,7 +4362,8 @@
       "lonDMS": "107°6'17.93\" W",
       "alt": 2717.519774,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/mines/thumbnails/mayflower-gulch-in-winter.avif": {
     "date": {
@@ -4431,7 +4393,8 @@
       "lonDMS": "106°8'49.65\" W",
       "alt": 3540.568807,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/mines/thumbnails/mining-structure.avif": {
     "date": {
@@ -4461,7 +4424,8 @@
       "lonDMS": "107°34'50.67\" W",
       "alt": 3484.997555,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/mines/thumbnails/mount-sherman-cabin.avif": {
     "date": {
@@ -4491,7 +4455,8 @@
       "lonDMS": "106°10'23.89\" W",
       "alt": 3932.524887,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/mines/thumbnails/pomeroy-gulch-marmot.avif": {
     "date": {
@@ -4521,7 +4486,8 @@
       "lonDMS": "106°21'28.61\" W",
       "alt": 3400.964706,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/mines/thumbnails/red-mountain-mill.avif": {
     "date": {
@@ -4551,7 +4517,8 @@
       "lonDMS": "107°41'46.39\" W",
       "alt": 3227.999599,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/mines/thumbnails/silver-lake-cabins.avif": {
     "date": {
@@ -4581,7 +4548,8 @@
       "lonDMS": "107°36'24.80\" W",
       "alt": 3713.735426,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/off-road/avif/buffalo-boy-trail.avif": {
     "date": {
@@ -4611,7 +4579,8 @@
       "lonDMS": "107°33'2.32\" W",
       "alt": 3977.43662,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/off-road/avif/bunce-school-road.avif": {
     "date": {
@@ -4641,7 +4610,8 @@
       "lonDMS": "105°29'2.93\" W",
       "alt": 2581.572727,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/off-road/avif/iowa-gulch.avif": {
     "date": {
@@ -4671,7 +4641,8 @@
       "lonDMS": "106°10'48.39\" W",
       "alt": 3726.497696,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/avif/james-peak-trail.avif": {
     "date": {
@@ -4701,7 +4672,8 @@
       "lonDMS": "105°39'52.19\" W",
       "alt": 3564.031847,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/avif/kingston-peak-trail.avif": {
     "date": {
@@ -4731,7 +4703,8 @@
       "lonDMS": "106°23'17.24\" W",
       "alt": 3819.130584,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/avif/lead-king-basin.avif": {
     "date": {
@@ -4761,7 +4734,8 @@
       "lonDMS": "107°5'45.93\" W",
       "alt": 2860.188976,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/avif/leavenworth-creek-road.avif": {
     "date": {
@@ -4791,7 +4765,8 @@
       "lonDMS": "105°46'5.37\" W",
       "alt": 3584.171233,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/avif/lincoln-amphitheater.avif": {
     "date": {
@@ -4821,7 +4796,8 @@
       "lonDMS": "106°6'14.77\" W",
       "alt": 3971.432203,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/avif/mosquito-pass-shelf.avif": {
     "date": {
@@ -4851,7 +4827,8 @@
       "lonDMS": "106°11'21.21\" W",
       "alt": 3966.684932,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/avif/mosquito-pass.avif": {
     "date": {
@@ -4881,7 +4858,8 @@
       "lonDMS": "106°10'53.93\" W",
       "alt": 4027.396907,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/avif/mount-antero.avif": {
     "date": {
@@ -4911,7 +4889,8 @@
       "lonDMS": "106°14'52.34\" W",
       "alt": 4187.644295,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/off-road/avif/quail-mountain.avif": {
     "date": {
@@ -4941,7 +4920,8 @@
       "lonDMS": "106°20'57.06\" W",
       "alt": 3810.752294,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/off-road/avif/round-mountain.avif": {
     "date": {
@@ -4971,7 +4951,8 @@
       "lonDMS": "106°7'27.69\" W",
       "alt": 3642.514706,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/avif/santa-fe-peak.avif": {
     "date": {
@@ -5001,7 +4982,8 @@
       "lonDMS": "105°50'14.81\" W",
       "alt": 3989.53304,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/off-road/thumbnails/buffalo-boy-trail.avif": {
     "date": {
@@ -5031,7 +5013,8 @@
       "lonDMS": "107°33'2.32\" W",
       "alt": 3977.43662,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/off-road/thumbnails/bunce-school-road.avif": {
     "date": {
@@ -5061,7 +5044,8 @@
       "lonDMS": "105°29'2.93\" W",
       "alt": 2581.572727,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/off-road/thumbnails/iowa-gulch.avif": {
     "date": {
@@ -5091,7 +5075,8 @@
       "lonDMS": "106°10'48.39\" W",
       "alt": 3726.497696,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/thumbnails/james-peak-trail.avif": {
     "date": {
@@ -5121,7 +5106,8 @@
       "lonDMS": "105°39'52.19\" W",
       "alt": 3564.031847,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/thumbnails/kingston-peak-trail.avif": {
     "date": {
@@ -5151,7 +5137,8 @@
       "lonDMS": "106°23'17.24\" W",
       "alt": 3819.130584,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/thumbnails/lead-king-basin.avif": {
     "date": {
@@ -5181,7 +5168,8 @@
       "lonDMS": "107°5'45.93\" W",
       "alt": 2860.188976,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/thumbnails/leavenworth-creek-road.avif": {
     "date": {
@@ -5211,7 +5199,8 @@
       "lonDMS": "105°46'5.37\" W",
       "alt": 3584.171233,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/thumbnails/lincoln-amphitheater.avif": {
     "date": {
@@ -5241,7 +5230,8 @@
       "lonDMS": "106°6'14.77\" W",
       "alt": 3971.432203,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/thumbnails/mosquito-pass-shelf.avif": {
     "date": {
@@ -5271,7 +5261,8 @@
       "lonDMS": "106°11'21.21\" W",
       "alt": 3966.684932,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/thumbnails/mosquito-pass.avif": {
     "date": {
@@ -5301,7 +5292,8 @@
       "lonDMS": "106°10'53.93\" W",
       "alt": 4027.396907,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/thumbnails/mount-antero.avif": {
     "date": {
@@ -5331,7 +5323,8 @@
       "lonDMS": "106°14'52.34\" W",
       "alt": 4187.644295,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/off-road/thumbnails/quail-mountain.avif": {
     "date": {
@@ -5361,7 +5354,8 @@
       "lonDMS": "106°20'57.06\" W",
       "alt": 3810.752294,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/off-road/thumbnails/round-mountain.avif": {
     "date": {
@@ -5391,7 +5385,8 @@
       "lonDMS": "106°7'27.69\" W",
       "alt": 3642.514706,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/off-road/thumbnails/santa-fe-peak.avif": {
     "date": {
@@ -5421,7 +5416,8 @@
       "lonDMS": "105°50'14.81\" W",
       "alt": 3989.53304,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/rocks/avif/arches.avif": {
     "date": {
@@ -5451,7 +5447,8 @@
       "lonDMS": "109°32'24.58\" W",
       "alt": 1592.601896,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/rocks/avif/bryce-canyon-from-below.avif": {
     "date": {
@@ -5481,7 +5478,8 @@
       "lonDMS": "112°9'53.12\" W",
       "alt": 2367.173709,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/avif/bryce-canyon.avif": {
     "date": {
@@ -5511,7 +5509,8 @@
       "lonDMS": "112°10'14.93\" W",
       "alt": 2463.96338,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/avif/craters-of-the-moon.avif": {
     "date": {
@@ -5541,7 +5540,8 @@
       "lonDMS": "113°33'27.04\" W",
       "alt": 1781.366972,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2018 Casey Burnham"
   },
   "galleries/rocks/avif/devils-garden.avif": {
     "date": {
@@ -5571,7 +5571,8 @@
       "lonDMS": "111°24'50.16\" W",
       "alt": 1605.14876,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/avif/escalante-arch.avif": {
     "date": {
@@ -5601,7 +5602,8 @@
       "lonDMS": "111°24'49.53\" W",
       "alt": 1612.951429,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/avif/fire-rock.avif": {
     "date": {
@@ -5631,7 +5633,8 @@
       "lonDMS": "109°33'52.94\" W",
       "alt": 1537.101754,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/rocks/avif/granite.avif": {
     "date": {
@@ -5661,7 +5664,8 @@
       "lonDMS": "105°24'8.33\" W",
       "alt": 2648.492509,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/rocks/avif/hole-in-the-rock.avif": {
     "date": {
@@ -5691,7 +5695,8 @@
       "lonDMS": "106°23'18.89\" W",
       "alt": 3819.470636,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/avif/iron-fens.avif": {
     "date": {
@@ -5721,7 +5726,8 @@
       "lonDMS": "105°48'53.60\" W",
       "alt": 3452.919048,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/rocks/avif/navajo-loop-feature.avif": {
     "date": {
@@ -5751,7 +5757,8 @@
       "lonDMS": "112°9'56.28\" W",
       "alt": 2404.958848,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/avif/near-balanced-rock.avif": {
     "date": {
@@ -5781,7 +5788,8 @@
       "lonDMS": "104°53'50.42\" W",
       "alt": 1935.672986,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/rocks/avif/quarry-rock.avif": {
     "date": {
@@ -5811,7 +5819,8 @@
       "lonDMS": "104°52'59.80\" W",
       "alt": 1935.42,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/rocks/avif/sandstone-divot.avif": {
     "date": {
@@ -5841,7 +5850,8 @@
       "lonDMS": "111°3'51.87\" W",
       "alt": 1353.286902,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/avif/shandstone.avif": {
     "date": {
@@ -5871,7 +5881,8 @@
       "lonDMS": "111°59'46.87\" W",
       "alt": 1790.910417,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/avif/split-rock.avif": {
     "date": {
@@ -5901,7 +5912,8 @@
       "lonDMS": "105°16'16.66\" W",
       "alt": 2461.461279,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/rocks/thumbnails/arches.avif": {
     "date": {
@@ -5931,7 +5943,8 @@
       "lonDMS": "109°32'24.58\" W",
       "alt": 1592.601896,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/rocks/thumbnails/bryce-canyon-from-below.avif": {
     "date": {
@@ -5961,7 +5974,8 @@
       "lonDMS": "112°9'53.12\" W",
       "alt": 2367.173709,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/thumbnails/bryce-canyon.avif": {
     "date": {
@@ -5991,7 +6005,8 @@
       "lonDMS": "112°10'14.93\" W",
       "alt": 2463.96338,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/thumbnails/craters-of-the-moon.avif": {
     "date": {
@@ -6021,7 +6036,8 @@
       "lonDMS": "113°33'27.04\" W",
       "alt": 1781.366972,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2018 Casey Burnham"
   },
   "galleries/rocks/thumbnails/devils-garden.avif": {
     "date": {
@@ -6051,7 +6067,8 @@
       "lonDMS": "111°24'50.16\" W",
       "alt": 1605.14876,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/thumbnails/escalante-arch.avif": {
     "date": {
@@ -6081,7 +6098,8 @@
       "lonDMS": "111°24'49.53\" W",
       "alt": 1612.951429,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/thumbnails/fire-rock.avif": {
     "date": {
@@ -6111,7 +6129,8 @@
       "lonDMS": "109°33'52.94\" W",
       "alt": 1537.101754,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2021 Casey Burnham"
   },
   "galleries/rocks/thumbnails/granite.avif": {
     "date": {
@@ -6141,7 +6160,8 @@
       "lonDMS": "105°24'8.33\" W",
       "alt": 2648.492509,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/rocks/thumbnails/hole-in-the-rock.avif": {
     "date": {
@@ -6171,7 +6191,8 @@
       "lonDMS": "106°23'18.89\" W",
       "alt": 3819.470636,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/thumbnails/iron-fens.avif": {
     "date": {
@@ -6201,7 +6222,8 @@
       "lonDMS": "105°48'53.60\" W",
       "alt": 3452.919048,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/rocks/thumbnails/navajo-loop-feature.avif": {
     "date": {
@@ -6231,7 +6253,8 @@
       "lonDMS": "112°9'56.28\" W",
       "alt": 2404.958848,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/thumbnails/near-balanced-rock.avif": {
     "date": {
@@ -6261,7 +6284,8 @@
       "lonDMS": "104°53'50.42\" W",
       "alt": 1935.672986,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/rocks/thumbnails/quarry-rock.avif": {
     "date": {
@@ -6291,7 +6315,8 @@
       "lonDMS": "104°52'59.80\" W",
       "alt": 1935.42,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2023 Casey Burnham"
   },
   "galleries/rocks/thumbnails/sandstone-divot.avif": {
     "date": {
@@ -6321,7 +6346,8 @@
       "lonDMS": "111°3'51.87\" W",
       "alt": 1353.286902,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/thumbnails/shandstone.avif": {
     "date": {
@@ -6351,7 +6377,8 @@
       "lonDMS": "111°59'46.87\" W",
       "alt": 1790.910417,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/rocks/thumbnails/split-rock.avif": {
     "date": {
@@ -6381,7 +6408,8 @@
       "lonDMS": "105°16'16.66\" W",
       "alt": 2461.461279,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-at-pomeroy-lake.avif": {
     "date": {
@@ -6411,7 +6439,8 @@
       "lonDMS": "106°20'24.67\" W",
       "alt": 3741.038356,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-climbing-argentine-peak.avif": {
     "date": {
@@ -6441,7 +6470,8 @@
       "lonDMS": "105°46'58.38\" W",
       "alt": 4025.409023,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-climbing-mount-champion.avif": {
     "date": {
@@ -6471,7 +6501,8 @@
       "lonDMS": "106°31'18.66\" W",
       "alt": 4090.641434,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-climbing-ptarmigan-peak.avif": {
     "date": {
@@ -6501,7 +6532,8 @@
       "lonDMS": "106°10'27.87\" W",
       "alt": 4103.502762,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-in-south-park.avif": {
     "date": {
@@ -6531,7 +6563,8 @@
       "lonDMS": "105°44'55.25\" W",
       "alt": 3761.199909,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-in-the-flowers.avif": {
     "date": {
@@ -6561,7 +6594,8 @@
       "lonDMS": "107°36'14.33\" W",
       "alt": 3735.474747,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-in-the-lincoln-amphitheater.avif": {
     "date": {
@@ -6591,7 +6625,8 @@
       "lonDMS": "106°6'30.26\" W",
       "alt": 3999.199742,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-on-jones-mountain.avif": {
     "date": {
@@ -6621,7 +6656,8 @@
       "lonDMS": "106°23'24.66\" W",
       "alt": 3835.91129,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-on-mount-sheridan.avif": {
     "date": {
@@ -6651,7 +6687,8 @@
       "lonDMS": "106°11'9.29\" W",
       "alt": 4194.458824,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-on-taylor-mountain.avif": {
     "date": {
@@ -6681,7 +6718,8 @@
       "lonDMS": "106°17'58.03\" W",
       "alt": 4120.168539,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/thumbnails/rocky-at-pomeroy-lake.avif": {
     "date": {
@@ -6711,7 +6749,8 @@
       "lonDMS": "106°20'24.67\" W",
       "alt": 3741.038356,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/thumbnails/rocky-climbing-argentine-peak.avif": {
     "date": {
@@ -6741,7 +6780,8 @@
       "lonDMS": "105°46'58.38\" W",
       "alt": 4025.409023,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/thumbnails/rocky-climbing-mount-champion.avif": {
     "date": {
@@ -6771,7 +6811,8 @@
       "lonDMS": "106°31'18.66\" W",
       "alt": 4090.641434,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/summit-dog/thumbnails/rocky-climbing-ptarmigan-peak.avif": {
     "date": {
@@ -6801,7 +6842,8 @@
       "lonDMS": "106°10'27.87\" W",
       "alt": 4103.502762,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/summit-dog/thumbnails/rocky-in-south-park.avif": {
     "date": {
@@ -6831,7 +6873,8 @@
       "lonDMS": "105°44'55.25\" W",
       "alt": 3761.199909,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/thumbnails/rocky-in-the-flowers.avif": {
     "date": {
@@ -6861,7 +6904,8 @@
       "lonDMS": "107°36'14.33\" W",
       "alt": 3735.474747,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/summit-dog/thumbnails/rocky-in-the-lincoln-amphitheater.avif": {
     "date": {
@@ -6891,7 +6935,8 @@
       "lonDMS": "106°6'30.26\" W",
       "alt": 3999.199742,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/thumbnails/rocky-on-jones-mountain.avif": {
     "date": {
@@ -6921,7 +6966,8 @@
       "lonDMS": "106°23'24.66\" W",
       "alt": 3835.91129,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "galleries/summit-dog/thumbnails/rocky-on-mount-sheridan.avif": {
     "date": {
@@ -6951,7 +6997,8 @@
       "lonDMS": "106°11'9.29\" W",
       "alt": 4194.458824,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2025 Casey Burnham"
   },
   "galleries/summit-dog/thumbnails/rocky-on-taylor-mountain.avif": {
     "date": {
@@ -6981,7 +7028,8 @@
       "lonDMS": "106°17'58.03\" W",
       "alt": 4120.168539,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": "©2024 Casey Burnham"
   },
   "posters/casey-rocky.jpeg": {
     "date": {
@@ -7011,7 +7059,8 @@
       "lonDMS": "105°45'8.32\" W",
       "alt": 3635.376648,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Argentine-Peak.avif": {
     "date": {
@@ -7041,7 +7090,8 @@
       "lonDMS": "105°46'37.56\" W",
       "alt": 4191.898281,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Boulder-Mountain.avif": {
     "date": {
@@ -7071,7 +7121,8 @@
       "lonDMS": "106°17'33.89\" W",
       "alt": 4121.823574,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Gemini-Peak.avif": {
     "date": {
@@ -7101,7 +7152,8 @@
       "lonDMS": "106°10'5.54\" W",
       "alt": 4247.154079,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/James-Peak.avif": {
     "date": {
@@ -7131,7 +7183,8 @@
       "lonDMS": "105°41'17.03\" W",
       "alt": 3970.261574,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Jones-Mountain.avif": {
     "date": {
@@ -7161,7 +7214,8 @@
       "lonDMS": "106°23'38.39\" W",
       "alt": 4022.799472,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Kuss-Peak.avif": {
     "date": {
@@ -7191,7 +7245,8 @@
       "lonDMS": "106°10'52.48\" W",
       "alt": 4130.454259,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Mosquito-Peak.avif": {
     "date": {
@@ -7221,7 +7276,8 @@
       "lonDMS": "106°10'57.59\" W",
       "alt": 4207.33999,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Mount-Evans.avif": {
     "date": {
@@ -7251,7 +7307,8 @@
       "lonDMS": "106°10'54.07\" W",
       "alt": 4143.010889,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Mount-Mamma.avif": {
     "date": {
@@ -7281,7 +7338,8 @@
       "lonDMS": "106°18'9.76\" W",
       "alt": 3960.167235,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Mount-Parnassus.avif": {
     "date": {
@@ -7311,7 +7369,8 @@
       "lonDMS": "105°49'26.47\" W",
       "alt": 4106.687345,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Rito-Alto-Peak.avif": {
     "date": {
@@ -7341,7 +7400,8 @@
       "lonDMS": "105°39'41.20\" W",
       "alt": 4203.888462,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Taylor-Mountain.avif": {
     "date": {
@@ -7371,7 +7431,8 @@
       "lonDMS": "106°17'58.25\" W",
       "alt": 4162.535047,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Treasurevault-Mountain.avif": {
     "date": {
@@ -7401,7 +7462,8 @@
       "lonDMS": "106°11'1.27\" W",
       "alt": 4180.917625,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/Whale-Peak.avif": {
     "date": {
@@ -7431,7 +7493,8 @@
       "lonDMS": "105°51'58.83\" W",
       "alt": 3997.346218,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/canby-mountain.jpeg": {
     "date": {
@@ -7461,7 +7524,8 @@
       "lonDMS": "107°32'45.15\" W",
       "alt": 4116.875862,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/cottonwood-peak.jpeg": {
     "date": {
@@ -7491,7 +7555,8 @@
       "lonDMS": "105°45'23.43\" W",
       "alt": 4147.43295,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/grays-peak.jpeg": {
     "date": {
@@ -7521,7 +7586,8 @@
       "lonDMS": "105°49'3.21\" W",
       "alt": 4345.931925,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/green-mountain.jpeg": {
     "date": {
@@ -7551,7 +7617,8 @@
       "lonDMS": "107°33'42.12\" W",
       "alt": 3990.861386,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/hancock-peak.jpeg": {
     "date": {
@@ -7581,7 +7648,8 @@
       "lonDMS": "106°22'0.61\" W",
       "alt": 3997.745935,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/horseshoe-mountain.jpeg": {
     "date": {
@@ -7611,7 +7679,8 @@
       "lonDMS": "106°11'4.07\" W",
       "alt": 4245.119417,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/huron-peak.jpeg": {
     "date": {
@@ -7641,7 +7710,8 @@
       "lonDMS": "106°26'16.79\" W",
       "alt": 4271.967619,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/longs-peak.jpeg": {
     "date": {
@@ -7671,7 +7741,8 @@
       "lonDMS": "105°37'5.64\" W",
       "alt": 4235.649231,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-antero.jpeg": {
     "date": {
@@ -7701,7 +7772,8 @@
       "lonDMS": "106°14'46.46\" W",
       "alt": 4352.77809,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-audubon.jpeg": {
     "date": {
@@ -7731,7 +7803,8 @@
       "lonDMS": "105°36'56.82\" W",
       "alt": 4019.944606,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-belford.jpeg": {
     "date": {
@@ -7761,7 +7834,8 @@
       "lonDMS": "106°21'38.50\" W",
       "alt": 4321.53317,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-bierstadt.jpeg": {
     "date": {
@@ -7791,7 +7865,8 @@
       "lonDMS": "105°40'7.82\" W",
       "alt": 4282.984694,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-blue-sky.jpeg": {
     "date": {
@@ -7821,7 +7896,8 @@
       "lonDMS": "105°38'36.93\" W",
       "alt": 4346.887967,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-bross.jpeg": {
     "date": {
@@ -7851,7 +7927,8 @@
       "lonDMS": "106°6'28.26\" W",
       "alt": 4326.023739,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-cameron.jpeg": {
     "date": {
@@ -7881,7 +7958,8 @@
       "lonDMS": "106°7'7.45\" W",
       "alt": 4341.093857,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-champion.jpeg": {
     "date": {
@@ -7911,7 +7989,8 @@
       "lonDMS": "106°31'17.51\" W",
       "alt": 4158.834808,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-columbia.jpeg": {
     "date": {
@@ -7941,7 +8020,8 @@
       "lonDMS": "106°17'51.19\" W",
       "alt": 4284.140365,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-democrat.jpeg": {
     "date": {
@@ -7971,7 +8051,8 @@
       "lonDMS": "106°8'24.05\" W",
       "alt": 4309.27892,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-guyot.jpeg": {
     "date": {
@@ -8001,7 +8082,8 @@
       "lonDMS": "105°56'15.88\" W",
       "alt": 4075.363653,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-lincoln.jpeg": {
     "date": {
@@ -8031,7 +8113,8 @@
       "lonDMS": "106°6'41.47\" W",
       "alt": 4347.919951,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-of-the-holy-cross.jpeg": {
     "date": {
@@ -8061,7 +8144,8 @@
       "lonDMS": "106°28'53.45\" W",
       "alt": 4249.528555,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-oxford.jpeg": {
     "date": {
@@ -8091,7 +8175,8 @@
       "lonDMS": "106°20'19.76\" W",
       "alt": 4311.327366,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-princeton.jpeg": {
     "date": {
@@ -8121,7 +8206,8 @@
       "lonDMS": "106°14'33.30\" W",
       "alt": 4328.083784,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-shavano.jpeg": {
     "date": {
@@ -8151,7 +8237,8 @@
       "lonDMS": "106°14'21.63\" W",
       "alt": 4330.67313,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-sheridan.jpeg": {
     "date": {
@@ -8181,7 +8268,8 @@
       "lonDMS": "106°11'9.29\" W",
       "alt": 4194.120448,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-sherman.jpeg": {
     "date": {
@@ -8211,7 +8299,8 @@
       "lonDMS": "106°10'12.27\" W",
       "alt": 4279.425626,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-spalding.jpeg": {
     "date": {
@@ -8241,7 +8330,8 @@
       "lonDMS": "105°39'23.41\" W",
       "alt": 4224.112258,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mount-yale.jpeg": {
     "date": {
@@ -8271,7 +8361,8 @@
       "lonDMS": "106°18'49.70\" W",
       "alt": 4324.109684,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/mt-blue-sky.jpeg": {
     "date": {
@@ -8301,7 +8392,8 @@
       "lonDMS": "105°38'36.93\" W",
       "alt": 4346.887967,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/peerless-mountain.jpeg": {
     "date": {
@@ -8331,7 +8423,8 @@
       "lonDMS": "106°10'44.13\" W",
       "alt": 4072.051613,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/ptarmigan-peak.jpeg": {
     "date": {
@@ -8361,7 +8454,8 @@
       "lonDMS": "106°10'26.82\" W",
       "alt": 4186.485194,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/quail-mountain.jpeg": {
     "date": {
@@ -8391,7 +8485,8 @@
       "lonDMS": "106°23'40.70\" W",
       "alt": 4099.595547,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/santa-fe-peak.jpeg": {
     "date": {
@@ -8421,7 +8516,8 @@
       "lonDMS": "105°50'12.81\" W",
       "alt": 4012.05132,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/savage-peak.jpeg": {
     "date": {
@@ -8451,7 +8547,8 @@
       "lonDMS": "106°31'14.35\" W",
       "alt": 4004.233038,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/tabeguache-peak.jpeg": {
     "date": {
@@ -8481,7 +8578,8 @@
       "lonDMS": "106°15'3.02\" W",
       "alt": 4309.619647,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/thirsty-peak.jpeg": {
     "date": {
@@ -8511,7 +8609,8 @@
       "lonDMS": "105°44'11.39\" W",
       "alt": 4030.102381,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/torreys-peak.jpeg": {
     "date": {
@@ -8541,7 +8640,8 @@
       "lonDMS": "105°49'16.50\" W",
       "alt": 4343.431507,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/un-13128.jpeg": {
     "date": {
@@ -8571,7 +8671,8 @@
       "lonDMS": "105°44'41.38\" W",
       "alt": 4001.598475,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   },
   "summits/un-13738.jpeg": {
     "date": {
@@ -8594,7 +8695,8 @@
     "exposureCompensation": "-0.00391",
     "cameraModel": "iPhone 13 Pro Max",
     "format": "JPEG",
-    "gps": null
+    "gps": null,
+    "copyright": ""
   },
   "summits/weston-peak.jpeg": {
     "date": {
@@ -8624,6 +8726,7 @@
       "lonDMS": "106°9'51.23\" W",
       "alt": 4140.687523,
       "altRef": "Above Sea Level"
-    }
+    },
+    "copyright": ""
   }
 }

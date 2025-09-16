@@ -9,14 +9,13 @@ class PeakMap {
 			defaultCenter: { lat: 39.7392, lon: -104.9849 }, // Denver fallback
 			defaultZoom: 10,
 			zoomSnap: 0.25,
-			tileLayerUrl: 'https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.{ext}',
+			tileLayerUrl: 'https://tile.openstreetmap.org/{z}/{x}/{y}.{ext}',
 			tileLayerOptions: {
 				minZoom: 6,
 				maxZoom: 14,
-				attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 				ext: 'png'
 			},
-			...options
 		};
 		
 		var Stadia_Outdoors = L.tileLayer('', {

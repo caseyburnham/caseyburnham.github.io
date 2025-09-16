@@ -238,9 +238,14 @@ caption {
 	font-family: var(--font-family-mono);
 }
 
+
 .statistics,
 #mountains td:last-child,
 #productions td:nth-last-child(-n+5) {
+	text-align: center;
+}
+
+.concert-year {
 	text-align: center;
 }
 
@@ -316,7 +321,6 @@ progress[value]::-moz-progress-bar {
 	section {
 		flex-direction: column;
 		gap: var(--space-md);
-		padding-bottom: 1em;
 	}
 
 	section p {
@@ -358,6 +362,10 @@ progress[value]::-moz-progress-bar {
 		font-size: var(--font-size-xs);
 		text-wrap: wrap;
 	}
+	#mountains th:nth-child(2) {
+		font-size: var(--font-size-xs);
+	}
+
 }
 
 /* Tablet */
