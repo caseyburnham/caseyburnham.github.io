@@ -18,6 +18,7 @@ class PhotoModal {
 		isOpen: false,
 		currentIndex: -1,
 		exifData: {},
+		isAnimatingFirstOpen: false,
 		modalOpenDebounceTimeout: null,
 		originalTriggerElement: null,
 		elements: {},
@@ -184,7 +185,12 @@ class PhotoModal {
 			return;
 		}
 
-		this.#state.elements.modal.classList.add('opening');
+		// Only add the 'opening' class if the modal is not already open
+		// New code
+		if (!this.#state.isOpen) {
+		  // Set the flag to true, but don't add the class yet.
+		  this.#state.isAnimatingFirstOpen = true;
+		}
 		this.#state.elements.modal.setAttribute('aria-hidden', 'false');
 		this.#state.originalTriggerElement = originalTriggerElement || document.activeElement;
 
@@ -225,12 +231,6 @@ class PhotoModal {
 		this.#updateCaption(title, src, sourceElement);
 		this.#showModal();
 
-		clearTimeout(this.#state.modalOpenDebounceTimeout);
-		this.#state.modalOpenDebounceTimeout = setTimeout(() => {
-			this.#state.elements.modal.classList.remove('opening');
-			this.#state.modalOpenDebounceTimeout = null;
-			this.#trapFocus();
-		}, 100);
 	}
 
 	/**
@@ -261,18 +261,19 @@ class PhotoModal {
 	 * Shows the modal by changing its CSS properties.
 	 * @private
 	 */
-	#showModal() {
-		const {
-			modal
-		} = this.#state.elements;
-		modal.style.display = 'flex';
-		requestAnimationFrame(() => {
-			modal.style.opacity = '1';
-			modal.style.pointerEvents = 'auto';
-			this.#state.isOpen = true;
-		});
-	}
-
+	 #showModal() {
+	   const { modal } = this.#state.elements;
+	   const isInitialOpen = !this.#state.isOpen;
+	 
+	   modal.style.display = 'flex';
+	
+	 
+		 modal.style.opacity = '1';
+		 modal.style.pointerEvents = 'auto';
+		 this.#state.isOpen = true;
+		 this.#trapFocus(); // We also move focus trapping here.
+	   };
+	 
 	// ----- Navigation and Data Management -----
 
 	/**

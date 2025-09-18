@@ -53,12 +53,7 @@ export const setupEventListeners = (elements, modalInstance) => {
 			}
 		},
 		
-		modalCardClickHandler: (event) => {
-		  if (event.target.closest('a')) {
-			return;
-		  }
-		  elements.modalCard.classList.toggle('caption-active');
-		},
+
 	};
 
 	document.addEventListener('click', boundHandlers.globalClickHandler);

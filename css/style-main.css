@@ -1,6 +1,7 @@
 /* ==========================================================================
    1. AT-RULES
    ========================================================================== */
+   
 @counter-style star {
 	suffix: " ";
 	symbols: "\2726";
@@ -10,6 +11,7 @@
 /* ==========================================================================
    2. BASE STYLES & RESET
    ========================================================================== */
+   
 *,
 *::before,
 *::after {
@@ -30,9 +32,10 @@ html {
 /* ==========================================================================
    3. LAYOUT COMPONENTS
    ========================================================================== */
+   
 main {
 	background-color: var(--bg-color-main);
-	border-radius: var(--border-radius-md);
+	border-radius: var(--border-radius-lg);
 	box-shadow: var(--shadow-main);
 	padding: var(--space-xl) var(--space-2xl);
 }
@@ -55,17 +58,21 @@ hr {
 
 footer {
 	line-height: var(--line-height-loose);
-	padding-top: var(--space-xl);
-	text-align: center;
+	padding-top: var(--space-lg);
+}
+
+footer span {
+	cursor: default;
 }
 
 /* ==========================================================================
    4. TYPOGRAPHY
    ========================================================================== */
+   
 abbr {
 	cursor: help;
 	text-decoration: underline dotted;
-	text-decoration: underline dotted;
+	text-decoration-color: var(--accent-color);
 	text-transform: uppercase;
 }
 
@@ -101,7 +108,6 @@ sup {
 time {
 	color: var(--text-color-muted);
 	font-family: var(--font-family-mono);
-	text-align: center;
 	text-wrap: nowrap;
 }
 
@@ -109,9 +115,24 @@ time {
 	color: var(--accent-color);
 }
 
+summary,
+time,
+footer,
+#productions td:nth-last-child(-n+5),
+.mtn-date,
+.mtn-image,
+.progress-container,
+.year-summary-row td,
+.concert-year,
+.concert-emoji,
+.statistics {
+	text-align: center;
+}
+
 /* ==========================================================================
    5. INTERACTIVE ELEMENTS
    ========================================================================== */
+   
 /* Details & Summary */
 details {
 	align-items: center;
@@ -122,13 +143,45 @@ details {
 	text-align: left;
 }
 
-summary {
-	border-radius: var(--border-radius-sm);
-	cursor: pointer;
-	outline: 1px solid var(--color-border);
-	padding: var(--space-sm) 0 var(--space-sm) 0;
-	text-align: center;
-	transition: background-color var(--transition-medium);
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+details .details-content-wrapper>article {
+	opacity: 0;
+	animation: none;
+}
+
+details[open] .details-content-wrapper>article {
+	animation: fadeIn 0.4s ease-out forwards;
+}
+
+details[open] .details-content-wrapper>article:nth-of-type(1) {
+	animation-delay: 0s;
+}
+
+details[open] .details-content-wrapper>article:nth-of-type(2) {
+	animation-delay: 0.15s;
+}
+
+details[open] .details-content-wrapper>article:nth-of-type(3) {
+	animation-delay: 0.3s;
+}
+
+details[open] .details-content-wrapper>article:nth-of-type(4) {
+	animation-delay: 0.45s;
+}
+
+details[open] .details-content-wrapper>article:nth-of-type(5) {
+	animation-delay: 0.6s;
 }
 
 details summary:hover {
@@ -155,6 +208,14 @@ details li::marker {
 	color: var(--accent-color);
 }
 
+summary {
+	border-radius: var(--border-radius-sm);
+	cursor: pointer;
+	outline: 1px solid var(--border-color);
+	padding: var(--space-sm) 0 var(--space-sm) 0;
+	transition: background-color var(--transition-medium);
+}
+
 .experience {
 	display: flex;
 	flex-wrap: wrap;
@@ -166,27 +227,28 @@ details li::marker {
 	position: absolute;
 	background: var(--bg-color-tooltip);
 	backdrop-filter: var(--modal-caption-blur);
-	color: white;
-	padding: 5px;
-	border-radius: 3px;
+	color: var(--text-color-light);
+	padding: var(--space-sm);
+	border-radius: var(--border-radius-sm);
 	z-index: 10;
 	opacity: 0;
 	transition: opacity var(--transition-medium);
-	border: solid 1px var(--color-border);
+	border: solid 1px var(--border-color);
 	will-change: opacity;
 	font-family: var(--font-family-ui);
 	box-shadow: var(--shadow-media);
 }
 
 .abbr-tooltip.show {
-opacity: 1;
+	opacity: 1;
 }
 
 /* ==========================================================================
    6. TABLE STYLES
    ========================================================================== */
+   
 table {
-	border: 1px solid var(--color-border);
+	border: 1px solid var(--border-color);
 	border-collapse: collapse;
 	font-size: inherit;
 	width: 100%;
@@ -205,7 +267,7 @@ tbody {
 
 td,
 th {
-	border: 1px solid var(--color-border);
+	border: 1px solid var(--border-color);
 	padding: var(--space-sm);
 	text-align: left;
 }
@@ -238,30 +300,19 @@ caption {
 	font-family: var(--font-family-mono);
 }
 
-
-.statistics,
-#mountains td:last-child,
-#productions td:nth-last-child(-n+5) {
-	text-align: center;
-}
-
-.concert-year {
-	text-align: center;
-}
-
 .year-summary-row strong {
 	color: var(--accent-color);
 }
 
 .year-summary-row td {
 	background: var(--accent-color-alpha);
-	text-align: center;
 	vertical-align: middle;
 }
 
 /* ===========================================
    7. PROGRESS BAR COMPONENT
    =========================================== */
+   
 .peak-progress {
 	position: relative;
 	z-index: 0;
@@ -307,8 +358,29 @@ progress[value]::-moz-progress-bar {
 /* ==========================================================================
    8. RESPONSIVE DESIGN
    ========================================================================== */
+   
 /* Mobile First Approach */
+@media (max-width: 480px) {
+	html {
+		padding: var(--space-sm);
+	}
+
+	main {
+		border-radius: var(--border-radius-lg);
+		padding: var(--space-sm);
+	}
+
+	section p {
+		text-indent: 1em;
+	}
+
+	table {
+		font-size: var(--font-size-xs);
+	}
+}
+
 @media (max-width: 768px) {
+
 	html {
 		font-size: 14px;
 		padding: var(--space-md);
@@ -328,28 +400,6 @@ progress[value]::-moz-progress-bar {
 		text-indent: 2em;
 	}
 
-	.video-wrapper {
-		width: 100%;
-	}
-	
-}
-
-@media (max-width: 480px) {
-	html {
-		padding: var(--space-sm);
-	}
-
-	main {
-		border-radius: var(--border-radius-lg);
-		padding: var(--space-sm);
-	}
-
-	section p {
-		text-indent: 1em;
-	}
-}
-
-@media (max-width: 768px) {
 	section.data-tables {
 		flex-direction: column;
 	}
@@ -359,9 +409,13 @@ progress[value]::-moz-progress-bar {
 	}
 
 	td time {
-		font-size: var(--font-size-xs);
 		text-wrap: wrap;
 	}
+	
+	.video-wrapper {
+		width: 100%;
+	}
+
 	#mountains th:nth-child(2) {
 		font-size: var(--font-size-xs);
 	}
@@ -380,15 +434,10 @@ progress[value]::-moz-progress-bar {
 	html {
 		font-size: var(--font-size-base);
 	}
-
-	.container {
-		max-width: 1400px;
-	}
 }
 
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-
 	*,
 	*::before,
 	*::after {
@@ -402,7 +451,7 @@ progress[value]::-moz-progress-bar {
 @media (prefers-contrast: high) {
 	:root {
 		--primary-color: #0066cc;
-		--color-border: #000000;
+		--border-color: #000000;
 		--text-color-primary: #000000;
 	}
 }
