@@ -167,10 +167,11 @@ export const ui = {
 		let currentYear = null;
 		let yearPeakCount = 0;
 
-		const createSummaryRow = (year, count) => {
+const createSummaryRow = (year, count) => {
 			const row = document.createElement('tr');
 			row.className = 'year-summary-row';
-			row.innerHTML = `<td colspan="5"><strong>${count}</strong> bags in ${year}</td>`;
+			// Use a ternary operator to choose the correct word
+			row.innerHTML = `<td colspan="5"><strong>${count}</strong> ${count === 1 ? 'bag' : 'bags'} in ${year}</td>`;
 			return row;
 		};
 

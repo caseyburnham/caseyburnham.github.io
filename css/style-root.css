@@ -1,6 +1,7 @@
 /* ==========================================================================
    ROOT PROPERTIES & VARIABLES
    ========================================================================== */
+   
 :root {
 	/* -------------------- Theme -------------------- */
 	--primary-color: #00d4c3;
@@ -8,7 +9,7 @@
 	--accent-color: #ff4f00;
 	--accent-color-light: rgba(255, 79, 0, 0.90);
 	--accent-color-alpha: rgba(255, 79, 0, 0.15);
-	--color-border: #333333;
+	--border-color: #333333;
 	
 	/* -------------------- Background Colors -------------------- */
 	--bg-color-main: #ffffff;
@@ -79,8 +80,8 @@
 
 	/* -------------------- Layout & Borders -------------------- */
 	--border-radius-sm: 0.25rem;
-	--border-radius-md: 20px;
-	--border-radius-lg: 0.5rem;
+	--border-radius-md: 0.5rem;
+	--border-radius-lg: 1.5rem;
 
 	--container-max-width: 1200px;
 	--container-padding: 2rem;
@@ -99,6 +100,7 @@
 	--transition-fast: 0.2s ease;
 	--transition-medium: 0.3s ease;
 	--transition-slow: 0.4s ease;
+	--transition-very-slow: 1s ease;
 
 	/* -------------------- Shadows -------------------- */
 	--shadow-main:
@@ -125,6 +127,7 @@
 /* ==========================================================================
    UTILITY CLASSES
    ========================================================================== */
+   
 .flex-item {
 	flex: 1;
 	min-width: 300px;

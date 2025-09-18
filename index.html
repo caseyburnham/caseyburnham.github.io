@@ -33,7 +33,9 @@
 	<main id="main-content">
 		<header>
 			<span><h1>Casey Burnham</h1>
-			<p class="tagline">Audio Director, Engineer & Elevation Enthusiast</p>
+			
+			<p class="tagline">Audio Director, Sound Engineer & Elevation Enthusiast</p>
+			
 		</header>
 
 		<!-- Personal Bio Section -->
@@ -42,16 +44,17 @@
 			<p>
 			As former Idahoan who traded potato fields for mountain trails, I earned a degree in Audio Engineering from the University of Colorado, Denver. I've spent the last decade dialing in mixes and troubleshooting gear that swore it was working just yesterday. I spend my days wrangling mics, fixing things no one else saw break, and convincing everyone it was fine all along.
 			
-			When I'm not in a black box or behind a console, you can find me above the treeline — scrambling up peaks, letting the trail detail my truck, and dragging my dog along for the ride. Though, he's not always impressed.
+			When I'm not in a black box or behind a console, you can find me above the treeline — scrambling up peaks, letting the trail detail my truck, and dragging my dog along for the ride. He's not always impressed.
 			</p>
 
 			<div class="video-wrapper">
-				<video id="livephoto" poster="/images/posters/casey-rocky.jpeg" autoplay muted playsinline onended="this.pause();" aria-label="Casey hiking with dog in the mountains">
+				<video id="livephoto" poster="/images/posters/casey-rocky.jpeg" autoplay muted playsinline onended="this.pause();" aria-label="Casey and Rocky at Silver Dollar Lake">
 					<source src="/videos/rocky.webm" type="video/webm">
 					<source src="/videos/rocky.mp4" type="video/mp4">
-					<p>Your browser does not support the video tag. <a href="/videos/rocky.mp4">Download the video</a>.</p>
 				</video>
+				
 			</div>
+			
 		</section>
 
 		<!-- Skills and Experience Section -->
@@ -59,15 +62,16 @@
 			<h2 id="details-heading" class="sr-only">Casey's Skills & Experience</h2>
 			<details>
 				<summary id="experience-heading">Skills & Experience</summary>
-
+				<div class="details-content-wrapper">
 				<article>
 					<h3>Live Sound & Theater Audio</h3>
 					<ul>
 						<li><abbr title="Front of House">FOH</abbr> / streaming mixes and system design for large-scale musicals, concerts, recitals, and special events</li>
-						<li>Precision line-by-line mixing for musicals, with live orchestra balancing in high-pressure environments</li>
-						<li>Partnering with directors, designers, and production teams to translate creative concepts into impactful soundscapes</li>
-						<li>Advanced programming and operation of digital audio consoles, QLab, and complex show automation systems</li>
+						<li>Line-by-line mixing for musicals with live orchestras in high-pressure environments</li>
+						<li>Collaborate with directors, designers, and production teams to translate creative concepts into impactful soundscapes</li>
+						<li>Advanced programming and operation of digital audio consoles, QLab, and show automation systems</li>
 					</ul>
+					
 				</article>
 
 				<article>
@@ -78,6 +82,7 @@
 						<li>Developed detailed system documentation, signal flow diagrams, and technical standards for long-term sustainability</li>
 						<li>Oversaw and maintained robust digital audio and show control networks across multi-venue environments</li>
 					</ul>
+					
 				</article>
 
 				<article>
@@ -86,6 +91,7 @@
 						<li>Recording, editing, mixing, and mastering projects for distribution across digital platforms</li>
 						<li>Freelance consulting for artists, theaters, and organizations seeking professional audio solutions</li>
 					</ul>
+					
 				</article>
 
 				<article>
@@ -94,6 +100,7 @@
 						<li>Designed and programmed immersive laser shows synchronized with live performance</li>
 						<li>Executed projector hangs, focus, and mapping for theatrical and concert applications</li>
 					</ul>
+					
 				</article>
 
 				<article>
@@ -104,8 +111,13 @@
 						<li>Yamaha Rivage series mixers: console programming, system setup, and live mix workflows</li>
 						<li>Experienced across macOS production environments with software integration and troubleshooting</li>
 					</ul>
+					
 				</article>
+				
+				</div>
+				
 			</details>
+			
 		</section>
 
 		<!-- Productions Table Section -->
@@ -133,8 +145,11 @@
 						<th scope="col" class="text-center">
 							<span aria-label="Rating">😀</span>
 						</th>
+						
 					</tr>
+					
 				</thead>
+				
 				<tbody>
 					<!-- Content populated by tables and productions.json -->
 					<template id="production-row-template">
@@ -147,9 +162,13 @@
 						<td class="prod-lz"></td>
 						<td class="prod-notes"></td>
 					  </tr>
+					  
 					</template>
+					
 				</tbody>
+				
 			</table>
+			
 		</section>
 
 		<hr />
@@ -168,13 +187,14 @@
 				  <div class="photo-thumb">
 					<img src="" alt="" loading="lazy" decoding="async">
 				  </div>
+				  
 				</template>
 				
 		</section>
 
 		<hr />
 
-		<!-- Data Tables Section -->
+		<!-- Tables Section -->
 		<section class="data-tables" aria-labelledby="data-heading">
 			<h2 id="data-heading" class="sr-only">Personal Statistics</h2>
 
@@ -185,7 +205,9 @@
 						Non-exhaustive, detailing peaks over 10,000ft;
 						<a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank" rel="noopener noreferrer" aria-label="View full climbing record on 14ers.com">14ers.com</a>
 					</small>
+					
 				</caption>
+				
 				<thead>
 					<tr>
 						<th scope="col">
@@ -198,10 +220,14 @@
 							<abbr title="First Ascent">FA</abbr>
 						</th>
 						<th class="text-center" scope="col">📸</th>
+						
 					</tr>
+					
 				</thead>
+				
 				<tbody>
 					<!-- Content populated by tables and mountains.json -->
+					
 					<template id="mountain-row-template">
 					  <tr>
 						<td class="mtn-peak"></td>
@@ -210,8 +236,11 @@
 						<td class="mtn-date"></td>
 						<td class="mtn-image"></td>
 					  </tr>
+					  
 					</template>
+					
 				</tbody>
+				
 				<tfoot>
 					<tr>
 						<td colspan="3">13ers</td>
@@ -220,8 +249,11 @@
 								<progress class="peak-progress" data-peak-type="thirteeners" data-total="600" value="0" max="600"></progress>
 								<small>(<span id="thirteeners">0</span>/600+)</small>
 							</div>
+							
 						</td>
+						
 					</tr>
+					
 					<tr>
 						<td colspan="3">14ers</td>
 						<td colspan="2">
@@ -229,20 +261,28 @@
 								<progress class="peak-progress" data-peak-type="fourteeners" data-total="58" value="0" max="58"></progress>
 								<small>(<span id="fourteeners">0</span>/58)</small>
 							</div>
+							
 						</td>
+						
 					</tr>
+					
 					<tr>
 						<td colspan="3">Peaks Bagged</td>
 						<td colspan="2"><strong><span id="totalMountains">0</span></strong></td>
 					</tr>
+					
 				</tfoot>
+				
 			</table>
 
 			<!-- Concert History -->
 			<table id="concerts" class="flex-item" aria-labelledby="concerts-caption">
+				
 				<caption id="concerts-caption">
 					<small>Non-exhaustive; Chronology approximate</small>
+					
 				</caption>
+				
 				<thead>
 					<tr>
 						<th scope="col">
@@ -254,9 +294,11 @@
 						<th scope="col">
 							<span aria-label="Rating">😃</span>
 						</th>
-						<!-- <th scope="col">📷</th> -->
+						
 					</tr>
+					
 				</thead>
+				
 				<tbody>
 					<!-- Content populated by tables and concerts.json -->
 					<template id="concert-row-template">
@@ -265,9 +307,12 @@
 						<td class="concert-venue"></td>
 						<td class="concert-year"></td>
 						<td class="concert-emoji"></td>
+						
 					  </tr>
+					  
 					</template>
 				</tbody>
+				
 				<tfoot>
 					<tr>
 						<td colspan="4" class="statistics">
@@ -276,30 +321,35 @@
 							<div id="top-venues" aria-label="Most visited venues"></div>
 						</td>
 					</tr>
+					
 					<tr>
 						<td colspan="2">Concerts Attended</td>
 						<td colspan="2"><strong><span id="concert-count">0</span></strong></td>
 					</tr>
+					
 				</tfoot>
+				
 			</table>
 			
 		</section>
 
-		<hr />
 		<!-- Map -->
 		<section aria-labelledby="mountain-map">
 			<h2 id="mountain-map" class="sr-only">Mountain Map</h2>
 			<div id="map"></div>
+			
 		</section>
+		
 	</main>
 
 	<footer>
-		<p class="flags" aria-label="Pride flags">
-			<span aria-label="Pride flag">🏳️‍🌈</span>
-			<span aria-label="Trans pride flag">🏳️‍⚧️</span>
-			<span aria-label="Pirate flag">🏴‍☠️</span>
-			<span aria-label="Colorado flag">🏴󠁵󠁳󠁣󠁯󠁿</span>
+		<p class="flags" aria-label="Flags">
+			<span title="Pride" aria-label="Pride flag">🏳️‍🌈</span>
+			<span title="Trans Pride" aria-label="Trans pride flag">🏳️‍⚧️</span>
+			<span title="Arr" aria-label="Pirate flag">🏴‍☠️</span>
+			<span title="Made in Colorado" aria-label="Colorado flag">🏴󠁵󠁳󠁣󠁯󠁿</span>
 		</p>
+		
 		<address>
 			<p>
 				&copy;2025
@@ -311,6 +361,7 @@
 
 	<!-- Scripts -->
 	<script type="module" src="js/js-imports.js"></script>
+	
 </body>
 
 </html>

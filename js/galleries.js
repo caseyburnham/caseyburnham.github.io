@@ -257,23 +257,12 @@ class Galleries {
 		existingGrids.forEach(grid => grid.remove());
 
 		const newGrids = [...newContentFragment.children];
-		newGrids.forEach(grid => {
-			grid.style.opacity = '0';
-			// NEW: Make all images inside the new grids invisible initially
-			grid.querySelectorAll('img').forEach(img => img.style.opacity = '0');
-		});
+		newGrids.forEach(grid => (grid.style.opacity = '0'));
 		this.galleryContainer.appendChild(newContentFragment);
 
 		for (const [index, grid] of newGrids.entries()) {
-			// STEP A: Fade in the grid container to show the grey placeholders
 			await this.fade(grid, 'in', index * 100);
-		
-			// STEP B: Once the grid is visible, fade in the actual images over the placeholders
-			const imagesInGrid = [...grid.querySelectorAll('img')];
-			const imageFadePromises = imagesInGrid.map((img, i) => this.fade(img, 'in', i * 50)); // Stagger image fade-in
-			await Promise.all(imageFadePromises);
 		}
-		
 		this.refreshPhotoModal();
 	}
 

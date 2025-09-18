@@ -48,7 +48,6 @@
 	inset: 0;
 	justify-content: center;
 	opacity: 0;
-	padding: var(--container-padding);
 	pointer-events: none;
 	position: fixed;
 	top: 0;
@@ -66,16 +65,12 @@
 }
 
 .modal-card {
-	border-radius: var(--border-radius-lg);
+	border-radius: var(--border-radius-sm);
 	box-shadow: var(--shadow-modal);
 	max-height: var(--modal-max-height);
 	max-width: var(--modal-max-width);
 	overflow: hidden;
 	position: relative;
-	padding-top: env(safe-area-inset-top);
-	  padding-right: env(safe-area-inset-right);
-	  padding-bottom: env(safe-area-inset-bottom);
-	  padding-left: env(safe-area-inset-left);
 }
 
 .modal-card img {
@@ -88,11 +83,11 @@
 /* --------------------------------------------------------------------------
    MODAL CAPTIONS & METADATA
    -------------------------------------------------------------------------- */
-
+   
 .modal-caption {
 	backdrop-filter: var(--modal-caption-blur);
 	background: var(--color-modal-bg);
-	border: 1px solid var(--color-border);
+	border: 1px solid var(--border-color);
 	border-radius: var(--border-radius-sm);
 	bottom: 0;
 	box-sizing: border-box;
@@ -114,20 +109,6 @@
 	opacity: 1;
 	transform: translateY(0);
 	pointer-events: auto;
-}
-
-@media (hover: hover) {
-  .modal-card.caption-active .modal-caption {
-	opacity: 0; /* Hide caption if active class is present on hover-capable device */
-	pointer-events: none;
-	transform: translateY(20px);
-  }
-  
-  .modal-card:hover .modal-caption {
-	opacity: 1; /* Ensure hover still works */
-	transform: translateY(0);
-	pointer-events: auto;
-  }
 }
 
 .caption-header {
@@ -193,7 +174,7 @@
 /* Caption Divider */
 .modal-caption hr {
 	border: none;
-	border-top: 1px solid var(--color-border);
+	border-top: 1px solid var(--border-color);
 	margin: var(--space-sm);
 	opacity: 50%;
 	width: stretch;
@@ -202,20 +183,22 @@
 }
 
 .modal-copyright {
-  padding: var(--space-sm);
-  text-align: center;
-  font-family: var(--font-family-ui);
-  font-variant: lining-nums;
-  font-size: var(--font-size-xxs);
-  color: var(--text-color-muted);
-  width: 100%;
-  box-sizing: border-box;
+	padding: var(--space-sm);
+	text-align: center;
+	font-family: var(--font-family-ui);
+	font-variant: lining-nums;
+	font-size: var(--font-size-xxs);
+	color: var(--text-color-muted);
+	width: 100%;
+	box-sizing: border-box;
 }
+
+
 
 /* --------------------------------------------------------------------------
    EXIF DATA DISPLAY
    -------------------------------------------------------------------------- */
-
+   
 .exif-row {
 	align-items: center;
 	color: var(--text-color-secondary);
@@ -245,7 +228,7 @@
 /* --------------------------------------------------------------------------
    MODAL CONTROLS
    -------------------------------------------------------------------------- */
-
+   
 .modal-close {
 	align-items: center;
 	background: var(--bg-color-main);
@@ -275,8 +258,7 @@
 /* --------------------------------------------------------------------------
    RESPONSIVE DESIGN
    -------------------------------------------------------------------------- */
-
-
+   
 /* Mobile Optimizations */
 @media (max-width: 480px) {
 	:root {
@@ -305,7 +287,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-
 	*,
 	*::before,
 	*::after {
