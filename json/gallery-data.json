@@ -6,6 +6,16 @@
         "name": "Abstract",
         "images": [
             {
+                "id": "Bokeh",
+                "alt": "Bokeh",
+                "title": "Bokeh",
+                "layout": "portrait",
+                "sources": {
+                    "jpeg": "/images/galleries/abstract/jpeg/Bokeh.JPG"
+                },
+                "thumbnail": "/images/galleries/abstract/thumbnails/Bokeh.JPG"
+            },
+            {
                 "id": "aztec-rug",
                 "alt": "Aztec Rug",
                 "title": "Aztec Rug",
@@ -101,6 +111,16 @@
         "name": "Botanic",
         "images": [
             {
+                "id": "Tulip",
+                "alt": "Tulip",
+                "title": "Tulip",
+                "layout": "landscape",
+                "sources": {
+                    "jpeg": "/images/galleries/botanic/jpeg/Tulip.jpg"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/Tulip.jpg"
+            },
+            {
                 "id": "campanula",
                 "alt": "Campanula",
                 "title": "Campanula",
@@ -158,7 +178,7 @@
                 "sources": {
                     "jpeg": "/images/galleries/botanic/jpeg/flowing-fronds.jpg"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/flowing-fronds.avif"
+                "thumbnail": "/images/galleries/botanic/thumbnails/flowing-fronds.jpg"
             },
             {
                 "id": "geranium",
@@ -179,6 +199,16 @@
                     "avif": "/images/galleries/botanic/avif/musk-thistle.avif"
                 },
                 "thumbnail": "/images/galleries/botanic/thumbnails/musk-thistle.avif"
+            },
+            {
+                "id": "petals",
+                "alt": "Petals",
+                "title": "Petals",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/botanic/avif/petals.avif"
+                },
+                "thumbnail": "/images/galleries/botanic/thumbnails/petals.avif"
             },
             {
                 "id": "red-and-green",
@@ -246,36 +276,6 @@
                 "thumbnail": "/images/galleries/high-country/thumbnails/american-gulch-sky.avif"
             },
             {
-                "id": "indian-paintbrush",
-                "alt": "Indian Paintbrush",
-                "title": "Indian Paintbrush",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/indian-paintbrush.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/indian-paintbrush.avif"
-            },
-            {
-                "id": "silver-lake-flora",
-                "alt": "Silver Lake Flora",
-                "title": "Silver Lake Flora",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/silver-lake-flora.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/silver-lake-flora.avif"
-            },
-            {
-                "id": "fireweed",
-                "alt": "Fireweed",
-                "title": "Fireweed",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/fireweed.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/fireweed.avif"
-            },
-            {
                 "id": "bierstadt-billy",
                 "alt": "Bierstadt Billy",
                 "title": "Bierstadt Billy",
@@ -306,6 +306,16 @@
                 "thumbnail": "/images/galleries/high-country/thumbnails/brainard-lake-area.avif"
             },
             {
+                "id": "cronin-peak",
+                "alt": "Cronin Peak",
+                "title": "Cronin Peak",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/cronin-peak.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/cronin-peak.avif"
+            },
+            {
                 "id": "deer-in-american-gulch",
                 "alt": "Deer in American Gulch",
                 "title": "Deer in American Gulch",
@@ -316,6 +326,16 @@
                 "thumbnail": "/images/galleries/high-country/thumbnails/deer-in-american-gulch.avif"
             },
             {
+                "id": "fall-from-mount-antero",
+                "alt": "Fall From Mount Antero",
+                "title": "Fall From Mount Antero",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/fall-from-mount-antero.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/fall-from-mount-antero.avif"
+            },
+            {
                 "id": "fall-on-jones-mountain",
                 "alt": "Fall on Jones Mountain",
                 "title": "Fall on Jones Mountain",
@@ -324,6 +344,26 @@
                     "avif": "/images/galleries/high-country/avif/fall-on-jones-mountain.avif"
                 },
                 "thumbnail": "/images/galleries/high-country/thumbnails/fall-on-jones-mountain.avif"
+            },
+            {
+                "id": "fireweed",
+                "alt": "Fireweed",
+                "title": "Fireweed",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/fireweed.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/fireweed.avif"
+            },
+            {
+                "id": "indian-paintbrush",
+                "alt": "Indian Paintbrush",
+                "title": "Indian Paintbrush",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/indian-paintbrush.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/indian-paintbrush.avif"
             },
             {
                 "id": "kendall-peak",
@@ -434,6 +474,16 @@
                     "avif": "/images/galleries/high-country/avif/ptarmigan-lake.avif"
                 },
                 "thumbnail": "/images/galleries/high-country/thumbnails/ptarmigan-lake.avif"
+            },
+            {
+                "id": "silver-lake-flora",
+                "alt": "Silver Lake Flora",
+                "title": "Silver Lake Flora",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/silver-lake-flora.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/silver-lake-flora.avif"
             },
             {
                 "id": "stoney-pass",
@@ -879,6 +929,16 @@
                     "avif": "/images/galleries/off-road/avif/mount-antero.avif"
                 },
                 "thumbnail": "/images/galleries/off-road/thumbnails/mount-antero.avif"
+            },
+            {
+                "id": "mount-white-trail",
+                "alt": "Mount White Trail",
+                "title": "Mount White Trail",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/mount-white-trail.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/mount-white-trail.avif"
             },
             {
                 "id": "quail-mountain",

@@ -1,6 +1,7 @@
 # Ignore OS generated files
 .DS_Store
 Thumbs.db
+.nova
 
 # Compiled source #
 *.class
@@ -16,6 +17,10 @@ package.json
 utility/
 how-to-update-gal.txt
 update-gal.py
+extract-exif.js
+images/sanitize-names.zsh
+images/h2a.zsh
+json/update-summit-json.zsh
 
 # Python
 __pycache__/

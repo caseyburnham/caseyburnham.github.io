@@ -213,19 +213,32 @@ const createSummaryRow = (year, count) => {
 		});
 		return allRows;
 	},
-
+	
 	updateMountainStats(mountains) {
+		const uniquePeaks = new Set();
 		const counts = mountains.reduce((acc, m) => {
+			// If we've already counted this peak, skip it
+			if (uniquePeaks.has(m.Peak)) {
+				return acc;
+			}
+	
+			// Otherwise, add it to our set of unique peaks and count it
+			uniquePeaks.add(m.Peak);
+	
 			const elev = parseInt(m.Elevation.replace(/,/g, ''), 10);
-			if (elev >= 14000) acc.fourteeners++;
-			else if (elev >= 13000) acc.thirteeners++;
+			if (elev >= 14000) {
+				acc.fourteeners++;
+			} else if (elev >= 13000) {
+				acc.thirteeners++;
+			}
 			return acc;
 		}, { thirteeners: 0, fourteeners: 0 });
-
-		this.updateElement(CONFIG.selectors.totalMountains, mountains.length);
+	
+		// Update total count based on the number of unique peaks
+		this.updateElement(CONFIG.selectors.totalMountains, uniquePeaks.size);
 		this.updateElement(CONFIG.selectors.thirteeners, counts.thirteeners);
 		this.updateElement(CONFIG.selectors.fourteeners, counts.fourteeners);
-
+	
 		this.updateProgressBar('thirteeners', counts.thirteeners);
 		this.updateProgressBar('fourteeners', counts.fourteeners);
 	},

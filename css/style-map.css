@@ -1,3 +1,45 @@
+@media (prefers-color-scheme: light) {
+	.leaflet-container .leaflet-control-attribution {
+		background: var(--bg-color-alpha);
+		box-shadow: none;
+	}
+
+	.custom-popup .leaflet-popup-content-wrapper {
+		backdrop-filter: var(--modal-caption-blur);
+		background: var(--bg-color-alpha);
+		border: 1px solid var(--border-color);
+		box-shadow: var(--shadow-subtle);
+	}
+
+	.custom-popup .leaflet-popup-tip {
+		display: none;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.leaflet-layer,
+	.leaflet-control-zoom-in,
+	.leaflet-control-zoom-out {
+		filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+	}
+
+	.leaflet-container .leaflet-control-attribution {
+		background: var(--bg-color-alpha);
+		box-shadow: none;
+	}
+
+	.custom-popup .leaflet-popup-content-wrapper {
+		backdrop-filter: var(--modal-caption-blur);
+		background: var(--bg-color-tooltip);
+		border: 1px solid var(--border-color);
+		box-shadow: var(--shadow-subtle);
+	}
+
+	.custom-popup .leaflet-popup-tip {
+		display: none;
+	}
+}
+
 #map {
 	border-radius: var(--border-radius-sm);
 	box-shadow: var(--shadow-media);
@@ -13,35 +55,28 @@
 	font-size: var(--font-size-xs);
 }
 
-.custom-popup .leaflet-popup-content-wrapper {
-	border-radius: 10px;
-	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  }
-  
-  .custom-popup .leaflet-popup-tip {
-	background: white;
-  }
-  
-  .popup-content {
+.popup-content {
+	font-family: var(--font-family-ui);
 	text-align: center;
-  }
-  
-  .popup-title {
-	font-size: 1.1em;
-	font-weight: 700;
-	margin-bottom: 8px;
-  }
-  
-  .popup-details {
-	color: #666;
-	font-size: 0.9em;
-  }
-  
-  .popup-date, .popup-elevation {
+}
+
+.popup-title {
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-heavy);
+	margin-bottom: var(--space-sm);
+}
+
+.popup-details {
+	color: var(--text-color-muted);
+	font-size: var(--font-size-sm);
+}
+
+.popup-date,
+.popup-elevation {
 	margin: 2px 0;
-  }
-  
-  .error {
+}
+
+.error {
 	align-items: center;
 	background: #f8f9fa;
 	border: 1px solid #dee2e6;
@@ -51,14 +86,16 @@
 	justify-content: center;
 	padding: 20px;
 	text-align: center;
-  }
-  @media (max-width: 768px) {
-  #map {
-	  border-radius: var(--border-radius-md);
-	  margin-top: 0;
-  }
-  .leaflet-container .leaflet-control-attribution {
-	  margin-bottom: var(--space-md);
-	  margin-right: var(--space-md);
-  }
-  }
+}
+
+@media (max-width: 768px) {
+	#map {
+		border-radius: var(--border-radius-md);
+		margin-top: 0;
+	}
+
+	.leaflet-container .leaflet-control-attribution {
+		margin-bottom: var(--space-md);
+		margin-right: var(--space-md);
+	}
+}

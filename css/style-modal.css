@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PHOTO GALLERY & MODAL STYLES
+   MODAL STYLES
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -7,33 +7,69 @@
    -------------------------------------------------------------------------- */
 
 :root {
-	/* Colors */
-	--color-modal-bg: rgba(240, 240, 240, 0.5);
-	--color-overlay: rgba(255, 255, 255, 0.25);
-	--color-exif-text: rgb(185, 185, 185);
-
-	/* Shadows */
-	--shadow-subtle:
-		0 2px 4px rgba(0, 0, 0, 0.1);
-
-	--shadow-elevated:
-		rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-		rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-		rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-
-	--shadow-modal: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-		rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-		rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-
-	--exif-shadow:
-		rgba(255, 255, 255, 0.25) 0 2px 3px;
-
 	/* Modal Settings */
 	--modal-max-width: 90vw;
 	--modal-max-height: 85vh;
 	--modal-blur: blur(24px);
 	--modal-caption-blur: blur(4px);
+}
 
+@media (prefers-color-scheme: light) {
+	:root {
+		/* Colors */
+		--color-caption-bg: 
+			rgba(240, 240, 240, 0.5);
+		--color-overlay: 
+			rgba(255, 255, 255, 0.25);
+		--border-color-caption:
+			var(--border-color);
+
+		/* Shadows */
+		--shadow-subtle:
+			0 2px 4px rgba(0, 0, 0, 0.1);
+		
+		--shadow-elevated:
+			rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+			rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+			rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+			
+		--shadow-modal: 
+			rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+			rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+			rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+
+		--exif-shadow:
+			rgba(255, 255, 255, 0.25) 0 2px 3px;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* Colors */
+		--color-caption-bg: 
+			rgba(15, 15, 15, 0.5);
+		--color-overlay: 
+			rgba(0, 0, 0, 0.25);
+		--border-color-caption:
+			rgb(80, 227, 194);
+
+		/* Shadows */
+		--shadow-subtle:
+			0 2px 4px rgba(0, 0, 0, 0.1);
+		
+		--shadow-elevated:
+			rgba(0, 212, 195, 0.25) 0px 0.0625em 0.0625em,
+			rgba(0, 212, 195, 0.25) 0px 0.125em 0.5em,
+			rgba(0, 0, 0, 0.1) 0px 0px 0px 1px inset;
+			
+		--shadow-modal:
+			rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+			rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+			rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+
+		--exif-shadow:
+			rgba(0, 0, 0, 0.25) 0 2px 3px;
+	}
 }
 
 /* --------------------------------------------------------------------------
@@ -83,11 +119,11 @@
 /* --------------------------------------------------------------------------
    MODAL CAPTIONS & METADATA
    -------------------------------------------------------------------------- */
-   
+
 .modal-caption {
 	backdrop-filter: var(--modal-caption-blur);
-	background: var(--color-modal-bg);
-	border: 1px solid var(--border-color);
+	background: var(--color-caption-bg);
+	border: 1px solid var(--border-color-caption);
 	border-radius: var(--border-radius-sm);
 	bottom: 0;
 	box-sizing: border-box;
@@ -139,6 +175,7 @@
 }
 
 .caption-header .altitude {
+	color-scheme: light;
 	align-self: center;
 	color: var(--text-color-muted);
 	grid-area: elevation;
@@ -171,10 +208,9 @@
 	text-decoration: underline;
 }
 
-/* Caption Divider */
 .modal-caption hr {
 	border: none;
-	border-top: 1px solid var(--border-color);
+	border-top: 1px solid var(--border-color-caption);
 	margin: var(--space-sm);
 	opacity: 50%;
 	width: stretch;
@@ -193,12 +229,10 @@
 	box-sizing: border-box;
 }
 
-
-
 /* --------------------------------------------------------------------------
    EXIF DATA DISPLAY
    -------------------------------------------------------------------------- */
-   
+
 .exif-row {
 	align-items: center;
 	color: var(--text-color-secondary);
@@ -228,7 +262,7 @@
 /* --------------------------------------------------------------------------
    MODAL CONTROLS
    -------------------------------------------------------------------------- */
-   
+
 .modal-close {
 	align-items: center;
 	background: var(--bg-color-main);
@@ -258,8 +292,7 @@
 /* --------------------------------------------------------------------------
    RESPONSIVE DESIGN
    -------------------------------------------------------------------------- */
-   
-/* Mobile Optimizations */
+
 @media (max-width: 480px) {
 	:root {
 		--container-padding: var(--space-md);
@@ -287,23 +320,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
 	*,
 	*::before,
 	*::after {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
-	}
-}
-
-@container (height < 400px) {
-	.modal-card .caption-header .gps a {
-		font-size: var(--font-size-xxxs);
-	}
-
-	.modal-card .exif-row {
-		font-size: var(--font-size-xxs);
-		gap: var(--space-sm);
-		padding: var(--space-sm);
 	}
 }

@@ -1,7 +1,7 @@
 /* ==========================================================================
    1. AT-RULES
    ========================================================================== */
-   
+
 @counter-style star {
 	suffix: " ";
 	symbols: "\2726";
@@ -11,7 +11,7 @@
 /* ==========================================================================
    2. BASE STYLES & RESET
    ========================================================================== */
-   
+
 *,
 *::before,
 *::after {
@@ -19,6 +19,7 @@
 }
 
 html {
+	background-color: var(--bg-color-main);
 	color: var(--text-color-primary);
 	font-family: var(--font-family-mono);
 	font-size: var(--font-size-base);
@@ -27,12 +28,13 @@ html {
 	font-weight: var(--font-weight-normal);
 	line-height: var(--line-height-base);
 	padding: var(--space-xl) var(--space-2xl) var(--space-lg) var(--space-2xl);
+	text-rendering: optimizeLegibility;
 }
 
 /* ==========================================================================
    3. LAYOUT COMPONENTS
    ========================================================================== */
-   
+
 main {
 	background-color: var(--bg-color-main);
 	border-radius: var(--border-radius-lg);
@@ -68,7 +70,10 @@ footer span {
 /* ==========================================================================
    4. TYPOGRAPHY
    ========================================================================== */
-   
+a {
+	color: var(--link-color);
+}
+
 abbr {
 	cursor: help;
 	text-decoration: underline dotted;
@@ -129,10 +134,18 @@ footer,
 	text-align: center;
 }
 
+#totalMountains,
+.year-summary-row strong,
+#concert-count
+{
+	color: var(--accent-color);
+	text-shadow: var(--shadow-glow);
+}
+
 /* ==========================================================================
    5. INTERACTIVE ELEMENTS
    ========================================================================== */
-   
+
 /* Details & Summary */
 details {
 	align-items: center;
@@ -236,7 +249,7 @@ summary {
 	border: solid 1px var(--border-color);
 	will-change: opacity;
 	font-family: var(--font-family-ui);
-	box-shadow: var(--shadow-media);
+	box-shadow: var(--shadow-subtle);
 }
 
 .abbr-tooltip.show {
@@ -246,7 +259,7 @@ summary {
 /* ==========================================================================
    6. TABLE STYLES
    ========================================================================== */
-   
+
 table {
 	border: 1px solid var(--border-color);
 	border-collapse: collapse;
@@ -312,7 +325,7 @@ caption {
 /* ===========================================
    7. PROGRESS BAR COMPONENT
    =========================================== */
-   
+
 .peak-progress {
 	position: relative;
 	z-index: 0;
@@ -330,14 +343,13 @@ caption {
 
 progress[value] {
 	appearance: none;
-	appearance: none;
-	appearance: none;
 	background: var(--color-progress-bg);
 	border: none;
 	border-radius: var(--border-radius-md);
 	color: var(--color-bar-fill);
 	height: 5px;
 	width: 100%;
+	/* box-shadow: var(--shadow-glow); */
 }
 
 progress[value]::-webkit-progress-bar {
@@ -345,20 +357,27 @@ progress[value]::-webkit-progress-bar {
 	border-radius: var(--border-radius-md);
 }
 
-progress[value]::-webkit-progress-value {
-	background: var(--color-bar-fill);
+progress[value]::-moz-progress-bar {
+	background: var(--color-progress-bg);
 	border-radius: var(--border-radius-md);
 }
 
-progress[value]::-moz-progress-bar {
+progress[value]::-webkit-progress-value {
 	background: var(--color-bar-fill);
 	border-radius: var(--border-radius-md);
+	box-shadow: var(--shadow-prog);
+}
+
+progress[value]::-moz-progress-value {
+	background: var(--color-bar-fill);
+	border-radius: var(--border-radius-md);
+	box-shadow: var(--shadow-prog);
 }
 
 /* ==========================================================================
    8. RESPONSIVE DESIGN
    ========================================================================== */
-   
+
 /* Mobile First Approach */
 @media (max-width: 480px) {
 	html {
@@ -411,7 +430,7 @@ progress[value]::-moz-progress-bar {
 	td time {
 		text-wrap: wrap;
 	}
-	
+
 	.video-wrapper {
 		width: 100%;
 	}
@@ -438,6 +457,7 @@ progress[value]::-moz-progress-bar {
 
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
+
 	*,
 	*::before,
 	*::after {
