@@ -303,16 +303,16 @@ class PeakMap {
 			html: `
 		<div style="
 		  background: #FF4F00;
-		  background: linear-gradient(180deg, rgba(255, 79, 0, 1) 0%, rgba(240, 74, 0, 1) 100%);
+		  background: rgb(63, 143, 247);
 		  border-radius: 50%;
-		  width: 10px;
-		  height: 10px;
-		  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-		  border: 1px solid white;
+		  width: 11px;
+		  height: 11px;
+		  box-shadow: 0px 1px 0px rgba(17,17,26,0.05), 0px 0px 8px rgba(17,17,26,0.1);
+		  border: 2px solid white;
 		"></div>
 	  `,
-			iconSize: [10, 10],
-			iconAnchor: [5, 5]
+			iconSize: [11, 11],
+			iconAnchor: [5.5, 5.5]
 		});
 	}
 
@@ -328,7 +328,7 @@ class PeakMap {
 		<div class="popup-title">${peak.title}</div>
 		<div class="popup-details">
 		  <div class="popup-date">${date}</div>
-		  <div class="popup-elevation">${elevation.feet} ft (${elevation.meters} m)</div>
+		  <div class="popup-elevation">${elevation.feet} ft</div>
 		</div>
 	  </div>
 	`;

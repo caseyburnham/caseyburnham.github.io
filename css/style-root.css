@@ -1,31 +1,9 @@
 /* ==========================================================================
    ROOT PROPERTIES & VARIABLES
    ========================================================================== */
-   
+
 :root {
-	/* -------------------- Theme -------------------- */
-	--primary-color: #00d4c3;
-	--primary-color-alpha: rgba(0, 212, 195, 0.15);
-	--accent-color: #ff4f00;
-	--accent-color-light: rgba(255, 79, 0, 0.90);
-	--accent-color-alpha: rgba(255, 79, 0, 0.15);
-	--border-color: #333333;
-	
-	/* -------------------- Background Colors -------------------- */
-	--bg-color-main: #ffffff;
-	--bg-color-alpha: rgba(255, 255, 255, 0.5);
-	--bg-color-tooltip: rgba(151, 151, 151, 0.75);
-	--bg-color-loading: lightgrey;
-	
-	/* -------------------- HR -------------------- */
-	--hr-color: #ff4f00;
-
-	/* -------------------- Text -------------------- */
-	--text-color-primary: #333333;
-	--text-color-secondary: rgba(0, 0, 0, 0.7);
-	--text-color-muted: rgba(0, 0, 0, 0.5);
-	--text-color-light: #ffffff;
-
+	color-scheme: light dark;
 	/* -------------------- Venue Theme Colors -------------------- */
 	--venue-red-rocks: #ff4500;
 	--venue-bluebird: #2b529c;
@@ -36,26 +14,22 @@
 	--venue-fillmore: rgb(236, 210, 77);
 	--venue-ball-arena: rgb(77, 169, 201);
 	--venue-gothic: rgb(220, 82, 52);
-	
-	/* -------------------- Progress Bars -------------------- */
-	--color-progress-bg: lightgray;
-	--color-bar-fill: linear-gradient(270deg,rgba(255, 79, 0, 1) 0%, rgba(240, 74, 0, 1) 100%);
 
 	/* -------------------- Spacing (8px base) -------------------- */
-	--space-xs: 0.25rem;
 	/* 4px */
-	--space-sm: 0.5rem;
+	--space-xs: 0.25rem;
 	/* 8px */
-	--space-ms: 0.75rem;
+	--space-sm: 0.5rem;
 	/* 12px */
-	--space-md: 1rem;
+	--space-ms: 0.75rem;
 	/* 16px */
-	--space-lg: 1.5rem;
+	--space-md: 1rem;
 	/* 24px */
-	--space-xl: 2.5rem;
+	--space-lg: 1.5rem;
 	/* 40px */
-	--space-2xl: 5rem;
+	--space-xl: 2.5rem;
 	/* 80px */
+	--space-2xl: 5rem;
 
 	/* -------------------- Typography -------------------- */
 	--font-family-ui: ui-rounded, system-ui, sans-serif;
@@ -67,6 +41,7 @@
 	--font-size-base: 1rem;
 	--font-size-lg: 1.2rem;
 	--font-size-xl: 1.5rem;
+
 	--font-size-h1: 5rem;
 
 	--font-weight-light: 300;
@@ -101,33 +76,143 @@
 	--transition-medium: 0.3s ease;
 	--transition-slow: 0.4s ease;
 	--transition-very-slow: 1s ease;
+}
 
-	/* -------------------- Shadows -------------------- */
-	--shadow-main:
-		rgba(0, 0, 0, 0.4) 0px 2px 4px,
-		rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-		rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+@media (prefers-color-scheme: light) {
+	:root {
+		/* -------------------- Light -------------------- */
+		--primary-color: #00d4c3;
+		--primary-color-alpha: rgba(0, 212, 195, 0.15);
+		--accent-color: #ff4f00;
+		--accent-color-light: rgba(255, 79, 0, 0.90);
+		--accent-color-alpha: rgba(255, 79, 0, 0.15);
+		--border-color: #333333;
+		--link-color: blue;
 
-	--shadow-details:
-		rgba(0, 128, 128, 0.4) -5px 5px,
-		rgba(0, 128, 128, 0.3) -10px 10px,
-		rgba(0, 128, 128, 0.2) -15px 15px,
-		rgba(0, 128, 128, 0.1) -20px 20px;
+		/* -------------------- Background Colors -------------------- */
+		--bg-color-main: #ffffff;
+		--bg-color-alpha: rgba(255, 255, 255, 0.5);
+		--bg-color-tooltip: rgba(151, 151, 151, 0.75);
 
-	--shadow-media:
-		rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-		rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-		rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+		/* -------------------- HR -------------------- */
+		--hr-color: var(--border-color);
 
-	--shadow-btn:
-		#c5c5c5 4px 4px 12px inset,
-		#ffffff -4px -4px 12px inset;
+		/* -------------------- Text -------------------- */
+		--text-color-primary: #333333;
+		--text-color-secondary: rgba(0, 0, 0, 0.7);
+		--text-color-muted: rgba(0, 0, 0, 0.5);
+		--text-color-light: #ffffff;
+
+		/* -------------------- Progress Bars -------------------- */
+		--color-progress-bg: lightgray;
+		--color-bar-fill:
+			linear-gradient(270deg, rgba(255, 79, 0, 1) 0%,
+									rgba(240, 74, 0, 1) 100%);
+
+		/* -------------------- Shadows -------------------- */
+		--shadow-main:
+			rgba(0, 0, 0, 0.4) 0px 2px 4px,
+			rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+			rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+		--shadow-details:
+			rgba(0, 128, 128, 0.4) -5px 5px,
+			rgba(0, 128, 128, 0.3) -10px 10px,
+			rgba(0, 128, 128, 0.2) -15px 15px,
+			rgba(0, 128, 128, 0.1) -20px 20px;
+
+		--shadow-media:
+			rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+			rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+			rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+		
+		/* --shadow-glow: */
+		/* 0 0 7px rgba(255, 79, 0, 0.5); */
+		
+		--shadow-prog:
+			0 0 7px rgba(255, 79, 0, 0.5);
+	}
+	
+	::selection {
+	background-color: var(--accent-color-light);
+	color: var(--text-color-light);
+	}
+	
+	.elevation {
+		color: var(--text-color-muted);
+	}
+	
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* -------------------- Light -------------------- */
+		--primary-color: color: rgb(80, 227, 194);
+		--primary-color-alpha: rgba(80, 227, 194, 0.15);
+		--accent-color: rgb(80, 227, 194);
+		--accent-color-light: rgba(80, 212, 195, 0.15);
+		--accent-color-alpha: rgba(80, 212, 195, 0.15);
+		--border-color: #444;
+		--link-color: dodgerblue;
+
+		/* -------------------- Background Colors -------------------- */
+		--bg-color-main: #010101;
+		--bg-color-alpha: rgba(0, 0, 0, 0.5);
+		--bg-color-tooltip: rgba(50, 50, 50, 0.75);
+
+		/* -------------------- HR -------------------- */
+		--hr-color: #00d4c3;
+
+		/* -------------------- Text -------------------- */
+		--text-color-primary: rgb(245, 245, 245);
+		--text-color-secondary: rgba(255, 255, 255, 0.7);
+		--text-color-muted: rgba(255, 255, 255, 0.5);
+		--text-color-light: rgb(204, 204, 204);
+		--selection-color: hotpink;
+
+		/* -------------------- Progress Bars -------------------- */
+		--color-progress-bg: darkslategrey;
+		--color-bar-fill: rgb(80, 227, 194);
+
+		/* -------------------- Shadows -------------------- */
+		--shadow-main:
+			rgba(0, 212, 195, 0.4) 0px 2px 4px,
+			rgba(0, 212, 195, 0.3) 0px 7px 13px -3px,
+			rgba(0, 212, 195, 0.2) 0px -3px 0px inset;
+
+		--shadow-details:
+			rgba(0, 128, 128, 0.4) -5px 5px,
+			rgba(0, 128, 128, 0.3) -10px 10px,
+			rgba(0, 128, 128, 0.2) -15px 15px,
+			rgba(0, 128, 128, 0.1) -20px 20px;
+
+		--shadow-media:
+			rgba(0, 212, 195, 0.25) 0px 0.0625em 0.0625em,
+			rgba(0, 212, 195, 0.25) 0px 0.125em 0.5em,
+			rgba(0, 0, 0, 0.1) 0px 0px 0px 1px inset;
+			
+		--shadow-glow:
+			0 0 7px rgba(80, 219, 255, 0.5);
+			
+		--shadow-prog:
+			0 0 7px rgba(80, 219, 255, 0.5);
+	}
+	
+	::selection {
+	background-color: var(--selection-color);
+	color: var(--text-color-primary);
+	}
+	
+	.elevation {
+		color: var(--accent-color);
+	}
+
 }
 
 /* ==========================================================================
    UTILITY CLASSES
    ========================================================================== */
-   
+
 .flex-item {
 	flex: 1;
 	min-width: 300px;

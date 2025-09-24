@@ -173,8 +173,8 @@ class Galleries {
 			return acc;
 		}, { landscape: [], portrait: [], pano: [] });
 
-		const landscapeRows = this.generateRows(groups.landscape, 'landscape-row', 4);
-		const portraitRows = this.generateRows(groups.portrait, 'portrait-row', 5);
+		const landscapeRows = this.generateRows(groups.landscape, 'landscape-row', 5);
+		const portraitRows = this.generateRows(groups.portrait, 'portrait-row', 6);
 		const panoRows = groups.pano.map(image => ({ images: [image], rowClass: 'pano-row' }));
 
 		const allRows = [];

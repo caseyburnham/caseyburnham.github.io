@@ -1,5 +1,5 @@
 {
-  "galleries/abstractions/avif/aztec-rug.avif": {
+  "galleries/abstract/avif/aztec-rug.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2022,
@@ -30,7 +30,7 @@
     },
     "copyright": "©2022 Casey Burnham"
   },
-  "galleries/abstractions/avif/birds-of-a-feather.avif": {
+  "galleries/abstract/avif/birds-of-a-feather.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2017,
@@ -61,7 +61,7 @@
     },
     "copyright": "©2017 Casey Burnham"
   },
-  "galleries/abstractions/avif/bordello-carpet.avif": {
+  "galleries/abstract/avif/bordello-carpet.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -92,7 +92,7 @@
     },
     "copyright": "©2023 Casey Burnham"
   },
-  "galleries/abstractions/avif/frozen-rocks.avif": {
+  "galleries/abstract/avif/frozen-rocks.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2022,
@@ -123,7 +123,7 @@
     },
     "copyright": "©2022 Casey Burnham"
   },
-  "galleries/abstractions/avif/medano-creek.avif": {
+  "galleries/abstract/avif/medano-creek.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -154,7 +154,7 @@
     },
     "copyright": "©2023 Casey Burnham"
   },
-  "galleries/abstractions/avif/paint.avif": {
+  "galleries/abstract/avif/paint.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2019,
@@ -185,7 +185,7 @@
     },
     "copyright": "©2019 Casey Burnham"
   },
-  "galleries/abstractions/avif/sloans-lake.avif": {
+  "galleries/abstract/avif/sloans-lake.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2018,
@@ -216,7 +216,7 @@
     },
     "copyright": "©2018 Casey Burnham"
   },
-  "galleries/abstractions/avif/upper-pomeroy.avif": {
+  "galleries/abstract/avif/upper-pomeroy.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2024,
@@ -247,7 +247,7 @@
     },
     "copyright": "©2024 Casey Burnham"
   },
-  "galleries/abstractions/avif/yellowstone.avif": {
+  "galleries/abstract/avif/yellowstone.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2020,
@@ -278,7 +278,51 @@
     },
     "copyright": "©2020 Casey Burnham"
   },
-  "galleries/abstractions/thumbnails/aztec-rug.avif": {
+  "galleries/abstract/jpeg/Bokeh.JPG": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2019,
+      "month": 10,
+      "day": 23,
+      "hour": 7,
+      "minute": 36,
+      "second": 17,
+      "rawValue": "2019:10:23 07:36:17",
+      "inferredZone": false
+    },
+    "iso": 100,
+    "lens": "55.0 mm",
+    "aperture": 0,
+    "shutter": "1/8",
+    "exposureCompensation": "0",
+    "cameraModel": "PENTAX K-50",
+    "format": "JPEG",
+    "gps": null,
+    "copyright": ""
+  },
+  "galleries/abstract/thumbnails/Bokeh.JPG": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2019,
+      "month": 10,
+      "day": 23,
+      "hour": 7,
+      "minute": 36,
+      "second": 17,
+      "rawValue": "2019:10:23 07:36:17",
+      "inferredZone": false
+    },
+    "iso": 100,
+    "lens": "55.0 mm",
+    "aperture": 0,
+    "shutter": "1/8",
+    "exposureCompensation": "0",
+    "cameraModel": "PENTAX K-50",
+    "format": "JPEG",
+    "gps": null,
+    "copyright": ""
+  },
+  "galleries/abstract/thumbnails/aztec-rug.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2022,
@@ -309,7 +353,7 @@
     },
     "copyright": "©2022 Casey Burnham"
   },
-  "galleries/abstractions/thumbnails/birds-of-a-feather.avif": {
+  "galleries/abstract/thumbnails/birds-of-a-feather.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2017,
@@ -340,7 +384,7 @@
     },
     "copyright": "©2017 Casey Burnham"
   },
-  "galleries/abstractions/thumbnails/bordello-carpet.avif": {
+  "galleries/abstract/thumbnails/bordello-carpet.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -371,7 +415,7 @@
     },
     "copyright": "©2023 Casey Burnham"
   },
-  "galleries/abstractions/thumbnails/frozen-rocks.avif": {
+  "galleries/abstract/thumbnails/frozen-rocks.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2022,
@@ -402,7 +446,7 @@
     },
     "copyright": "©2022 Casey Burnham"
   },
-  "galleries/abstractions/thumbnails/medano-creek.avif": {
+  "galleries/abstract/thumbnails/medano-creek.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -433,7 +477,7 @@
     },
     "copyright": "©2023 Casey Burnham"
   },
-  "galleries/abstractions/thumbnails/paint.avif": {
+  "galleries/abstract/thumbnails/paint.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2019,
@@ -464,7 +508,7 @@
     },
     "copyright": "©2019 Casey Burnham"
   },
-  "galleries/abstractions/thumbnails/sloans-lake.avif": {
+  "galleries/abstract/thumbnails/sloans-lake.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2018,
@@ -495,7 +539,7 @@
     },
     "copyright": "©2018 Casey Burnham"
   },
-  "galleries/abstractions/thumbnails/upper-pomeroy.avif": {
+  "galleries/abstract/thumbnails/upper-pomeroy.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2024,
@@ -526,7 +570,7 @@
     },
     "copyright": "©2024 Casey Burnham"
   },
-  "galleries/abstractions/thumbnails/yellowstone.avif": {
+  "galleries/abstract/thumbnails/yellowstone.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2020,
@@ -774,6 +818,37 @@
     },
     "copyright": "©2023 Casey Burnham"
   },
+  "galleries/botanic/avif/petals.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 4,
+      "day": 8,
+      "hour": 10,
+      "minute": 11,
+      "second": 56,
+      "tzoffsetMinutes": -240,
+      "rawValue": "2025:04:08 10:11:56",
+      "zoneName": "UTC-4",
+      "inferredZone": true
+    },
+    "iso": 32,
+    "lens": "1.6 mm",
+    "aperture": 1.8,
+    "shutter": "1/270",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 40.439292,
+      "lon": -79.948106,
+      "latDMS": "40°26'21.45\" N",
+      "lonDMS": "79°56'53.18\" W",
+      "alt": 285.6800921,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "© 2025 Casey Burnham"
+  },
   "galleries/botanic/avif/red-and-green.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -929,6 +1004,28 @@
     },
     "copyright": "©2025 Casey Burnham"
   },
+  "galleries/botanic/jpeg/Tulip.jpg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2019,
+      "month": 4,
+      "day": 26,
+      "hour": 11,
+      "minute": 30,
+      "second": 49,
+      "rawValue": "2019:04:26 11:30:49",
+      "inferredZone": false
+    },
+    "iso": 100,
+    "lens": "55.0 mm",
+    "aperture": "",
+    "shutter": "1/500",
+    "exposureCompensation": "0",
+    "cameraModel": "PENTAX K-50",
+    "format": "JPEG",
+    "gps": null,
+    "copyright": ""
+  },
   "galleries/botanic/jpeg/flowing-fronds.jpg": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -950,6 +1047,28 @@
     "format": "JPEG",
     "gps": null,
     "copyright": "©2019 Casey Burnham"
+  },
+  "galleries/botanic/thumbnails/Tulip.jpg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2019,
+      "month": 4,
+      "day": 26,
+      "hour": 11,
+      "minute": 30,
+      "second": 49,
+      "rawValue": "2019:04:26 11:30:49",
+      "inferredZone": false
+    },
+    "iso": 100,
+    "lens": "55.0 mm",
+    "aperture": "",
+    "shutter": "1/500",
+    "exposureCompensation": "0",
+    "cameraModel": "PENTAX K-50",
+    "format": "JPEG",
+    "gps": null,
+    "copyright": ""
   },
   "galleries/botanic/thumbnails/campanula.avif": {
     "date": {
@@ -1128,6 +1247,28 @@
     "gps": null,
     "copyright": "©2019 Casey Burnham"
   },
+  "galleries/botanic/thumbnails/flowing-fronds.jpg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2019,
+      "month": 4,
+      "day": 26,
+      "hour": 12,
+      "minute": 46,
+      "second": 43,
+      "rawValue": "2019:04:26 12:46:43",
+      "inferredZone": false
+    },
+    "iso": 100,
+    "lens": "55.0 mm",
+    "aperture": "",
+    "shutter": "1/200",
+    "exposureCompensation": "0",
+    "cameraModel": "PENTAX K-50",
+    "format": "JPEG",
+    "gps": null,
+    "copyright": "©2019 Casey Burnham"
+  },
   "galleries/botanic/thumbnails/geranium.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -1189,6 +1330,37 @@
       "altRef": "Above Sea Level"
     },
     "copyright": "©2023 Casey Burnham"
+  },
+  "galleries/botanic/thumbnails/petals.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 4,
+      "day": 8,
+      "hour": 10,
+      "minute": 11,
+      "second": 56,
+      "tzoffsetMinutes": -240,
+      "rawValue": "2025:04:08 10:11:56",
+      "zoneName": "UTC-4",
+      "inferredZone": true
+    },
+    "iso": 32,
+    "lens": "1.6 mm",
+    "aperture": 1.8,
+    "shutter": "1/270",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 40.439292,
+      "lon": -79.948106,
+      "latDMS": "40°26'21.45\" N",
+      "lonDMS": "79°56'53.18\" W",
+      "alt": 285.6800921,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": ""
   },
   "galleries/botanic/thumbnails/red-and-green.avif": {
     "date": {
@@ -1469,6 +1641,37 @@
     },
     "copyright": "©2023 Casey Burnham"
   },
+  "galleries/high-country/avif/cronin-peak.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 9,
+      "day": 22,
+      "hour": 9,
+      "minute": 42,
+      "second": 18,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:09:22 09:42:18",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 80,
+    "lens": "6.8 mm",
+    "aperture": 1.8,
+    "shutter": "1/4673",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.668914,
+      "lon": -106.258383,
+      "latDMS": "38°40'8.09\" N",
+      "lonDMS": "106°15'30.18\" W",
+      "alt": 3845.4,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "© 2025 Casey Burnham"
+  },
   "galleries/high-country/avif/deer-in-american-gulch.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -1499,6 +1702,37 @@
       "altRef": "Above Sea Level"
     },
     "copyright": "©2023 Casey Burnham"
+  },
+  "galleries/high-country/avif/fall-from-mount-antero.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 9,
+      "day": 22,
+      "hour": 13,
+      "minute": 25,
+      "second": 15,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:09:22 13:25:15",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 80,
+    "lens": "6.8 mm",
+    "aperture": 1.8,
+    "shutter": "1/7353",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.663025,
+      "lon": -106.257378,
+      "latDMS": "38°39'46.89\" N",
+      "lonDMS": "106°15'26.56\" W",
+      "alt": 3974.382353,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "© 2025 Casey Burnham"
   },
   "galleries/high-country/avif/fall-on-jones-mountain.avif": {
     "date": {
@@ -2306,6 +2540,37 @@
     },
     "copyright": "©2023 Casey Burnham"
   },
+  "galleries/high-country/thumbnails/cronin-peak.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 9,
+      "day": 22,
+      "hour": 9,
+      "minute": 42,
+      "second": 18,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:09:22 09:42:18",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 80,
+    "lens": "6.8 mm",
+    "aperture": 1.8,
+    "shutter": "1/4673",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.668914,
+      "lon": -106.258383,
+      "latDMS": "38°40'8.09\" N",
+      "lonDMS": "106°15'30.18\" W",
+      "alt": 3845.4,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": ""
+  },
   "galleries/high-country/thumbnails/deer-in-american-gulch.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -2336,6 +2601,37 @@
       "altRef": "Above Sea Level"
     },
     "copyright": "©2023 Casey Burnham"
+  },
+  "galleries/high-country/thumbnails/fall-from-mount-antero.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 9,
+      "day": 22,
+      "hour": 13,
+      "minute": 25,
+      "second": 15,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:09:22 13:25:15",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 80,
+    "lens": "6.8 mm",
+    "aperture": 1.8,
+    "shutter": "1/7353",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.663025,
+      "lon": -106.257378,
+      "latDMS": "38°39'46.89\" N",
+      "lonDMS": "106°15'26.56\" W",
+      "alt": 3974.382353,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": ""
   },
   "galleries/high-country/thumbnails/fall-on-jones-mountain.avif": {
     "date": {
@@ -3807,6 +4103,37 @@
     },
     "copyright": "©2024 Casey Burnham"
   },
+  "galleries/mines/Bross Adit.HEIC": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2023,
+      "month": 8,
+      "day": 23,
+      "hour": 12,
+      "minute": 22,
+      "second": 28,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2023:08:23 12:22:28",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/1058",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "HEIC",
+    "gps": {
+      "lat": 39.333378,
+      "lon": -106.111558,
+      "latDMS": "39°20'0.16\" N",
+      "lonDMS": "106°6'41.61\" W",
+      "alt": 4253.47541,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": ""
+  },
   "galleries/mines/avif/alpine-tunnel.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -4892,6 +5219,37 @@
     },
     "copyright": "©2023 Casey Burnham"
   },
+  "galleries/off-road/avif/mount-white-trail.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 9,
+      "day": 22,
+      "hour": 11,
+      "minute": 57,
+      "second": 19,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:09:22 11:57:19",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 80,
+    "lens": "6.8 mm",
+    "aperture": 1.8,
+    "shutter": "1/10309",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.655361,
+      "lon": -106.242356,
+      "latDMS": "38°39'19.30\" N",
+      "lonDMS": "106°14'32.48\" W",
+      "alt": 4036.290894,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "© 2025 Casey Burnham"
+  },
   "galleries/off-road/avif/quail-mountain.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -5326,6 +5684,37 @@
     },
     "copyright": "©2023 Casey Burnham"
   },
+  "galleries/off-road/thumbnails/mount-white-trail.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 9,
+      "day": 22,
+      "hour": 11,
+      "minute": 57,
+      "second": 19,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:09:22 11:57:19",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 80,
+    "lens": "6.8 mm",
+    "aperture": 1.8,
+    "shutter": "1/10309",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.655361,
+      "lon": -106.242356,
+      "latDMS": "38°39'19.30\" N",
+      "lonDMS": "106°14'32.48\" W",
+      "alt": 4036.290894,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": ""
+  },
   "galleries/off-road/thumbnails/quail-mountain.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -5418,6 +5807,61 @@
       "altRef": "Above Sea Level"
     },
     "copyright": "©2023 Casey Burnham"
+  },
+  "galleries/rocks/Goblin Lair.HEIC": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 5,
+      "day": 5,
+      "hour": 9,
+      "minute": 43,
+      "second": 38,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2024:05:05 09:43:38",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 1000,
+    "lens": "1.6 mm",
+    "aperture": 1.8,
+    "shutter": "1/52",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "HEIC",
+    "gps": null,
+    "copyright": ""
+  },
+  "galleries/rocks/Goose Creek Boulders.HEIC": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2023,
+      "month": 10,
+      "day": 22,
+      "hour": 13,
+      "minute": 8,
+      "second": 14,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2023:10:22 13:08:14",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/2123",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "HEIC",
+    "gps": {
+      "lat": 39.205597,
+      "lon": -105.400781,
+      "latDMS": "39°12'20.15\" N",
+      "lonDMS": "105°24'2.81\" W",
+      "alt": 2639.313152,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": ""
   },
   "galleries/rocks/avif/arches.avif": {
     "date": {
@@ -7558,6 +8002,37 @@
     },
     "copyright": ""
   },
+  "summits/grays-peak-2.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 6,
+      "day": 23,
+      "hour": 8,
+      "minute": 2,
+      "second": 2,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:06:23 08:02:02",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 50,
+    "lens": "5.7 mm",
+    "aperture": 1.5,
+    "shutter": "1/12658",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.633797,
+      "lon": -105.817572,
+      "latDMS": "39°38'1.67\" N",
+      "lonDMS": "105°49'3.26\" W",
+      "alt": 4351.836758,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "© 2025 Casey Burnham"
+  },
   "summits/grays-peak.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -8332,6 +8807,37 @@
       "altRef": "Above Sea Level"
     },
     "copyright": ""
+  },
+  "summits/mount-white.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 9,
+      "day": 22,
+      "hour": 12,
+      "minute": 24,
+      "second": 47,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:09:22 12:24:47",
+      "zoneName": "UTC-6",
+      "inferredZone": true
+    },
+    "iso": 80,
+    "lens": "6.8 mm",
+    "aperture": 1.8,
+    "shutter": "1/11905",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.65665,
+      "lon": -106.236472,
+      "latDMS": "38°39'23.94\" N",
+      "lonDMS": "106°14'11.30\" W",
+      "alt": 4151.472015,
+      "altRef": "Above Sea Level"
+    },
+    "copyright": "© 2025 Casey Burnham"
   },
   "summits/mount-yale.jpeg": {
     "date": {
