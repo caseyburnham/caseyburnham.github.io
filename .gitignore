@@ -15,12 +15,6 @@ package.json
 
 # Utility Scripts
 utility/
-how-to-update-gal.txt
-update-gal.py
-extract-exif.js
-images/sanitize-names.zsh
-images/h2a.zsh
-json/update-summit-json.zsh
 
 # Python
 __pycache__/
@@ -39,4 +33,3 @@ venv/
 
 # Old Files
 old/
-css/og-css/

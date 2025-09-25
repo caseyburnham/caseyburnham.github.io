@@ -142,12 +142,25 @@
 		color: var(--text-color-muted);
 	}
 	
+	.gallery-btn.active {
+		background: var(--accent-color);
+		color: var(--text-color-light);
+	}
+	
+	.gallery-btn:hover {
+		background-color: var(--accent-color-alpha);
+	}
+	
+	.gallery-btn.active:hover{
+		color: var(--text-color-dark);
+	}
+	
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		/* -------------------- Light -------------------- */
-		--primary-color: color: rgb(80, 227, 194);
+		--primary-color: rgb(80, 227, 194);
 		--primary-color-alpha: rgba(80, 227, 194, 0.15);
 		--accent-color: rgb(80, 227, 194);
 		--accent-color-light: rgba(80, 212, 195, 0.15);
@@ -168,6 +181,7 @@
 		--text-color-secondary: rgba(255, 255, 255, 0.7);
 		--text-color-muted: rgba(255, 255, 255, 0.5);
 		--text-color-light: rgb(204, 204, 204);
+		--text-color-dark: #010101;
 		--selection-color: hotpink;
 
 		/* -------------------- Progress Bars -------------------- */
@@ -205,6 +219,23 @@
 	
 	.elevation {
 		color: var(--accent-color);
+	}
+	
+	.prod-a1,
+	.prod-sd,
+	.prod-ad,
+	.prod-lz {
+		color: var(--primary-color);
+		text-shadow: var(--shadow-glow);
+	}
+	
+	.gallery-btn.active {
+		background: var(--primary-color);
+		color: var(--text-color-dark);
+	}
+	
+	.gallery-btn:hover {
+		background-color: var(--primary-color-alpha);
 	}
 
 }

@@ -9,7 +9,7 @@ class PeakMap {
 			defaultCenter: { lat: 39.7392, lon: -104.9849 }, // Denver fallback
 			defaultZoom: 10,
 			zoomSnap: 0.25,
-			tileLayerUrl: 'https://tile.openstreetmap.org/{z}/{x}/{y}.{ext}',
+			tileLayerUrl: 'https://tile.openstreetmap.org/{z}/{x}/{y}.{ext}?lang=en-US',
 			tileLayerOptions: {
 				minZoom: 6,
 				maxZoom: 14,
@@ -18,10 +18,6 @@ class PeakMap {
 			},
 		};
 		
-		var Stadia_Outdoors = L.tileLayer('', {
-			
-			
-		});
 
 		this.map = null;
 		this.peaks = [];

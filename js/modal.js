@@ -481,7 +481,7 @@ class PhotoModal {
 		const parts = [
 			photo.cameraModel ? `<span>${photo.cameraModel}</span>` : '',
 			photo.iso ? `<span>ISO ${photo.iso}</span>` : '',
-			photo.lens ? `<span>${escapeHTML(photo.lens)}</span>` : '',
+			photo.lens ? `<span>${escapeHTML(photo.lens)} mm</span>` : '',
 			photo.exposureCompensation ? `<span>${escapeHTML(photo.exposureCompensation)} ev</span>` : '',
 			photo.aperture ? `<span><i>&#402;</i>${photo.aperture}</span>` : '',
 			photo.shutter ? `<span>${photo.shutter}s</span>` : '',
