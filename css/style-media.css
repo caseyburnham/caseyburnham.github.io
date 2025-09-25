@@ -56,14 +56,8 @@ video {
 	text-wrap: wrap;
 }
 
-.gallery-btn:hover {
-	background-color: var(--primary-color-alpha);
-}
-
 .gallery-btn.active {
-	color: var(--text-color-secondary);
 	font-weight: var(--font-weight-heavy);
-	background: var(--primary-color);
 }
 
 .gallery-btn:focus {
@@ -71,22 +65,24 @@ video {
 	outline-offset: 2px;
 }
 
+/* --------------------------------------------------------------------------
+   PHOTO GRID
+   -------------------------------------------------------------------------- */
+
 .photo-grid {
-	transition: opacity 0.3s ease;
+	display: grid;
+	gap: var(--grid-gap);
+	transition: all 0.3s ease;
+}
+
+.photo-grid img {
+  transition: transform 0.2s ease;
 }
 
 .photo-grid.loading {
 	opacity: 0.6;
 }
 
-/* --------------------------------------------------------------------------
-   PHOTO GRID LAYOUT
-   -------------------------------------------------------------------------- */
-
-.photo-grid {
-	display: grid;
-	gap: var(--grid-gap);
-}
 
 .landscape-row {
 	grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-landscape), 1fr));
