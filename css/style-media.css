@@ -3,23 +3,31 @@
    ========================================================================== */
    
 /* --------------------------------------------------------------------------
-   VIDEO
+   PROFILE PIC
    -------------------------------------------------------------------------- */
- 
-video {
+   
+.bio-container {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-auto-rows: minmax(min-content, max-content);
+  grid-template-columns: 1.75fr 1.25fr;
+}
+
+.bio-container > * {
+  min-height: 0; 
+}
+
+.bio-img {
+	position: relative;
+}
+
+.bio-img img {
 	border-radius: var(--border-radius-sm);
 	box-shadow: var(--shadow-media);
 	height: 100%;
-	left: 0;
 	object-fit: cover;
 	position: absolute;
-	top: 0;
 	width: 100%;
-}
-
-.video-wrapper {
-	position: relative;
-	width: 30%;
 }
 
 /* --------------------------------------------------------------------------
@@ -45,23 +53,25 @@ video {
 	border-radius: var(--border-radius-sm);
 	color: var(--text-color-primary);
 	cursor: pointer;
-	flex: 1;
+	flex: 1 1 calc(50% - var(--space-sm));
 	font-family: inherit;
 	font-size: var(--font-size-sm);
-	font-weight: var(--font-weight-normal);
-	min-width: 0;
-	padding: var(--space-sm);
-	text-align: center;
-	transition: background-color var(--transition-medium);
+	min-width: calc(50% - var(--space-sm));
+	padding: var(--space-sm) var(--space-md);
 	text-wrap: wrap;
+	transition: background-color var(--transition-medium);
 }
 
 .gallery-btn.active {
 	font-weight: var(--font-weight-heavy);
 }
 
+.gallery-btn.active:hover {
+	cursor: default;
+}
+
 .gallery-btn:focus {
-	outline: 2px solid rgba(255, 255, 255, 0.5);
+	outline: 2px solid rgb(255 255 255 / 50%);
 	outline-offset: 2px;
 }
 
@@ -76,7 +86,7 @@ video {
 }
 
 .photo-grid img {
-  transition: transform 0.2s ease;
+	transition: transform 0.2s ease;
 }
 
 .photo-grid.loading {
@@ -85,11 +95,11 @@ video {
 
 
 .landscape-row {
-	grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-landscape), 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(max-content, 1fr));
 }
 
 .portrait-row {
-	grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-portrait), 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(max-content, 1fr));
 }
 
 .pano-row {
@@ -158,7 +168,6 @@ video {
 	transition:
 		transform var(--transition-medium),
 		box-shadow var(--transition-medium);
-	will-change: transform;
 	z-index: 10;	
 }
 
@@ -171,7 +180,6 @@ video {
 		transform var(--transition-medium),
 		filter var(--transition-medium);
 	width: 100%;
-	will-change: transform, filter;
 }
 
 .photo-thumb:hover {
@@ -194,27 +202,26 @@ video {
    -------------------------------------------------------------------------- */
  
 /* Tablet and Desktop */
-@media (min-width: 600px) {
+@media (width >= 400px) {
 	.landscape-row,
 	.portrait-row {
-		width: 100%;
 		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+		width: 100%;
 	}
 }
 
 /* Mobile Optimizations */
-@media (max-width: 480px) {
+@media (width <= 480px) {
 	.gallery-btn {
 		flex: 1 1 calc(50% - var(--space-xs));
 		min-width: calc(50% - var(--space-xs));
 	}
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
+@media (width <= 640px) {
 	.gallery-buttons {
 		flex-wrap: wrap;
-		gap: var(--space-sm);
+		gap: var(--grid-gap-sm);
 	}
 
 	.gallery-btn {
@@ -222,7 +229,7 @@ video {
 	}
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
 	.gallery-buttons {
 		flex-direction: column;
 	}
@@ -232,7 +239,8 @@ video {
 		width: 100%;
 	}
 }
-@media (max-width: 1200px) {
+
+@media (width <= 1200px) {
 	.gallery-btn {
 		font-size: var(--font-size-xs);
 	}

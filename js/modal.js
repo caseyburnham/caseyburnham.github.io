@@ -114,6 +114,8 @@ class PhotoModal {
 			modal,
 			modalContent: modal.querySelector('.modal-content'),
 			modalImg: modal.querySelector('img'),
+			loader: modal.querySelector('.modal-loader'), 
+			caption: modal.querySelector('.modal-caption'),
 			caption: modal.querySelector('.modal-caption'),
 			copyright: modal.querySelector('.modal-copyright'), 
 			closeBtn: modal.querySelector('.modal-close'),
@@ -184,6 +186,27 @@ class PhotoModal {
 		if (!imageToLoad || this.#state.elements.modal.classList.contains('opening')) {
 			return;
 		}
+		
+		// 1. Show the modal frame and loader immediately
+		  this.#showModal(); 
+		  this.#state.elements.modalContent.classList.add('loading');
+		
+		  this.#state.originalTriggerElement = originalTriggerElement || document.activeElement;
+		
+		  // 2. Load the image and update content when done
+		  this.#loadImage(imageToLoad)
+			.then(loadedImg => {
+			  this.#updateModalContent(imageToLoad, alt, title, sourceElement, loadedImg);
+			})
+			.catch(error => {
+			  console.warn('Image failed to load, opening modal without it:', error);
+			  // Still update, but without a loaded image
+			  this.#updateModalContent(imageToLoad, alt, title, sourceElement, null); 
+			})
+			.finally(() => {
+			  // 3. Hide the loader when finished (success or fail)
+			  this.#state.elements.modalContent.classList.remove('loading');
+			});
 
 		// Only add the 'opening' class if the modal is not already open
 		// New code
@@ -229,7 +252,6 @@ class PhotoModal {
 		modalImg.alt = alt || 'Untitled';
 		this.#updateCurrentIndex(src);
 		this.#updateCaption(title, src, sourceElement);
-		this.#showModal();
 
 	}
 
@@ -449,10 +471,10 @@ class PhotoModal {
 
 		return `
 	  <div class="caption-header">
-		${dateString ? `<time datetime="${dateString}">${dateString}</time>` : ''}
+		${dateString ? `<time class="caption-data" datetime="${dateString}">${dateString}</time>` : ''}
 		<h2 class="title">${escapeHTML(title || 'Untitled')}</h2>
 		${gpsLink}
-		<span class="altitude">${altitudeInFeet}</span>
+		<span class="caption-data" class="altitude">${altitudeInFeet}</span>
 	  </div>
 	  <hr>
 	  <span class="exif-row">${exifRow}</span>
@@ -470,7 +492,7 @@ class PhotoModal {
 		const url = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}&zoom=15`;
 		const latDMS = gps.latDMS || lat;
 		const lonDMS = gps.lonDMS || lon;
-		return `<span class="gps"><a href="${url}" target="_blank" rel="noopener noreferrer">${latDMS}<wbr>, ${lonDMS}<wbr></a></span>`;
+		return `<span class="gps caption-data"><a href="${url}" target="_blank" rel="noopener noreferrer">${latDMS}<wbr>, ${lonDMS}<wbr></a></span>`;
 	}
 
 	/**

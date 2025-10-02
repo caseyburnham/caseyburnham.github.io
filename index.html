@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<!-- META -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="color-scheme" content="light dark"sx>
+	<meta name="color-scheme" content="light dark" sx>
 	<meta name="description" content="Casey Burnham - Audio Engineer specializing in live sound, theater audio, and system design">
 	<meta name="author" content="Casey Burnham">
 	<meta name="web_author" content="Casey Burnham">
@@ -26,44 +25,47 @@
 	<!-- Preload critical resources -->
 	<link rel="preload" href="css/style-imports.css" as="style">
 	<link rel="stylesheet" href="css/style-imports.css">
-
 </head>
-
 <body>
-
 	<main id="main-content">
 		<header>
-			<span><h1>Casey Burnham</h1>
-			
-			<p class="tagline">Audio Director, Sound Engineer & Elevation Enthusiast</p>
-			
+			<h1>Casey Burnham</h1>
+			<p>Audio Director, Sound Engineer & Elevation Enthusiast</p>
 		</header>
 
-		<!-- Personal Bio Section -->
+		<div class="nav-wrapper">
+			<button class="hamburger-btn" aria-label="Toggle navigation menu">🍔</button>
+			<nav class="sticky-nav">
+				<a href="#main-content">#about</a>
+				<a href="#skills">#skills</a>
+				<a href="#productions">#productions</a>
+				<a href="#galleries">#galleries</a>
+				<a href="#mountains">#mountains</a>
+				<a href="#concerts">#concerts</a>
+				<a href="#map">#map</a>
+			</nav>
+		</div>
+
+		<!-- Bio Section -->
 		<section aria-labelledby="bio-heading">
 			<h2 id="bio-heading" class="sr-only">About Casey</h2>
-			<p>
-			A former Idahoan who traded potato fields for mountain trails, I earned a degree in Audio Engineering from the University of Colorado, Denver. I've spent the last decade dialing in mixes and troubleshooting gear that swore it was working just yesterday. I spend my days wrangling mics, fixing things no one else saw break, and convincing everyone it was fine all along.
-			
-			When I'm not in a black box or behind a console, you can find me above the treeline — scrambling up peaks, letting the trail detail my truck, and dragging my dog along for the ride. He's not always impressed.
-			</p>
+			<div class="bio-container">
+				<p>
+					A former Idahoan who traded potato fields for mountain trails, I earned a degree in Audio Engineering from the University of Colorado, Denver. I've spent the last decade dialing in mixes and troubleshooting gear that swore it was working just yesterday. I spend my days wrangling mics, fixing things no one else saw break, and convincing everyone it was fine all along.
 
-			<div class="video-wrapper">
-				<video id="livephoto" poster="/images/posters/jpeg/casey-rocky.jpeg" autoplay muted playsinline onended="this.pause();" aria-label="Casey and Rocky at Silver Dollar Lake">
-					<source src="/videos/rocky.webm" type="video/webm">
-					<source src="/videos/rocky.mp4" type="video/mp4">
-				</video>
-				
+					When I'm not in a black box or behind a console, you can find me above the treeline — scrambling up peaks, letting the trail detail my truck, and dragging my dog along for the ride. He's not always impressed.
+				</p>
+				<div class="bio-img">
+					<img src="/images/posters/jpeg/casey-rocky.jpeg" aria-label="Casey and Rocky at Silver Dollar Lake">
+				</div>
 			</div>
-			
 		</section>
 
 		<!-- Skills and Experience Section -->
-		<section aria-labelledby="experience-heading" class="experience">
+		<section id="skills" aria-labelledby="experience-heading">
 			<h2 id="details-heading" class="sr-only">Casey's Skills & Experience</h2>
 			<details>
-				<summary id="experience-heading">Skills & Experience</summary>
-				<div class="details-content-wrapper">
+				<summary id="experience-heading" class="text-center">Skills & Experience</summary>
 				<article>
 					<h3>Live Sound & Theater Audio</h3>
 					<ul>
@@ -72,7 +74,6 @@
 						<li>Collaborate with directors, designers, and production teams to translate creative concepts into impactful soundscapes</li>
 						<li>Advanced programming and operation of digital audio consoles, QLab, and show automation systems</li>
 					</ul>
-					
 				</article>
 
 				<article>
@@ -83,7 +84,6 @@
 						<li>Developed detailed system documentation, signal flow diagrams, and technical standards for long-term sustainability</li>
 						<li>Oversaw and maintained robust digital audio and show control networks across multi-venue environments</li>
 					</ul>
-					
 				</article>
 
 				<article>
@@ -92,7 +92,6 @@
 						<li>Recording, editing, mixing, and mastering projects for distribution across digital platforms</li>
 						<li>Freelance consulting for artists, theaters, and organizations seeking professional audio solutions</li>
 					</ul>
-					
 				</article>
 
 				<article>
@@ -101,7 +100,6 @@
 						<li>Designed and programmed immersive laser shows synchronized with live performance</li>
 						<li>Executed projector hangs, focus, and mapping for theatrical and concert applications</li>
 					</ul>
-					
 				</article>
 
 				<article>
@@ -112,30 +110,21 @@
 						<li>Yamaha Rivage series mixers: console programming, system setup, and live mix workflows</li>
 						<li>Experienced across macOS production environments with software integration and troubleshooting</li>
 					</ul>
-					
 				</article>
-				
-				</div>
-				
 			</details>
-			
 		</section>
 
 		<!-- Productions Table Section -->
-		<section aria-labelledby="productions-heading">
+		<section id="productions" aria-labelledby="productions-heading">
 			<h2 id="productions-heading" class="sr-only">Theater Productions</h2>
 			<table id="productions" aria-label="Theater productions with role assignments">
 				<thead>
 					<tr>
-						<th scope="col">
-							<span>🎭</span>
-							Production
-						</th>
+						<th scope="col">🎭 Production</th>
 						<th scope="col">Company</th>
 						<th scope="col" class="text-center">
 							<abbr title="Lead Audio">A1</abbr>
 						</th>
-						<!-- <th scope="col" class="text-center">A2</th> -->
 						<th scope="col" class="text-center">
 							<abbr title="Sound Designer">SD</abbr>
 						</th>
@@ -148,51 +137,41 @@
 						<th scope="col" class="text-center">
 							<span aria-label="Rating">😀</span>
 						</th>
-						
 					</tr>
-					
 				</thead>
-				
+
 				<tbody>
 					<!-- Template populated by tables and productions.json -->
 					<template id="production-row-template">
-					  <tr>
-						<td class="prod-production"></td>
-						<td class="prod-company"></td>
-						<td class="prod-a1"></td>
-						<td class="prod-sd"></td>
-						<td class="prod-ad"></td>
-						<td class="prod-lz"></td>
-						<td class="prod-notes"></td>
-					  </tr>
-					  
+						<tr>
+							<td class="prod-production"></td>
+							<td class="prod-company"></td>
+							<td class="prod-a1 text-center"></td>
+							<td class="prod-sd text-center"></td>
+							<td class="prod-ad text-center"></td>
+							<td class="prod-lz text-center"></td>
+							<td class="prod-notes text-center"></td>
+						</tr>
 					</template>
-					
 				</tbody>
-				
 			</table>
-			
 		</section>
 
 		<hr />
 
 		<!-- Photo Gallery Section -->
-		<section aria-labelledby="gallery-heading">
+		<section id="galleries" aria-labelledby="gallery-heading">
 			<h2 id="gallery-heading" class="sr-only">Photography</h2>
-				<!-- Populated by galleries.js -->
-				
-				<template id="gallery-button-template">
-				  <button type="button" class="gallery-btn" role="tab" aria-selected="false" data-gallery="">
-					</button>
-				</template>
-				
-				<template id="photo-thumb-template">
-				  <div class="photo-thumb">
+			<!-- Populated by galleries.js -->
+			<template id="gallery-button-template">
+				<button type="button" class="gallery-btn" role="tab" aria-selected="false" data-gallery="">
+				</button>
+			</template>
+			<template id="photo-thumb-template">
+				<div class="photo-thumb">
 					<img src="" alt="" loading="lazy" decoding="async">
-				  </div>
-				  
-				</template>
-				
+				</div>
+			</template>
 		</section>
 
 		<hr />
@@ -200,148 +179,118 @@
 		<!-- Tables Section -->
 		<section class="data-tables" aria-labelledby="data-heading">
 			<h2 id="data-heading" class="sr-only">Personal Statistics</h2>
-
 			<!-- Mountains Climbed -->
 			<table id="mountains" class="flex-item" aria-labelledby="mountains-caption">
 				<caption id="mountains-caption">
 					<small>
-						Non-exhaustive, detailing peaks over 10,000ft;
+						Non-exhaustive, detailing peaks over 13,000ft;
 						<a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank" rel="noopener noreferrer" aria-label="View my climbing record on 14ers.com">14ers.com</a>
 					</small>
-					
 				</caption>
-				
 				<thead>
 					<tr>
-						<th scope="col">
-							<span aria-label="Mountain">⛰️</span>
-							Peak
-						</th>
+						<th scope="col">⛰️ Peak</th>
 						<th scope="col">Elevation</th>
 						<th scope="col">Range</th>
 						<th scope="col" class="text-center">Summit</th>
-						<th class="text-center" scope="col">📸</th>
-						
+						<th scope="col" class="text-center">Rank</th>
+						<th scope="col" class="text-center">📸</th>
 					</tr>
-					
 				</thead>
-				
 				<tbody>
 					<!-- Template populated by tables and mountains.json -->
 					<template id="mountain-row-template">
-					  <tr>
-						<td class="mtn-peak"></td>
-						<td class="mtn-elevation"></td>
-						<td class="mtn-range"></td>
-						<td class="mtn-date"></td>
-						<td class="mtn-image"></td>
-					  </tr>
-					  
+						<tr>
+							<td class="mtn-peak"></td>
+							<td class="mtn-elevation text-center"></td>
+							<td class="mtn-range"></td>
+							<td class="mtn-date text-center"></td>
+							<td class="mtn-rank text-center"></td>
+							<td class="mtn-image text-center"></td>
+						</tr>
 					</template>
-					
 				</tbody>
-				
 				<tfoot>
 					<tr>
 						<td colspan="3">13ers</td>
-						<td colspan="2">
-							<div class="progress-container">
+						<td colspan="3">
+							<div class="progress-container text-center">
 								<progress class="peak-progress" data-peak-type="thirteeners" data-total="600" value="0" max="600"></progress>
 								<small>(<span id="thirteeners">0</span>/600+)</small>
 							</div>
-							
 						</td>
-						
 					</tr>
-					
 					<tr>
 						<td colspan="3">14ers</td>
-						<td colspan="2">
-							<div class="progress-container">
+						<td colspan="3">
+							<div class="progress-container text-center">
 								<progress class="peak-progress" data-peak-type="fourteeners" data-total="58" value="0" max="58"></progress>
 								<small>(<span id="fourteeners">0</span>/58)</small>
 							</div>
-							
 						</td>
-						
 					</tr>
-					
 					<tr>
 						<td colspan="3">Peaks Bagged</td>
-						<td colspan="2"><strong><span id="totalMountains">0</span></strong></td>
+						<td colspan="3">
+							<strong><span id="totalMountains">0</span></strong>
+						</td>
 					</tr>
-					
 				</tfoot>
-				
 			</table>
-
+			
 			<!-- Concert History -->
 			<table id="concerts" class="flex-item" aria-labelledby="concerts-caption">
-				
 				<caption id="concerts-caption">
 					<small>Non-exhaustive; Chronology approximate</small>
-					
 				</caption>
-				
 				<thead>
 					<tr>
-						<th scope="col">
-							<span aria-label="Music">🎵</span>
-							Artist
-						</th>
+						<th scope="col">🎵 Artist</th>
 						<th scope="col">Venue</th>
-						<th scope="col">Year</th>
-						<th scope="col">
+						<th scope="col" class="text-center">Year</th>
+						<th scope="col" class="text-center">
 							<span aria-label="Rating">😃</span>
 						</th>
-						
 					</tr>
-					
 				</thead>
-				
 				<tbody>
 					<!-- Template populated by tables and concerts.json -->
 					<template id="concert-row-template">
-					  <tr>
-						<td class="concert-artist"></td>
-						<td class="concert-venue"></td>
-						<td class="concert-year"></td>
-						<td class="concert-emoji"></td>
-						
-					  </tr>
-					  
+						<tr>
+							<td class="concert-artist"></td>
+							<td class="concert-venue"></td>
+							<td class="concert-year text-center"></td>
+							<td class="concert-emoji text-center"></td>
+						</tr>
 					</template>
 				</tbody>
-				
 				<tfoot>
 					<tr>
-						<td colspan="4" class="statistics">
+						<td colspan="4">
 							<div id="top-artists" aria-label="Most seen artists"></div>
-							<hr />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
 							<div id="top-venues" aria-label="Most visited venues"></div>
 						</td>
 					</tr>
-					
 					<tr>
-						<td colspan="2">Concerts Attended</td>
-						<td colspan="2"><strong><span id="concert-count">0</span></strong></td>
+						<td colspan="2">Shows Seen</td>
+						<td colspan="2">
+							<strong><span id="concert-count">0</span></strong>
+						</td>
 					</tr>
-					
 				</tfoot>
-				
 			</table>
-			
 		</section>
 
 		<!-- Map -->
 		<section aria-labelledby="mountain-map">
 			<h2 id="mountain-map" class="sr-only">Mountain Map</h2>
 			<div id="map"></div>
-			
 		</section>
-		
 	</main>
-
 	<footer>
 		<p class="flags" aria-label="Flags">
 			<span title="Pride" aria-label="Pride flag">🏳️‍🌈</span>
@@ -349,19 +298,15 @@
 			<span title="Arr" aria-label="Pirate flag">🏴‍☠️</span>
 			<span title="Made in Colorado" aria-label="Colorado flag">🏴󠁵󠁳󠁣󠁯󠁿</span>
 		</p>
-		
 		<address>
 			<p>
-				&copy;2025
+				&copy;<span id="year"></span>
 				<a href="mailto:casey@crashburnham.com" aria-label="Email Casey Burnham">Casey Burnham</a>
 			</p>
 		</address>
-
 	</footer>
 
 	<!-- Scripts -->
 	<script type="module" src="js/js-imports.js"></script>
-	
 </body>
-
 </html>

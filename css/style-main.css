@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. AT-RULES
+   AT-RULES
    ========================================================================== */
 
 @counter-style star {
@@ -9,7 +9,7 @@
 }
 
 /* ==========================================================================
-   2. BASE STYLES & RESET
+   BASE STYLES & RESET
    ========================================================================== */
 
 *,
@@ -28,11 +28,71 @@ html {
 	font-weight: var(--font-weight-normal);
 	line-height: var(--line-height-base);
 	padding: var(--space-xl) var(--space-2xl) var(--space-lg) var(--space-2xl);
-	text-rendering: optimizeLegibility;
+	scroll-behavior: smooth;
+	scroll-padding-top: var(--space-xl);
+	text-rendering: optimizelegibility; 
 }
 
 /* ==========================================================================
-   3. LAYOUT COMPONENTS
+   TYPOGRAPHY
+   ========================================================================== */
+a {
+	color: var(--a-color);
+}
+
+abbr {
+	cursor: help;
+	text-decoration: underline dotted;
+	text-decoration-color: var(--accent-color);
+	text-transform: uppercase;
+}
+
+address {
+	font-style: normal;
+	font-variant: all-petite-caps;
+}
+
+header p {
+	color: var(--accent-color);
+}
+
+footer p {
+	margin: 0;
+	text-align: center;
+}
+
+section p {
+	flex: 1;
+	line-height: var(--line-height-airy);
+	text-indent: var(--space-xl);
+	text-wrap: pretty;
+}
+
+small {
+	color: var(--text-color-muted);
+	font-style: italic;
+	font-weight: var(--font-weight-light);
+}
+
+sup {
+	color: var(--primary-color);
+	font-size: var(--font-size-sm);
+	font-style: oblique;
+}
+
+time {
+	color: var(--text-color-muted);
+	font-family: var(--font-family-mono);
+	text-align: center;
+}
+
+strong {
+	color: var(--accent-color);
+	text-shadow: var(--shadow-glow);
+}
+
+/* ==========================================================================
+   LAYOUT COMPONENTS
    ========================================================================== */
 
 main {
@@ -55,7 +115,7 @@ hr {
 	height: 1px;
 	margin-bottom: var(--space-md);
 	margin-top: var(--space-md);
-	opacity: 50%;
+	opacity: 0.5;
 }
 
 footer {
@@ -68,82 +128,79 @@ footer span {
 }
 
 /* ==========================================================================
-   4. TYPOGRAPHY
+   NAV
    ========================================================================== */
-a {
-	color: var(--link-color);
-}
 
-abbr {
-	cursor: help;
-	text-decoration: underline dotted;
-	text-decoration-color: var(--accent-color);
-	text-transform: uppercase;
-}
-
-address {
-	font-style: normal;
-	font-variant: all-petite-caps;
-}
-
-footer p {
-	margin: 0;
-}
-
-section p {
-	flex: 1;
-	line-height: var(--line-height-airy);
-	margin-right: 10px;
-	text-indent: var(--space-2xl);
-}
-
-small {
-	color: var(--text-color-muted);
-	font-style: italic;
-	font-weight: var(--font-weight-light);
-}
-
-sup {
-	color: var(--primary-color);
-	font-size: var(--font-size-sm);
-	font-style: oblique;
-	overflow: visible;
-}
-
-time {
-	color: var(--text-color-muted);
-	font-family: var(--font-family-mono);
-	text-wrap: nowrap;
-}
-
-.tagline {
-	color: var(--accent-color);
-}
-
-summary,
-time,
-footer,
-#productions td:nth-last-child(-n+5),
-.mtn-date,
-.mtn-image,
-.progress-container,
-.year-summary-row td,
-.concert-year,
-.concert-emoji,
-.statistics {
+.hamburger-btn {
+	align-items: center;
+	backdrop-filter: var(--modal-caption-blur);
+	background: none;
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius-sm);
+	cursor: pointer;
+	display: none; 
+	font-size: var(--font-size-2xl);
+	justify-content: center;
+	margin: 0 0 var(--space-md) 0;
+	padding: var(--space-sm);
 	text-align: center;
+	transition: 
+		box-shadow var(--transition-fast),
+		border var(--transition-fast),
+		background var(--transition-fast);
+	width: 50%;
+   }
+
+.nav-wrapper {
+	display: flex;
+	justify-content: center;
+	position: sticky;
+	top: var(--space-sm);
+	width: 100%;
+	z-index: 100;
 }
 
-#totalMountains,
-.year-summary-row strong,
-#concert-count
-{
+.sticky-nav {
+	align-items: center;
+	backdrop-filter: var(--modal-caption-blur);
+	border: 1px solid var(--bg-color-main);
+	border-radius: var(--border-radius-sm);
+	display: flex;
+	gap: var(--space-md);
+	justify-content: center;
+	margin: 0 0 var(--space-md) 0;
+	padding: 0 var(--space-sm);
+	text-align: center;
+	transition: 
+		box-shadow var(--transition-fast),
+		border var(--transition-fast),
+		background var(--transition-fast);
+	width: fit-content;
+	z-index: 100;
+}
+
+.sticky-nav a {
+	color: var(--text-color-primary);
+	padding: var(--space-sm) var(--space-ms);
+	text-decoration: none;
+	transition: color var(--transition-fast),
+				text-decoration var(--transition-fast);
+}
+
+.sticky-nav a:hover {
 	color: var(--accent-color);
-	text-shadow: var(--shadow-glow);
+	text-decoration: underline;
+}
+
+.nav-scrolled .sticky-nav,
+.nav-scrolled button {
+	background: var(--bg-color-caption);
+	border: 1px solid var(--border-color);
+	box-shadow: var(--shadow-nav);
 }
 
 /* ==========================================================================
-   5. INTERACTIVE ELEMENTS
+   INTERACTIVE ELEMENTS
    ========================================================================== */
 
 /* Details & Summary */
@@ -151,9 +208,7 @@ details {
 	align-items: center;
 	flex: 1 1 calc(33.333% - var(--space-md));
 	justify-content: center;
-	min-width: 250px;
 	padding: var(--space-md) 0 var(--space-md) 0;
-	text-align: left;
 }
 
 @keyframes fadeIn {
@@ -168,32 +223,32 @@ details {
 	}
 }
 
-details .details-content-wrapper>article {
-	opacity: 0;
+details>article {
 	animation: none;
+	opacity: 0;
 }
 
-details[open] .details-content-wrapper>article {
+details[open]>article {
 	animation: fadeIn 0.4s ease-out forwards;
 }
 
-details[open] .details-content-wrapper>article:nth-of-type(1) {
+details[open]>article:nth-of-type(1) {
 	animation-delay: 0s;
 }
 
-details[open] .details-content-wrapper>article:nth-of-type(2) {
+details[open]>article:nth-of-type(2) {
 	animation-delay: 0.15s;
 }
 
-details[open] .details-content-wrapper>article:nth-of-type(3) {
+details[open]>article:nth-of-type(3) {
 	animation-delay: 0.3s;
 }
 
-details[open] .details-content-wrapper>article:nth-of-type(4) {
+details[open]>article:nth-of-type(4) {
 	animation-delay: 0.45s;
 }
 
-details[open] .details-content-wrapper>article:nth-of-type(5) {
+details[open]>article:nth-of-type(5) {
 	animation-delay: 0.6s;
 }
 
@@ -201,15 +256,10 @@ details summary:hover {
 	background-color: var(--primary-color-alpha);
 }
 
-details h4 {
-	margin-bottom: 0;
-}
-
 details ul {
 	box-shadow: var(--shadow-details);
 	list-style: star;
-	margin-bottom: calc(var(--space-lg) + 0.5rem);
-	margin-top: var(--space-sm);
+	margin-bottom: calc(var(--space-lg) + var(--space-sm));
 	padding-bottom: var(--space-sm);
 }
 
@@ -229,27 +279,19 @@ summary {
 	transition: background-color var(--transition-medium);
 }
 
-.experience {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-md);
-	justify-content: space-between;
-}
-
 .abbr-tooltip {
-	position: absolute;
-	background: var(--bg-color-tooltip);
 	backdrop-filter: var(--modal-caption-blur);
-	color: var(--text-color-light);
-	padding: var(--space-sm);
-	border-radius: var(--border-radius-sm);
-	z-index: 10;
-	opacity: 0;
-	transition: opacity var(--transition-medium);
+	background: var(--bg-color-tooltip);
 	border: solid 1px var(--border-color);
-	will-change: opacity;
-	font-family: var(--font-family-ui);
+	border-radius: var(--border-radius-sm);
 	box-shadow: var(--shadow-subtle);
+	color: var(--text-color-primary);
+	font-family: var(--font-family-ui);
+	opacity: 0;
+	padding: var(--space-sm);
+	position: absolute;
+	transition: opacity var(--transition-medium);
+	z-index: 10;
 }
 
 .abbr-tooltip.show {
@@ -257,7 +299,7 @@ summary {
 }
 
 /* ==========================================================================
-   6. TABLE STYLES
+   TABLE STYLES
    ========================================================================== */
 
 table {
@@ -267,32 +309,17 @@ table {
 	width: 100%;
 }
 
-table hr {
-	margin-bottom: var(--space-sm);
-	margin-top: var(--space-sm);
-	width: 50%;
-}
-
-tbody {
-	max-height: 500px;
-	overflow-y: auto;
-}
-
-td,
-th {
-	border: 1px solid var(--border-color);
-	padding: var(--space-sm);
-	text-align: left;
-}
-
-td {
-	position: relative;
-}
-
 th {
 	background-color: var(--primary-color-alpha);
 	font-weight: var(--font-weight-heavy);
 	text-wrap: nowrap;
+}
+
+th,
+td {
+	border: 1px solid var(--border-color);
+	padding: var(--space-sm);
+	text-align: left;
 }
 
 tfoot {
@@ -310,20 +337,26 @@ caption {
 }
 
 .elevation {
-	font-family: var(--font-family-mono);
+	--elevation-percent: 0%; 
+	color: color-mix(in srgb, 
+		var(--heatmap-min-color), 
+		var(--heatmap-max-color) var(--elevation-percent)
+	);
+	font-family: var(--font-family-mono);	
 }
 
-.year-summary-row strong {
-	color: var(--accent-color);
+.unranked {
+	color: var(--text-color-muted);
 }
 
 .year-summary-row td {
 	background: var(--accent-color-alpha);
 	vertical-align: middle;
+	text-align: center;
 }
 
 /* ===========================================
-   7. PROGRESS BAR COMPONENT
+   PROGRESS BAR COMPONENT
    =========================================== */
 
 .peak-progress {
@@ -343,22 +376,21 @@ caption {
 
 progress[value] {
 	appearance: none;
-	background: var(--color-progress-bg);
+	background: var(--bg-color-progress);
 	border: none;
 	border-radius: var(--border-radius-md);
 	color: var(--color-bar-fill);
-	height: 5px;
+	height: var(--space-xs);
 	width: 100%;
-	/* box-shadow: var(--shadow-glow); */
 }
 
 progress[value]::-webkit-progress-bar {
-	background: var(--color-progress-bg);
+	background: var(--bg-color-progress);
 	border-radius: var(--border-radius-md);
 }
 
 progress[value]::-moz-progress-bar {
-	background: var(--color-progress-bg);
+	background: var(--bg-color-progress);
 	border-radius: var(--border-radius-md);
 }
 
@@ -375,11 +407,11 @@ progress[value]::-moz-progress-value {
 }
 
 /* ==========================================================================
-   8. RESPONSIVE DESIGN
+   RESPONSIVE DESIGN
    ========================================================================== */
 
 /* Mobile First Approach */
-@media (max-width: 480px) {
+@media (width <= 480px) {
 	html {
 		padding: var(--space-sm);
 	}
@@ -398,10 +430,39 @@ progress[value]::-moz-progress-value {
 	}
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+	.sticky-nav {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity var(--transition-fast), 
+					visibility var(--transition-fast); 
+		flex-direction: column; /* Stack links vertically */
+		position: absolute;
+		top: 100%; /* Position below the nav-wrapper */
+		width: 50%;
+		background-color: var(--bg-color-caption);
+		border: 1px solid var(--border-color);
+	}
+	
+	.sticky-nav.is-open {
+		display: flex; /* Show the menu when the .is-open class is active */
+		width: 50%;
+		opacity: 1;
+		visibility: visible;
+	}
 
+	.sticky-nav a {
+		text-align: center;
+	}
+	
+	.hamburger-btn {
+		display: block; /* Show the hamburger button on mobile */
+	}
+}
+
+@media (width <= 1024px) {
 	html {
-		font-size: 14px;
+		font-size: var(--font-size-xs);
 		padding: var(--space-md);
 	}
 
@@ -430,26 +491,17 @@ progress[value]::-moz-progress-value {
 	td time {
 		text-wrap: wrap;
 	}
-
-	.video-wrapper {
-		width: 100%;
-	}
-
-	#mountains th:nth-child(2) {
-		font-size: var(--font-size-xs);
-	}
-
 }
 
 /* Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (width >= 769px) and (width <= 1024px) {
 	.details-container details {
 		flex: 1 1 calc(50% - var(--space-md));
 	}
 }
 
 /* Large screens */
-@media (min-width: 1400px) {
+@media (width >= 1400px) {
 	html {
 		font-size: var(--font-size-base);
 	}
@@ -457,7 +509,6 @@ progress[value]::-moz-progress-value {
 
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-
 	*,
 	*::before,
 	*::after {
@@ -470,8 +521,8 @@ progress[value]::-moz-progress-value {
 /* High contrast mode support */
 @media (prefers-contrast: high) {
 	:root {
-		--primary-color: #0066cc;
-		--border-color: #000000;
-		--text-color-primary: #000000;
+		--primary-color: #06c;
+		--border-color: #000;
+		--text-color-primary: #000;
 	}
 }
