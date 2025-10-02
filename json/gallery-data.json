@@ -6,18 +6,8 @@
         "name": "Abstract",
         "images": [
             {
-                "id": "algae",
-                "alt": "Algae",
-                "title": "Algae",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/abstract/avif/algae.avif"
-                },
-                "thumbnail": "/images/galleries/abstract/thumbnails/algae.avif"
-            },
-            {
                 "id": "aztec-rug",
-                "alt": "Aztec Rug",
+                "alt": "RIP",
                 "title": "Aztec Rug",
                 "layout": "portrait",
                 "sources": {
@@ -26,28 +16,8 @@
                 "thumbnail": "/images/galleries/abstract/thumbnails/aztec-rug.avif"
             },
             {
-                "id": "birds-of-a-feather",
-                "alt": "Birds Of A Feather",
-                "title": "Birds Of A Feather",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/abstract/avif/birds-of-a-feather.avif"
-                },
-                "thumbnail": "/images/galleries/abstract/thumbnails/birds-of-a-feather.avif"
-            },
-            {
-                "id": "bordello-carpet",
-                "alt": "Bordello Carpet",
-                "title": "Bordello Carpet",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/abstract/avif/bordello-carpet.avif"
-                },
-                "thumbnail": "/images/galleries/abstract/thumbnails/bordello-carpet.avif"
-            },
-            {
                 "id": "frozen-rocks",
-                "alt": "Frozen Rocks",
+                "alt": "Frozen Rocks, County Road 275, Montezuma",
                 "title": "Frozen Rocks",
                 "layout": "landscape",
                 "sources": {
@@ -56,8 +26,18 @@
                 "thumbnail": "/images/galleries/abstract/thumbnails/frozen-rocks.avif"
             },
             {
+                "id": "guinea-fowl-detail",
+                "alt": "Detail of a Guinea Fowl, Tracy Aviary at Liberty Park",
+                "title": "Guinea Fowl Detail",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/abstract/avif/guinea-fowl-detail.avif"
+                },
+                "thumbnail": "/images/galleries/abstract/thumbnails/guinea-fowl-detail.avif"
+            },
+            {
                 "id": "medano-creek",
-                "alt": "Medano Creek",
+                "alt": "Medano Creek, Great Sand Dunes National Preserve",
                 "title": "Medano Creek",
                 "layout": "landscape",
                 "sources": {
@@ -66,8 +46,28 @@
                 "thumbnail": "/images/galleries/abstract/thumbnails/medano-creek.avif"
             },
             {
+                "id": "missouri-lake-reflections",
+                "alt": "Reflections at Missouri Lakes",
+                "title": "Missouri Lake Reflections",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/abstract/avif/missouri-lake-reflections.avif"
+                },
+                "thumbnail": "/images/galleries/abstract/thumbnails/missouri-lake-reflections.avif"
+            },
+            {
+                "id": "mount-antero-detail",
+                "alt": "Prospecting Site, Mount Antero",
+                "title": "Mount Antero Detail",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/abstract/avif/mount-antero-detail.avif"
+                },
+                "thumbnail": "/images/galleries/abstract/thumbnails/mount-antero-detail.avif"
+            },
+            {
                 "id": "paint",
-                "alt": "Paint",
+                "alt": "Paint Detail, Detroit Institue of Arts",
                 "title": "Paint",
                 "layout": "portrait",
                 "sources": {
@@ -76,8 +76,28 @@
                 "thumbnail": "/images/galleries/abstract/thumbnails/paint.avif"
             },
             {
+                "id": "sandstone-detail",
+                "alt": "Sandstone, Goblin Valley State Park",
+                "title": "Sandstone Detail",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/abstract/avif/sandstone-detail.avif"
+                },
+                "thumbnail": "/images/galleries/abstract/thumbnails/sandstone-detail.avif"
+            },
+            {
+                "id": "silver-lake-reflections",
+                "alt": "Silver Lake, Silverton, CO",
+                "title": "Silver Lake Reflections",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/abstract/avif/silver-lake-reflections.avif"
+                },
+                "thumbnail": "/images/galleries/abstract/thumbnails/silver-lake-reflections.avif"
+            },
+            {
                 "id": "sloans-lake",
-                "alt": "Sloans Lake",
+                "alt": "Sunset on Sloans Lake",
                 "title": "Sloans Lake",
                 "layout": "portrait",
                 "sources": {
@@ -86,205 +106,225 @@
                 "thumbnail": "/images/galleries/abstract/thumbnails/sloans-lake.avif"
             },
             {
-                "id": "upper-pomeroy",
-                "alt": "Upper Pomeroy",
-                "title": "Upper Pomeroy",
-                "layout": "landscape",
+                "id": "snowfield",
+                "alt": "Snowfield, Sprauge Lake, Rocky Mountin National Park",
+                "title": "Snowfield",
+                "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/abstract/avif/upper-pomeroy.avif"
+                    "avif": "/images/galleries/abstract/avif/snowfield.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/upper-pomeroy.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/snowfield.avif"
             },
             {
                 "id": "yellowstone",
-                "alt": "Yellowstone",
+                "alt": "Biomat, Yellowstone National Park",
                 "title": "Yellowstone",
-                "layout": "landscape",
+                "layout": "portrait",
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/yellowstone.avif"
                 },
                 "thumbnail": "/images/galleries/abstract/thumbnails/yellowstone.avif"
-            },
-            {
-                "id": "bokeh",
-                "alt": "Bokeh",
-                "title": "Bokeh",
-                "layout": "portrait",
-                "sources": {
-                    "jpeg": "/images/galleries/abstract/jpeg/bokeh.jpeg"
-                },
-                "thumbnail": "/images/galleries/abstract/thumbnails/bokeh.jpeg"
             }
         ]
     },
-    "botanic": {
-        "name": "Botanic",
+    "cemeteries": {
+        "name": "Cemeteries",
         "images": [
             {
-                "id": "campanula",
-                "alt": "Campanula",
-                "title": "Campanula",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/botanic/avif/campanula.avif"
-                },
-                "thumbnail": "/images/galleries/botanic/thumbnails/campanula.avif"
-            },
-            {
-                "id": "chinese-fir",
-                "alt": "Chinese Fir",
-                "title": "Chinese Fir",
+                "id": "central-city-cemetery",
+                "alt": "Central City Cemetery Headstones",
+                "title": "Central City Cemetery",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/chinese-fir.avif"
+                    "avif": "/images/galleries/cemeteries/avif/central-city-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/chinese-fir.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/central-city-cemetery.avif"
             },
             {
-                "id": "dahlia-pinnata",
-                "alt": "Dahlia Pinnata",
-                "title": "Dahlia Pinnata",
+                "id": "como-cemetery-headstones",
+                "alt": "Como Cemetery Headstones, Como, CO",
+                "title": "Como Cemetery Headstones",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/dahlia-pinnata.avif"
+                    "avif": "/images/galleries/cemeteries/avif/como-cemetery-headstones.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/dahlia-pinnata.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/como-cemetery-headstones.avif"
             },
             {
-                "id": "droplets",
-                "alt": "Droplets",
-                "title": "Droplets",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/botanic/avif/droplets.avif"
-                },
-                "thumbnail": "/images/galleries/botanic/thumbnails/droplets.avif"
-            },
-            {
-                "id": "fan",
-                "alt": "Fan",
-                "title": "Fan",
+                "id": "crested-butte-cemetery",
+                "alt": "Crested Butte Cemetery",
+                "title": "Crested Butte Cemetery",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/fan.avif"
+                    "avif": "/images/galleries/cemeteries/avif/crested-butte-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/fan.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/crested-butte-cemetery.avif"
             },
             {
-                "id": "fireweed-field",
-                "alt": "Fireweed Field",
-                "title": "Fireweed Field",
+                "id": "dawson-cemetery",
+                "alt": "Dawson Cemetery Headstone",
+                "title": "Dawson Cemetery",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/fireweed-field.avif"
+                    "avif": "/images/galleries/cemeteries/avif/dawson-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/fireweed-field.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/dawson-cemetery.avif"
             },
             {
-                "id": "geranium",
-                "alt": "Geranium",
-                "title": "Geranium",
+                "id": "died",
+                "alt": "Headstone Detail, Old Georgetown Cemetery, CO",
+                "title": "DIED",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/geranium.avif"
+                    "avif": "/images/galleries/cemeteries/avif/died.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/geranium.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/died.avif"
             },
             {
-                "id": "musk-thistle",
-                "alt": "Musk Thistle",
-                "title": "Musk Thistle",
+                "id": "elizabethtown-cemetery",
+                "alt": "Elizabethtown Cemetery, Elizabethtown, CO",
+                "title": "Elizabethtown Cemetery",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/cemeteries/avif/elizabethtown-cemetery.avif"
+                },
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/elizabethtown-cemetery.avif"
+            },
+            {
+                "id": "fairmount-obelisk",
+                "alt": "Obelisk, Fairmount Cemetery",
+                "title": "Fairmount Obelisk",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/musk-thistle.avif"
+                    "avif": "/images/galleries/cemeteries/avif/fairmount-obelisk.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/musk-thistle.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/fairmount-obelisk.avif"
             },
             {
-                "id": "petals",
-                "alt": "Petals",
-                "title": "Petals",
+                "id": "fisher-cemetery",
+                "alt": "Fisher Cemetery, Carbondale, CO",
+                "title": "Fisher Cemetery",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/petals.avif"
+                    "avif": "/images/galleries/cemeteries/avif/fisher-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/petals.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/fisher-cemetery.avif"
             },
             {
-                "id": "red-and-green",
-                "alt": "Red And Green",
-                "title": "Red And Green",
+                "id": "ioof-cemetery",
+                "alt": "\u2068Independent Order of Oddfellows Cemetery\u2069, \u2068Central City\u2069, \u2068CO",
+                "title": "IOOF Cemetery",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/red-and-green.avif"
+                    "avif": "/images/galleries/cemeteries/avif/ioof-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/red-and-green.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/ioof-cemetery.avif"
             },
             {
-                "id": "trifolium-alpinum",
-                "alt": "Trifolium Alpinum",
-                "title": "Trifolium Alpinum",
+                "id": "knights-of-pythias-cemetery",
+                "alt": "Knights of Pythias Cemetery Plot",
+                "title": "Knights of Pythias Cemetery",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/trifolium-alpinum.avif"
+                    "avif": "/images/galleries/cemeteries/avif/knights-of-pythias-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/trifolium-alpinum.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/knights-of-pythias-cemetery.avif"
             },
             {
-                "id": "tulip-petal",
-                "alt": "Tulip Petal",
-                "title": "Tulip Petal",
+                "id": "old-georgetown-cemetery",
+                "alt": "Old Georgetown Cemetery, Georgetown, CO",
+                "title": "Old Georgetown Cemetery",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/tulip-petal.avif"
+                    "avif": "/images/galleries/cemeteries/avif/old-georgetown-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/tulip-petal.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/old-georgetown-cemetery.avif"
             },
             {
-                "id": "violet",
-                "alt": "Violet",
-                "title": "Violet",
+                "id": "poncha-springs-cemetery",
+                "alt": "Poncha Springs Cemetery",
+                "title": "Poncha Springs Cemetery",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/violet.avif"
+                    "avif": "/images/galleries/cemeteries/avif/poncha-springs-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/violet.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/poncha-springs-cemetery.avif"
             },
             {
-                "id": "yellow-rose",
-                "alt": "Yellow Rose",
-                "title": "Yellow Rose",
+                "id": "riverside-cemterery",
+                "alt": "Riverside Cemterery Headstones",
+                "title": "Riverside Cemterery",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/cemeteries/avif/riverside-cemterery.avif"
+                },
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/riverside-cemterery.avif"
+            },
+            {
+                "id": "silver-cliff-cemetery",
+                "alt": "Silver Cliff Cemetery",
+                "title": "Silver Cliff Cemetery",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/cemeteries/avif/silver-cliff-cemetery.avif"
+                },
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/silver-cliff-cemetery.avif"
+            },
+            {
+                "id": "spherical-monument",
+                "alt": "Spherical Monument, Fairmount Cemetery",
+                "title": "Spherical Monument",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/botanic/avif/yellow-rose.avif"
+                    "avif": "/images/galleries/cemeteries/avif/spherical-monument.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/yellow-rose.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/spherical-monument.avif"
             },
             {
-                "id": "flowing-fronds",
-                "alt": "Flowing Fronds",
-                "title": "Flowing Fronds",
+                "id": "the-assumption",
+                "alt": "Silver Cliff Cemetery",
+                "title": "The Assumption",
                 "layout": "landscape",
                 "sources": {
-                    "jpeg": "/images/galleries/botanic/jpeg/flowing-fronds.jpeg"
+                    "avif": "/images/galleries/cemeteries/avif/the-assumption.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/flowing-fronds.jpeg"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/the-assumption.avif"
             },
             {
-                "id": "tulip",
-                "alt": "Tulip",
-                "title": "Tulip",
+                "id": "woodlawn-obelisk",
+                "alt": "\u2068Woodlawn Cemetery\u2069, \u2068Highland Park\u2069, \u2068Michigan\u2069",
+                "title": "Woodlawn Obelisk",
                 "layout": "landscape",
                 "sources": {
-                    "jpeg": "/images/galleries/botanic/jpeg/tulip.jpeg"
+                    "avif": "/images/galleries/cemeteries/avif/woodlawn-obelisk.avif"
                 },
-                "thumbnail": "/images/galleries/botanic/thumbnails/tulip.jpeg"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/woodlawn-obelisk.avif"
             }
         ]
     },
     "high-country": {
         "name": "High Country",
         "images": [
+            {
+                "id": "above-the-clouds",
+                "alt": "Pikes Peak",
+                "title": "Above the Clouds",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/above-the-clouds.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/above-the-clouds.avif"
+            },
+            {
+                "id": "along-stony-pass",
+                "alt": "Along Stony Pass",
+                "title": "Along Stony Pass",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/along-stony-pass.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/along-stony-pass.avif"
+            },
             {
                 "id": "american-gulch-sky",
                 "alt": "American Gulch Sky",
@@ -294,6 +334,26 @@
                     "avif": "/images/galleries/high-country/avif/american-gulch-sky.avif"
                 },
                 "thumbnail": "/images/galleries/high-country/thumbnails/american-gulch-sky.avif"
+            },
+            {
+                "id": "american-gulch",
+                "alt": "American Gulch",
+                "title": "American Gulch",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/american-gulch.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/american-gulch.avif"
+            },
+            {
+                "id": "animas-forks",
+                "alt": "Animas Forks",
+                "title": "Animas Forks",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/animas-forks.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/animas-forks.avif"
             },
             {
                 "id": "bierstadt-billy",
@@ -306,28 +366,18 @@
                 "thumbnail": "/images/galleries/high-country/thumbnails/bierstadt-billy.avif"
             },
             {
-                "id": "blue-lake",
-                "alt": "Blue Lake",
-                "title": "Blue Lake",
+                "id": "cloudy-ridge",
+                "alt": "Clouds over the traverse to Grizzly Peak D",
+                "title": "Cloudy Ridge",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/high-country/avif/blue-lake.avif"
+                    "avif": "/images/galleries/high-country/avif/cloudy-ridge.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/blue-lake.avif"
-            },
-            {
-                "id": "brainard-lake-area",
-                "alt": "Brainard Lake Area",
-                "title": "Brainard Lake Area",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/brainard-lake-area.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/brainard-lake-area.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/cloudy-ridge.avif"
             },
             {
                 "id": "cronin-peak",
-                "alt": "Cronin Peak",
+                "alt": "Cronin Peak from Mount Antero Trail",
                 "title": "Cronin Peak",
                 "layout": "landscape",
                 "sources": {
@@ -336,29 +386,9 @@
                 "thumbnail": "/images/galleries/high-country/thumbnails/cronin-peak.avif"
             },
             {
-                "id": "deer-in-american-gulch",
-                "alt": "Deer In American Gulch",
-                "title": "Deer In American Gulch",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/deer-in-american-gulch.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/deer-in-american-gulch.avif"
-            },
-            {
-                "id": "fall-from-mount-antero",
-                "alt": "Fall From Mount Antero",
-                "title": "Fall From Mount Antero",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/fall-from-mount-antero.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/fall-from-mount-antero.avif"
-            },
-            {
                 "id": "fall-on-jones-mountain",
-                "alt": "Fall On Jones Mountain",
-                "title": "Fall On Jones Mountain",
+                "alt": "Fall on Jones Mountain",
+                "title": "Fall on Jones Mountain",
                 "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/fall-on-jones-mountain.avif"
@@ -366,48 +396,18 @@
                 "thumbnail": "/images/galleries/high-country/thumbnails/fall-on-jones-mountain.avif"
             },
             {
-                "id": "fireweed",
-                "alt": "Fireweed",
-                "title": "Fireweed",
+                "id": "kendall-peak-from-silver-lake",
+                "alt": "Kendall Peak from Silver Lake",
+                "title": "Kendall Peak from Silver Lake",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/high-country/avif/fireweed.avif"
+                    "avif": "/images/galleries/high-country/avif/kendall-peak-from-silver-lake.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/fireweed.avif"
-            },
-            {
-                "id": "indian-paintbrush",
-                "alt": "Indian Paintbrush",
-                "title": "Indian Paintbrush",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/indian-paintbrush.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/indian-paintbrush.avif"
-            },
-            {
-                "id": "kendall-peak",
-                "alt": "Kendall Peak",
-                "title": "Kendall Peak",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/kendall-peak.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/kendall-peak.avif"
-            },
-            {
-                "id": "king-lake",
-                "alt": "King Lake",
-                "title": "King Lake",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/king-lake.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/king-lake.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/kendall-peak-from-silver-lake.avif"
             },
             {
                 "id": "lake-haiyaha",
-                "alt": "Lake Haiyaha",
+                "alt": "Rock Flour at Lake Haiyaha",
                 "title": "Lake Haiyaha",
                 "layout": "portrait",
                 "sources": {
@@ -426,38 +426,8 @@
                 "thumbnail": "/images/galleries/high-country/thumbnails/longs-peak.avif"
             },
             {
-                "id": "missouri-lake",
-                "alt": "Missouri Lake",
-                "title": "Missouri Lake",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/missouri-lake.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/missouri-lake.avif"
-            },
-            {
-                "id": "missouri-lakes",
-                "alt": "Missouri Lakes",
-                "title": "Missouri Lakes",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/missouri-lakes.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/missouri-lakes.avif"
-            },
-            {
-                "id": "mosquito-range",
-                "alt": "Mosquito Range",
-                "title": "Mosquito Range",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/mosquito-range.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/mosquito-range.avif"
-            },
-            {
                 "id": "mount-audubon",
-                "alt": "Mount Audubon",
+                "alt": "Mt Audubon",
                 "title": "Mount Audubon",
                 "layout": "pano",
                 "sources": {
@@ -496,6 +466,26 @@
                 "thumbnail": "/images/galleries/high-country/thumbnails/mount-white.avif"
             },
             {
+                "id": "near-pitkin-lake",
+                "alt": "Near Pitkin Lake",
+                "title": "Near Pitkin Lake",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/near-pitkin-lake.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/near-pitkin-lake.avif"
+            },
+            {
+                "id": "near-pomeroy-lake",
+                "alt": "Near Pomeroy Lake",
+                "title": "Near Pomeroy Lake",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/near-pomeroy-lake.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/near-pomeroy-lake.avif"
+            },
+            {
                 "id": "ptarmigan-lake",
                 "alt": "Ptarmigan Lake",
                 "title": "Ptarmigan Lake",
@@ -506,18 +496,38 @@
                 "thumbnail": "/images/galleries/high-country/thumbnails/ptarmigan-lake.avif"
             },
             {
-                "id": "silver-lake-flora",
-                "alt": "Silver Lake Flora",
-                "title": "Silver Lake Flora",
+                "id": "san-juans-sunset",
+                "alt": "San Juans Sunset",
+                "title": "San Juans Sunset",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/san-juans-sunset.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/san-juans-sunset.avif"
+            },
+            {
+                "id": "sheep-mountain",
+                "alt": "Sheep Mountain",
+                "title": "Sheep Mountain",
+                "layout": "pano",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/sheep-mountain.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/sheep-mountain.avif"
+            },
+            {
+                "id": "silver-lake-reflections",
+                "alt": "Silver Lake Reflections",
+                "title": "Silver Lake Reflections",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/high-country/avif/silver-lake-flora.avif"
+                    "avif": "/images/galleries/high-country/avif/silver-lake-reflections.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/silver-lake-flora.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/silver-lake-reflections.avif"
             },
             {
                 "id": "stoney-pass",
-                "alt": "Stoney Pass",
+                "alt": "View from Stoney Pass",
                 "title": "Stoney Pass",
                 "layout": "landscape",
                 "sources": {
@@ -527,13 +537,23 @@
             },
             {
                 "id": "summit-lake",
-                "alt": "Summit Lake",
+                "alt": "Summit Lake at Mount Blue Sky",
                 "title": "Summit Lake",
                 "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/summit-lake.avif"
                 },
                 "thumbnail": "/images/galleries/high-country/thumbnails/summit-lake.avif"
+            },
+            {
+                "id": "tabeguache-peak",
+                "alt": "Tabeguache Peak from Mount White",
+                "title": "Tabeguache Peak",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/tabeguache-peak.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/tabeguache-peak.avif"
             },
             {
                 "id": "thirsty-peak",
@@ -546,54 +566,14 @@
                 "thumbnail": "/images/galleries/high-country/thumbnails/thirsty-peak.avif"
             },
             {
-                "id": "view-from-canby-mountain",
-                "alt": "View From Canby Mountain",
-                "title": "View From Canby Mountain",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/view-from-canby-mountain.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/view-from-canby-mountain.avif"
-            },
-            {
-                "id": "view-from-green-mountain",
-                "alt": "View From Green Mountain",
-                "title": "View From Green Mountain",
+                "id": "view-from-huron-peak",
+                "alt": "View from Huron Peak",
+                "title": "View from Huron Peak",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/high-country/avif/view-from-green-mountain.avif"
+                    "avif": "/images/galleries/high-country/avif/view-from-huron-peak.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/view-from-green-mountain.avif"
-            },
-            {
-                "id": "view-from-mount-mamma",
-                "alt": "View From Mount Mamma",
-                "title": "View From Mount Mamma",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/view-from-mount-mamma.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/view-from-mount-mamma.avif"
-            },
-            {
-                "id": "view-from-mount-parnassus",
-                "alt": "View From Mount Parnassus",
-                "title": "View From Mount Parnassus",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/view-from-mount-parnassus.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/view-from-mount-parnassus.avif"
-            },
-            {
-                "id": "wheeler-lake",
-                "alt": "Wheeler Lake",
-                "title": "Wheeler Lake",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/high-country/avif/wheeler-lake.avif"
-                },
-                "thumbnail": "/images/galleries/high-country/thumbnails/wheeler-lake.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/view-from-huron-peak.avif"
             }
         ]
     },
@@ -601,19 +581,19 @@
         "name": "Live Sound",
         "images": [
             {
-                "id": "100-gecs-10k",
-                "alt": "100 Gecs 10K",
-                "title": "100 Gecs 10K",
+                "id": "100-gecs-10k-tour",
+                "alt": "100 gecs @ Mission Ballroom, 2023",
+                "title": "100 gecs 10k Tour",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/live-sound/avif/100-gecs-10k.avif"
+                    "avif": "/images/galleries/live-sound/avif/100-gecs-10k-tour.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs-10k.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs-10k-tour.avif"
             },
             {
                 "id": "100-gecs-dj-set",
-                "alt": "100 Gecs Dj Set",
-                "title": "100 Gecs Dj Set",
+                "alt": "100 gecs DJ Set @ Meowwolf, 2022",
+                "title": "100 gecs DJ Set",
                 "layout": "portrait",
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/100-gecs-dj-set.avif"
@@ -622,8 +602,8 @@
             },
             {
                 "id": "100-gecs",
-                "alt": "100 Gecs",
-                "title": "100 Gecs",
+                "alt": "100 gecs @ The Ogden Theater, 2021",
+                "title": "100 gecs",
                 "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/100-gecs.avif"
@@ -632,7 +612,7 @@
             },
             {
                 "id": "ashnikko",
-                "alt": "Ashnikko",
+                "alt": "Ashnikko @ Mission Ballroom, 2023",
                 "title": "Ashnikko",
                 "layout": "landscape",
                 "sources": {
@@ -641,19 +621,39 @@
                 "thumbnail": "/images/galleries/live-sound/thumbnails/ashnikko.avif"
             },
             {
-                "id": "flume-at-belly-up",
-                "alt": "Flume At Belly Up",
-                "title": "Flume At Belly Up",
+                "id": "dave,-glass-animals",
+                "alt": "Glass Animals @ The Ogden Theater, 2015",
+                "title": "Dave, Glass Animals",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/live-sound/avif/flume-at-belly-up.avif"
+                    "avif": "/images/galleries/live-sound/avif/dave,-glass-animals.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-at-belly-up.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/dave,-glass-animals.avif"
+            },
+            {
+                "id": "flume-&-laurel",
+                "alt": "Flume Palaces Tour @ Belly Up, 2023",
+                "title": "Flume & Laurel",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/flume-&-laurel.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-&-laurel.avif"
+            },
+            {
+                "id": "flume-@-belly-up",
+                "alt": "Flume Palaces Tour @ Belly Up, 2023",
+                "title": "Flume @ Belly Up",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/flume-@-belly-up.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-@-belly-up.avif"
             },
             {
                 "id": "flume-dj-set",
-                "alt": "Flume Dj Set",
-                "title": "Flume Dj Set",
+                "alt": "Flume DJ Set @ Belly Up, 2019",
+                "title": "Flume DJ Set",
                 "layout": "portrait",
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/flume-dj-set.avif"
@@ -661,49 +661,19 @@
                 "thumbnail": "/images/galleries/live-sound/thumbnails/flume-dj-set.avif"
             },
             {
-                "id": "flume-feat-laurel",
-                "alt": "Flume Feat Laurel",
-                "title": "Flume Feat Laurel",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/live-sound/avif/flume-feat-laurel.avif"
-                },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-feat-laurel.avif"
-            },
-            {
-                "id": "flume-palaces-tour",
-                "alt": "Flume Palaces Tour",
-                "title": "Flume Palaces Tour",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/live-sound/avif/flume-palaces-tour.avif"
-                },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-palaces-tour.avif"
-            },
-            {
-                "id": "glass-animals-ogden",
-                "alt": "Glass Animals Ogden",
-                "title": "Glass Animals Ogden",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/live-sound/avif/glass-animals-ogden.avif"
-                },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/glass-animals-ogden.avif"
-            },
-            {
-                "id": "glass-animals",
-                "alt": "Glass Animals",
-                "title": "Glass Animals",
+                "id": "glass-animals-ilysfm",
+                "alt": "Glass Animals @ Red Rocks, 2024",
+                "title": "Glass Animals ILYSFM",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/live-sound/avif/glass-animals.avif"
+                    "avif": "/images/galleries/live-sound/avif/glass-animals-ilysfm.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/glass-animals.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/glass-animals-ilysfm.avif"
             },
             {
                 "id": "mura-masa-dj-set",
-                "alt": "Mura Masa Dj Set",
-                "title": "Mura Masa Dj Set",
+                "alt": "Mura Masa DJ Set @ Meowwolf, 2024",
+                "title": "Mura Masa DJ Set",
                 "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/mura-masa-dj-set.avif"
@@ -711,18 +681,28 @@
                 "thumbnail": "/images/galleries/live-sound/thumbnails/mura-masa-dj-set.avif"
             },
             {
-                "id": "tame-impala",
-                "alt": "Tame Impala",
-                "title": "Tame Impala",
+                "id": "phantogram",
+                "alt": "Phantogram @ The Fillmore, 2025",
+                "title": "Phantogram",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/live-sound/avif/tame-impala.avif"
+                    "avif": "/images/galleries/live-sound/avif/phantogram.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/tame-impala.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/phantogram.avif"
+            },
+            {
+                "id": "run-the-jewels",
+                "alt": "Run the Jewels @ The Ogden Theater, 2015",
+                "title": "Run the Jewels",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/run-the-jewels.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/run-the-jewels.avif"
             },
             {
                 "id": "vampire-weekend",
-                "alt": "Vampire Weekend",
+                "alt": "Vampire Weekend @ Red Rocks, 2024",
                 "title": "Vampire Weekend",
                 "layout": "landscape",
                 "sources": {
@@ -732,144 +712,19 @@
             }
         ]
     },
-    "mines": {
-        "name": "Mines",
-        "images": [
-            {
-                "id": "alpine-tunnel",
-                "alt": "Alpine Tunnel",
-                "title": "Alpine Tunnel",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/alpine-tunnel.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/alpine-tunnel.avif"
-            },
-            {
-                "id": "bross-adit",
-                "alt": "Bross Adit",
-                "title": "Bross Adit",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/bross-adit.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/bross-adit.avif"
-            },
-            {
-                "id": "buffalo-boy-arial-tram",
-                "alt": "Buffalo Boy Arial Tram",
-                "title": "Buffalo Boy Arial Tram",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/buffalo-boy-arial-tram.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/buffalo-boy-arial-tram.avif"
-            },
-            {
-                "id": "champion-mill-abstract",
-                "alt": "Champion Mill Abstract",
-                "title": "Champion Mill Abstract",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/champion-mill-abstract.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/champion-mill-abstract.avif"
-            },
-            {
-                "id": "champion-mill",
-                "alt": "Champion Mill",
-                "title": "Champion Mill",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/champion-mill.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/champion-mill.avif"
-            },
-            {
-                "id": "champion-mine",
-                "alt": "Champion Mine",
-                "title": "Champion Mine",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/champion-mine.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/champion-mine.avif"
-            },
-            {
-                "id": "crystal-mill",
-                "alt": "Crystal Mill",
-                "title": "Crystal Mill",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/crystal-mill.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/crystal-mill.avif"
-            },
-            {
-                "id": "mayflower-gulch-in-winter",
-                "alt": "Mayflower Gulch In Winter",
-                "title": "Mayflower Gulch In Winter",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/mayflower-gulch-in-winter.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/mayflower-gulch-in-winter.avif"
-            },
-            {
-                "id": "mining-structure",
-                "alt": "Mining Structure",
-                "title": "Mining Structure",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/mining-structure.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/mining-structure.avif"
-            },
-            {
-                "id": "mount-sherman-cabin",
-                "alt": "Mount Sherman Cabin",
-                "title": "Mount Sherman Cabin",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/mount-sherman-cabin.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/mount-sherman-cabin.avif"
-            },
-            {
-                "id": "pomeroy-gulch-marmot",
-                "alt": "Pomeroy Gulch Marmot",
-                "title": "Pomeroy Gulch Marmot",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/pomeroy-gulch-marmot.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/pomeroy-gulch-marmot.avif"
-            },
-            {
-                "id": "red-mountain-mill",
-                "alt": "Red Mountain Mill",
-                "title": "Red Mountain Mill",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/red-mountain-mill.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/red-mountain-mill.avif"
-            },
-            {
-                "id": "silver-lake-cabins",
-                "alt": "Silver Lake Cabins",
-                "title": "Silver Lake Cabins",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/mines/avif/silver-lake-cabins.avif"
-                },
-                "thumbnail": "/images/galleries/mines/thumbnails/silver-lake-cabins.avif"
-            }
-        ]
-    },
     "off-road": {
         "name": "Off Road",
         "images": [
+            {
+                "id": "argentine-pass",
+                "alt": "Base of Argentine Peak, Argentine Pass",
+                "title": "Argentine Pass",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/argentine-pass.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/argentine-pass.avif"
+            },
             {
                 "id": "buffalo-boy-trail",
                 "alt": "Buffalo Boy Trail",
@@ -882,7 +737,7 @@
             },
             {
                 "id": "bunce-school-road",
-                "alt": "Bunce School Road",
+                "alt": "Flexing on Bunce School Road",
                 "title": "Bunce School Road",
                 "layout": "landscape",
                 "sources": {
@@ -902,7 +757,7 @@
             },
             {
                 "id": "james-peak-trail",
-                "alt": "James Peak Trail",
+                "alt": "James Peak",
                 "title": "James Peak Trail",
                 "layout": "landscape",
                 "sources": {
@@ -911,14 +766,14 @@
                 "thumbnail": "/images/galleries/off-road/thumbnails/james-peak-trail.avif"
             },
             {
-                "id": "kingston-peak-trail",
-                "alt": "Kingston Peak Trail",
-                "title": "Kingston Peak Trail",
+                "id": "jones-mountain-trail",
+                "alt": "Posing on Jones Mountain Trail",
+                "title": "Jones Mountain Trail",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/off-road/avif/kingston-peak-trail.avif"
+                    "avif": "/images/galleries/off-road/avif/jones-mountain-trail.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/kingston-peak-trail.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/jones-mountain-trail.avif"
             },
             {
                 "id": "lead-king-basin",
@@ -941,16 +796,6 @@
                 "thumbnail": "/images/galleries/off-road/thumbnails/leavenworth-creek-road.avif"
             },
             {
-                "id": "lincoln-amphitheater",
-                "alt": "Lincoln Amphitheater",
-                "title": "Lincoln Amphitheater",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/off-road/avif/lincoln-amphitheater.avif"
-                },
-                "thumbnail": "/images/galleries/off-road/thumbnails/lincoln-amphitheater.avif"
-            },
-            {
                 "id": "mosquito-pass-shelf",
                 "alt": "Mosquito Pass Shelf",
                 "title": "Mosquito Pass Shelf",
@@ -971,14 +816,14 @@
                 "thumbnail": "/images/galleries/off-road/thumbnails/mosquito-pass.avif"
             },
             {
-                "id": "mount-antero",
+                "id": "mount-antero-summit",
                 "alt": "Mount Antero",
-                "title": "Mount Antero",
+                "title": "Mount Antero Summit",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/off-road/avif/mount-antero.avif"
+                    "avif": "/images/galleries/off-road/avif/mount-antero-summit.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/mount-antero.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/mount-antero-summit.avif"
             },
             {
                 "id": "mount-white-trail",
@@ -1011,14 +856,404 @@
                 "thumbnail": "/images/galleries/off-road/thumbnails/round-mountain.avif"
             },
             {
-                "id": "santa-fe-peak",
+                "id": "santa-fe-peak-trail",
                 "alt": "Santa Fe Peak",
-                "title": "Santa Fe Peak",
+                "title": "Santa Fe Peak Trail",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/off-road/avif/santa-fe-peak.avif"
+                    "avif": "/images/galleries/off-road/avif/santa-fe-peak-trail.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/santa-fe-peak.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/santa-fe-peak-trail.avif"
+            },
+            {
+                "id": "salt-flats",
+                "alt": "Salt Flats",
+                "title": "Salt Flats",
+                "layout": "landscape",
+                "sources": {
+                    "jpeg": "/images/galleries/off-road/jpeg/salt-flats.jpeg"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/salt-flats.jpeg"
+            }
+        ]
+    },
+    "plant-based": {
+        "name": "Plant Based",
+        "images": [
+            {
+                "id": "campanula",
+                "alt": "Campanula, Hancock Pass, CO",
+                "title": "Campanula",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/campanula.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/campanula.avif"
+            },
+            {
+                "id": "dahlia-pinnata",
+                "alt": "Dahlia pinnata, Denver Botanic Gardens",
+                "title": "Dahlia pinnata",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/dahlia-pinnata.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/dahlia-pinnata.avif"
+            },
+            {
+                "id": "droplets",
+                "alt": "Water Droplets on Leaf, Phipps Conservatory",
+                "title": "Droplets",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/droplets.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/droplets.avif"
+            },
+            {
+                "id": "flowing-fronds",
+                "alt": "Fronds through a Lensbaby, Denver Botanic Gardens",
+                "title": "Flowing Fronds",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/flowing-fronds.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/flowing-fronds.avif"
+            },
+            {
+                "id": "garden-tulip",
+                "alt": "Garden Tulip, Denver Botanic Gardens",
+                "title": "Garden Tulip",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/garden-tulip.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/garden-tulip.avif"
+            },
+            {
+                "id": "lady-tulip",
+                "alt": "Lady Tulip, Denver Botanic Gardens",
+                "title": "Lady Tulip",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/lady-tulip.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/lady-tulip.avif"
+            },
+            {
+                "id": "leaf-curl",
+                "alt": "Leaf Detail, Matthaei Botanical Gardens",
+                "title": "Leaf Curl",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/leaf-curl.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/leaf-curl.avif"
+            },
+            {
+                "id": "musk-thistle",
+                "alt": "Musk Thistle, Stoney Pass Road",
+                "title": "Musk Thistle",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/musk-thistle.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/musk-thistle.avif"
+            },
+            {
+                "id": "petals",
+                "alt": "Petals, Phipps Conservatory",
+                "title": "Petals",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/petals.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/petals.avif"
+            },
+            {
+                "id": "saguaro",
+                "alt": "Saguaro, Saguaro National Park",
+                "title": "Saguaro",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/saguaro.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/saguaro.avif"
+            },
+            {
+                "id": "toothwart",
+                "alt": "Toothwart, Hancock Pass, CO",
+                "title": "Toothwart",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/toothwart.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/toothwart.avif"
+            },
+            {
+                "id": "trifolium-alpinum",
+                "alt": "Trifolium alpinum, Hancock Pass, CO",
+                "title": "Trifolium alpinum",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/trifolium-alpinum.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/trifolium-alpinum.avif"
+            },
+            {
+                "id": "tulip",
+                "alt": "Tulip, Denver Botanic Gardens",
+                "title": "Tulip",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/tulip.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/tulip.avif"
+            },
+            {
+                "id": "viper's-bugloss",
+                "alt": "Viper's Bugloss, Denver Botanic Gardens",
+                "title": "Viper's Bugloss",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/viper's-bugloss.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/viper's-bugloss.avif"
+            },
+            {
+                "id": "yellow-rose",
+                "alt": "Yellow Rose, Phipps Conservatory",
+                "title": "Yellow Rose",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/yellow-rose.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/yellow-rose.avif"
+            },
+            {
+                "id": "aster-amellus",
+                "alt": "Aster Amellus",
+                "title": "Aster Amellus",
+                "layout": "landscape",
+                "sources": {
+                    "jpeg": "/images/galleries/plant-based/jpeg/aster-amellus.jpeg"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/aster-amellus.jpeg"
+            },
+            {
+                "id": "clematis-texensis",
+                "alt": "Clematis Texensis",
+                "title": "Clematis Texensis",
+                "layout": "landscape",
+                "sources": {
+                    "jpeg": "/images/galleries/plant-based/jpeg/clematis-texensis.jpeg"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/clematis-texensis.jpeg"
+            },
+            {
+                "id": "dahlia",
+                "alt": "Dahlia",
+                "title": "Dahlia",
+                "layout": "landscape",
+                "sources": {
+                    "jpeg": "/images/galleries/plant-based/jpeg/dahlia.jpeg"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/dahlia.jpeg"
+            },
+            {
+                "id": "pollination",
+                "alt": "Pollination",
+                "title": "Pollination",
+                "layout": "landscape",
+                "sources": {
+                    "jpeg": "/images/galleries/plant-based/jpeg/pollination.jpeg"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/pollination.jpeg"
+            },
+            {
+                "id": "rose",
+                "alt": "Rose",
+                "title": "Rose",
+                "layout": "landscape",
+                "sources": {
+                    "jpeg": "/images/galleries/plant-based/jpeg/rose.jpeg"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/rose.jpeg"
+            },
+            {
+                "id": "erythrostemon-gilliesii",
+                "alt": "Erythrostemon Gilliesii",
+                "title": "Erythrostemon Gilliesii",
+                "layout": "landscape",
+                "sources": {
+                    "png": "/images/galleries/plant-based/png/erythrostemon-gilliesii.png"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/erythrostemon-gilliesii.png"
+            }
+        ]
+    },
+    "prospecting": {
+        "name": "Prospecting",
+        "images": [
+            {
+                "id": "alpine-tunnel",
+                "alt": "Alpine Tunnel",
+                "title": "Alpine Tunnel",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/alpine-tunnel.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/alpine-tunnel.avif"
+            },
+            {
+                "id": "animas-forks-cabin",
+                "alt": "Cabin at Animas Forks, CO",
+                "title": "Animas Forks Cabin",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/animas-forks-cabin.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/animas-forks-cabin.avif"
+            },
+            {
+                "id": "animas-forks-mining-structure",
+                "alt": "Mining Structure in Animas Forks, CO",
+                "title": "Animas Forks Mining Structure",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/animas-forks-mining-structure.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/animas-forks-mining-structure.avif"
+            },
+            {
+                "id": "animas-forks",
+                "alt": "Animas Forks, CO",
+                "title": "Animas Forks",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/animas-forks.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/animas-forks.avif"
+            },
+            {
+                "id": "buffalo-boy-arial-tram",
+                "alt": "Buffalo Boy Arial Tram",
+                "title": "Buffalo Boy Arial Tram",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/buffalo-boy-arial-tram.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/buffalo-boy-arial-tram.avif"
+            },
+            {
+                "id": "buffalo-boy-tram-house",
+                "alt": "Buffalo Boy Tram House",
+                "title": "Buffalo Boy Tram House",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/buffalo-boy-tram-house.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/buffalo-boy-tram-house.avif"
+            },
+            {
+                "id": "champion-mill-profile",
+                "alt": "Champion Mill Profile",
+                "title": "Champion Mill Profile",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/champion-mill-profile.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/champion-mill-profile.avif"
+            },
+            {
+                "id": "champion-mill",
+                "alt": "Champion Mill",
+                "title": "Champion Mill",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/champion-mill.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/champion-mill.avif"
+            },
+            {
+                "id": "champion-mine",
+                "alt": "Champion Mine",
+                "title": "Champion Mine",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/champion-mine.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/champion-mine.avif"
+            },
+            {
+                "id": "crystal-mill",
+                "alt": "Crystal Mill",
+                "title": "Crystal Mill",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/crystal-mill.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/crystal-mill.avif"
+            },
+            {
+                "id": "iowa-amphitheater-mine",
+                "alt": "Iowa Amphitheater Mine",
+                "title": "Iowa Amphitheater Mine",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/iowa-amphitheater-mine.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/iowa-amphitheater-mine.avif"
+            },
+            {
+                "id": "mayflower-gulch-in-winter",
+                "alt": "Mayflower Gulch in Winter",
+                "title": "Mayflower Gulch in Winter",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/mayflower-gulch-in-winter.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/mayflower-gulch-in-winter.avif"
+            },
+            {
+                "id": "pomeroy-gulch-marmot",
+                "alt": "Pomeroy Gulch Marmot",
+                "title": "Pomeroy Gulch Marmot",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/pomeroy-gulch-marmot.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/pomeroy-gulch-marmot.avif"
+            },
+            {
+                "id": "quail-mountain-cabin",
+                "alt": "Quail Mountain Cabin",
+                "title": "Quail Mountain Cabin",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/quail-mountain-cabin.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/quail-mountain-cabin.avif"
+            },
+            {
+                "id": "red-mountain-mill",
+                "alt": "Red Mountain Mill",
+                "title": "Red Mountain Mill",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/red-mountain-mill.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/red-mountain-mill.avif"
+            },
+            {
+                "id": "silver-lake-cabins",
+                "alt": "Silver Lake Cabins",
+                "title": "Silver Lake Cabins",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/silver-lake-cabins.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/silver-lake-cabins.avif"
             }
         ]
     },
@@ -1036,20 +1271,20 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/arches.avif"
             },
             {
-                "id": "bryce-canyon-from-below",
-                "alt": "Bryce Canyon From Below",
-                "title": "Bryce Canyon From Below",
-                "layout": "portrait",
+                "id": "bryce-canyon-(1)",
+                "alt": "Bryce Canyon",
+                "title": "Bryce Canyon",
+                "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/rocks/avif/bryce-canyon-from-below.avif"
+                    "avif": "/images/galleries/rocks/avif/bryce-canyon-(1).avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/bryce-canyon-from-below.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/bryce-canyon-(1).avif"
             },
             {
                 "id": "bryce-canyon",
                 "alt": "Bryce Canyon",
                 "title": "Bryce Canyon",
-                "layout": "landscape",
+                "layout": "portrait",
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/bryce-canyon.avif"
                 },
@@ -1057,8 +1292,8 @@
             },
             {
                 "id": "craters-of-the-moon",
-                "alt": "Craters Of The Moon",
-                "title": "Craters Of The Moon",
+                "alt": "Craters of the Moon",
+                "title": "Craters of the Moon",
                 "layout": "portrait",
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/craters-of-the-moon.avif"
@@ -1066,14 +1301,14 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/craters-of-the-moon.avif"
             },
             {
-                "id": "devils-garden",
-                "alt": "Devils Garden",
-                "title": "Devils Garden",
+                "id": "devil's-garden",
+                "alt": "Devil's Garden",
+                "title": "Devil's Garden",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/rocks/avif/devils-garden.avif"
+                    "avif": "/images/galleries/rocks/avif/devil's-garden.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/devils-garden.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/devil's-garden.avif"
             },
             {
                 "id": "escalante-arch",
@@ -1096,54 +1331,34 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/fire-rock.avif"
             },
             {
-                "id": "goblin-lair",
-                "alt": "Goblin Lair",
-                "title": "Goblin Lair",
+                "id": "goblin-valley-buttes",
+                "alt": "Goblin Valley Buttes",
+                "title": "Goblin Valley Buttes",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/goblin-valley-buttes.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/goblin-valley-buttes.avif"
+            },
+            {
+                "id": "longs-peak",
+                "alt": "Longs Peak",
+                "title": "Longs Peak",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/longs-peak.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/longs-peak.avif"
+            },
+            {
+                "id": "mount-antero-detail",
+                "alt": "Mount Antero Detail",
+                "title": "Mount Antero Detail",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/rocks/avif/goblin-lair.avif"
+                    "avif": "/images/galleries/rocks/avif/mount-antero-detail.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/goblin-lair.avif"
-            },
-            {
-                "id": "goose-creek-boulders",
-                "alt": "Goose Creek Boulders",
-                "title": "Goose Creek Boulders",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/rocks/avif/goose-creek-boulders.avif"
-                },
-                "thumbnail": "/images/galleries/rocks/thumbnails/goose-creek-boulders.avif"
-            },
-            {
-                "id": "granite",
-                "alt": "Granite",
-                "title": "Granite",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/rocks/avif/granite.avif"
-                },
-                "thumbnail": "/images/galleries/rocks/thumbnails/granite.avif"
-            },
-            {
-                "id": "hole-in-the-rock",
-                "alt": "Hole In The Rock",
-                "title": "Hole In The Rock",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/rocks/avif/hole-in-the-rock.avif"
-                },
-                "thumbnail": "/images/galleries/rocks/thumbnails/hole-in-the-rock.avif"
-            },
-            {
-                "id": "iron-fens",
-                "alt": "Iron Fens",
-                "title": "Iron Fens",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/rocks/avif/iron-fens.avif"
-                },
-                "thumbnail": "/images/galleries/rocks/thumbnails/iron-fens.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/mount-antero-detail.avif"
             },
             {
                 "id": "navajo-loop-feature",
@@ -1166,14 +1381,14 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/near-balanced-rock.avif"
             },
             {
-                "id": "quarry-rock",
-                "alt": "Quarry Rock",
-                "title": "Quarry Rock",
+                "id": "peak-a-boo",
+                "alt": "Peak-a-Boo",
+                "title": "Peak-a-Boo",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/rocks/avif/quarry-rock.avif"
+                    "avif": "/images/galleries/rocks/avif/peak-a-boo.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/quarry-rock.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/peak-a-boo.avif"
             },
             {
                 "id": "sandstone-divot",
@@ -1186,24 +1401,24 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/sandstone-divot.avif"
             },
             {
-                "id": "shandstone",
-                "alt": "Shandstone",
-                "title": "Shandstone",
+                "id": "sandstone-handprints",
+                "alt": "\u2068Sandstone Handprints, Kodachrome Basin State Park\u2069",
+                "title": "Sandstone Handprints",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/rocks/avif/shandstone.avif"
+                    "avif": "/images/galleries/rocks/avif/sandstone-handprints.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/shandstone.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/sandstone-handprints.avif"
             },
             {
-                "id": "split-rock",
-                "alt": "Split Rock",
-                "title": "Split Rock",
+                "id": "stained-rocks",
+                "alt": "Glen Canyon National Recreation Area",
+                "title": "Stained Rocks",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/rocks/avif/split-rock.avif"
+                    "avif": "/images/galleries/rocks/avif/stained-rocks.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/split-rock.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/stained-rocks.avif"
             }
         ]
     },
@@ -1212,13 +1427,33 @@
         "images": [
             {
                 "id": "rocky-at-pomeroy-lake",
-                "alt": "Rocky At Pomeroy Lake",
-                "title": "Rocky At Pomeroy Lake",
+                "alt": "Rocky at Pomeroy Lake",
+                "title": "Rocky at Pomeroy Lake",
                 "layout": "portrait",
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-at-pomeroy-lake.avif"
                 },
                 "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-at-pomeroy-lake.avif"
+            },
+            {
+                "id": "rocky-at-whitney-lake",
+                "alt": "Rocky at Whitney Lake",
+                "title": "Rocky at Whitney Lake",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-at-whitney-lake.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-at-whitney-lake.avif"
+            },
+            {
+                "id": "rocky-championing-mount-champion",
+                "alt": "Rocky on Mount Champion",
+                "title": "Rocky Championing Mount Champion",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-championing-mount-champion.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-championing-mount-champion.avif"
             },
             {
                 "id": "rocky-climbing-argentine-peak",
@@ -1231,14 +1466,14 @@
                 "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-argentine-peak.avif"
             },
             {
-                "id": "rocky-climbing-mount-champion",
-                "alt": "Rocky Climbing Mount Champion",
-                "title": "Rocky Climbing Mount Champion",
+                "id": "rocky-climbing-cottonwood-peak",
+                "alt": "Rocky Climbing Cottonwood Peak",
+                "title": "Rocky Climbing Cottonwood Peak",
                 "layout": "landscape",
                 "sources": {
-                    "avif": "/images/galleries/summit-dog/avif/rocky-climbing-mount-champion.avif"
+                    "avif": "/images/galleries/summit-dog/avif/rocky-climbing-cottonwood-peak.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-mount-champion.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-cottonwood-peak.avif"
             },
             {
                 "id": "rocky-climbing-ptarmigan-peak",
@@ -1251,9 +1486,29 @@
                 "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-ptarmigan-peak.avif"
             },
             {
+                "id": "rocky-hanging-out",
+                "alt": "Rocky on Mount Champion",
+                "title": "Rocky Hanging Out",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-hanging-out.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-hanging-out.avif"
+            },
+            {
+                "id": "rocky-in-action",
+                "alt": "Rocky in Action",
+                "title": "Rocky in Action",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/summit-dog/avif/rocky-in-action.avif"
+                },
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-action.avif"
+            },
+            {
                 "id": "rocky-in-south-park",
-                "alt": "Rocky In South Park",
-                "title": "Rocky In South Park",
+                "alt": "Rocky in South Park",
+                "title": "Rocky in South Park",
                 "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-in-south-park.avif"
@@ -1262,8 +1517,8 @@
             },
             {
                 "id": "rocky-in-the-flowers",
-                "alt": "Rocky In The Flowers",
-                "title": "Rocky In The Flowers",
+                "alt": "Rocky in the Flowers at Silver Lake",
+                "title": "Rocky in the Flowers",
                 "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-in-the-flowers.avif"
@@ -1271,19 +1526,19 @@
                 "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-the-flowers.avif"
             },
             {
-                "id": "rocky-in-the-lincoln-amphitheater",
-                "alt": "Rocky In The Lincoln Amphitheater",
-                "title": "Rocky In The Lincoln Amphitheater",
+                "id": "rocky-on-a-rock",
+                "alt": "Rocky near Turtle Rock",
+                "title": "Rocky on a Rock",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/summit-dog/avif/rocky-in-the-lincoln-amphitheater.avif"
+                    "avif": "/images/galleries/summit-dog/avif/rocky-on-a-rock.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-the-lincoln-amphitheater.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-a-rock.avif"
             },
             {
                 "id": "rocky-on-jones-mountain",
-                "alt": "Rocky On Jones Mountain",
-                "title": "Rocky On Jones Mountain",
+                "alt": "Rocky on Jones Mountain",
+                "title": "Rocky on Jones Mountain",
                 "layout": "portrait",
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-on-jones-mountain.avif"
@@ -1292,8 +1547,8 @@
             },
             {
                 "id": "rocky-on-mount-sheridan",
-                "alt": "Rocky On Mount Sheridan",
-                "title": "Rocky On Mount Sheridan",
+                "alt": "Rocky on Mount Sheridan",
+                "title": "Rocky on Mount Sheridan",
                 "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-on-mount-sheridan.avif"
@@ -1302,8 +1557,8 @@
             },
             {
                 "id": "rocky-on-mount-white",
-                "alt": "Rocky On Mount White",
-                "title": "Rocky On Mount White",
+                "alt": "Rocky on Mount White, his 20th summit of 2025",
+                "title": "Rocky on Mount White",
                 "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-on-mount-white.avif"
@@ -1312,8 +1567,8 @@
             },
             {
                 "id": "rocky-on-taylor-mountain",
-                "alt": "Rocky On Taylor Mountain",
-                "title": "Rocky On Taylor Mountain",
+                "alt": "Rocky on Taylor Mountain",
+                "title": "Rocky on Taylor Mountain",
                 "layout": "portrait",
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-on-taylor-mountain.avif"

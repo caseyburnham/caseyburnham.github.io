@@ -1,393 +1,466 @@
-[{
+[
+  {
+    "Peak": "Cupid Peak",
+    "Elevation": "13,126",
+    "Range": "Front",
+    "Date": "2025-09-29",
+    "Image": "/images/summits/cupid-peak.avif",
+    "ranked": true
+  },
+  {
+    "Peak": "Mount Sniktau",
+    "Elevation": "13,239",
+    "Range": "Front",
+    "Date": "2025-09-29",
+    "Image": "/images/summits/mount-sniktau.avif",
+    "ranked": true
+  },
+  {
     "Peak": "Mount White",
     "Elevation": "13,663",
     "Range": "Sawatch",
     "Date": "2025-09-22",
-    "Image": "/images/summits/mount-white.avif"
+    "Image": "/images/summits/mount-white.avif",
+    "ranked": true
   },
   {
     "Peak": "Mount Parnassus",
     "Elevation": "13,579",
     "Range": "Front",
     "Date": "2025-09-15",
-    "Image": "/images/summits/mount-parnassus.avif"
+    "Image": "/images/summits/mount-parnassus.avif",
+    "ranked": true
   },
   {
     "Peak": "UN 13,738",
     "Elevation": "13,738",
     "Range": "Sawatch",
     "Date": "2025-08-17",
-    "Image": "/images/summits/un-13738.jpeg"
+    "Image": "/images/summits/un-13738.jpeg",
+    "ranked": false
   },
   {
     "Peak": "Mount Champion",
     "Elevation": "13,645",
     "Range": "Sawatch",
     "Date": "2025-08-17",
-    "Image": "/images/summits/mount-champion.jpeg"
+    "Image": "/images/summits/mount-champion.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Savage Peak",
     "Elevation": "13,135",
     "Range": "Sawatch",
     "Date": "2025-08-12",
-    "Image": "/images/summits/savage-peak.jpeg"
+    "Image": "/images/summits/savage-peak.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Cottonwood Peak",
     "Elevation": "13,596",
     "Range": "Sangre de Christo",
     "Date": "2025-08-04",
-    "Image": "/images/summits/cottonwood-peak.jpeg"
+    "Image": "/images/summits/cottonwood-peak.jpeg",
+    "ranked": true
   },
   {
     "Peak": "UN 13,128",
     "Elevation": "13,128",
     "Range": "Sangre de Christo",
     "Date": "2025-08-04",
-    "Image": "/images/summits/un-13128.jpeg"
+    "Image": "/images/summits/un-13128.jpeg",
+    "ranked": false
   },
   {
     "Peak": "Thirsty Peak",
     "Elevation": "13,195",
     "Range": "Sangre de Christo",
     "Date": "2025-08-04",
-    "Image": "/images/summits/thirsty-peak.jpeg"
+    "Image": "/images/summits/thirsty-peak.jpeg",
+    "ranked": false
   },
   {
     "Peak": "Peerless Mountain",
     "Elevation": "13,336",
     "Range": "Mosquito",
     "Date": "2025-07-28",
-    "Image": "/images/summits/peerless-mountain.jpeg"
+    "Image": "/images/summits/peerless-mountain.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Sheridan",
     "Elevation": "13,743",
     "Range": "Mosquito",
     "Date": "2025-07-28",
-    "Image": "/images/summits/mount-sheridan.jpeg"
+    "Image": "/images/summits/mount-sheridan.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Horseshoe Mountain",
     "Elevation": "13,894",
     "Range": "Mosquito",
     "Date": "2025-07-28",
-    "Image": "/images/summits/horseshoe-mountain.jpeg"
+    "Image": "/images/summits/horseshoe-mountain.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Green Mountain",
     "Elevation": "13,048",
     "Range": "San Juan",
     "Date": "2025-07-19",
-    "Image": "/images/summits/green-mountain.jpeg"
+    "Image": "/images/summits/green-mountain.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Canby Mountain",
     "Elevation": "13,458",
     "Range": "San Juan",
     "Date": "2025-07-19",
-    "Image": "/images/summits/canby-mountain.jpeg"
+    "Image": "/images/summits/canby-mountain.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Ptarmigan Peak",
     "Elevation": "13,749",
     "Range": "Mosquito",
     "Date": "2025-07-14",
-    "Image": "/images/summits/ptarmigan-peak.jpeg"
+    "Image": "/images/summits/ptarmigan-peak.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Weston Peak",
     "Elevation": "13,573",
     "Range": "Mosquito",
     "Date": "2025-07-14",
-    "Image": "/images/summits/weston-peak.jpeg"
+    "Image": "/images/summits/weston-peak.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Guyot",
     "Elevation": "13,297",
     "Range": "Front",
     "Date": "2025-07-13",
-    "Image": "/images/summits/mount-guyot.jpeg"
+    "Image": "/images/summits/mount-guyot.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Hancock Peak",
     "Elevation": "13,111",
     "Range": "Sawatch",
     "Date": "2025-07-04",
-    "Image": "/images/summits/hancock-peak.jpeg"
+    "Image": "/images/summits/hancock-peak.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Grays Peak",
     "Elevation": "14,278",
     "Range": "Front",
     "Date": "2025-06-23",
-    "Image": "/images/summits/grays-peak-2.avif"
+    "Image": "/images/summits/grays-peak-2.avif",
+    "ranked": true
   },
   {
     "Peak": "Quail Mountain",
     "Elevation": "13,465",
     "Range": "Sawatch",
     "Date": "2025-06-15",
-    "Image": "/images/summits/quail-mountain.jpeg"
+    "Image": "/images/summits/quail-mountain.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Huron Peak",
     "Elevation": "14,006",
     "Range": "Sawatch",
     "Date": "2025-06-10",
-    "Image": "/images/summits/huron-peak.jpeg"
+    "Image": "/images/summits/huron-peak.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Dyer Mountain",
     "Elevation": "13,861",
     "Range": "Mosquito",
     "Date": "2024-10-14",
-    "Image": "/images/summits/dyer-mountain.jpeg"
+    "Image": "/images/summits/dyer-mountain.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Gemini Peak",
     "Elevation": "13,961",
     "Range": "Mosquito",
     "Date": "2024-10-14",
-    "Image": "/images/summits/Gemini-Peak.avif"
+    "Image": "/images/summits/Gemini-Peak.avif",
+    "ranked": true
   },
   {
     "Peak": "Rito Alto Peak",
     "Elevation": "13,801",
     "Range": "Sangre de Cristo",
     "Date": "2024-10-07",
-    "Image": "/images/summits/Rito-Alto-Peak.avif"
+    "Image": "/images/summits/Rito-Alto-Peak.avif",
+    "ranked": true
   },
   {
     "Peak": "Jones Mountain",
     "Elevation": "13,214",
     "Range": "Sawatch",
     "Date": "2024-09-30",
-    "Image": "/images/summits/Jones-Mountain.avif"
+    "Image": "/images/summits/Jones-Mountain.avif",
+    "ranked": true
   },
   {
     "Peak": "Taylor Mountain",
     "Elevation": "13,655",
     "Range": "Sawatch",
     "Date": "2024-09-24",
-    "Image": "/images/summits/Taylor-Mountain.avif"
+    "Image": "/images/summits/Taylor-Mountain.avif",
+    "ranked": true
   },
   {
     "Peak": "James Peak",
     "Elevation": "13,272",
     "Range": "Front",
     "Date": "2024-09-16",
-    "Image": "/images/summits/James-Peak.avif"
+    "Image": "/images/summits/James-Peak.avif",
+    "ranked": true
   },
   {
     "Peak": "Boulder Mountain",
     "Elevation": "13,530",
     "Range": "Sawatch",
     "Date": "2024-09-09",
-    "Image": "/images/summits/Boulder-Mountain.avif"
+    "Image": "/images/summits/Boulder-Mountain.avif",
+    "ranked": true
   },
   {
     "Peak": "Mount Mamma",
     "Elevation": "13,672",
     "Range": "Sawatch",
     "Date": "2024-09-09",
-    "Image": "/images/summits/Mount-Mamma.avif"
+    "Image": "/images/summits/Mount-Mamma.avif",
+    "ranked": true
   },
   {
     "Peak": "Kuss Peak",
     "Elevation": "13,560",
     "Range": "Mosquito",
     "Date": "2024-09-02",
-    "Image": "/images/summits/Kuss-Peak.avif"
+    "Image": "/images/summits/Kuss-Peak.avif",
+    "ranked": true
   },
   {
     "Peak": "Mount Evans",
     "Elevation": "13,591",
     "Range": "Mosquito",
     "Date": "2024-09-02",
-    "Image": "/images/summits/Mount-Evans.avif"
+    "Image": "/images/summits/Mount-Evans.avif",
+    "ranked": false
   },
   {
     "Peak": "Treasurevault Mountain",
     "Elevation": "13,706",
     "Range": "Mosquito",
     "Date": "2024-09-02",
-    "Image": "/images/summits/Treasurevault-Mountain.avif"
+    "Image": "/images/summits/Treasurevault-Mountain.avif",
+    "ranked": true
   },
   {
     "Peak": "Mosquito Peak",
     "Elevation": "13,787",
     "Range": "Mosquito",
     "Date": "2024-09-02",
-    "Image": "/images/summits/Mosquito-Peak.avif"
+    "Image": "/images/summits/Mosquito-Peak.avif",
+    "ranked": true
   },
   {
     "Peak": "Whale Peak",
     "Elevation": "13,080",
     "Range": "Front",
     "Date": "2024-08-26",
-    "Image": "/images/summits/Whale-Peak.avif"
+    "Image": "/images/summits/Whale-Peak.avif",
+    "ranked": true
   },
   {
     "Peak": "Argentine Peak",
     "Elevation": "13,743",
     "Range": "Front",
     "Date": "2024-08-15",
-    "Image": "/images/summits/Argentine-Peak.avif"
+    "Image": "/images/summits/Argentine-Peak.avif",
+    "ranked": true
   },
   {
     "Peak": "Mount Lincoln",
     "Elevation": "14,293",
     "Range": "Mosquito",
     "Date": "2023-08-23",
-    "Image": "/images/summits/mount-lincoln.jpeg"
+    "Image": "/images/summits/mount-lincoln.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Democrat",
     "Elevation": "14,154",
     "Range": "Mosquito",
     "Date": "2023-08-23",
-    "Image": "/images/summits/mount-democrat.jpeg"
+    "Image": "/images/summits/mount-democrat.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Bross",
     "Elevation": "14,178",
     "Range": "Mosquito",
     "Date": "2023-08-23",
-    "Image": "/images/summits/mount-bross.jpeg"
+    "Image": "/images/summits/mount-bross.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Cameron",
     "Elevation": "14,248",
     "Range": "Mosquito",
     "Date": "2023-08-23",
-    "Image": "/images/summits/mount-cameron.jpeg"
+    "Image": "/images/summits/mount-cameron.jpeg",
+    "ranked": false
   },
   {
     "Peak": "Santa Fe Peak",
     "Elevation": "13,181",
     "Range": "Front",
     "Date": "2023-08-20",
-    "Image": "/images/summits/santa-fe-peak.jpeg"
+    "Image": "/images/summits/santa-fe-peak.jpeg",
+    "ranked": false
   },
   {
     "Peak": "Mount Spalding",
     "Elevation": "13,863",
     "Range": "Front",
     "Date": "2023-08-01",
-    "Image": "/images/summits/mount-spalding.jpeg"
+    "Image": "/images/summits/mount-spalding.jpeg",
+    "ranked": false
   },
   {
     "Peak": "Mount Blue Sky",
     "Elevation": "14,268",
     "Range": "Front",
     "Date": "2023-08-01",
-    "Image": "/images/summits/mount-blue-sky.jpeg"
+    "Image": "/images/summits/mount-blue-sky.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Sherman",
     "Elevation": "14,043",
     "Range": "Mosquito",
     "Date": "2023-07-23",
-    "Image": "/images/summits/mount-sherman.jpeg"
+    "Image": "/images/summits/mount-sherman.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Princeton",
     "Elevation": "14,200",
     "Range": "Sawatch",
     "Date": "2023-07-16",
-    "Image": "/images/summits/mount-princeton.jpeg"
+    "Image": "/images/summits/mount-princeton.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Antero",
     "Elevation": "14,271",
     "Range": "Sawatch",
     "Date": "2023-07-09",
-    "Image": "/images/summits/mount-antero.jpeg"
+    "Image": "/images/summits/mount-antero.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Longs Peak",
     "Elevation": "14,259",
     "Range": "Front",
     "Date": "2021-08-17",
-    "Image": "/images/summits/longs-peak.jpeg"
+    "Image": "/images/summits/longs-peak.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Columbia",
     "Elevation": "14,075",
     "Range": "Sawatch",
     "Date": "2021-08-10",
-    "Image": "/images/summits/mount-columbia.jpeg"
+    "Image": "/images/summits/mount-columbia.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Tabeguache Peak",
     "Elevation": "14,158",
     "Range": "Sawatch",
     "Date": "2021-08-05",
-    "Image": "/images/summits/tabeguache-peak.jpeg"
+    "Image": "/images/summits/tabeguache-peak.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Shavano",
     "Elevation": "14,230",
     "Range": "Sawatch",
     "Date": "2021-08-05",
-    "Image": "/images/summits/mount-shavano.jpeg"
+    "Image": "/images/summits/mount-shavano.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Oxford",
     "Elevation": "14,158",
     "Range": "Sawatch",
     "Date": "2021-07-28",
-    "Image": "/images/summits/mount-oxford.jpeg"
+    "Image": "/images/summits/mount-oxford.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Belford",
     "Elevation": "14,202",
     "Range": "Sawatch",
     "Date": "2021-07-28",
-    "Image": "/images/summits/mount-belford.jpeg"
+    "Image": "/images/summits/mount-belford.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Yale",
     "Elevation": "14,200",
     "Range": "Sawatch",
     "Date": "2021-07-19",
-    "Image": "/images/summits/mount-yale.jpeg"
+    "Image": "/images/summits/mount-yale.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount of the Holy Cross",
     "Elevation": "14,007",
     "Range": "Sawatch",
     "Date": "2021-07-12",
-    "Image": "/images/summits/mount-of-the-holy-cross.jpeg"
+    "Image": "/images/summits/mount-of-the-holy-cross.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Bierstadt",
     "Elevation": "14,066",
     "Range": "Front",
     "Date": "2021-07-05",
-    "Image": "/images/summits/mount-bierstadt.jpeg"
+    "Image": "/images/summits/mount-bierstadt.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Torreys Peak",
     "Elevation": "14,272",
     "Range": "Front",
     "Date": "2021-06-22",
-    "Image": "/images/summits/torreys-peak.jpeg"
+    "Image": "/images/summits/torreys-peak.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Grays Peak",
     "Elevation": "14,278",
     "Range": "Front",
     "Date": "2021-06-22",
-    "Image": "/images/summits/grays-peak.jpeg"
+    "Image": "/images/summits/grays-peak.jpeg",
+    "ranked": true
   },
   {
     "Peak": "Mount Audubon",
     "Elevation": "13,217",
     "Range": "Front",
     "Date": "2020-07-06",
-    "Image": "/images/summits/mount-audubon.jpeg"
+    "Image": "/images/summits/mount-audubon.jpeg",
+    "ranked": true
   }
 ]

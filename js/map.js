@@ -3,21 +3,23 @@
  */
 class PeakMap {
 	constructor(options = {}) {
+		const maptilerApiKey = 'Q2YUsN8Bauugiv3dZ0gd';
+
 		this.config = {
 			mapContainerId: 'map',
 			dataUrl: 'json/exif-data.json',
 			defaultCenter: { lat: 39.7392, lon: -104.9849 }, // Denver fallback
-			defaultZoom: 10,
+			defaultZoom: 12,
 			zoomSnap: 0.25,
-			tileLayerUrl: 'https://tile.openstreetmap.org/{z}/{x}/{y}.{ext}?lang=en-US',
+			tileLayerUrl: `https://api.maptiler.com/maps/outdoor-v2/{z}/{x}/{y}.png?key=${maptilerApiKey}`,
 			tileLayerOptions: {
 				minZoom: 6,
-				maxZoom: 14,
-				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				maxZoom: 12,
+				attribution:
+					'&copy; <a href="https://www.maptiler.com/copyright/" target="_blank">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
 				ext: 'png'
 			},
 		};
-		
 
 		this.map = null;
 		this.peaks = [];

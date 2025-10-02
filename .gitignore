@@ -12,9 +12,11 @@ Thumbs.db
 node_modules/
 package-lock.json
 package.json
+stylelintrc.json
 
 # Utility Scripts
 utility/
+update-gal.zsh
 
 # Python
 __pycache__/

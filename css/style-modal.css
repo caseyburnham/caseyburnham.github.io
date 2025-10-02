@@ -10,65 +10,56 @@
 	/* Modal Settings */
 	--modal-max-width: 90vw;
 	--modal-max-height: 85vh;
+
 	--modal-blur: blur(24px);
 	--modal-caption-blur: blur(4px);
 }
 
+/* Light Scheme */
 @media (prefers-color-scheme: light) {
 	:root {
 		/* Colors */
-		--color-caption-bg: 
-			rgba(240, 240, 240, 0.5);
-		--color-overlay: 
-			rgba(255, 255, 255, 0.25);
+		--bg-color-caption:
+			rgb(240 240 240 / 50%);
+
+		--bg-color-overlay:
+			rgb(255 255 255 / 25%);
+
 		--border-color-caption:
 			var(--border-color);
 
 		/* Shadows */
-		--shadow-subtle:
-			0 2px 4px rgba(0, 0, 0, 0.1);
-		
-		--shadow-elevated:
-			rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-			rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-			rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-			
-		--shadow-modal: 
-			rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-			rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-			rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+		--shadow-modal:
+			rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em,
+			rgb(0 0 0 / 25%) 0px 0.125em 0.5em,
+			rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
 
 		--exif-shadow:
-			rgba(255, 255, 255, 0.25) 0 2px 3px;
+			rgb(255 255 255 / 25%) 0 2px 3px;
 	}
 }
 
+/* Dark Scheme */
 @media (prefers-color-scheme: dark) {
 	:root {
 		/* Colors */
-		--color-caption-bg: 
-			rgba(15, 15, 15, 0.5);
-		--color-overlay: 
-			rgba(0, 0, 0, 0.25);
+		--bg-color-caption:
+			rgb(15 15 15 / 50%);
+
+		--bg-color-overlay:
+			rgb(0 0 0 / 25%);
+
 		--border-color-caption:
-			rgb(80, 227, 194);
+			rgb(80 227 194);
 
 		/* Shadows */
-		--shadow-subtle:
-			0 2px 4px rgba(0, 0, 0, 0.1);
-		
-		--shadow-elevated:
-			rgba(0, 212, 195, 0.25) 0px 0.0625em 0.0625em,
-			rgba(0, 212, 195, 0.25) 0px 0.125em 0.5em,
-			rgba(0, 0, 0, 0.1) 0px 0px 0px 1px inset;
-			
 		--shadow-modal:
-			rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-			rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-			rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+			rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em,
+			rgb(0 0 0 / 25%) 0px 0.125em 0.5em,
+			rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
 
 		--exif-shadow:
-			rgba(0, 0, 0, 0.25) 0 2px 3px;
+			rgb(0 0 0 / 25%) 0 2px 3px;
 	}
 }
 
@@ -79,17 +70,13 @@
 .modal {
 	align-items: center;
 	backdrop-filter: var(--modal-blur);
-	background: var(--color-overlay);
+	background: var(--bg-color-overlay);
 	display: flex;
 	inset: 0;
 	justify-content: center;
 	opacity: 0;
 	pointer-events: none;
 	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
 	text-align: center;
 	transition: opacity var(--transition-medium);
 	z-index: 998;
@@ -122,7 +109,7 @@
 
 .modal-caption {
 	backdrop-filter: var(--modal-caption-blur);
-	background: var(--color-caption-bg);
+	background: var(--bg-color-caption);
 	border: 1px solid var(--border-color-caption);
 	border-radius: var(--border-radius-sm);
 	bottom: 0;
@@ -134,35 +121,36 @@
 	padding: var(--space-xs);
 	position: absolute;
 	transform: translateY(10px);
-	transition: opacity var(--transition-medium), transform var(--transition-medium);
+	transition: opacity var(--transition-medium),
+				transform var(--transition-medium);
 	width: stretch;
 	width: -webkit-fill-available;
 	width: -moz-available;
 }
 
+.modal-caption hr {
+	margin: var(--space-sm);
+}
+
 .modal-card:hover .modal-caption,
 .modal-card.caption-active .modal-caption {
 	opacity: 1;
-	transform: translateY(0);
 	pointer-events: auto;
+	transform: translateY(0);
 }
 
 .caption-header {
 	align-items: center;
 	display: grid;
-	grid-template-areas:
-		"date title elevation"
-		"coords coords coords";
-	grid-template-columns: 1fr auto 1fr;
-	grid-template-rows: auto auto;
+	grid-template:
+		"date title elevation" auto "coords coords coords" auto / 1fr auto 1fr;
 	text-shadow: var(--exif-shadow);
 }
 
 .caption-header time {
-	align-self: center;
 	color: var(--text-color-muted);
 	grid-area: date;
-	justify-self: center;
+	place-self: center center;
 }
 
 .caption-header h2 {
@@ -174,59 +162,45 @@
 	margin: 0;
 }
 
-.caption-header .altitude {
-	color-scheme: light;
-	align-self: center;
+.altitude {
 	color: var(--text-color-muted);
 	grid-area: elevation;
-	justify-self: center;
+	place-self: center center;
 }
 
-.caption-header .gps {
+.gps {
 	align-items: center;
 	display: flex;
 	grid-area: coords;
 	justify-self: center;
 	padding-top: var(--space-xs);
-}
-
-.caption-header .gps a {
-	color: var(--accent-color);
-	text-decoration: none;
 	text-wrap: wrap;
 }
 
-.caption-header time,
-.caption-header .altitude,
-.caption-header .gps {
+.gps a {
+	color: var(--accent-color);
+	text-decoration: none;
+}
+
+.gps a:hover,
+.gps a:focus {
+	text-decoration: underline;
+}
+
+.caption-data {
 	font-family: var(--font-family-mono);
 	font-size: var(--font-size-xxs);
 }
 
-.caption-header .gps a:hover,
-.caption-header .gps a:focus {
-	text-decoration: underline;
-}
-
-.modal-caption hr {
-	border: none;
-	border-top: 1px solid var(--border-color-caption);
-	margin: var(--space-sm);
-	opacity: 50%;
-	width: stretch;
-	width: -webkit-fill-available;
-	width: -moz-available;
-}
-
 .modal-copyright {
+	box-sizing: border-box;
+	color: var(--text-color-muted);
+	font-family: var(--font-family-ui);
+	font-size: var(--font-size-xxs);
+	font-variant: lining-nums;
 	padding: var(--space-sm);
 	text-align: center;
-	font-family: var(--font-family-ui);
-	font-variant: lining-nums;
-	font-size: var(--font-size-xxs);
-	color: var(--text-color-muted);
 	width: 100%;
-	box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
@@ -243,20 +217,19 @@
 	font-style: normal;
 	gap: var(--space-sm);
 	justify-content: center;
-	letter-spacing: 0.025em;
+	letter-spacing: calc(var(--space-xs) / 10);
 	text-shadow: var(--exif-shadow);
 	white-space: nowrap;
 }
 
 .exif-row .format {
-	background: none;
 	border: solid 1px var(--text-color-secondary);
 	border-radius: var(--border-radius-sm);
 	box-shadow: var(--exif-shadow);
-	display: inline-block;
+	/* display: inline-block; */
 	padding: 0.1em 0.4em;
 	text-shadow: none;
-	vertical-align: middle;
+	/* vertical-align: middle; */
 }
 
 /* --------------------------------------------------------------------------
@@ -290,10 +263,44 @@
 }
 
 /* --------------------------------------------------------------------------
+   MODAL LOADER
+   -------------------------------------------------------------------------- */
+
+.modal-loader {
+	animation: spin 1s linear infinite;
+	border: 5px solid rgb(255 255 255 / 20%);
+	border-radius: 50%;
+	border-top-color: #fff;
+	box-shadow: none;
+	display: none;
+	height: 50px;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 50px;
+	z-index: 10;
+}
+
+@keyframes spin {
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+.modal-content.loading .modal-loader {
+	display: block;
+}
+
+.modal-content.loading img {
+	visibility: hidden;
+}
+
+/* --------------------------------------------------------------------------
    RESPONSIVE DESIGN
    -------------------------------------------------------------------------- */
 
-@media (max-width: 480px) {
+@media (width <=480px) {
 	:root {
 		--container-padding: var(--space-md);
 		--grid-gap: var(--space-ms);
@@ -320,7 +327,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-
 	*,
 	*::before,
 	*::after {

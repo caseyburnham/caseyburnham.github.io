@@ -134,7 +134,7 @@ export const ui = {
 		});
 	},
 
-	// Mountains
+	// Mountains	
 	renderMountains(data, exifData) {
 		const processed = data
 			.map(mountain => this.processMountain(mountain, exifData))
@@ -160,21 +160,20 @@ export const ui = {
 
 		return { ...mountain, displayDate, year: displayDate ? displayDate.substring(0, 4) : 'N/A' };
 	},
-
+	
 	generateMountainRowsWithSummaries(processedMountains) {
 		const allRows = [];
 		const template = document.getElementById('mountain-row-template');
 		let currentYear = null;
 		let yearPeakCount = 0;
-
-const createSummaryRow = (year, count) => {
+	
+		const createSummaryRow = (year, count) => {
 			const row = document.createElement('tr');
 			row.className = 'year-summary-row';
-			// Use a ternary operator to choose the correct word
-			row.innerHTML = `<td colspan="5"><strong>${count}</strong> ${count === 1 ? 'bag' : 'bags'} in ${year}</td>`;
+			row.innerHTML = `<td colspan="6"><strong>${count}</strong> ${count === 1 ? 'bag' : 'bags'} in ${year}</td>`;
 			return row;
 		};
-
+	
 		processedMountains.forEach((mountain, index) => {
 			if (currentYear && mountain.year !== currentYear) {
 				allRows.push(createSummaryRow(currentYear, yearPeakCount));
@@ -182,31 +181,58 @@ const createSummaryRow = (year, count) => {
 			}
 			currentYear = mountain.year;
 			yearPeakCount++;
-
+	
 			const rowClone = template.content.cloneNode(true);
-
+	
 			const peakCell = rowClone.querySelector('.mtn-peak');
 			peakCell.innerHTML = `${mountain.Peak}${mountain.Count > 1 ? ` <small>x${mountain.Count}</small>` : ''}`;
-
+	
 			const elevationCell = rowClone.querySelector('.mtn-elevation');
 			if (mountain.Elevation) {
-				elevationCell.innerHTML = `<span class="elevation">${mountain.Elevation}</span>`;
+				// 1. Define the elevation range (can be hardcoded or from a simpler config)
+				const minElevation = 13000;
+				const maxElevation = 14440;
+				
+				// 2. Parse elevation string to a number
+				const numericElevation = parseInt(mountain.Elevation.replace(/,/g, ''), 10);
+				
+				// 3. Calculate the elevation's percentage in the range
+				const fraction = Math.max(0, Math.min(1, (numericElevation - minElevation) / (maxElevation - minElevation)));
+				const percent = fraction * 100;
+				
+				// 4. Create the span and set the CSS custom property '--elevation-percent'
+				const span = document.createElement('span');
+				span.className = 'elevation';
+				span.textContent = mountain.Elevation;
+				span.style.setProperty('--elevation-percent', `${percent.toFixed(2)}%`);
+				
+				// 5. Add the new span to the cell
+				elevationCell.innerHTML = ''; // Clear previous content
+				elevationCell.appendChild(span);
 			}
-
+			
+			const rankCell = rowClone.querySelector('.mtn-rank');
+			if (mountain.ranked) {
+				rankCell.innerHTML = `<span class="ranked">&#10004;</span>`;
+			}
+			else {
+				rankCell.innerHTML = `<span class="unranked">-</span>`;
+			}
+	
 			const dateCell = rowClone.querySelector('.mtn-date');
 			if (mountain.displayDate) {
-				dateCell.innerHTML = `<time datetime="${mountain.displayDate}">${mountain.displayDate}</time>`;
+				dateCell.innerHTML = `<time datetime="${mountain.displayDate}">${mountain.displayDate.substring(5)}</time>`;
 			}
-
+	
 			const imageCell = rowClone.querySelector('.mtn-image');
 			if (mountain.Image) {
 				imageCell.innerHTML = `<button class="camera-link" data-title="${mountain.Peak}" data-image="${mountain.Image}"></button>`;
 			}
-
+	
 			rowClone.querySelector('.mtn-range').textContent = mountain.Range;
-
+	
 			allRows.push(rowClone);
-
+	
 			if (index === processedMountains.length - 1) {
 				allRows.push(createSummaryRow(currentYear, yearPeakCount));
 			}
