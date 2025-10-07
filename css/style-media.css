@@ -3,34 +3,6 @@
    ========================================================================== */
    
 /* --------------------------------------------------------------------------
-   PROFILE PIC
-   -------------------------------------------------------------------------- */
-   
-.bio-container {
-  display: grid;
-  gap: var(--grid-gap);
-  grid-auto-rows: minmax(min-content, max-content);
-  grid-template-columns: 1.75fr 1.25fr;
-}
-
-.bio-container > * {
-  min-height: 0; 
-}
-
-.bio-img {
-	position: relative;
-}
-
-.bio-img img {
-	border-radius: var(--border-radius-sm);
-	box-shadow: var(--shadow-media);
-	height: 100%;
-	object-fit: cover;
-	position: absolute;
-	width: 100%;
-}
-
-/* --------------------------------------------------------------------------
    GALLERY
    -------------------------------------------------------------------------- */
  
@@ -49,30 +21,40 @@
 
 .gallery-btn {
 	background: transparent;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--accent-color);
 	border-radius: var(--border-radius-sm);
 	color: var(--text-color-primary);
 	cursor: pointer;
-	flex: 1 1 calc(50% - var(--space-sm));
+	flex: 1 1 calc(33% - var(--space-sm));
 	font-family: inherit;
 	font-size: var(--font-size-sm);
-	min-width: calc(50% - var(--space-sm));
+	min-width: calc(33% - var(--space-sm));
 	padding: var(--space-sm) var(--space-md);
 	text-wrap: wrap;
 	transition: background-color var(--transition-medium);
 }
 
-.gallery-btn.active {
-	font-weight: var(--font-weight-heavy);
-}
-
-.gallery-btn.active:hover {
-	cursor: default;
+.gallery-btn:hover {
+		background-color: var(--button-hover-color);
 }
 
 .gallery-btn:focus {
 	outline: 2px solid rgb(255 255 255 / 50%);
 	outline-offset: 2px;
+}
+
+.gallery-btn.active {
+	background: var(--button-active-bg);
+	
+	border: 1px solid var(--accent-color);
+	color: var(--button-active-color);
+	font-weight: var(--font-weight-heavy);
+}
+
+.gallery-btn.active:hover {
+	background: var(--button-active-hover-bg);
+	color: var(--button-active-hover-color);
+	cursor: default;
 }
 
 /* --------------------------------------------------------------------------
@@ -121,7 +103,7 @@
 	background: none;
 	border: none;
 	cursor: pointer;
-	font-size: var(--font-size-lg);
+	font-size: inherit;
 	padding: var(--space-xs);
 	position: relative;
 	transition: transform var(--transition-fast);
@@ -173,7 +155,7 @@
 
 .photo-thumb img {
 	display: block;
-	filter: grayscale(100%) contrast(1.1);
+	filter: grayscale(100%);
 	height: 100%;
 	object-fit: cover;
 	transition:
@@ -188,7 +170,7 @@
 }
 
 .photo-thumb:hover img{
-	filter: grayscale(0%) contrast(1.2);
+	filter: grayscale(0%);
 	transform: scale(1.1);
 }
 
@@ -202,7 +184,7 @@
    -------------------------------------------------------------------------- */
  
 /* Tablet and Desktop */
-@media (width >= 400px) {
+@media (width >= 200px) {
 	.landscape-row,
 	.portrait-row {
 		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
@@ -213,8 +195,8 @@
 /* Mobile Optimizations */
 @media (width <= 480px) {
 	.gallery-btn {
-		flex: 1 1 calc(50% - var(--space-xs));
-		min-width: calc(50% - var(--space-xs));
+		flex: 1 1 calc(33% - var(--space-xs));
+		min-width: calc(33% - var(--space-xs));
 	}
 }
 
@@ -230,13 +212,9 @@
 }
 
 @media (width <= 768px) {
-	.gallery-buttons {
-		flex-direction: column;
-	}
-
 	.gallery-btn {
-		flex: none;
-		width: 100%;
+		flex: 1 1 calc(33% - var(--space-xs));
+		min-width: calc(33% - var(--space-xs));
 	}
 }
 

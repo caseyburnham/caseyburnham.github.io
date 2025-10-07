@@ -6,14 +6,14 @@
         "name": "Abstract",
         "images": [
             {
-                "id": "aztec-rug",
-                "alt": "RIP",
-                "title": "Aztec Rug",
+                "id": "bulldozer-blade-detail",
+                "alt": "Bulldozer Blade Detail",
+                "title": "Bulldozer Blade Detail",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/abstract/avif/aztec-rug.avif"
+                    "avif": "/images/galleries/abstract/avif/bulldozer-blade-detail.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/aztec-rug.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/bulldozer-blade-detail.avif"
             },
             {
                 "id": "frozen-rocks",
@@ -54,16 +54,6 @@
                     "avif": "/images/galleries/abstract/avif/missouri-lake-reflections.avif"
                 },
                 "thumbnail": "/images/galleries/abstract/thumbnails/missouri-lake-reflections.avif"
-            },
-            {
-                "id": "mount-antero-detail",
-                "alt": "Prospecting Site, Mount Antero",
-                "title": "Mount Antero Detail",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/abstract/avif/mount-antero-detail.avif"
-                },
-                "thumbnail": "/images/galleries/abstract/thumbnails/mount-antero-detail.avif"
             },
             {
                 "id": "paint",
@@ -114,6 +104,16 @@
                     "avif": "/images/galleries/abstract/avif/snowfield.avif"
                 },
                 "thumbnail": "/images/galleries/abstract/thumbnails/snowfield.avif"
+            },
+            {
+                "id": "star-k-sunset",
+                "alt": "Sunset at Star K Ranch",
+                "title": "Star K Sunset",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/abstract/avif/star-k-sunset.avif"
+                },
+                "thumbnail": "/images/galleries/abstract/thumbnails/star-k-sunset.avif"
             },
             {
                 "id": "yellowstone",
@@ -209,6 +209,16 @@
                     "avif": "/images/galleries/cemeteries/avif/fisher-cemetery.avif"
                 },
                 "thumbnail": "/images/galleries/cemeteries/thumbnails/fisher-cemetery.avif"
+            },
+            {
+                "id": "henry-fischer-colored-cemetery",
+                "alt": "Henry Fischer Colored Cemetery",
+                "title": "Henry Fischer Colored Cemetery",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/cemeteries/avif/henry-fischer-colored-cemetery.avif"
+                },
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/henry-fischer-colored-cemetery.avif"
             },
             {
                 "id": "ioof-cemetery",
@@ -671,6 +681,16 @@
                 "thumbnail": "/images/galleries/live-sound/thumbnails/glass-animals-ilysfm.avif"
             },
             {
+                "id": "megan-thee-stallion",
+                "alt": "Megan thee Stallion",
+                "title": "Megan thee Stallion",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/live-sound/avif/megan-thee-stallion.avif"
+                },
+                "thumbnail": "/images/galleries/live-sound/thumbnails/megan-thee-stallion.avif"
+            },
+            {
                 "id": "mura-masa-dj-set",
                 "alt": "Mura Masa DJ Set @ Meowwolf, 2024",
                 "title": "Mura Masa DJ Set",
@@ -744,6 +764,36 @@
                     "avif": "/images/galleries/off-road/avif/bunce-school-road.avif"
                 },
                 "thumbnail": "/images/galleries/off-road/thumbnails/bunce-school-road.avif"
+            },
+            {
+                "id": "cemeterry-road",
+                "alt": "Cemetery Road, near Mount Taylore",
+                "title": "Cemeterry Road",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/cemeterry-road.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/cemeterry-road.avif"
+            },
+            {
+                "id": "glacier-mountain",
+                "alt": "Or Wise Mountain?",
+                "title": "Glacier Mountain",
+                "layout": "pano",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/glacier-mountain.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/glacier-mountain.avif"
+            },
+            {
+                "id": "hermit-pass",
+                "alt": "En route to Rito Alto Peak",
+                "title": "Hermit Pass",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/hermit-pass.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/hermit-pass.avif"
             },
             {
                 "id": "iowa-gulch",
@@ -856,6 +906,16 @@
                 "thumbnail": "/images/galleries/off-road/thumbnails/round-mountain.avif"
             },
             {
+                "id": "saints-john-road",
+                "alt": "Along Saints John Road, near Montezuma",
+                "title": "Saints John Road",
+                "layout": "pano",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/saints-john-road.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/saints-john-road.avif"
+            },
+            {
                 "id": "santa-fe-peak-trail",
                 "alt": "Santa Fe Peak",
                 "title": "Santa Fe Peak Trail",
@@ -864,6 +924,16 @@
                     "avif": "/images/galleries/off-road/avif/santa-fe-peak-trail.avif"
                 },
                 "thumbnail": "/images/galleries/off-road/thumbnails/santa-fe-peak-trail.avif"
+            },
+            {
+                "id": "taylor-mountain-trail",
+                "alt": "Taylor Mountain Trail",
+                "title": "Taylor Mountain Trail",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/taylor-mountain-trail.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/taylor-mountain-trail.avif"
             },
             {
                 "id": "salt-flats",
@@ -969,6 +1039,16 @@
                     "avif": "/images/galleries/plant-based/avif/petals.avif"
                 },
                 "thumbnail": "/images/galleries/plant-based/thumbnails/petals.avif"
+            },
+            {
+                "id": "pistl",
+                "alt": "Pistl",
+                "title": "Pistl",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/pistl.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/pistl.avif"
             },
             {
                 "id": "saguaro",
@@ -1216,6 +1296,16 @@
                 "thumbnail": "/images/galleries/prospecting/thumbnails/mayflower-gulch-in-winter.avif"
             },
             {
+                "id": "mount-sherman-mine",
+                "alt": "Mount Sherman Mine",
+                "title": "Mount Sherman Mine",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/prospecting/avif/mount-sherman-mine.avif"
+                },
+                "thumbnail": "/images/galleries/prospecting/thumbnails/mount-sherman-mine.avif"
+            },
+            {
                 "id": "pomeroy-gulch-marmot",
                 "alt": "Pomeroy Gulch Marmot",
                 "title": "Pomeroy Gulch Marmot",
@@ -1271,20 +1361,10 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/arches.avif"
             },
             {
-                "id": "bryce-canyon-(1)",
-                "alt": "Bryce Canyon",
-                "title": "Bryce Canyon",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/rocks/avif/bryce-canyon-(1).avif"
-                },
-                "thumbnail": "/images/galleries/rocks/thumbnails/bryce-canyon-(1).avif"
-            },
-            {
                 "id": "bryce-canyon",
                 "alt": "Bryce Canyon",
                 "title": "Bryce Canyon",
-                "layout": "portrait",
+                "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/bryce-canyon.avif"
                 },
@@ -1309,6 +1389,16 @@
                     "avif": "/images/galleries/rocks/avif/devil's-garden.avif"
                 },
                 "thumbnail": "/images/galleries/rocks/thumbnails/devil's-garden.avif"
+            },
+            {
+                "id": "end-of-hole-in-the-rock-road",
+                "alt": "End of Hole in the Rock Road",
+                "title": "End of Hole in the Rock Road",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/end-of-hole-in-the-rock-road.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/end-of-hole-in-the-rock-road.avif"
             },
             {
                 "id": "escalante-arch",
@@ -1341,6 +1431,56 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/goblin-valley-buttes.avif"
             },
             {
+                "id": "goose-creek-boulders",
+                "alt": "Goose Creek Boulders",
+                "title": "Goose Creek Boulders",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/goose-creek-boulders.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/goose-creek-boulders.avif"
+            },
+            {
+                "id": "hole-in-the-rock-road",
+                "alt": "Along Hole in the Rock Road",
+                "title": "Hole in the Rock Road",
+                "layout": "pano",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/hole-in-the-rock-road.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/hole-in-the-rock-road.avif"
+            },
+            {
+                "id": "in-bryce-canyon",
+                "alt": "Bryce Canyon",
+                "title": "Bryce Canyon",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/in-bryce-canyon.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/in-bryce-canyon.avif"
+            },
+            {
+                "id": "kodachrome-basin",
+                "alt": "Kodachrome Basin State Park",
+                "title": "Kodachrome Basin",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/kodachrome-basin.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/kodachrome-basin.avif"
+            },
+            {
+                "id": "lair-of-the-goblin",
+                "alt": "Lair of the Goblin",
+                "title": "Lair of the Goblin",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/lair-of-the-goblin.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/lair-of-the-goblin.avif"
+            },
+            {
                 "id": "longs-peak",
                 "alt": "Longs Peak",
                 "title": "Longs Peak",
@@ -1351,6 +1491,16 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/longs-peak.avif"
             },
             {
+                "id": "mormon-amphitheater",
+                "alt": "Rocky in the Mormon Amphitheater",
+                "title": "Mormon Amphitheater",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/mormon-amphitheater.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/mormon-amphitheater.avif"
+            },
+            {
                 "id": "mount-antero-detail",
                 "alt": "Mount Antero Detail",
                 "title": "Mount Antero Detail",
@@ -1359,6 +1509,16 @@
                     "avif": "/images/galleries/rocks/avif/mount-antero-detail.avif"
                 },
                 "thumbnail": "/images/galleries/rocks/thumbnails/mount-antero-detail.avif"
+            },
+            {
+                "id": "mount-antero",
+                "alt": "Mount Antero",
+                "title": "Mount Antero",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/mount-antero.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/mount-antero.avif"
             },
             {
                 "id": "navajo-loop-feature",

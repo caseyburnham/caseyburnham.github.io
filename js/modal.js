@@ -116,7 +116,6 @@ class PhotoModal {
 			modalImg: modal.querySelector('img'),
 			loader: modal.querySelector('.modal-loader'), 
 			caption: modal.querySelector('.modal-caption'),
-			caption: modal.querySelector('.modal-caption'),
 			copyright: modal.querySelector('.modal-copyright'), 
 			closeBtn: modal.querySelector('.modal-close'),
 			modalCard: modal.querySelector('.modal-card'),
@@ -474,7 +473,7 @@ class PhotoModal {
 		${dateString ? `<time class="caption-data" datetime="${dateString}">${dateString}</time>` : ''}
 		<h2 class="title">${escapeHTML(title || 'Untitled')}</h2>
 		${gpsLink}
-		<span class="caption-data" class="altitude">${altitudeInFeet}</span>
+		<span class="altitude caption-data">${altitudeInFeet}</span>
 	  </div>
 	  <hr>
 	  <span class="exif-row">${exifRow}</span>
@@ -489,7 +488,8 @@ class PhotoModal {
 		if (!gps || !gps.lat || !gps.lon) return '';
 		const lat = parseFloat(gps.lat).toFixed(5);
 		const lon = parseFloat(gps.lon).toFixed(5);
-		const url = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}&zoom=15`;
+		// const url = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}&zoom=15`;
+		const url = `https://caltopo.com/map.html#ll=${lat},${lon}&z=16&b=mbt`;
 		const latDMS = gps.latDMS || lat;
 		const lonDMS = gps.lonDMS || lon;
 		return `<span class="gps caption-data"><a href="${url}" target="_blank" rel="noopener noreferrer">${latDMS}<wbr>, ${lonDMS}<wbr></a></span>`;

@@ -65,7 +65,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 		// Select the navigation wrapper element
 const navWrapper = document.querySelector('.nav-wrapper');
-const hamburgerBtn = document.querySelector('.hamburger-btn');
+const hamburgerBtn = document.querySelector('.burger');
 
 //Nav Shadows
 function handleScroll() {
@@ -73,11 +73,9 @@ function handleScroll() {
 	if (window.scrollY > 10) {
 		// If so, add the 'nav-scrolled' class
 		navWrapper.classList.add('nav-scrolled');
-		// hamburgerBtn.classList.add('nav-scrolled');
 	} else {
 		// Otherwise, remove it
 		navWrapper.classList.remove('nav-scrolled');
-		// hamburgerBtn.classList.remove('nav-scrolled');
 	}
 }
 
@@ -86,7 +84,7 @@ window.addEventListener('scroll', handleScroll);
 
 //ham
 document.addEventListener('DOMContentLoaded', () => {
-	const hamburgerBtn = document.querySelector('.hamburger-btn');
+	const hamburgerBtn = document.querySelector('.burger');
 	const navMenu = document.querySelector('.sticky-nav');
 
 	// Toggle the menu when the hamburger button is clicked

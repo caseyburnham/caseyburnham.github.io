@@ -6,26 +6,22 @@
 	color-scheme: light dark;
 
 	/* -------------------- Spacing (8px base) -------------------- */
-	/* 4px */
 	--space-xs: 0.25rem;
-
-	/* 8px */
+	/* 4px */
 	--space-sm: 0.5rem;
-
-	/* 12px */
+	/* 8px */
 	--space-ms: 0.75rem;
-
-	/* 16px */
+	/* 12px */
 	--space-md: 1rem;
-
-	/* 24px */
+	/* 16px */
 	--space-lg: 1.5rem;
-
-	/* 40px */
+	/* 24px */
 	--space-xl: 2.5rem;
-
-	/* 80px */
+	/* 40px */
 	--space-2xl: 5rem;
+	/* 80px */
+
+	--fluid-padding-inline: clamp(.25rem, 6vw, 5rem);
 
 	/* -------------------- Typography -------------------- */
 	/* Font Family */
@@ -36,10 +32,15 @@
 	--font-size-xxs: 0.65rem;
 	--font-size-xs: 0.75rem;
 	--font-size-sm: 0.85rem;
-	--font-size-base: 1rem;
+	
+	/* Scales between ~14px and 18px */
+	--font-size-base: clamp(0.875rem, 0.5vw + 0.6rem, 1.125rem);
+	/* --font-size-base: 1rem; */
 	--font-size-lg: 1.2rem;
 	--font-size-xl: 1.5rem;
-	--font-size-h1: 5rem;
+	
+	/* Scales between 40px and 80px */
+	--font-size-h1: clamp(2.5rem, 5vw + 1rem, 5rem);
 
 	/* Font Weight */
 	--font-weight-light: 300;
@@ -49,25 +50,26 @@
 	/* Line Height */
 	--line-height-base: 1;
 	--line-height-compact: 1.3;
-	--line-height-airy: 1.5;
+	--line-height-airy: 1.4;
 	--line-height-loose: 2;
 
 	/* -------------------- Layout & Borders -------------------- */
 	--border-radius-sm: 0.25rem;
 	--border-radius-md: 0.5rem;
 	--border-radius-lg: 1.5rem;
-
-	--container-max-width: 1200px;
-	--container-padding: 2rem;
-
-	--section-gap: 1em;
+	--section-gap: 1rem;
 	--grid-gap-sm: 0.5rem;
 	--grid-gap: 1rem;
 
-	--breakpoint-sm: 480px;
-	--breakpoint-md: 768px;
-	--breakpoint-lg: 1024px;
-	--breakpoint-wide: 1400px;
+	/* Breakpoints */
+	--breakpoint-sm: 30em;
+	/* 480px */
+	--breakpoint-md: 48em;
+	/* 768px */
+	--breakpoint-lg: 64em;
+	/* 1024px */
+	--breakpoint-wide: 87.5em;
+	/* 1400px */
 
 	/* -------------------- Effects & Transitions -------------------- */
 	--transition-fast: 0.2s ease;
@@ -75,64 +77,81 @@
 	--transition-slow: 0.4s ease;
 	--transition-very-slow: 1s ease;
 
-	/* -------------------- Colors -------------------- */
-	/* Progress */
+	/* -------------------- Peak Progress Bar Fill -------------------- */
 	--color-bar-fill: var(--accent-color);
 
-	/* -------------------- Venues -------------------- */
-	--venue-red-rocks: #ff4500;
-	--venue-bluebird: #2b529c;
-	--venue-ogden: #ee2738;
-	--venue-belly-up: #1174b9;
-	--venue-golden-tri: #ffd700;
-	--venue-summit: rgb(114 48 223);
-	--venue-fillmore: rgb(236 210 77);
-	--venue-ball-arena: rgb(77 169 201);
-	--venue-gothic: rgb(220 82 52);
+	/* -------------------- Venue Colors -------------------- */
+	--venue-red-rocks:	#ff4500;
+	--venue-bluebird:	#2b529c;
+	--venue-ogden:		#ee2738;
+	--venue-belly-up:	#1174b9;
+	--venue-golden-tri:	#ffd700;
+	--venue-summit:		#7130DF;
+	--venue-fillmore:	#ECD24C;
+	--venue-ball-arena:	#4CA9C8;
+	--venue-gothic:		#DC5233;
 }
 
+/* -------------------- Text Selection Colors -------------------- */
 ::selection {
-	background-color: var(--text-color-selection);
-	color: var(--text-color-selected);
+	background-color: var(--text-selection-color);
+	color: var(--selected-text-color);
 }
+
+/* ==========================================================================
+   LIGHT SCHEME
+   ========================================================================== */
 
 @media (prefers-color-scheme: light) {
 	:root {
-		/* -------------------- Light -------------------- */
-		--primary-color: rgb(80, 212, 195);
+		/* Primary Colors */
+		--primary-color: rgb(0 212 195);
 		--primary-color-alpha: rgb(0 212 195 / 15%);
+
+		/* Accent Colors */
 		--accent-color: #ff4f00;
 		--accent-color-light: rgb(255 79 0 / 90%);
 		--accent-color-alpha: rgb(255 79 0 / 15%);
-		--border-color: #333;
-		--a-color: blue;
-
-		/* -------------------- Background Colors -------------------- */
-		--bg-color-main: rgb(255 255 255);
-		--bg-color-alpha: rgb(255 255 255 / 50%);
-		--bg-color-tooltip: rgb(240 240 240 / 50%);
-
-		/* -------------------- HR -------------------- */
+		
+		/* Link Colors */
+		--a-color: rgb(20, 120, 180);
+		
+		/* Border Colors */
+		--border-color: rgb(208, 208, 208);
 		--hr-color: var(--border-color);
 
-		/* -------------------- Text -------------------- */
-		--text-color-primary: #151515;
-		--text-color-secondary: rgb(0 0 0 / 70%);
-		--text-color-muted: rgb(0 0 0 / 50%);
-		--text-color-light: rgb(255 255 255);
-		--text-color-selected: rgb(255 255 255);
-		--text-color-selection: rgb(255 79 0 / 90%);
-		--text-color-highlight: rgb(0 0 0 / 50%);
+		/* Background Colors */
+		--bg-color-main: rgb(255, 255, 255);
+		--bg-color-alpha: rgb(255, 255, 255 / 50%);
+		--bg-color-tooltip: rgb(240, 240, 240 / 50%);
 		
-		/* -------------------- Heatmap -------------------- */
-		--heatmap-min-color: rgb(220, 220, 220); 
-		--heatmap-max-color: rgb(0, 0, 0);
+		/* Text Colors */
+		--text-color-primary: #151515;
+		--text-color-secondary: rgb(0 0 0 / 80%);
+		--text-color-muted: rgb(0 0 0 / 60%);
+		
+		/* Selection Colors */
+		--selected-text-color: rgb(255 255 255);
+		--text-selection-color: rgb(255 79 0 / 90%);
+		--text-color-highlight: rgb(0 0 0 / 60%);
+		
+		/* Heatmap Colors */
+		--heatmap-min-color: rgb(220, 220, 220);
+		--heatmap-max-color: var(--accent-color);
+		--heatmap-glow-min-color: rgba(0, 0, 0, 0.25);
+		--heatmap-glow-max-color: rgba(255, 79, 0, 0.7);
 
-		/* -------------------- Progress Bars -------------------- */
-		--bg-color-progress: lightgray;
-		--color-bar-fill: var(--accent-color);
+		/* Progress Bar Colors */
+		--bg-color-progress: #d0d0d0;
+		
+		/* Button Colors */
+		--button-hover-color: var(--accent-color-alpha);
+		--button-active-bg: var(--accent-color);
+		--button-active-color: var(--bg-color-main);
+		--button-active-hover-bg: var(--accent-color-light);
+		--button-active-hover-color: var(--bg-color-main);
 
-		/* -------------------- Shadows -------------------- */
+		/* Shadows */
 		--shadow-main:
 			rgb(0 0 0 / 40%) 0px 2px 4px,
 			rgb(0 0 0 / 30%) 0px 7px 13px -3px,
@@ -149,127 +168,106 @@
 			rgb(0 0 0 / 25%) 0px 0.125em 0.5em,
 			rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
 
-		--shadow-glow:
-			none;
-		/* rgb(255 79 0 /50%) 0 0 7px; */
+		--shadow-glow: none;
 
 		--shadow-media:
 			rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em,
 			rgb(0 0 0 / 25%) 0px 0.125em 0.5em,
 			rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
 
-		--shadow-nav:
-			rgb(0 0 0 / 24%) 0px 3px 8px;
+		--shadow-nav: rgb(0 0 0 / 24%) 0px 3px 8px;
 
-		--shadow-prog:
-			rgb(255 79 0 / 50%) 0 0 7px;
+		--shadow-prog: rgb(255 79 0 / 50%) 0 0 7px;
 
-		--shadow-subtle:
-			rgb(0 0 0 / 20%) 0 2px 4px;
-	}
-
-	.gallery-btn.active {
-		background: var(--accent-color);
-		color: var(--text-color-light);
-	}
-
-	.gallery-btn:hover {
-		background-color: var(--accent-color-alpha);
-	}
-
-	.gallery-btn.active:hover {
-		background: var(--text-color-selection);
+		--shadow-subtle: rgb(0 0 0 / 20%) 0 2px 4px;
 	}
 }
 
+/* ==========================================================================
+   DARK SCHEME
+   ========================================================================== */
+
 @media (prefers-color-scheme: dark) {
 	:root {
-		/* -------------------- Light -------------------- */
+		/* Primary Colors */
 		--primary-color: rgb(80 227 194);
+		--primary-color-light: rgb(80 227 194 / 90%);
 		--primary-color-alpha: rgb(80 227 194 / 15%);
+
+		/* Accent Colors */
 		--accent-color: rgb(80 227 194);
 		--accent-color-light: rgb(80 212 195 / 15%);
 		--accent-color-alpha: rgb(80 212 195 / 15%);
-		--border-color: rgb(68 68 68);
-		--a-color: dodgerblue;
+		
+		/* Link Colors */
+		--a-color: rgb(80 227 194 / 90%);
 
-		/* -------------------- Background Colors -------------------- */
+		/* Border Colors */
+		--border-color: rgb(68 68 68);
+		--hr-color: rgb(80 227 194 / 30%);
+
+		/* Background Colors */
 		--bg-color-main: #010101;
 		--bg-color-alpha: rgb(0 0 0 / 50%);
 		--bg-color-tooltip: rgb(50 50 50 / 75%);
 
-		/* -------------------- HR -------------------- */
-		--hr-color: #00d4c3;
-
-		/* -------------------- Text -------------------- */
+		/* Text Colors */
 		--text-color-primary: rgb(245 245 245);
-		--text-color-secondary: rgb(255 255 255 / 70%);
-		--text-color-muted: rgb(255 255 255 / 50%);
-		--text-color-light: rgb(245 245 245);
-		--text-color-dark: rgb(1 1 1);
-		--text-color-selected: rgb(255 255 255 / 70%);
-		--text-color-selection: hotpink;
+		--text-color-secondary: rgb(245 245 245 / 70%);
+		--text-color-muted: rgb(245 245 245/ 50%);
+
+		/* Selection Colors */
+		--selected-text-color: #010101;
+		--text-selection-color: hotpink;
 		--text-color-highlight: rgb(80 227 194);
-		
-		/* -------------------- Heatmap -------------------- */
-		--heatmap-min-color: rgb(80, 160, 150);
-		--heatmap-max-color: rgb(220, 255, 250);
 
-		/* -------------------- Progress Bars -------------------- */
+		/* Heatmap Colors */
+		--heatmap-min-color: var(--text-color-muted);
+		--heatmap-max-color: var(--text-color-primary);
+		--heatmap-glow-min-color: rgba(0, 150, 255, 0.6); /* Electric Blue */
+		--heatmap-glow-max-color: rgba(0, 255, 255, 0.8); /* Bright Cyan */
+
+		/* Progress Bar Colors */
 		--bg-color-progress: darkslategrey;
+		
+		/* Button Colors */
+		--button-hover-color: var(--primary-color-alpha);
+		--button-active-bg: var(--primary-color);
+		--button-active-color: var(--bg-color-main);
+		--button-active-hover-bg: var(--primary-color-light);
+		--button-active-hover-color: var(--bg-color-main);
 
-		/* -------------------- Shadows -------------------- */
+		/* Shadows */
 		--shadow-main:
 			rgb(0 212 195 / 40%) 0px 2px 4px,
 			rgb(0 212 195 / 30%) 0px 7px 13px -3px,
 			rgb(0 212 195 / 20%) 0px -3px 0px inset;
-
+			
 		--shadow-details:
 			rgb(0 128 128 / 40%) -5px 5px,
 			rgb(0 128 128 / 30%) -10px 10px,
 			rgb(0 128 128 / 20%) -15px 15px,
 			rgb(0 128 128 / 10%) -20px 20px;
-
+			
 		--shadow-elevated:
 			rgb(0 212 195 / 25%) 0px 0.0625em 0.0625em,
 			rgb(0 212 195 / 25%) 0px 0.125em 0.5em;
-			/* rgb(0 0 0 / 10%) 0px 0px 0px 1px inset; */
 			
-		--shadow-glow:
-			rgb(80 219 255 / 50%) 0 0 7px;
-
+		--shadow-glow: rgb(80 219 255 / 50%) 0 0 7px;
+		
 		--shadow-media:
 			rgb(0 212 195 / 25%) 0px 0.0625em 0.0625em,
 			rgb(0 212 195 / 25%) 0px 0.125em 0.5em,
 			rgb(0 0 0 / 10%) 0px 0px 0px 1px inset;
-
-		--shadow-nav:
-			rgb(80 219 255 / 24%) 0px 3px 8px;
-
-		--shadow-prog:
-			rgb(80 219 255 / 50%) 0 0 7px;
-
-		--shadow-subtle:
-			rgb(0 212 195 / 20%) 0 2px 4px;
-	}
-
-	.gallery-btn:hover {
-		background-color: var(--primary-color-alpha);
-	}
-
-	.gallery-btn.active {
-		background: var(--primary-color);
-		color: var(--text-color-dark);
-	}
-
-	.gallery-btn.active:hover {
-		background: var(--primary-color);
-		color: var(--text-color-dark);
+			
+		--shadow-nav: rgb(80 219 255 / 24%) 0px 3px 8px;
+		--shadow-prog: rgb(80 219 255 / 50%) 0 0 7px;
+		--shadow-subtle: rgb(0 212 195 / 20%) 0 2px 4px;
 	}
 }
 
 /* ==========================================================================
-   UTILITY CLASSES
+   UTILITY & VENUE CLASSES 
    ========================================================================== */
 
 .flex-item {
@@ -304,10 +302,6 @@
 .text-right {
 	text-align: right;
 }
-
-/* ==========================================================================
-   VENUE COLOR CLASSES
-   ========================================================================== */
 
 .venue--red-rocks {
 	color: var(--venue-red-rocks);

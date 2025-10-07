@@ -77,7 +77,7 @@ export const ui = {
 			.map(([name, count]) => `<span class="nowrap">${name} <small>x${count}</small></span>`)
 			.join(', <wbr>');
 
-		this.updateElement(CONFIG.selectors.topArtists, getTopItems(artists, 8), true);
+		this.updateElement(CONFIG.selectors.topArtists, getTopItems(artists, 7), true);
 		this.updateElement(CONFIG.selectors.topVenues, getTopItems(venues, 8), true);
 	},
 
@@ -200,11 +200,12 @@ export const ui = {
 				const fraction = Math.max(0, Math.min(1, (numericElevation - minElevation) / (maxElevation - minElevation)));
 				const percent = fraction * 100;
 				
-				// 4. Create the span and set the CSS custom property '--elevation-percent'
+				// 4. Create the span and set the CSS custom properties
 				const span = document.createElement('span');
 				span.className = 'elevation';
 				span.textContent = mountain.Elevation;
 				span.style.setProperty('--elevation-percent', `${percent.toFixed(2)}%`);
+				span.style.setProperty('--elevation-fraction', fraction.toFixed(3)); 
 				
 				// 5. Add the new span to the cell
 				elevationCell.innerHTML = ''; // Clear previous content

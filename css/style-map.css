@@ -44,7 +44,6 @@
 	border-radius: var(--border-radius-sm);
 	box-shadow: var(--shadow-media);
 	height: 15rem;
-	margin-top: var(--space-ms);
 	width: 100%;
 }
 
