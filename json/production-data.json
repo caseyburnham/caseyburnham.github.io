@@ -2,7 +2,7 @@
 {
 	"Production": "Junie B. Jones",
 	"Company": "Arvada Center",
-	"A1": "",
+	"A1": "✘",
 	"A2": "",
 	"SD": "✘",
 	"AD": "✘",
@@ -20,7 +20,7 @@
 	  "Notes": "💔"
 	},
   {
-	"Production": "Frozen",
+	"Production": "Disney's Frozen",
 	"Company": "Arvada Center",
 	"A1": "✘",
 	"A2": "",
@@ -140,7 +140,7 @@
 	"Notes": "📖"
   },
   {
-	"Production": "Freaky Friday",
+	"Production": "Disney's Freaky Friday",
 	"Company": "Aurora Fox Arts Center",
 	"A1": "✘",
 	"A2": "",
