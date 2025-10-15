@@ -180,7 +180,7 @@
     "Elevation": "13,861",
     "Range": "Mosquito",
     "Date": "2024-10-14",
-    "Image": "/images/summits/dyer-mountain.jpeg",
+    "Image": "/images/summits/dyer-mountain.avif",
     "ranked": true
   },
   {
@@ -461,6 +461,7 @@
     "Range": "Front",
     "Date": "2020-07-06",
     "Image": "/images/summits/mount-audubon.jpeg",
-    "ranked": true
+    "ranked": true,
+    "log": "My first 13er"
   }
 ]

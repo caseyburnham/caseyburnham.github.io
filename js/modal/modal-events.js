@@ -4,17 +4,29 @@
  */
 export const setupEventListeners = (elements, modalInstance) => {
 	const boundHandlers = {
-		globalClickHandler: (event) => {
+		/**
+		 * A single, unified click handler to manage both opening and closing the modal.
+		 * This avoids race conditions and event propagation issues.
+		 */
+		unifiedClickHandler: (event) => {
+			// If the modal is currently open, we only care about closing it.
+			if (modalInstance.isOpen) {
+				// Close the modal ONLY if the click is on the backdrop itself.
+				if (event.target === elements.modal) {
+					modalInstance.closeModal();
+				}
+				// Ignore all other clicks while the modal is open.
+				return;
+			}
 			
+			// If the modal is NOT open, we only care about opening it.
 			const photoThumb = event.target.closest('.photo-thumb');
 			const cameraLink = event.target.closest('.camera-link');
-			
+
 			if (photoThumb) {
 				event.preventDefault();
 				const img = photoThumb.querySelector('img');
 				if (img) {
-					// Pass the basic img.src. The openModal function will automatically
-					// find the best source (AVIF, etc.) from the data-sources attribute.
 					modalInstance.openModal(img.src, img.alt, img.dataset.title, photoThumb, photoThumb);
 				}
 			} else if (cameraLink) {
@@ -28,21 +40,26 @@ export const setupEventListeners = (elements, modalInstance) => {
 		},
 		
 		keydownHandler: (event) => {
-			const {
-				key
-			} = event;
-			if (modalInstance.isOpen) {
-				if (key === 'Escape') modalInstance.closeModal();
-				if (key === 'ArrowRight') modalInstance.navigateImage(1);
-				if (key === 'ArrowLeft') modalInstance.navigateImage(-1);
-			}
-		},
-		closeClickHandler: () => modalInstance.closeModal(),
-		modalBackgroundClickHandler: (event) => {
-			if (event.target === elements.modal && !modalInstance.modalOpenDebounceTimeout) {
+			// Only handle keyboard events when modal is open
+			if (!modalInstance.isOpen) return;
+			
+			const { key } = event;
+			
+			if (key === 'Escape') {
+				event.preventDefault();
 				modalInstance.closeModal();
+			} else if (key === 'ArrowRight') {
+				event.preventDefault();
+				console.log('Arrow Right pressed, navigating +1');
+				modalInstance.navigateImage(1);
+			} else if (key === 'ArrowLeft') {
+				event.preventDefault();
+				console.log('Arrow Left pressed, navigating -1');
+				modalInstance.navigateImage(-1);
 			}
 		},
+		
+		closeClickHandler: () => modalInstance.closeModal(),
 		
 		modalTransitionEndHandler: (event) => {
 			if (event.propertyName === 'opacity' && elements.modal.style.opacity === '0') {
@@ -52,21 +69,17 @@ export const setupEventListeners = (elements, modalInstance) => {
 				}
 			}
 		},
-		
-
 	};
 
-	document.addEventListener('click', boundHandlers.globalClickHandler);
-	document.addEventListener('keydown', boundHandlers.keydownHandler);
-	elements.closeBtn.addEventListener('click', boundHandlers.closeClickHandler);
-	elements.modal.addEventListener('click', boundHandlers.modalBackgroundClickHandler);
+	// Listen on document for keyboard events
+	document.addEventListener('click', boundHandlers.unifiedClickHandler);
+	document.addEventListener('keydown', boundHandlers.keydownHandler, true); // Use capture phase
 	elements.modal.addEventListener('transitionend', boundHandlers.modalTransitionEndHandler);
-	elements.modalCard.addEventListener('click', boundHandlers.modalCardClickHandler);
 
 	return boundHandlers;
 };
 
 export const cleanupEventListeners = (handlers) => {
-	document.removeEventListener('click', handlers.globalClickHandler);
-	document.removeEventListener('keydown', handlers.keydownHandler);
+	document.removeEventListener('click', handlers.unifiedClickHandler);
+	document.removeEventListener('keydown', handlers.keydownHandler, true);
 };

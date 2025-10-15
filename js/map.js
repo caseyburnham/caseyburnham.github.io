@@ -297,20 +297,10 @@ class PeakMap {
 	 */
 	createCustomIcon() {
 		return L.divIcon({
-			className: 'custom-div-icon',
-			html: `
-		<div style="
-		  background: #FF4F00;
-		  background: rgb(63, 143, 247);
-		  border-radius: 50%;
-		  width: 11px;
-		  height: 11px;
-		  box-shadow: 0px 1px 0px rgba(17,17,26,0.05), 0px 0px 8px rgba(17,17,26,0.1);
-		  border: 2px solid white;
-		"></div>
-	  `,
-			iconSize: [11, 11],
-			iconAnchor: [5.5, 5.5]
+			className: 'map-marker',
+			html: `<div></div>`,
+			iconSize: [10, 10],
+			iconAnchor: [5, 5]
 		});
 	}
 

@@ -550,6 +550,37 @@
     },
     "copyright": "\u00a9 2025 Casey Burnham"
   },
+  "summits/dyer-mountain.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 10,
+      "day": 14,
+      "hour": 10,
+      "minute": 51,
+      "second": 41,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2024:10:14 10:51:41",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 50,
+    "lens": 26,
+    "aperture": 1.5,
+    "shutter": "1/6211",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.2399555555556,
+      "lon": -106.183227777778,
+      "latDMS": "39\u00b014'23.84\" N",
+      "lonDMS": "106\u00b010'59.62\" W",
+      "alt": 4219.592618,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2024 Casey Burnham"
+  },
   "summits/treasurevault-mountain.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -1790,6 +1821,42 @@
     },
     "copyright": "\u00a9 2025 Casey Burnham"
   },
+  "assets/png/cassette-tape.png": {
+    "date": null,
+    "iso": null,
+    "lens": null,
+    "aperture": null,
+    "shutter": "",
+    "exposureCompensation": "",
+    "cameraModel": null,
+    "format": "PNG",
+    "gps": null,
+    "copyright": null
+  },
+  "assets/png/vinyl-record.png": {
+    "date": null,
+    "iso": null,
+    "lens": null,
+    "aperture": null,
+    "shutter": "",
+    "exposureCompensation": "",
+    "cameraModel": null,
+    "format": "PNG",
+    "gps": null,
+    "copyright": null
+  },
+  "assets/png/cd-disc.png": {
+    "date": null,
+    "iso": null,
+    "lens": null,
+    "aperture": null,
+    "shutter": "",
+    "exposureCompensation": "",
+    "cameraModel": null,
+    "format": "PNG",
+    "gps": null,
+    "copyright": null
+  },
   "galleries/prospecting/avif/buffalo-boy-arial-tram.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -2441,68 +2508,6 @@
     },
     "copyright": "\u00a9 2023 Casey Burnham"
   },
-  "galleries/rocks/avif/arches.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 2,
-      "day": 5,
-      "hour": 9,
-      "minute": 58,
-      "second": 32,
-      "tzoffsetMinutes": -420,
-      "rawValue": "2021:02:05 09:58:32",
-      "zoneName": "UTC-07:00",
-      "inferredZone": false
-    },
-    "iso": 32,
-    "lens": 26,
-    "aperture": 1.8,
-    "shutter": "1/591",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 11 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 38.6914,
-      "lon": -109.540161111111,
-      "latDMS": "38\u00b041'29.04\" N",
-      "lonDMS": "109\u00b032'24.58\" W",
-      "alt": 1592.6,
-      "altRef": 0
-    },
-    "copyright": "\u00a9 2021 Casey Burnham"
-  },
-  "galleries/rocks/avif/sandstone-divot.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2024,
-      "month": 5,
-      "day": 8,
-      "hour": 9,
-      "minute": 37,
-      "second": 57,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2024:05:08 09:37:57",
-      "zoneName": "UTC-06:00",
-      "inferredZone": false
-    },
-    "iso": 50,
-    "lens": 26,
-    "aperture": 1.5,
-    "shutter": "1/2695",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 37.3257027777778,
-      "lon": -111.064408333333,
-      "latDMS": "37\u00b019'32.53\" N",
-      "lonDMS": "111\u00b03'51.87\" W",
-      "alt": 1353.286902,
-      "altRef": 0
-    },
-    "copyright": "\u00a9 2024 Casey Burnham"
-  },
   "galleries/rocks/avif/escalante-arch.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -2627,6 +2632,37 @@
     },
     "copyright": "\u00a9 2024 Casey Burnham"
   },
+  "galleries/rocks/avif/zabriskie-point.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2019,
+      "month": 1,
+      "day": 25,
+      "hour": 14,
+      "minute": 30,
+      "second": 3,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2019:01:25 14:30:03",
+      "zoneName": "UTC-08:00",
+      "inferredZone": false
+    },
+    "iso": 16,
+    "lens": 52,
+    "aperture": 2.4,
+    "shutter": "1/959",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone XS Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 36.4199333333333,
+      "lon": -116.812272222222,
+      "latDMS": "36\u00b025'11.76\" N",
+      "lonDMS": "116\u00b048'44.18\" W",
+      "alt": 207.0627512,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2019 Casey Burnham"
+  },
   "galleries/rocks/avif/mount-antero.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -2658,36 +2694,36 @@
     },
     "copyright": "\u00a9 2023 Casey Burnham"
   },
-  "galleries/rocks/avif/fire-rock.avif": {
+  "galleries/rocks/avif/badwater-basin.avif": {
     "date": {
       "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 2,
-      "day": 5,
-      "hour": 17,
-      "minute": 36,
-      "second": 57,
-      "tzoffsetMinutes": -420,
-      "rawValue": "2021:02:05 17:36:57",
-      "zoneName": "UTC-07:00",
+      "year": 2019,
+      "month": 1,
+      "day": 25,
+      "hour": 15,
+      "minute": 34,
+      "second": 25,
+      "tzoffsetMinutes": -480,
+      "rawValue": "2019:01:25 15:34:25",
+      "zoneName": "UTC-08:00",
       "inferredZone": false
     },
     "iso": 25,
-    "lens": 52,
-    "aperture": 2,
-    "shutter": "1/122",
+    "lens": 26,
+    "aperture": 1.8,
+    "shutter": "1/1585",
     "exposureCompensation": "0",
-    "cameraModel": "iPhone 11 Pro Max",
+    "cameraModel": "iPhone XS Max",
     "format": "AVIF",
     "gps": {
-      "lat": 38.7003833333333,
-      "lon": -109.564705555556,
-      "latDMS": "38\u00b042'1.38\" N",
-      "lonDMS": "109\u00b033'52.94\" W",
-      "alt": 1537.1,
-      "altRef": 0
+      "lat": 36.2857861111111,
+      "lon": -116.826294444444,
+      "latDMS": "36\u00b017'8.83\" N",
+      "lonDMS": "116\u00b049'34.66\" W",
+      "alt": 101.1824318,
+      "altRef": 1
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham"
   },
   "galleries/rocks/avif/navajo-loop-feature.avif": {
     "date": {
@@ -2844,6 +2880,68 @@
     },
     "copyright": "\u00a9 2024 Casey Burnham"
   },
+  "galleries/rocks/avif/balanced-rock.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2021,
+      "month": 2,
+      "day": 5,
+      "hour": 17,
+      "minute": 36,
+      "second": 57,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2021:02:05 17:36:57",
+      "zoneName": "UTC-07:00",
+      "inferredZone": false
+    },
+    "iso": 25,
+    "lens": 52,
+    "aperture": 2,
+    "shutter": "1/122",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 11 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.7003833333333,
+      "lon": -109.564705555556,
+      "latDMS": "38\u00b042'1.38\" N",
+      "lonDMS": "109\u00b033'52.94\" W",
+      "alt": 1537.1,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2021 Casey Burnham"
+  },
+  "galleries/rocks/avif/double-arches.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2021,
+      "month": 2,
+      "day": 5,
+      "hour": 9,
+      "minute": 58,
+      "second": 32,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2021:02:05 09:58:32",
+      "zoneName": "UTC-07:00",
+      "inferredZone": false
+    },
+    "iso": 32,
+    "lens": 26,
+    "aperture": 1.8,
+    "shutter": "1/591",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 11 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.6914,
+      "lon": -109.540161111111,
+      "latDMS": "38\u00b041'29.04\" N",
+      "lonDMS": "109\u00b032'24.58\" W",
+      "alt": 1592.6,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2021 Casey Burnham"
+  },
   "galleries/rocks/avif/kodachrome-basin.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -2936,6 +3034,37 @@
       "altRef": 0
     },
     "copyright": "\u00a9 2023 Casey Burnham"
+  },
+  "galleries/rocks/avif/sooner-rocks.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 5,
+      "day": 8,
+      "hour": 9,
+      "minute": 37,
+      "second": 57,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2024:05:08 09:37:57",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 50,
+    "lens": 26,
+    "aperture": 1.5,
+    "shutter": "1/2695",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 37.3257027777778,
+      "lon": -111.064408333333,
+      "latDMS": "37\u00b019'32.53\" N",
+      "lonDMS": "111\u00b03'51.87\" W",
+      "alt": 1353.286902,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2024 Casey Burnham"
   },
   "galleries/rocks/avif/longs-peak.avif": {
     "date": {
@@ -6750,6 +6879,37 @@
       "altRef": 0
     },
     "copyright": "\u00a9 2022 Casey Burnham"
+  },
+  "galleries/abstract/avif/cowboy-print.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2019,
+      "month": 7,
+      "day": 7,
+      "hour": 15,
+      "minute": 52,
+      "second": 46,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2019:07:07 15:52:46",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 160,
+    "lens": 26,
+    "aperture": 1.8,
+    "shutter": "1/48",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone XS Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 45.1590833333333,
+      "lon": -112.999169444444,
+      "latDMS": "45\u00b09'32.70\" N",
+      "lonDMS": "112\u00b059'57.01\" W",
+      "alt": null,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2019 Casey Burnham"
   },
   "galleries/abstract/avif/medano-creek.avif": {
     "date": {

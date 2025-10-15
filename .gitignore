@@ -46,3 +46,6 @@ images/galleries/plant-based/ORIGINALS/
 images/galleries/prospecting/ORIGINALS/
 images/galleries/rocks/ORIGINALS/
 images/galleries/summit-dog/ORIGINALS/
+
+# Local Netlify folder
+.netlify

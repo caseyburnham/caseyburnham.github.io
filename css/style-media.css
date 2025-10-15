@@ -21,7 +21,7 @@
 
 .gallery-btn {
 	background: transparent;
-	border: 1px solid var(--accent-color);
+	border: 1px solid var(--button-border-color);
 	border-radius: var(--border-radius-sm);
 	color: var(--text-color-primary);
 	cursor: pointer;
@@ -38,14 +38,8 @@
 		background-color: var(--button-hover-color);
 }
 
-.gallery-btn:focus {
-	outline: 2px solid rgb(255 255 255 / 50%);
-	outline-offset: 2px;
-}
-
 .gallery-btn.active {
 	background: var(--button-active-bg);
-	
 	border: 1px solid var(--accent-color);
 	color: var(--button-active-color);
 	font-weight: var(--font-weight-heavy);
@@ -71,15 +65,7 @@
 	transition: transform 0.2s ease;
 }
 
-.photo-grid.loading {
-	opacity: 0.6;
-}
-
-
-.landscape-row {
-	grid-template-columns: repeat(auto-fit, minmax(max-content, 1fr));
-}
-
+.landscape-row,
 .portrait-row {
 	grid-template-columns: repeat(auto-fit, minmax(max-content, 1fr));
 }
@@ -92,9 +78,6 @@
 	grid-column: 1 / -1;
 }
 
-.landscape,
-.portrait {}
-
 /* --------------------------------------------------------------------------
    CAMERA BUTTONS
    -------------------------------------------------------------------------- */
@@ -106,17 +89,10 @@
 	font-size: inherit;
 	padding: var(--space-xs);
 	position: relative;
-	transition: transform var(--transition-fast);
-}
-
-.camera-link:hover {
-	transform: scale(1.1);
 }
 
 .camera-link::before {
 	content: "📷";
-	opacity: 1;
-	transition: opacity var(--transition-medium);
 }
 
 .camera-link::after {
@@ -129,10 +105,6 @@
 	transition: opacity var(--transition-medium);
 }
 
-.camera-link:hover::before {
-	opacity: 0;
-}
-
 .camera-link:hover::after {
 	opacity: 1;
 }
@@ -142,15 +114,26 @@
    -------------------------------------------------------------------------- */
 
 .photo-thumb {
-	background: var(--bg-color-loading);
-	border-radius: var(--border-radius-sm);
+	box-shadow: var(--shadow-subtle);
 	cursor: pointer;
 	overflow: hidden;
+	outline: 1px solid var(--dark-slate);
 	position: relative;
+	transform: scale(1);
 	transition:
-		transform var(--transition-medium),
-		box-shadow var(--transition-medium);
+		box-shadow var(--transition-medium),
+		transform var(--transition-medium);
+	will-change: 
+		transform, 
+		transition;
 	z-index: 10;	
+}
+
+.photo-thumb:hover {
+	box-shadow: var(--shadow-elevated);
+	transform: 
+		translateY(-0.25rem) 
+		scale(1.02);
 }
 
 .photo-thumb img {
@@ -158,25 +141,172 @@
 	filter: grayscale(100%);
 	height: 100%;
 	object-fit: cover;
+	transform: scale(1);
 	transition:
-		transform var(--transition-medium),
-		filter var(--transition-medium);
+		filter var(--transition-medium),
+		transform var(--transition-medium);
 	width: 100%;
 }
 
-.photo-thumb:hover {
-	box-shadow: var(--shadow-elevated);
-	transform: translateY(-0.25rem) scale(1.02);
-}
-
-.photo-thumb:hover img{
+.photo-thumb:hover img {
 	filter: grayscale(0%);
 	transform: scale(1.1);
 }
 
-.photo-thumb:focus {
-	outline: 2px solid var(--accent-color);
-	outline-offset: 2px;
+/* --------------------------------------------------------------------------
+   DISCOGS
+   -------------------------------------------------------------------------- */
+
+.discogs-grid {
+	display: grid;
+	gap: var(--grid-gap);
+	grid-template-columns: repeat(auto-fit, minmax(max-content, 1fr));
+	width: stretch;
+	width: -webkit-fill-available;
+	width: -moz-available;
+}
+
+/* === Sleeve === */
+.album-sleeve {
+	aspect-ratio: 1 / 1;
+	position: relative;
+	box-shadow: var(--shadow-subtle);
+	transition: 
+		box-shadow var(--transition-medium),
+		transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.album-sleeve:hover {
+	box-shadow: var(--shadow-elevated);
+	transform: scale(1.05);
+	z-index: 10;
+}
+
+/* === Base Image Styles === */
+/* Album Art */
+.album-art {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+	transition: z-index 0s 0.4s; /* Delay z-index change */
+}
+.album-sleeve:hover .album-art {
+	z-index: 4;
+	transition-delay: 0s; /* Remove delay on hover */
+}
+
+/* Media */
+.slide-out-media {
+	filter: none;
+	height: 100%;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	transition: 
+		filter var(--transition-medium),
+		transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+		z-index 0s 0.4s; /* Delay z-index change */
+	width: 100%;
+	z-index: 1;
+}
+.album-sleeve:hover .slide-out-media {
+	filter: var(--shadow-media);
+	z-index: 3;
+	transition-delay: 0s, 0s, 0s; /* Remove delay on hover */
+}
+
+/* === Vinyl === */
+.discogs-record.is-vinyl .album-sleeve {
+	aspect-ratio: 1 / 1;
+}
+
+.discogs-record.is-vinyl .slide-out-media {
+	transform: 
+		scale(0.95) 
+		translateX(0) 
+		rotate(0);
+}
+
+.discogs-record.is-vinyl .album-sleeve:hover .slide-out-media {
+	transform: 
+		scale(0.95) 
+		translateX(35%) 
+		rotate(60deg);
+}
+
+/* === CD === */
+.discogs-record.is-cd .album-sleeve {
+	aspect-ratio: 1 / 1 ;
+}
+
+.discogs-record.is-cd .slide-out-media {
+	transform: 
+		translateX(0) 
+		rotate(0);
+}
+
+.discogs-record.is-cd .album-sleeve:hover .slide-out-media {
+	transform: 
+		translateX(35%) 
+		rotate(90deg);
+}
+
+/* === Cassette === */
+.discogs-record.is-cassette .album-sleeve {
+	aspect-ratio: 16 / 9;
+}
+
+.discogs-record.is-cassette .album-sleeve .slide-out-media {
+	transform: translateY(0);
+}
+
+.discogs-record.is-cassette .album-sleeve:hover .slide-out-media {
+	transform: translateY(50%);
+}
+
+/* === Record Caption === */
+.record-caption {
+	margin-top: var(--space-xs);
+	font-family: var(--font-family-ui);
+}
+
+/* For Sale Caption */
+.for-sale {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Album Name */
+.record-caption label {
+	color: var(--text-color-secondary);
+	font-style: normal;
+}
+
+/* 5 Star Fave */
+.record-title.is-favorite::after {
+	color: var(--paradise-pink);
+	content: '★';
+	font-size: var(--font-size-xxs);
+	margin-left: var(--space-xs);
+}
+
+/* Album Artist */
+.record-caption label:nth-child(n+2) {
+	color: var(--text-color-muted);
+}
+
+/* Price */
+.record-caption data {
+	border: 1px solid var(--green);
+	border-radius: var(--border-radius-sm);
+	color: var(--green);
+	font-size: var(--font-size-xxs);
+	padding: var(--space-xxs);	
 }
 
 /* --------------------------------------------------------------------------
@@ -186,7 +316,8 @@
 /* Tablet and Desktop */
 @media (width >= 200px) {
 	.landscape-row,
-	.portrait-row {
+	.portrait-row,
+	.discogs-grid{
 		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 		width: 100%;
 	}
@@ -204,17 +335,6 @@
 	.gallery-buttons {
 		flex-wrap: wrap;
 		gap: var(--grid-gap-sm);
-	}
-
-	.gallery-btn {
-		padding: var(--space-sm) var(--space-md);
-	}
-}
-
-@media (width <= 768px) {
-	.gallery-btn {
-		flex: 1 1 calc(33% - var(--space-xs));
-		min-width: calc(33% - var(--space-xs));
 	}
 }
 
