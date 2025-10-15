@@ -1,6 +1,6 @@
 {
     "_config": {
-        "defaultGallery": "abstract"
+        "defaultGallery": "high-country"
     },
     "abstract": {
         "name": "Abstract",
@@ -14,6 +14,16 @@
                     "avif": "/images/galleries/abstract/avif/bulldozer-blade-detail.avif"
                 },
                 "thumbnail": "/images/galleries/abstract/thumbnails/bulldozer-blade-detail.avif"
+            },
+            {
+                "id": "cowboy-print",
+                "alt": "Cowboy Print Wallpaper",
+                "title": "Cowboy Print",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/abstract/avif/cowboy-print.avif"
+                },
+                "thumbnail": "/images/galleries/abstract/thumbnails/cowboy-print.avif"
             },
             {
                 "id": "frozen-rocks",
@@ -1351,14 +1361,24 @@
         "name": "Rocks",
         "images": [
             {
-                "id": "arches",
-                "alt": "Arches",
-                "title": "Arches",
-                "layout": "landscape",
+                "id": "badwater-basin",
+                "alt": "Badwater Basin, Death Valley",
+                "title": "Badwater Basin",
+                "layout": "pano",
                 "sources": {
-                    "avif": "/images/galleries/rocks/avif/arches.avif"
+                    "avif": "/images/galleries/rocks/avif/badwater-basin.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/arches.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/badwater-basin.avif"
+            },
+            {
+                "id": "balanced-rock",
+                "alt": "Balanced Rock",
+                "title": "Balanced Rock",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/balanced-rock.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/balanced-rock.avif"
             },
             {
                 "id": "bryce-canyon",
@@ -1391,6 +1411,16 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/devil's-garden.avif"
             },
             {
+                "id": "double-arches",
+                "alt": "Double Arches",
+                "title": "Double Arches",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/double-arches.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/double-arches.avif"
+            },
+            {
                 "id": "end-of-hole-in-the-rock-road",
                 "alt": "End of Hole in the Rock Road",
                 "title": "End of Hole in the Rock Road",
@@ -1409,16 +1439,6 @@
                     "avif": "/images/galleries/rocks/avif/escalante-arch.avif"
                 },
                 "thumbnail": "/images/galleries/rocks/thumbnails/escalante-arch.avif"
-            },
-            {
-                "id": "fire-rock",
-                "alt": "Fire Rock",
-                "title": "Fire Rock",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/rocks/avif/fire-rock.avif"
-                },
-                "thumbnail": "/images/galleries/rocks/thumbnails/fire-rock.avif"
             },
             {
                 "id": "goblin-valley-buttes",
@@ -1551,16 +1571,6 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/peak-a-boo.avif"
             },
             {
-                "id": "sandstone-divot",
-                "alt": "Sandstone Divot",
-                "title": "Sandstone Divot",
-                "layout": "landscape",
-                "sources": {
-                    "avif": "/images/galleries/rocks/avif/sandstone-divot.avif"
-                },
-                "thumbnail": "/images/galleries/rocks/thumbnails/sandstone-divot.avif"
-            },
-            {
                 "id": "sandstone-handprints",
                 "alt": "\u2068Sandstone Handprints, Kodachrome Basin State Park\u2069",
                 "title": "Sandstone Handprints",
@@ -1571,6 +1581,16 @@
                 "thumbnail": "/images/galleries/rocks/thumbnails/sandstone-handprints.avif"
             },
             {
+                "id": "sooner-rocks",
+                "alt": "Sooner Rocks",
+                "title": "Sooner Rocks",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/sooner-rocks.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/sooner-rocks.avif"
+            },
+            {
                 "id": "stained-rocks",
                 "alt": "Glen Canyon National Recreation Area",
                 "title": "Stained Rocks",
@@ -1579,6 +1599,16 @@
                     "avif": "/images/galleries/rocks/avif/stained-rocks.avif"
                 },
                 "thumbnail": "/images/galleries/rocks/thumbnails/stained-rocks.avif"
+            },
+            {
+                "id": "zabriskie-point",
+                "alt": "Zabriskie Point, Death Valley",
+                "title": "Zabriskie Point",
+                "layout": "portrait",
+                "sources": {
+                    "avif": "/images/galleries/rocks/avif/zabriskie-point.avif"
+                },
+                "thumbnail": "/images/galleries/rocks/thumbnails/zabriskie-point.avif"
             }
         ]
     },

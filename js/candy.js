@@ -1,115 +1,163 @@
-//Tooltip
-let activeTooltip = null;
-let timeoutId = null;
-const fadeOutDuration = 500; // This must match your CSS transition time in milliseconds
-const autoHideDelay = 3000; // 3 seconds before auto-hiding
-
-function hideTooltip() {
-  if (activeTooltip) {
-	activeTooltip.classList.remove('show');
-	timeoutId = setTimeout(() => {
-	  if (activeTooltip) {
-		activeTooltip.remove();
-		activeTooltip = null;
-	  }
-	}, fadeOutDuration);
+// ===== Tooltip Module =====
+class TooltipManager {
+  constructor(fadeOutDuration = 500, autoHideDelay = 3000) {
+	this.activeTooltip = null;
+	this.timeoutId = null;
+	this.fadeOutDuration = fadeOutDuration;
+	this.autoHideDelay = autoHideDelay;
+	this.init();
   }
-}
 
-document.querySelectorAll('abbr').forEach(abbr => {
-  abbr.addEventListener('click', function(event) {
+  init() {
+	document.querySelectorAll('abbr').forEach(abbr => {
+	  abbr.addEventListener('click', (e) => this.handleAbbrClick(e, abbr));
+	});
+
+	document.addEventListener('click', (e) => this.handleDocumentClick(e));
+  }
+
+  handleAbbrClick(event, element) {
 	event.preventDefault();
 	event.stopPropagation();
 
-	const title = this.getAttribute('title');
-
-	// If a tooltip is already visible, clear the existing timer and hide it immediately
-	if (activeTooltip) {
-	  clearTimeout(timeoutId);
-	  hideTooltip();
+	const title = element.getAttribute('title');
+	
+	if (this.activeTooltip) {
+	  clearTimeout(this.timeoutId);
+	  this.hide();
 	}
 
 	if (title) {
-	  const newTooltip = document.createElement('span');
-	  newTooltip.textContent = title;
-	  newTooltip.className = 'abbr-tooltip';
-	  document.body.appendChild(newTooltip); // append first so we can measure size
-	
-	  const rect = this.getBoundingClientRect();
-	  const tooltipRect = newTooltip.getBoundingClientRect();
-	
-	  newTooltip.style.top = `${rect.bottom + window.scrollY + 5}px`;
-	  newTooltip.style.left = `${rect.left + window.scrollX + (rect.width / 2) - (tooltipRect.width / 2)}px`;
-	
-	  activeTooltip = newTooltip;
-	
-	  setTimeout(() => newTooltip.classList.add('show'), 10);
-	
-	  clearTimeout(timeoutId);
-	  timeoutId = setTimeout(() => {
-		hideTooltip();
-	  }, autoHideDelay);
+	  this.show(title, element);
 	}
-  });
-});
-
-document.addEventListener('click', function(event) {
-  if (activeTooltip && !event.target.closest('abbr')) {
-	clearTimeout(timeoutId);
-	hideTooltip();
   }
-});
 
-//Copyright Year
-document.getElementById("year").textContent = new Date().getFullYear();
+  show(content, anchorElement) {
+	const tooltip = this.createTooltip(content);
+	document.body.appendChild(tooltip);
+	
+	this.positionTooltip(tooltip, anchorElement);
+	this.activeTooltip = tooltip;
+	
+	requestAnimationFrame(() => {
+	  tooltip.classList.add('show');
+	});
 
-		// Select the navigation wrapper element
-const navWrapper = document.querySelector('.nav-wrapper');
-const hamburgerBtn = document.querySelector('.burger');
+	this.scheduleAutoHide();
+  }
 
-//Nav Shadows
-function handleScroll() {
-	// Check if the user has scrolled more than 10 pixels from the top
-	if (window.scrollY > 10) {
-		// If so, add the 'nav-scrolled' class
-		navWrapper.classList.add('nav-scrolled');
-	} else {
-		// Otherwise, remove it
-		navWrapper.classList.remove('nav-scrolled');
+  createTooltip(content) {
+	const tooltip = document.createElement('span');
+	tooltip.textContent = content;
+	tooltip.className = 'abbr-tooltip';
+	return tooltip;
+  }
+
+  positionTooltip(tooltip, anchorElement) {
+	const anchorRect = anchorElement.getBoundingClientRect();
+	const tooltipRect = tooltip.getBoundingClientRect();
+	
+	tooltip.style.top = `${anchorRect.bottom + window.scrollY + 5}px`;
+	tooltip.style.left = `${anchorRect.left + window.scrollX + (anchorRect.width / 2) - (tooltipRect.width / 2)}px`;
+  }
+
+  scheduleAutoHide() {
+	clearTimeout(this.timeoutId);
+	this.timeoutId = setTimeout(() => this.hide(), this.autoHideDelay);
+  }
+
+  hide() {
+	if (!this.activeTooltip) return;
+
+	this.activeTooltip.classList.remove('show');
+	
+	this.timeoutId = setTimeout(() => {
+	  if (this.activeTooltip) {
+		this.activeTooltip.remove();
+		this.activeTooltip = null;
+	  }
+	}, this.fadeOutDuration);
+  }
+
+  handleDocumentClick(event) {
+	if (this.activeTooltip && !event.target.closest('abbr')) {
+	  clearTimeout(this.timeoutId);
+	  this.hide();
 	}
+  }
 }
 
-// Listen for the scroll event on the window
-window.addEventListener('scroll', handleScroll);
+// ===== Navigation Module =====
+class NavigationManager {
+  constructor() {
+	this.navWrapper = document.querySelector('.nav-wrapper');
+	this.hamburgerBtn = document.querySelector('.burger');
+	this.navMenu = document.querySelector('.sticky-nav');
+	this.scrollThreshold = 10;
+	this.init();
+  }
 
-//ham
-document.addEventListener('DOMContentLoaded', () => {
-	const hamburgerBtn = document.querySelector('.burger');
-	const navMenu = document.querySelector('.sticky-nav');
+  init() {
+	this.setupScrollHandler();
+	this.setupHamburgerMenu();
+  }
 
-	// Toggle the menu when the hamburger button is clicked
-	hamburgerBtn.addEventListener('click', (event) => {
-		// Prevent the click on the button from immediately triggering the document listener
-		event.stopPropagation();
-		navMenu.classList.toggle('is-open');
-	});
+  setupScrollHandler() {
+	window.addEventListener('scroll', () => this.handleScroll());
+  }
 
-	// Close the menu when a link is clicked
-	const navLinks = document.querySelectorAll('.sticky-nav a');
+  handleScroll() {
+	const shouldAddShadow = window.scrollY > this.scrollThreshold;
+	this.navWrapper.classList.toggle('nav-scrolled', shouldAddShadow);
+  }
+
+  setupHamburgerMenu() {
+	this.hamburgerBtn.addEventListener('click', (e) => this.toggleMenu(e));
+	
+	this.setupNavLinks();
+	this.setupOutsideClickHandler();
+  }
+
+  toggleMenu(event) {
+	event.stopPropagation();
+	this.navMenu.classList.toggle('is-open');
+  }
+
+  setupNavLinks() {
+	const navLinks = this.navMenu.querySelectorAll('a');
 	navLinks.forEach(link => {
-		link.addEventListener('click', () => {
-			navMenu.classList.remove('is-open');
-		});
+	  link.addEventListener('click', () => this.closeMenu());
 	});
+  }
 
-	// Close the menu when a click occurs anywhere on the document
-	document.addEventListener('click', (event) => {
-		// Check if the menu is open and if the clicked target is outside the menu
-		const isClickInsideNav = navMenu.contains(event.target);
-		const isClickInsideBtn = hamburgerBtn.contains(event.target);
+  setupOutsideClickHandler() {
+	document.addEventListener('click', (e) => {
+	  const isClickInsideNav = this.navMenu.contains(e.target);
+	  const isClickInsideBtn = this.hamburgerBtn.contains(e.target);
 
-		if (!isClickInsideNav && !isClickInsideBtn) {
-			navMenu.classList.remove('is-open');
-		}
+	  if (!isClickInsideNav && !isClickInsideBtn) {
+		this.closeMenu();
+	  }
 	});
+  }
+
+  closeMenu() {
+	this.navMenu.classList.remove('is-open');
+  }
+}
+
+// ===== Utility Functions =====
+// Copyright Year
+const updateCopyrightYear = () => {
+  const yearElement = document.getElementById('year');
+  if (yearElement) {
+	yearElement.textContent = new Date().getFullYear();
+  }
+};
+
+// ===== Application Initialization =====
+document.addEventListener('DOMContentLoaded', () => {
+  new TooltipManager();
+  new NavigationManager();
+  updateCopyrightYear();
 });

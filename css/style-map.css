@@ -1,21 +1,30 @@
+/* Light Color Scheme */
 @media (prefers-color-scheme: light) {
 	.leaflet-container .leaflet-control-attribution {
-		background: var(--bg-color-alpha);
 		box-shadow: none;
+		z-index: 2;
 	}
 
 	.custom-popup .leaflet-popup-content-wrapper {
 		backdrop-filter: var(--modal-caption-blur);
-		background: var(--bg-color-alpha);
-		border: 1px solid var(--border-color);
+		background: var(--bg-color-tooltip);
 		box-shadow: var(--shadow-subtle);
 	}
 
 	.custom-popup .leaflet-popup-tip {
 		display: none;
 	}
+
+	.map-marker {
+		backdrop-filter: var(--modal-caption-blur);
+		background: var(--accent-color-light);
+		border: 1.5px solid white;
+		border-radius: 50%;
+		box-shadow: var(--shadow-map-icon);
+	}
 }
 
+/* Dark Color Scheme */
 @media (prefers-color-scheme: dark) {
 	.leaflet-layer,
 	.leaflet-control-zoom-in,
@@ -31,26 +40,37 @@
 	.custom-popup .leaflet-popup-content-wrapper {
 		backdrop-filter: var(--modal-caption-blur);
 		background: var(--bg-color-tooltip);
-		border: 1px solid var(--border-color);
-		box-shadow: var(--shadow-subtle);
+		box-shadow: var(--shadow-modal);
 	}
 
 	.custom-popup .leaflet-popup-tip {
 		display: none;
 	}
+	
+	.map-marker {
+		backdrop-filter: var(--modal-caption-blur);
+		background: var(--a-color);
+		border: 1.5px solid white;
+		border-radius: 50%;
+		box-shadow: var(--shadow-map-icon);
+	}
 }
 
+/* CSS Styles */
 #map {
-	border-radius: var(--border-radius-sm);
-	box-shadow: var(--shadow-media);
 	height: 15rem;
+	border: 1px solid var(--border-color);
 	width: 100%;
+	z-index: 1;
+}
+
+#map:focus {
+	outline: none;
 }
 
 .leaflet-container .leaflet-control-attribution {
-	background: var(--bg-color-alpha);
 	border-radius: var(--border-radius-sm);
-	font-family: (--font-family-ui);
+	font-family: var(--font-family-ui);
 	font-size: var(--font-size-xs);
 }
 
@@ -62,7 +82,7 @@
 .popup-title {
 	font-size: var(--font-size-base);
 	font-weight: var(--font-weight-heavy);
-	margin-bottom: var(--space-sm);
+	margin-bottom: var(--space-xs);
 }
 
 .popup-details {
@@ -72,7 +92,7 @@
 
 .popup-date,
 .popup-elevation {
-	margin: 2px 0;
+	margin: var(--space-xs) 0;
 }
 
 .error {
@@ -85,16 +105,4 @@
 	justify-content: center;
 	padding: 20px;
 	text-align: center;
-}
-
-@media (max-width: 768px) {
-	#map {
-		border-radius: var(--border-radius-md);
-		margin-top: 0;
-	}
-
-	.leaflet-container .leaflet-control-attribution {
-		margin-bottom: var(--space-md);
-		margin-right: var(--space-md);
-	}
 }

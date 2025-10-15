@@ -18,14 +18,14 @@
 
 /* Light Scheme */
 @media (prefers-color-scheme: light) {
-	
+
 	:root {
 		/* Background Color */
-		--bg-color-overlay: rgb(255 255 255 / 25%);
-		--bg-color-caption: rgb(240 240 240 / 50%);
+		--bg-color-overlay: oklch(from var(--snow) l c h / 25%);
+		--bg-color-caption: oklch(from var(--white-smoke) l c h / 50%);
 
 		/* Border Color */
-		--border-color-caption: rgb(51 51 51);
+		--border-color-caption: var(--jet-black);
 
 		/* Shadows */
 		--shadow-modal:
@@ -35,17 +35,17 @@
 
 		--exif-shadow: rgb(255 255 255 / 25%) 0 2px 3px;
 	}
-	
+
 }
 
 /* Dark Scheme */
 @media (prefers-color-scheme: dark) {
-	
+
 	:root {
 		/* Background Color */
-		--bg-color-overlay: rgb(0 0 0 / 25%);
-		--bg-color-caption: rgb(15 15 15 / 50%);
-		
+		--bg-color-overlay: oklch(from var(--jet-black) l c h / 25%);
+		--bg-color-caption: oklch(from var(--vampire-black) l c h / 50%);
+
 		/* Border Color */
 		--border-color-caption: var(--primary-color);
 
@@ -57,36 +57,61 @@
 
 		--exif-shadow: rgb(0 0 0 / 25%) 0 2px 3px;
 	}
-	
+
 }
 
 /* --------------------------------------------------------------------------
    MODAL OVERLAY & CONTENT
    -------------------------------------------------------------------------- */
-
-.modal {
-	align-items: center;
-	backdrop-filter: var(--modal-blur);
-	background: var(--bg-color-overlay);
-	display: flex;
-	inset: 0;
-	justify-content: center;
-	opacity: 0;
-	pointer-events: none;
-	position: fixed;
-	text-align: center;
-	transition: opacity var(--transition-medium);
-	z-index: 998;
+/* Open state of the dialog  */
+dialog[open] {
+	opacity: 1;
 }
 
-.modal--active {
+/* Before open state  */
+@starting-style {
+	dialog[open] {
+		opacity: 0;
+	}
+}
+
+/* Closed state of the dialog   */
+dialog {
+	background: none;
+	border: none;
+	opacity: 0;
+	padding: 0;
+	transition:
+		opacity 0.7s ease-out;
+}
+
+dialog:focus {
+	outline: none;
+}
+
+/* Transition the :backdrop when the dialog modal is promoted to the top layer */
+dialog::backdrop {
+	backdrop-filter: var(--modal-blur);
+	background: var(--bg-color-overlay);
+	opacity: 0;
+	transition:
+		opacity 0.3s ease-in-out;
+}
+
+dialog[open]::backdrop {
 	opacity: 1;
-	pointer-events: all;
+}
+
+@starting-style {
+	dialog[open]::backdrop {
+		opacity: 0;
+	}
 }
 
 .modal-card {
 	border-radius: var(--border-radius-sm);
 	box-shadow: var(--shadow-modal);
+	margin: var(--space-sm);
 	max-height: var(--modal-max-height);
 	max-width: var(--modal-max-width);
 	overflow: hidden;
@@ -103,16 +128,14 @@
 /* --------------------------------------------------------------------------
    MODAL CAPTIONS & METADATA
    -------------------------------------------------------------------------- */
-
+/* Caption */
 .modal-caption {
 	backdrop-filter: var(--modal-caption-blur);
 	background: var(--bg-color-caption);
 	border: 1px solid var(--border-color-caption);
 	border-radius: var(--border-radius-sm);
 	bottom: 0;
-	box-sizing: border-box;
 	font-family: var(--font-family-ui);
-	left: 0;
 	margin: var(--space-xs);
 	opacity: 0;
 	padding: var(--space-xs);
@@ -130,30 +153,36 @@
 	margin: var(--space-sm);
 }
 
-.modal-card:hover .modal-caption,
-.modal-card.caption-active .modal-caption {
+.modal-card:hover .modal-caption {
 	opacity: 1;
 	pointer-events: auto;
 	transform: translateY(0);
 }
 
+/* Caption Header */
 .caption-header {
 	align-items: center;
 	display: grid;
 	grid-template:
-		"date title elevation" auto 
-		"coords coords coords" auto / 1fr auto 1fr;
+		"date title elevation" auto "coords coords coords" auto / 1fr auto 1fr;
 	text-shadow: var(--exif-shadow);
 }
 
-.caption-header time {
+.caption-header {
+	font-family: var(--font-family-mono);
+	font-size: var(--font-size-xxs);
 	color: var(--text-color-muted);
+}
+
+/* Top Row */
+.photo-date {
 	grid-area: date;
 	place-self: center center;
 }
 
-.caption-header h2 {
+.title {
 	color: var(--text-color-primary);
+	font-family: var(--font-family-ui);
 	font-size: var(--font-size-base);
 	font-weight: var(--font-weight-heavy);
 	grid-area: title;
@@ -162,17 +191,17 @@
 }
 
 .altitude {
-	color: var(--text-color-muted);
 	grid-area: elevation;
 	place-self: center center;
 }
 
+/* GPS Row */
 .gps {
 	align-items: center;
 	display: flex;
 	grid-area: coords;
 	justify-self: center;
-	padding-top: var(--space-xs);
+	padding-top: var(--space-xxs);
 	text-wrap: wrap;
 }
 
@@ -181,25 +210,18 @@
 	text-decoration: none;
 }
 
-.gps a:hover,
-.gps a:focus {
+.gps a:hover {
 	text-decoration: underline;
 }
 
-.caption-data {
-	font-family: var(--font-family-mono);
-	font-size: var(--font-size-xxs);
-}
-
-.modal-copyright {
-	box-sizing: border-box;
-	color: var(--text-color-muted);
+/* Copyright */
+.copyright {
 	font-family: var(--font-family-ui);
 	font-size: var(--font-size-xxs);
-	font-variant: lining-nums;
+	font-style: normal;
+	font-weight: var(--font-weight-normal);
 	padding: var(--space-sm);
 	text-align: center;
-	width: 100%;
 }
 
 /* --------------------------------------------------------------------------
@@ -233,14 +255,14 @@
    MODAL CONTROLS
    -------------------------------------------------------------------------- */
 
-.modal-close {
+/* .modal-close {
 	align-items: center;
 	background: var(--bg-color-main);
 	border: 1px solid var(--accent-color);
 	border-radius: 50%;
 	color: var(--accent-color);
 	cursor: pointer;
-	display: flex;
+	display: none;
 	font-size: var(--font-size-xl);
 	height: 2rem;
 	justify-content: center;
@@ -253,45 +275,10 @@
 	width: 2rem;
 }
 
-.modal-close:hover,
-.modal-close:focus {
+.modal-close:hover {
 	background: var(--primary-color);
 	transform: scale(1.1);
-}
-
-/* --------------------------------------------------------------------------
-   MODAL LOADER
-   -------------------------------------------------------------------------- */
-
-.modal-loader {
-	animation: spin 1s linear infinite;
-	border: 5px solid var(--accent-color);
-	border-radius: 50%;
-	border-top-color: #fff;
-	box-shadow: none;
-	display: none;
-	height: 50px;
-	left: 50%;
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 50px;
-	z-index: 10;
-}
-
-@keyframes spin {
-	to {
-		transform: translate(-50%, -50%) rotate(360deg);
-	}
-}
-
-.modal-content.loading .modal-loader {
-	display: block;
-}
-
-.modal-content.loading img {
-	visibility: hidden;
-}
+} */
 
 /* --------------------------------------------------------------------------
    RESPONSIVE DESIGN
@@ -317,5 +304,15 @@
 	.caption-header .gps {
 		justify-self: center;
 	}
-	
+
+}
+
+@media (height <=620px) {
+	.title {
+		font-size: var(--font-size-sm);
+	}
+	.exif-row {
+		font-size: var(--font-size-xxs);
+		gap: var(--space-xs);
+	}
 }

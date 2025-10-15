@@ -4,23 +4,25 @@
 
 :root {
 	color-scheme: light dark;
-
-	/* -------------------- Spacing (8px base) -------------------- */
-	--space-xs: 0.25rem;
+	/* -------------------- Spacing -------------------- */
+	/* 2px */
+	--space-xxs: 0.125rem;
 	/* 4px */
-	--space-sm: 0.5rem;
+	--space-xs: 0.25rem;
 	/* 8px */
-	--space-ms: 0.75rem;
+	--space-sm: 0.5rem;
 	/* 12px */
-	--space-md: 1rem;
+	--space-ms: 0.75rem;
 	/* 16px */
-	--space-lg: 1.5rem;
+	--space-md: 1rem;
 	/* 24px */
-	--space-xl: 2.5rem;
+	--space-lg: 1.5rem;
 	/* 40px */
-	--space-2xl: 5rem;
+	--space-xl: 2.5rem;
 	/* 80px */
+	--space-2xl: 5rem;
 
+	/* Padding */
 	--fluid-padding-inline: clamp(.25rem, 6vw, 5rem);
 
 	/* -------------------- Typography -------------------- */
@@ -29,17 +31,13 @@
 	--font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', menlo, consolas, 'DejaVu Sans Mono', monospace;
 
 	/* Font Size */
+	/* Scales between ~14px and 18px */
+	--font-size-base: clamp(0.875rem, 0.5vw + 0.6rem, 1.125rem);
 	--font-size-xxs: 0.65rem;
 	--font-size-xs: 0.75rem;
 	--font-size-sm: 0.85rem;
-	
-	/* Scales between ~14px and 18px */
-	--font-size-base: clamp(0.875rem, 0.5vw + 0.6rem, 1.125rem);
-	/* --font-size-base: 1rem; */
 	--font-size-lg: 1.2rem;
 	--font-size-xl: 1.5rem;
-	
-	/* Scales between 40px and 80px */
 	--font-size-h1: clamp(2.5rem, 5vw + 1rem, 5rem);
 
 	/* Font Weight */
@@ -53,39 +51,49 @@
 	--line-height-airy: 1.4;
 	--line-height-loose: 2;
 
-	/* -------------------- Layout & Borders -------------------- */
+	/* -------------------- Borders & Gaps -------------------- */
+	/* Border Radius */
+	--border-radius-xs: 0.125rem;
 	--border-radius-sm: 0.25rem;
 	--border-radius-md: 0.5rem;
 	--border-radius-lg: 1.5rem;
+	--border-radius-main: clamp(0.5rem, 1.5rem, 2rem);
+	
+	/* Gaps */
 	--section-gap: 1rem;
 	--grid-gap-sm: 0.5rem;
 	--grid-gap: 1rem;
 
-	/* Breakpoints */
-	--breakpoint-sm: 30em;
-	/* 480px */
-	--breakpoint-md: 48em;
-	/* 768px */
-	--breakpoint-lg: 64em;
-	/* 1024px */
-	--breakpoint-wide: 87.5em;
-	/* 1400px */
-
 	/* -------------------- Effects & Transitions -------------------- */
+	/* Transitions */
 	--transition-fast: 0.2s ease;
 	--transition-medium: 0.3s ease;
 	--transition-slow: 0.4s ease;
 	--transition-very-slow: 1s ease;
-
-	/* -------------------- Peak Progress Bar Fill -------------------- */
-	--color-bar-fill: var(--accent-color);
+	
+	/* -------------------- Colors -------------------- */
+	--turquoise: oklch(82% 33% 185deg);
+	--international-orange: oklch(67% 56% 37deg);
+	--silver: oklch(81% 0% 90deg);
+	--blue: oklch(66% 47% 250deg);
+	--snow: oklch(99% 1% 17deg);
+	--vampire-black: oklch(13% 0% 68deg);
+	--dark-slate: oklch(40% 10% 196deg);
+	--jet-black: oklch(33% 0% 90deg);
+	--white-smoke: oklch(97% 0% 90deg);
+	--hot-pink: oklch(73% 50% 352deg);
+	--brandeis-blue: oklch(58% 57% 259deg);
+	--waterspout: oklch(91% 39% 195deg);
+	--paradise-pink: oklch(62% 51% 13deg);
+	--green: oklch(62% 34% 161deg);
+	
 
 	/* -------------------- Venue Colors -------------------- */
-	--venue-red-rocks:	#ff4500;
-	--venue-bluebird:	#2b529c;
-	--venue-ogden:		#ee2738;
-	--venue-belly-up:	#1174b9;
-	--venue-golden-tri:	#ffd700;
+	--venue-red-rocks:	#FF4500;
+	--venue-bluebird:	#2B529C;
+	--venue-ogden:		#EE2738;
+	--venue-belly-up:	#1174B9;
+	--venue-golden-tri:	#FFD700;
 	--venue-summit:		#7130DF;
 	--venue-fillmore:	#ECD24C;
 	--venue-ball-arena:	#4CA9C8;
@@ -99,64 +107,117 @@
 }
 
 /* ==========================================================================
+   BASE STYLES & RESET
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+html {
+	background-color: var(--bg-color-main);
+	color: var(--text-color-primary);
+	font-family: var(--font-family-mono);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-normal);
+	line-height: var(--line-height-base);
+	padding-inline: var(--fluid-padding-inline);
+	padding-block: var(--space-xl) var(--space-lg);
+	scroll-behavior: smooth;
+	scroll-padding-top: var(--space-xl);
+	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+main {
+	background-color: var(--bg-color-main);
+	border-radius: var(--border-radius-main);
+	box-shadow: var(--shadow-main);
+	padding: var(--space-xl) var(--fluid-padding-inline);
+}
+
+/* ==========================================================================
    LIGHT SCHEME
    ========================================================================== */
 
 @media (prefers-color-scheme: light) {
 	:root {
-		/* Primary Colors */
-		--primary-color: rgb(0 212 195);
-		--primary-color-alpha: rgb(0 212 195 / 15%);
+		/* === Primary Colors === */
+		--primary-color: var(--turquoise);
+		--primary-color-light: oklch(from var(--primary-color) l c h / 0.75);
+		--primary-color-alpha: oklch(from var(--primary-color) l c h / 0.15);
 
-		/* Accent Colors */
-		--accent-color: #ff4f00;
-		--accent-color-light: rgb(255 79 0 / 90%);
-		--accent-color-alpha: rgb(255 79 0 / 15%);
+		/* === Accent Colors === */
+		--accent-color: var(--international-orange);
+		--accent-color-light: oklch(from var(--accent-color) l c h / 0.75);
+		--accent-color-alpha: oklch(from var(--accent-color) l c h / 0.15);
+		--accent-grey: var(--silver);
 		
-		/* Link Colors */
-		--a-color: rgb(20, 120, 180);
+		/* === Link Colors === */
+		--a-color: var(--blue);
 		
-		/* Border Colors */
-		--border-color: rgb(208, 208, 208);
+		/* === Border Colors === */
+		--border-color: var(--accent-grey);
 		--hr-color: var(--border-color);
 
-		/* Background Colors */
-		--bg-color-main: rgb(255, 255, 255);
-		--bg-color-alpha: rgb(255, 255, 255 / 50%);
-		--bg-color-tooltip: rgb(240, 240, 240 / 50%);
+		/* === Background Colors === */
+		--bg-color-main: var(--snow);
+		--bg-color-alpha: oklch(from var(--bg-color-main) l c h / 0.5);
 		
-		/* Text Colors */
-		--text-color-primary: #151515;
-		--text-color-secondary: rgb(0 0 0 / 80%);
-		--text-color-muted: rgb(0 0 0 / 60%);
+		--bg-color-tooltip: var(--silver);
 		
-		/* Selection Colors */
-		--selected-text-color: rgb(255 255 255);
-		--text-selection-color: rgb(255 79 0 / 90%);
-		--text-color-highlight: rgb(0 0 0 / 60%);
+		/* === Text Colors === */
+		/* Very Dark Gray (mostly black) */
+		--text-color-primary: var(--vampire-black);
 		
-		/* Heatmap Colors */
-		--heatmap-min-color: rgb(220, 220, 220);
+		/* 80% */
+		--text-color-secondary: oklch(from var(--text-color-primary) l c h / 0.8);
+		
+		/* 60% */
+		--text-color-muted: oklch(from var(--text-color-primary) l c h / 0.6);
+		
+		/* === Selection Colors === */
+		/* White */
+		--selected-text-color: var(--bg-color-main);
+		
+		/* 90% Int'l Orange */
+		--text-selection-color: oklch(from var(--accent-color) l c h / 0.9);
+		
+		/* === Sequence Colors === */
+		--border-sequence: var(--accent-color-light);
+		
+		/* === Heatmap Colors === */
+		--heatmap-min-color: var(--accent-grey);
 		--heatmap-max-color: var(--accent-color);
-		--heatmap-glow-min-color: rgba(0, 0, 0, 0.25);
-		--heatmap-glow-max-color: rgba(255, 79, 0, 0.7);
+		--heatmap-glow-min-color: var(--accent-color-alpha);
+		--heatmap-glow-max-color: var(--accent-color-light);
 
-		/* Progress Bar Colors */
-		--bg-color-progress: #d0d0d0;
+		/* === Progress Bar Colors === */
+		--bg-color-progress: var(--accent-grey);
+		--color-bar-fill: var(--accent-color);
 		
-		/* Button Colors */
-		--button-hover-color: var(--accent-color-alpha);
+		/* === Button Colors === */
 		--button-active-bg: var(--accent-color);
 		--button-active-color: var(--bg-color-main);
 		--button-active-hover-bg: var(--accent-color-light);
 		--button-active-hover-color: var(--bg-color-main);
+		--button-border-color: var(--accent-color-light);
+		--button-hover-color: var(--accent-color-alpha);
 
-		/* Shadows */
-		--shadow-main:
-			rgb(0 0 0 / 40%) 0px 2px 4px,
-			rgb(0 0 0 / 30%) 0px 7px 13px -3px,
-			rgb(0 0 0 / 20%) 0px -3px 0px inset;
-
+		/* === Shadows === */
 		--shadow-details:
 			rgb(0 128 128 / 40%) -5px 5px,
 			rgb(0 128 128 / 30%) -10px 10px,
@@ -164,22 +225,28 @@
 			rgb(0 128 128 / 10%) -20px 20px;
 
 		--shadow-elevated:
-			rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em,
-			rgb(0 0 0 / 25%) 0px 0.125em 0.5em,
-			rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
+			rgb(0 0 0 / 19%) 0px 10px 20px, 
+			rgb(0 0 0 / 23%) 0px 6px 6px;
 
 		--shadow-glow: none;
 
-		--shadow-media:
-			rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em,
-			rgb(0 0 0 / 25%) 0px 0.125em 0.5em,
-			rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
+		--shadow-subtle: 
+			rgb(60 64 67 / 30%) 0px 1px 2px 0px, 
+			rgb(60 64 67 / 15%) 0px 1px 3px 1px;
+	
+		--shadow-main:
+			rgb(0 0 0 / 40%) 0px 2px 4px,
+			rgb(0 0 0 / 30%) 0px 7px 13px -3px,
+			rgb(0 0 0 / 20%) 0px -3px 0px inset;
+	
+		--shadow-map-icon: rgb(0 0 0 / 20%) 0 2px 4px;
+	
+		--shadow-media: drop-shadow(1px 0px 3px var(--jet-black));
 
 		--shadow-nav: rgb(0 0 0 / 24%) 0px 3px 8px;
 
 		--shadow-prog: rgb(255 79 0 / 50%) 0 0 7px;
 
-		--shadow-subtle: rgb(0 0 0 / 20%) 0 2px 4px;
 	}
 }
 
@@ -189,80 +256,105 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		/* Primary Colors */
-		--primary-color: rgb(80 227 194);
-		--primary-color-light: rgb(80 227 194 / 90%);
-		--primary-color-alpha: rgb(80 227 194 / 15%);
+		/* === Primary Colors === */
+		--primary-color: var(--turquoise);
+		--primary-color-light: oklch(from var(--primary-color) l c h / 0.9);
+		--primary-color-alpha: oklch(from var(--primary-color) l c h / 0.15);
 
-		/* Accent Colors */
-		--accent-color: rgb(80 227 194);
-		--accent-color-light: rgb(80 212 195 / 15%);
-		--accent-color-alpha: rgb(80 212 195 / 15%);
+		/* === Accent Colors === */
+		--accent-color: var(--turquoise);
+		--accent-color-light: oklch(from var(--accent-color) l c h / 0.75);
+		--accent-color-alpha: oklch(from var(--accent-color) l c h / 0.15);
 		
-		/* Link Colors */
-		--a-color: rgb(80 227 194 / 90%);
+		--accent-grey: var(--silver);
 
-		/* Border Colors */
-		--border-color: rgb(68 68 68);
-		--hr-color: rgb(80 227 194 / 30%);
+		/* === Link Colors === */
+		--a-color: var(--blue);
 
-		/* Background Colors */
-		--bg-color-main: #010101;
-		--bg-color-alpha: rgb(0 0 0 / 50%);
-		--bg-color-tooltip: rgb(50 50 50 / 75%);
+		/* === Border Colors === */
+		--border-color: var(--dark-slate);
+		--hr-color: var(--border-color);
 
-		/* Text Colors */
-		--text-color-primary: rgb(245 245 245);
-		--text-color-secondary: rgb(245 245 245 / 70%);
-		--text-color-muted: rgb(245 245 245/ 50%);
+		/* === Background Colors === */
+		--bg-color-main: var(--vampire-black);
 
-		/* Selection Colors */
-		--selected-text-color: #010101;
-		--text-selection-color: hotpink;
-		--text-color-highlight: rgb(80 227 194);
+		--bg-color-tooltip: oklch(from var(--jet-black) l c h / 0.75);
 
-		/* Heatmap Colors */
+		/* === Text Colors === */
+		--text-color-primary: var(--white-smoke);
+		--text-color-secondary: oklch(from var(--text-color-primary) l c h / 0.7);
+		--text-color-muted: oklch(from var(--text-color-primary) l c h / 0.5);
+
+		/* === Selection Colors === */
+		--selected-text-color: var(--text-color-primary);
+		--text-selection-color: var(--hot-pink);
+		
+		/* === Sequence === */
+		--border-sequence: var(--primary-color-light);
+
+		/* === Heatmap Colors === */
 		--heatmap-min-color: var(--text-color-muted);
 		--heatmap-max-color: var(--text-color-primary);
-		--heatmap-glow-min-color: rgba(0, 150, 255, 0.6); /* Electric Blue */
-		--heatmap-glow-max-color: rgba(0, 255, 255, 0.8); /* Bright Cyan */
-
-		/* Progress Bar Colors */
-		--bg-color-progress: darkslategrey;
 		
-		/* Button Colors */
+		/* Brandeis blue */
+		--heatmap-glow-min-color: oklch(from var(--brandeis-blue) l c h / 0.6);
+		
+		/* Waterspout */
+		--heatmap-glow-max-color: oklch(from var(--waterspout) l c h / 0.8);
+
+		/* === Progress Bar Colors === */
+		/* Dark Slate Gray */
+		--bg-color-progress:  var(--dark-slate);
+		--color-bar-fill: var(--primary-color);
+		
+		/* === Button Colors === */
 		--button-hover-color: var(--primary-color-alpha);
 		--button-active-bg: var(--primary-color);
 		--button-active-color: var(--bg-color-main);
-		--button-active-hover-bg: var(--primary-color-light);
+		--button-active-hover-bg: var(--primary-color);
 		--button-active-hover-color: var(--bg-color-main);
+		--button-border-color: var(--accent-color-light);
 
-		/* Shadows */
-		--shadow-main:
-			rgb(0 212 195 / 40%) 0px 2px 4px,
-			rgb(0 212 195 / 30%) 0px 7px 13px -3px,
-			rgb(0 212 195 / 20%) 0px -3px 0px inset;
-			
+		/* === Shadows === */
 		--shadow-details:
 			rgb(0 128 128 / 40%) -5px 5px,
 			rgb(0 128 128 / 30%) -10px 10px,
 			rgb(0 128 128 / 20%) -15px 15px,
 			rgb(0 128 128 / 10%) -20px 20px;
-			
+
 		--shadow-elevated:
-			rgb(0 212 195 / 25%) 0px 0.0625em 0.0625em,
-			rgb(0 212 195 / 25%) 0px 0.125em 0.5em;
-			
+			rgb(80 212 195 / 19%) 0px 10px 20px, 
+			rgb(80 212 195 / 23%) 0px 6px 6px;
+
 		--shadow-glow: rgb(80 219 255 / 50%) 0 0 7px;
 		
-		--shadow-media:
-			rgb(0 212 195 / 25%) 0px 0.0625em 0.0625em,
-			rgb(0 212 195 / 25%) 0px 0.125em 0.5em,
-			rgb(0 0 0 / 10%) 0px 0px 0px 1px inset;
-			
+		--shadow-subtle: 
+			rgb(80 255 233  / 34%) 0px 1px 2px 0px, 
+			rgb(80 255 233  / 15%) 0px 1px 3px 1px;
+
+		--shadow-main:
+			rgb(80 212 195 / 40%) 0px 2px 4px,
+			rgb(80 212 195 / 30%) 0px 7px 13px -3px,
+			rgb(80 212 195 / 20%) 0px -3px 0px inset;
+	
+		--shadow-map-icon: rgb(0 0 0 / 20%) 0 2px 4px;
+
+		--shadow-media: drop-shadow(0px 1px 1px #333);
+
 		--shadow-nav: rgb(80 219 255 / 24%) 0px 3px 8px;
+
 		--shadow-prog: rgb(80 219 255 / 50%) 0 0 7px;
+
 		--shadow-subtle: rgb(0 212 195 / 20%) 0 2px 4px;
+	}
+}
+
+/* Reduced motion and high contrast modes */
+@media (prefers-contrast: high) {
+	:root {
+		--primary-color: #06c;
+		--border-color: #000;
+		--text-color-primary: #000;
 	}
 }
 
