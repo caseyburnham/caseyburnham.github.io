@@ -1,6 +1,7 @@
 // ============================================================================
 // Configuration
 // ============================================================================
+import AlbumHoverManager from './candy.js';
 
 const CONFIG = {
   mediaImages: {
@@ -95,7 +96,7 @@ const createRecordElement = (template, data, options = {}) => {
   
   // Set media type image
   const imageName = CONFIG.mediaImages[data.mediaType] || CONFIG.mediaImages.default;
-  const slideOutImage = clone.querySelector('.slide-out-media');
+  const slideOutImage = clone.querySelector('.album-media');
   slideOutImage.src = `/images/assets/png/${imageName}`;
   
   // Add media type class
@@ -123,6 +124,7 @@ const renderRecords = (container, template, records, options = {}) => {
 	const element = createRecordElement(template, record, options);
 	container.appendChild(element);
   });
+  new AlbumHoverManager('.album-sleeve');
 };
 
 /**
@@ -225,7 +227,7 @@ const handleResize = () => {
 // ============================================================================
 // Initialization
 // ============================================================================
-
+  
 /**
  * Initializes the Discogs display functionality
  */

@@ -72,32 +72,41 @@
 	--transition-very-slow: 1s ease;
 	
 	/* -------------------- Colors -------------------- */
+	/* Primary */
 	--turquoise: oklch(82% 33% 185deg);
+	
+	/* Accent */
+	--green: oklch(62% 34% 161deg);
 	--international-orange: oklch(67% 56% 37deg);
 	--silver: oklch(81% 0% 90deg);
-	--blue: oklch(66% 47% 250deg);
-	--snow: oklch(99% 1% 17deg);
-	--vampire-black: oklch(13% 0% 68deg);
-	--dark-slate: oklch(40% 10% 196deg);
-	--jet-black: oklch(33% 0% 90deg);
-	--white-smoke: oklch(97% 0% 90deg);
 	--hot-pink: oklch(73% 50% 352deg);
+	--paradise-pink: oklch(62% 51% 13deg);
+	
+	/* Blue */
+	--blue: oklch(66% 47% 250deg);
 	--brandeis-blue: oklch(58% 57% 259deg);
 	--waterspout: oklch(91% 39% 195deg);
-	--paradise-pink: oklch(62% 51% 13deg);
-	--green: oklch(62% 34% 161deg);
 	
+	/* Black */
+	--dark-slate: oklch(40% 10% 196deg);
+	--jet-black: oklch(33% 0% 90deg);
+	--onyx: oklch(34% 1% 220deg);
+	--vampire-black: oklch(13% 0% 68deg);
+	
+	/* White */
+	--snow: oklch(99% 1% 17deg);
+	--white-smoke: oklch(97% 0% 90deg);
 
 	/* -------------------- Venue Colors -------------------- */
-	--venue-red-rocks:	#FF4500;
-	--venue-bluebird:	#2B529C;
-	--venue-ogden:		#EE2738;
-	--venue-belly-up:	#1174B9;
-	--venue-golden-tri:	#FFD700;
-	--venue-summit:		#7130DF;
-	--venue-fillmore:	#ECD24C;
 	--venue-ball-arena:	#4CA9C8;
+	--venue-belly-up:	#1174B9;
+	--venue-bluebird:	#2B529C;
+	--venue-fillmore:	#ECD24C;
+	--venue-golden-tri:	#FFD700;
 	--venue-gothic:		#DC5233;
+	--venue-ogden:		#EE2738;
+	--venue-red-rocks:	#FF4500;
+	--venue-summit:		#7130DF;
 }
 
 /* -------------------- Text Selection Colors -------------------- */
@@ -165,40 +174,29 @@ main {
 		--accent-color-light: oklch(from var(--accent-color) l c h / 0.75);
 		--accent-color-alpha: oklch(from var(--accent-color) l c h / 0.15);
 		--accent-grey: var(--silver);
-		
+	
 		/* === Link Colors === */
 		--a-color: var(--blue);
-		
+	
 		/* === Border Colors === */
 		--border-color: var(--accent-grey);
+		--border-sequence: var(--accent-color-light);
 		--hr-color: var(--border-color);
 
 		/* === Background Colors === */
 		--bg-color-main: var(--snow);
 		--bg-color-alpha: oklch(from var(--bg-color-main) l c h / 0.5);
-		
 		--bg-color-tooltip: var(--silver);
-		
+	
 		/* === Text Colors === */
-		/* Very Dark Gray (mostly black) */
 		--text-color-primary: var(--vampire-black);
-		
-		/* 80% */
 		--text-color-secondary: oklch(from var(--text-color-primary) l c h / 0.8);
-		
-		/* 60% */
 		--text-color-muted: oklch(from var(--text-color-primary) l c h / 0.6);
-		
+	
 		/* === Selection Colors === */
-		/* White */
 		--selected-text-color: var(--bg-color-main);
-		
-		/* 90% Int'l Orange */
 		--text-selection-color: oklch(from var(--accent-color) l c h / 0.9);
-		
-		/* === Sequence Colors === */
-		--border-sequence: var(--accent-color-light);
-		
+
 		/* === Heatmap Colors === */
 		--heatmap-min-color: var(--accent-grey);
 		--heatmap-max-color: var(--accent-color);
@@ -208,7 +206,7 @@ main {
 		/* === Progress Bar Colors === */
 		--bg-color-progress: var(--accent-grey);
 		--color-bar-fill: var(--accent-color);
-		
+	
 		/* === Button Colors === */
 		--button-active-bg: var(--accent-color);
 		--button-active-color: var(--bg-color-main);
@@ -219,33 +217,38 @@ main {
 
 		/* === Shadows === */
 		--shadow-details:
-			rgb(0 128 128 / 40%) -5px 5px,
-			rgb(0 128 128 / 30%) -10px 10px,
-			rgb(0 128 128 / 20%) -15px 15px,
-			rgb(0 128 128 / 10%) -20px 20px;
+			oklch(from var(--turquoise) l c h / .4) -5px 5px,
+			oklch(from var(--turquoise) l c h / .3) -10px 10px,
+			oklch(from var(--turquoise) l c h / .2) -15px 15px,
+			oklch(from var(--turquoise) l c h / .1) -20px 20px;
 
 		--shadow-elevated:
-			rgb(0 0 0 / 19%) 0px 10px 20px, 
-			rgb(0 0 0 / 23%) 0px 6px 6px;
+			oklch(from var(--jet-black) l c h / .19) 0px 10px 20px, 
+			oklch(from var(--jet-black) l c h / .23) 0px 6px 6px;
 
-		--shadow-glow: none;
+		--shadow-glow: 
+			none;
 
 		--shadow-subtle: 
-			rgb(60 64 67 / 30%) 0px 1px 2px 0px, 
-			rgb(60 64 67 / 15%) 0px 1px 3px 1px;
+			oklch(from var(--onyx) l c h / .3) 0px 1px 2px 0px, 
+			oklch(from var(--onyx) l c h / .15) 0px 1px 3px 1px;
 	
 		--shadow-main:
-			rgb(0 0 0 / 40%) 0px 2px 4px,
-			rgb(0 0 0 / 30%) 0px 7px 13px -3px,
-			rgb(0 0 0 / 20%) 0px -3px 0px inset;
+			oklch(from var(--jet-black) l c h / .4) 0px 2px 4px,
+			oklch(from var(--jet-black) l c h / .3) 0px 7px 13px -3px,
+			oklch(from var(--jet-black) l c h / .2) 0px -3px 0px inset;
 	
-		--shadow-map-icon: rgb(0 0 0 / 20%) 0 2px 4px;
+		--shadow-map-icon: 
+			oklch(from var(--jet-black) l c h / .2) 0 2px 4px;
 	
-		--shadow-media: drop-shadow(1px 0px 3px var(--jet-black));
+		--shadow-media: 
+			drop-shadow(1px 0px 3px var(--jet-black));
 
-		--shadow-nav: rgb(0 0 0 / 24%) 0px 3px 8px;
+		--shadow-nav: 
+			oklch(from var(--jet-black) l c h / .25) 0px 3px 8px;
 
-		--shadow-prog: rgb(255 79 0 / 50%) 0 0 7px;
+		--shadow-prog: 
+			oklch(from var(--accent-color) l c h / .5) 0 0 7px;
 
 	}
 }
@@ -273,11 +276,11 @@ main {
 
 		/* === Border Colors === */
 		--border-color: var(--dark-slate);
+		--border-sequence: var(--primary-color-light);
 		--hr-color: var(--border-color);
 
 		/* === Background Colors === */
 		--bg-color-main: var(--vampire-black);
-
 		--bg-color-tooltip: oklch(from var(--jet-black) l c h / 0.75);
 
 		/* === Text Colors === */
@@ -288,25 +291,20 @@ main {
 		/* === Selection Colors === */
 		--selected-text-color: var(--text-color-primary);
 		--text-selection-color: var(--hot-pink);
-		
-		/* === Sequence === */
-		--border-sequence: var(--primary-color-light);
 
 		/* === Heatmap Colors === */
 		--heatmap-min-color: var(--text-color-muted);
 		--heatmap-max-color: var(--text-color-primary);
-		
-		/* Brandeis blue */
+	
 		--heatmap-glow-min-color: oklch(from var(--brandeis-blue) l c h / 0.6);
-		
-		/* Waterspout */
+	
 		--heatmap-glow-max-color: oklch(from var(--waterspout) l c h / 0.8);
 
 		/* === Progress Bar Colors === */
 		/* Dark Slate Gray */
 		--bg-color-progress:  var(--dark-slate);
 		--color-bar-fill: var(--primary-color);
-		
+	
 		/* === Button Colors === */
 		--button-hover-color: var(--primary-color-alpha);
 		--button-active-bg: var(--primary-color);
@@ -317,35 +315,41 @@ main {
 
 		/* === Shadows === */
 		--shadow-details:
-			rgb(0 128 128 / 40%) -5px 5px,
-			rgb(0 128 128 / 30%) -10px 10px,
-			rgb(0 128 128 / 20%) -15px 15px,
-			rgb(0 128 128 / 10%) -20px 20px;
+			oklch(from var(--accent-color) l c h / .4) -5px 5px,
+			oklch(from var(--accent-color) l c h / .3) -10px 10px,
+			oklch(from var(--accent-color) l c h / .2) -15px 15px,
+			oklch(from var(--accent-color) l c h / .1) -20px 20px;
 
 		--shadow-elevated:
-			rgb(80 212 195 / 19%) 0px 10px 20px, 
-			rgb(80 212 195 / 23%) 0px 6px 6px;
+			oklch(from var(--accent-color) l c h / .19) 0px 10px 20px, 
+			oklch(from var(--accent-color) l c h / .23) 0px 6px 6px;
 
-		--shadow-glow: rgb(80 219 255 / 50%) 0 0 7px;
+		--shadow-glow: 
+			oklch(from var(--accent-color) l c h / .5) 0 0 7px;
 		
 		--shadow-subtle: 
-			rgb(80 255 233  / 34%) 0px 1px 2px 0px, 
-			rgb(80 255 233  / 15%) 0px 1px 3px 1px;
+			oklch(from var(--accent-color) l c h / .34) 0px 1px 2px 0px, 
+			oklch(from var(--accent-color) l c h / .15) 0px 1px 3px 1px;
 
 		--shadow-main:
-			rgb(80 212 195 / 40%) 0px 2px 4px,
-			rgb(80 212 195 / 30%) 0px 7px 13px -3px,
-			rgb(80 212 195 / 20%) 0px -3px 0px inset;
+			oklch(from var(--accent-color) l c h / .4) 0px 2px 4px,
+			oklch(from var(--accent-color) l c h / .3) 0px 7px 13px -3px,
+			oklch(from var(--accent-color) l c h / .2) 0px -3px 0px inset;
 	
-		--shadow-map-icon: rgb(0 0 0 / 20%) 0 2px 4px;
+		--shadow-map-icon: 
+			oklch(from var(--jet-black) l c h / .2) 0 2px 4px;
 
-		--shadow-media: drop-shadow(0px 1px 1px #333);
+		--shadow-media: 
+			drop-shadow(1px 0px 3px var(--jet-black));
 
-		--shadow-nav: rgb(80 219 255 / 24%) 0px 3px 8px;
+		--shadow-nav: 
+			oklch(from var(--accent-color) l c h / .25) 0px 3px 8px;
 
-		--shadow-prog: rgb(80 219 255 / 50%) 0 0 7px;
+		--shadow-prog: 
+			oklch(from var(--accent-color) l c h / .5) 0 0 7px;
 
-		--shadow-subtle: rgb(0 212 195 / 20%) 0 2px 4px;
+		--shadow-subtle: 
+			oklch(from var(--accent-color) l c h / .2) 0 2px 4px;
 	}
 }
 
