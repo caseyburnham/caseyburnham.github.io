@@ -29,11 +29,11 @@
 
 		/* Shadows */
 		--shadow-modal:
-			rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em,
-			rgb(0 0 0 / 25%) 0px 0.125em 0.5em,
-			rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
+			oklch(from var(--jet-black) l c h / .25) 0px 0.0625em 0.0625em,
+			oklch(from var(--jet-black) l c h / .25) 0px 0.125em 0.5em,
+			oklch(from var(--snow) l c h / .1) 0px 0px 0px 1px inset;
 
-		--exif-shadow: rgb(255 255 255 / 25%) 0 2px 3px;
+		--exif-shadow: oklch(from var(--snow) l c h / .25) 0 2px 3px;
 	}
 
 }
@@ -51,11 +51,12 @@
 
 		/* Shadows */
 		--shadow-modal:
-			rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em,
-			rgb(0 0 0 / 25%) 0px 0.125em 0.5em,
-			rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
+			oklch(from var(--jet-black) l c h / .25) 0px 0.0625em 0.0625em,
+			oklch(from var(--jet-black) l c h / .25) 0px 0.125em 0.5em,
+			oklch(from var(--snow) l c h / .1) 0px 0px 0px 1px inset;
 
-		--exif-shadow: rgb(0 0 0 / 25%) 0 2px 3px;
+		--exif-shadow: 
+			oklch(from var(--jet-black) l c h / .25) 0 2px 3px;
 	}
 
 }
@@ -140,7 +141,7 @@ dialog[open]::backdrop {
 	opacity: 0;
 	padding: var(--space-xs);
 	position: absolute;
-	transform: translateY(10px);
+	transform: translateY(var(--space-ms));
 	transition: opacity var(--transition-medium),
 				transform var(--transition-medium);
 	width: stretch;

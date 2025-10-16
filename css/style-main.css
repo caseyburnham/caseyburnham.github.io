@@ -16,12 +16,12 @@
 a {
 	color: var(--a-color);
 	text-decoration-skip: spaces;
-	-webkit-text-decoration-skip: spaces;
+	text-decoration-skip: -webkit-spaces;
 }
 
-a[target="_blank"]:not(.record-link)::after {
+a[target="_blank"]:not(.record-link, #map a, #now-playing a, #for-sale a)::after {
   content: '\2197';
-  text-decoration: none;
+  text-decoration-color: var(--bg-color-main);
 }
 
 abbr {

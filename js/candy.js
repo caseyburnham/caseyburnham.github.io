@@ -146,6 +146,72 @@ class NavigationManager {
   }
 }
 
+// ===== Record Z-indexer =====
+export default class AlbumHoverManager {
+  constructor(selector) {
+	this.albums = document.querySelectorAll(selector);
+	
+	this.currentZIndex = 10;
+	
+	this.handleMouseEnter = this.handleMouseEnter.bind(this);
+	this.handleMouseLeave = this.handleMouseLeave.bind(this);
+	this.handleTransitionEnd = this.handleTransitionEnd.bind(this);
+	this.init();
+  }
+
+  init() {
+	this.albums.forEach(album => {
+	  album.addEventListener('mouseenter', this.handleMouseEnter);
+	  album.addEventListener('mouseleave', this.handleMouseLeave);
+	});
+  }
+
+  handleMouseEnter(event) {
+	const album = event.currentTarget;
+	const parent = album.closest('.discogs-record');
+	
+	album.classList.remove('is-leaving');
+	album.classList.add('is-active');
+	
+	if (parent) {
+	  parent.classList.remove('is-leaving');
+	  parent.classList.add('is-active');
+	  // Assign incrementing z-index
+	  parent.style.zIndex = this.currentZIndex++;
+	}
+  }
+
+  handleMouseLeave(event) {
+	const album = event.currentTarget;
+	const parent = album.closest('.discogs-record');
+	
+	album.classList.remove('is-active');
+	album.classList.add('is-leaving');
+	
+	if (parent) {
+	  parent.classList.remove('is-active');
+	  parent.classList.add('is-leaving');
+	}
+	
+	album.addEventListener('transitionend', this.handleTransitionEnd, { once: true });
+  }
+
+  handleTransitionEnd(event) {
+	if (event.propertyName === 'transform') {
+	  const album = event.currentTarget;
+	  const parent = album.closest('.discogs-record');
+	  
+	  album.classList.remove('is-leaving');
+	  
+	  if (parent) {
+		parent.classList.remove('is-leaving');
+		// Reset to base z-index after transition
+		parent.style.zIndex = '';
+	  }
+	}
+  }
+};
+
 // ===== Utility Functions =====
 // Copyright Year
 const updateCopyrightYear = () => {
