@@ -6,16 +6,6 @@
         "name": "Abstract",
         "images": [
             {
-                "id": "bulldozer-blade-detail",
-                "alt": "Bulldozer Blade Detail",
-                "title": "Bulldozer Blade Detail",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/abstract/avif/bulldozer-blade-detail.avif"
-                },
-                "thumbnail": "/images/galleries/abstract/thumbnails/bulldozer-blade-detail.avif"
-            },
-            {
                 "id": "cowboy-print",
                 "alt": "Cowboy Print Wallpaper",
                 "title": "Cowboy Print",
@@ -106,16 +96,6 @@
                 "thumbnail": "/images/galleries/abstract/thumbnails/sloans-lake.avif"
             },
             {
-                "id": "snowfield",
-                "alt": "Snowfield, Sprauge Lake, Rocky Mountin National Park",
-                "title": "Snowfield",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/abstract/avif/snowfield.avif"
-                },
-                "thumbnail": "/images/galleries/abstract/thumbnails/snowfield.avif"
-            },
-            {
                 "id": "star-k-sunset",
                 "alt": "Sunset at Star K Ranch",
                 "title": "Star K Sunset",
@@ -179,16 +159,6 @@
                     "avif": "/images/galleries/cemeteries/avif/dawson-cemetery.avif"
                 },
                 "thumbnail": "/images/galleries/cemeteries/thumbnails/dawson-cemetery.avif"
-            },
-            {
-                "id": "died",
-                "alt": "Headstone Detail, Old Georgetown Cemetery, CO",
-                "title": "DIED",
-                "layout": "portrait",
-                "sources": {
-                    "avif": "/images/galleries/cemeteries/avif/died.avif"
-                },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/died.avif"
             },
             {
                 "id": "elizabethtown-cemetery",
@@ -946,14 +916,14 @@
                 "thumbnail": "/images/galleries/off-road/thumbnails/taylor-mountain-trail.avif"
             },
             {
-                "id": "salt-flats",
-                "alt": "Salt Flats",
-                "title": "Salt Flats",
+                "id": "bonneville-salt-flats",
+                "alt": "Bonneville Salt Flats",
+                "title": "Bonneville Salt Flats",
                 "layout": "landscape",
                 "sources": {
-                    "jpeg": "/images/galleries/off-road/jpeg/salt-flats.jpeg"
+                    "jpeg": "/images/galleries/off-road/jpeg/bonneville-salt-flats.jpeg"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/salt-flats.jpeg"
+                "thumbnail": "/images/galleries/off-road/thumbnails/bonneville-salt-flats.jpeg"
             }
         ]
     },
@@ -1372,8 +1342,8 @@
             },
             {
                 "id": "balanced-rock",
-                "alt": "Balanced Rock",
-                "title": "Balanced Rock",
+                "alt": "Fire Rock",
+                "title": "Fire Rock",
                 "layout": "portrait",
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/balanced-rock.avif"
@@ -1412,8 +1382,8 @@
             },
             {
                 "id": "double-arches",
-                "alt": "Double Arches",
-                "title": "Double Arches",
+                "alt": "Arches",
+                "title": "Arches",
                 "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/double-arches.avif"
@@ -1582,8 +1552,8 @@
             },
             {
                 "id": "sooner-rocks",
-                "alt": "Sooner Rocks",
-                "title": "Sooner Rocks",
+                "alt": "Sandstone Divot",
+                "title": "Sandstone Divot",
                 "layout": "landscape",
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/sooner-rocks.avif"

@@ -27,7 +27,7 @@ class Galleries {
 		},
 		// Row limits per breakpoint [landscape_max, portrait_max, min_images]
 		ROW_LIMITS_RESPONSIVE: {
-			MOBILE: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 5, MIN_IMAGES: 3 },
+			MOBILE: { LANDSCAPE_MAX: 4, PORTRAIT_MAX: 5, MIN_IMAGES: 3 },
 			TABLET: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 6, MIN_IMAGES: 3 },
 			DESKTOP: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 6, MIN_IMAGES: 3 },
 			WIDESCREEN: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 7, MIN_IMAGES: 3 }

@@ -6,17 +6,16 @@
    GALLERY
    -------------------------------------------------------------------------- */
  
-.gallery-controls {
+/* .gallery-controls {
 	text-align: center;
-	width: 100%;
-}
+	inline-size: 100%;
+} */
 
 .gallery-buttons {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-sm);
-	max-width: 100%;
-	width: 100%;
+	display: grid;
+	gap: var(--grid-gap-sm);
+	grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+	inline-size: 100%;
 }
 
 .gallery-btn {
@@ -25,30 +24,28 @@
 	border-radius: var(--border-radius-sm);
 	color: var(--text-color-primary);
 	cursor: pointer;
-	flex: 1 1 calc(33% - var(--space-sm));
 	font-family: inherit;
 	font-size: var(--font-size-sm);
-	min-width: calc(33% - var(--space-sm));
 	padding: var(--space-sm) var(--space-md);
 	text-wrap: wrap;
 	transition: background-color var(--transition-medium);
-}
 
-.gallery-btn:hover {
+	&:hover {
 		background-color: var(--button-hover-color);
-}
+	}
 
-.gallery-btn.active {
-	background: var(--button-active-bg);
-	border: 1px solid var(--accent-color);
-	color: var(--button-active-color);
-	font-weight: var(--font-weight-heavy);
-}
+	&.active {
+		background: var(--button-active-bg);
+		border: 1px solid var(--accent-color);
+		color: var(--button-active-color);
+		font-weight: var(--font-weight-heavy);
+	}
 
-.gallery-btn.active:hover {
-	background: var(--button-active-hover-bg);
-	color: var(--button-active-hover-color);
-	cursor: default;
+	&.active:hover {
+		background: var(--button-active-hover-bg);
+		color: var(--button-active-hover-color);
+		cursor: default;
+	}
 }
 
 /* --------------------------------------------------------------------------
@@ -58,30 +55,60 @@
 .photo-grid {
 	display: grid;
 	gap: var(--grid-gap);
+	inline-size: 100%;
 	transition: all 0.3s ease;
-}
 
-.photo-grid img {
-	transition: transform 0.2s ease;
+	& img {
+		inline-size: 100%;
+		transition: transform 0.2s ease;
+	}
 }
-
 .landscape-row,
 .portrait-row {
-	grid-template-columns: repeat(auto-fit, minmax(max-content, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 }
 
 .pano-row {
 	grid-template-columns: 1fr;
 }
 
-.pano {
-	grid-column: 1 / -1;
+/* --------------------------------------------------------------------------
+   PHOTO THUMBNAILS
+   -------------------------------------------------------------------------- */
+.photo-thumb {
+	cursor: pointer;
+	overflow: hidden;
+	transform: 
+		translateY(0)
+		scale(1);
+	z-index: 10;
+
+  &:hover {
+	box-shadow: var(--shadow-elevated);
+	transform: translateY(-0.25rem) scale(1.02);
+
+	& img {
+	  filter: grayscale(0%);
+	  transform: scale(1.1);
+	}
+  }
+
+  & img {
+	display: block;
+	filter: grayscale(100%);
+	height: 100%;
+	object-fit: cover;
+	transform: scale(1);
+	transition:
+	  filter var(--transition-medium),
+	  transform var(--transition-medium);
+	width: 100%;
+  }
 }
 
 /* --------------------------------------------------------------------------
    CAMERA BUTTONS
    -------------------------------------------------------------------------- */
-
 .camera-link {
 	background: none;
 	border: none;
@@ -102,55 +129,11 @@
 	pointer-events: none;
 	position: absolute;
 	top: var(--space-xs);
-	transition: opacity var(--transition-medium);
+	transition: opacity var(--transition-fast-io);
 }
 
 .camera-link:hover::after {
 	opacity: 1;
-}
-
-/* --------------------------------------------------------------------------
-   PHOTO THUMBNAILS
-   -------------------------------------------------------------------------- */
-
-.photo-thumb {
-	box-shadow: var(--shadow-subtle);
-	cursor: pointer;
-	overflow: hidden;
-	outline: 1px solid var(--dark-slate);
-	position: relative;
-	transform: scale(1);
-	transition:
-		box-shadow var(--transition-medium),
-		transform var(--transition-medium);
-	will-change: 
-		transform, 
-		transition;
-	z-index: 10;	
-}
-
-.photo-thumb:hover {
-	box-shadow: var(--shadow-elevated);
-	transform: 
-		translateY(-0.25rem) 
-		scale(1.02);
-}
-
-.photo-thumb img {
-	display: block;
-	filter: grayscale(100%);
-	height: 100%;
-	object-fit: cover;
-	transform: scale(1);
-	transition:
-		filter var(--transition-medium),
-		transform var(--transition-medium);
-	width: 100%;
-}
-
-.photo-thumb:hover img {
-	filter: grayscale(0%);
-	transform: scale(1.1);
 }
 
 /* --------------------------------------------------------------------------
@@ -160,55 +143,102 @@
 .discogs-grid {
 	display: grid;
 	gap: var(--grid-gap);
-	grid-template-columns: repeat(auto-fit, minmax(max-content, 1fr));
-	width: stretch;
-	width: -webkit-fill-available;
-	width: -moz-available;
+	grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+	inline-size: stretch;
+	inline-size: -webkit-fill-available;
+	inline-size: -moz-available;
 }
 
 /* === Record Container === */
 .discogs-record {
   position: relative;
   z-index: 1;
+  perspective: 1000px;
 }
 
 /* === Album Sleeve === */
+.album-sleeve::before,
+.album-sleeve::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius-xs);
+  z-index: -1;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.album-sleeve::before {
+  background: linear-gradient(135deg, #999999, #676767);
+  transform: translateX(0);
+}
+
+.album-sleeve::after {
+  background: linear-gradient(135deg, #595959, #3e3e3e);
+  transform: translateX(0);
+}
+
+.album-sleeve.is-active::before {
+  transform: translateX(0.025rem);
+}
+
+.album-sleeve.is-active::after {
+  transform: translateX(0.05rem);
+}
+
 /* Before */
 .album-sleeve {
 	aspect-ratio: 1 / 1;
-	position: relative;
-	box-shadow: var(--shadow-subtle);
-	transition:
-		box-shadow var(--transition-medium),
-		transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+	border-radius: var(--border-radius-xs);
+	transform: 
+		translateY(0) 
+		scale(1) 
+		rotateY(0deg) 
+		rotateX(0);
+	transform-style: preserve-3d;
+	will-change: 
+		transform;
 }
 
 /* After */
 .album-sleeve.is-active {
 	box-shadow: var(--shadow-elevated);
-	transform: scale(1.05);
+	transform: 
+		translateY(-7px) 
+		scale(1.05) 
+		rotateY(-8deg) 
+		rotateX(1deg);
 }
 
 /* === Base Art & Media Styles === */
 /* Album Art */
 .album-art {
+	border-radius: var(--border-radius-xs);
+	box-shadow: none;
 	height: 100%;
 	left: 0;
+	object-fit: fill;
 	position: absolute;
 	top: 0;
-	width: 100%;
+	transform: scale(1);
+	transition: box-shadow var(--transition-medium);
+	inline-size: 100%;
 	z-index: 2;
+}
+
+.album-sleeve.is-active .album-art {
+	box-shadow: var(--shadow-album);
 }
 
 /* Album Media */
 .album-media {
-	filter: none;
+	filter: drop-shadow(0px 0px 0px var(--jet-black));
 	height: 100%;
 	left: 0;
 	pointer-events: none;
 	position: absolute;
 	top: 0;
-	width: 100%;
+	transition: filter var(--transition-medium);
+	inline-size: 100%;
 	z-index: 1;
 }
 
@@ -301,6 +331,7 @@
 .record-caption label {
 	color: var(--text-color-secondary);
 	font-style: normal;
+	font-size: var(--font-size-xs);
 }
 
 /* 5 Star Fave */
@@ -308,7 +339,7 @@
 	color: var(--paradise-pink);
 	content: '★';
 	font-size: var(--font-size-xxs);
-	margin-left: var(--space-xs);
+	margin-inline-start: var(--space-xs);
 }
 
 /* Album Artist */
@@ -323,39 +354,4 @@
 	color: var(--green);
 	font-size: var(--font-size-xxs);
 	padding: var(--space-xxs);	
-}
-
-/* --------------------------------------------------------------------------
-   RESPONSIVE DESIGN
-   -------------------------------------------------------------------------- */
- 
-/* Tablet and Desktop */
-@media (width >= 200px) {
-	.landscape-row,
-	.portrait-row,
-	.discogs-grid{
-		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-		width: 100%;
-	}
-}
-
-/* Mobile Optimizations */
-@media (width <= 480px) {
-	.gallery-btn {
-		flex: 1 1 calc(33% - var(--space-xs));
-		min-width: calc(33% - var(--space-xs));
-	}
-}
-
-@media (width <= 640px) {
-	.gallery-buttons {
-		flex-wrap: wrap;
-		gap: var(--grid-gap-sm);
-	}
-}
-
-@media (width <= 1200px) {
-	.gallery-btn {
-		font-size: var(--font-size-xs);
-	}
 }
