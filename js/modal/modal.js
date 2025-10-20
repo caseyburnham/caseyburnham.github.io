@@ -78,7 +78,8 @@ export class PhotoModal {
 		this.#state.elements.modal.close();
 		this.#state.isOpen = false;
 		// Clear the image source when the modal closes
-		this.#state.elements.modalImg.src = 'about:blank';
+		this.#state.elements.modalImg.src = '';
+		this.#state.elements.modalImg.title = 'Loading...';
 	}
 
 	navigateImage(direction) {
@@ -300,7 +301,7 @@ export class PhotoModal {
 		const url = `https://caltopo.com/map.html#ll=${lat},${lon}&z=16&b=mbt`;
 		const latDMS = gps.latDMS || lat;
 		const lonDMS = gps.lonDMS || lon;
-		return `<data value="${lat},${lon}">
+		return `<data title="GPS Coordinates"value="${lat},${lon}">
 				<a href="${url}" target="_blank" rel="noopener noreferrer">${latDMS}<wbr>, ${lonDMS}<wbr></a>
 				</data>`;
 	}
@@ -311,15 +312,20 @@ export class PhotoModal {
 	 */
 	#buildExifRow(photo, escapeHTML) {
 		const parts = [
-			photo.cameraModel ? `<span>${photo.cameraModel}</span>` : '',
-			photo.iso ? `<data value="${photo.iso}">ISO ${photo.iso}</data>` : '',
-			photo.lens ? `<data value="${escapeHTML(photo.lens)}">${escapeHTML(photo.lens)} mm</data>` : '',
-			photo.exposureCompensation ? `<data value="${escapeHTML(photo.exposureCompensation)}">${escapeHTML(photo.exposureCompensation)} ev</data>` : '',
-			photo.aperture ? `<data value="${photo.aperture}"><i>&#402;</i>${photo.aperture}</data>` : '',
-			photo.shutter ? `<data value="${photo.shutter}">${photo.shutter}s</data>` : '',
-			photo.format ? `<data class="format" value="${escapeHTML(photo.format)}">${escapeHTML(photo.format)}</data>` : ''
+			photo.cameraModel ? `<span title="Camera Model">${photo.cameraModel}</span>` : '',
+			photo.iso ? `<span title="ISO Value">ISO <data value="${photo.iso}">${photo.iso}</data></span>` : '',
+			photo.lens ? `<span title="Focal Length"><data value="${escapeHTML(photo.lens)}">${escapeHTML(photo.lens)}</data>mm</span>` : '',
+			photo.exposureCompensation ?
+			  (() => {
+				const evNum = parseFloat(photo.exposureCompensation);
+				const evStr = evNum === 0 ? "0" : evNum.toFixed(2);
+				return `<span title="Exposure Compensation"><data value="${escapeHTML(evStr)}">${escapeHTML(evStr)}</data> ev</span>`;
+			  })() : '',
+			photo.aperture ? `<span title="Aperature Size"><i>&#402;</i> <data value="${photo.aperture}">${photo.aperture}</data></span>` : '',
+			photo.shutter ? `<span title="Shutter Speed"><data value="${photo.shutter}">${photo.shutter}</data>s</span>` : '',
+			photo.format ? `<span class="format" title="File Format"><data value="${escapeHTML(photo.format)}">${escapeHTML(photo.format)}</data></span>` : ''
 		].filter(Boolean);
-		return parts.join(' | ');
+		return parts.join('<span>|</span>');
 	}
 
 	/**

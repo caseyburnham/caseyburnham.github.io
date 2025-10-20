@@ -23,7 +23,8 @@
 	--space-2xl: 5rem;
 
 	/* Padding */
-	--fluid-padding-inline: clamp(.25rem, 6vw, 5rem);
+	--fluid-table-padding: clamp(var(--space-xs), 1vw, var(--space-sm));
+	--fluid-padding-inline: clamp(var(--space-xxs), 6vw, var(--space-2xl));
 
 	/* -------------------- Typography -------------------- */
 	/* Font Family */
@@ -33,8 +34,9 @@
 	/* Font Size */
 	/* Scales between ~14px and 18px */
 	--font-size-base: clamp(0.875rem, 0.5vw + 0.6rem, 1.125rem);
+	--font-size-range: clamp(0.75rem, 0.5vw + 0.5rem, 1.125rem);
 	--font-size-xxs: 0.65rem;
-	--font-size-xs: 0.75rem;
+	--font-size-xs: clamp(0.5rem, 1vw + 0.5rem, 0.75rem);
 	--font-size-sm: 0.85rem;
 	--font-size-lg: 1.2rem;
 	--font-size-xl: 1.5rem;
@@ -61,7 +63,7 @@
 	
 	/* Gaps */
 	--section-gap: 1rem;
-	--grid-gap-sm: 0.5rem;
+	--grid-gap-sm: clamp(0.25rem, 2vw, 0.5rem);
 	--grid-gap: 1rem;
 
 	/* -------------------- Effects & Transitions -------------------- */
@@ -71,29 +73,34 @@
 	--transition-slow: 0.4s ease;
 	--transition-very-slow: 1s ease;
 	
+	--transition-fast-io: 0.2s ease-in-out;
+	--transition-medium-io: 0.3s ease-in-out;
+	--transition-slow-io: 0.4s ease-in-out;
+	--transition-very-slow-io: 1s ease-in-out; 
+	
 	/* -------------------- Colors -------------------- */
 	/* Primary */
 	--turquoise: oklch(82% 33% 185deg);
 	
 	/* Accent */
 	--green: oklch(62% 34% 161deg);
-	--international-orange: oklch(67% 56% 37deg);
-	--silver: oklch(81% 0% 90deg);
 	--hot-pink: oklch(73% 50% 352deg);
+	--international-orange: oklch(67% 56% 37deg);
 	--paradise-pink: oklch(62% 51% 13deg);
+	--silver: oklch(81% 0% 90deg);
 	
-	/* Blue */
+	/* Blues */
 	--blue: oklch(66% 47% 250deg);
 	--brandeis-blue: oklch(58% 57% 259deg);
 	--waterspout: oklch(91% 39% 195deg);
 	
-	/* Black */
+	/* Blacks */
 	--dark-slate: oklch(40% 10% 196deg);
 	--jet-black: oklch(33% 0% 90deg);
 	--onyx: oklch(34% 1% 220deg);
 	--vampire-black: oklch(13% 0% 68deg);
 	
-	/* White */
+	/* Whites */
 	--snow: oklch(99% 1% 17deg);
 	--white-smoke: oklch(97% 0% 90deg);
 
@@ -118,7 +125,6 @@
 /* ==========================================================================
    BASE STYLES & RESET
    ========================================================================== */
-
 *,
 *::before,
 *::after {
@@ -161,7 +167,6 @@ main {
 /* ==========================================================================
    LIGHT SCHEME
    ========================================================================== */
-
 @media (prefers-color-scheme: light) {
 	:root {
 		/* === Primary Colors === */
@@ -180,13 +185,13 @@ main {
 	
 		/* === Border Colors === */
 		--border-color: var(--accent-grey);
-		--border-sequence: var(--accent-color-light);
+		--border-sequence: oklch(from var(--accent-color) calc(l + 0.2) c h);
 		--hr-color: var(--border-color);
 
 		/* === Background Colors === */
 		--bg-color-main: var(--snow);
 		--bg-color-alpha: oklch(from var(--bg-color-main) l c h / 0.5);
-		--bg-color-tooltip: var(--silver);
+		--bg-color-tooltip: oklch(from var(--silver) l c h / 0.25);
 	
 		/* === Text Colors === */
 		--text-color-primary: var(--vampire-black);
@@ -216,47 +221,55 @@ main {
 		--button-hover-color: var(--accent-color-alpha);
 
 		/* === Shadows === */
-		--shadow-details:
-			oklch(from var(--turquoise) l c h / .4) -5px 5px,
-			oklch(from var(--turquoise) l c h / .3) -10px 10px,
-			oklch(from var(--turquoise) l c h / .2) -15px 15px,
-			oklch(from var(--turquoise) l c h / .1) -20px 20px;
-
-		--shadow-elevated:
-			oklch(from var(--jet-black) l c h / .19) 0px 10px 20px, 
-			oklch(from var(--jet-black) l c h / .23) 0px 6px 6px;
-
-		--shadow-glow: 
-			none;
-
-		--shadow-subtle: 
-			oklch(from var(--onyx) l c h / .3) 0px 1px 2px 0px, 
-			oklch(from var(--onyx) l c h / .15) 0px 1px 3px 1px;
-	
 		--shadow-main:
 			oklch(from var(--jet-black) l c h / .4) 0px 2px 4px,
 			oklch(from var(--jet-black) l c h / .3) 0px 7px 13px -3px,
 			oklch(from var(--jet-black) l c h / .2) 0px -3px 0px inset;
 	
+		--shadow-nav: 
+			oklch(from var(--jet-black) l c h / .45) 0px 3px 8px;
+			
+		--shadow-details:
+			oklch(from var(--turquoise) l c h / .4) -5px 5px,
+			oklch(from var(--turquoise) l c h / .3) -10px 10px,
+			oklch(from var(--turquoise) l c h / .2) -15px 15px,
+			oklch(from var(--turquoise) l c h / .1) -20px 20px;
+	
+		--shadow-subtle: 
+			oklch(from var(--onyx) l c h / .34) 0px 1px 2px 0px, 
+			oklch(from var(--onyx) l c h / .15) 0px 2px 3px 1px,
+			oklch(from var(--onyx) l c h / .07) 0px 3px 4px 2px;	
+	
+		--shadow-elevated:
+			oklch(from var(--jet-black) l c h / .08) 0 2px 4px, 
+			oklch(from var(--jet-black) l c h / .19) 0 5px 10px,
+			oklch(from var(--jet-black) l c h / .23) 0 10px 20px;
+
+		--shadow-elevation-outline:
+			0 0 1px var(--snow);
+	
+		--shadow-prog: 
+			oklch(from var(--accent-color) l c h / .7) 0 0 3px,
+			oklch(from var(--accent-color) l c h / .4) 0 0 10px,
+			oklch(from var(--accent-color) l c h / .3) 0 0 20px;
+	
+		--shadow-glow: 
+			none;
+	
 		--shadow-map-icon: 
 			oklch(from var(--jet-black) l c h / .2) 0 2px 4px;
 	
+		--shadow-album:
+			oklch(from var(--jet-black) l c h / .95) 6px 0px 4px -6px;
+	
 		--shadow-media: 
 			drop-shadow(1px 0px 3px var(--jet-black));
-
-		--shadow-nav: 
-			oklch(from var(--jet-black) l c h / .25) 0px 3px 8px;
-
-		--shadow-prog: 
-			oklch(from var(--accent-color) l c h / .5) 0 0 7px;
-
 	}
 }
 
 /* ==========================================================================
    DARK SCHEME
    ========================================================================== */
-
 @media (prefers-color-scheme: dark) {
 	:root {
 		/* === Primary Colors === */
@@ -268,7 +281,6 @@ main {
 		--accent-color: var(--turquoise);
 		--accent-color-light: oklch(from var(--accent-color) l c h / 0.75);
 		--accent-color-alpha: oklch(from var(--accent-color) l c h / 0.15);
-		
 		--accent-grey: var(--silver);
 
 		/* === Link Colors === */
@@ -276,12 +288,12 @@ main {
 
 		/* === Border Colors === */
 		--border-color: var(--dark-slate);
-		--border-sequence: var(--primary-color-light);
+		--border-sequence: oklch(from var(--accent-color) calc(l - 0) c calc(h + 20));
 		--hr-color: var(--border-color);
 
 		/* === Background Colors === */
 		--bg-color-main: var(--vampire-black);
-		--bg-color-tooltip: oklch(from var(--jet-black) l c h / 0.75);
+		--bg-color-tooltip: oklch(from var(--jet-black) l c h / 0.5);
 
 		/* === Text Colors === */
 		--text-color-primary: var(--white-smoke);
@@ -295,13 +307,10 @@ main {
 		/* === Heatmap Colors === */
 		--heatmap-min-color: var(--text-color-muted);
 		--heatmap-max-color: var(--text-color-primary);
-	
 		--heatmap-glow-min-color: oklch(from var(--brandeis-blue) l c h / 0.6);
-	
 		--heatmap-glow-max-color: oklch(from var(--waterspout) l c h / 0.8);
 
 		/* === Progress Bar Colors === */
-		/* Dark Slate Gray */
 		--bg-color-progress:  var(--dark-slate);
 		--color-bar-fill: var(--primary-color);
 	
@@ -314,42 +323,52 @@ main {
 		--button-border-color: var(--accent-color-light);
 
 		/* === Shadows === */
+		--shadow-main:
+			oklch(from var(--accent-color) l c h / .4) 0px 2px 4px,
+			oklch(from var(--accent-color) l c h / .3) 0px 7px 13px -3px,
+			oklch(from var(--accent-color) l c h / .2) 0px -3px 0px inset;
+	
+		--shadow-nav: 
+			oklch(from var(--accent-color) l c h / .25) 0px 3px 8px;
+	
 		--shadow-details:
 			oklch(from var(--accent-color) l c h / .4) -5px 5px,
 			oklch(from var(--accent-color) l c h / .3) -10px 10px,
 			oklch(from var(--accent-color) l c h / .2) -15px 15px,
 			oklch(from var(--accent-color) l c h / .1) -20px 20px;
 
-		--shadow-elevated:
-			oklch(from var(--accent-color) l c h / .19) 0px 10px 20px, 
-			oklch(from var(--accent-color) l c h / .23) 0px 6px 6px;
-
-		--shadow-glow: 
-			oklch(from var(--accent-color) l c h / .5) 0 0 7px;
-		
 		--shadow-subtle: 
-			oklch(from var(--accent-color) l c h / .34) 0px 1px 2px 0px, 
-			oklch(from var(--accent-color) l c h / .15) 0px 1px 3px 1px;
-
-		--shadow-main:
-			oklch(from var(--accent-color) l c h / .4) 0px 2px 4px,
-			oklch(from var(--accent-color) l c h / .3) 0px 7px 13px -3px,
-			oklch(from var(--accent-color) l c h / .2) 0px -3px 0px inset;
+			oklch(from var(--accent-color) l c h / .20) 0px 1px 2px 0px, 
+			oklch(from var(--accent-color) l c h / .1) 0px 2px 3px 1px,
+			oklch(from var(--accent-color) l c h / .05) 0px 3px 4px 2px;
 	
-		--shadow-map-icon: 
+		--shadow-elevated:
+			oklch(from var(--accent-color) l c h / .08) 0 1px 2px, 
+			oklch(from var(--accent-color) l c h / .19) 0 5px 5px,
+			oklch(from var(--accent-color) l c h / .23) 0 10px 20px;
+
+		--shadow-elevation-outline:
+			0 0 1px var(--vampire-black);
+	
+		--shadow-prog:
+			oklch(from var(--accent-color) l c h / .5) 0 0 3px,
+			oklch(from var(--accent-color) l c h / .3) 0 0 10px,
+			oklch(from var(--accent-color) l c h / .2) 0 0 20px;
+
+		--shadow-glow:
+			var(--vampire-black) 0 0 1px,
+			oklch(from var(--accent-color) l c h / .7) 0 0 3px,
+			oklch(from var(--accent-color) l c h / .4) 0 0 10px,
+			oklch(from var(--accent-color) l c h / .3) 0 0 20px;
+
+		--shadow-map-icon:
 			oklch(from var(--jet-black) l c h / .2) 0 2px 4px;
+	
+		--shadow-album:
+			oklch(from var(--jet-black) l c h / .95) 6px 0px 4px -6px;
 
-		--shadow-media: 
+		--shadow-media:
 			drop-shadow(1px 0px 3px var(--jet-black));
-
-		--shadow-nav: 
-			oklch(from var(--accent-color) l c h / .25) 0px 3px 8px;
-
-		--shadow-prog: 
-			oklch(from var(--accent-color) l c h / .5) 0 0 7px;
-
-		--shadow-subtle: 
-			oklch(from var(--accent-color) l c h / .2) 0 2px 4px;
 	}
 }
 
@@ -365,7 +384,6 @@ main {
 /* ==========================================================================
    UTILITY & VENUE CLASSES 
    ========================================================================== */
-
 .flex-item {
 	flex: 1;
 	min-width: 300px;
@@ -384,7 +402,7 @@ main {
 	padding: 0;
 	position: absolute;
 	white-space: nowrap;
-	width: 1px;
+	inline-size: 1px;
 }
 
 .text-center {

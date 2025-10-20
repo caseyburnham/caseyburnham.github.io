@@ -5244,7 +5244,7 @@
     },
     "copyright": "\u00a9 2024 Casey Burnham"
   },
-  "galleries/off-road/jpeg/salt-flats.jpeg": {
+  "galleries/off-road/jpeg/bonneville-salt-flats.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2012,
@@ -5265,7 +5265,14 @@
     "exposureCompensation": "0",
     "cameraModel": "PENTAX K-x",
     "format": "JPEG",
-    "gps": null,
+    "gps": {
+      "lat": 40.47374,
+      "lon": -113.6066,
+      "latDMS": "40\u00b028'25.46\" N",
+      "lonDMS": "113\u00b036'23.76\" W",
+      "alt": 1291,
+      "altRef": 0
+    },
     "copyright": "\u00a9 2012 Casey Burnham"
   },
   "galleries/summit-dog/avif/rocky-at-pomeroy-lake.avif": {
@@ -6136,37 +6143,6 @@
     },
     "copyright": "\u00a9 2024 Casey Burnham"
   },
-  "galleries/cemeteries/avif/died.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2021,
-      "month": 6,
-      "day": 18,
-      "hour": 10,
-      "minute": 26,
-      "second": 17,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2021:06:18 10:26:17",
-      "zoneName": "UTC-06:00",
-      "inferredZone": false
-    },
-    "iso": 20,
-    "lens": 52,
-    "aperture": 2,
-    "shutter": "1/428",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 11 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 39.7504222222222,
-      "lon": -105.661011111111,
-      "latDMS": "39\u00b045'1.52\" N",
-      "lonDMS": "105\u00b039'39.64\" W",
-      "alt": 2529.4,
-      "altRef": 0
-    },
-    "copyright": "\u00a9 2021 Casey Burnham"
-  },
   "galleries/cemeteries/avif/ioof-cemetery.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -6849,37 +6825,6 @@
     },
     "copyright": "\u00a9 2020 Casey Burnham"
   },
-  "galleries/abstract/avif/snowfield.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2022,
-      "month": 2,
-      "day": 13,
-      "hour": 10,
-      "minute": 35,
-      "second": 54,
-      "tzoffsetMinutes": -420,
-      "rawValue": "2022:02:13 10:35:54",
-      "zoneName": "UTC-07:00",
-      "inferredZone": false
-    },
-    "iso": 32,
-    "lens": 77,
-    "aperture": 1.5,
-    "shutter": "0",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 40.3197944444444,
-      "lon": -105.603277777778,
-      "latDMS": "40\u00b019'11.26\" N",
-      "lonDMS": "105\u00b036'11.80\" W",
-      "alt": 2647.395564,
-      "altRef": 0
-    },
-    "copyright": "\u00a9 2022 Casey Burnham"
-  },
   "galleries/abstract/avif/cowboy-print.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -6938,37 +6883,6 @@
       "latDMS": "37\u00b044'23.44\" N",
       "lonDMS": "105\u00b031'3.89\" W",
       "alt": 2447.455827,
-      "altRef": 0
-    },
-    "copyright": "\u00a9 2023 Casey Burnham"
-  },
-  "galleries/abstract/avif/bulldozer-blade-detail.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2023,
-      "month": 6,
-      "day": 20,
-      "hour": 9,
-      "minute": 12,
-      "second": 31,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2023:06:20 09:12:31",
-      "zoneName": "UTC-06:00",
-      "inferredZone": false
-    },
-    "iso": 50,
-    "lens": 26,
-    "aperture": 1.5,
-    "shutter": "1/342",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 37.9330472222222,
-      "lon": -107.571380555556,
-      "latDMS": "37\u00b055'58.97\" N",
-      "lonDMS": "107\u00b034'16.97\" W",
-      "alt": 3429.348877,
       "altRef": 0
     },
     "copyright": "\u00a9 2023 Casey Burnham"
