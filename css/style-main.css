@@ -37,8 +37,8 @@ caption,
 label,
 small {
 	color: var(--text-color-muted);
-	font-style: italic;
 	font-size: var(--font-size-xs);
+	font-style: italic;
 	font-weight: var(--font-weight-light);
 }
 
@@ -297,7 +297,6 @@ summary {
 /* ==========================================================================
    TABLES & PROGRESS BAR STYLES
    ========================================================================== */
-
 table {
 	border: 1px solid var(--border-color);
 	border-collapse: collapse;
@@ -435,6 +434,7 @@ progress[value]::-moz-progress-value {
 		margin: 0 0 var(--space-md) 0;
 	}
 }
+
 /* ==========================================================================
    MISC
    ========================================================================== */
@@ -464,7 +464,7 @@ progress[value]::-moz-progress-value {
 .abbr-tooltip {
 	backdrop-filter: var(--modal-caption-blur);
 	background: var(--bg-color-tooltip);
-	border: solid 1px var(--border-color);
+	border: solid 1px var(--accent-color);
 	border-radius: var(--border-radius-sm);
 	box-shadow: var(--shadow-subtle);
 	color: var(--text-color-primary);
@@ -478,10 +478,6 @@ progress[value]::-moz-progress-value {
 
 .abbr-tooltip.show {
 	opacity: 1;
-}
-
-.abbr-tooltip.closing {
-	margin: var(--space-ms) 0 var(--space-ms) 0;
 }
 
 /* ==========================================================================

@@ -314,7 +314,7 @@ export class PhotoModal {
 		const parts = [
 			photo.cameraModel ? `<span title="Camera Model">${photo.cameraModel}</span>` : '',
 			photo.iso ? `<span title="ISO Value">ISO <data value="${photo.iso}">${photo.iso}</data></span>` : '',
-			photo.lens ? `<span title="Focal Length"><data value="${escapeHTML(photo.lens)}">${escapeHTML(photo.lens)}</data>mm</span>` : '',
+			photo.lens ? `<span title="Focal Length"><data value="${escapeHTML(photo.lens)}">${escapeHTML(photo.lens)}</data> mm</span>` : '',
 			photo.exposureCompensation ?
 			  (() => {
 				const evNum = parseFloat(photo.exposureCompensation);
