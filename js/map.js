@@ -371,7 +371,7 @@ class PeakMap {
 
 		const mapContainer = document.getElementById(this.config.mapContainerId);
 		if (mapContainer) {
-			mapContainer.textContext = `
+			mapContainer.textContent = `
 		<div class="error">
 		  <div>
 			<div style="font-size: 2rem; margin-bottom: 10px;">⚠️</div>

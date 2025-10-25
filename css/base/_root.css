@@ -361,9 +361,9 @@
 
 		--shadow-glow:
 			var(--vampire-black) 0 0 1px,
-			oklch(from var(--accent-color) l c h / .5) 0 0 3px,
-			oklch(from var(--accent-color) l c h / .4) 0 0 10px,
-			oklch(from var(--accent-color) l c h / .6) 0 0 20px;
+			oklch(from var(--accent-color) l c h / .8) 0 0 3px,
+			oklch(from var(--accent-color) l c h / .6) 0 0 7px,
+			oklch(from var(--accent-color) l c h / .4) 0 0 10px;
 
 		--shadow-map-icon:
 			oklch(from var(--jet-black) l c h / .2) 0 2px 4px;

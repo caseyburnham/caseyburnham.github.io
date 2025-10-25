@@ -60,11 +60,9 @@ export const setupEventListeners = (elements, modalInstance) => {
 				modalInstance.closeModal();
 			} else if (key === 'ArrowRight') {
 				event.preventDefault();
-				console.log('Arrow Right pressed, navigating +1');
 				modalInstance.navigateImage(1);
 			} else if (key === 'ArrowLeft') {
 				event.preventDefault();
-				console.log('Arrow Left pressed, navigating -1');
 				modalInstance.navigateImage(-1);
 			}
 		},

@@ -10,14 +10,6 @@ class Galleries {
 		CONTAINER_SELECTOR: '[aria-labelledby="gallery-heading"]',
 		TRANSITION_DURATION: 200,
 		
-		SCORING_WEIGHTS: {
-			ALTERNATING_COUNT: 1000,
-			ALTERNATING_LAYOUT: 100,
-			DEAD_END_PENALTY: 2000,
-			COMMONALITY_BONUS: 25,
-			SIZE_BONUS: 0.1
-		},
-		
 		BREAKPOINTS: {
 			MOBILE: 480,
 			TABLET: 768,
@@ -28,7 +20,7 @@ class Galleries {
 		ROW_LIMITS_RESPONSIVE: {
 			MOBILE: { LANDSCAPE_MAX: 4, PORTRAIT_MAX: 5, MIN_IMAGES: 3 },
 			TABLET: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 6, MIN_IMAGES: 3 },
-			DESKTOP: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 6, MIN_IMAGES: 3 },
+			DESKTOP: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 7, MIN_IMAGES: 3 },
 			WIDESCREEN: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 7, MIN_IMAGES: 3 }
 		},
 		// Fallback limits
@@ -325,7 +317,7 @@ class Galleries {
 
 	#renderGallery(gallery, withTransition = true) {
 		if (!gallery?.images?.length) {
-			this.#galleryContainer.textContext = '';
+			this.#galleryContainer.textContent = '';
 			return;
 		}
 		
@@ -378,243 +370,269 @@ class Galleries {
 	}
 
 	/**
+	 * Simplified Gallery Row Ordering
+	 * Replaces the complex 300+ line algorithm with a cleaner approach
+	 * that still achieves good visual variety
+	 */
+	
+	/**
 	 * Responsive row generation with viewport-aware limits
 	 * @param {Object} groups - Grouped images by layout
 	 * @returns {Array} Array of row objects
 	 */
 	#generateOptimizedRows(groups) {
-		const rowLimits = this.#currentRowLimits || this.#calculateRowLimits();
-		const { LANDSCAPE_MAX, PORTRAIT_MAX } = rowLimits;
-		
-		// Generate individual row types with responsive limits
-		const landscapeRows = this.#generateRows(groups.landscape || [], 'landscape-row', LANDSCAPE_MAX);
-		const portraitRows = this.#generateRows(groups.portrait || [], 'portrait-row', PORTRAIT_MAX);
-		const panoRows = (groups.pano || []).map(image => ({ 
-			images: [image], 
-			rowClass: 'pano-row' 
-		}));
-
-		return this.#optimizeRowOrder([...landscapeRows, ...portraitRows, ...panoRows]);
+	  const rowLimits = this.#currentRowLimits || this.#calculateRowLimits();
+	  const { LANDSCAPE_MAX, PORTRAIT_MAX } = rowLimits;
+	  
+	  // Generate individual row types with responsive limits
+	  const landscapeRows = this.#generateRows(groups.landscape || [], 'landscape-row', LANDSCAPE_MAX);
+	  const portraitRows = this.#generateRows(groups.portrait || [], 'portrait-row', PORTRAIT_MAX);
+	  const panoRows = (groups.pano || []).map(image => ({ 
+		images: [image], 
+		rowClass: 'pano-row' 
+	  }));
+	
+	  return this.#optimizeRowOrder([...landscapeRows, ...portraitRows, ...panoRows]);
 	}
-
+	
 	/**
-	 * Strategic row ordering algorithm with proper alternation rules
+	 * Simplified row ordering algorithm
+	 * Goals:
+	 * 1. Alternate between different row types (landscape/portrait)
+	 * 2. Alternate between different row sizes (ignoring panos)
+	 * 3. Never place two panos adjacent
+	 * 4. Avoid ending with a pano
+	 * 
 	 * @param {Array} allRows - All available rows
 	 * @returns {Array} Optimized row order
 	 */
 	#optimizeRowOrder(allRows) {
-		if (allRows.length <= 1) return allRows;
-
-		const result = [];
-		const remaining = [...allRows]; 
-		let lastRow = null;
-
-		while (remaining.length > 0) {
-			const validCandidates = remaining.filter(row => 
-				this.#isValidNextRow(row, lastRow)
-			);
-			
-			const candidatesToScore = validCandidates.length > 0 ? validCandidates : remaining;
-
-			if (candidatesToScore.length === 1) {
-				const chosen = candidatesToScore[0];
-				result.push(chosen);
-				this.#removeFromArray(remaining, chosen);
-				lastRow = chosen;
-				continue;
-			}
-
-			const sizeCounts = this.#calculateSizeCounts(candidatesToScore);
-			const uniqueSizeCount = Object.keys(sizeCounts).length;
-
-			const bestRow = this.#selectBestRowAdvanced(
-				candidatesToScore, 
-				lastRow, 
-				sizeCounts, 
-				uniqueSizeCount,
-				remaining
-			);
-
-			result.push(bestRow);
-			this.#removeFromArray(remaining, bestRow);
-			lastRow = bestRow;
-		}
-
-		return this.#adjustPanoPlacement(result);
-	}
-
-	/**
-	 * Check if a row can follow the previous row
-	 * @param {Object} row - Row to check
-	 * @param {Object|null} lastRow - Previous row
-	 * @returns {boolean} Whether the row is valid
-	 */
-	#isValidNextRow(row, lastRow) {
-		if (!lastRow) return row.rowClass !== 'pano-row';
-		return !(lastRow.rowClass === 'pano-row' && row.rowClass === 'pano-row');
-	}
-
-	/**
-	 * Advanced row selection with sophisticated scoring
-	 * @param {Array} candidates - Available candidate rows
-	 * @param {Object|null} lastRow - Previous row
-	 * @param {Object} sizeCounts - Count of rows by size
-	 * @param {number} uniqueSizeCount - Number of unique sizes
-	 * @param {Array} remaining - All remaining rows
-	 * @returns {Object} Best scoring row
-	 */
-	#selectBestRowAdvanced(candidates, lastRow, sizeCounts, uniqueSizeCount, remaining) {
-		const weights = Galleries.CONFIG.SCORING_WEIGHTS;
+	  if (allRows.length <= 1) return allRows;
+	
+	  // Separate rows by type for easier manipulation
+	  const { landscape, portrait, pano } = this.#groupRowsByType(allRows);
+	  
+	  // Build the result using a simple alternating strategy
+	  const result = [];
+	  let lastType = null;
+	  let lastNonPanoSize = null; // Track last NON-PANO size for variety
+	  
+	  // Keep track of what's left
+	  const remaining = {
+		landscape: [...landscape],
+		portrait: [...portrait],
+		pano: [...pano]
+	  };
+	  
+	  while (this.#hasRemainingRows(remaining)) {
+		// Get next row, preferring variety
+		const nextRow = this.#selectNextRow(remaining, lastType, lastNonPanoSize);
 		
-		const scoredCandidates = candidates.map(candidate => {
-			let score = 0;
-			const candidateSize = candidate.images.length;
-
-			// a. Highest priority: Reward alternating image counts
-			if (!lastRow || candidateSize !== lastRow.images.length) {
-				score += weights.ALTERNATING_COUNT;
-			}
-
-			// b. Secondary priority: Reward alternating layouts  
-			if (!lastRow || candidate.rowClass !== lastRow.rowClass) {
-				score += weights.ALTERNATING_LAYOUT;
-			}
-
-			// c. "Look-Ahead" Penalty: Punish choices that lead to a dead end
-			if (uniqueSizeCount > 1 && sizeCounts[candidateSize] === 1) {
-				const otherCandidates = candidates.filter(r => r !== candidate);
-				if (otherCandidates.length > 1 && 
-					new Set(otherCandidates.map(r => r.images.length)).size === 1) {
-					score -= weights.DEAD_END_PENALTY;
-				}
-			}
-
-			// d. Commonality Bonus: Prefer using rows from a larger group
-			score += (sizeCounts[candidateSize] - 1) * weights.COMMONALITY_BONUS;
-
-			// e. Final Tie-breaker: Small bonus for size
-			score += candidateSize * weights.SIZE_BONUS;
-
-			return { candidate, score };
-		});
-
-		// Sort by highest score and return the best choice
-		scoredCandidates.sort((a, b) => b.score - a.score);
-		return scoredCandidates[0]?.candidate || candidates[0];
-	}
-
-	/**
-	 * Calculate size distribution for strategic decisions
-	 * @param {Array} rows - Array of rows to analyze
-	 * @returns {Object} Count of rows by image count
-	 */
-	#calculateSizeCounts(rows) {
-		return rows.reduce((acc, row) => {
-			const size = row.images.length;
-			acc[size] = (acc[size] || 0) + 1;
-			return acc;
-		}, {});
-	}
-
-	/**
-	 * Remove item from array (helper method)
-	 * @param {Array} array - Array to modify
-	 * @param {*} item - Item to remove
-	 */
-	#removeFromArray(array, item) {
-		const index = array.indexOf(item);
-		if (index > -1) {
-			array.splice(index, 1);
+		if (!nextRow) break; // Safety exit
+		
+		result.push(nextRow);
+		lastType = nextRow.rowClass;
+		
+		// Only update size tracker for non-pano rows
+		if (nextRow.rowClass !== 'pano-row') {
+		  lastNonPanoSize = nextRow.images.length;
 		}
+	  }
+	  
+	  // Post-process: ensure no pano at the end
+	  return this.#ensurePanoNotAtEnd(result);
 	}
-
+	
 	/**
-	 * Adjust panorama placement to avoid ending with panos
+	 * Group rows by their type
+	 * @param {Array} rows - All rows
+	 * @returns {Object} Rows grouped by type
+	 */
+	#groupRowsByType(rows) {
+	  return rows.reduce((groups, row) => {
+		if (row.rowClass === 'landscape-row') {
+		  groups.landscape.push(row);
+		} else if (row.rowClass === 'portrait-row') {
+		  groups.portrait.push(row);
+		} else if (row.rowClass === 'pano-row') {
+		  groups.pano.push(row);
+		}
+		return groups;
+	  }, { landscape: [], portrait: [], pano: [] });
+	}
+	
+	/**
+	 * Check if there are any rows left to place
+	 * @param {Object} remaining - Remaining rows by type
+	 * @returns {boolean}
+	 */
+	#hasRemainingRows(remaining) {
+	  return remaining.landscape.length > 0 || 
+			 remaining.portrait.length > 0 || 
+			 remaining.pano.length > 0;
+	}
+	
+	/**
+	 * Select the next best row based on variety rules
+	 * @param {Object} remaining - Remaining rows by type
+	 * @param {string|null} lastType - Type of last placed row
+	 * @param {number|null} lastNonPanoSize - Size of last NON-PANO row (ignores panos)
+	 * @returns {Object|null} Selected row
+	 */
+	#selectNextRow(remaining, lastType, lastNonPanoSize) {
+	  // Priority 1: Never place pano after pano
+	  if (lastType === 'pano-row') {
+		return this.#pickNonPanoRow(remaining, lastNonPanoSize);
+	  }
+	  
+	  // Priority 2: Alternate between landscape and portrait when possible
+	  const preferredType = lastType === 'landscape-row' ? 'portrait' : 'landscape';
+	  
+	  // Priority 3: Prefer different size from last NON-PANO row
+	  // Try preferred type with different size first
+	  const fromPreferredWithSize = this.#pickRowFromType(remaining, preferredType, lastNonPanoSize);
+	  if (fromPreferredWithSize) return fromPreferredWithSize;
+	  
+	  // Fall back to any non-pano type with size variety
+	  const fromOther = this.#pickNonPanoRow(remaining, lastNonPanoSize);
+	  if (fromOther) return fromOther;
+	  
+	  // Last resort: use a pano if that's all we have
+	  if (remaining.pano.length > 0) {
+		return remaining.pano.shift();
+	  }
+	  
+	  return null;
+	}
+	
+	/**
+	 * Pick a row from a specific type, preferring different size
+	 * @param {Object} remaining - Remaining rows by type
+	 * @param {string} type - Type to pick from ('landscape' or 'portrait')
+	 * @param {number|null} lastNonPanoSize - Size of last NON-PANO row
+	 * @returns {Object|null} Selected row
+	 */
+	#pickRowFromType(remaining, type, lastNonPanoSize = null) {
+	  const rows = remaining[type];
+	  if (rows.length === 0) return null;
+	  
+	  // Prefer a different size from last non-pano row
+	  if (lastNonPanoSize !== null) {
+		const differentSize = rows.findIndex(row => row.images.length !== lastNonPanoSize);
+		if (differentSize !== -1) {
+		  return rows.splice(differentSize, 1)[0];
+		}
+	  }
+	  
+	  // Otherwise take the first available
+	  return rows.shift();
+	}
+	
+	/**
+	 * Pick any non-pano row, preferring different size
+	 * @param {Object} remaining - Remaining rows by type
+	 * @param {number|null} lastNonPanoSize - Size of last NON-PANO row
+	 * @returns {Object|null} Selected row
+	 */
+	#pickNonPanoRow(remaining, lastNonPanoSize = null) {
+	  // Try landscape first
+	  const fromLandscape = this.#pickRowFromType(remaining, 'landscape', lastNonPanoSize);
+	  if (fromLandscape) return fromLandscape;
+	  
+	  // Then portrait
+	  const fromPortrait = this.#pickRowFromType(remaining, 'portrait', lastNonPanoSize);
+	  if (fromPortrait) return fromPortrait;
+	  
+	  return null;
+	}
+	
+	/**
+	 * Ensure the gallery doesn't end with a pano
 	 * @param {Array} rows - Current row order
 	 * @returns {Array} Adjusted row order
 	 */
-	#adjustPanoPlacement(rows) {
-		if (rows.length <= 1) return rows;
+	#ensurePanoNotAtEnd(rows) {
+	  if (rows.length <= 1) return rows;
+	  
+	  const lastRow = rows[rows.length - 1];
+	  if (lastRow.rowClass !== 'pano-row') return rows;
+	  
+	  // Find a good spot to move the trailing pano
+	  // Look backwards for two consecutive non-pano rows
+	  for (let i = rows.length - 2; i >= 1; i--) {
+		const current = rows[i];
+		const previous = rows[i - 1];
 		
-		const lastRow = rows[rows.length - 1];
-		if (lastRow.rowClass !== 'pano-row') return rows;
-		
-		// Find a safe insertion point for the trailing pano
-		for (let i = Math.max(0, rows.length - 3); i >= 1; i--) {
-			const prevRow = rows[i - 1];
-			const nextRow = rows[i];
-			
-			if (prevRow.rowClass !== 'pano-row' && nextRow.rowClass !== 'pano-row') {
-				const pano = rows.pop();
-				rows.splice(i, 0, pano);
-				break;
-			}
+		if (current.rowClass !== 'pano-row' && previous.rowClass !== 'pano-row') {
+		  // Found a safe spot - insert the pano here
+		  const pano = rows.pop();
+		  rows.splice(i, 0, pano);
+		  return rows;
 		}
-		
-		return rows;
+	  }
+	  
+	  // If we can't find a good spot, just leave it at the end
+	  // (This should rarely happen with real galleries)
+	  return rows;
 	}
-
+	
 	/**
 	 * Responsive row generation with viewport-aware minimum sizes
-	 * @param {Array} images - Images to arrange in rows
-	 * @param {string} rowClass - CSS class for the row
-	 * @param {number} maxPerRow - Maximum images per row (responsive)
-	 * @returns {Array} Array of row objects
+	 * (Keep this method as-is - it's already good)
 	 */
 	#generateRows(images, rowClass, maxPerRow) {
-		if (images.length === 0) return [];
+	  if (images.length === 0) return [];
+	  
+	  const rowLimits = this.#currentRowLimits || this.#calculateRowLimits();
+	  const { MIN_IMAGES } = rowLimits;
+	  
+	  // Handle small galleries
+	  if (images.length < MIN_IMAGES) {
+		return [{ images: [...images], rowClass }];
+	  }
+	
+	  const rows = [];
+	  let currentIndex = 0;
+	
+	  while (currentIndex < images.length) {
+		const remaining = images.length - currentIndex;
+		let rowSize = Math.min(maxPerRow, remaining);
 		
-		const rowLimits = this.#currentRowLimits || this.#calculateRowLimits();
-		const { MIN_IMAGES } = rowLimits;
-		
-		// Handle small galleries
-		if (images.length < MIN_IMAGES) {
-			return [{ images: [...images], rowClass }];
+		// Adjust row size to avoid small final rows
+		if (remaining > maxPerRow && remaining <= maxPerRow + 1) {
+		  rowSize = Math.ceil(remaining / 2);
 		}
-
-		const rows = [];
-		let currentIndex = 0;
-
-		while (currentIndex < images.length) {
-			const remaining = images.length - currentIndex;
-			let rowSize = Math.min(maxPerRow, remaining);
-			
-			// Adjust row size to avoid small final rows
-			if (remaining > maxPerRow && remaining <= maxPerRow + 1) {
-				rowSize = Math.ceil(remaining / 2);
-			}
-			
-			const rowImages = images.slice(currentIndex, currentIndex + rowSize);
-			rows.push({ images: rowImages, rowClass });
-			currentIndex += rowSize;
-		}
-
-		// Post-process to ensure minimum row sizes
-		this.#ensureMinimumRowSizes(rows, MIN_IMAGES);
 		
-		return rows;
+		const rowImages = images.slice(currentIndex, currentIndex + rowSize);
+		rows.push({ images: rowImages, rowClass });
+		currentIndex += rowSize;
+	  }
+	
+	  // Post-process to ensure minimum row sizes
+	  this.#ensureMinimumRowSizes(rows, MIN_IMAGES);
+	  
+	  return rows;
 	}
-
+	
 	/**
 	 * Ensure all rows meet minimum size requirements
-	 * @param {Array} rows - Array of row objects to adjust
-	 * @param {number} minSize - Minimum row size
+	 * (Keep this method as-is - it's already good)
 	 */
 	#ensureMinimumRowSizes(rows, minSize) {
-		if (rows.length <= 1) return;
+	  if (rows.length <= 1) return;
+	  
+	  const lastRow = rows[rows.length - 1];
+	  const secondLastRow = rows[rows.length - 2];
+	  
+	  if (lastRow.images.length < minSize && secondLastRow) {
+		const needed = minSize - lastRow.images.length;
+		const available = secondLastRow.images.length - minSize;
 		
-		const lastRow = rows[rows.length - 1];
-		const secondLastRow = rows[rows.length - 2];
-		
-		if (lastRow.images.length < minSize && secondLastRow) {
-			const needed = minSize - lastRow.images.length;
-			const available = secondLastRow.images.length - minSize;
-			
-			if (available >= needed) {
-				const movedImages = secondLastRow.images.splice(-needed, needed);
-				lastRow.images.unshift(...movedImages);
-			}
+		if (available >= needed) {
+		  const movedImages = secondLastRow.images.splice(-needed, needed);
+		  lastRow.images.unshift(...movedImages);
 		}
+	  }
 	}
 
 	/**
