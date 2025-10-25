@@ -91,8 +91,8 @@ class TooltipManager {
 class NavigationManager {
   constructor() {
 	this.navWrapper = document.querySelector('.nav-wrapper');
-	this.hamburgerBtn = document.querySelector('.burger');
-	this.navMenu = document.querySelector('.sticky-nav');
+	this.hamburgerBtn = document.querySelector('.nav-wrapper button');
+	this.navMenu = document.querySelector('nav');
 	this.scrollThreshold = 10;
 	this.init();
   }

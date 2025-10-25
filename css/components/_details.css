@@ -1,0 +1,77 @@
+/* ==========================================================================
+   DETAILS
+   ========================================================================== */
+.details-wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+	gap: var(--grid-gap);
+}
+
+summary {
+	border-radius: var(--border-radius-sm);
+	cursor: pointer;
+	outline: 1px solid var(--button-border-color);
+	padding: var(--space-sm) 0;
+	transition: background-color var(--transition-medium);
+
+	&:hover {
+		background-color: var(--accent-color-alpha);
+	}
+}
+
+details {
+	font-family: var(--font-family-ui);
+	padding: var(--space-md) 0;
+}
+
+summary,
+details {
+	font-size: var(--font-size-details);
+}
+
+summary,
+details h3
+{
+	font-family: var(--font-family-mono);
+}
+
+details > article {
+	animation: none;
+	opacity: 0;
+}
+
+details[open] > article {
+	animation: fadeIn var(--transition-slow-eo) forwards;
+	animation-delay: var(--animation-order, 0s);
+} 
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+details li {
+	padding-block: var(--space-sm);
+
+	&::marker {
+		color: var(--accent-color);
+	}
+}
+
+details ul {
+	box-shadow: none;
+	list-style: star;
+	margin-bottom: calc(var(--space-lg) + var(--space-sm));
+	padding-bottom: var(--space-sm);
+}
+
+details[open] ul {
+	box-shadow: var(--shadow-details);
+}

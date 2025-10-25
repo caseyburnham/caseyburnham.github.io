@@ -1,7 +1,8 @@
 /**
+ * Modal
  * @file PhotoModal.js
  * @description A modern, robust photo modal with EXIF data support.
- */
+ **/
 import {
 	setupEventListeners,
 	cleanupEventListeners
@@ -62,6 +63,7 @@ export class PhotoModal {
 		this.#loadImage(imageToLoad)
 			.then(loadedImg => {
 				this.#updateModalContent(imageToLoad, alt, title, loadedImg);
+				this.#state.elements.modalImg.title = `${alt}`;
 			})
 			.catch(error => {
 				console.warn('Image failed to load, opening modal without it:', error);
@@ -79,7 +81,7 @@ export class PhotoModal {
 		this.#state.isOpen = false;
 		// Clear the image source when the modal closes
 		this.#state.elements.modalImg.src = '';
-		this.#state.elements.modalImg.title = 'Loading...';
+		this.#state.elements.modalImg.title = '';
 	}
 
 	navigateImage(direction) {
@@ -262,7 +264,7 @@ export class PhotoModal {
 		titleEl.textContent = escapedTitle;
 
 		if (exifData?.gps) {
-			gpsEl.innerHTML = this.#buildGPSLink(exifData.gps);
+			gpsEl.textContext = this.#buildGPSLink(exifData.gps);
 		} else {
 			gpsEl.remove();
 		}
@@ -275,7 +277,7 @@ export class PhotoModal {
 
 		const exifRowHTML = this.#buildExifRow(exifData, (text) => text);
 		if (exifRowHTML) {
-			exifEl.innerHTML = exifRowHTML;
+			exifEl.textContext = exifRowHTML;
 		} else {
 			exifEl.remove();
 			hrEl.remove();

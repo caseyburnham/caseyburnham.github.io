@@ -371,7 +371,7 @@ class PeakMap {
 
 		const mapContainer = document.getElementById(this.config.mapContainerId);
 		if (mapContainer) {
-			mapContainer.innerHTML = `
+			mapContainer.textContext = `
 		<div class="error">
 		  <div>
 			<div style="font-size: 2rem; margin-bottom: 10px;">⚠️</div>
@@ -401,17 +401,33 @@ class PeakMap {
 }
 
 /**
- * Initialize the peak map when DOM is ready
+ * Initialize the peak map when DOM is ready AND Leaflet is loaded
  */
-document.addEventListener('DOMContentLoaded', () => {
-	// Allow for custom configuration via global variable
-	const config = window.PEAK_MAP_CONFIG || {};
-
-	const peakMap = new PeakMap(config);
-	peakMap.init().catch(error => {
-		console.error('Failed to initialize Peak Map:', error);
-	});
-
-	// Make instance globally available for debugging/external access
-	window.peakMap = peakMap;
-});
+import('/js/leaflet.js')
+   .then(() => {
+	 // --- Leaflet is now loaded and L is available ---
+	 
+	 // Allow for custom configuration via global variable
+	 const config = window.PEAK_MAP_CONFIG || {};
+ 
+	 const peakMap = new PeakMap(config);
+	 peakMap.init().catch(error => {
+	   console.error('Failed to initialize Peak Map:', error);
+	 });
+ 
+	 // Make instance globally available for debugging/external access
+	 window.peakMap = peakMap;
+   })
+   .catch(err => {
+	 // This will catch an error if leaflet.js itself fails to load
+	 console.error("Failed to load leaflet.js dependency:", err);
+	 
+	 const mapContainer = document.getElementById(window.PEAK_MAP_CONFIG?.mapContainerId || 'map');
+	 if (mapContainer) {
+	   mapContainer.textContext = `
+		 <div class="error">
+		   <div><strong>Error:</strong> Map library failed to load.</div>
+		 </div>
+	   `;
+	 }
+   });

@@ -1,0 +1,65 @@
+/* ==========================================================================
+   BIO
+   ========================================================================== */
+.bio-wrapper {
+	display: grid;
+	gap: var(--grid-gap);
+	grid-auto-rows: minmax(min-content, max-content);
+	grid-template-columns: 2fr 1fr;
+
+	& p {
+		font-family: var(--font-family-mono);
+		line-height: var(--line-height-airy);
+		margin: 0;
+		text-indent: var(--bio-indent);
+		text-wrap: stable;
+	}
+
+	& p:not(.bio-wrapper p:nth-last-child(1)) {
+		margin-bottom: var(--space-md);
+	}
+}
+
+@media (max-width: 48em) {
+	.bio-wrapper {
+		grid-template-columns: 1fr;
+		
+		& p {
+			text-align: justify;
+		}
+
+		& img {
+			position: relative;
+			max-height: 20rem;
+		}
+	}
+}
+
+figure {
+	position: relative;
+	margin: 0;
+	z-index: 99;
+
+	& img {
+		border-radius: var(--border-radius-sm);
+		box-shadow: var(--shadow-subtle);
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+		inline-size: 100%;
+	}
+
+	&:hover figcaption {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+}
+
+figcaption {
+	font-family: var(--font-family-ui);
+	font-size: var(--font-size-sm);
+	text-align: center;
+	transform: translateY(10px);
+}
+

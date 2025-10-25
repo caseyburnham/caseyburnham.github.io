@@ -1,7 +1,6 @@
 /**
- * Galleries - Streamlined photo gallery manager with smooth transitions
- * IMPROVED VERSION - Enhanced memory management, reduced complexity, modern patterns
- */
+ * Galleries
+ **/
 class Galleries {
 	static CONFIG = {
 		DATA_URL: '/json/gallery-data.json',
@@ -10,7 +9,7 @@ class Galleries {
 		BUTTON_SELECTOR: '.gallery-btn',
 		CONTAINER_SELECTOR: '[aria-labelledby="gallery-heading"]',
 		TRANSITION_DURATION: 200,
-		// Extracted magic numbers to configuration
+		
 		SCORING_WEIGHTS: {
 			ALTERNATING_COUNT: 1000,
 			ALTERNATING_LAYOUT: 100,
@@ -18,14 +17,14 @@ class Galleries {
 			COMMONALITY_BONUS: 25,
 			SIZE_BONUS: 0.1
 		},
-		// Responsive row limits based on viewport breakpoints
+		
 		BREAKPOINTS: {
 			MOBILE: 480,
 			TABLET: 768,
 			DESKTOP: 1024,
 			WIDESCREEN: 1440
 		},
-		// Row limits per breakpoint [landscape_max, portrait_max, min_images]
+		
 		ROW_LIMITS_RESPONSIVE: {
 			MOBILE: { LANDSCAPE_MAX: 4, PORTRAIT_MAX: 5, MIN_IMAGES: 3 },
 			TABLET: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 6, MIN_IMAGES: 3 },
@@ -40,16 +39,16 @@ class Galleries {
 		}
 	};
 
-	#galleries = new Map(); // Use Map for better performance
+	#galleries = new Map(); 
 	#currentGallery = null;
 	#isInitialized = false;
 	#photoModal = null;
 	#galleryContainer = null;
 	#buttonTemplate = null;
 	#thumbTemplate = null;
-	#abortController = null; // For cleanup
-	#resizeObserver = null; // For responsive behavior
-	#currentRowLimits = null; // Cached current limits
+	#abortController = null; 
+	#resizeObserver = null; 
+	#currentRowLimits = null; 
 
 	constructor(options = {}) {
 		this.#photoModal = options.photoModal || null;
@@ -234,7 +233,6 @@ class Galleries {
 		const data = await response.json();
 		const { _config, ...galleries } = data;
 
-		// Use Map for better performance with dynamic keys
 		this.#galleries.clear();
 		Object.entries(galleries).forEach(([key, value]) => {
 			this.#galleries.set(key, value);
@@ -253,7 +251,7 @@ class Galleries {
 		const images = Array.from(document.querySelectorAll('.photo-thumb img'))
 			.filter(img => img.src)
 			.map(img => ({
-				id: img.dataset.filename || `img-${crypto.randomUUID()}`, // Use crypto.randomUUID() for better performance
+				id: img.dataset.filename || `img-${crypto.randomUUID()}`,
 				sources: { avif: img.src },
 				thumbnail: img.src,
 				alt: img.alt || 'Untitled',
@@ -279,7 +277,6 @@ class Galleries {
 		buttonsContainer.role = 'tablist';
 		buttonsContainer.setAttribute('aria-label', 'Photo galleries');
 
-		// Use DocumentFragment for efficient DOM building
 		const fragment = document.createDocumentFragment();
 		
 		galleryKeys.forEach(key => {
@@ -328,7 +325,7 @@ class Galleries {
 
 	#renderGallery(gallery, withTransition = true) {
 		if (!gallery?.images?.length) {
-			this.#galleryContainer.innerHTML = '';
+			this.#galleryContainer.textContext = '';
 			return;
 		}
 		
@@ -342,7 +339,7 @@ class Galleries {
 	}
 
 	/**
-	 * IMPROVED: Simplified photo grid creation with better memory management
+	 * Photo grid creation with memory management
 	 * @param {Array} images - Array of image objects
 	 * @returns {DocumentFragment} Fragment containing the photo grids
 	 */
@@ -350,13 +347,10 @@ class Galleries {
 		const fragment = document.createDocumentFragment();
 		if (!Array.isArray(images) || images.length === 0) return fragment;
 
-		// Step 1: Group images by layout (more memory efficient)
 		const groups = this.#groupImagesByLayout(images);
 		
-		// Step 2: Generate optimized rows using streaming approach
 		const rows = this.#generateOptimizedRows(groups);
 		
-		// Step 3: Render rows to fragment
 		rows.forEach(row => {
 			if (row.images.length > 0) {
 				fragment.appendChild(this.#createImageGrid(row.images, row.rowClass));
@@ -384,7 +378,7 @@ class Galleries {
 	}
 
 	/**
-	 * IMPROVED: Responsive row generation with viewport-aware limits
+	 * Responsive row generation with viewport-aware limits
 	 * @param {Object} groups - Grouped images by layout
 	 * @returns {Array} Array of row objects
 	 */
@@ -400,12 +394,11 @@ class Galleries {
 			rowClass: 'pano-row' 
 		}));
 
-		// Use more efficient row ordering algorithm
 		return this.#optimizeRowOrder([...landscapeRows, ...portraitRows, ...panoRows]);
 	}
 
 	/**
-	 * IMPROVED: Strategic row ordering algorithm with proper alternation rules
+	 * Strategic row ordering algorithm with proper alternation rules
 	 * @param {Array} allRows - All available rows
 	 * @returns {Array} Optimized row order
 	 */
@@ -413,11 +406,10 @@ class Galleries {
 		if (allRows.length <= 1) return allRows;
 
 		const result = [];
-		const remaining = [...allRows]; // Work with a copy
+		const remaining = [...allRows]; 
 		let lastRow = null;
 
 		while (remaining.length > 0) {
-			// Filter candidates based on hard constraints (pano rules)
 			const validCandidates = remaining.filter(row => 
 				this.#isValidNextRow(row, lastRow)
 			);
@@ -425,7 +417,6 @@ class Galleries {
 			const candidatesToScore = validCandidates.length > 0 ? validCandidates : remaining;
 
 			if (candidatesToScore.length === 1) {
-				// Only one choice, take it
 				const chosen = candidatesToScore[0];
 				result.push(chosen);
 				this.#removeFromArray(remaining, chosen);
@@ -433,11 +424,9 @@ class Galleries {
 				continue;
 			}
 
-			// Calculate size distribution for strategic decisions
 			const sizeCounts = this.#calculateSizeCounts(candidatesToScore);
 			const uniqueSizeCount = Object.keys(sizeCounts).length;
 
-			// Score each candidate using the original sophisticated logic
 			const bestRow = this.#selectBestRowAdvanced(
 				candidatesToScore, 
 				lastRow, 
@@ -451,7 +440,6 @@ class Galleries {
 			lastRow = bestRow;
 		}
 
-		// Post-process to handle pano placement rules
 		return this.#adjustPanoPlacement(result);
 	}
 
@@ -467,7 +455,7 @@ class Galleries {
 	}
 
 	/**
-	 * Advanced row selection with sophisticated scoring (restored original logic)
+	 * Advanced row selection with sophisticated scoring
 	 * @param {Array} candidates - Available candidate rows
 	 * @param {Object|null} lastRow - Previous row
 	 * @param {Object} sizeCounts - Count of rows by size
@@ -497,12 +485,11 @@ class Galleries {
 				const otherCandidates = candidates.filter(r => r !== candidate);
 				if (otherCandidates.length > 1 && 
 					new Set(otherCandidates.map(r => r.images.length)).size === 1) {
-					score -= weights.DEAD_END_PENALTY; // Heavy penalty for this "trap" choice
+					score -= weights.DEAD_END_PENALTY;
 				}
 			}
 
 			// d. Commonality Bonus: Prefer using rows from a larger group
-			// This prevents picking scarce rows (like a single '5') too early
 			score += (sizeCounts[candidateSize] - 1) * weights.COMMONALITY_BONUS;
 
 			// e. Final Tie-breaker: Small bonus for size
@@ -568,7 +555,7 @@ class Galleries {
 	}
 
 	/**
-	 * IMPROVED: Responsive row generation with viewport-aware minimum sizes
+	 * Responsive row generation with viewport-aware minimum sizes
 	 * @param {Array} images - Images to arrange in rows
 	 * @param {string} rowClass - CSS class for the row
 	 * @param {number} maxPerRow - Maximum images per row (responsive)
@@ -723,7 +710,6 @@ class Galleries {
 				element.style.opacity = direction === 'in' ? '1' : '0';
 			}, delay);
 			
-			// Cleanup timeout if component is destroyed
 			this.#abortController.signal.addEventListener('abort', () => {
 				clearTimeout(timeoutId);
 				resolve();
@@ -731,7 +717,6 @@ class Galleries {
 		});
 	}
 
-	// Photo modal integration with better error handling
 	#initPhotoModal() {
 		this.#photoModal?.setupAspectRatios?.();
 	}
@@ -777,7 +762,6 @@ if (document.readyState === 'loading') {
 	initializeGalleries();
 }
 
-// Cleanup on page unload
 window.addEventListener('beforeunload', () => {
 	window.Galleries?.destroy();
 });

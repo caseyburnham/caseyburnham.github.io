@@ -1,0 +1,60 @@
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+@media (max-width: 48em) {	
+   header {
+	   text-align: center;
+   }
+}
+
+h4 {
+	color: var(--accent-color);
+}
+   
+a {
+	color: var(--a-color);
+	text-decoration-skip: spaces;
+	text-decoration-skip: -webkit-spaces;
+	text-wrap: nowrap;
+}
+
+a[target="_blank"]:not(.record-link, #map a)::after {
+  content: '\2197';
+  text-decoration-color: var(--bg-color-main);
+}
+
+dfn {
+	font-style: normal;
+}
+
+abbr {
+	cursor: help;
+	font-family: var(--font-family-mono);
+	text-decoration: underline dotted;
+	text-decoration-color: var(--accent-color);
+}
+
+caption,
+label,
+small {
+	color: var(--text-color-muted);
+	font-size: var(--font-size-xs);
+	font-style: italic;
+	font-weight: var(--font-weight-light);
+}
+
+strong {
+	color: var(--accent-color);
+	text-shadow: var(--shadow-glow);
+}
+
+time {
+	color: var(--text-color-muted);
+	font-family: var(--font-family-mono);
+	text-align: center;
+}
+
+address {
+	font-style: normal;
+	text-transform: uppercase;
+}

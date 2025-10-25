@@ -1,0 +1,38 @@
+/* ==========================================================================
+   LAYOUT COMPONENTS
+   ========================================================================== */
+main {
+   background-color: var(--bg-color-main);
+   border-radius: var(--border-radius-main);
+   box-shadow: var(--shadow-main);
+   padding: var(--space-xl) var(--fluid-padding-inline);
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--section-gap);
+}
+
+hr {
+	background: oklch(from var(--hr-color) l c h / 0.5);
+	border: none;
+	height: 1px;
+	margin-block: var(--space-md);
+}
+
+footer {
+	font-size: var(--font-size-sm);
+	line-height: var(--line-height-loose);
+	padding-top: var(--space-lg);
+
+	& small {
+		font-style: normal;
+		margin: 0;
+	}
+
+	& span:not(footer address span) {
+		cursor: default;
+		font-size: var(--font-size-base)
+	}
+}

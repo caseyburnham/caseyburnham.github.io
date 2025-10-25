@@ -1,0 +1,119 @@
+/* ==========================================================================
+   MISC
+   ========================================================================== */
+	.card {
+		box-shadow: var(--shadow-subtle);
+		transition:
+			box-shadow var(--transition-medium),
+			transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+		will-change: transform;
+		position: relative;
+	}
+	
+	.caption {
+	backdrop-filter: var(--modal-caption-blur);
+	background: var(--bg-color-caption);
+	border: 1px solid var(--border-color-caption);
+	border-radius: var(--border-radius-sm);
+	inset: auto var(--space-xs) var(--space-xs) var(--space-xs);
+	opacity: 0;
+	padding: var(--space-xs);
+	position: absolute;
+	transition:
+		opacity var(--transition-medium),
+		transform var(--transition-medium);
+	}
+	
+	.abbr-tooltip {
+		backdrop-filter: var(--modal-caption-blur);
+		background: var(--bg-color-tooltip);
+		border: solid 1px var(--accent-color);
+		border-radius: var(--border-radius-sm);
+		box-shadow: var(--shadow-subtle);
+		color: var(--text-color-primary);
+		font-family: var(--font-family-ui);
+		opacity: 0;
+		padding: var(--space-sm);
+		position: absolute;
+		transition: opacity var(--transition-medium);
+		z-index: 10;
+	}
+	
+	.abbr-tooltip.show {
+		opacity: 1;
+	}
+
+/* ==========================================================================
+   UTILITY
+   ========================================================================== */
+.flex-item {
+	flex: 1;
+	min-width: 300px;
+}
+
+.nowrap {
+	text-wrap: nowrap;
+}
+
+.sr-only {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	inline-size: 1px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+/* ==========================================================================
+   VENUE CLASSES 
+   ========================================================================== */
+	.venue--red-rocks {
+		color: var(--venue-red-rocks);
+	}
+	
+	.venue--bluebird {
+		color: var(--venue-bluebird);
+	}
+	
+	.venue--ogden {
+		color: var(--venue-ogden);
+	}
+	
+	.venue--belly-up {
+		color: var(--venue-belly-up);
+	}
+	
+	.venue--golden-tri {
+		color: var(--venue-golden-tri);
+	}
+	
+	.venue--summit {
+		color: var(--venue-summit);
+	}
+	
+	.venue--fillmore {
+		color: var(--venue-fillmore);
+	}
+	
+	.venue--ball-arena {
+		color: var(--venue-ball-arena);
+	}
+	
+	.venue--gothic {
+		color: var(--venue-gothic);
+	}
