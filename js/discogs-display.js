@@ -131,7 +131,17 @@ const renderRecords = (container, template, records, options = {}) => {
  * Displays an error message in the container
  */
 const showError = (container, message) => {
-  container.innerHTML = `<p>${message}</p>`;
+  // Clear any existing content
+  container.innerHTML = ''; 
+  
+  // Create a new <p> element
+  const errorElement = document.createElement('p');
+  
+  // Safely set the text content
+  errorElement.textContent = message;
+  
+  // Add the new element to the container
+  container.appendChild(errorElement);
 };
 
 // ============================================================================

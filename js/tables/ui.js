@@ -216,7 +216,6 @@ export const ui = {
 		const percent = fraction * 100;
 		
 		const data = document.createElement('data');
-		data.className = 'elevation';
 		data.textContent = elevation;
 		data.value = numericElevation;
 		data.style.setProperty('--elevation-percent', `${percent.toFixed(2)}%`);

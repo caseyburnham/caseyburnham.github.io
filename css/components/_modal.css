@@ -3,69 +3,7 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   MODAL ROOT PROPERTIES
-   -------------------------------------------------------------------------- */
-:root {
-	/* Modal Size */
-	--modal-max-width: 85vw;
-	--modal-max-height: 90vh;
-
-	/* Modal Blur */
-	--modal-blur: blur(24px);
-	--modal-caption-blur: blur(4px);
-}
-
-/* --------------------------------------------------------------------------
-   LIGHT SCHEME
-   -------------------------------------------------------------------------- */
-@media (prefers-color-scheme: light) {
-
-	:root {
-		/* Background Color */
-		--bg-color-overlay: oklch(from var(--snow) l c h / .25);
-		--bg-color-caption: oklch(from var(--white-smoke) l c h / .5);
-
-		/* Border Color */
-		--border-color-caption: var(--jet-black);
-
-		/* Shadows */
-		--shadow-modal:
-			oklch(from var(--jet-black) l c h / .25) 0px 0.0625em 0.0625em,
-			oklch(from var(--jet-black) l c h / .25) 0px 0.125em 0.5em,
-			oklch(from var(--snow) l c h / .1) 0px 0px 0px 1px inset;
-
-		--exif-shadow: oklch(from var(--snow) l c h / .25) 0 2px 3px;
-	}
-
-}
-
-/* --------------------------------------------------------------------------
-   DARK SCHEME
-   -------------------------------------------------------------------------- */
-@media (prefers-color-scheme: dark) {
-
-	:root {
-		/* Background Color */
-		--bg-color-overlay: oklch(from var(--jet-black) l c h / .25);
-		--bg-color-caption: oklch(from var(--vampire-black) l c h / .5);
-
-		/* Border Color */
-		--border-color-caption: var(--primary-color);
-
-		/* Shadows */
-		--shadow-modal:
-			oklch(from var(--jet-black) l c h / .25) 0px 0.0625em 0.0625em,
-			oklch(from var(--jet-black) l c h / .25) 0px 0.125em 0.5em,
-			oklch(from var(--snow) l c h / .1) 0px 0px 0px 1px inset;
-
-		--exif-shadow:
-			oklch(from var(--jet-black) l c h / .25) 0 2px 3px;
-	}
-
-}
-
-/* --------------------------------------------------------------------------
-   MODAL OVERLAY & CONTENT
+   OVERLAY & CONTENT
    -------------------------------------------------------------------------- */
 /* Open state of the dialog  */
 dialog[open] {
@@ -88,7 +26,7 @@ dialog {
 	overflow: visible;
 	padding: 0;
 	place-self: center;
-	transition: opacity 0.7s ease-out;
+	transition: opacity var(--transition-long-eo);
 
 	&:focus {
 		outline: none;
@@ -113,34 +51,35 @@ dialog[open]::backdrop {
 	}
 }
 
+/* --------------------------------------------------------------------------
+   CAPTIONS & METADATA
+   -------------------------------------------------------------------------- */
+/* === Container === */
 .modal-card {
-	border-radius: var(--border-radius-sm);
-	box-shadow: var(--shadow-modal);
-	overflow: hidden;
-	position: relative;
+   border-radius: var(--border-radius-sm);
+   box-shadow: var(--shadow-modal);
+   overflow: hidden;
+   position: relative;
 
-	& img {
-		display: block;
-		max-height: var(--modal-max-height);
-		max-width: 100%;
-	}
+   & img {
+	   display: block;
+	   max-height: var(--modal-max-height);
+	   max-width: 100%;
+   }
 
-	&:hover .modal-caption {
-		opacity: 1;
-		pointer-events: auto;
-		transform: translateY(0);
-	}
+   &:hover .modal-caption {
+	   opacity: 1;
+	   pointer-events: auto;
+	   transform: translateY(0);
+   }
 }
 
-/* --------------------------------------------------------------------------
-   MODAL CAPTIONS & METADATA
-   -------------------------------------------------------------------------- */
 /* === Caption === */
 .modal-caption {
 	transform: translateY(var(--space-ms));
 
 	& hr {
-		background: oklch(from var(--border-color-caption) l c h / .5);
+		background: oklch(from var(--border-color-caption) l c h / 0.5);
 		margin: var(--space-xs) var(--space-sm) var(--space-sm) var(--space-sm);
 	}
 }
@@ -166,7 +105,7 @@ dialog[open]::backdrop {
 .title {
 	color: var(--text-color-primary);
 	font-family: var(--font-family-ui);
-	font-size: var(--font-size-range);
+	font-size: var(--font-size-modal-title);
 	font-weight: var(--font-weight-heavy);
 	grid-area: title;
 	justify-self: center;
@@ -184,7 +123,7 @@ dialog[open]::backdrop {
 	grid-area: coords;
 	justify-self: center;
 	text-wrap: wrap;
-	text-shadow: 0 0 .025em var(--vampire-black), var(--exif-shadow);
+	text-shadow: 0 0 0.025em var(--vampire-black), var(--exif-shadow);
 	
 	& a {
 		color: var(--accent-color);
@@ -202,7 +141,7 @@ dialog[open]::backdrop {
 	display: flex;
 	flex-wrap: wrap;
 	font-family: var(--font-family-ui);
-	font-size: var(--font-size-xxs);
+	font-size: var(--font-size-modal-exif);
 	gap: var(--space-sm);
 	justify-content: center;
 	margin-bottom: var(--space-xxs);
@@ -214,20 +153,18 @@ dialog[open]::backdrop {
 	}
 
 	& .format data {
-	border-radius: .025em;
+	border-radius: 0.025em;
 	font-family: var(--font-family-ui);
 	outline: 1px solid var(--text-color-secondary);
-	outline-offset: .125em;
+	outline-offset: 0.125em;
 	text-shadow: none;
 	}
 }
 
 @media (height <= 30rem) {
-
 	.exif-row {
-		gap: .25rem;
+		gap: var(--space-xs);
 	}
-
 }
 
 /* === COPYRIGHT === */

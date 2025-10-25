@@ -483,7 +483,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* attribution and scale controls */
 
 .leaflet-container .leaflet-control-attribution {
-	background: rgb(255 255 255 / 80%);
+	/* background: oklch(from var(--bg-color-caption)); */
 	box-shadow: var(--shadow-media);
 	margin: var(--space-xs);
 }

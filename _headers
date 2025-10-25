@@ -1,2 +1,15 @@
+/*
+  # HSTS - Forces HTTPS
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  
+  # COOP - Isolates your site
+  Cross-Origin-Opener-Policy: same-origin
+  
+  # XFO - Prevents Clickjacking
+  X-Frame-Options: DENY
+  
+  # CSP - Your main defense against XSS and Clickjacking
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.maptiler.com; object-src 'none'; frame-ancestors 'none';
+  
 /images/*
   Access-Control-Allow-Origin: *

@@ -46,7 +46,7 @@
 	.custom-popup .leaflet-popup-tip {
 		display: none;
 	}
-	
+
 	.map-marker {
 		backdrop-filter: var(--modal-caption-blur);
 		background: var(--a-color);
@@ -105,4 +105,17 @@
 	justify-content: center;
 	padding: 20px;
 	text-align: center;
+}
+
+@media (max-width: 48em) {
+	#map {
+		border-radius: var(--border-radius-md);
+		margin-top: 0;
+		margin-bottom: var(--space-xs);
+	}
+
+	.leaflet-container .leaflet-control-attribution {
+		margin-bottom: var(--space-md);
+		margin-right: var(--space-md);
+	}
 }

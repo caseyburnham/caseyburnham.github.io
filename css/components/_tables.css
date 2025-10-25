@@ -1,0 +1,134 @@
+/*  ==========================================================================
+	TABLES & PROGRESS BAR STYLES
+    ========================================================================== */
+table {
+	border: 1px solid var(--border-color);
+	border-collapse: collapse;
+	font-size: var(--font-size-table);
+	max-inline-size: 100%;
+}
+
+th {
+	background-color: var(--primary-color-alpha);
+	font-weight: var(--font-weight-heavy);
+}
+
+th,
+td {
+	border: 1px solid var(--border-color);
+	padding: var(--fluid-table-padding);
+	text-align: left;
+}
+
+tfoot {
+	text-wrap: wrap;
+}
+
+caption {
+	caption-side: bottom;
+	padding: var(--space-sm) 0;
+	text-align: right;
+	z-index: 1000;
+}
+
+.prod-role,
+.ranked {
+	color: var(--accent-color);
+	text-shadow: var(--shadow-glow);
+}
+
+/* Mountains & Concert Tables */
+.data-tables {
+	flex-direction: initial;
+	flex-wrap: wrap;
+}
+
+/* Mountains Table */
+#mountains data {
+	--elevation-fraction: 0;
+	--elevation-percent: 0%;
+	--glow-color: color-mix(in oklch,
+			var(--heatmap-glow-min-color),
+			var(--heatmap-glow-max-color) var(--elevation-percent));
+	--glow-size: calc(0px + var(--space-sm) * var(--elevation-fraction));
+	color: color-mix(in oklch,
+			var(--heatmap-min-color),
+			var(--heatmap-max-color) var(--elevation-percent));
+	font-family: var(--font-family-mono);
+	font-weight: calc(100 + 600 * var(--elevation-fraction));
+	text-shadow:
+		var(--shadow-elevation-outline),
+		0 0 var(--glow-size) var(--glow-color);
+}
+
+.unranked {
+	color: var(--text-color-muted);
+}
+
+.year-summary-row td {
+	background: var(--accent-color-alpha);
+	vertical-align: middle;
+}
+
+.sequence-group {
+	border-inline: 2px solid var(--border-sequence);
+}
+
+.sequence-first {
+	border-block-start: 2px solid var(--border-sequence);
+}
+
+.sequence-last {
+	border-block-end: 2px solid var(--border-sequence);
+}
+
+.bar {
+	padding-bottom: var(--space-md);
+	padding-inline: var(--space-md);
+	
+	& label {
+		font-size: var(--font-size-xxs);
+	}
+}
+
+progress {
+	/* outline: 1px solid oklch(from var(--border-color) calc(l - .05) c h); */
+	appearance: none;
+	border-radius: var(--border-radius-sm);
+	height: var(--space-xs);
+	inline-size: 100%;
+}
+
+/* Webkit */
+progress::-webkit-progress-inner-element {
+	border-radius: var(--border-radius-sm);
+	
+	z-index: 1;
+}
+
+progress::-webkit-progress-bar {
+	background: var(--bg-color-progress);
+	border-radius: var(--border-radius-sm);
+	z-index: 2;
+}
+
+progress::-webkit-progress-value {
+	background: var(--color-bar-fill);
+	border-radius: var(--border-radius-sm);
+	box-shadow: var(--shadow-prog);
+	z-index: 3;
+}
+
+/* Moz */
+progress[value]::-moz-progress-bar {
+	background: var(--bg-color-progress);
+	border-radius: var(--border-radius-md);
+}
+
+
+
+progress[value]::-moz-progress-value {
+	background: var(--color-bar-fill);
+	border-radius: var(--border-radius-md);
+	box-shadow: var(--shadow-prog);
+}

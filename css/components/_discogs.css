@@ -1,0 +1,196 @@
+/* ==========================================================================
+   RECORDS
+   ========================================================================== */
+#now-playing h3 {
+	font-family: var(--font-family-ui);
+	margin: 0;
+}
+
+/* === Grid === */
+.discogs-grid {
+	display: grid;
+	gap: var(--grid-gap);
+	grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+
+/* === Record Container === */
+.discogs-record {
+	position: relative;
+	z-index: 1;
+	perspective: 1000px;
+}
+
+/* === Album Sleeve === */
+.album-sleeve::before,
+.album-sleeve::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: var(--border-radius-xs);
+	z-index: -1;
+	transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.album-sleeve {
+	aspect-ratio: 1 / 1;
+	border-radius: var(--border-radius-xs);
+	transform:
+		translateY(0) scale(1) rotateY(0deg) rotateX(0);
+	transform-style: preserve-3d;
+	will-change:
+		transform;
+
+	&::before {
+		background: linear-gradient(135deg, #999999, #676767);
+		transform: translateX(0);
+	}
+
+	&::after {
+		background: linear-gradient(135deg, #595959, #3e3e3e);
+		transform: translateX(0);
+	}
+
+	&.is-active {
+		box-shadow: var(--shadow-elevated);
+		transform:
+			translateY(-7px) scale(1.05) rotateY(-8deg) rotateX(1deg);
+
+		&::before {
+			transform: translateX(0.025rem);
+		}
+		
+		&::after {
+			transform: translateX(0.05rem);
+		}
+		
+		& .album-art {
+			box-shadow: var(--shadow-album);
+		}
+
+		& .album-media {
+			filter: var(--shadow-media);
+		}
+	}
+}
+
+/* === Base Art & Media Styles === */
+/* Album Art */
+.album-art {
+	border-radius: var(--border-radius-xs);
+	box-shadow: none;
+	height: 100%;
+	left: 0;
+	object-fit: fill;
+	position: absolute;
+	top: 0;
+	transform: scale(1);
+	transition: box-shadow var(--transition-medium);
+	inline-size: 100%;
+	z-index: 2;
+}
+
+/* Album Media */
+.album-media {
+	filter: drop-shadow(0px 0px 0px var(--jet-black));
+	height: 100%;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	transition: filter var(--transition-medium);
+	inline-size: 100%;
+	z-index: 1;
+}
+
+/* === Vinyl === */
+.is-vinyl .album-sleeve {
+	aspect-ratio: 1 / 1;
+
+	& .album-media {
+		transform:
+			scale(0.95) translateX(0) rotate(0);
+		transition:
+			filter var(--transition-medium),
+			transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+	}
+
+	&.is-active .album-media {
+		transform:
+			scale(0.95) translateX(35%) rotate(60deg);
+	}
+}
+
+/* === CD === */
+.is-cd .album-sleeve {
+	aspect-ratio: 1 / 1;
+
+	& .album-media {
+		transform:
+			translateX(0) rotate(0);
+		transition:
+			filter var(--transition-medium),
+			transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+	}
+
+	&.is-active .album-media {
+		transform:
+			translateX(35%) rotate(90deg);
+	}
+}
+
+/* === Cassette === */
+.is-cassette .album-sleeve {
+	aspect-ratio: 16 / 9;
+
+	& .album-media {
+		transform:
+			translateY(0);
+		transition:
+			filter var(--transition-medium),
+			transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+	}
+
+	&.is-active .album-media {
+		transform:
+			translateY(50%);
+	}
+}
+
+/* === Record Caption === */
+.record-caption {
+	margin-top: var(--space-xs);
+	font-family: var(--font-family-ui);
+
+	& label {
+		color: var(--text-color-secondary);
+		font-style: normal;
+	}
+
+	& label:nth-child(n+2) {
+		color: var(--text-color-muted);
+	}
+}
+
+/* For Sale */
+.for-sale {
+	align-items: baseline;
+	display: flex;
+	justify-content: space-between;
+
+	& data {
+		border: 1px solid var(--green);
+		border-radius: var(--border-radius-sm);
+		box-shadow: var(--shadow-glow);
+		color: var(--green);
+		font-size: var(--font-size-xs);
+		padding: var(--space-xxs);
+	}
+}
+
+/* 5 Star Fave */
+.record-title.is-favorite::after {
+	color: var(--paradise-pink);
+	content: '★';
+	font-size: var(--font-size-xxs);
+	margin-inline-start: var(--space-xs);
+}

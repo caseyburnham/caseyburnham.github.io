@@ -32,9 +32,19 @@ export const setupEventListeners = (elements, modalInstance) => {
 			} else if (cameraLink) {
 				event.preventDefault();
 				const imageUrl = cameraLink.dataset.image;
+				// Get the peak name from our data-title attribute
+				const peakName = cameraLink.dataset.title;
+			
 				if (imageUrl) {
-					const alt = cameraLink.title || cameraLink.getAttribute('aria-label') || 'Camera Image';
-					modalInstance.openModal(imageUrl, alt, (cameraLink.dataset && cameraLink.dataset.title), cameraLink, cameraLink);
+					// Use the peakName for BOTH the alt text (arg 2) and the title (arg 3)
+					// If peakName is missing, fall back to a more generic description.
+					modalInstance.openModal(
+						imageUrl,
+						peakName || 'Peak image', // Use peakName for alt text
+						peakName,                // Use peakName for the title
+						cameraLink,
+						cameraLink
+					);
 				}
 			}
 		},

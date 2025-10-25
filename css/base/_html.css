@@ -1,0 +1,34 @@
+/* ==========================================================================
+   AT-RULES
+   ========================================================================== */
+/* @ Rules */
+@counter-style star {
+	suffix: " ";
+	symbols: "\2726";
+	system: cyclic;
+}
+
+/* ==========================================================================
+   HTML
+   ========================================================================== */
+html {
+	background-color: var(--bg-color-main);
+	color: var(--text-color-primary);
+	font-family: var(--font-family-mono);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-normal);
+	line-height: var(--line-height-base);
+	padding-inline: var(--fluid-padding-inline);
+	padding-block: var(--space-xl) var(--space-lg);
+	scroll-behavior: smooth;
+	scroll-padding-top: var(--space-xl);
+	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 30em) {
+	html {
+		padding: 0;
+	}
+}
