@@ -407,58 +407,17 @@ export const ui = {
 	},
 
 	highlightVenues() {
-		if (!CONFIG.venuesToHighlight?.length) return;
-
-		const venueMap = new Map(
-			CONFIG.venuesToHighlight.map(v => [v.name.toLowerCase(), v.className])
-		);
-		
-		const venueNames = CONFIG.venuesToHighlight
-			.map(v => v.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-		
-		const regex = new RegExp(`\\b(${venueNames.join('|')})\\b`, 'gi');
-
-		// Scope to main content area if possible to improve performance
-		const rootElement = document.querySelector('main') || document.body;
-
-		const walker = document.createTreeWalker(
-			rootElement, 
-			NodeFilter.SHOW_TEXT, 
-			{
-				acceptNode: node => {
-					const tag = node.parentElement.tagName;
-					return (tag !== 'SCRIPT' && tag !== 'STYLE') 
-						? NodeFilter.FILTER_ACCEPT 
-						: NodeFilter.FILTER_REJECT;
-				}
-			}
-		);
-
-		// Collect nodes first to avoid modifying the list while iterating
-		const textNodes = [];
-		while (walker.nextNode()) {
-			textNodes.push(walker.currentNode);
+	  const venueMap = new Map(CONFIG.venuesToHighlight.map(v => 
+		[v.name.toLowerCase(), v.className]
+	  ));
+	  
+	  // Only target venue cells
+	  document.querySelectorAll('.concert-venue').forEach(cell => {
+		const venueName = cell.textContent.trim().toLowerCase();
+		const className = venueMap.get(venueName);
+		if (className) {
+		  cell.classList.add(className);
 		}
-
-		textNodes.forEach(node => {
-			if (!regex.test(node.nodeValue)) return;
-
-			const wrapper = document.createDocumentFragment();
-			const parts = node.nodeValue.split(regex);
-
-			parts.forEach((part, index) => {
-				// Matched venue names will be at odd indices
-				if (index % 2 === 1) {
-					const span = document.createElement('span');
-					span.className = venueMap.get(part.toLowerCase());
-					span.textContent = part;
-					wrapper.appendChild(span);
-				} else if (part) {
-					wrapper.appendChild(document.createTextNode(part));
-				}
-			});
-			
-			node.replaceWith(wrapper);
-		});
+	  });
 	}
 };

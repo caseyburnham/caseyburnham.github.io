@@ -180,7 +180,6 @@
 	& data {
 		border: 1px solid var(--green);
 		border-radius: var(--border-radius-sm);
-		box-shadow: var(--shadow-glow);
 		color: var(--green);
 		font-size: var(--font-size-xs);
 		padding: var(--space-xxs);

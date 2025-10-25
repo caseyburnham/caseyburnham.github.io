@@ -69,3 +69,9 @@ const main = async () => {
 
 // Run the setup
 main();
+
+// ADD THIS AT THE VERY END ⬇️
+window.addEventListener('beforeunload', () => {
+  window.photoModal?.destroy();
+  window.Galleries?.destroy();
+});
