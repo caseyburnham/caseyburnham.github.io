@@ -379,11 +379,23 @@ export const ui = {
 	},
 
 	getTopItems(countMap, limit) {
-		return Array.from(countMap.entries())
-			.sort((a, b) => b[1] - a[1])
-			.slice(0, limit)
-			.map(([name, count]) => `<span class="nowrap">${name} <small>x${count}</small></span>`)
-			.join(', <wbr>');
+	  return Array.from(countMap.entries())
+		.sort((a, b) => b[1] - a[1])
+		.slice(0, limit)
+		.map(([name, count]) => {
+		  // Check if this is a venue that should be highlighted
+		  const venueConfig = CONFIG.venuesToHighlight?.find(
+			v => v.name.toLowerCase() === name.toLowerCase()
+		  );
+		  
+		  // Wrap in highlight span if it's a special venue
+		  const displayName = venueConfig 
+			? `<span class="${venueConfig.className}">${name}</span>`
+			: name;
+		  
+		  return `<span class="nowrap">${displayName} <small>x${count}</small></span>`;
+		})
+		.join(', <wbr>');
 	},
 
 	countArtistsAndVenues(data) {
@@ -406,12 +418,19 @@ export const ui = {
 		return { artists: artistCounts, venues: venueCounts };
 	},
 
+	/**
+	 * Highlight venue names - Simple targeted approach
+	 * Works on both table cells and footer summaries
+	 */
 	highlightVenues() {
-	  const venueMap = new Map(CONFIG.venuesToHighlight.map(v => 
-		[v.name.toLowerCase(), v.className]
-	  ));
+	  if (!CONFIG.venuesToHighlight?.length) return;
+	
+	  const venueMap = new Map(
+		CONFIG.venuesToHighlight.map(v => [v.name.toLowerCase(), v.className])
+	  );
 	  
-	  // Only target venue cells
+	  // Only need to highlight table cells now
+	  // Footer is already highlighted during generation
 	  document.querySelectorAll('.concert-venue').forEach(cell => {
 		const venueName = cell.textContent.trim().toLowerCase();
 		const className = venueMap.get(venueName);
