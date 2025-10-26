@@ -42,10 +42,10 @@
 	--font-size-xl: 1.5rem;
 
 	/* Clamps */
-	--font-size-base: clamp(0.875rem, 0.5vw + 0.6rem, 1.125rem);
+	--font-size-base: clamp(0.875rem, 0.5vw + 0.6rem, 1rem);
 	--font-size-h1: clamp(2.5rem, 5vw + 1rem, 5rem);
-	--font-size-table: clamp(0.65rem, 0.5vw + 0.5rem, 1.125rem);
-	--font-size-details: clamp(1rem, 0.5vw + 0.6rem, 1.125rem);
+	--font-size-table: clamp(0.65rem, 0.5vw + 0.5rem, 1rem);
+	--font-size-details: clamp(1rem, 0.5vw + 0.6rem, 1rem);
 	--font-size-xs-sm: clamp(0.75rem, 0.5vw + 0.5rem, 0.85rem);
 	--font-size-modal-title: clamp(0.85rem, 1vh + 0.5rem, 1.125rem);
 	--font-size-modal-exif: clamp(0.65rem, 1vh + 0.4rem, 0.75rem);

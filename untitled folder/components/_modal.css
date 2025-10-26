@@ -155,6 +155,7 @@ dialog[open]::backdrop {
 	& .format data {
 	border-radius: 0.025em;
 	font-family: var(--font-family-ui);
+	margin-left: var(--space-xs);
 	outline: 1px solid var(--text-color-secondary);
 	outline-offset: 0.125em;
 	text-shadow: none;
@@ -163,7 +164,7 @@ dialog[open]::backdrop {
 
 @media (height <= 30rem) {
 	.exif-row {
-		gap: var(--space-xs);
+		/* gap: var(--space-xs); */
 	}
 }
 
