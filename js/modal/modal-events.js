@@ -32,16 +32,13 @@ export const setupEventListeners = (elements, modalInstance) => {
 			} else if (cameraLink) {
 				event.preventDefault();
 				const imageUrl = cameraLink.dataset.image;
-				// Get the peak name from our data-title attribute
 				const peakName = cameraLink.dataset.title;
 			
 				if (imageUrl) {
-					// Use the peakName for BOTH the alt text (arg 2) and the title (arg 3)
-					// If peakName is missing, fall back to a more generic description.
 					modalInstance.openModal(
 						imageUrl,
-						peakName || 'Peak image', // Use peakName for alt text
-						peakName,                // Use peakName for the title
+						peakName || 'Peak image',
+						peakName,
 						cameraLink,
 						cameraLink
 					);

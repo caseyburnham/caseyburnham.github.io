@@ -28,7 +28,9 @@
       "alt": 4099.595547,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Quail Mountain "
   },
   "summits/mount-of-the-holy-cross.jpeg": {
     "date": {
@@ -59,7 +61,9 @@
       "alt": 4249.528555,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": "Mount of the Holy Cross"
   },
   "summits/mount-oxford.jpeg": {
     "date": {
@@ -90,7 +94,9 @@
       "alt": 4311.327366,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": "Mount Oxford"
   },
   "summits/mount-sherman.jpeg": {
     "date": {
@@ -121,7 +127,9 @@
       "alt": 4279.425626,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Mount Sherman"
   },
   "summits/hancock-peak.jpeg": {
     "date": {
@@ -152,7 +160,9 @@
       "alt": 3997.745935,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Hancock Peak"
   },
   "summits/weston-peak.jpeg": {
     "date": {
@@ -183,7 +193,9 @@
       "alt": 4140.687523,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/green-mountain.jpeg": {
     "date": {
@@ -214,7 +226,9 @@
       "alt": 3990.861386,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Green Mountain"
   },
   "summits/mount-yale.jpeg": {
     "date": {
@@ -245,7 +259,9 @@
       "alt": 4324.109684,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": "Mt. Yale"
   },
   "summits/cottonwood-peak.jpeg": {
     "date": {
@@ -276,7 +292,9 @@
       "alt": 4147.43295,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/mount-blue-sky.jpeg": {
     "date": {
@@ -307,7 +325,9 @@
       "alt": 4346.887967,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Mount Blue Sky"
   },
   "summits/jones-mountain.avif": {
     "date": {
@@ -338,7 +358,9 @@
       "alt": 4022.799472,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/ptarmigan-peak.jpeg": {
     "date": {
@@ -369,7 +391,9 @@
       "alt": 4186.485194,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Ptarmigan Peak"
   },
   "summits/un-13738.jpeg": {
     "date": {
@@ -393,7 +417,9 @@
     "cameraModel": "iPhone 13 Pro Max",
     "format": "JPEG",
     "gps": null,
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/tabeguache-peak.jpeg": {
     "date": {
@@ -424,7 +450,9 @@
       "alt": 4309.619647,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/un-13128.jpeg": {
     "date": {
@@ -455,7 +483,9 @@
       "alt": 4001.598475,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/torreys-peak.jpeg": {
     "date": {
@@ -486,7 +516,9 @@
       "alt": 4343.431507,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": "Torreys Peak"
   },
   "summits/mosquito-peak.avif": {
     "date": {
@@ -517,7 +549,9 @@
       "alt": 4207.33999,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/thirsty-peak.jpeg": {
     "date": {
@@ -548,7 +582,9 @@
       "alt": 4030.102381,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Thirsty Peak"
   },
   "summits/dyer-mountain.avif": {
     "date": {
@@ -579,7 +615,9 @@
       "alt": 4219.592618,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Dyer Mountain",
+    "caption": "Dyer Mountain"
   },
   "summits/treasurevault-mountain.avif": {
     "date": {
@@ -610,7 +648,9 @@
       "alt": 4180.917625,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/mount-evans.avif": {
     "date": {
@@ -641,7 +681,9 @@
       "alt": 4143.010889,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/cupid-peak.avif": {
     "date": {
@@ -672,7 +714,9 @@
       "alt": 3998.441896,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Cupid Peak"
   },
   "summits/boulder-mountain.avif": {
     "date": {
@@ -703,7 +747,9 @@
       "alt": 4121.823574,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/mount-belford.jpeg": {
     "date": {
@@ -734,7 +780,9 @@
       "alt": 4321.53317,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": "Mount Belford"
   },
   "summits/mount-parnassus.avif": {
     "date": {
@@ -765,7 +813,9 @@
       "alt": 4106.687345,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/james-peak.avif": {
     "date": {
@@ -796,7 +846,9 @@
       "alt": 3970.261574,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/mount-sniktau.avif": {
     "date": {
@@ -827,7 +879,9 @@
       "alt": 4030.850482,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Mount Sniktau"
   },
   "summits/mount-mamma.avif": {
     "date": {
@@ -858,7 +912,9 @@
       "alt": 3960.167235,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/mount-audubon.jpeg": {
     "date": {
@@ -889,7 +945,9 @@
       "alt": 4019.944606,
       "altRef": 0
     },
-    "copyright": "\u00a9 2020 Casey Burnham"
+    "copyright": "\u00a9 2020 Casey Burnham",
+    "title": null,
+    "caption": "Mt Audubon"
   },
   "summits/mount-shavano.jpeg": {
     "date": {
@@ -920,7 +978,9 @@
       "alt": 4330.67313,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/grays-peak.jpeg": {
     "date": {
@@ -951,7 +1011,9 @@
       "alt": 4345.931925,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/mount-white.avif": {
     "date": {
@@ -982,7 +1044,9 @@
       "alt": 4151.472015,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/rito-alto-peak.avif": {
     "date": {
@@ -1013,7 +1077,9 @@
       "alt": 4203.888462,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/argentine-peak.avif": {
     "date": {
@@ -1044,7 +1110,9 @@
       "alt": 4191.898281,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/canby-mountain.jpeg": {
     "date": {
@@ -1075,7 +1143,9 @@
       "alt": 4116.875862,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Canby Mountain "
   },
   "summits/mount-cameron.jpeg": {
     "date": {
@@ -1106,7 +1176,9 @@
       "alt": 4341.093857,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Mt. Cameron"
   },
   "summits/mount-lincoln.jpeg": {
     "date": {
@@ -1137,7 +1209,9 @@
       "alt": 4347.919951,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Mount Lincoln"
   },
   "summits/mount-sheridan.jpeg": {
     "date": {
@@ -1168,7 +1242,9 @@
       "alt": 4194.120448,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/mount-bross.jpeg": {
     "date": {
@@ -1199,7 +1275,9 @@
       "alt": 4326.023739,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Mount Bross"
   },
   "summits/mount-spalding.jpeg": {
     "date": {
@@ -1230,7 +1308,9 @@
       "alt": 4224.112258,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Mount Spalding"
   },
   "summits/longs-peak.jpeg": {
     "date": {
@@ -1261,7 +1341,9 @@
       "alt": 4235.649231,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": "Longs Peak"
   },
   "summits/santa-fe-peak.jpeg": {
     "date": {
@@ -1292,7 +1374,9 @@
       "alt": 4012.05132,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Santa Fe Peak"
   },
   "summits/gemini-peak.avif": {
     "date": {
@@ -1323,7 +1407,9 @@
       "alt": 4247.154079,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/mount-guyot.jpeg": {
     "date": {
@@ -1354,7 +1440,9 @@
       "alt": 4075.363653,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Mount Guyot"
   },
   "summits/mount-bierstadt.jpeg": {
     "date": {
@@ -1385,7 +1473,9 @@
       "alt": 4282.984694,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/mt-blue-sky.jpeg": {
     "date": {
@@ -1416,7 +1506,9 @@
       "alt": 4346.887967,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Mt. Evans"
   },
   "summits/kuss-peak.avif": {
     "date": {
@@ -1447,7 +1539,9 @@
       "alt": 4130.454259,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/horseshoe-mountain.jpeg": {
     "date": {
@@ -1478,7 +1572,9 @@
       "alt": 4245.119417,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Horseshoe Mountain"
   },
   "summits/savage-peak.jpeg": {
     "date": {
@@ -1509,7 +1605,9 @@
       "alt": 4004.233038,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Savage Peak"
   },
   "summits/mount-champion.jpeg": {
     "date": {
@@ -1540,7 +1638,9 @@
       "alt": 4158.834808,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Mount Champion"
   },
   "summits/mount-democrat.jpeg": {
     "date": {
@@ -1571,7 +1671,9 @@
       "alt": 4309.27892,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Mt. Democrat"
   },
   "summits/huron-peak.jpeg": {
     "date": {
@@ -1602,7 +1704,9 @@
       "alt": 4271.967619,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Huron Peak"
   },
   "summits/mount-antero.jpeg": {
     "date": {
@@ -1633,7 +1737,9 @@
       "alt": 4352.77809,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Mount Antero"
   },
   "summits/whale-peak.avif": {
     "date": {
@@ -1664,7 +1770,9 @@
       "alt": 3997.346218,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/peerless-mountain.jpeg": {
     "date": {
@@ -1695,7 +1803,9 @@
       "alt": 4072.051613,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/taylor-mountain.avif": {
     "date": {
@@ -1726,7 +1836,9 @@
       "alt": 4162.535047,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/mount-princeton.jpeg": {
     "date": {
@@ -1757,7 +1869,9 @@
       "alt": 4328.083784,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": "Mount Princeton "
   },
   "summits/mount-columbia.jpeg": {
     "date": {
@@ -1788,7 +1902,9 @@
       "alt": 4284.140365,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": null,
+    "caption": "Mount Columbia"
   },
   "summits/grays-peak-2.avif": {
     "date": {
@@ -1819,43 +1935,9 @@
       "alt": 4351.836758,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
-  },
-  "assets/png/cassette-tape.png": {
-    "date": null,
-    "iso": null,
-    "lens": null,
-    "aperture": null,
-    "shutter": "",
-    "exposureCompensation": "",
-    "cameraModel": null,
-    "format": "PNG",
-    "gps": null,
-    "copyright": null
-  },
-  "assets/png/vinyl-record.png": {
-    "date": null,
-    "iso": null,
-    "lens": null,
-    "aperture": null,
-    "shutter": "",
-    "exposureCompensation": "",
-    "cameraModel": null,
-    "format": "PNG",
-    "gps": null,
-    "copyright": null
-  },
-  "assets/png/cd-disc.png": {
-    "date": null,
-    "iso": null,
-    "lens": null,
-    "aperture": null,
-    "shutter": "",
-    "exposureCompensation": "",
-    "cameraModel": null,
-    "format": "PNG",
-    "gps": null,
-    "copyright": null
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "galleries/prospecting/avif/buffalo-boy-arial-tram.avif": {
     "date": {
@@ -1886,7 +1968,9 @@
       "alt": 3821.805505,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Buffalo Boy Arial Tram",
+    "caption": "Buffalo Boy Arial Tram"
   },
   "galleries/prospecting/avif/pomeroy-gulch-marmot.avif": {
     "date": {
@@ -1917,7 +2001,9 @@
       "alt": 3400.964687,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Pomeroy Gulch Marmot",
+    "caption": "Pomeroy Gulch Marmot"
   },
   "galleries/prospecting/avif/mount-sherman-mine.avif": {
     "date": {
@@ -1948,7 +2034,9 @@
       "alt": 3873.72179,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Mount Sherman Mine",
+    "caption": "Mount Sherman Mine"
   },
   "galleries/prospecting/avif/crystal-mill.avif": {
     "date": {
@@ -1979,7 +2067,9 @@
       "alt": 2717.519766,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Crystal Mill",
+    "caption": "Crystal Mill"
   },
   "galleries/prospecting/avif/animas-forks.avif": {
     "date": {
@@ -2010,7 +2100,9 @@
       "alt": 3406.656827,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Animas Forks",
+    "caption": "Animas Forks, CO"
   },
   "galleries/prospecting/avif/mayflower-gulch-in-winter.avif": {
     "date": {
@@ -2041,7 +2133,9 @@
       "alt": 3540.568826,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Mayflower Gulch in Winter",
+    "caption": "Mayflower Gulch in Winter"
   },
   "galleries/prospecting/avif/quail-mountain-cabin.avif": {
     "date": {
@@ -2072,7 +2166,9 @@
       "alt": 3926.673669,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Quail Mountain Cabin",
+    "caption": "Quail Mountain Cabin"
   },
   "galleries/prospecting/avif/silver-lake-cabins.avif": {
     "date": {
@@ -2103,7 +2199,9 @@
       "alt": 3713.735417,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Silver Lake Cabins",
+    "caption": "Silver Lake Cabins"
   },
   "galleries/prospecting/avif/champion-mine.avif": {
     "date": {
@@ -2134,7 +2232,9 @@
       "alt": 3892.81962,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Champion Mine",
+    "caption": "Champion Mine"
   },
   "galleries/prospecting/avif/buffalo-boy-tram-house.avif": {
     "date": {
@@ -2165,7 +2265,9 @@
       "alt": 3826.608491,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Buffalo Boy Tram House",
+    "caption": "Buffalo Boy Tram House"
   },
   "galleries/prospecting/avif/iowa-amphitheater-mine.avif": {
     "date": {
@@ -2196,7 +2298,9 @@
       "alt": 3839.53681,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Iowa Amphitheater Mine",
+    "caption": "Iowa Amphitheater Mine"
   },
   "galleries/prospecting/avif/animas-forks-cabin.avif": {
     "date": {
@@ -2227,7 +2331,9 @@
       "alt": 3424.03962,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Animas Forks Cabin",
+    "caption": "Cabin at Animas Forks, CO"
   },
   "galleries/prospecting/avif/animas-forks-mining-structure.avif": {
     "date": {
@@ -2258,7 +2364,9 @@
       "alt": 3484.997555,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Animas Forks Mining Structure",
+    "caption": "Mining Structure in Animas Forks, CO"
   },
   "galleries/prospecting/avif/champion-mill-profile.avif": {
     "date": {
@@ -2289,7 +2397,9 @@
       "alt": 3582.920065,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Champion Mill Profile",
+    "caption": "Champion Mill Profile"
   },
   "galleries/prospecting/avif/alpine-tunnel.avif": {
     "date": {
@@ -2320,7 +2430,9 @@
       "alt": 3520.953052,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Alpine Tunnel",
+    "caption": "Alpine Tunnel"
   },
   "galleries/prospecting/avif/red-mountain-mill.avif": {
     "date": {
@@ -2351,7 +2463,9 @@
       "alt": 3227.999599,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Red Mountain Mill",
+    "caption": "Red Mountain Mill"
   },
   "galleries/prospecting/avif/champion-mill.avif": {
     "date": {
@@ -2382,7 +2496,9 @@
       "alt": 3578.437068,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Champion Mill",
+    "caption": "Champion Mill"
   },
   "galleries/rocks/avif/lair-of-the-goblin.avif": {
     "date": {
@@ -2413,7 +2529,9 @@
       "alt": null,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Lair of the Goblin",
+    "caption": "Lair of the Goblin"
   },
   "galleries/rocks/avif/stained-rocks.avif": {
     "date": {
@@ -2444,7 +2562,9 @@
       "alt": 1175.542767,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Stained Rocks",
+    "caption": "Glen Canyon National Recreation Area"
   },
   "galleries/rocks/avif/goblin-valley-buttes.avif": {
     "date": {
@@ -2475,7 +2595,9 @@
       "alt": 1460.236057,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Goblin Valley Buttes",
+    "caption": "Goblin Valley Buttes"
   },
   "galleries/rocks/avif/goose-creek-boulders.avif": {
     "date": {
@@ -2506,7 +2628,9 @@
       "alt": 2639.313152,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Goose Creek Boulders",
+    "caption": "Goose Creek Boulders"
   },
   "galleries/rocks/avif/escalante-arch.avif": {
     "date": {
@@ -2537,7 +2661,9 @@
       "alt": 1612.951426,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Escalante Arch",
+    "caption": "Escalante Arch"
   },
   "galleries/rocks/avif/in-bryce-canyon.avif": {
     "date": {
@@ -2568,7 +2694,9 @@
       "alt": 2367.173709,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Bryce Canyon",
+    "caption": "Bryce Canyon"
   },
   "galleries/rocks/avif/hole-in-the-rock-road.avif": {
     "date": {
@@ -2599,7 +2727,9 @@
       "alt": 1370.047317,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Hole in the Rock Road",
+    "caption": "Along Hole in the Rock Road"
   },
   "galleries/rocks/avif/sandstone-handprints.avif": {
     "date": {
@@ -2630,7 +2760,9 @@
       "alt": 1790.910417,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Sandstone Handprints",
+    "caption": "\u2068Sandstone Handprints, Kodachrome Basin State Park\u2069"
   },
   "galleries/rocks/avif/zabriskie-point.avif": {
     "date": {
@@ -2661,7 +2793,9 @@
       "alt": 207.0627512,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Zabriskie Point",
+    "caption": "Zabriskie Point, Death Valley"
   },
   "galleries/rocks/avif/mount-antero.avif": {
     "date": {
@@ -2692,7 +2826,9 @@
       "alt": 4196.12685,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Mount Antero",
+    "caption": "Mount Antero"
   },
   "galleries/rocks/avif/badwater-basin.avif": {
     "date": {
@@ -2723,7 +2859,9 @@
       "alt": 101.1824318,
       "altRef": 1
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Badwater Basin",
+    "caption": "Badwater Basin, Death Valley"
   },
   "galleries/rocks/avif/navajo-loop-feature.avif": {
     "date": {
@@ -2754,7 +2892,9 @@
       "alt": 2404.958841,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Navajo Loop Feature",
+    "caption": "Navajo Loop Feature"
   },
   "galleries/rocks/avif/near-balanced-rock.avif": {
     "date": {
@@ -2785,7 +2925,9 @@
       "alt": 1935.672989,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Near Balanced Rock",
+    "caption": "Near Balanced Rock"
   },
   "galleries/rocks/avif/devil's-garden.avif": {
     "date": {
@@ -2816,7 +2958,9 @@
       "alt": 1605.148776,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Devil's Garden",
+    "caption": "Devil's Garden"
   },
   "galleries/rocks/avif/craters-of-the-moon.avif": {
     "date": {
@@ -2847,7 +2991,9 @@
       "alt": 1781.4,
       "altRef": 0
     },
-    "copyright": "\u00a9 2018 Casey Burnham"
+    "copyright": "\u00a9 2018 Casey Burnham",
+    "title": "Craters of the Moon",
+    "caption": "Craters of the Moon"
   },
   "galleries/rocks/avif/peak-a-boo.avif": {
     "date": {
@@ -2878,7 +3024,9 @@
       "alt": 1443.18706,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Peak-a-Boo",
+    "caption": null
   },
   "galleries/rocks/avif/balanced-rock.avif": {
     "date": {
@@ -2909,7 +3057,9 @@
       "alt": 1537.1,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Fire Rock",
+    "caption": "Fire Rock"
   },
   "galleries/rocks/avif/double-arches.avif": {
     "date": {
@@ -2940,7 +3090,9 @@
       "alt": 1592.6,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Arches",
+    "caption": "Arches"
   },
   "galleries/rocks/avif/kodachrome-basin.avif": {
     "date": {
@@ -2971,7 +3123,9 @@
       "alt": 1788.645303,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Kodachrome Basin",
+    "caption": "Kodachrome Basin State Park"
   },
   "galleries/rocks/avif/end-of-hole-in-the-rock-road.avif": {
     "date": {
@@ -3002,7 +3156,9 @@
       "alt": 1320.183406,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "End of Hole in the Rock Road",
+    "caption": null
   },
   "galleries/rocks/avif/mount-antero-detail.avif": {
     "date": {
@@ -3033,7 +3189,9 @@
       "alt": 4185.710297,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Mount Antero Detail",
+    "caption": "Mount Antero Detail"
   },
   "galleries/rocks/avif/sooner-rocks.avif": {
     "date": {
@@ -3064,7 +3222,9 @@
       "alt": 1353.286902,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Sooner Rocks",
+    "caption": "Sooner Rocks in Utah"
   },
   "galleries/rocks/avif/longs-peak.avif": {
     "date": {
@@ -3095,7 +3255,9 @@
       "alt": 4022.235135,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Longs Peak",
+    "caption": "Longs Peak"
   },
   "galleries/rocks/avif/bryce-canyon.avif": {
     "date": {
@@ -3126,7 +3288,9 @@
       "alt": 2439.12362,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Bryce Canyon",
+    "caption": "Bryce Canyon"
   },
   "galleries/rocks/avif/mormon-amphitheater.avif": {
     "date": {
@@ -3157,7 +3321,9 @@
       "alt": 1404.948148,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Mormon Amphitheater",
+    "caption": "Rocky in the Mormon Amphitheater"
   },
   "galleries/plant-based/png/erythrostemon-gilliesii.png": {
     "date": null,
@@ -3169,7 +3335,9 @@
     "cameraModel": null,
     "format": "PNG",
     "gps": null,
-    "copyright": null
+    "copyright": null,
+    "title": null,
+    "caption": null
   },
   "galleries/plant-based/avif/viper's-bugloss.avif": {
     "date": {
@@ -3200,7 +3368,9 @@
       "alt": null,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Viper's Bugloss",
+    "caption": "Viper's Bugloss, Denver Botanic Gardens"
   },
   "galleries/plant-based/avif/dahlia-pinnata.avif": {
     "date": {
@@ -3231,7 +3401,9 @@
       "alt": 1643.410857,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Dahlia pinnata",
+    "caption": "Dahlia pinnata, Denver Botanic Gardens"
   },
   "galleries/plant-based/avif/musk-thistle.avif": {
     "date": {
@@ -3262,7 +3434,9 @@
       "alt": 2504.575155,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Musk Thistle",
+    "caption": "Musk Thistle, Stoney Pass Road"
   },
   "galleries/plant-based/avif/toothwart.avif": {
     "date": {
@@ -3293,7 +3467,9 @@
       "alt": 3566.673317,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Toothwart",
+    "caption": "Toothwart, Hancock Pass, CO"
   },
   "galleries/plant-based/avif/saguaro.avif": {
     "date": {
@@ -3324,7 +3500,9 @@
       "alt": 865.8926197,
       "altRef": 0
     },
-    "copyright": "\u00a9 2022 Casey Burnham"
+    "copyright": "\u00a9 2022 Casey Burnham",
+    "title": "Saguaro",
+    "caption": "Saguaro, Saguaro National Park"
   },
   "galleries/plant-based/avif/leaf-curl.avif": {
     "date": {
@@ -3355,7 +3533,9 @@
       "alt": 243.0297017,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Leaf Curl",
+    "caption": "Leaf Detail, Matthaei Botanical Gardens"
   },
   "galleries/plant-based/avif/petals.avif": {
     "date": {
@@ -3386,7 +3566,9 @@
       "alt": 285.6800921,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Petals",
+    "caption": "Petals, Phipps Conservatory"
   },
   "galleries/plant-based/avif/pistl.avif": {
     "date": {
@@ -3417,7 +3599,9 @@
       "alt": 1643.647793,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Pistl",
+    "caption": null
   },
   "galleries/plant-based/avif/flowing-fronds.avif": {
     "date": {
@@ -3448,7 +3632,9 @@
       "alt": null,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Flowing Fronds",
+    "caption": "Fronds through a Lensbaby, Denver Botanic Gardens"
   },
   "galleries/plant-based/avif/garden-tulip.avif": {
     "date": {
@@ -3479,7 +3665,9 @@
       "alt": null,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Garden Tulip",
+    "caption": "Garden Tulip, Denver Botanic Gardens"
   },
   "galleries/plant-based/avif/trifolium-alpinum.avif": {
     "date": {
@@ -3510,7 +3698,9 @@
       "alt": 3555.557461,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Trifolium alpinum",
+    "caption": "Trifolium alpinum, Hancock Pass, CO"
   },
   "galleries/plant-based/avif/yellow-rose.avif": {
     "date": {
@@ -3541,7 +3731,9 @@
       "alt": 286.5079117,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Yellow Rose",
+    "caption": "Yellow Rose, Phipps Conservatory"
   },
   "galleries/plant-based/avif/droplets.avif": {
     "date": {
@@ -3572,7 +3764,9 @@
       "alt": 284.1473037,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Droplets",
+    "caption": "Water Droplets on Leaf, Phipps Conservatory"
   },
   "galleries/plant-based/avif/lady-tulip.avif": {
     "date": {
@@ -3603,7 +3797,9 @@
       "alt": null,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Lady Tulip",
+    "caption": "Lady Tulip, Denver Botanic Gardens"
   },
   "galleries/plant-based/avif/tulip.avif": {
     "date": {
@@ -3634,7 +3830,9 @@
       "alt": null,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Tulip",
+    "caption": "Tulip, Denver Botanic Gardens"
   },
   "galleries/plant-based/avif/campanula.avif": {
     "date": {
@@ -3665,7 +3863,9 @@
       "alt": 3839.763072,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Campanula",
+    "caption": "Campanula, Hancock Pass, CO"
   },
   "galleries/plant-based/jpeg/dahlia.jpeg": {
     "date": {
@@ -3689,7 +3889,9 @@
     "cameraModel": "PENTAX K-50",
     "format": "JPEG",
     "gps": null,
-    "copyright": "\u00a9 2018 Casey Burnham"
+    "copyright": "\u00a9 2018 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "galleries/plant-based/jpeg/rose.jpeg": {
     "date": {
@@ -3713,7 +3915,9 @@
     "cameraModel": "PENTAX K-50",
     "format": "JPEG",
     "gps": null,
-    "copyright": "\u00a9 2018 Casey Burnham"
+    "copyright": "\u00a9 2018 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "galleries/plant-based/jpeg/pollination.jpeg": {
     "date": {
@@ -3737,7 +3941,9 @@
     "cameraModel": "PENTAX K-50",
     "format": "JPEG",
     "gps": null,
-    "copyright": "\u00a9 2013 Casey Burnham"
+    "copyright": "\u00a9 2013 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "galleries/plant-based/jpeg/aster-amellus.jpeg": {
     "date": {
@@ -3761,7 +3967,9 @@
     "cameraModel": "PENTAX K-50",
     "format": "JPEG",
     "gps": null,
-    "copyright": "\u00a9 2018 Casey Burnham"
+    "copyright": "\u00a9 2018 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "galleries/plant-based/jpeg/clematis-texensis.jpeg": {
     "date": {
@@ -3785,7 +3993,9 @@
     "cameraModel": "PENTAX K-50",
     "format": "JPEG",
     "gps": null,
-    "copyright": "\u00a9 2018 Casey Burnham"
+    "copyright": "\u00a9 2018 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "galleries/high-country/avif/near-pitkin-lake.avif": {
     "date": {
@@ -3816,7 +4026,9 @@
       "alt": 3461.404052,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Near Pitkin Lake",
+    "caption": "Near Pitkin Lake"
   },
   "galleries/high-country/avif/tabeguache-peak.avif": {
     "date": {
@@ -3847,7 +4059,9 @@
       "alt": 4070.372531,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Tabeguache Peak",
+    "caption": "Tabeguache Peak from Mount White"
   },
   "galleries/high-country/avif/thirsty-peak.avif": {
     "date": {
@@ -3878,7 +4092,9 @@
       "alt": 4030.102381,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Thirsty Peak",
+    "caption": "Thirsty Peak"
   },
   "galleries/high-country/avif/sheep-mountain.avif": {
     "date": {
@@ -3909,7 +4125,9 @@
       "alt": 3914.226406,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Sheep Mountain",
+    "caption": "Sheep Mountain"
   },
   "galleries/high-country/avif/animas-forks.avif": {
     "date": {
@@ -3940,7 +4158,9 @@
       "alt": null,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "galleries/high-country/avif/view-from-huron-peak.avif": {
     "date": {
@@ -3971,7 +4191,9 @@
       "alt": 4266.677656,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "View from Huron Peak",
+    "caption": "View from Huron Peak"
   },
   "galleries/high-country/avif/cronin-peak.avif": {
     "date": {
@@ -4002,7 +4224,9 @@
       "alt": 3845.4,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Cronin Peak",
+    "caption": "Cronin Peak from Mount Antero Trail"
   },
   "galleries/high-country/avif/american-gulch.avif": {
     "date": {
@@ -4033,7 +4257,9 @@
       "alt": 3464.1248,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "American Gulch",
+    "caption": "American Gulch"
   },
   "galleries/high-country/avif/ptarmigan-lake.avif": {
     "date": {
@@ -4064,7 +4290,9 @@
       "alt": 3692.606145,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Ptarmigan Lake",
+    "caption": "Ptarmigan Lake"
   },
   "galleries/high-country/avif/mount-blue-sky.avif": {
     "date": {
@@ -4095,7 +4323,9 @@
       "alt": 4178.652902,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Mount Blue Sky",
+    "caption": "Mount Blue Sky"
   },
   "galleries/high-country/avif/fall-on-jones-mountain.avif": {
     "date": {
@@ -4126,7 +4356,9 @@
       "alt": 3717.400576,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Fall on Jones Mountain",
+    "caption": "Fall on Jones Mountain"
   },
   "galleries/high-country/avif/san-juans-sunset.avif": {
     "date": {
@@ -4157,7 +4389,9 @@
       "alt": 3211.000522,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "San Juans Sunset",
+    "caption": "San Juans Sunset"
   },
   "galleries/high-country/avif/american-gulch-sky.avif": {
     "date": {
@@ -4188,7 +4422,9 @@
       "alt": 3462.689218,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "American Gulch Sky",
+    "caption": "American Gulch Sky"
   },
   "galleries/high-country/avif/mount-white.avif": {
     "date": {
@@ -4219,7 +4455,9 @@
       "alt": 4151.472015,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Mount White",
+    "caption": "Mount White"
   },
   "galleries/high-country/avif/cloudy-ridge.avif": {
     "date": {
@@ -4250,7 +4488,9 @@
       "alt": 3997.163558,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Cloudy Ridge",
+    "caption": "Clouds over the traverse to Grizzly Peak D"
   },
   "galleries/high-country/avif/mount-blue-sky-trail.avif": {
     "date": {
@@ -4281,7 +4521,9 @@
       "alt": 4017.455487,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Mount Blue Sky Trail",
+    "caption": "Mount Blue Sky Trail"
   },
   "galleries/high-country/avif/above-the-clouds.avif": {
     "date": {
@@ -4312,7 +4554,9 @@
       "alt": 3936.802299,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Above the Clouds",
+    "caption": "Pikes Peak"
   },
   "galleries/high-country/avif/summit-lake.avif": {
     "date": {
@@ -4343,7 +4587,9 @@
       "alt": 3910.269373,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Summit Lake",
+    "caption": "Summit Lake at Mount Blue Sky"
   },
   "galleries/high-country/avif/silver-lake-reflections.avif": {
     "date": {
@@ -4374,7 +4620,9 @@
       "alt": 3721.709046,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Silver Lake Reflections",
+    "caption": "Silver Lake Reflections"
   },
   "galleries/high-country/avif/near-pomeroy-lake.avif": {
     "date": {
@@ -4405,7 +4653,9 @@
       "alt": 3683.384609,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Near Pomeroy Lake",
+    "caption": "Near Pomeroy Lake"
   },
   "galleries/high-country/avif/along-stony-pass.avif": {
     "date": {
@@ -4436,7 +4686,9 @@
       "alt": null,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Along Stony Pass",
+    "caption": "Along Stony Pass"
   },
   "galleries/high-country/avif/lake-haiyaha.avif": {
     "date": {
@@ -4467,7 +4719,9 @@
       "alt": 3113.901823,
       "altRef": 0
     },
-    "copyright": "\u00a9 2022 Casey Burnham"
+    "copyright": "\u00a9 2022 Casey Burnham",
+    "title": "Lake Haiyaha",
+    "caption": "Rock Flour at Lake Haiyaha"
   },
   "galleries/high-country/avif/longs-peak.avif": {
     "date": {
@@ -4498,7 +4752,9 @@
       "alt": 3508.966518,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Longs Peak",
+    "caption": "Longs Peak"
   },
   "galleries/high-country/avif/stoney-pass.avif": {
     "date": {
@@ -4529,7 +4785,9 @@
       "alt": 3998.556974,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Stoney Pass",
+    "caption": "View from Stoney Pass"
   },
   "galleries/high-country/avif/bierstadt-billy.avif": {
     "date": {
@@ -4560,7 +4818,9 @@
       "alt": 4191.6,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Bierstadt Billy",
+    "caption": "Bierstadt Billy"
   },
   "galleries/high-country/avif/mount-audubon.avif": {
     "date": {
@@ -4591,7 +4851,9 @@
       "alt": 4019.9,
       "altRef": 0
     },
-    "copyright": "\u00a9 2020 Casey Burnham"
+    "copyright": "\u00a9 2020 Casey Burnham",
+    "title": "Mount Audubon",
+    "caption": "Mt Audubon"
   },
   "galleries/high-country/avif/kendall-peak-from-silver-lake.avif": {
     "date": {
@@ -4622,7 +4884,9 @@
       "alt": 3718.429262,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Kendall Peak from Silver Lake",
+    "caption": "Kendall Peak from Silver Lake"
   },
   "galleries/off-road/avif/glacier-mountain.avif": {
     "date": {
@@ -4653,7 +4917,9 @@
       "alt": 3790.454576,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Glacier Mountain",
+    "caption": "Or Wise Mountain?"
   },
   "galleries/off-road/avif/hermit-pass.avif": {
     "date": {
@@ -4684,7 +4950,9 @@
       "alt": 3673.436615,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Hermit Pass",
+    "caption": "En route to Rito Alto Peak"
   },
   "galleries/off-road/avif/james-peak-trail.avif": {
     "date": {
@@ -4715,7 +4983,9 @@
       "alt": 3564.031835,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "James Peak Trail",
+    "caption": "James Peak"
   },
   "galleries/off-road/avif/mount-white-trail.avif": {
     "date": {
@@ -4746,7 +5016,9 @@
       "alt": 4036.290894,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Mount White Trail",
+    "caption": "Mount White Trail"
   },
   "galleries/off-road/avif/taylor-mountain-trail.avif": {
     "date": {
@@ -4777,7 +5049,9 @@
       "alt": 3485.46371,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Taylor Mountain Trail",
+    "caption": "Taylor Mountain Trail"
   },
   "galleries/off-road/avif/cemeterry-road.avif": {
     "date": {
@@ -4808,7 +5082,9 @@
       "alt": 3244.832305,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Cemeterry Road",
+    "caption": "Cemetery Road, near Mount Taylore"
   },
   "galleries/off-road/avif/quail-mountain.avif": {
     "date": {
@@ -4839,7 +5115,9 @@
       "alt": 3810.752284,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Quail Mountain",
+    "caption": "Quail Mountain"
   },
   "galleries/off-road/avif/jones-mountain-trail.avif": {
     "date": {
@@ -4870,7 +5148,9 @@
       "alt": 3819.13059,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Jones Mountain Trail",
+    "caption": "Posing on Jones Mountain Trail"
   },
   "galleries/off-road/avif/argentine-pass.avif": {
     "date": {
@@ -4901,7 +5181,9 @@
       "alt": 4035.386076,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Argentine Pass",
+    "caption": "Base of Argentine Peak, Argentine Pass"
   },
   "galleries/off-road/avif/mount-antero-summit.avif": {
     "date": {
@@ -4932,7 +5214,9 @@
       "alt": 4187.644301,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Mount Antero Summit",
+    "caption": "Mount Antero"
   },
   "galleries/off-road/avif/buffalo-boy-trail.avif": {
     "date": {
@@ -4963,7 +5247,9 @@
       "alt": 3977.436647,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Buffalo Boy Trail",
+    "caption": "Buffalo Boy Trail"
   },
   "galleries/off-road/avif/mosquito-pass.avif": {
     "date": {
@@ -4994,7 +5280,9 @@
       "alt": 4027.396907,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Mosquito Pass",
+    "caption": "Mosquito Pass"
   },
   "galleries/off-road/avif/leavenworth-creek-road.avif": {
     "date": {
@@ -5025,7 +5313,9 @@
       "alt": 3584.171233,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Leavenworth Creek Road",
+    "caption": "Leavenworth Creek Road"
   },
   "galleries/off-road/avif/mosquito-pass-shelf.avif": {
     "date": {
@@ -5056,7 +5346,9 @@
       "alt": 3966.684902,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Mosquito Pass Shelf",
+    "caption": "Mosquito Pass Shelf"
   },
   "galleries/off-road/avif/round-mountain.avif": {
     "date": {
@@ -5087,7 +5379,9 @@
       "alt": 3642.514725,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Round Mountain",
+    "caption": "Round Mountain"
   },
   "galleries/off-road/avif/santa-fe-peak-trail.avif": {
     "date": {
@@ -5118,7 +5412,9 @@
       "alt": 3989.533049,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Santa Fe Peak Trail",
+    "caption": "Santa Fe Peak"
   },
   "galleries/off-road/avif/saints-john-road.avif": {
     "date": {
@@ -5149,7 +5445,9 @@
       "alt": 3841.974828,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Saints John Road",
+    "caption": "Along Saints John Road, near Montezuma"
   },
   "galleries/off-road/avif/bunce-school-road.avif": {
     "date": {
@@ -5180,7 +5478,9 @@
       "alt": 2581.572718,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Bunce School Road",
+    "caption": "Flexing on Bunce School Road"
   },
   "galleries/off-road/avif/lead-king-basin.avif": {
     "date": {
@@ -5211,7 +5511,9 @@
       "alt": 2860.188948,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Lead King Basin",
+    "caption": "Lead King Basin"
   },
   "galleries/off-road/avif/iowa-gulch.avif": {
     "date": {
@@ -5242,7 +5544,9 @@
       "alt": 3726.497706,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Iowa Gulch",
+    "caption": "Iowa Gulch"
   },
   "galleries/off-road/jpeg/bonneville-salt-flats.jpeg": {
     "date": {
@@ -5273,7 +5577,9 @@
       "alt": 1291,
       "altRef": 0
     },
-    "copyright": "\u00a9 2012 Casey Burnham"
+    "copyright": "\u00a9 2012 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "galleries/summit-dog/avif/rocky-at-pomeroy-lake.avif": {
     "date": {
@@ -5304,7 +5610,9 @@
       "alt": 3741.038356,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Rocky at Pomeroy Lake",
+    "caption": "Rocky at Pomeroy Lake"
   },
   "galleries/summit-dog/avif/rocky-in-south-park.avif": {
     "date": {
@@ -5335,7 +5643,9 @@
       "alt": 3761.199909,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Rocky in South Park",
+    "caption": "Rocky in South Park"
   },
   "galleries/summit-dog/avif/rocky-climbing-cottonwood-peak.avif": {
     "date": {
@@ -5366,7 +5676,9 @@
       "alt": 3833.019374,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Rocky Climbing Cottonwood Peak",
+    "caption": "Rocky Climbing Cottonwood Peak"
   },
   "galleries/summit-dog/avif/rocky-in-the-flowers.avif": {
     "date": {
@@ -5397,7 +5709,9 @@
       "alt": 3735.474757,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Rocky in the Flowers",
+    "caption": "Rocky in the Flowers at Silver Lake"
   },
   "galleries/summit-dog/avif/rocky-on-taylor-mountain.avif": {
     "date": {
@@ -5428,7 +5742,9 @@
       "alt": 4120.168558,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Rocky on Taylor Mountain",
+    "caption": "Rocky on Taylor Mountain"
   },
   "galleries/summit-dog/avif/rocky-on-mount-sheridan.avif": {
     "date": {
@@ -5459,7 +5775,9 @@
       "alt": 4194.458828,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Rocky on Mount Sheridan",
+    "caption": "Rocky on Mount Sheridan"
   },
   "galleries/summit-dog/avif/rocky-on-mount-white.avif": {
     "date": {
@@ -5490,7 +5808,9 @@
       "alt": 4157.867123,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Rocky on Mount White",
+    "caption": "Rocky on Mount White, his 20th summit of 2025"
   },
   "galleries/summit-dog/avif/rocky-climbing-argentine-peak.avif": {
     "date": {
@@ -5521,7 +5841,9 @@
       "alt": 4025.40902,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Rocky Climbing Argentine Peak",
+    "caption": "Rocky Climbing Argentine Peak"
   },
   "galleries/summit-dog/avif/rocky-championing-mount-champion.avif": {
     "date": {
@@ -5552,7 +5874,9 @@
       "alt": 4090.641434,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Rocky Championing Mount Champion",
+    "caption": "Rocky on Mount Champion"
   },
   "galleries/summit-dog/avif/rocky-hanging-out.avif": {
     "date": {
@@ -5583,7 +5907,9 @@
       "alt": 3981.804971,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Rocky Hanging Out",
+    "caption": "Rocky on Mount Champion"
   },
   "galleries/summit-dog/avif/rocky-at-whitney-lake.avif": {
     "date": {
@@ -5614,7 +5940,9 @@
       "alt": 3350.250797,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Rocky at Whitney Lake",
+    "caption": "Rocky at Whitney Lake"
   },
   "galleries/summit-dog/avif/rocky-in-action.avif": {
     "date": {
@@ -5645,7 +5973,9 @@
       "alt": 3760.935673,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Rocky in Action",
+    "caption": "Rocky in Action"
   },
   "galleries/summit-dog/avif/rocky-on-jones-mountain.avif": {
     "date": {
@@ -5676,7 +6006,9 @@
       "alt": 3835.911321,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Rocky on Jones Mountain",
+    "caption": "Rocky on Jones Mountain"
   },
   "galleries/summit-dog/avif/rocky-on-a-rock.avif": {
     "date": {
@@ -5707,7 +6039,9 @@
       "alt": 2610.731047,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Rocky on a Rock",
+    "caption": "Rocky near Turtle Rock"
   },
   "galleries/summit-dog/avif/rocky-climbing-ptarmigan-peak.avif": {
     "date": {
@@ -5738,7 +6072,9 @@
       "alt": 4103.502773,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Rocky Climbing Ptarmigan Peak",
+    "caption": "Rocky Climbing Ptarmigan Peak"
   },
   "galleries/cemeteries/avif/old-georgetown-cemetery.avif": {
     "date": {
@@ -5769,7 +6105,9 @@
       "alt": 2530.8,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Old Georgetown Cemetery",
+    "caption": "Old Georgetown Cemetery, Georgetown, CO"
   },
   "galleries/cemeteries/avif/fairmount-obelisk.avif": {
     "date": {
@@ -5800,7 +6138,9 @@
       "alt": 1660.3,
       "altRef": 0
     },
-    "copyright": "\u00a9 2020 Casey Burnham"
+    "copyright": "\u00a9 2020 Casey Burnham",
+    "title": "Fairmount Obelisk",
+    "caption": "Obelisk, Fairmount Cemetery"
   },
   "galleries/cemeteries/avif/central-city-cemetery.avif": {
     "date": {
@@ -5831,7 +6171,9 @@
       "alt": 2730.6,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Central City Cemetery",
+    "caption": "Central City Cemetery Headstones"
   },
   "galleries/cemeteries/avif/woodlawn-obelisk.avif": {
     "date": {
@@ -5862,7 +6204,9 @@
       "alt": 198.3732997,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Woodlawn Obelisk",
+    "caption": "\u2068Woodlawn Cemetery\u2069, \u2068Highland Park\u2069, \u2068Michigan\u2069"
   },
   "galleries/cemeteries/avif/como-cemetery-headstones.avif": {
     "date": {
@@ -5893,7 +6237,9 @@
       "alt": 3031.9,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Como Cemetery Headstones",
+    "caption": "Como Cemetery Headstones, Como, CO"
   },
   "galleries/cemeteries/avif/spherical-monument.avif": {
     "date": {
@@ -5924,7 +6270,9 @@
       "alt": 1658.2,
       "altRef": 0
     },
-    "copyright": "\u00a9 2020 Casey Burnham"
+    "copyright": "\u00a9 2020 Casey Burnham",
+    "title": "Spherical Monument",
+    "caption": "Spherical Monument, Fairmount Cemetery"
   },
   "galleries/cemeteries/avif/poncha-springs-cemetery.avif": {
     "date": {
@@ -5955,7 +6303,9 @@
       "alt": 2318.135314,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Poncha Springs Cemetery",
+    "caption": "Poncha Springs Cemetery"
   },
   "galleries/cemeteries/avif/silver-cliff-cemetery.avif": {
     "date": {
@@ -5986,7 +6336,9 @@
       "alt": 2462.529833,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Silver Cliff Cemetery",
+    "caption": "Silver Cliff Cemetery"
   },
   "galleries/cemeteries/avif/henry-fischer-colored-cemetery.avif": {
     "date": {
@@ -6017,7 +6369,9 @@
       "alt": 273.4678649,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Henry Fischer Colored Cemetery",
+    "caption": "Henry Fischer Colored Cemetery"
   },
   "galleries/cemeteries/avif/riverside-cemterery.avif": {
     "date": {
@@ -6048,7 +6402,9 @@
       "alt": 1574.2,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Riverside Cemterery",
+    "caption": "Riverside Cemterery Headstones"
   },
   "galleries/cemeteries/avif/elizabethtown-cemetery.avif": {
     "date": {
@@ -6079,7 +6435,9 @@
       "alt": 2615.8,
       "altRef": 0
     },
-    "copyright": "\u00a9 2020 Casey Burnham"
+    "copyright": "\u00a9 2020 Casey Burnham",
+    "title": "Elizabethtown Cemetery",
+    "caption": "Elizabethtown Cemetery, Elizabethtown, CO"
   },
   "galleries/cemeteries/avif/dawson-cemetery.avif": {
     "date": {
@@ -6110,7 +6468,9 @@
       "alt": 1956.2,
       "altRef": 0
     },
-    "copyright": "\u00a9 2020 Casey Burnham"
+    "copyright": "\u00a9 2020 Casey Burnham",
+    "title": "Dawson Cemetery",
+    "caption": "Dawson Cemetery Headstone"
   },
   "galleries/cemeteries/avif/crested-butte-cemetery.avif": {
     "date": {
@@ -6141,7 +6501,9 @@
       "alt": 2706.416188,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Crested Butte Cemetery",
+    "caption": "Crested Butte Cemetery"
   },
   "galleries/cemeteries/avif/ioof-cemetery.avif": {
     "date": {
@@ -6172,7 +6534,9 @@
       "alt": 2725.3,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "IOOF Cemetery",
+    "caption": "\u2068Independent Order of Oddfellows Cemetery\u2069, \u2068Central City\u2069, \u2068CO"
   },
   "galleries/cemeteries/avif/fisher-cemetery.avif": {
     "date": {
@@ -6203,7 +6567,9 @@
       "alt": 2228.98374,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Fisher Cemetery",
+    "caption": "Fisher Cemetery, Carbondale, CO"
   },
   "galleries/cemeteries/avif/the-assumption.avif": {
     "date": {
@@ -6234,7 +6600,9 @@
       "alt": 2458.32,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "The Assumption",
+    "caption": "Silver Cliff Cemetery"
   },
   "galleries/cemeteries/avif/knights-of-pythias-cemetery.avif": {
     "date": {
@@ -6265,7 +6633,9 @@
       "alt": 2725.6,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "Knights of Pythias Cemetery",
+    "caption": "Knights of Pythias Cemetery Plot"
   },
   "galleries/live-sound/avif/glass-animals-ilysfm.avif": {
     "date": {
@@ -6296,7 +6666,9 @@
       "alt": 1910.957399,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Glass Animals ILYSFM",
+    "caption": "Glass Animals @ Red Rocks, 2024"
   },
   "galleries/live-sound/avif/100-gecs-10k-tour.avif": {
     "date": {
@@ -6327,7 +6699,9 @@
       "alt": 1571.777344,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "100 gecs 10k Tour",
+    "caption": "100 gecs @ Mission Ballroom, 2023"
   },
   "galleries/live-sound/avif/dave,-glass-animals.avif": {
     "date": {
@@ -6358,7 +6732,9 @@
       "alt": null,
       "altRef": 0
     },
-    "copyright": "\u00a9 2015 Casey Burnham"
+    "copyright": "\u00a9 2015 Casey Burnham",
+    "title": "Dave, Glass Animals",
+    "caption": "Glass Animals @ The Ogden Theater, 2015"
   },
   "galleries/live-sound/avif/megan-thee-stallion.avif": {
     "date": {
@@ -6389,7 +6765,9 @@
       "alt": 1598.631347,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Megan thee Stallion",
+    "caption": null
   },
   "galleries/live-sound/avif/phantogram.avif": {
     "date": {
@@ -6420,7 +6798,9 @@
       "alt": 1611.159512,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Phantogram",
+    "caption": "Phantogram @ The Fillmore, 2025"
   },
   "galleries/live-sound/avif/run-the-jewels.avif": {
     "date": {
@@ -6451,7 +6831,9 @@
       "alt": 1614.327869,
       "altRef": 0
     },
-    "copyright": "\u00a9 2015 Casey Burnham"
+    "copyright": "\u00a9 2015 Casey Burnham",
+    "title": "Run the Jewels",
+    "caption": "Run the Jewels @ The Ogden Theater, 2015"
   },
   "galleries/live-sound/avif/ashnikko.avif": {
     "date": {
@@ -6482,7 +6864,9 @@
       "alt": 1579.897461,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Ashnikko",
+    "caption": "Ashnikko @ Mission Ballroom, 2023"
   },
   "galleries/live-sound/avif/100-gecs-dj-set.avif": {
     "date": {
@@ -6513,7 +6897,9 @@
       "alt": 1586.355224,
       "altRef": 0
     },
-    "copyright": "\u00a9 2022 Casey Burnham"
+    "copyright": "\u00a9 2022 Casey Burnham",
+    "title": "100 gecs DJ Set",
+    "caption": "100 gecs DJ Set @ Meowwolf, 2022"
   },
   "galleries/live-sound/avif/flume-dj-set.avif": {
     "date": {
@@ -6544,7 +6930,9 @@
       "alt": 2416.3,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Flume DJ Set",
+    "caption": "Flume DJ Set @ Belly Up, 2019"
   },
   "galleries/live-sound/avif/flume-&-laurel.avif": {
     "date": {
@@ -6575,7 +6963,9 @@
       "alt": 2414.803468,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Flume & Laurel",
+    "caption": "Flume Palaces Tour @ Belly Up, 2023"
   },
   "galleries/live-sound/avif/mura-masa-dj-set.avif": {
     "date": {
@@ -6606,7 +6996,9 @@
       "alt": 1587.966119,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Mura Masa DJ Set",
+    "caption": "Mura Masa DJ Set @ Meowwolf, 2024"
   },
   "galleries/live-sound/avif/flume-@-belly-up.avif": {
     "date": {
@@ -6637,7 +7029,9 @@
       "alt": 2414.803468,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Flume @ Belly Up",
+    "caption": "Flume Palaces Tour @ Belly Up, 2023"
   },
   "galleries/live-sound/avif/100-gecs.avif": {
     "date": {
@@ -6668,7 +7062,9 @@
       "alt": 1611.721068,
       "altRef": 0
     },
-    "copyright": "\u00a9 2021 Casey Burnham"
+    "copyright": "\u00a9 2021 Casey Burnham",
+    "title": "100 gecs",
+    "caption": "100 gecs @ The Ogden Theater, 2021"
   },
   "galleries/live-sound/avif/vampire-weekend.avif": {
     "date": {
@@ -6699,7 +7095,9 @@
       "alt": 1958.088595,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Vampire Weekend",
+    "caption": "Vampire Weekend @ Red Rocks, 2024"
   },
   "galleries/abstract/avif/paint.avif": {
     "date": {
@@ -6730,7 +7128,9 @@
       "alt": 191.9900056,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Paint",
+    "caption": "Paint Detail, Detroit Institue of Arts"
   },
   "galleries/abstract/avif/frozen-rocks.avif": {
     "date": {
@@ -6761,7 +7161,9 @@
       "alt": 3292.720779,
       "altRef": 0
     },
-    "copyright": "\u00a9 2022 Casey Burnham"
+    "copyright": "\u00a9 2022 Casey Burnham",
+    "title": "Frozen Rocks",
+    "caption": "Frozen Rocks, County Road 275, Montezuma"
   },
   "galleries/abstract/avif/star-k-sunset.avif": {
     "date": {
@@ -6792,7 +7194,9 @@
       "alt": 1647.04376,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Star K Sunset",
+    "caption": "Sunset at Star K Ranch"
   },
   "galleries/abstract/avif/yellowstone.avif": {
     "date": {
@@ -6823,7 +7227,9 @@
       "alt": 2237.6,
       "altRef": 0
     },
-    "copyright": "\u00a9 2020 Casey Burnham"
+    "copyright": "\u00a9 2020 Casey Burnham",
+    "title": "Yellowstone",
+    "caption": "Biomat, Yellowstone National Park"
   },
   "galleries/abstract/avif/cowboy-print.avif": {
     "date": {
@@ -6854,7 +7260,9 @@
       "alt": null,
       "altRef": 0
     },
-    "copyright": "\u00a9 2019 Casey Burnham"
+    "copyright": "\u00a9 2019 Casey Burnham",
+    "title": "Cowboy Print",
+    "caption": "Cowboy Print Wallpaper"
   },
   "galleries/abstract/avif/medano-creek.avif": {
     "date": {
@@ -6885,7 +7293,9 @@
       "alt": 2447.455827,
       "altRef": 0
     },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2023 Casey Burnham",
+    "title": "Medano Creek",
+    "caption": "Medano Creek, Great Sand Dunes National Preserve"
   },
   "galleries/abstract/avif/guinea-fowl-detail.avif": {
     "date": {
@@ -6916,7 +7326,9 @@
       "alt": 1301,
       "altRef": 0
     },
-    "copyright": "\u00a9 2017 Casey Burnham"
+    "copyright": "\u00a9 2017 Casey Burnham",
+    "title": "Guinea Fowl Detail",
+    "caption": "Detail of a Guinea Fowl, Tracy Aviary at Liberty Park"
   },
   "galleries/abstract/avif/silver-lake-reflections.avif": {
     "date": {
@@ -6947,7 +7359,9 @@
       "alt": 3720.535221,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Silver Lake Reflections",
+    "caption": "Silver Lake, Silverton, CO"
   },
   "galleries/abstract/avif/missouri-lake-reflections.avif": {
     "date": {
@@ -6978,7 +7392,9 @@
       "alt": 3486.049438,
       "altRef": 0
     },
-    "copyright": "\u00a9 2025 Casey Burnham"
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": "Missouri Lake Reflections",
+    "caption": "Reflections at Missouri Lakes"
   },
   "galleries/abstract/avif/sloans-lake.avif": {
     "date": {
@@ -7009,7 +7425,9 @@
       "alt": 1623.343802,
       "altRef": 0
     },
-    "copyright": "\u00a9 2018 Casey Burnham"
+    "copyright": "\u00a9 2018 Casey Burnham",
+    "title": "Sloans Lake",
+    "caption": "Sunset on Sloans Lake"
   },
   "galleries/abstract/avif/sandstone-detail.avif": {
     "date": {
@@ -7040,37 +7458,8 @@
       "alt": 1722.627815,
       "altRef": 0
     },
-    "copyright": "\u00a9 2024 Casey Burnham"
-  },
-  "posters/jpeg/casey-rocky.jpeg": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2023,
-      "month": 10,
-      "day": 10,
-      "hour": 12,
-      "minute": 14,
-      "second": 13,
-      "tzoffsetMinutes": 0,
-      "rawValue": "2023:10:10 12:14:13",
-      "zoneName": "UTC",
-      "inferredZone": true
-    },
-    "iso": 50,
-    "lens": 26,
-    "aperture": 1.5,
-    "shutter": "1/2353",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.6014583333333,
-      "lon": -105.752311116667,
-      "latDMS": "39\u00b036'5.25\" N",
-      "lonDMS": "105\u00b045'8.32\" W",
-      "alt": 3635.3,
-      "altRef": 0
-    },
-    "copyright": "\u00a9 2023 Casey Burnham"
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Sandstone Detail",
+    "caption": "Sandstone, Goblin Valley State Park"
   }
 }
