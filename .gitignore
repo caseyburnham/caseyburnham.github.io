@@ -3,6 +3,12 @@
 Thumbs.db
 .nova
 
+# CSS
+css/base/
+css/components/
+css/main/
+css/utils/
+
 # Compiled source #
 *.class
 *.o
