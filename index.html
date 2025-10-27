@@ -7,22 +7,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 		<meta name="color-scheme" content="light dark">
 		<meta name="robots" content="index,follow">
-		<!-- META TAGS -->
-		<meta name="description" content="Casey Burnham, a professional audio engineer in Colorado specializing in live sound, theater audio, FOH mixing, and sound design.">
+
+		<!-- Site Info -->
+		<meta name="description" content="Casey Burnham, a professional audio engineer in Colorado specializing in live sound, theater audio, FOH mixing, sound design, audio system design, Dante networking, QLab programming, and Yamaha Rivage consoles. Serving Denver, Boulder, and Colorado Springs.">
 		<meta name="author" content="Casey Burnham">
 		<meta name="web_author" content="Casey Burnham">
 		<meta name="designer" content="Casey Burnham">
-		<meta name="contact" content="casey@crashandburnham.com 'Denver, Colorado' ">
+		<meta name="contact" content="casey@crashandburnham.com, Denver, Colorado">
+		<meta name="language" content="en-US">
+		<meta name="keywords" content="Audio Engineer, Live Sound, Theater Audio, FOH Mixing, Sound Design, Audio System Design, Audio Recording, Audio Editing, Dante, QLab, Yamaha Rivage, Colorado, Denver, Boulder, Colorado Springs">
+
+		<!-- Geo Tags -->
 		<meta name="geo.country" content="US">
-		<meta name="geo.a1" content="CO">
-		<meta name="geo.a3" content="Denver">
+		<meta name="geo.region" content="CO-CO">
+		<meta name="geo.placename" content="Denver">
+		<meta name="geo.position" content="39.823252;-105.083531">
+		<meta name="ICBM" content="39.823252, -105.083531">
+
 		<!-- Open Graph-->
 		<meta property="og:title" content="Casey Burnham - Professional Audio Engineer in Colorado | Live Sound & Theater Audio Specialist">
-		<meta property="og:description" content="Expert audio engineer serving Colorado with live sound, theater audio, FOH mixing, and sound design services. Dante Level 2 certified. Serving Denver, Boulder, and Colorado Springs.">
+		<meta property="og:description" content="Expert audio engineer serving Colorado with live sound reinforcement skills, theater audio knowledge, FOH mixing, sound design, Dante Level 2 certification, QLab programming, and Yamaha Rivage operation. Serving the Colorado area, including Denver, Boulder, and Leadville.">
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="Crash & Burnham">
+		<meta property="og:locale" content="en_US">
+		<meta property="og:image" content="https://crashandburnham.com/images/posters/jpeg/casey-rocky.jpeg">
+		<meta property="og:image:alt" content="Image of Casey Burnham, professional audio engineer, with his dog, Rocky">
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://crashandburnham.com">
-		<meta property="og:locale" content="en_US">
-		<meta property="og:site_name" content="Crash & Burnham">
+
+		<!-- Extras -->
+		<meta name="rating" content="General">
+		<meta name="coverage" content="Worldwide">
+		<meta name="revisit-after" content="7 days">
+		<meta name="subject" content="Live Sound, Theater Audio, Audio System Design, FOH Mixing, Sound Design, Audio Recording, Audio Editing, Dante, QLab, Yamaha Rivage, Audio Engineering">
+
 		<!-- Local Business Schema -->
 		<script type="application/ld+json">
 			{
@@ -35,10 +53,6 @@
 					"addressLocality": "Denver",
 					"addressRegion": "CO",
 					"addressCountry": "US"
-				},
-				"geo": {
-					"@type": "GeoCoordinates",
-					"addressLocality": "Denver, Colorado"
 				},
 				"url": "https://crashandburnham.com",
 				"email": "casey@crashandburnham.com",
@@ -55,7 +69,7 @@
 					"name": "Boulder"
 				}, {
 					"@type": "City",
-					"name": "Colorado Springs"
+					"name": "Leadville"
 				}],
 				"hasOfferCatalog": {
 					"@type": "OfferCatalog",
@@ -92,82 +106,163 @@
 				}
 			}
 		</script>
+
 		<!-- Person Schema -->
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
-				"@type": "Person",
-				"name": "Casey Burnham",
-				"jobTitle": ["Audio Director", "Sound Engineer"],
-				"description": "Professional audio engineer specializing in live sound, theater audio, and sound design",
-				"email": "casey@crashandburnham.com",
-				"alumniOf": {
-					"@type": "EducationalOrganization",
-					"name": "University of Colorado Denver",
-					"department": "Audio Engineering"
-				},
-				"url": "https://www.crashandburnham.com",
-				"sameAs": "https://www.instagram.com/crashandburnham",
-				"hasCredential": [{
-					"@type": "EducationalOccupationalCredential",
-					"name": "Dante Level 2 Certification",
-					"description": "Networked audio interoperability and troubleshooting"
-				}],
-				"knowsAbout": ["Live Sound Engineering", "Theater Audio", "FOH Mixing", "Sound Design", "Audio System Design", "QLab Programming", "Yamaha Rivage Consoles", "Dante Audio Networking", "Audio Recording", "Audio Editing"],
-				"hasOccupation": {
-					"@type": "Occupation",
-					"name": "Audio Director",
-					"occupationLocation": {
-						"@type": "Place",
-						"name": "Arvada Center for the Arts and Humanities"
+				"@graph": [{
+						"@type": "WebSite",
+						"@id": "https://www.crashandburnham.com#website",
+						"url": "https://www.crashandburnham.com",
+						"name": "Crash and Burnham",
+						"description": "Portfolio and professional site of Casey Burnham, audio director, sound designer, and elevation enthusiast.",
+						"publisher": {
+							"@id": "https://www.crashandburnham.com#organization"
+						},
+						"hasPart": [{
+								"@type": "WebPage",
+								"@id": "https://www.crashandburnham.com#portfolio",
+								"url": "https://www.crashandburnham.com/#productions",
+								"name": "Portfolio"
+							},
+							{
+								"@type": "WebPage",
+								"@id": "https://www.crashandburnham.com#about",
+								"url": "https://www.crashandburnham.com/#main-content",
+								"name": "About"
+							}
+						]
 					},
-					"description": "Audio Department Head and Lead Audio Engineer for theatrical productions"
-				},
-				"workLocation": {
-					"@type": "Place",
-					"address": {
-						"@type": "PostalAddress",
-						"addressLocality": "Arvada",
-						"addressRegion": "CO",
-						"addressCountry": "US"
-					},
-					"worksFor": {
+					{
 						"@type": "Organization",
-						"name": "Arvada Center for the Arts and Humanities",
-						"description": "The Arvada Center celebrates and elevates the human condition with engaging arts, humanities, education, and entertainment that expand the cultural landscape for everyone who visits us.",
-						"address": {
-							"@type": "PostalAddress",
-							"addressLocality": "Arvada",
-							"addressRegion": "CO"
+						"@id": "https://www.crashandburnham.com#organization",
+						"name": "Crash and Burnham",
+						"url": "https://www.crashandburnham.com",
+						"brand": {
+							"@type": "Brand",
+							"name": "Crash and Burnham"
+						},
+						"contactPoint": {
+							"@type": "ContactPoint",
+							"contactType": "business",
+							"email": "casey@crashandburnham.com",
+							"areaServed": "US"
+						}
+					},
+					{
+						"@type": "Person",
+						"@id": "https://www.crashandburnham.com#person",
+						"name": "Casey Burnham",
+						"givenName": "Casey",
+						"familyName": "Burnham",
+						"jobTitle": "Audio Director",
+						"url": "https://www.crashandburnham.com",
+						"image": "https://crashandburnham.com/images/posters/jpeg/casey-rocky.jpeg",
+						"nationality": {
+							"@type": "Country",
+							"name": "United States"
+						},
+						"sameAs": [
+							"https://www.instagram.com/crashandburnham",
+							"https://github.com/caseyburnham"
+						],
+						"worksFor": {
+							"@type": "Organization",
+							"name": "Arvada Center for the Arts and Humanities",
+							"description": "The Arvada Center celebrates and elevates the human condition...",
+							"address": {
+								"@type": "PostalAddress",
+								"addressLocality": "Arvada",
+								"addressRegion": "CO",
+								"addressCountry": "US"
+							},
+							"naics": "711110",
+							"isicV4": "9000"
+						},
+						"hasOccupation": {
+							"@type": "Occupation",
+							"name": "Audio Director",
+							"description": "Audio Department Head and Lead Audio Engineer for theatrical productions.",
+							"occupationalCategory": {
+								"@type": "CategoryCode",
+								"codeValue": "90.01",
+								"url": "https://ec.europa.eu/competition/mergers/cases/index/nace_all.html",
+								"inCodeSet": {
+									"@type": "CategoryCodeSet",
+									"name": "NACE Rev.2"
+								}
+							},
+							"occupationLocation": {
+								"@type": "AdministrativeArea",
+								"name": "Colorado, United States"
+							}
+						},
+						"hasCredential": [{
+								"@type": "EducationalOccupationalCredential",
+								"name": "Dante Level 2 Certification",
+								"description": "Networked audio interoperability and troubleshooting"
+							},
+							{
+								"@type": "EducationalOccupationalCredential",
+								"credentialCategory": "Bachelor of Fine Arts in Recording Arts",
+								"educationalLevel": "Bachelor",
+								"provider": {
+									"@type": "EducationalOrganization",
+									"name": "University of Colorado, Denver",
+									"url": "https://www.ucdenver.edu"
+								}
+							}
+						],
+						"performerIn": {
+							"@type": "Event",
+							"name": "Disney's Frozen",
+							"location": {
+								"@type": "Place",
+								"name": "Arvada Center for the Arts and Humanities",
+								"address": "6901 Wadsworth Blvd, Arvada, CO"
+							}
+						},
+						"subjectOf": {
+							"@type": "CreativeWork",
+							"name": "Disney's Frozen — Audio Team",
+							"url": "https://arvadacenter.org/events/disneys-frozen"
 						}
 					}
-				}
+				]
 			}
 		</script>
+
 		<!-- TITLE -->
 		<title>Crash & Burnham</title>
+
 		<!-- Canonical URL -->
 		<link rel="canonical" href="https://crashandburnham.com">
 		<link rel="me" href="https://crashandburnham.com">
+
 		<!-- PRELOAD -->
 		<link rel="preload" href="css/dist/style.css" as="style" />
 		<link rel="modulepreload" href="js/js-imports.js" as="script" />
-		<link rel="modulepreload" href="js/modal/modal.js" as="script" />
+
 		<!-- PRECONNECT -->
 		<link rel="preconnect" href="https://api.maptiler.com" />
 		<link rel="preconnect" href="https://api.discogs.com" />
+
 		<!-- PREFETCH -->
 		<link rel="dns-prefetch" href="https://arvadacenter.org" />
 		<link rel="dns-prefetch" href="https://discogs.com" />
 		<link rel="dns-prefetch" href="https://14ers.com" />
-		<!-- CSS -->
+
+		<!-- STYLESHEET -->
 		<link rel="stylesheet" href="css/dist/style.css">
 	</head>
 	<!-- BODY -->
 
 	<body>
+
 		<!-- #main -->
 		<main id="main-content">
+
 			<!-- HEADER -->
 			<header>
 				<hgroup>
@@ -175,6 +270,7 @@
 					<h3>Sound Engineer & Elevation Enthusiast</h3>
 				</hgroup>
 			</header>
+
 			<!-- NAV -->
 			<div class="nav-wrapper">
 				<button aria-label="Toggle navigation menu">🍔</button>
@@ -189,16 +285,19 @@
 					<a href="#now-playing">#now-playing</a>
 				</nav>
 			</div>
+
 			<!-- BIO -->
 			<section aria-labelledby="bio-heading">
 				<!-- SR -->
 				<h2 id="bio-heading" class="sr-only">About Casey - Audio Engineer in Denver, Colorado</h2>
 				<div class="bio-wrapper">
+
 					<!-- BIO TEXT -->
 					<div>
 						<p>A former Idahoan who traded potato fields for mountain trails, I moved to Colorado in <time datetime="2011">2011</time> and earned a degree in Audio Engineering from <dfn><abbr title="University of Colorado, Denver">UCD</abbr></dfn>. Currently serving as <strong>Audio Director</strong> for the <a href="https://arvadacenter.org/" target="_blank" rel="noopener noreferrer" title="Arvada Center for the Arts and Humanities">Arvada Center</a>, I've been a full-time <strong>live sound</strong> and <strong>theater engineer</strong> for over a decade — wrangling mics, troubleshooting gear that swore it was working yesterday, and convincing everyone it was fine all along. </p>
 						<p> When I'm not behind a console, you can find me above the treeline – scrambling up peaks, taking pictures of plants and weird rocks, beating up my truck on old mining roads, or chasing ghosts in pioneer cemeteries. I always drag my dog along, though, he's not always impressed.</p>
 					</div>
+
 					<!-- PROFILE PIC -->
 					<figure>
 						<img src="/images/posters/jpeg/casey-rocky.jpeg" fetchpriority="high" aria-label="Casey and Rocky at Silver Dollar Lake">
@@ -207,13 +306,17 @@
 					<small>(PS, I also <a href="#now-playing">collect</a> and <a href="https://www.discogs.com/seller/crashandburnham/profile" target="_blank" rel="noopener noreferrer">sell</a> vinyl records)</small>
 				</div>
 			</section>
+
 			<!-- #skills -->
 			<section id="skills" class="details-wrapper" aria-labelledby="experience-heading">
+
 				<!-- SR -->
 				<h2 id="details-heading" class="sr-only">Professional Audio Engineering Skills & Experience</h2>
+
 				<!-- DETAILS -->
 				<details>
 					<summary id="experience-heading" class="text-center">Skills & Experience</summary>
+
 					<!-- Live Sound & Theater Audio -->
 					<article style="--animation-order: 0;">
 						<h4>Live Sound Engineering & Theater Audio</h4>
@@ -225,6 +328,7 @@
 							<li><strong>Theatrical sound design</strong> for musicals and plays, collaborating with directors and designers to realize creative concepts.</li>
 						</ul>
 					</article>
+
 					<!-- System Design & Integration -->
 					<article style="--animation-order: 0.15s;">
 						<h4>Audio System Design & Integration</h4>
@@ -236,6 +340,7 @@
 							<li>Managed projector installation and focus, including video mapping.</li>
 						</ul>
 					</article>
+
 					<!-- Studio & Post-Production -->
 					<article style="--animation-order: 0.3s;">
 						<h4>Recording, Audio Editing & Post-Production</h4>
@@ -245,6 +350,7 @@
 							<li>Provided freelance audio consulting for artists, theaters, and local organizations.</li>
 						</ul>
 					</article>
+
 					<!-- Additional Technical Experience -->
 					<article style="--animation-order: 0.45s;">
 						<h4>Platforms & Certifications</h4>
@@ -258,12 +364,16 @@
 					</article>
 				</details>
 			</section>
+
 			<!-- #productions -->
 			<section id="productions" aria-labelledby="productions-heading">
+
 				<!-- SR -->
 				<h2 id="productions-heading" class="sr-only">Theater Productions & Sound Design Portfolio</h2>
+
 				<!-- PRODUCTIONS TABLE -->
 				<table id="productions-table" aria-label="Theatrical Productions and Audio Engineering Credits">
+
 					<!-- TABLE HEAD -->
 					<thead>
 						<tr>
@@ -284,8 +394,10 @@
 							<th scope="col" class="text-center">😃</th>
 						</tr>
 					</thead>
+
 					<!-- TABLE BODY -->
 					<tbody>
+
 						<!-- Populated by /tables and productions.json -->
 						<!-- TABLE TEMPLATE -->
 						<template id="production-row-template">
@@ -302,27 +414,30 @@
 					</tbody>
 				</table>
 			</section>
+
 			<!-- DIVIDER -->
 			<hr />
+
 			<!-- #galleries -->
 			<section id="galleries" aria-labelledby="gallery-heading">
+
 				<!-- SR -->
 				<h2 id="gallery-heading" class="sr-only">Photography Gallery - Colorado Mountains & Concerts</h2>
-				<!-- BUTTONS -->
-				<!-- TEMPLATE -->
+
+				<!-- BUTTONS TEMPLATE -->
 				<template id="gallery-button-template">
 					<button type="button" class="gallery-btn" role="tab" aria-selected="false" data-gallery=""></button>
 				</template>
-				<!-- GALLERY -->
-				<!-- TEMPLATE -->
+
+				<!-- GALLERY TEMPLATE -->
 				<template id="photo-thumb-template">
 					<!-- Populated by galleries.js -->
 					<div class="photo-thumb card">
 						<img src="" alt="" loading="lazy" decoding="async">
 					</div>
 				</template>
-				<!-- MODAL -->
-				<!-- TEMPLATE -->
+
+				<!-- MODAL TEMPLATE -->
 				<template id="photo-modal-template">
 					<dialog role="document">
 						<div class="modal-card">
@@ -342,18 +457,24 @@
 					</dialog>
 				</template>
 			</section>
+
 			<!-- DIVIDER -->
 			<hr />
+
 			<!-- TABLES -->
 			<section id="tables" class="data-tables" aria-labelledby="data-heading">
+
 				<!-- SR -->
 				<h2 id="data-heading" class="sr-only">Personal Statistics - Mountains & Concerts</h2>
+
 				<!-- #mountains -->
 				<table id="mountains" class="flex-item" aria-labelledby="mountains-caption">
+
 					<!-- CAPTION -->
 					<caption id="mountains-caption"> Non-exhaustive, detailing peaks over 13,000ft; <wbr />
 						<a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank" rel="noopener noreferrer" aria-label="View my climbing record on 14ers.com">14ers.com</a>
 					</caption>
+
 					<!-- TABLE HEAD -->
 					<thead>
 						<tr>
@@ -365,10 +486,11 @@
 							<th scope="col" class="text-center">📸</th>
 						</tr>
 					</thead>
-					<!-- TABLE BODY -->
-					<!-- Template populated by /tables and mountains.json -->
+
+					<!-- TABLE BODY populated by js/tables, json/exif-data.json, and json/mountain-data.json -->
 					<tbody>
-						<!-- MOUNTAINS TEMPLATE -->
+
+						<!-- MOUNTAIN TABLE TEMPLATE -->
 						<template id="mountain-row-template">
 							<tr>
 								<td class="mtn-peak"></td>
@@ -382,57 +504,71 @@
 									<span class="unranked">-</span>
 								</td>
 								<td class="mtn-image text-center">
-									<button class="camera-link" aria-label="Summit Image"><!-- Populated by /tables --></button>
+									<button class="camera-link" aria-label="Summit Image"></button>
 								</td>
 							</tr>
 						</template>
+
 						<!-- SUMMARY TEMPLATE -->
 						<template id="summary-row-template">
 							<tr class="year-summary-row">
 								<td scope="rowgroup" colspan="6" class="text-center">
 									<strong>
-										<span class="summary-count"><!-- Populated by /tables --></span>
+										<span class="summary-count">
+											<!-- Populated by js/tables -->
+										</span>
 									</strong>
-									<span class="summary-label"><!-- Populated by /tables --></span> in <span class="summary-year"><!-- Populated by /tables --></span>
+									<span class="summary-label"><!-- Populated by js/tables --></span> in <span class="summary-year"><!-- Populated by js/tables --></span>
 								</td>
 							</tr>
 						</template>
 					</tbody>
+
 					<!-- TABLE FOOT -->
 					<tfoot>
+
 						<!-- 13ers COUNT -->
 						<tr>
 							<td colspan="2">13ers</td>
 							<td colspan="4" class="bar text-center">
 								<progress class="peak-progress" data-peak-type="thirteeners" data-total="600" value="0" max="600"></progress>
-								<!-- <label for="peak-progress">(<span id="thirteeners">Populated by /tables</span>/600+)</label> -->
+								<label for="peak-progress" class="sr-only">
+									(<span id="thirteeners"><!-- Populated by js/tables--></span>/600+)
+								</label>
 							</td>
 						</tr>
+
 						<!-- 14ers COUNT -->
 						<tr>
 							<td colspan="2">14ers</td>
 							<td colspan="4" class="bar text-center">
 								<progress class="peak-progress" data-peak-type="fourteeners" data-total="58" value="0" max="58"></progress>
-								<!-- <label for="peak-progress">(<span id="fourteeners">Populated by /tables</span>/58)</label> -->
+								<label for="peak-progress" class="sr-only">
+									(<span id="fourteeners"><!-- Populated by js/tables --></span>/58)
+								</label>
 							</td>
 						</tr>
+
 						<!-- BAG COUNT -->
 						<tr>
 							<td colspan="4">Peaks Bagged</td>
 							<td colspan="2" class="text-center">
 								<strong>
 									<span id="totalMountains">
-										<!-- Populated by /tables -->
+										<!-- Populated by js/tables -->
 									</span>
 								</strong>
 							</td>
 						</tr>
 					</tfoot>
 				</table>
+
 				<!-- #concerts -->
 				<table id="concerts" class="flex-item" aria-labelledby="concerts-caption">
+
 					<!-- TABLE CAPTION -->
 					<caption id="concerts-caption"> Non-exhaustive; Chronology approximate </caption>
+
 					<!-- TABLE HEAD -->
 					<thead>
 						<tr>
@@ -442,15 +578,16 @@
 							<th scope="col" class="text-center">😃</th>
 						</tr>
 					</thead>
-					<!-- TABLE BODY -->
+
+					<!-- TABLE BODY populated by js/tables and json/concert-data.json -->
 					<tbody>
-						<!-- Template populated by /tables and concerts.json -->
+
 						<!-- CONCERT TABLE TEMPLATE -->
 						<template id="concert-row-template">
 							<tr>
 								<td class="concert-artist">
 									<span class="artist-headliner"></span>
-									<br>
+									<br />
 									<span class="artist-support-group">
 										<small class="artist-support-name"></small>
 									</span>
@@ -463,31 +600,35 @@
 							</tr>
 						</template>
 					</tbody>
+
 					<!-- TABLE FOOT -->
 					<tfoot>
+
 						<!-- TOP ARTISTS -->
 						<tr>
 							<td colspan="4">
 								<div id="top-artists" aria-label="Most seen artists">
-									<!-- Populated by /tables -->
+									<!-- Populated by js/tables -->
 								</div>
 							</td>
 						</tr>
+
 						<!-- TOP VENUES -->
 						<tr>
 							<td colspan="4">
 								<div id="top-venues" aria-label="Most visited venues">
-									<!-- Populated by /tables -->
+									<!-- Populated by js/tables -->
 								</div>
 							</td>
 						</tr>
+
 						<!-- TOTAL SHOWS -->
 						<tr>
 							<td colspan="2">Shows Seen</td>
 							<td colspan="2" class="text-center">
 								<strong>
 									<span id="concert-count">
-										<!-- Populated by /tables -->
+										<!-- Populated by js/tables -->
 									</span>
 								</strong>
 							</td>
@@ -495,28 +636,40 @@
 					</tfoot>
 				</table>
 			</section>
+
 			<!-- DIVIDER -->
-			<br>
+			<br />
+
 			<!-- #map -->
 			<section aria-labelledby="climbing-map">
+
 				<!-- SR -->
-				<h2 id="climbing-map" class="sr-only">Colorado Climbing Map</h2>
+				<h2 id="climbing-map" class="sr-only">Climbing Map</h2>
 				<div id="map">
-					<!-- Generated by map.js -->
+					<!-- Generated by js/map.js -->
 				</div>
 			</section>
+
 			<!-- DIVIDER -->
 			<hr />
+
 			<!-- RECORDS -->
 			<section id="now-playing" aria-labelledby="now-playing-heading">
+
 				<!-- SR -->
 				<h2 id="now-playing-heading" class="sr-only">Now Playing</h2>
+
 				<!-- HEAD STASH -->
-				<h3><a href="https://www.discogs.com/user/crashandburnham/collection?folder=2166321" target="_blank" rel="noopener noreferrer">Personal Collection</a></h3>
+				<h3>
+					<a href="https://www.discogs.com/user/crashandburnham/collection?folder=2166321" target="_blank" rel="noopener noreferrer">
+						Personal Collection
+					</a>
+				</h3>
 				<div id="discogs-record-container" class="discogs-grid">
 					<p>Loading collection...</p>
 				</div>
-				<!-- TEMPLATE -->
+
+				<!-- COLLECTION TEMPLATE -->
 				<template id="record-template">
 					<div class="discogs-record">
 						<div>
@@ -528,7 +681,8 @@
 								</div>
 							</a>
 						</div>
-						<!-- CAPTION -->
+
+						<!-- RECORD CAPTION -->
 						<div class="record-caption">
 							<label class="record-title"></label>
 							<br />
@@ -536,15 +690,21 @@
 						</div>
 					</div>
 				</template>
-				<!-- FOR SALE -->
+
 				<!-- SR -->
 				<h2 class="sr-only">For Sale</h2>
+
 				<!-- FOR SALE -->
-				<h3><a href="https://www.discogs.com/seller/crashandburnham/profile" target="_blank" rel="noopener noreferrer">For Sale</a></h3>
+				<h3>
+					<a href="https://www.discogs.com/seller/crashandburnham/profile" target="_blank" rel="noopener noreferrer">
+						For Sale
+					</a>
+				</h3>
 				<div id="discogs-inventory-container" class="discogs-grid">
 					<p>Loading sale items...</p>
 				</div>
-				<!-- TEMPLATE -->
+
+				<!-- FOR SALE TEMPLATE -->
 				<template id="inventory-item-template">
 					<div class="discogs-record">
 						<div>
@@ -556,7 +716,8 @@
 								</div>
 							</a>
 						</div>
-						<!-- CAPTION -->
+
+						<!-- RECORD CAPTION -->
 						<div class="record-caption for-sale">
 							<div class="record-info">
 								<label class="record-title"></label>
@@ -569,23 +730,29 @@
 				</template>
 			</section>
 		</main>
+
 		<!-- FOOTER -->
 		<footer class="text-center">
+
 			<!-- FLAGS -->
 			<span class="flags" aria-label="Flags">
 				<dfn title="Pride" aria-label="Pride flag">🏳️‍🌈</dfn>
 				<dfn title="Arr" aria-label="Pirate flag">🏴‍☠️</dfn>
 				<dfn title="Trans Pride" aria-label="Trans Pride flag">🏳️‍⚧️</dfn>
 			</span>
+
 			<!-- ADDRESS -->
-			<address itemscope itemtype="https://schema.org/Person"> &copy;<span id="year"><!-- Populated by candy.js --></span>
-				<a href="mailto:casey@crashandburnham.com" title="Email Casey Burnham - Audio Engineer" aria-label="Email Casey Burnham - Audio Engineer" itemprop="email">
+			<address itemscope itemtype="https://schema.org/Person">
+				&copy;<span id="year"><!-- Populated by js/candy.js --></span>
+				<a href="mailto:casey@crashandburnham.com" itemprop="email" title="Email Casey Burnham - Audio Engineer" aria-label="Email Casey Burnham - Audio Engineer">
 					<span itemprop="name">Casey Burnham</span>
 				</a>
 			</address>
-			<!-- CLOSING TAG -->
+
+			<!-- CLOSING -->
 			<small>Made in Colorado</small>
 		</footer>
+		
 		<!-- SCRIPTS -->
 		<script type="module" src="js/js-imports.js"></script>
 	</body>

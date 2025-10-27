@@ -1,28 +1,33 @@
-// The only script you import statically is the modal,
-// which you want to be available right away.
-import { PhotoModal } from './modal/modal.js';
-import '/js/candy.js';
-import '/js/tables/main.js';
-import '/js/galleries.js';
+// Lazy-load everything except essentials
+import '/js/candy.js';  // Tooltips and nav are always needed
+import '/js/tables/main.js';  // Tables are above the fold
+
 // ---
 // 1. Define all your lazy-loadable modules
 // ---
 const lazyFeatures = [
   { selector: '#climbing-map', scripts: ['/js/map.js'] },
-  { selector: '#discogs-record-container', scripts: ['/js/discogs-display.js'] }
+  { selector: '#discogs-record-container', scripts: ['/js/discogs-display.js'] },
+  // Load modal + galleries together when galleries section appears
+  { 
+	selector: '#galleries', 
+	scripts: ['/js/modal/modal.js', '/js/galleries.js'],
+	init: async () => {
+	  // Initialize modal after loading
+	  const { PhotoModal } = await import('./modal/modal.js');
+	  const photoModal = new PhotoModal();
+	  await photoModal.initialize();
+	  window.photoModal = photoModal;
+	}
+  }
 ];
 
 // ---
 // 2. Create the observer callback function
 // ---
-// This function runs whenever an observed element gets
-// close to the viewport.
-// ---
 const loadFeature = async (entries, observer) => {
   for (const entry of entries) {
-	// Is the element intersecting (or about to)?
 	if (entry.isIntersecting) {
-	  // Find which feature this element belongs to
 	  const feature = lazyFeatures.find(f => entry.target.matches(f.selector));
 	  
 	  if (feature) {
@@ -30,6 +35,11 @@ const loadFeature = async (entries, observer) => {
 		  // Load all required scripts for this feature
 		  for (const script of feature.scripts) {
 			await import(script);
+		  }
+		  
+		  // Run custom initialization if provided
+		  if (feature.init) {
+			await feature.init();
 		  }
 		} catch (err) {
 		  console.error(`Failed to load scripts for ${feature.selector}`, err);
@@ -45,12 +55,7 @@ const loadFeature = async (entries, observer) => {
 // ---
 // 3. The main function to set everything up
 // ---
-const main = async () => {
-  // Initialize modal (runs immediately on every page load)
-  const photoModal = new PhotoModal();
-  await photoModal.initialize();
-  window.photoModal = photoModal;
-
+const main = () => {
   // Set up the observer
   const observerOptions = {
 	// Start loading when the element is 200px away from the screen
@@ -70,6 +75,7 @@ const main = async () => {
 // Run the setup
 main();
 
+// Cleanup on page unload
 window.addEventListener('beforeunload', () => {
   window.photoModal?.destroy();
   window.Galleries?.destroy();
