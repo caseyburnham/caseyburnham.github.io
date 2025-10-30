@@ -4,22 +4,15 @@
  */
 export const setupEventListeners = (elements, modalInstance) => {
 	const boundHandlers = {
-		/**
-		 * A single, unified click handler to manage both opening and closing the modal.
-		 * This avoids race conditions and event propagation issues.
-		 */
 		unifiedClickHandler: (event) => {
-			// If the modal is currently open, we only care about closing it.
 			if (modalInstance.isOpen) {
-				// Close the modal ONLY if the click is on the backdrop itself.
 				if (event.target === elements.modal) {
 					modalInstance.closeModal();
 				}
-				// Ignore all other clicks while the modal is open.
+
 				return;
 			}
-			
-			// If the modal is NOT open, we only care about opening it.
+
 			const photoThumb = event.target.closest('.photo-thumb');
 			const cameraLink = event.target.closest('.camera-link');
 
@@ -29,11 +22,12 @@ export const setupEventListeners = (elements, modalInstance) => {
 				if (img) {
 					modalInstance.openModal(img.src, img.alt, img.dataset.title, photoThumb, photoThumb);
 				}
+
 			} else if (cameraLink) {
 				event.preventDefault();
 				const imageUrl = cameraLink.dataset.image;
 				const peakName = cameraLink.dataset.title;
-			
+
 				if (imageUrl) {
 					modalInstance.openModal(
 						imageUrl,
@@ -45,13 +39,12 @@ export const setupEventListeners = (elements, modalInstance) => {
 				}
 			}
 		},
-		
+
 		keydownHandler: (event) => {
-			// Only handle keyboard events when modal is open
 			if (!modalInstance.isOpen) return;
-			
+
 			const { key } = event;
-			
+
 			if (key === 'Escape') {
 				event.preventDefault();
 				modalInstance.closeModal();
@@ -63,9 +56,9 @@ export const setupEventListeners = (elements, modalInstance) => {
 				modalInstance.navigateImage(-1);
 			}
 		},
-		
+
 		closeClickHandler: () => modalInstance.closeModal(),
-		
+
 		modalTransitionEndHandler: (event) => {
 			if (event.propertyName === 'opacity' && elements.modal.style.opacity === '0') {
 				elements.modal.style.display = 'none';
@@ -76,7 +69,6 @@ export const setupEventListeners = (elements, modalInstance) => {
 		},
 	};
 
-	// Listen on document for keyboard events
 	document.addEventListener('click', boundHandlers.unifiedClickHandler);
 	document.addEventListener('keydown', boundHandlers.keydownHandler, true); // Use capture phase
 	elements.modal.addEventListener('transitionend', boundHandlers.modalTransitionEndHandler);

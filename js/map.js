@@ -1,13 +1,16 @@
 /**
  * Peak Climbing Map - Interactive map displaying summit peaks with GPS data
  */
+import dataCache from './shared-data.js';
+import { parseExifDate, formatElevation, filenameToTitle } from './shared-utils.js';
+
 class PeakMap {
 	constructor(options = {}) {
 		const maptilerApiKey = 'Q2YUsN8Bauugiv3dZ0gd';
 
 		this.config = {
 			mapContainerId: 'map',
-			dataUrl: 'json/exif-data.json',
+			dataUrl: '/json/exif-data.json',
 			defaultCenter: { lat: 39.7392, lon: -104.9849 }, // Denver fallback
 			defaultZoom: 12,
 			zoomSnap: 0.25,
@@ -15,8 +18,7 @@ class PeakMap {
 			tileLayerOptions: {
 				minZoom: 6,
 				maxZoom: 12,
-				attribution:
-					'&copy; <a href="https://www.maptiler.com/copyright/" target="_blank">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+				attribution: '&copy; <a href="https://www.maptiler.com/copyright/" target="_blank">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
 				ext: 'png'
 			},
 		};
@@ -26,9 +28,6 @@ class PeakMap {
 		this.markerGroup = null;
 	}
 
-	/**
-	 * Initialize the peak map
-	 */
 	async init() {
 		try {
 			await this.loadAndProcessData();
@@ -39,9 +38,6 @@ class PeakMap {
 		}
 	}
 
-	/**
-	 * Load EXIF data and process into peak objects
-	 */
 	async loadAndProcessData() {
 		const data = await this.loadExifData();
 		this.peaks = this.processExifData(data);
@@ -51,48 +47,35 @@ class PeakMap {
 		}
 	}
 
-	/**
-	 * Load EXIF data from JSON file
-	 */
 	async loadExifData() {
 		try {
-			const response = await fetch(this.config.dataUrl);
-			if (!response.ok) {
-				throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-			}
-			return await response.json();
+			// Use shared cache instead of direct fetch
+			return await dataCache.fetch(this.config.dataUrl);
 		} catch (error) {
 			throw new Error(`Failed to load ${this.config.dataUrl}: ${error.message}`);
 		}
 	}
 
-	/**
-	 * Process raw EXIF data into peak objects
-	 */
 	processExifData(data) {
 		const peaks = [];
 
-		Object.entries(data).forEach(([filepath, exifData]) => {
-			const peak = this.createPeakFromExif(filepath, exifData);
-			if (peak) {
-				peaks.push(peak);
-			}
-		});
+		Object.entries(data)
+			.forEach(([filepath, exifData]) => {
+				const peak = this.createPeakFromExif(filepath, exifData);
+				if (peak) {
+					peaks.push(peak);
+				}
+			});
 
 		return peaks;
 	}
 
-	/**
-	 * Create a peak object from EXIF data
-	 */
 	createPeakFromExif(filepath, exifData) {
 		try {
-			// Only process images from summits folder
 			if (!filepath.startsWith('summits/')) {
 				return null;
 			}
 
-			// Validate EXIF data structure
 			if (!this.isValidExifData(exifData)) {
 				return null;
 			}
@@ -106,13 +89,13 @@ class PeakMap {
 			}
 
 			return {
-				title: this.filenameToTitle(filename),
+				title: filenameToTitle(filename),
 				filename,
 				filepath,
 				lat,
 				lon,
 				altitude: this.extractAltitude(exifData.gps),
-				date: this.parseDate(exifData.date),
+				date: parseExifDate(exifData.date),
 				coordinates: {
 					lat: exifData.gps.latDMS || `${lat.toFixed(6)}°`,
 					lon: exifData.gps.lonDMS || `${lon.toFixed(6)}°`
@@ -124,9 +107,6 @@ class PeakMap {
 		}
 	}
 
-	/**
-	 * Validate EXIF data structure
-	 */
 	isValidExifData(exifData) {
 		return exifData &&
 			typeof exifData === 'object' &&
@@ -134,17 +114,12 @@ class PeakMap {
 			typeof exifData.gps === 'object';
 	}
 
-	/**
-	 * Extract filename from filepath
-	 */
 	extractFilename(filepath) {
-		const filename = filepath.split('/').pop();
+		const filename = filepath.split('/')
+			.pop();
 		return filename || null;
 	}
 
-	/**
-	 * Extract and validate GPS coordinates
-	 */
 	extractCoordinates(gpsData) {
 		const lat = Number(gpsData.lat);
 		const lon = Number(gpsData.lon);
@@ -152,9 +127,6 @@ class PeakMap {
 		return { lat, lon };
 	}
 
-	/**
-	 * Validate GPS coordinates
-	 */
 	areValidCoordinates(lat, lon) {
 		return !isNaN(lat) &&
 			!isNaN(lon) &&
@@ -162,51 +134,10 @@ class PeakMap {
 			lon >= -180 && lon <= 180;
 	}
 
-	/**
-	 * Extract altitude from GPS data
-	 */
 	extractAltitude(gpsData) {
 		return (gpsData.alt && typeof gpsData.alt === 'number') ? gpsData.alt : null;
 	}
 
-	/**
-	 * Convert filename to readable title
-	 */
-	filenameToTitle(filename) {
-		return filename
-			.replace(/\.[^/.]+$/, '') // Remove extension
-			.split(/[-_]/) // Split on hyphens and underscores
-			.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-			.join(' ');
-	}
-
-	/**
-	 * Parse date object into Date instance
-	 */
-	parseDate(dateObj) {
-		if (!dateObj) return null;
-
-		try {
-			if (dateObj.year && dateObj.month && dateObj.day) {
-				return new Date(
-					dateObj.year,
-					dateObj.month - 1,
-					dateObj.day,
-					dateObj.hour || 0,
-					dateObj.minute || 0,
-					dateObj.second || 0
-				);
-			}
-
-			return new Date(dateObj.rawValue || dateObj);
-		} catch (error) {
-			return null;
-		}
-	}
-
-	/**
-	 * Initialize the Leaflet map
-	 */
 	initializeMap() {
 		const mapContainer = document.getElementById(this.config.mapContainerId);
 		if (!mapContainer) {
@@ -225,17 +156,11 @@ class PeakMap {
 		this.addCustomStyles();
 	}
 
-	/**
-	 * Add tile layer to map
-	 */
 	addTileLayer() {
 		L.tileLayer(this.config.tileLayerUrl, this.config.tileLayerOptions)
 			.addTo(this.map);
 	}
 
-	/**
-	 * Calculate map center from all peaks
-	 */
 	calculateMapCenter() {
 		if (this.peaks.length === 0) {
 			return this.config.defaultCenter;
@@ -250,9 +175,6 @@ class PeakMap {
 		};
 	}
 
-	/**
-	 * Add peak markers to map
-	 */
 	addPeaksToMap() {
 		if (!this.map) {
 			throw new Error('Map not initialized');
@@ -271,9 +193,6 @@ class PeakMap {
 		this.fitMapToBounds();
 	}
 
-	/**
-	 * Create marker for a peak
-	 */
 	createPeakMarker(peak) {
 		try {
 			const icon = this.createCustomIcon();
@@ -292,9 +211,6 @@ class PeakMap {
 		}
 	}
 
-	/**
-	 * Create custom map icon
-	 */
 	createCustomIcon() {
 		return L.divIcon({
 			className: 'map-marker',
@@ -304,11 +220,8 @@ class PeakMap {
 		});
 	}
 
-	/**
-	 * Create popup content for a peak
-	 */
 	createPopupContent(peak) {
-		const elevation = this.formatElevation(peak.altitude);
+		const elevation = formatElevation(peak.altitude);
 		const date = peak.date ? peak.date.toLocaleDateString() : 'Unknown';
 
 		return `
@@ -322,25 +235,9 @@ class PeakMap {
 	`;
 	}
 
-	/**
-	 * Format elevation for display
-	 */
-	formatElevation(altitude) {
-		if (!altitude || isNaN(altitude)) {
-			return { feet: 'Unknown', meters: 'Unknown' };
-		}
-
-		return {
-			feet: Math.round(altitude * 3.28084).toLocaleString(),
-			meters: Math.round(altitude).toLocaleString()
-		};
-	}
-
-	/**
-	 * Fit map to show all markers
-	 */
 	fitMapToBounds() {
-		if (this.markerGroup && this.markerGroup.getLayers().length > 0) {
+		if (this.markerGroup && this.markerGroup.getLayers()
+			.length > 0) {
 			try {
 				this.map.fitBounds(this.markerGroup.getBounds(), {
 					padding: [20, 20]
@@ -351,9 +248,6 @@ class PeakMap {
 		}
 	}
 
-	/**
-	 * Add custom CSS styles
-	 */
 	addCustomStyles() {
 		if (document.querySelector('#peak-map-styles')) return;
 
@@ -363,9 +257,6 @@ class PeakMap {
 		document.head.appendChild(style);
 	}
 
-	/**
-	 * Handle and display errors
-	 */
 	handleError(message) {
 		console.error('PeakMap Error:', message);
 
@@ -385,49 +276,38 @@ class PeakMap {
 		}
 	}
 
-	/**
-	 * Get peak data (public API)
-	 */
 	getPeaks() {
-		return [...this.peaks]; // Return copy to prevent mutation
+		return [...this.peaks];
 	}
 
-	/**
-	 * Get map instance (public API)
-	 */
 	getMap() {
 		return this.map;
 	}
 }
 
-/**
- * Initialize the peak map when DOM is ready AND Leaflet is loaded
- */
 import('/js/leaflet.js')
-   .then(() => {
-	 // --- Leaflet is now loaded and L is available ---
-	 
-	 // Allow for custom configuration via global variable
-	 const config = window.PEAK_MAP_CONFIG || {};
- 
-	 const peakMap = new PeakMap(config);
-	 peakMap.init().catch(error => {
-	   console.error('Failed to initialize Peak Map:', error);
-	 });
- 
-	 // Make instance globally available for debugging/external access
-	 window.peakMap = peakMap;
-   })
-   .catch(err => {
-	 // This will catch an error if leaflet.js itself fails to load
-	 console.error("Failed to load leaflet.js dependency:", err);
-	 
-	 const mapContainer = document.getElementById(window.PEAK_MAP_CONFIG?.mapContainerId || 'map');
-	 if (mapContainer) {
-	   mapContainer.textContext = `
-		 <div class="error">
-		   <div><strong>Error:</strong> Map library failed to load.</div>
-		 </div>
-	   `;
-	 }
-   });
+	.then(() => {
+		const config = window.PEAK_MAP_CONFIG || {};
+
+		const peakMap = new PeakMap(config);
+		peakMap.init()
+			.catch(error => {
+				console.error('Failed to initialize Peak Map:', error);
+			});
+
+		window.peakMap = peakMap;
+	})
+	.catch(err => {
+		console.error("Failed to load leaflet.js dependency:", err);
+
+		const mapContainer = document.getElementById(window.PEAK_MAP_CONFIG?.mapContainerId || 'map');
+		if (mapContainer) {
+			mapContainer.textContext =
+				`<div class="error">
+				<div>
+					<strong>Error:</strong> 
+					Map library failed to load.
+				</div>
+			</div>`;
+		}
+	});

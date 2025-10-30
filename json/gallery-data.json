@@ -746,14 +746,14 @@
                 "thumbnail": "/images/galleries/off-road/thumbnails/bunce-school-road.avif"
             },
             {
-                "id": "cemeterry-road",
-                "alt": "Cemetery Road, near Mount Taylore",
-                "title": "Cemeterry Road",
+                "id": "cemetery-road",
+                "alt": "Cemetery Road, near Taylor Mountain",
+                "title": "Cemetery Road",
                 "layout": "portrait",
                 "sources": {
-                    "avif": "/images/galleries/off-road/avif/cemeterry-road.avif"
+                    "avif": "/images/galleries/off-road/avif/cemetery-road.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/cemeterry-road.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/cemetery-road.avif"
             },
             {
                 "id": "glacier-mountain",

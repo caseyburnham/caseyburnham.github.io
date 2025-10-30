@@ -1,6 +1,8 @@
 /**
  * Galleries
  **/
+import { debounce } from './shared-utils.js';
+ 
 class Galleries {
 	static CONFIG = {
 		DATA_URL: '/json/gallery-data.json',
@@ -21,13 +23,14 @@ class Galleries {
 			DESKTOP: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 7, MIN_IMAGES: 3 },
 			WIDESCREEN: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 7, MIN_IMAGES: 3 }
 		},
-		// Fallback limits
+
 		ROW_LIMITS: {
 			LANDSCAPE_MAX: 4,
 			PORTRAIT_MAX: 5,
 			MIN_IMAGES: 3
 		}
 	};
+
 	#galleries = new Map();
 	#currentGallery = null;
 	#isInitialized = false;
@@ -45,24 +48,25 @@ class Galleries {
 		this.#setupResponsiveObserver();
 		this.init();
 	}
-	// Public API with better encapsulation
+
 	getCurrentGallery() {
 		return this.#currentGallery;
 	}
+
 	getAvailableGalleries() {
 		return Array.from(this.#galleries.keys());
 	}
+
 	switchGallery(galleryKey) {
 		if (!this.#galleries.has(galleryKey) || galleryKey === this.#currentGallery) {
 			return false;
 		}
+
 		this.#performGallerySwitch(galleryKey);
+
 		return true;
 	}
-	
-	/**
-	 * Clean up resources and event listeners
-	 */
+
 	destroy() {
 		this.#abortController?.abort();
 		this.#resizeObserver?.disconnect();
@@ -71,44 +75,43 @@ class Galleries {
 		this.#isInitialized = false;
 		this.#currentRowLimits = null;
 	}
-	// Initialization
+
 	#initializeDOM() {
 		this.#galleryContainer = document.querySelector(Galleries.CONFIG.CONTAINER_SELECTOR);
 		this.#buttonTemplate = document.getElementById('gallery-button-template');
 		this.#thumbTemplate = document.getElementById('photo-thumb-template');
 		this.#currentRowLimits = this.#calculateRowLimits();
 	}
-	
-	/**
-	 * Set up ResizeObserver for responsive behavior
-	 */
+
 	#setupResponsiveObserver() {
 		if (!('ResizeObserver' in window)) {
-			// Fallback for older browsers
-			window.addEventListener('resize', this.#debounce(() => this.#handleViewportChange(), 300), { signal: this.#abortController.signal });
+			window.addEventListener('resize', 
+				debounce(() => this.#handleViewportChange(), 300),
+				{ signal: this.#abortController.signal }
+			);
 			return;
 		}
-		this.#resizeObserver = new ResizeObserver(this.#debounce((entries) => {
-			for (const entry of entries) {
-				if (entry.target === this.#galleryContainer) {
-					this.#handleViewportChange();
-					break;
+
+		this.#resizeObserver = new ResizeObserver(
+			debounce((entries) => {
+				for (const entry of entries) {
+					if (entry.target === this.#galleryContainer) {
+						this.#handleViewportChange();
+						break;
+					}
 				}
-			}
-		}, 200));
+			}, 200)
+		);
 	}
-	
-	/**
-	 * Handle viewport size changes and re-render if needed
-	 */
+
 	#handleViewportChange() {
 		const newLimits = this.#calculateRowLimits();
-		// Check if limits actually changed
+
 		if (!this.#rowLimitsChanged(newLimits, this.#currentRowLimits)) {
 			return;
 		}
 		this.#currentRowLimits = newLimits;
-		// Re-render current gallery with new limits if initialized
+
 		if (this.#isInitialized && this.#currentGallery) {
 			const gallery = this.#galleries.get(this.#currentGallery);
 			if (gallery) {
@@ -116,7 +119,7 @@ class Galleries {
 			}
 		}
 	}
-	
+
 	/**
 	 * Calculate appropriate row limits based on current viewport
 	 * @returns {Object} Row limits for current viewport
@@ -134,7 +137,7 @@ class Galleries {
 			return ROW_LIMITS_RESPONSIVE.MOBILE;
 		}
 	}
-	
+
 	/**
 	 * Check if row limits have changed
 	 * @param {Object} newLimits - New row limits
@@ -145,38 +148,22 @@ class Galleries {
 		if (!currentLimits) return true;
 		return newLimits.LANDSCAPE_MAX !== currentLimits.LANDSCAPE_MAX || newLimits.PORTRAIT_MAX !== currentLimits.PORTRAIT_MAX || newLimits.MIN_IMAGES !== currentLimits.MIN_IMAGES;
 	}
-	
-	/**
-	 * Debounce function to limit resize event frequency
-	 * @param {Function} func - Function to debounce
-	 * @param {number} wait - Wait time in milliseconds
-	 * @returns {Function} Debounced function
-	 */
-	#debounce(func, wait) {
-		let timeout;
-		return function executedFunction(...args) {
-			const later = () => {
-				clearTimeout(timeout);
-				func(...args);
-			};
-			clearTimeout(timeout);
-			timeout = setTimeout(later, wait);
-		};
-	}
+
 	async init() {
 		if (!this.#galleryContainer) {
 			console.error('Gallery container not found.');
 			return;
 		}
+
 		if (!this.#buttonTemplate || !this.#thumbTemplate) {
 			console.error('Required HTML <template> tags not found.');
 			this.#createFallbackGallery();
 			return;
 		}
+
 		try {
 			await this.#loadGalleries();
 			this.#renderControls();
-			// Start observing container for size changes
 			if (this.#resizeObserver && this.#galleryContainer) {
 				this.#resizeObserver.observe(this.#galleryContainer);
 			}
@@ -192,6 +179,7 @@ class Galleries {
 		if (!response.ok) {
 			throw new Error(`Failed to load galleries: ${response.status}`);
 		}
+
 		const data = await response.json();
 		const { _config, ...galleries } = data;
 		this.#galleries.clear();
@@ -241,14 +229,13 @@ class Galleries {
 			button.setAttribute('aria-selected', isActive.toString());
 			fragment.appendChild(buttonClone);
 		});
+
 		buttonsContainer.appendChild(fragment);
 		controls.appendChild(buttonsContainer);
-		// Clean up existing controls
 		this.#galleryContainer.querySelector(Galleries.CONFIG.CONTROLS_SELECTOR)
 			?.remove();
 		const insertPoint = this.#galleryContainer.querySelector(Galleries.CONFIG.GRID_SELECTOR) || this.#galleryContainer.firstElementChild;
 		this.#galleryContainer.insertBefore(controls, insertPoint);
-		// Use event delegation with abort signal for cleanup
 		controls.addEventListener('click', (e) => {
 			const button = e.target.closest(Galleries.CONFIG.BUTTON_SELECTOR);
 			if (button?.dataset?.gallery) {
@@ -256,6 +243,7 @@ class Galleries {
 			}
 		}, { signal: this.#abortController.signal });
 	}
+
 	#loadDefaultGallery() {
 		if (!this.#galleryContainer.querySelector(Galleries.CONFIG.GRID_SELECTOR)) {
 			const gallery = this.#galleries.get(this.#currentGallery);
@@ -265,6 +253,7 @@ class Galleries {
 			}
 		}
 	}
+
 	#renderGallery(gallery, withTransition = true) {
 		if (!gallery?.images?.length) {
 			this.#galleryContainer.textContent = '';
@@ -277,7 +266,7 @@ class Galleries {
 			this.#transitionToNewGallery(newGridsFragment);
 		}
 	}
-	
+
 	/**
 	 * Photo grid creation with memory management
 	 * @param {Array} images - Array of image objects
@@ -295,7 +284,7 @@ class Galleries {
 		});
 		return fragment;
 	}
-	
+
 	/**
 	 * Group images by layout type
 	 * @param {Array} images - Array of image objects
@@ -309,7 +298,7 @@ class Galleries {
 			return groups;
 		}, {});
 	}
-	
+
 	/**
 	 * Pick any non-pano row, preferring different size
 	 * @param {Object} remaining - Remaining rows by type
@@ -317,25 +306,27 @@ class Galleries {
 	 * @returns {Object|null} Selected row
 	 */
 	#pickNonPanoRow(remaining, lastSize = null) {
-		// Try to find landscape with different size
 		const landscape = this.#pickRowWithDifferentSize(remaining.landscape, lastSize);
+
 		if (landscape) {
 			this.#removeRow(remaining.landscape, landscape);
 			return landscape;
 		}
-		// Try to find portrait with different size
+
 		const portrait = this.#pickRowWithDifferentSize(remaining.portrait, lastSize);
 		if (portrait) {
 			this.#removeRow(remaining.portrait, portrait);
 			return portrait;
 		}
-		// Fallback: take any non-pano
+
 		if (remaining.landscape.length > 0) {
 			return remaining.landscape.shift();
 		}
+
 		if (remaining.portrait.length > 0) {
 			return remaining.portrait.shift();
 		}
+
 		return null;
 	}
 
@@ -347,7 +338,7 @@ class Galleries {
 	#generateOptimizedRows(groups) {
 		const rowLimits = this.#currentRowLimits || this.#calculateRowLimits();
 		const { LANDSCAPE_MAX, PORTRAIT_MAX } = rowLimits;
-		// Generate individual row types with responsive limits
+
 		const landscapeRows = this.#generateRows(groups.landscape || [], 'landscape-row', LANDSCAPE_MAX);
 		const portraitRows = this.#generateRows(groups.portrait || [], 'portrait-row', PORTRAIT_MAX);
 		const panoRows = (groups.pano || [])
@@ -357,37 +348,37 @@ class Galleries {
 			}));
 		return this.#optimizeRowOrder([...landscapeRows, ...portraitRows, ...panoRows]);
 	}
-	
+
 	/**
 	 * @param {Array} allRows - All available rows
 	 * @returns {Array} Optimized row order
 	 */
 	#optimizeRowOrder(allRows) {
 		if (allRows.length <= 1) return allRows;
-		// Separate rows by type for easier manipulation
+
 		const { landscape, portrait, pano } = this.#groupRowsByType(allRows);
-		// Build the result using a simple alternating strategy
+
 		const result = [];
 		let lastType = null;
-		let lastSize = null; // Track EVERY row size (including panos)
-		// Keep track of what's left
+		let lastSize = null;
+
 		const remaining = {
 			landscape: [...landscape],
 			portrait: [...portrait],
 			pano: [...pano]
 		};
+
 		while (this.#hasRemainingRows(remaining)) {
-			// Get next row, preferring variety
 			const nextRow = this.#selectNextRow(remaining, lastType, lastSize);
-			if (!nextRow) break; // Safety exit
+			if (!nextRow) break;
 			result.push(nextRow);
 			lastType = nextRow.rowClass;
-			lastSize = nextRow.images.length; // Track ALL sizes
+			lastSize = nextRow.images.length;
 		}
-		// Post-process: ensure no pano at the end
+
 		return this.#ensurePanoNotAtEnd(result);
 	}
-	
+
 	/**
 	 * Group rows by their type
 	 * @param {Array} rows - All rows
@@ -405,7 +396,7 @@ class Galleries {
 			return groups;
 		}, { landscape: [], portrait: [], pano: [] });
 	}
-	
+
 	/**
 	 * Check if there are any rows left to place
 	 * @param {Object} remaining - Remaining rows by type
@@ -414,7 +405,7 @@ class Galleries {
 	#hasRemainingRows(remaining) {
 		return remaining.landscape.length > 0 || remaining.portrait.length > 0 || remaining.pano.length > 0;
 	}
-	
+
 	/**
 	 * @param {Object} remaining - Remaining rows by type
 	 * @param {string|null} lastType - Type of last placed row
@@ -460,7 +451,7 @@ class Galleries {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * @param {Array} rows - Array of rows to choose from
 	 * @param {number|null} lastSize - Size to avoid
@@ -468,14 +459,14 @@ class Galleries {
 	 */
 	#pickRowWithDifferentSize(rows, lastSize) {
 		if (!rows || rows.length === 0) return null;
-		// If we don't care about size (first row), return first available
+
 		if (lastSize === null) {
 			return rows[0];
 		}
-		// Find a row with DIFFERENT size
+
 		return rows.find(row => row.images.length !== lastSize) || null;
 	}
-	
+
 	/**
 	 * @param {Array} rows - Array to modify
 	 * @param {Object} rowToRemove - Row to remove
@@ -486,7 +477,7 @@ class Galleries {
 			rows.splice(index, 1);
 		}
 	}
-	
+
 	/**
 	 * @param {Array} rows - Current row order
 	 * @returns {Array} Adjusted row order
@@ -495,30 +486,25 @@ class Galleries {
 		if (rows.length <= 1) return rows;
 		const lastRow = rows[rows.length - 1];
 		if (lastRow.rowClass !== 'pano-row') return rows;
-		// Find a good spot to move the trailing pano
-		// Look backwards for two consecutive non-pano rows
+
 		for (let i = rows.length - 2; i >= 1; i--) {
 			const current = rows[i];
 			const previous = rows[i - 1];
 			if (current.rowClass !== 'pano-row' && previous.rowClass !== 'pano-row') {
-				// Found a safe spot - insert the pano here
 				const pano = rows.pop();
 				rows.splice(i, 0, pano);
 				return rows;
 			}
 		}
-		// If we can't find a good spot, just leave it at the end
+
 		return rows;
 	}
-	
-	/**
-	 * Responsive row generation with viewport-aware minimum sizes
-	 */
+
 	#generateRows(images, rowClass, maxPerRow) {
 		if (images.length === 0) return [];
 		const rowLimits = this.#currentRowLimits || this.#calculateRowLimits();
 		const { MIN_IMAGES } = rowLimits;
-		// Handle small galleries
+
 		if (images.length < MIN_IMAGES) {
 			return [{ images: [...images], rowClass }];
 		}
@@ -527,7 +513,7 @@ class Galleries {
 		while (currentIndex < images.length) {
 			const remaining = images.length - currentIndex;
 			let rowSize = Math.min(maxPerRow, remaining);
-			// Adjust row size to avoid small final rows
+
 			if (remaining > maxPerRow && remaining <= maxPerRow + 1) {
 				rowSize = Math.ceil(remaining / 2);
 			}
@@ -535,14 +521,11 @@ class Galleries {
 			rows.push({ images: rowImages, rowClass });
 			currentIndex += rowSize;
 		}
-		// Post-process to ensure minimum row sizes
+
 		this.#ensureMinimumRowSizes(rows, MIN_IMAGES);
 		return rows;
 	}
-	
-	/**
-	 * Ensure all rows meet minimum size requirements
-	 */
+
 	#ensureMinimumRowSizes(rows, minSize) {
 		if (rows.length <= 1) return;
 		const lastRow = rows[rows.length - 1];
@@ -556,7 +539,7 @@ class Galleries {
 			}
 		}
 	}
-	
+
 	/**
 	 * Create image grid using templates with better error handling
 	 * @param {Array} images - Images for the grid
@@ -597,20 +580,19 @@ class Galleries {
 	}
 	async #transitionToNewGallery(newContentFragment) {
 		const existingGrids = Array.from(this.#galleryContainer.querySelectorAll(Galleries.CONFIG.GRID_SELECTOR));
-		// Fade out existing grids
+
 		await Promise.all(existingGrids.map(grid => this.#fadeElement(grid, 'out')));
-		// Remove old content
+
 		existingGrids.forEach(grid => grid.remove());
-		// Prepare new content
 		const newGrids = Array.from(newContentFragment.children);
 		newGrids.forEach(grid => { grid.style.opacity = '0'; });
 		this.#galleryContainer.appendChild(newContentFragment);
-		// Fade in new grids with stagger
+
 		const fadePromises = newGrids.map((grid, index) => this.#fadeElement(grid, 'in', index * 100));
 		await Promise.all(fadePromises);
 		this.#refreshPhotoModal();
 	}
-	
+
 	/**
 	 * Fade element in or out with optional delay
 	 * @param {Element} element - Element to fade
@@ -641,7 +623,7 @@ class Galleries {
 	#refreshPhotoModal() {
 		this.#photoModal?.refreshImageTracking?.();
 	}
-	
+
 	/**
 	 * Validate image object structure
 	 * @param {Object} image - Image object to validate
@@ -653,12 +635,8 @@ class Galleries {
 	}
 }
 
-/**
- * Initialize galleries with error handling and cleanup
- */
 function initializeGalleries() {
 	try {
-		// Clean up existing instance
 		if (window.Galleries?.destroy) {
 			window.Galleries.destroy();
 		}
@@ -670,7 +648,6 @@ function initializeGalleries() {
 	}
 }
 
-// Initialization with proper cleanup
 if (document.readyState === 'loading') {
 	document.addEventListener('DOMContentLoaded', initializeGalleries);
 } else {
