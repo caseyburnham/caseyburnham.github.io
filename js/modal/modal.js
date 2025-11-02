@@ -8,7 +8,7 @@ import {
 	cleanupEventListeners
 } from './modal-events.js';
 import dataCache from '../shared-data.js';
-import { formatExifDate, formatElevation, findExifData } from '../shared-utils.js';
+import { formatExifDate, formatElevation, findExifData } from '../shared-utils.js'
 
 
 export class PhotoModal {
@@ -195,68 +195,12 @@ export class PhotoModal {
 	}
 
 	/**
-	 * Finds EXIF data for a given image source.
-	 * @param {string} imageSrc - The image source URL.
-	 * @returns {object} The EXIF data object.
-	 * @private
-	 */
-	#findExifData(imageSrc) {
-		if (!Object.keys(this.#state.exifData)
-			.length) {
-			return {};
-		}
-
-		try {
-			const url = new URL(imageSrc, window.location.origin);
-			const normalizedSrcPath = url.pathname.startsWith('/') ? url.pathname.substring(1) : url.pathname;
-			const srcPathLower = normalizedSrcPath.toLowerCase();
-			const srcFilename = normalizedSrcPath.split('/')
-				.pop()
-				.toLowerCase();
-			const srcBaseFilename = srcFilename.split('.')[0];
-			const srcExtension = srcFilename.split('.')
-				.pop();
-
-			const candidates = [];
-			for (const [key, data] of Object.entries(this.#state.exifData)) {
-				const keyBase = key.split('/')
-					.pop()
-					.toLowerCase()
-					.split('.')[0];
-				if (keyBase === srcBaseFilename) {
-					candidates.push({ key, data });
-				}
-			}
-
-			if (candidates.length === 0) return {};
-			if (candidates.length === 1) return candidates[0].data;
-
-			const exactMatch = candidates.find(c => c.key.toLowerCase() === srcPathLower);
-			if (exactMatch) return exactMatch.data;
-
-			const extensionMatch = candidates.find(c => {
-				const keyExtension = c.key.split('.')
-					.pop()
-					.toLowerCase();
-				return keyExtension === srcExtension;
-			});
-			if (extensionMatch) return extensionMatch.data;
-
-			console.warn(`Multiple EXIF candidates found for "${srcBaseFilename}" with no definitive match. Returning the first one.`);
-			return candidates[0].data;
-		} catch (error) {
-			console.warn('Error finding EXIF data:', error);
-		}
-
-		return {};
-	}
-
-	/**
 	 * Updates the modal caption with title and EXIF data
 	 * @private
 	 */
 	#updateCaption(title, imageSrc) {
 		const { caption, copyright } = this.#state.elements;
+		// Use the imported shared-utils function directly
 		const exifData = findExifData(imageSrc, this.#state.exifData);
 
 		const template = document.getElementById('photo-modal-template');

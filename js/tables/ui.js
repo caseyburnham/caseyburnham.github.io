@@ -1,6 +1,9 @@
-// js/ui.js
 import { CONFIG } from './config.js';
-import { formatExifDate, normalizeImagePath } from '../shared-utils.js';
+import {
+	calculateMountainStats,
+	countArtistsAndVenues,
+	formatTopItemsHTML
+} from './data-processor.js';
 
 // Constants
 const ELEVATION = {
@@ -81,10 +84,9 @@ export const ui = {
 	},
 
 	// Mountains	
-	renderMountains(data, exifData) {
-		if (!data?.length) return;
+	renderMountains(processedMountains) {
+		if (!processedMountains?.length) return;
 
-		const processed = this.processMountainsData(data, exifData);
 		const tableBody = document.querySelector(CONFIG.selectors.mountainsTable);
 
 		if (!tableBody) {
@@ -92,41 +94,14 @@ export const ui = {
 			return;
 		}
 
-		const allRows = this.generateMountainRowsWithSummaries(processed);
+		const allRows = this.generateMountainRowsWithSummaries(processedMountains);
 		const fragment = document.createDocumentFragment();
 		allRows.forEach(row => fragment.appendChild(row));
 
 		tableBody.replaceChildren(fragment);
-		this.updateMountainStats(data);
-	},
 
-	processMountainsData(data, exifData) {
-		return data
-			.map(mountain => this.processMountain(mountain, exifData))
-			.sort((a, b) => b.displayDate.localeCompare(a.displayDate));
-	},
-
-	processMountain(mountain, exifDataset) {
-		let displayDate = mountain.Date;
-
-		// Use shared utilities
-		if (mountain.Image) {
-			const normalizedPath = normalizeImagePath(mountain.Image);
-			const exifEntry = exifDataset?.[normalizedPath];
-
-			if (exifEntry?.date) {
-				const formattedDate = formatExifDate(exifEntry.date);
-				if (formattedDate) {
-					displayDate = formattedDate;
-				}
-			}
-		}
-
-		return {
-			...mountain,
-			displayDate,
-			year: displayDate ? displayDate.substring(0, 4) : 'N/A'
-		};
+		const stats = calculateMountainStats(processedMountains);
+		this.updateMountainStats(stats);
 	},
 
 	generateMountainRowsWithSummaries(processedMountains) {
@@ -277,29 +252,13 @@ export const ui = {
 		}
 	},
 
-	updateMountainStats(mountains) {
-		const uniquePeaks = new Set();
-		const counts = { thirteeners: 0, fourteeners: 0 };
+	updateMountainStats(stats) {
+		this.updateElement(CONFIG.selectors.totalMountains, stats.total);
+		this.updateElement(CONFIG.selectors.thirteeners, stats.thirteeners);
+		this.updateElement(CONFIG.selectors.fourteeners, stats.fourteeners);
 
-		mountains.forEach(m => {
-			if (uniquePeaks.has(m.Peak)) return;
-
-			uniquePeaks.add(m.Peak);
-			const elev = parseInt(m.Elevation.replace(/,/g, ''), 10);
-
-			if (elev >= 14000) {
-				counts.fourteeners++;
-			} else if (elev >= 13000) {
-				counts.thirteeners++;
-			}
-		});
-
-		this.updateElement(CONFIG.selectors.totalMountains, uniquePeaks.size);
-		this.updateElement(CONFIG.selectors.thirteeners, counts.thirteeners);
-		this.updateElement(CONFIG.selectors.fourteeners, counts.fourteeners);
-
-		this.updateProgressBar('thirteeners', counts.thirteeners);
-		this.updateProgressBar('fourteeners', counts.fourteeners);
+		this.updateProgressBar('thirteeners', stats.thirteeners);
+		this.updateProgressBar('fourteeners', stats.fourteeners);
 	},
 
 	updateProgressBar(peakType, current) {
@@ -385,57 +344,19 @@ export const ui = {
 	},
 
 	updateConcertStats(data) {
-		const { artists, venues } = this.countArtistsAndVenues(data);
+		const { artists, venues } = countArtistsAndVenues(data);
 
 		this.updateElement(
 			CONFIG.selectors.topArtists,
-			this.getTopItems(artists, 7),
+			formatTopItemsHTML(artists, 'TOP_ARTISTS'),
 			true
 		);
 
 		this.updateElement(
 			CONFIG.selectors.topVenues,
-			this.getTopItems(venues, 8),
+			formatTopItemsHTML(venues, 'TOP_VENUES'),
 			true
 		);
-	},
-
-	getTopItems(countMap, limit) {
-		return Array.from(countMap.entries())
-			.sort((a, b) => b[1] - a[1])
-			.slice(0, limit)
-			.map(([name, count]) => {
-				const venueConfig = CONFIG.venuesToHighlight?.find(
-					v => v.name.toLowerCase() === name.toLowerCase()
-				);
-
-				const displayName = venueConfig ?
-					`<span class="${venueConfig.className}">${name}</span>` :
-					name;
-
-				return `<span class="nowrap">${displayName} <small>x${count}</small></span>`;
-			})
-			.join(', <wbr>');
-	},
-
-	countArtistsAndVenues(data) {
-		const artistCounts = new Map();
-		const venueCounts = new Map();
-
-		data.forEach(({ Headliner, Support, Venue }) => {
-			const allArtists = [Headliner, ...(Support ? Support.split(',') : [])];
-
-			allArtists
-				.map(artist => artist.trim())
-				.filter(artist => artist && !CONFIG.concertArtistExclusions.has(artist.toLowerCase()))
-				.forEach(artist => {
-					artistCounts.set(artist, (artistCounts.get(artist) || 0) + 1);
-				});
-
-			venueCounts.set(Venue, (venueCounts.get(Venue) || 0) + 1);
-		});
-
-		return { artists: artistCounts, venues: venueCounts };
 	},
 
 	highlightVenues() {
