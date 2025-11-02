@@ -15,7 +15,7 @@ export const CONFIG = {
 		peakProgress: 'progress.peak-progress',
 		concertCount: '#concert-count',
 		topArtists: '#top-artists',
-		topVenues: '#top-venues',
+		topVenues: '#top-venues'
 	},
 	venuesToHighlight: [
 		{ name: 'Red Rocks', className: 'venue--red-rocks' },

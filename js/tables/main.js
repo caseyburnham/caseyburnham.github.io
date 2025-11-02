@@ -1,5 +1,12 @@
-import { dataService } from './dataService.js';
+
 import { ui } from './ui.js';
+
+import {
+	dataService,
+	processProductionsData,
+	processMountainsData
+} from './data-processor.js';
+
 class App {
 	constructor() {
 		this.init();
@@ -8,9 +15,12 @@ class App {
 	async init() {
 		const { productions, mountains, concerts, exifData } = await dataService.getAllData();
 
-		if (productions) ui.renderProductions(productions);
+		const processedProductions = processProductionsData(productions);
+		const processedMountains = processMountainsData(mountains, exifData);
+
+		if (processedProductions) ui.renderProductions(processedProductions);
 		if (concerts) ui.renderConcerts(concerts);
-		if (mountains) ui.renderMountains(mountains, exifData);
+		if (processedMountains) ui.renderMountains(processedMountains);
 
 		ui.highlightVenues();
 	}

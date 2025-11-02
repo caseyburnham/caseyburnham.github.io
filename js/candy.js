@@ -1,33 +1,53 @@
 // ===== Tooltip Module =====
+let tooltipManagerInstance;
+
 class TooltipManager {
 	constructor(fadeOutDuration = 500, autoHideDelay = 3000) {
 		this.activeTooltip = null;
 		this.timeoutId = null;
 		this.fadeOutDuration = fadeOutDuration;
 		this.autoHideDelay = autoHideDelay;
+
+		this.handleAbbrClick = this.handleAbbrClick.bind(this);
+		this.handleDocumentClick = this.handleDocumentClick.bind(this);
+
 		this.init();
 	}
 
 	init() {
+		this.removeListeners();
+
 		document.querySelectorAll('abbr')
 			.forEach(abbr => {
-				abbr.addEventListener('click', (e) => this.handleAbbrClick(e, abbr));
+				abbr.addEventListener('click', this.handleAbbrClick);
 			});
 
-		document.addEventListener('click', (e) => this.handleDocumentClick(e));
+		if (!this.documentClickListenerAttached) {
+			document.addEventListener('click', this.handleDocumentClick);
+			this.documentClickListenerAttached = true;
+		}
 	}
 
-	handleAbbrClick(event, element) {
+	removeListeners() {
+		document.querySelectorAll('abbr')
+			.forEach(abbr => {
+				abbr.removeEventListener('click', this.handleAbbrClick);
+			});
+	}
+
+	handleAbbrClick(event) {
+		const element = event.currentTarget;
+		
 		event.preventDefault();
 		event.stopPropagation();
-
+	
 		const title = element.getAttribute('title');
-
+	
 		if (this.activeTooltip) {
 			clearTimeout(this.timeoutId);
 			this.hide();
 		}
-
+	
 		if (title) {
 			this.show(title, element);
 		}
@@ -56,10 +76,15 @@ class TooltipManager {
 
 	positionTooltip(tooltip, anchorElement) {
 		const anchorRect = anchorElement.getBoundingClientRect();
-		const tooltipRect = tooltip.getBoundingClientRect();
 
-		tooltip.style.top = `${anchorRect.bottom + window.scrollY + 5}px`;
-		tooltip.style.left = `${anchorRect.left + window.scrollX + (anchorRect.width / 2) - (tooltipRect.width / 2)}px`;
+		requestAnimationFrame(() => {
+			const tooltipRect = tooltip.getBoundingClientRect();
+			const top = anchorRect.bottom + window.scrollY + 5;
+			const left = anchorRect.left + window.scrollX + (anchorRect.width / 2) - (tooltipRect.width / 2);
+
+			tooltip.style.top = `${top}px`;
+			tooltip.style.left = `${left}px`;
+		});
 	}
 
 	scheduleAutoHide() {
@@ -204,14 +229,75 @@ export default class AlbumHoverManager {
 
 			if (parent) {
 				parent.classList.remove('is-leaving');
-				// Reset to base z-index after transition
 				parent.style.zIndex = '';
 			}
 		}
 	}
-};
+}
 
 // ===== Utility Functions =====
+const abbrMap = {
+	"Arvada Center": "ACAH",
+	"Aurora Fox Arts Center": "AFAC",
+	"Town Hall Arts Center": "THAC",
+	"Sangre de Cristo": "SdC"
+};
+
+function createAbbrHTML(fullText, abbrText) {
+	const escapedText = fullText.replace(/"/g, '&quot;');
+	return `<abbr title="${escapedText}">${abbrText}</abbr>`;
+}
+
+function toggleAbbreviations(apply) {
+	const tables = document.querySelectorAll('.js-abbr');
+
+	tables.forEach(table => {
+		const cells = table.querySelectorAll('td');
+
+		cells.forEach(cell => {
+			const originalText = cell.getAttribute('data-original-text') || cell.textContent.trim();
+
+			if (!cell.hasAttribute('data-original-text')) {
+				cell.setAttribute('data-original-text', originalText);
+			}
+
+			const matchKey = Object.keys(abbrMap)
+				.find(key =>
+					key.toLowerCase()
+					.trim() === originalText.toLowerCase()
+				);
+
+			if (matchKey) {
+				if (apply) {
+					const abbrText = abbrMap[matchKey];
+					cell.innerHTML = createAbbrHTML(matchKey, abbrText);
+				} else {
+					cell.innerHTML = originalText;
+				}
+			}
+		});
+	});
+
+	if (apply && tooltipManagerInstance) {
+		tooltipManagerInstance.init();
+	}
+}
+
+// Media Query Listener
+const narrowScreenQuery = window.matchMedia("(max-width: 600px)");
+
+function handleScreenChange(event) {
+	if (event.matches) {
+		toggleAbbreviations(true);
+	} else {
+		toggleAbbreviations(false);
+	}
+}
+
+handleScreenChange(narrowScreenQuery);
+
+narrowScreenQuery.addListener(handleScreenChange);
+
 // Copyright Year
 const updateCopyrightYear = () => {
 	const yearElement = document.getElementById('year');
@@ -223,7 +309,9 @@ const updateCopyrightYear = () => {
 
 // ===== Application Initialization =====
 document.addEventListener('DOMContentLoaded', () => {
-	new TooltipManager();
+	tooltipManagerInstance = new TooltipManager();
+
 	new NavigationManager();
 	updateCopyrightYear();
+
 });
