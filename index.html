@@ -265,8 +265,8 @@
 
 			<!-- HEADER -->
 			<header>
-					<h1>Casey Burnham</h1>
-					<h3>Sound Engineer & Elevation Enthusiast</h3>
+				<h1>Casey Burnham</h1>
+				<h3>Sound Engineer & Elevation Enthusiast</h3>
 			</header>
 
 			<!-- NAV -->
@@ -566,8 +566,8 @@
 				<!-- Heat Map -->
 				<div id="climbing-heatmap" aria-labelledby="heatmap-heading">
 					<h2 id="heatmap-heading" class="sr-only">Climbing Activity Heatmap</h2>
-				  </div>
-				  
+				</div>
+
 				<!-- #concerts -->
 				<table id="concerts" class="flex-item js-abbr" aria-labelledby="concerts-caption">
 
@@ -670,32 +670,29 @@
 						Personal Collection
 					</a>
 				</h3>
-				<div id="discogs-record-container" class="discogs-grid">
-					<p>Loading collection...</p>
+				<div id="discogs-collection-wrapper">
+					<div id="discogs-sleeve-container" class="discogs-grid wood">
+						<p>Loading collection...</p>
+					</div>
+					<div id="discogs-caption-container" class="discogs-grid padding-inline-md"></div>
 				</div>
 
 				<!-- COLLECTION TEMPLATE -->
 				<template id="record-template">
 					<div class="discogs-record">
-						<div>
-							<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
-								<!-- ALBUM -->
-								<div class="album-sleeve card">
-									<img class="album-art" src="" alt="">
-									<img class="album-media" alt="">
-								</div>
-							</a>
-						</div>
-
-						<!-- RECORD CAPTION -->
-						<div class="record-caption">
-							<label class="record-title"></label>
-							<br>
-							<label class="record-artist"></label>
-						</div>
+						<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
+							<div class="album-sleeve">
+								<img class="album-art" src="" alt="">
+								<img class="album-media" alt="">
+							</div>
+						</a>
+					</div>
+					<div class="record-caption text-center">
+						<label class="record-title"></label>
+						<br>
+						<label class="record-artist"></label>
 					</div>
 				</template>
-
 				<!-- SCREEN READER -->
 				<h5 class="sr-only">For Sale</h5>
 
@@ -705,33 +702,30 @@
 						For Sale
 					</a>
 				</h3>
-				<div id="discogs-inventory-container" class="discogs-grid">
-					<p>Loading sale items...</p>
+				<div id="discogs-inventory-wrapper">
+					<div id="discogs-inventory-sleeve-container" class="discogs-grid wood">
+						<p>Loading sale items...</p>
+					</div>
+					<div id="discogs-inventory-caption-container" class="discogs-grid padding-inline-md"></div>
 				</div>
 
 				<!-- FOR SALE TEMPLATE -->
 				<template id="inventory-item-template">
 					<div class="discogs-record">
-						<div>
-							<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
-								
-								<!-- ALBUM -->
-								<div class="album-sleeve card">
-									<img class="album-art" src="" alt="">
-									<img class="album-media" alt="">
-								</div>
-							</a>
-						</div>
-
-						<!-- RECORD CAPTION -->
-						<div class="record-caption for-sale">
-							<div class="record-info">
-								<label class="record-title"></label>
-								<br>
-								<label class="record-artist"></label>
+						<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
+							<div class="album-sleeve">
+								<img class="album-art" src="" alt="">
+								<img class="album-media" alt="">
 							</div>
-							<data class="record-price"></data>
+						</a>
+					</div>
+					<div class="record-caption for-sale">
+						<div class="record-info">
+							<label class="record-title"></label>
+							<br>
+							<label class="record-artist"></label>
 						</div>
+					<data class="record-price"></data>
 					</div>
 				</template>
 			</section>

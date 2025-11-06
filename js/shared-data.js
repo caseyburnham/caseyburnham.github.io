@@ -7,13 +7,17 @@
  */
 
 class DataCache {
+  /** @type {Map<string, any>} */
   #cache = new Map();
+  
+  /** @type {Map<string, Promise<any>>} */
   #pendingRequests = new Map();
   
   /**
    * Fetch data with caching and deduplication
    * @param {string} url - URL to fetch
    * @returns {Promise<any>} Parsed JSON data
+   * @throws {Error} If fetch fails
    */
   async fetch(url) {
 	// Return cached data if available
@@ -42,13 +46,16 @@ class DataCache {
   /**
    * Actually fetch and cache the data
    * @private
+   * @param {string} url - URL to fetch
+   * @returns {Promise<any>} Parsed JSON data
+   * @throws {Error} If fetch or parse fails
    */
   async #fetchAndCache(url) {
 	try {
 	  const response = await fetch(url);
 	  
 	  if (!response.ok) {
-		throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+		throw new Error(`HTTP ${response.status}: ${response.statusText}`); // ✅ Throw with context
 	  }
 	  
 	  const data = await response.json();
@@ -59,7 +66,7 @@ class DataCache {
 	  return data;
 	} catch (error) {
 	  console.error(`Failed to fetch ${url}:`, error);
-	  throw error;
+	  throw error; // ✅ Re-throw for caller to handle
 	}
   }
   
@@ -85,6 +92,7 @@ class DataCache {
    * Manually set cached data
    * @param {string} url - URL key
    * @param {any} data - Data to cache
+   * @returns {void}
    */
   set(url, data) {
 	this.#cache.set(url, data);
@@ -93,6 +101,7 @@ class DataCache {
   /**
    * Clear specific cache entry or all cache
    * @param {string} [url] - Optional URL to clear, or clear all if omitted
+   * @returns {void}
    */
   clear(url) {
 	if (url) {
@@ -107,10 +116,14 @@ class DataCache {
   /**
    * Preload data (useful for eager loading)
    * @param {string|string[]} urls - URL or array of URLs to preload
+   * @returns {Promise<void>}
    */
   async preload(urls) {
 	const urlArray = Array.isArray(urls) ? urls : [urls];
-	await Promise.all(urlArray.map(url => this.fetch(url)));
+	await Promise.all(urlArray.map(url => this.fetch(url).catch(err => {
+	  console.warn(`Preload failed for ${url}:`, err);
+	  // Don't throw - preload failures shouldn't break the app
+	})));
   }
 }
 

@@ -111,6 +111,16 @@ class TooltipManager {
 			this.hide();
 		}
 	}
+
+	destroy() {
+		clearTimeout(this.timeoutId);
+		this.hide();
+		this.removeListeners();
+		if (this.documentClickListenerAttached) {
+			document.removeEventListener('click', this.handleDocumentClick);
+			this.documentClickListenerAttached = false;
+		}
+	}
 }
 
 // ===== Navigation Module =====
@@ -120,25 +130,44 @@ class NavigationManager {
 		this.hamburgerBtn = document.querySelector('.nav-wrapper button');
 		this.navMenu = document.querySelector('nav');
 		this.scrollThreshold = 10;
+		this.abortController = new AbortController();
+		
+		if (!this.navWrapper || !this.hamburgerBtn || !this.navMenu) {
+			console.warn('Navigation elements not found');
+			return;
+		}
+		
 		this.init();
 	}
 
 	init() {
-		this.setupScrollHandler();
-		this.setupHamburgerMenu();
+		try {
+			this.setupScrollHandler();
+			this.setupHamburgerMenu();
+		} catch (error) {
+			console.error('Navigation initialization failed:', error);
+		}
 	}
 
 	setupScrollHandler() {
-		window.addEventListener('scroll', () => this.handleScroll());
+		window.addEventListener('scroll', () => this.handleScroll(), {
+			signal: this.abortController.signal
+		});
 	}
 
 	handleScroll() {
-		const shouldAddShadow = window.scrollY > this.scrollThreshold;
-		this.navWrapper.classList.toggle('nav-scrolled', shouldAddShadow);
+		try {
+			const shouldAddShadow = window.scrollY > this.scrollThreshold;
+			this.navWrapper.classList.toggle('nav-scrolled', shouldAddShadow);
+		} catch (error) {
+			console.error('Error handling scroll:', error);
+		}
 	}
 
 	setupHamburgerMenu() {
-		this.hamburgerBtn.addEventListener('click', (e) => this.toggleMenu(e));
+		this.hamburgerBtn.addEventListener('click', (e) => this.toggleMenu(e), {
+			signal: this.abortController.signal
+		});
 		this.setupNavLinks();
 		this.setupOutsideClickHandler();
 	}
@@ -151,7 +180,9 @@ class NavigationManager {
 	setupNavLinks() {
 		const navLinks = this.navMenu.querySelectorAll('a');
 		navLinks.forEach(link => {
-			link.addEventListener('click', () => this.closeMenu());
+			link.addEventListener('click', () => this.closeMenu(), {
+				signal: this.abortController.signal
+			});
 		});
 	}
 
@@ -163,11 +194,17 @@ class NavigationManager {
 			if (!isClickInsideNav && !isClickInsideBtn) {
 				this.closeMenu();
 			}
+		}, {
+			signal: this.abortController.signal
 		});
 	}
 
 	closeMenu() {
 		this.navMenu.classList.remove('is-open');
+	}
+
+	destroy() {
+		this.abortController?.abort();
 	}
 }
 
@@ -249,37 +286,41 @@ function createAbbrHTML(fullText, abbrText) {
 }
 
 function toggleAbbreviations(apply) {
-	const tables = document.querySelectorAll('.js-abbr');
+	try {
+		const tables = document.querySelectorAll('.js-abbr');
 
-	tables.forEach(table => {
-		const cells = table.querySelectorAll('td');
+		tables.forEach(table => {
+			const cells = table.querySelectorAll('td');
 
-		cells.forEach(cell => {
-			const originalText = cell.getAttribute('data-original-text') || cell.textContent.trim();
+			cells.forEach(cell => {
+				const originalText = cell.getAttribute('data-original-text') || cell.textContent.trim();
 
-			if (!cell.hasAttribute('data-original-text')) {
-				cell.setAttribute('data-original-text', originalText);
-			}
-
-			const matchKey = Object.keys(abbrMap)
-				.find(key =>
-					key.toLowerCase()
-					.trim() === originalText.toLowerCase()
-				);
-
-			if (matchKey) {
-				if (apply) {
-					const abbrText = abbrMap[matchKey];
-					cell.innerHTML = createAbbrHTML(matchKey, abbrText);
-				} else {
-					cell.innerHTML = originalText;
+				if (!cell.hasAttribute('data-original-text')) {
+					cell.setAttribute('data-original-text', originalText);
 				}
-			}
-		});
-	});
 
-	if (apply && tooltipManagerInstance) {
-		tooltipManagerInstance.init();
+				const matchKey = Object.keys(abbrMap)
+					.find(key =>
+						key.toLowerCase()
+						.trim() === originalText.toLowerCase()
+					);
+
+				if (matchKey) {
+					if (apply) {
+						const abbrText = abbrMap[matchKey];
+						cell.innerHTML = createAbbrHTML(matchKey, abbrText);
+					} else {
+						cell.innerHTML = originalText;
+					}
+				}
+			});
+		});
+
+		if (apply && tooltipManagerInstance) {
+			tooltipManagerInstance.init();
+		}
+	} catch (error) {
+		console.error('Error toggling abbreviations:', error);
 	}
 }
 
@@ -287,11 +328,7 @@ function toggleAbbreviations(apply) {
 const narrowScreenQuery = window.matchMedia("(max-width: 600px)");
 
 function handleScreenChange(event) {
-	if (event.matches) {
-		toggleAbbreviations(true);
-	} else {
-		toggleAbbreviations(false);
-	}
+	toggleAbbreviations(event.matches);
 }
 
 handleScreenChange(narrowScreenQuery);
@@ -300,18 +337,29 @@ narrowScreenQuery.addListener(handleScreenChange);
 
 // Copyright Year
 const updateCopyrightYear = () => {
-	const yearElement = document.getElementById('year');
-	if (yearElement) {
-		yearElement.textContent = new Date()
-			.getFullYear();
+	try {
+		const yearElement = document.getElementById('year');
+		if (yearElement) {
+			yearElement.textContent = new Date().getFullYear();
+		}
+	} catch (error) {
+		console.error('Error updating copyright year:', error);
 	}
 };
 
 // ===== Application Initialization =====
 document.addEventListener('DOMContentLoaded', () => {
-	tooltipManagerInstance = new TooltipManager();
+	try {
+		tooltipManagerInstance = new TooltipManager();
+		window.navigationManager = new NavigationManager();
+		updateCopyrightYear();
+	} catch (error) {
+		console.error('Candy.js initialization failed:', error);
+	}
+});
 
-	new NavigationManager();
-	updateCopyrightYear();
-
+// Cleanup
+window.addEventListener('beforeunload', () => {
+	window.navigationManager?.destroy();
+	tooltipManagerInstance?.destroy();
 });

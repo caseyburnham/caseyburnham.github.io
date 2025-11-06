@@ -20,6 +20,7 @@ export class PhotoModal {
 		originalTriggerElement: null,
 		elements: {},
 		boundHandlers: {},
+		currentImageLoad: null
 	};
 
 	async initialize() {
@@ -41,6 +42,11 @@ export class PhotoModal {
 
 	destroy() {
 		if (!this.#state.isInitialized) return;
+
+		if (this.#state.currentImageLoad) {
+			this.#state.currentImageLoad.cancel();
+			this.#state.currentImageLoad = null;
+		}
 
 		if (this.#state.boundHandlers) {
 			cleanupEventListeners(this.#state.boundHandlers);
@@ -66,6 +72,10 @@ export class PhotoModal {
 
 		const imageToLoad = this.#getBestImageSource(sourceElement) || src;
 
+		if (this.#state.currentImageLoad) {
+			this.#state.currentImageLoad.cancel();
+		}
+
 		if (!this.#state.elements.modal.open) {
 			this.#state.originalTriggerElement = originalTriggerElement || document.activeElement;
 			this.#state.elements.modal.showModal();
@@ -73,22 +83,40 @@ export class PhotoModal {
 		}
 
 		this.#state.elements.modalContent.classList.add('loading');
-		this.#loadImage(imageToLoad)
+
+		const loadPromise = this.#createCancellableImageLoad(imageToLoad);
+		this.#state.currentImageLoad = loadPromise;
+
+		loadPromise.promise
 			.then(loadedImg => {
-				this.#updateModalContent(imageToLoad, alt, title, loadedImg);
-				this.#state.elements.modalImg.title = `${alt}`;
+				if (this.#state.currentImageLoad === loadPromise) {
+					this.#updateModalContent(imageToLoad, alt, title, loadedImg);
+					this.#state.elements.modalImg.title = `${alt}`;
+				}
 			})
 			.catch(error => {
-				console.warn('Image failed to load, opening modal without it:', error);
-				this.#updateModalContent(imageToLoad, alt, title, null);
+				if (this.#state.currentImageLoad === loadPromise) {
+					if (error.name !== 'AbortError') {
+						console.error('Image failed to load:', error);
+						this.#updateModalContent(imageToLoad, alt, title, null);
+					}
+				}
 			})
 			.finally(() => {
-				this.#state.elements.modalContent.classList.remove('loading');
+				if (this.#state.currentImageLoad === loadPromise) {
+					this.#state.elements.modalContent.classList.remove('loading');
+					this.#state.currentImageLoad = null;
+				}
 			});
 	}
 
 	closeModal() {
 		if (!this.#state.isOpen) return;
+
+		if (this.#state.currentImageLoad) {
+			this.#state.currentImageLoad.cancel();
+			this.#state.currentImageLoad = null;
+		}
 
 		this.#state.elements.modal.close();
 		this.#state.isOpen = false;
@@ -163,6 +191,49 @@ export class PhotoModal {
 		return img.src;
 	}
 
+	/**
+	 * Create a cancellable image load promise
+	 * @private
+	 * @param {string} src - Image source URL
+	 * @returns {Object} Object with promise and cancel function
+	 */
+	#createCancellableImageLoad(src) {
+		let cancelled = false;
+		let img = null;
+
+		const promise = new Promise((resolve, reject) => {
+			img = new Image();
+
+			img.onload = () => {
+				if (!cancelled) {
+					resolve(img);
+				}
+			};
+
+			img.onerror = () => {
+				if (!cancelled) {
+					reject(new Error(`Failed to load image: ${src}`));
+				}
+			};
+
+			img.src = src;
+		});
+
+		return {
+			promise,
+			cancel: () => {
+				cancelled = true;
+				if (img) {
+					img.src = '';
+					img.onload = null;
+					img.onerror = null;
+				}
+				const error = new Error('Image load cancelled');
+				error.name = 'AbortError';
+			}
+		};
+	}
+
 	#loadImage(src) {
 		return new Promise((resolve, reject) => {
 			const img = new Image();
@@ -186,7 +257,6 @@ export class PhotoModal {
 	 */
 	async #loadExifData() {
 		try {
-			// Use shared cache instead of direct fetch
 			this.#state.exifData = await dataCache.fetch('/json/exif-data.json');
 		} catch (error) {
 			console.warn('Could not load EXIF data:', error.message);
@@ -200,7 +270,6 @@ export class PhotoModal {
 	 */
 	#updateCaption(title, imageSrc) {
 		const { caption, copyright } = this.#state.elements;
-		// Use the imported shared-utils function directly
 		const exifData = findExifData(imageSrc, this.#state.exifData);
 
 		const template = document.getElementById('photo-modal-template');

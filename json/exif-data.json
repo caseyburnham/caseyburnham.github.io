@@ -3331,8 +3331,8 @@
     "lens": null,
     "aperture": null,
     "shutter": "",
-    "exposureCompensation": "",
-    "cameraModel": null,
+    "exposureCompensation": "0",
+    "cameraModel": "PENTAX K-50",
     "format": "PNG",
     "gps": {
       "lat": 39.7319,
@@ -5094,39 +5094,6 @@
     "copyright": "\u00a9 2024 Casey Burnham",
     "title": "Taylor Mountain Trail",
     "caption": "Taylor Mountain Trail"
-  },
-  "galleries/off-road/avif/original_cemetery-road.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2024,
-      "month": 9,
-      "day": 24,
-      "hour": 12,
-      "minute": 49,
-      "second": 50,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2024:09:24 12:49:50",
-      "zoneName": "UTC-06:00",
-      "inferredZone": false
-    },
-    "iso": 32,
-    "lens": 78,
-    "aperture": 2.8,
-    "shutter": "1/264",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 38.5626416666667,
-      "lon": -106.302430555556,
-      "latDMS": "38\u00b033'45.51\" N",
-      "lonDMS": "106\u00b018'8.75\" W",
-      "alt": 3244.832305,
-      "altRef": 0
-    },
-    "copyright": "\u00a9 2024 Casey Burnham",
-    "title": "Cemetery Road",
-    "caption": "Cemetery Road, near Mount Taylore"
   },
   "galleries/off-road/avif/cemetery-road.avif": {
     "date": {
