@@ -7,7 +7,7 @@ import '/js/tables/main.js';
 
 const lazyFeatures = [
 	{ selector: '#climbing-map', scripts: ['/js/map.js'] },
-	{ selector: '#discogs-record-container', scripts: ['/js/discogs-display.js'] },
+	{ selector: '#now-playing', scripts: ['/js/discogs-display.js'] },
 	{
 		selector: '#galleries',
 		scripts: ['/js/modal/modal.js', '/js/galleries.js'],
@@ -21,14 +21,6 @@ const lazyFeatures = [
 ];
 
 const main = () => {
-	const tablesElement = document.querySelector('#tables');
-	if (tablesElement) {
-		dataCache.preload('/json/exif-data.json')
-			.catch(err => {
-				console.warn('Failed to preload EXIF data:', err);
-			});
-	}
-
 	const loadFeature = async (entries, observer) => {
 		for (const entry of entries) {
 			if (entry.isIntersecting) {

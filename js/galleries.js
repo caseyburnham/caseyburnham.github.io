@@ -11,23 +11,19 @@ class Galleries {
 		BUTTON_SELECTOR: '.gallery-btn',
 		CONTAINER_SELECTOR: '[aria-labelledby="gallery-heading"]',
 		TRANSITION_DURATION: 200,
+		
 		BREAKPOINTS: {
 			MOBILE: 480,
 			TABLET: 768,
 			DESKTOP: 1024,
 			WIDESCREEN: 1440
 		},
-		ROW_LIMITS_RESPONSIVE: {
-			MOBILE: { LANDSCAPE_MAX: 4, PORTRAIT_MAX: 5, MIN_IMAGES: 3 },
-			TABLET: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 6, MIN_IMAGES: 3 },
-			DESKTOP: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 7, MIN_IMAGES: 3 },
+		
+		ROW_LIMITS_BY_BREAKPOINT: {
+			MOBILE: { LANDSCAPE_MAX: 3, PORTRAIT_MAX: 4, MIN_IMAGES: 3 },
+			TABLET: { LANDSCAPE_MAX: 4, PORTRAIT_MAX: 5, MIN_IMAGES: 3 },
+			DESKTOP: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 6, MIN_IMAGES: 3 },
 			WIDESCREEN: { LANDSCAPE_MAX: 5, PORTRAIT_MAX: 7, MIN_IMAGES: 3 }
-		},
-
-		ROW_LIMITS: {
-			LANDSCAPE_MAX: 4,
-			PORTRAIT_MAX: 5,
-			MIN_IMAGES: 3
 		}
 	};
 
@@ -39,8 +35,9 @@ class Galleries {
 	#buttonTemplate = null;
 	#thumbTemplate = null;
 	#abortController = null;
-	#resizeObserver = null;
-	#currentRowLimits = null;
+	#currentBreakpoint = null;
+	#layoutCache = new Map();
+	
 	constructor(options = {}) {
 		this.#photoModal = options.photoModal || null;
 		this.#abortController = new AbortController();
@@ -69,84 +66,63 @@ class Galleries {
 
 	destroy() {
 		this.#abortController?.abort();
-		this.#resizeObserver?.disconnect();
 		this.#galleries.clear();
+		this.#layoutCache.clear();
 		this.#currentGallery = null;
 		this.#isInitialized = false;
-		this.#currentRowLimits = null;
+		this.#currentBreakpoint = null;
+	}
+
+	/**
+	 * Get current breakpoint based on viewport width
+	 * @returns {string} Breakpoint name
+	 */
+	#getCurrentBreakpoint() {
+		const width = window.innerWidth;
+		const { BREAKPOINTS } = Galleries.CONFIG;
+		
+		if (width < BREAKPOINTS.MOBILE) return 'MOBILE';
+		if (width < BREAKPOINTS.TABLET) return 'TABLET';
+		if (width < BREAKPOINTS.DESKTOP) return 'DESKTOP';
+		return 'WIDESCREEN';
+	}
+
+	/**
+	 * Get row limits for a specific breakpoint
+	 * @param {string} breakpoint - Breakpoint name
+	 * @returns {Object} Row limits
+	 */
+	#getRowLimitsForBreakpoint(breakpoint) {
+		return Galleries.CONFIG.ROW_LIMITS_BY_BREAKPOINT[breakpoint] || 
+			   Galleries.CONFIG.ROW_LIMITS_BY_BREAKPOINT.DESKTOP;
 	}
 
 	#initializeDOM() {
 		this.#galleryContainer = document.querySelector(Galleries.CONFIG.CONTAINER_SELECTOR);
 		this.#buttonTemplate = document.getElementById('gallery-button-template');
 		this.#thumbTemplate = document.getElementById('photo-thumb-template');
-		this.#currentRowLimits = this.#calculateRowLimits();
+		this.#currentBreakpoint = this.#getCurrentBreakpoint();
 	}
 
 	#setupResponsiveObserver() {
-		if (!('ResizeObserver' in window)) {
-			window.addEventListener('resize', 
-				debounce(() => this.#handleViewportChange(), 300),
-				{ signal: this.#abortController.signal }
-			);
-			return;
-		}
-
-		this.#resizeObserver = new ResizeObserver(
-			debounce((entries) => {
-				for (const entry of entries) {
-					if (entry.target === this.#galleryContainer) {
-						this.#handleViewportChange();
-						break;
+		const handleResize = debounce(() => {
+			const newBreakpoint = this.#getCurrentBreakpoint();
+			
+			if (newBreakpoint !== this.#currentBreakpoint) {
+				this.#currentBreakpoint = newBreakpoint;
+				
+				if (this.#isInitialized && this.#currentGallery) {
+					const gallery = this.#galleries.get(this.#currentGallery);
+					if (gallery) {
+						this.#renderGalleryAtBreakpoint(gallery, newBreakpoint);
 					}
 				}
-			}, 200)
-		);
-	}
-
-	#handleViewportChange() {
-		const newLimits = this.#calculateRowLimits();
-
-		if (!this.#rowLimitsChanged(newLimits, this.#currentRowLimits)) {
-			return;
-		}
-		this.#currentRowLimits = newLimits;
-
-		if (this.#isInitialized && this.#currentGallery) {
-			const gallery = this.#galleries.get(this.#currentGallery);
-			if (gallery) {
-				this.#renderGallery(gallery, true);
 			}
-		}
-	}
+		}, 500);
 
-	/**
-	 * Calculate appropriate row limits based on current viewport
-	 * @returns {Object} Row limits for current viewport
-	 */
-	#calculateRowLimits() {
-		const containerWidth = this.#galleryContainer?.clientWidth || window.innerWidth;
-		const { BREAKPOINTS, ROW_LIMITS_RESPONSIVE } = Galleries.CONFIG;
-		if (containerWidth >= BREAKPOINTS.WIDESCREEN) {
-			return ROW_LIMITS_RESPONSIVE.WIDESCREEN;
-		} else if (containerWidth >= BREAKPOINTS.DESKTOP) {
-			return ROW_LIMITS_RESPONSIVE.DESKTOP;
-		} else if (containerWidth >= BREAKPOINTS.TABLET) {
-			return ROW_LIMITS_RESPONSIVE.TABLET;
-		} else {
-			return ROW_LIMITS_RESPONSIVE.MOBILE;
-		}
-	}
-
-	/**
-	 * Check if row limits have changed
-	 * @param {Object} newLimits - New row limits
-	 * @param {Object} currentLimits - Current row limits
-	 * @returns {boolean} Whether limits changed
-	 */
-	#rowLimitsChanged(newLimits, currentLimits) {
-		if (!currentLimits) return true;
-		return newLimits.LANDSCAPE_MAX !== currentLimits.LANDSCAPE_MAX || newLimits.PORTRAIT_MAX !== currentLimits.PORTRAIT_MAX || newLimits.MIN_IMAGES !== currentLimits.MIN_IMAGES;
+		window.addEventListener('resize', handleResize, { 
+			signal: this.#abortController.signal 
+		});
 	}
 
 	async init() {
@@ -164,15 +140,13 @@ class Galleries {
 		try {
 			await this.#loadGalleries();
 			this.#renderControls();
-			if (this.#resizeObserver && this.#galleryContainer) {
-				this.#resizeObserver.observe(this.#galleryContainer);
-			}
 			this.#isInitialized = true;
 		} catch (error) {
 			console.error('Gallery initialization failed:', error);
 			this.#createFallbackGallery();
 		}
 	}
+
 	async #loadGalleries() {
 		const signal = this.#abortController.signal;
 		const response = await fetch(Galleries.CONFIG.DATA_URL, { signal });
@@ -192,6 +166,7 @@ class Galleries {
 		this.#currentGallery = (defaultKey && this.#galleries.has(defaultKey)) ? defaultKey : galleryKeys[0];
 		this.#loadDefaultGallery();
 	}
+
 	#createFallbackGallery() {
 		const images = Array.from(document.querySelectorAll('.photo-thumb img'))
 			.filter(img => img.src)
@@ -208,6 +183,7 @@ class Galleries {
 		this.#renderControls();
 		this.#renderGallery(this.#galleries.get('fallback'));
 	}
+
 	#renderControls() {
 		const galleryKeys = Array.from(this.#galleries.keys());
 		if (galleryKeys.length <= 1) return;
@@ -254,34 +230,67 @@ class Galleries {
 		}
 	}
 
+	/**
+	 * Render gallery using cached layout for breakpoint
+	 * @param {Object} gallery - Gallery data
+	 * @param {string} breakpoint - Target breakpoint
+	 */
+	#renderGalleryAtBreakpoint(gallery, breakpoint) {
+		const cacheKey = `${this.#currentGallery}-${breakpoint}`;
+		
+		let gridFragment;
+		if (this.#layoutCache.has(cacheKey)) {
+			// Use cached layout
+			gridFragment = this.#layoutCache.get(cacheKey).cloneNode(true);
+		} else {
+			const rowLimits = this.#getRowLimitsForBreakpoint(breakpoint);
+			gridFragment = this.#createPhotoGridsWithLimits(gallery.images, rowLimits);
+			this.#layoutCache.set(cacheKey, gridFragment.cloneNode(true));
+		}
+		
+		// Swap without transition for resize
+		const existingGrids = this.#galleryContainer.querySelectorAll(Galleries.CONFIG.GRID_SELECTOR);
+		existingGrids.forEach(grid => grid.remove());
+		this.#galleryContainer.appendChild(gridFragment);
+		this.#refreshPhotoModal();
+	}
+
 	#renderGallery(gallery, withTransition = true) {
 		if (!gallery?.images?.length) {
 			this.#galleryContainer.textContent = '';
 			return;
 		}
-		const newGridsFragment = this.#createPhotoGrids(gallery.images);
+		
 		if (!withTransition) {
-			this.#galleryContainer.appendChild(newGridsFragment);
+			// For resize, use breakpoint-aware rendering
+			this.#renderGalleryAtBreakpoint(gallery, this.#currentBreakpoint);
 		} else {
+			// For gallery switch, use transition
+			const rowLimits = this.#getRowLimitsForBreakpoint(this.#currentBreakpoint);
+			const newGridsFragment = this.#createPhotoGridsWithLimits(gallery.images, rowLimits);
 			this.#transitionToNewGallery(newGridsFragment);
 		}
 	}
 
 	/**
-	 * Photo grid creation with memory management
+	 * Create photo grids with specific row limits
 	 * @param {Array} images - Array of image objects
+	 * @param {Object} rowLimits - Row limits to use
 	 * @returns {DocumentFragment} Fragment containing the photo grids
 	 */
-	#createPhotoGrids(images) {
+	#createPhotoGridsWithLimits(images, rowLimits) {
 		const fragment = document.createDocumentFragment();
 		if (!Array.isArray(images) || images.length === 0) return fragment;
+		
 		const groups = this.#groupImagesByLayout(images);
-		const rows = this.#generateOptimizedRows(groups);
+		const rows = this.#generateOptimizedRowsWithLimits(groups, rowLimits);
+		
 		rows.forEach(row => {
 			if (row.images.length > 0) {
 				fragment.appendChild(this.#createImageGrid(row.images, row.rowClass));
 			}
 		});
+		
 		return fragment;
 	}
 
@@ -331,16 +340,16 @@ class Galleries {
 	}
 
 	/**
-	 * Responsive row generation with viewport-aware limits
+	 * Row generation with explicit limits
 	 * @param {Object} groups - Grouped images by layout
+	 * @param {Object} rowLimits - Row limits to use
 	 * @returns {Array} Array of row objects
 	 */
-	#generateOptimizedRows(groups) {
-		const rowLimits = this.#currentRowLimits || this.#calculateRowLimits();
-		const { LANDSCAPE_MAX, PORTRAIT_MAX } = rowLimits;
+	#generateOptimizedRowsWithLimits(groups, rowLimits) {
+		const { LANDSCAPE_MAX, PORTRAIT_MAX, MIN_IMAGES } = rowLimits;
 
-		const landscapeRows = this.#generateRows(groups.landscape || [], 'landscape-row', LANDSCAPE_MAX);
-		const portraitRows = this.#generateRows(groups.portrait || [], 'portrait-row', PORTRAIT_MAX);
+		const landscapeRows = this.#generateRowsWithLimits(groups.landscape || [], 'landscape-row', LANDSCAPE_MAX, MIN_IMAGES);
+		const portraitRows = this.#generateRowsWithLimits(groups.portrait || [], 'portrait-row', PORTRAIT_MAX, MIN_IMAGES);
 		const panoRows = (groups.pano || [])
 			.map(image => ({
 				images: [image],
@@ -500,16 +509,16 @@ class Galleries {
 		return rows;
 	}
 
-	#generateRows(images, rowClass, maxPerRow) {
+	#generateRowsWithLimits(images, rowClass, maxPerRow, minImages) {
 		if (images.length === 0) return [];
-		const rowLimits = this.#currentRowLimits || this.#calculateRowLimits();
-		const { MIN_IMAGES } = rowLimits;
 
-		if (images.length < MIN_IMAGES) {
+		if (images.length < minImages) {
 			return [{ images: [...images], rowClass }];
 		}
+		
 		const rows = [];
 		let currentIndex = 0;
+		
 		while (currentIndex < images.length) {
 			const remaining = images.length - currentIndex;
 			let rowSize = Math.min(maxPerRow, remaining);
@@ -517,12 +526,13 @@ class Galleries {
 			if (remaining > maxPerRow && remaining <= maxPerRow + 1) {
 				rowSize = Math.ceil(remaining / 2);
 			}
+			
 			const rowImages = images.slice(currentIndex, currentIndex + rowSize);
 			rows.push({ images: rowImages, rowClass });
 			currentIndex += rowSize;
 		}
 
-		this.#ensureMinimumRowSizes(rows, MIN_IMAGES);
+		this.#ensureMinimumRowSizes(rows, minImages);
 		return rows;
 	}
 
@@ -552,7 +562,10 @@ class Galleries {
 		row.setAttribute('role', 'group');
 		const fragment = document.createDocumentFragment();
 		images.forEach(image => {
-			if (!this.#isValidImage(image)) return;
+			if (!this.#isValidImage(image)) {
+				console.warn('Invalid image skipped:', image);
+				return;
+			}
 			const thumbClone = this.#thumbTemplate.content.cloneNode(true);
 			const img = thumbClone.querySelector('img');
 			img.src = image.thumbnail || '';
@@ -565,11 +578,13 @@ class Galleries {
 		row.appendChild(fragment);
 		return row;
 	}
+
 	#performGallerySwitch(galleryKey) {
 		this.#currentGallery = galleryKey;
 		this.#updateButtonStates(galleryKey);
 		this.#renderGallery(this.#galleries.get(galleryKey), true);
 	}
+
 	#updateButtonStates(activeKey) {
 		const buttons = this.#galleryContainer.querySelectorAll(Galleries.CONFIG.BUTTON_SELECTOR);
 		buttons.forEach(btn => {
@@ -578,6 +593,7 @@ class Galleries {
 			btn.setAttribute('aria-selected', isActive.toString());
 		});
 	}
+
 	async #transitionToNewGallery(newContentFragment) {
 		const existingGrids = Array.from(this.#galleryContainer.querySelectorAll(Galleries.CONFIG.GRID_SELECTOR));
 
@@ -604,22 +620,34 @@ class Galleries {
 		return new Promise(resolve => {
 			const timeoutId = setTimeout(() => {
 				element.style.transition = `opacity ${Galleries.CONFIG.TRANSITION_DURATION}ms ease`;
+				
 				const handleTransitionEnd = () => {
 					element.removeEventListener('transitionend', handleTransitionEnd);
+					clearTimeout(fallbackTimeout);
 					resolve();
 				};
+				
+				// Safety fallback: resolve after transition duration + buffer
+				const fallbackTimeout = setTimeout(() => {
+					element.removeEventListener('transitionend', handleTransitionEnd);
+					resolve();
+				}, Galleries.CONFIG.TRANSITION_DURATION + 100);
+				
 				element.addEventListener('transitionend', handleTransitionEnd);
 				element.style.opacity = direction === 'in' ? '1' : '0';
 			}, delay);
+			
 			this.#abortController.signal.addEventListener('abort', () => {
 				clearTimeout(timeoutId);
 				resolve();
 			});
 		});
 	}
+
 	#initPhotoModal() {
 		this.#photoModal?.setupAspectRatios?.();
 	}
+
 	#refreshPhotoModal() {
 		this.#photoModal?.refreshImageTracking?.();
 	}

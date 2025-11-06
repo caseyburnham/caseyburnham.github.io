@@ -11,7 +11,7 @@ class PeakMap {
 		this.config = {
 			mapContainerId: 'map',
 			dataUrl: '/json/exif-data.json',
-			defaultCenter: { lat: 39.7392, lon: -104.9849 }, // Denver fallback
+			defaultCenter: { lat: 39.7392, lon: -104.9849 },
 			defaultZoom: 12,
 			zoomSnap: 0.25,
 			tileLayerUrl: `https://api.maptiler.com/maps/outdoor-v2/{z}/{x}/{y}.png?key=${maptilerApiKey}`,
@@ -34,25 +34,24 @@ class PeakMap {
 			this.initializeMap();
 			this.addPeaksToMap();
 		} catch (error) {
-			this.handleError(`Failed to initialize map: ${error.message}`);
+			this.handleError(`Failed to initialize map: ${error.message}`); // ✅ User-visible error
 		}
 	}
 
 	async loadAndProcessData() {
-		const data = await this.loadExifData();
+		const data = await this.loadExifData(); // ✅ Can throw
 		this.peaks = this.processExifData(data);
 
 		if (this.peaks.length === 0) {
-			throw new Error('No summit peaks found with valid GPS data');
+			throw new Error('No summit peaks found with valid GPS data'); // ✅ Throw for init to catch
 		}
 	}
 
 	async loadExifData() {
 		try {
-			// Use shared cache instead of direct fetch
-			return await dataCache.fetch(this.config.dataUrl);
+			return await dataCache.fetch(this.config.dataUrl); // ✅ Can throw
 		} catch (error) {
-			throw new Error(`Failed to load ${this.config.dataUrl}: ${error.message}`);
+			throw new Error(`Failed to load EXIF data: ${error.message}`); // ✅ Add context
 		}
 	}
 
@@ -62,7 +61,7 @@ class PeakMap {
 		Object.entries(data)
 			.forEach(([filepath, exifData]) => {
 				const peak = this.createPeakFromExif(filepath, exifData);
-				if (peak) {
+				if (peak) { // ✅ Safe - returns null on error
 					peaks.push(peak);
 				}
 			});
@@ -73,11 +72,11 @@ class PeakMap {
 	createPeakFromExif(filepath, exifData) {
 		try {
 			if (!filepath.startsWith('summits/')) {
-				return null;
+				return null; // ✅ Expected - not an error
 			}
 
 			if (!this.isValidExifData(exifData)) {
-				return null;
+				return null; // ✅ Expected - not an error
 			}
 
 			const filename = this.extractFilename(filepath);
@@ -85,7 +84,7 @@ class PeakMap {
 
 			const { lat, lon } = this.extractCoordinates(exifData.gps);
 			if (!this.areValidCoordinates(lat, lon)) {
-				return null;
+				return null; // ✅ Expected - not an error
 			}
 
 			return {
@@ -103,7 +102,7 @@ class PeakMap {
 			};
 		} catch (error) {
 			console.warn(`Error processing ${filepath}:`, error.message);
-			return null;
+			return null; // ✅ Log and continue
 		}
 	}
 
@@ -141,7 +140,7 @@ class PeakMap {
 	initializeMap() {
 		const mapContainer = document.getElementById(this.config.mapContainerId);
 		if (!mapContainer) {
-			throw new Error(`Map container '${this.config.mapContainerId}' not found`);
+			throw new Error(`Map container '${this.config.mapContainerId}' not found`); // ✅ Throw - critical
 		}
 
 		const center = this.calculateMapCenter();
@@ -177,14 +176,14 @@ class PeakMap {
 
 	addPeaksToMap() {
 		if (!this.map) {
-			throw new Error('Map not initialized');
+			throw new Error('Map not initialized'); // ✅ Throw - critical
 		}
 
 		this.markerGroup = new L.featureGroup();
 
 		this.peaks.forEach(peak => {
 			const marker = this.createPeakMarker(peak);
-			if (marker) {
+			if (marker) { // ✅ Safe - returns null on error
 				marker.addTo(this.map);
 				this.markerGroup.addLayer(marker);
 			}
@@ -207,7 +206,7 @@ class PeakMap {
 			return marker;
 		} catch (error) {
 			console.warn(`Failed to create marker for ${peak.title}:`, error.message);
-			return null;
+			return null; // ✅ Log and continue
 		}
 	}
 
@@ -244,6 +243,7 @@ class PeakMap {
 				});
 			} catch (error) {
 				console.warn('Could not fit map bounds:', error.message);
+				// ✅ Not critical - continue
 			}
 		}
 	}
@@ -262,8 +262,8 @@ class PeakMap {
 
 		const mapContainer = document.getElementById(this.config.mapContainerId);
 		if (mapContainer) {
-			mapContainer.textContent = `
-		<div class="error">
+			mapContainer.innerHTML = `
+		<div class="error" style="padding: 2rem; text-align: center;">
 		  <div>
 			<div style="font-size: 2rem; margin-bottom: 10px;">⚠️</div>
 			<div><strong>Error:</strong> ${message}</div>
@@ -302,8 +302,8 @@ import('/js/leaflet.js')
 
 		const mapContainer = document.getElementById(window.PEAK_MAP_CONFIG?.mapContainerId || 'map');
 		if (mapContainer) {
-			mapContainer.textContext =
-				`<div class="error">
+			mapContainer.innerHTML =
+				`<div class="error" style="padding: 2rem; text-align: center;">
 				<div>
 					<strong>Error:</strong> 
 					Map library failed to load.
