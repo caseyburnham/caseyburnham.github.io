@@ -1,8 +1,5 @@
-// Import shared data cache
-import dataCache from './shared-data.js';
-
-// Import essentials
-import '/js/candy.js';
+import dataCache from './utils/shared-data.js';
+import '/js/ui/candy.js';
 import '/js/tables/main.js';
 
 const lazyFeatures = [
