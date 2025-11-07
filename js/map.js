@@ -1,8 +1,19 @@
 /**
  * Peak Climbing Map - Interactive map displaying summit peaks with GPS data
  */
-import dataCache from './shared-data.js';
-import { parseExifDate, formatElevation, filenameToTitle } from './shared-utils.js';
+import dataCache from './utils/shared-data.js';
+ import { parseExifDate, formatElevation } from './utils/exif-utils.js';
+ 
+ // Move filenameToTitle here since it's only used in this file
+ function filenameToTitle(filename) {
+	 if (!filename) return 'Untitled';
+	 
+	 return filename
+		 .replace(/\.[^/.]+$/, '')
+		 .split(/[-_]/)
+		 .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+		 .join(' ');
+ }
 
 class PeakMap {
 	constructor(options = {}) {

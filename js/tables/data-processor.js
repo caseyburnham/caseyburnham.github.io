@@ -1,6 +1,6 @@
 import { CONFIG } from './config.js';
-import { formatExifDate, normalizeImagePath } from '../shared-utils.js';
-import dataCache from '../shared-data.js';
+import { formatExifDate, normalizeImagePath } from '../utils/exif-utils.js';
+import dataCache from '../utils/shared-data.js';
 
 const STATS_LIMITS = {
 	TOP_ARTISTS: 7,

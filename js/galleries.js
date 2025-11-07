@@ -1,7 +1,7 @@
 /**
  * Galleries
  **/
-import { debounce } from './shared-utils.js';
+import { debounce } from './utils/shared-utils.js';
  
 class Galleries {
 	static CONFIG = {

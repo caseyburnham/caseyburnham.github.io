@@ -7,8 +7,8 @@ import {
 	setupEventListeners,
 	cleanupEventListeners
 } from './modal-events.js';
-import dataCache from '../shared-data.js';
-import { formatExifDate, formatElevation, findExifData } from '../shared-utils.js'
+import dataCache from '../utils/shared-data.js';
+import { formatExifDate, formatElevation, findExifData } from '../utils/exif-utils.js';
 
 
 export class PhotoModal {
