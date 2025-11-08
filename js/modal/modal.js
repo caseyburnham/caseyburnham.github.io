@@ -97,25 +97,30 @@ export class PhotoModal {
 
 	openModal(src, alt, title, sourceElement = null, originalTrigger = null) {
 		if (!src) return;
-
+		
 		const imageUrl = this.getBestImageSource(sourceElement) || src;
-
+		
 		// Cancel any pending image load
 		this.imageAbortController?.abort();
 		this.imageAbortController = new AbortController();
-
+		
 		if (!this.elements.modal.open) {
 			this.originalTrigger = originalTrigger || document.activeElement;
 			this.elements.modal.showModal();
 			this.isOpen = true;
 		}
-
+		
+		// Clear old content immediately
+		this.elements.modalImg.src = '';
+		this.elements.modalImg.alt = '';
+		this.elements.modalImg.title = '';
+		this.elements.caption.innerHTML = '';
 		this.elements.modal.classList.add('loading');
-
+		
 		// Load image
 		const img = new Image();
 		const signal = this.imageAbortController.signal;
-
+		
 		img.onload = () => {
 			if (signal.aborted) return;
 			
