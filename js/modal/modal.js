@@ -1,180 +1,181 @@
 /**
- * Modal
- * @file PhotoModal.js
- * @description A modern, robust photo modal with EXIF data support.
- **/
-import {
-	setupEventListeners,
-	cleanupEventListeners
-} from './modal-events.js';
+ * Photo Modal - Simplified
+ */
 import dataCache from '../utils/shared-data.js';
 import { formatExifDate, formatElevation, findExifData } from '../utils/exif-utils.js';
 
-
 export class PhotoModal {
-	#state = {
-		isInitialized: false,
-		isOpen: false,
-		currentIndex: -1,
-		exifData: {},
-		originalTriggerElement: null,
-		elements: {},
-		boundHandlers: {},
-		currentImageLoad: null
-	};
+	constructor() {
+		this.isOpen = false;
+		this.currentIndex = -1;
+		this.exifData = {};
+		this.originalTrigger = null;
+		this.elements = {};
+		this.imageAbortController = null;
+	}
 
 	async initialize() {
-		if (this.#state.isInitialized) {
-			console.warn('PhotoModal is already initialized.');
-			return;
-		}
+		this.createModal();
+		this.setupEventListeners();
+		await this.loadExifData();
+	}
 
-		try {
-			this.#createModal();
-			this.#state.boundHandlers = setupEventListeners(this.#state.elements, this);
-			await this.#loadExifData();
-			this.#state.isInitialized = true;
-		} catch (error) {
-			console.error('Failed to initialize PhotoModal:', error);
-			this.#state.isInitialized = false;
-		}
+	setupEventListeners() {
+		// Click handler - photo thumbs, camera links, backdrop
+		document.addEventListener('click', (e) => {
+			// Close on backdrop click
+			if (this.isOpen && e.target === this.elements.modal) {
+				this.closeModal();
+				return;
+			}
+
+			// Open photo thumb
+			const photoThumb = e.target.closest('.photo-thumb');
+			if (photoThumb) {
+				e.preventDefault();
+				const img = photoThumb.querySelector('img');
+				if (img) {
+					this.openModal(img.src, img.alt, img.dataset.title, photoThumb, photoThumb);
+				}
+				return;
+			}
+
+			// Open camera link (mountain table)
+			const cameraLink = e.target.closest('.camera-link');
+			if (cameraLink) {
+				e.preventDefault();
+				const imageUrl = cameraLink.dataset.image;
+				const peakName = cameraLink.dataset.title;
+				if (imageUrl) {
+					this.openModal(imageUrl, peakName || 'Peak image', peakName, cameraLink, cameraLink);
+				}
+			}
+		});
+
+		// Keyboard navigation
+		document.addEventListener('keydown', (e) => {
+			if (!this.isOpen) return;
+
+			if (e.key === 'Escape') {
+				e.preventDefault();
+				this.closeModal();
+			} else if (e.key === 'ArrowRight') {
+				e.preventDefault();
+				this.navigateImage(1);
+			} else if (e.key === 'ArrowLeft') {
+				e.preventDefault();
+				this.navigateImage(-1);
+			}
+		});
 	}
 
 	destroy() {
-		if (!this.#state.isInitialized) return;
-
-		if (this.#state.currentImageLoad) {
-			this.#state.currentImageLoad.cancel();
-			this.#state.currentImageLoad = null;
-		}
-
-		if (this.#state.boundHandlers) {
-			cleanupEventListeners(this.#state.boundHandlers);
-		}
-
-		this.#state.elements.modal?.remove();
-
-		this.#state.isInitialized = false;
-		this.#state.isOpen = false;
-		this.#state.currentIndex = -1;
-		this.#state.exifData = {};
-		this.#state.originalTriggerElement = null;
-		this.#state.elements = {};
-		this.#state.boundHandlers = {};
+		this.imageAbortController?.abort();
+		this.elements.modal?.remove();
+		
+		// Event listeners are removed when modal element is removed
+		this.isOpen = false;
+		this.currentIndex = -1;
+		this.exifData = {};
+		this.elements = {};
 	}
 
-	get isOpen() {
-		return this.#state.isOpen;
-	}
-
-	openModal(src, alt, title, sourceElement = null, originalTriggerElement = null) {
-		if (!src) return;
-
-		const imageToLoad = this.#getBestImageSource(sourceElement) || src;
-
-		if (this.#state.currentImageLoad) {
-			this.#state.currentImageLoad.cancel();
-		}
-
-		if (!this.#state.elements.modal.open) {
-			this.#state.originalTriggerElement = originalTriggerElement || document.activeElement;
-			this.#state.elements.modal.showModal();
-			this.#state.isOpen = true;
-		}
-
-		this.#state.elements.modalContent.classList.add('loading');
-
-		const loadPromise = this.#createCancellableImageLoad(imageToLoad);
-		this.#state.currentImageLoad = loadPromise;
-
-		loadPromise.promise
-			.then(loadedImg => {
-				if (this.#state.currentImageLoad === loadPromise) {
-					this.#updateModalContent(imageToLoad, alt, title, loadedImg);
-					this.#state.elements.modalImg.title = `${alt}`;
-				}
-			})
-			.catch(error => {
-				if (this.#state.currentImageLoad === loadPromise) {
-					if (error.name !== 'AbortError') {
-						console.error('Image failed to load:', error);
-						this.#updateModalContent(imageToLoad, alt, title, null);
-					}
-				}
-			})
-			.finally(() => {
-				if (this.#state.currentImageLoad === loadPromise) {
-					this.#state.elements.modalContent.classList.remove('loading');
-					this.#state.currentImageLoad = null;
-				}
-			});
-	}
-
-	closeModal() {
-		if (!this.#state.isOpen) return;
-
-		if (this.#state.currentImageLoad) {
-			this.#state.currentImageLoad.cancel();
-			this.#state.currentImageLoad = null;
-		}
-
-		this.#state.elements.modal.close();
-		this.#state.isOpen = false;
-
-		this.#state.elements.modalImg.src = '';
-		this.#state.elements.modalImg.title = '';
-	}
-
-	navigateImage(direction) {
-		const allImages = this.#getAllGalleryImages();
-		if (!allImages.length || this.#state.currentIndex < 0) {
-			console.error(`Navigation aborted. Image count: ${allImages.length}, Current Index: ${this.#state.currentIndex}`);
-			return;
-		}
-
-		const newIndex = (this.#state.currentIndex + direction + allImages.length) % allImages.length;
-		const targetImageElement = allImages[newIndex];
-
-		if (!targetImageElement) {
-			console.error(`Navigation failed: Could not find target element at index ${newIndex}.`);
-			return;
-		}
-
-		const targetSrc = this.#getBestImageSource(targetImageElement);
-		if (!targetSrc) {
-			console.error(`Navigation failed: Could not get best image source for element at index ${newIndex}.`, targetImageElement);
-			return;
-		}
-
-		const imgElement = targetImageElement.querySelector('img');
-		const alt = imgElement?.alt || '';
-		const title = imgElement?.dataset?.title || '';
-
-		this.openModal(targetSrc, alt, title, targetImageElement, null);
-	}
-
-	#createModal() {
+	createModal() {
 		const template = document.getElementById('photo-modal-template');
-		if (!template) throw new Error('Modal template not found.');
+		if (!template) throw new Error('Modal template not found');
 
-		const templateContent = template.content.cloneNode(true);
-		const modalDialog = templateContent.querySelector('dialog');
-		if (!modalDialog) throw new Error('<dialog> element not found in template.');
+		const dialog = template.content.cloneNode(true).querySelector('dialog');
+		document.body.appendChild(dialog);
 
-		document.body.appendChild(modalDialog);
-
-		this.#state.elements = {
-			modal: modalDialog,
-			modalContent: modalDialog,
-			modalImg: modalDialog.querySelector('img'),
-			loader: modalDialog.querySelector('.modal-loader'),
-			caption: modalDialog.querySelector('.modal-caption'),
-			copyright: modalDialog.querySelector('.copyright'),
-			modalCard: modalDialog.querySelector('.modal-card'),
+		this.elements = {
+			modal: dialog,
+			modalImg: dialog.querySelector('img'),
+			caption: dialog.querySelector('.modal-caption'),
+			copyright: dialog.querySelector('.copyright')
 		};
 	}
 
-	#getBestImageSource(thumbElement) {
+	openModal(src, alt, title, sourceElement = null, originalTrigger = null) {
+		if (!src) return;
+
+		const imageUrl = this.getBestImageSource(sourceElement) || src;
+
+		// Cancel any pending image load
+		this.imageAbortController?.abort();
+		this.imageAbortController = new AbortController();
+
+		if (!this.elements.modal.open) {
+			this.originalTrigger = originalTrigger || document.activeElement;
+			this.elements.modal.showModal();
+			this.isOpen = true;
+		}
+
+		this.elements.modal.classList.add('loading');
+
+		// Load image
+		const img = new Image();
+		const signal = this.imageAbortController.signal;
+
+		img.onload = () => {
+			if (signal.aborted) return;
+			
+			this.elements.modalImg.src = imageUrl;
+			this.elements.modalImg.alt = alt || 'Untitled';
+			this.elements.modalImg.title = alt;
+			this.elements.modal.classList.remove('loading');
+			
+			this.updateCurrentIndex(imageUrl);
+			this.updateCaption(title, imageUrl);
+		};
+
+		img.onerror = () => {
+			if (signal.aborted) return;
+			console.error('Failed to load image:', imageUrl);
+			this.elements.modal.classList.remove('loading');
+		};
+
+		signal.addEventListener('abort', () => {
+			img.src = '';
+			img.onload = null;
+			img.onerror = null;
+		});
+
+		img.src = imageUrl;
+	}
+
+	closeModal() {
+		if (!this.isOpen) return;
+
+		this.imageAbortController?.abort();
+		this.elements.modal.close();
+		this.isOpen = false;
+		this.elements.modalImg.src = '';
+		this.elements.modalImg.title = '';
+		
+		// Restore focus
+		if (this.originalTrigger) {
+			this.originalTrigger.focus();
+		}
+	}
+
+	navigateImage(direction) {
+		const allImages = this.getAllGalleryImages();
+		if (!allImages.length || this.currentIndex < 0) return;
+
+		const newIndex = (this.currentIndex + direction + allImages.length) % allImages.length;
+		const targetElement = allImages[newIndex];
+		const targetSrc = this.getBestImageSource(targetElement);
+		
+		if (!targetSrc) return;
+
+		const img = targetElement.querySelector('img');
+		const alt = img?.alt || '';
+		const title = img?.dataset?.title || '';
+
+		this.openModal(targetSrc, alt, title, targetElement, null);
+	}
+
+	getBestImageSource(thumbElement) {
 		const img = thumbElement?.querySelector('img');
 		if (!img) return '';
 
@@ -185,311 +186,138 @@ export class PhotoModal {
 				return sources.avif || Object.values(sources)[0] || img.src;
 			}
 		} catch (e) {
-			console.error('Failed to parse data-sources attribute:', e);
+			console.error('Failed to parse data-sources:', e);
 		}
 
 		return img.src;
 	}
 
-	/**
-	 * Create a cancellable image load promise
-	 * @private
-	 * @param {string} src - Image source URL
-	 * @returns {Object} Object with promise and cancel function
-	 */
-	#createCancellableImageLoad(src) {
-		let cancelled = false;
-		let img = null;
-
-		const promise = new Promise((resolve, reject) => {
-			img = new Image();
-
-			img.onload = () => {
-				if (!cancelled) {
-					resolve(img);
-				}
-			};
-
-			img.onerror = () => {
-				if (!cancelled) {
-					reject(new Error(`Failed to load image: ${src}`));
-				}
-			};
-
-			img.src = src;
-		});
-
-		return {
-			promise,
-			cancel: () => {
-				cancelled = true;
-				if (img) {
-					img.src = '';
-					img.onload = null;
-					img.onerror = null;
-				}
-				const error = new Error('Image load cancelled');
-				error.name = 'AbortError';
-			}
-		};
-	}
-
-	#loadImage(src) {
-		return new Promise((resolve, reject) => {
-			const img = new Image();
-			img.onload = () => resolve(img);
-			img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
-			img.src = src;
-		});
-	}
-
-	#updateModalContent(src, alt, title) {
-		const { modalImg } = this.#state.elements;
-		modalImg.src = src;
-		modalImg.alt = alt || 'Untitled';
-		this.#updateCurrentIndex(src);
-		this.#updateCaption(title, src);
-	}
-
-	/**
-	 * Loads EXIF data from a JSON file using shared cache
-	 * @private
-	 */
-	async #loadExifData() {
+	async loadExifData() {
 		try {
-			this.#state.exifData = await dataCache.fetch('/json/exif-data.json');
+			this.exifData = await dataCache.fetch('/json/exif-data.json');
 		} catch (error) {
-			console.warn('Could not load EXIF data:', error.message);
-			this.#state.exifData = {};
+			console.warn('Could not load EXIF data:', error);
+			this.exifData = {};
 		}
 	}
 
-	/**
-	 * Updates the modal caption with title and EXIF data
-	 * @private
-	 */
-	#updateCaption(title, imageSrc) {
-		const { caption, copyright } = this.#state.elements;
-		const exifData = findExifData(imageSrc, this.#state.exifData);
-
-		const template = document.getElementById('photo-modal-template');
-		if (!template) return;
-
-		const freshCaptionContent = template.content.querySelector('.modal-caption')
-			.cloneNode(true);
-		caption.replaceChildren(...freshCaptionContent.childNodes);
-
-		const dateEl = caption.querySelector('.photo-date');
-		const titleEl = caption.querySelector('.title');
-		const gpsEl = caption.querySelector('.gps');
-		const altitudeEl = caption.querySelector('.altitude');
-		const exifEl = caption.querySelector('.exif-row');
-		const hrEl = caption.querySelector('hr');
-
-		if (exifData?.date) {
-			const dateString = formatExifDate(exifData.date);
-			if (dateString) {
-				dateEl.dateTime = dateString;
-				dateEl.textContent = dateString;
+	updateCaption(title, imageSrc) {
+		const exif = findExifData(imageSrc, this.exifData);
+		
+		// Build caption HTML
+		let captionHTML = '<div class="caption-header">';
+		
+		// Date
+		if (exif?.date) {
+			const dateStr = formatExifDate(exif.date);
+			if (dateStr) {
+				captionHTML += `<time class="photo-date" datetime="${dateStr}">${dateStr}</time>`;
+			}
+		}
+		
+		// Title
+		captionHTML += `<h5 class="title">${title || 'Untitled'}</h5>`;
+		
+		// Altitude
+		if (exif?.gps?.alt) {
+			const { display } = formatElevation(exif.gps.alt);
+			captionHTML += `<data class="altitude">${display}</data>`;
+		}
+		
+		// GPS
+		if (exif?.gps?.lat && exif?.gps?.lon) {
+			const lat = parseFloat(exif.gps.lat).toFixed(5);
+			const lon = parseFloat(exif.gps.lon).toFixed(5);
+			const url = `https://caltopo.com/map.html#ll=${lat},${lon}&z=16&b=mbt`;
+			const display = `${exif.gps.latDMS || lat}, ${exif.gps.lonDMS || lon}`;
+			captionHTML += `<span class="gps"><data title="GPS Coordinates" value="${lat},${lon}">
+				<a href="${url}" target="_blank" rel="noopener noreferrer">${display}</a>
+			</data></span>`;
+		}
+		
+		captionHTML += '</div>';
+		
+		// EXIF row
+		const exifRow = this.buildExifRow(exif);
+		if (exifRow) {
+			captionHTML += '<hr><span class="exif-row">' + exifRow + '</span>';
+		}
+		
+		this.elements.caption.innerHTML = captionHTML;
+		
+		// Copyright
+		if (this.elements.copyright) {
+			if (exif?.copyright) {
+				this.elements.copyright.textContent = exif.copyright;
+				this.elements.copyright.style.display = 'block';
 			} else {
-				dateEl.remove();
+				this.elements.copyright.textContent = '';
+				this.elements.copyright.style.display = 'none';
 			}
-		} else {
-			dateEl.remove();
-		}
-
-		titleEl.textContent = title || 'Untitled';
-
-		if (exifData?.gps) {
-			const gpsElement = this.#createGPSElement(exifData.gps);
-			gpsEl.replaceChildren(gpsElement);
-		} else {
-			gpsEl.remove();
-		}
-
-		if (exifData?.gps?.alt) {
-			const { display } = formatElevation(exifData.gps.alt);
-			altitudeEl.textContent = display;
-		} else {
-			altitudeEl.remove();
-		}
-
-		const exifElement = this.#createExifElement(exifData);
-		if (exifElement) {
-			exifEl.replaceChildren(exifElement);
-		} else {
-			exifEl.remove();
-			hrEl.remove();
-		}
-
-		if (copyright && exifData?.copyright) {
-			copyright.textContent = exifData.copyright;
-			copyright.style.display = 'block';
-		} else if (copyright) {
-			copyright.textContent = '';
-			copyright.style.display = 'none';
 		}
 	}
 
-	/**
-	 * Creates GPS link as DOM element
-	 * @private
-	 */
-	#createGPSElement(gps) {
-		if (!gps?.lat || !gps?.lon) return null;
-
-		const lat = parseFloat(gps.lat)
-			.toFixed(5);
-		const lon = parseFloat(gps.lon)
-			.toFixed(5);
-		const url = `https://caltopo.com/map.html#ll=${lat},${lon}&z=16&b=mbt`;
-
-		const dataEl = document.createElement('data');
-		dataEl.title = 'GPS Coordinates';
-		dataEl.value = `${lat},${lon}`;
-
-		const link = document.createElement('a');
-		link.href = url;
-		link.target = '_blank';
-		link.rel = 'noopener noreferrer';
-		link.textContent = `${gps.latDMS || lat}, ${gps.lonDMS || lon}`;
-
-		dataEl.appendChild(link);
-		return dataEl;
-	}
-
-	/**
-	 * Creates EXIF data row as DOM element
-	 * @private
-	 */
-	#createExifElement(photo) {
-		if (!photo) return null;
-
+	buildExifRow(exif) {
+		if (!exif) return '';
+		
 		const parts = [];
-
-		const createDataPart = (label, value, unit = '') => {
-			const span = document.createElement('span');
-			span.title = label;
-
-			if (value !== null && value !== undefined) {
-				const data = document.createElement('data');
-				data.value = String(value);
-				data.textContent = String(value);
-				span.appendChild(data);
-
-				if (unit) {
-					span.appendChild(document.createTextNode(unit));
-				}
-			}
-
-			return span;
-		};
-
-		if (photo.cameraModel) {
-			const span = document.createElement('span');
-			span.title = 'Camera Model';
-			span.textContent = photo.cameraModel;
-			parts.push(span);
+		
+		if (exif.cameraModel) {
+			parts.push(`<span title="Camera Model">${exif.cameraModel}</span>`);
 		}
-
-		if (photo.iso) {
-			const span = document.createElement('span');
-			span.title = 'ISO Value';
-			span.textContent = 'ISO ';
-
-			const data = document.createElement('data');
-			data.value = String(photo.iso);
-			data.textContent = String(photo.iso);
-
-			span.appendChild(data);
-			parts.push(span);
+		
+		if (exif.iso) {
+			parts.push(`<span title="ISO Value">ISO <data value="${exif.iso}">${exif.iso}</data></span>`);
 		}
-
-		if (photo.lens) {
-			parts.push(createDataPart('Focal Length', photo.lens, ' mm'));
+		
+		if (exif.lens) {
+			parts.push(`<span title="Focal Length"><data value="${exif.lens}">${exif.lens}</data> mm</span>`);
 		}
-
-		if (photo.exposureCompensation) {
-			const evNum = parseFloat(photo.exposureCompensation);
-			const evStr = evNum === 0 ? '0' : evNum.toFixed(2);
-			parts.push(createDataPart('Exposure Compensation', evStr, ' ev'));
+		
+		if (exif.exposureCompensation) {
+			const ev = parseFloat(exif.exposureCompensation);
+			const evStr = ev === 0 ? '0' : ev.toFixed(2);
+			parts.push(`<span title="Exposure Compensation"><data value="${evStr}">${evStr}</data> ev</span>`);
 		}
-
-		if (photo.aperture) {
-			const span = document.createElement('span');
-			span.title = 'Aperture Size';
-
-			const italic = document.createElement('i');
-			italic.innerHTML = '&#402;';
-			span.appendChild(italic);
-			span.appendChild(document.createTextNode(' '));
-
-			const data = document.createElement('data');
-			data.value = String(photo.aperture);
-			data.textContent = String(photo.aperture);
-
-			span.appendChild(data);
-			parts.push(span);
+		
+		if (exif.aperture) {
+			parts.push(`<span title="Aperture Size"><i>&#402;</i> <data value="${exif.aperture}">${exif.aperture}</data></span>`);
 		}
-
-		if (photo.shutter) {
-			parts.push(createDataPart('Shutter Speed', photo.shutter, 's'));
+		
+		if (exif.shutter) {
+			parts.push(`<span title="Shutter Speed"><data value="${exif.shutter}">${exif.shutter}</data>s</span>`);
 		}
-
-		if (photo.format) {
-			const span = document.createElement('span');
-			span.className = 'format';
-			span.title = 'File Format';
-
-			const data = document.createElement('data');
-			data.value = String(photo.format);
-			data.textContent = String(photo.format);
-
-			span.appendChild(data);
-			parts.push(span);
+		
+		if (exif.format) {
+			parts.push(`<span class="format" title="File Format"><data value="${exif.format}">${exif.format}</data></span>`);
 		}
-
-		if (parts.length === 0) return null;
-
-		const container = document.createElement('span');
-
-		parts.forEach((part, index) => {
-			container.appendChild(part);
-
-			if (index < parts.length - 1) {
-				const separator = document.createElement('span');
-				separator.textContent = ' | ';
-				container.appendChild(separator);
-			}
-		});
-
-		return container;
+		
+		return parts.join(' | ');
 	}
 
-	/**
-	 * Updates the current image index by comparing normalized pathnames.
-	 * @private
-	 */
-	#updateCurrentIndex(src) {
-		const allImages = this.#getAllGalleryImages();
-		const currentImagePath = new URL(src, window.location.origin)
-			.pathname;
+	updateCurrentIndex(src) {
+		const allImages = this.getAllGalleryImages();
+		const currentPath = new URL(src, window.location.origin).pathname;
 
-		this.#state.currentIndex = allImages.findIndex(galleryImg => {
-			const bestSourceForThumb = this.#getBestImageSource(galleryImg);
-			if (!bestSourceForThumb) return false;
-
-			const candidatePath = new URL(bestSourceForThumb, window.location.origin)
-				.pathname;
-			return currentImagePath === candidatePath;
+		this.currentIndex = allImages.findIndex(thumbEl => {
+			const thumbSrc = this.getBestImageSource(thumbEl);
+			if (!thumbSrc) return false;
+			const thumbPath = new URL(thumbSrc, window.location.origin).pathname;
+			return currentPath === thumbPath;
 		});
 	}
 
-	/**
-	 * Gets all gallery images.
-	 * @private
-	 */
-	#getAllGalleryImages() {
+	getAllGalleryImages() {
 		return Array.from(document.querySelectorAll('.photo-thumb'));
+	}
+
+	// Methods called by galleries.js
+	setupAspectRatios() {
+		// Placeholder for any aspect ratio setup if needed
+	}
+
+	refreshImageTracking() {
+		// Re-scan for images after gallery changes
+		// Index will be recalculated on next open
 	}
 }
