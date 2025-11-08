@@ -1,5 +1,5 @@
 // discogs-display.js - Simplified
-import { debounce } from './utils/shared-utils.js';
+import { debounce } from '../utils/shared-utils.js';
 
 // Module-level cache (just use variables, not objects)
 let collectionRecords = null;
