@@ -2,7 +2,6 @@
  * Shared Data Cache
  * @file js/shared-data.js
  * 
- * Centralized data loading to prevent multiple fetches of the same JSON files
  * Uses singleton pattern with promise caching
  */
 

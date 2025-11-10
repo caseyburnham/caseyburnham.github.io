@@ -133,12 +133,29 @@ function renderProductions(productions) {
 	productions.forEach(prod => {
 		const row = template.content.cloneNode(true);
 		
+		//Production
 		row.querySelector('.prod-production').textContent = prod.Production || '';
+		
+		//Company
 		row.querySelector('.prod-company').textContent = prod.Company || '';
+		
+		//A1
 		row.querySelector('.prod-a1').textContent = prod.A1 || '';
+		row.querySelector('.prod-a1').classList.add('prod-role');
+		
+		//SD
 		row.querySelector('.prod-sd').textContent = prod.SD || '';
+		row.querySelector('.prod-sd').classList.add('prod-role');
+		
+		//AD
 		row.querySelector('.prod-ad').textContent = prod.AD || '';
+		row.querySelector('.prod-ad').classList.add('prod-role');
+		
+		//LZ
 		row.querySelector('.prod-lz').textContent = prod.LZ || '';
+		row.querySelector('.prod-lz').classList.add('prod-role');
+		
+		//Emoji
 		row.querySelector('.prod-notes').textContent = prod.Notes || '';
 
 		fragment.appendChild(row);
