@@ -33,17 +33,19 @@ export class PhotoModal {
 			const photoThumb = e.target.closest('.photo-thumb');
 			if (photoThumb) {
 				e.preventDefault();
+				e.stopPropagation(); // Add this line
 				const img = photoThumb.querySelector('img');
 				if (img) {
 					this.openModal(img.src, img.alt, img.dataset.title, photoThumb, photoThumb);
 				}
 				return;
 			}
-
+			
 			// Open camera link (mountain table)
 			const cameraLink = e.target.closest('.camera-link');
 			if (cameraLink) {
 				e.preventDefault();
+				e.stopPropagation(); // Add this line
 				const imageUrl = cameraLink.dataset.image;
 				const peakName = cameraLink.dataset.title;
 				if (imageUrl) {
@@ -115,7 +117,6 @@ export class PhotoModal {
 		this.elements.modalImg.alt = '';
 		this.elements.modalImg.title = '';
 		this.elements.caption.innerHTML = '';
-		this.elements.modal.classList.add('loading');
 		
 		// Load image
 		const img = new Image();
@@ -127,7 +128,6 @@ export class PhotoModal {
 			this.elements.modalImg.src = imageUrl;
 			this.elements.modalImg.alt = alt || 'Untitled';
 			this.elements.modalImg.title = alt;
-			this.elements.modal.classList.remove('loading');
 			
 			this.updateCurrentIndex(imageUrl);
 			this.updateCaption(title, imageUrl);
@@ -136,7 +136,6 @@ export class PhotoModal {
 		img.onerror = () => {
 			if (signal.aborted) return;
 			console.error('Failed to load image:', imageUrl);
-			this.elements.modal.classList.remove('loading');
 		};
 
 		signal.addEventListener('abort', () => {

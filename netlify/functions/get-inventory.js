@@ -5,71 +5,25 @@
 
 const DISCOGS_API_BASE = 'https://api.discogs.com';
 
-/**
- * Determines the primary media type from Discogs format data
- */
+// Utility: Determine media type from formats
 const getMediaType = (formats) => {
   if (!Array.isArray(formats)) return 'Vinyl';
-  
   const formatNames = formats.map(f => f.name);
-  
-  if (formatNames.includes('Vinyl')) return 'Vinyl';
-  if (formatNames.includes('CD')) return 'CD';
-  if (formatNames.includes('Cassette')) return 'Cassette';
-  
-  return 'Vinyl';
+  return formatNames.find(f => ['Vinyl', 'CD', 'Cassette'].includes(f)) || 'Vinyl';
 };
 
-/**
- * Creates Discogs API authorization header
- */
-const createAuthHeader = (token) => ({
-  'Authorization': `Discogs token=${token}`
-});
+// Utility: Create auth header
+const authHeader = (token) => ({ 'Authorization': `Discogs token=${token}` });
 
-/**
- * Fetches initial pagination data to determine total pages
- */
-const getPaginationInfo = async (username, token, perPage) => {
-  const url = `${DISCOGS_API_BASE}/users/${username}/inventory?per_page=${perPage}`;
-  const response = await fetch(url, { 
-	headers: createAuthHeader(token) 
-  });
-  
-  if (!response.ok) {
-	throw new Error(`Failed to fetch pagination data: ${response.status}`);
-  }
-  
-  const data = await response.json();
-  return data.pagination;
-};
-
-/**
- * Fetches inventory items from a specific page
- */
-const fetchInventoryPage = async (username, token, page, perPage) => {
-  const url = `${DISCOGS_API_BASE}/users/${username}/inventory?sort=listed&sort_order=desc&page=${page}&per_page=${perPage}`;
-  const response = await fetch(url, { 
-	headers: createAuthHeader(token) 
-  });
-  
-  if (!response.ok) {
-	const errorBody = await response.text();
-	console.error('Discogs API Error:', {
-	  status: response.status,
-	  statusText: response.statusText,
-	  body: errorBody
-	});
-	throw new Error(`Failed to fetch inventory page: ${response.status}`);
-  }
-  
+// Utility: Fetch from Discogs with error handling
+const fetchDiscogs = async (url, token) => {
+  const response = await fetch(url, { headers: authHeader(token) });
+  if (!response.ok) throw new Error(`Discogs API error: ${response.status}`);
   return response.json();
 };
 
-/**
- * Transforms raw inventory data into simplified format
- */
-const transformInventoryItem = (item) => ({
+// Transform inventory item
+const transformItem = (item) => ({
   artist: item.release.artist,
   title: item.release.title,
   cover_image: item.release.thumbnail,
@@ -78,68 +32,54 @@ const transformInventoryItem = (item) => ({
   mediaType: getMediaType(item.release.formats)
 });
 
-/**
- * Main handler function
- */
 exports.handler = async (event) => {
-  const { DISCOGS_USERNAME: username, DISCOGS_TOKEN: token } = process.env;
-  
-  // Validate environment variables
-  if (!username || !token) {
-	return {
-	  statusCode: 500,
-	  body: JSON.stringify({ 
-		error: 'Server configuration error: Missing Discogs credentials' 
-	  })
-	};
-  }
-  
-  // Parse and validate count parameter
-  const count = parseInt(event.queryStringParameters?.count) || 5;
-  
-  if (count < 1 || count > 100) {
-	return {
-	  statusCode: 400,
-	  body: JSON.stringify({ 
-		error: 'Count must be between 1 and 100' 
-	  })
-	};
-  }
-  
   try {
-	// Get pagination info to determine total pages
-	const pagination = await getPaginationInfo(username, token, count);
-	const totalPages = pagination.pages;
-	
-	// If no inventory, return empty array
-	if (totalPages === 0) {
-	  return {
-		statusCode: 200,
-		body: JSON.stringify([])
-	  };
-	}
-	
-	// Select a random page
-	const randomPage = Math.floor(Math.random() * totalPages) + 1;
-	
-	// Fetch inventory from random page
-	const inventoryData = await fetchInventoryPage(username, token, randomPage, count);
-	const inventory = inventoryData.listings.map(transformInventoryItem);
-	
-	return {
-	  statusCode: 200,
-	  body: JSON.stringify(inventory)
-	};
-	
+    const { DISCOGS_USERNAME, DISCOGS_TOKEN } = process.env;
+    
+    if (!DISCOGS_USERNAME || !DISCOGS_TOKEN) {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Missing Discogs credentials' })
+      };
+    }
+    
+    const count = Math.min(Math.max(parseInt(event.queryStringParameters?.count) || 5, 1), 100);
+    
+    // Get pagination info
+    const paginationData = await fetchDiscogs(
+      `${DISCOGS_API_BASE}/users/${DISCOGS_USERNAME}/inventory?per_page=${count}`,
+      DISCOGS_TOKEN
+    );
+    
+    if (paginationData.pagination.pages === 0) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify([])
+      };
+    }
+    
+    // Fetch from random page
+    const randomPage = Math.floor(Math.random() * paginationData.pagination.pages) + 1;
+    const inventoryData = await fetchDiscogs(
+      `${DISCOGS_API_BASE}/users/${DISCOGS_USERNAME}/inventory?sort=listed&sort_order=desc&page=${randomPage}&per_page=${count}`,
+      DISCOGS_TOKEN
+    );
+    
+    const inventory = inventoryData.listings.map(transformItem);
+    
+    return {
+      statusCode: 200,
+      body: JSON.stringify(inventory)
+    };
+    
   } catch (error) {
-	console.error('Error in get-inventory function:', error);
-	
-	return {
-	  statusCode: 500,
-	  body: JSON.stringify({ 
-		error: 'Failed to fetch inventory',
-		message: error.message 
-	  })
-	};
+    console.error('get-inventory error:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ 
+        error: 'Failed to fetch inventory',
+        message: error.message 
+      })
+    };
   }
 };

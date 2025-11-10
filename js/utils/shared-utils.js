@@ -1,8 +1,4 @@
 /**
- * Shared utilities - Actually reusable stuff
- */
-
-/**
  * Debounce function execution
  */
 export function debounce(func, wait) {
