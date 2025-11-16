@@ -1,12 +1,48 @@
 /*
-  # HSTS - Forces HTTPS
+  # Security Headers
+  
+  # HSTS - Force HTTPS (2 years, include subdomains, allow preload)
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   
-  # COOP - Isolates your site
-  Cross-Origin-Opener-Policy: same-origin
+  # Prevent browsers from MIME-sniffing
+  X-Content-Type-Options: nosniff
   
-  # XFO - Prevents Clickjacking
+  # XSS Protection (legacy, but doesn't hurt)
+  X-XSS-Protection: 1; mode=block
+  
+  # Clickjacking protection
   X-Frame-Options: DENY
   
-  # CSP - Your main defense against XSS and Clickjacking
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.maptiler.com; object-src 'none'; frame-ancestors 'none';
+  # Referrer policy - don't leak URLs when navigating away
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # Permissions policy - disable unused browser features
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()
+  
+  # Cross-Origin policies
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  
+  # Content Security Policy - main XSS defense
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.maptiler.com https://api.discogs.com https://*.netlify.app; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+# Cache static assets
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/json/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Don't cache HTML or functions
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/.netlify/functions/*
+  Cache-Control: no-store, no-cache, must-revalidate
