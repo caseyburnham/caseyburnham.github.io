@@ -1,6 +1,4 @@
-/**
- * Main entry point - loads features as needed
- */
+// Imports
 import dataCache from './utils/shared-data.js';
 import '/js/ui/candy.js';
 import '/js/ui/tables.js';

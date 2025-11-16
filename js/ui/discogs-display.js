@@ -1,9 +1,5 @@
-// discogs-display.js - Simplified
 import { debounce } from '../utils/shared-utils.js';
-
-// Module-level cache (just use variables, not objects)
-let collectionRecords = null;
-let inventoryRecords = null;
+import dataCache from '../utils/shared-data.js';
 
 // Media type to image filename
 const MEDIA_IMAGES = {
@@ -20,11 +16,10 @@ function getRecordCount() {
 	return 5;
 }
 
-// Fetch records from API
+// Fetch records from API - now uses dataCache
 async function fetchRecords(endpoint) {
-	const response = await fetch(`${endpoint}?count=5`); // Always fetch max (5)
-	if (!response.ok) throw new Error(`API failed: ${response.status}`);
-	return response.json();
+	const url = `${endpoint}?count=5`;
+	return dataCache.fetch(url);
 }
 
 // Create a single record element from template
@@ -36,7 +31,7 @@ function createRecord(template, data, showPrice) {
 	
 	// Cover image
 	const cover = clone.querySelector('.album-art');
-	const artist = data.artist?.replace(/\s\(\d+\)$/, '') || 'Unknown'; // Strip (123) from artist
+	const artist = data.artist?.replace(/\s\(\d+\)$/, '') || 'Unknown';
 	cover.src = data.cover_image || '';
 	cover.alt = `${data.title || 'Unknown'} by ${artist}`;
 	
@@ -48,7 +43,7 @@ function createRecord(template, data, showPrice) {
 	title.textContent = data.title || 'Unknown';
 	if (data.rating === 5) title.classList.add('is-favorite');
 	
-	// Media type image (vinyl/cd/cassette)
+	// Media type image
 	const mediaType = data.mediaType || 'Vinyl';
 	const mediaImg = clone.querySelector('.album-media');
 	mediaImg.src = `/images/assets/png/${MEDIA_IMAGES[mediaType] || MEDIA_IMAGES.Vinyl}`;
@@ -89,7 +84,7 @@ function renderRecords(sleeveContainer, captionContainer, template, records, sho
 	sleeveContainer.appendChild(sleeveFragment);
 	captionContainer.appendChild(captionFragment);
 	
-	// Album hover effects (z-index management)
+	// Album hover effects
 	initAlbumHover();
 }
 
@@ -143,12 +138,9 @@ async function displayCollection() {
 	sleeveContainer.classList.add('is-loading');
 	
 	try {
-		if (!collectionRecords) {
-			collectionRecords = await fetchRecords('/.netlify/functions/get-record');
-		}
-		
+		const records = await fetchRecords('/.netlify/functions/get-record');
 		const count = getRecordCount();
-		renderRecords(sleeveContainer, captionContainer, template, collectionRecords.slice(0, count), false);
+		renderRecords(sleeveContainer, captionContainer, template, records.slice(0, count), false);
 	} catch (error) {
 		console.error('Failed to load collection:', error);
 		sleeveContainer.innerHTML = '<p class="error-message">Could not fetch records at this time.</p>';
@@ -169,12 +161,9 @@ async function displayInventory() {
 	sleeveContainer.classList.add('is-loading');
 	
 	try {
-		if (!inventoryRecords) {
-			inventoryRecords = await fetchRecords('/.netlify/functions/get-inventory');
-		}
-		
+		const records = await fetchRecords('/.netlify/functions/get-inventory');
 		const count = getRecordCount();
-		renderRecords(sleeveContainer, captionContainer, template, inventoryRecords.slice(0, count), true);
+		renderRecords(sleeveContainer, captionContainer, template, records.slice(0, count), true);
 	} catch (error) {
 		console.error('Failed to load inventory:', error);
 		sleeveContainer.innerHTML = '<p class="error-message">Could not fetch sale items.</p>';
@@ -186,24 +175,16 @@ async function displayInventory() {
 
 // Re-render on window resize
 const handleResize = debounce(() => {
-	if (collectionRecords) {
-		const count = getRecordCount();
-		const sleeveContainer = document.getElementById('discogs-sleeve-container');
-		const captionContainer = document.getElementById('discogs-caption-container');
-		const template = document.getElementById('record-template');
-		if (sleeveContainer && captionContainer && template) {
-			renderRecords(sleeveContainer, captionContainer, template, collectionRecords.slice(0, count), false);
-		}
+	// Re-fetch from cache (instant since cached)
+	const collectionContainer = document.getElementById('discogs-sleeve-container');
+	const inventoryContainer = document.getElementById('discogs-inventory-sleeve-container');
+	
+	if (collectionContainer && dataCache.has('/.netlify/functions/get-record?count=5')) {
+		displayCollection();
 	}
 	
-	if (inventoryRecords) {
-		const count = getRecordCount();
-		const sleeveContainer = document.getElementById('discogs-inventory-sleeve-container');
-		const captionContainer = document.getElementById('discogs-inventory-caption-container');
-		const template = document.getElementById('inventory-item-template');
-		if (sleeveContainer && captionContainer && template) {
-			renderRecords(sleeveContainer, captionContainer, template, inventoryRecords.slice(0, count), true);
-		}
+	if (inventoryContainer && dataCache.has('/.netlify/functions/get-inventory?count=5')) {
+		displayInventory();
 	}
 }, 250);
 

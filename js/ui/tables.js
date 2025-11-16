@@ -24,6 +24,21 @@ const ELEVATION = { MIN: 13000, MAX: 14440 };
 // Data Loading & Processing
 // ============================================================================
 
+function validateTemplates() {
+	const required = [
+		'production-row-template',
+		'mountain-row-template',
+		'summary-row-template',
+		'concert-row-template'
+	];
+	
+	const missing = required.filter(id => !document.getElementById(id));
+	
+	if (missing.length > 0) {
+		throw new Error(`Missing required templates: ${missing.join(', ')}`);
+	}
+}
+
 async function loadAllData() {
 	const [exif, productions, mountains, concerts] = await Promise.allSettled([
 		dataCache.fetch('/json/exif-data.json'),
@@ -405,13 +420,19 @@ function updateElement(selector, content) {
 // ============================================================================
 
 async function init() {
-	const { exifData, productions, mountains, concerts } = await loadAllData();
+	try {
+		validateTemplates();
+		
+		const { exifData, productions, mountains, concerts } = await loadAllData();
 
-	if (productions) renderProductions(productions);
-	if (concerts) renderConcerts(concerts);
-	if (mountains) {
-		const processed = processMountains(mountains, exifData);
-		renderMountains(processed);
+		if (productions) renderProductions(productions);
+		if (concerts) renderConcerts(concerts);
+		if (mountains) {
+			const processed = processMountains(mountains, exifData);
+			renderMountains(processed);
+		}
+	} catch (error) {
+		console.error('Initialization failed:', error);
 	}
 }
 

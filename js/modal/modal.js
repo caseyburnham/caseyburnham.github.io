@@ -1,5 +1,5 @@
 /**
- * Photo Modal - Simplified
+ * Photo Modal
  */
 import dataCache from '../utils/shared-data.js';
 import { formatExifDate, formatElevation, findExifData } from '../utils/exif-utils.js';
@@ -11,7 +11,6 @@ export class PhotoModal {
 		this.exifData = {};
 		this.originalTrigger = null;
 		this.elements = {};
-		this.imageAbortController = null;
 	}
 
 	async initialize() {
@@ -40,7 +39,7 @@ export class PhotoModal {
 				}
 				return;
 			}
-			
+
 			// Open camera link (mountain table)
 			const cameraLink = e.target.closest('.camera-link');
 			if (cameraLink) {
@@ -72,9 +71,8 @@ export class PhotoModal {
 	}
 
 	destroy() {
-		this.imageAbortController?.abort();
 		this.elements.modal?.remove();
-		
+
 		// Event listeners are removed when modal element is removed
 		this.isOpen = false;
 		this.currentIndex = -1;
@@ -99,32 +97,25 @@ export class PhotoModal {
 
 	openModal(src, alt, title, sourceElement = null, originalTrigger = null) {
 		if (!src) return;
-		
+
 		const imageUrl = this.getBestImageSource(sourceElement) || src;
-		
-		// Cancel any pending image load
-		this.imageAbortController?.abort();
-		this.imageAbortController = new AbortController();
-		
+
 		if (!this.elements.modal.open) {
 			this.originalTrigger = originalTrigger || document.activeElement;
 			this.elements.modal.showModal();
 			this.isOpen = true;
 		}
-		
+
 		// Clear old content immediately
 		this.elements.modalImg.src = '';
 		this.elements.modalImg.alt = '';
 		this.elements.modalImg.title = '';
 		this.elements.caption.innerHTML = '';
-		
+
 		// Load image
 		const img = new Image();
-		const signal = this.imageAbortController.signal;
-		
+
 		img.onload = () => {
-			if (signal.aborted) return;
-			
 			this.elements.modalImg.src = imageUrl;
 			this.elements.modalImg.alt = alt || 'Untitled';
 			this.elements.modalImg.title = alt;
@@ -138,19 +129,12 @@ export class PhotoModal {
 			console.error('Failed to load image:', imageUrl);
 		};
 
-		signal.addEventListener('abort', () => {
-			img.src = '';
-			img.onload = null;
-			img.onerror = null;
-		});
-
 		img.src = imageUrl;
 	}
 
 	closeModal() {
 		if (!this.isOpen) return;
 
-		this.imageAbortController?.abort();
 		this.elements.modal.close();
 		this.isOpen = false;
 		this.elements.modalImg.src = '';
@@ -207,10 +191,10 @@ export class PhotoModal {
 
 	updateCaption(title, imageSrc) {
 		const exif = findExifData(imageSrc, this.exifData);
-		
+
 		// Build caption HTML
 		let captionHTML = '<div class="caption-header">';
-		
+
 		// Date
 		if (exif?.date) {
 			const dateStr = formatExifDate(exif.date);
@@ -218,16 +202,16 @@ export class PhotoModal {
 				captionHTML += `<time class="photo-date" datetime="${dateStr}">${dateStr}</time>`;
 			}
 		}
-		
+
 		// Title
 		captionHTML += `<h5 class="title">${title || 'Untitled'}</h5>`;
-		
+
 		// Altitude
 		if (exif?.gps?.alt) {
 			const { display } = formatElevation(exif.gps.alt);
 			captionHTML += `<data class="altitude">${display}</data>`;
 		}
-		
+
 		// GPS
 		if (exif?.gps?.lat && exif?.gps?.lon) {
 			const lat = parseFloat(exif.gps.lat).toFixed(5);
@@ -238,17 +222,17 @@ export class PhotoModal {
 				<a href="${url}" target="_blank" rel="noopener noreferrer">${display}</a>
 			</data></span>`;
 		}
-		
+
 		captionHTML += '</div>';
-		
+
 		// EXIF row
 		const exifRow = this.buildExifRow(exif);
 		if (exifRow) {
 			captionHTML += '<hr><span class="exif-row">' + exifRow + '</span>';
 		}
-		
+
 		this.elements.caption.innerHTML = captionHTML;
-		
+
 		// Copyright
 		if (this.elements.copyright) {
 			if (exif?.copyright) {
@@ -263,39 +247,39 @@ export class PhotoModal {
 
 	buildExifRow(exif) {
 		if (!exif) return '';
-		
+
 		const parts = [];
-		
+
 		if (exif.cameraModel) {
 			parts.push(`<span title="Camera Model">${exif.cameraModel}</span>`);
 		}
-		
+
 		if (exif.iso) {
 			parts.push(`<span title="ISO Value">ISO <data value="${exif.iso}">${exif.iso}</data></span>`);
 		}
-		
+
 		if (exif.lens) {
 			parts.push(`<span title="Focal Length"><data value="${exif.lens}">${exif.lens}</data> mm</span>`);
 		}
-		
+
 		if (exif.exposureCompensation) {
 			const ev = parseFloat(exif.exposureCompensation);
 			const evStr = ev === 0 ? '0' : ev.toFixed(2);
 			parts.push(`<span title="Exposure Compensation"><data value="${evStr}">${evStr}</data> ev</span>`);
 		}
-		
+
 		if (exif.aperture) {
 			parts.push(`<span title="Aperture Size"><i>&#402;</i> <data value="${exif.aperture}">${exif.aperture}</data></span>`);
 		}
-		
+
 		if (exif.shutter) {
 			parts.push(`<span title="Shutter Speed"><data value="${exif.shutter}">${exif.shutter}</data>s</span>`);
 		}
-		
+
 		if (exif.format) {
 			parts.push(`<span class="format" title="File Format"><data value="${exif.format}">${exif.format}</data></span>`);
 		}
-		
+
 		return parts.join(' | ');
 	}
 
@@ -315,13 +299,6 @@ export class PhotoModal {
 		return Array.from(document.querySelectorAll('.photo-thumb'));
 	}
 
-	// Methods called by galleries.js
-	setupAspectRatios() {
-		// Placeholder for any aspect ratio setup if needed
-	}
-
 	refreshImageTracking() {
-		// Re-scan for images after gallery changes
-		// Index will be recalculated on next open
 	}
 }
