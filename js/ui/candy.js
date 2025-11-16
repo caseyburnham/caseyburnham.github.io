@@ -81,33 +81,6 @@ class Navigation {
 	}
 }
 
-// Abbreviation toggle
-const abbrMap = {
-	"Arvada Center": "ACAH",
-	"Aurora Fox Arts Center": "AFAC",
-	"Town Hall Arts Center": "THAC",
-	"Sangre de Cristo": "SdC"
-};
-
-function updateAbbr() {
-	const narrow = window.matchMedia("(max-width: 600px)");
-	
-	// Only target the company column in productions table
-	document.querySelectorAll('#productions .prod-company').forEach(cell => {
-		const original = cell.dataset.original || cell.textContent.trim();
-		if (!original) return;
-		
-		cell.dataset.original = original;
-		const abbr = abbrMap[original];
-		
-		if (abbr && narrow.matches) {
-			cell.innerHTML = `<abbr title="${original}">${abbr}</abbr>`;
-		} else {
-			cell.textContent = original;
-		}
-	});
-}
-
 // Initialize everything on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
 	new TooltipManager();
@@ -116,11 +89,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Copyright year
 	const yearEl = document.getElementById('year');
 	if (yearEl) yearEl.textContent = new Date().getFullYear();
-	
-	// Abbreviations (call initially and on resize)
-	const narrow = window.matchMedia("(max-width: 600px)");
-	narrow.addEventListener('change', updateAbbr);
-	updateAbbr();
-});
 
-export { updateAbbr };
+});

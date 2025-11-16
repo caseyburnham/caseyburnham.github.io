@@ -226,6 +226,7 @@
 		<link rel="dns-prefetch" href="https://arvadacenter.org">
 		<link rel="dns-prefetch" href="https://discogs.com">
 		<link rel="dns-prefetch" href="https://14ers.com">
+		<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/dist/style.css">
 	</head>
 	<body>
@@ -255,8 +256,13 @@
 				<h5 id="bio-heading" class="sr-only">About Casey - Audio Engineer in Denver, Colorado</h5>
 				<div class="bio-wrapper">
 					<div>
-						<p>A former Idahoan who traded potato fields for mountain trails, I moved to Colorado in <time datetime="2011">2011</time> and earned a degree in Audio Engineering from <dfn><abbr title="University of Colorado, Denver">UCD</abbr></dfn>. Currently serving as <strong>Audio Director</strong> for the <a href="https://arvadacenter.org/" target="_blank" rel="noopener noreferrer" title="Arvada Center for the Arts and Humanities">Arvada Center</a>, I've been a full-time <strong>live sound</strong> and <strong>theater engineer</strong> for over a decade — wrangling mics, troubleshooting gear that swore it was working yesterday, and convincing everyone it was fine all along. </p>
-						<p>When I'm not behind a console, you can find me above the treeline – scrambling up peaks, taking pictures of plants and weird rocks, beating up my truck on old mining roads, or chasing ghosts in pioneer cemeteries. I always drag my dog along, though, he's not always impressed.</p>
+						<p>
+							I moved to Colorado in <time datetime="2011">2011</time>, traded Idaho's potato fields for mountain passes, and earned a degree in Audio Engineering from <dfn><abbr title="University of Colorado, Denver">UCD</abbr></dfn>. For over a decade, I've worked as a <strong>live sound</strong> and <strong>theater engineer</strong> — currently serving as Audio Director at the <a href="https://arvadacenter.org/" target="_blank" rel="noopener noreferrer" title="Arvada Center for the Arts and Humanities">Arvada Center</a>. I mix musicals, design theatrical sound systems, program show control, and occasionally troubleshoot problems that make you question your career choices.
+						</p>
+
+						<p>
+							Outside of work, I spend my time scrambling up peaks, beating up my truck on old mining roads, and taking photos of Colorado's high country. I always drag my dog along, though, he's usually not impressed.
+						</p>
 					</div>
 					<figure>
 						<img src="/images/posters/jpeg/casey-rocky.jpeg" fetchpriority="high" alt="Casey and Rocky at Silver Dollar Lake" aria-label="Casey and Rocky at Silver Dollar Lake">
@@ -270,7 +276,7 @@
 				<h5 id="details-heading" class="sr-only">Professional Audio Engineering Skills & Experience</h5>
 				<details>
 					<summary id="experience-heading" class="text-center">Skills & Experience</summary>
-					<article style="--animation-order: 0;">
+					<article>
 						<h4>Live Sound Engineering & Theater Audio</h4>
 						<ul>
 							<li><strong><dfn><abbr title="Front of House">FOH</abbr></dfn></strong> and <strong>live stream mixing</strong> for large-scale musicals, concerts, and other events.</li>
@@ -280,7 +286,7 @@
 							<li><strong>Theatrical sound design</strong> for musicals and plays, collaborating with directors and designers to realize creative concepts.</li>
 						</ul>
 					</article>
-					<article style="--animation-order: 0.15s;">
+					<article>
 						<h4>Audio System Design & Integration</h4>
 						<ul>
 							<li>Designed and implemented Dante network architecture, <dfn><abbr title="Radio Frequency">RF</abbr></dfn> coordination, and distributed speaker systems for theatrical effects.</li>
@@ -290,7 +296,7 @@
 							<li>Managed projector installation and focus, including video mapping.</li>
 						</ul>
 					</article>
-					<article style="--animation-order: 0.3s;">
+					<article>
 						<h4>Recording, Audio Editing & Post-Production</h4>
 						<ul>
 							<li>Managed studio and field audio recording, editing, mixing, and mastering projects for digital distribution.</li>
@@ -298,7 +304,7 @@
 							<li>Provided freelance audio consulting for artists, theaters, and local organizations.</li>
 						</ul>
 					</article>
-					<article style="--animation-order: 0.45s;">
+					<article>
 						<h4>Platforms & Certifications</h4>
 						<ul>
 							<li><strong>Certification:</strong> Dante Level 2</li>
@@ -598,7 +604,9 @@
 			</address>
 			<small>Made in Colorado</small>
 		</footer>
-
+		
+		<!-- MapLibre GL JS for vector tiles -->
+		<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 		<script type="module" src="js/js-imports.js" defer></script>
 	</body>
 

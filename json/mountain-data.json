@@ -187,7 +187,7 @@
 		"Elevation": "13,961",
 		"Range": "Mosquito",
 		"Date": "2024-10-14",
-		"Image": "/images/summits/Gemini-Peak.avif",
+		"Image": "/images/summits/gemini-peak.avif",
 		"ranked": true
 	},
 	{
@@ -195,7 +195,7 @@
 		"Elevation": "13,801",
 		"Range": "Sangre de Cristo",
 		"Date": "2024-10-07",
-		"Image": "/images/summits/Rito-Alto-Peak.avif",
+		"Image": "/images/summits/rito-alto-peak.avif",
 		"ranked": true
 	},
 	{
@@ -203,7 +203,7 @@
 		"Elevation": "13,214",
 		"Range": "Sawatch",
 		"Date": "2024-09-30",
-		"Image": "/images/summits/Jones-Mountain.avif",
+		"Image": "/images/summits/jones-mountain.avif",
 		"ranked": true
 	},
 	{
@@ -211,7 +211,7 @@
 		"Elevation": "13,655",
 		"Range": "Sawatch",
 		"Date": "2024-09-24",
-		"Image": "/images/summits/Taylor-Mountain.avif",
+		"Image": "/images/summits/taylor-mountain.avif",
 		"ranked": true
 	},
 	{
@@ -219,7 +219,7 @@
 		"Elevation": "13,272",
 		"Range": "Front",
 		"Date": "2024-09-16",
-		"Image": "/images/summits/James-Peak.avif",
+		"Image": "/images/summits/james-peak.avif",
 		"ranked": true
 	},
 	{
@@ -227,7 +227,7 @@
 		"Elevation": "13,530",
 		"Range": "Sawatch",
 		"Date": "2024-09-09",
-		"Image": "/images/summits/Boulder-Mountain.avif",
+		"Image": "/images/summits/boulder-mountain.avif",
 		"ranked": true
 	},
 	{
@@ -235,7 +235,7 @@
 		"Elevation": "13,672",
 		"Range": "Sawatch",
 		"Date": "2024-09-09",
-		"Image": "/images/summits/Mount-Mamma.avif",
+		"Image": "/images/summits/mount-mamma.avif",
 		"ranked": true
 	},
 	{
@@ -243,7 +243,7 @@
 		"Elevation": "13,560",
 		"Range": "Mosquito",
 		"Date": "2024-09-02",
-		"Image": "/images/summits/Kuss-Peak.avif",
+		"Image": "/images/summits/kuss-peak.avif",
 		"ranked": true
 	},
 	{
@@ -251,7 +251,7 @@
 		"Elevation": "13,591",
 		"Range": "Mosquito",
 		"Date": "2024-09-02",
-		"Image": "/images/summits/Mount-Evans.avif",
+		"Image": "/images/summits/mount-evans.avif",
 		"ranked": false
 	},
 	{
@@ -259,7 +259,7 @@
 		"Elevation": "13,706",
 		"Range": "Mosquito",
 		"Date": "2024-09-02",
-		"Image": "/images/summits/Treasurevault-Mountain.avif",
+		"Image": "/images/summits/treasurevault-mountain.avif",
 		"ranked": true
 	},
 	{
@@ -267,7 +267,7 @@
 		"Elevation": "13,787",
 		"Range": "Mosquito",
 		"Date": "2024-09-02",
-		"Image": "/images/summits/Mosquito-Peak.avif",
+		"Image": "/images/summits/mosquito-peak.avif",
 		"ranked": true
 	},
 	{
@@ -275,7 +275,7 @@
 		"Elevation": "13,080",
 		"Range": "Front",
 		"Date": "2024-08-26",
-		"Image": "/images/summits/Whale-Peak.avif",
+		"Image": "/images/summits/whale-peak.avif",
 		"ranked": true
 	},
 	{
@@ -283,7 +283,7 @@
 		"Elevation": "13,743",
 		"Range": "Front",
 		"Date": "2024-08-15",
-		"Image": "/images/summits/Argentine-Peak.avif",
+		"Image": "/images/summits/argentine-peak.avif",
 		"ranked": true
 	},
 	{
