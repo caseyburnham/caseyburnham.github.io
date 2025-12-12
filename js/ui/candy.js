@@ -23,7 +23,7 @@ class TooltipManager {
 		this.hide();
 		
 		const tooltip = document.createElement('span');
-		tooltip.className = 'abbr-tooltip';
+		tooltip.className = 'abbr-tooltip caption';
 		tooltip.textContent = content;
 		document.body.appendChild(tooltip);
 

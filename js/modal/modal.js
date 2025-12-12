@@ -32,7 +32,7 @@ export class PhotoModal {
 			const photoThumb = e.target.closest('.photo-thumb');
 			if (photoThumb) {
 				e.preventDefault();
-				e.stopPropagation(); // Add this line
+				e.stopPropagation();
 				const img = photoThumb.querySelector('img');
 				if (img) {
 					this.openModal(img.src, img.alt, img.dataset.title, photoThumb, photoThumb);
@@ -44,7 +44,7 @@ export class PhotoModal {
 			const cameraLink = e.target.closest('.camera-link');
 			if (cameraLink) {
 				e.preventDefault();
-				e.stopPropagation(); // Add this line
+				e.stopPropagation();
 				const imageUrl = cameraLink.dataset.image;
 				const peakName = cameraLink.dataset.title;
 				if (imageUrl) {
@@ -125,7 +125,6 @@ export class PhotoModal {
 		};
 
 		img.onerror = () => {
-			if (signal.aborted) return;
 			console.error('Failed to load image:', imageUrl);
 		};
 
