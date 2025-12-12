@@ -9,7 +9,7 @@ class Galleries {
 		GRID_SELECTOR: '.photo-grid',
 		BUTTON_SELECTOR: '.gallery-btn',
 		CONTAINER_SELECTOR: '[aria-labelledby="gallery-heading"]',
-		TRANSITION_DURATION: 200,
+		TRANSITION_DURATION: 400,
 		
 		// Simple row limits
 		LANDSCAPE_MAX: 5,
@@ -56,13 +56,19 @@ class Galleries {
 	}
 
 	#setupResponsiveHandler() {
+		let lastWidth = window.innerWidth;
+		
 		this.#resizeHandler = debounce(() => {
-			if (this.#isInitialized && this.#currentGallery) {
+			const currentWidth = window.innerWidth;
+			
+			// Only re-render if width actually changed (ignore mobile address bar)
+			if (currentWidth !== lastWidth && this.#isInitialized && this.#currentGallery) {
+				lastWidth = currentWidth;
 				const gallery = this.#galleries.get(this.#currentGallery);
 				if (gallery) this.#renderGallery(gallery, false);
 			}
 		}, 250);
-
+	
 		window.addEventListener('resize', this.#resizeHandler);
 	}
 
@@ -345,7 +351,7 @@ class Galleries {
 
 	#createImageGrid(images, rowClass) {
 		const row = document.createElement('div');
-		row.className = `photo-grid ${rowClass}`;
+		row.className = `photo-grid grid ${rowClass}`;
 		row.setAttribute('role', 'group');
 
 		const fragment = document.createDocumentFragment();
@@ -376,20 +382,27 @@ class Galleries {
 		const existingGrids = Array.from(
 			this.#galleryContainer.querySelectorAll(Galleries.CONFIG.GRID_SELECTOR)
 		);
-
+	
+		// Lock the container height before removing content
+		const currentHeight = this.#galleryContainer.offsetHeight;
+		this.#galleryContainer.style.minHeight = `${currentHeight}px`;
+	
 		// Fade out existing
 		await Promise.all(existingGrids.map(grid => this.#fadeOut(grid)));
 		existingGrids.forEach(grid => grid.remove());
-
+	
 		// Fade in new
 		const newGrids = Array.from(newContentFragment.children);
 		newGrids.forEach(grid => { grid.style.opacity = '0'; });
 		this.#galleryContainer.appendChild(newContentFragment);
-
+	
 		await Promise.all(
 			newGrids.map((grid, index) => this.#fadeIn(grid, index * 100))
 		);
-
+	
+		// Release the height lock
+		this.#galleryContainer.style.minHeight = '';
+	
 		this.#photoModal?.refreshImageTracking?.();
 	}
 
@@ -398,7 +411,7 @@ class Galleries {
 			element.style.transition = `opacity ${Galleries.CONFIG.TRANSITION_DURATION}ms ease`;
 			element.style.opacity = '0';
 			
-			const timeout = setTimeout(resolve, Galleries.CONFIG.TRANSITION_DURATION + 50);
+			const timeout = setTimeout(resolve, Galleries.CONFIG.TRANSITION_DURATION);
 			element.addEventListener('transitionend', () => {
 				clearTimeout(timeout);
 				resolve();
@@ -412,7 +425,7 @@ class Galleries {
 				element.style.transition = `opacity ${Galleries.CONFIG.TRANSITION_DURATION}ms ease`;
 				element.style.opacity = '1';
 				
-				const timeout = setTimeout(resolve, Galleries.CONFIG.TRANSITION_DURATION + 50);
+				const timeout = setTimeout(resolve, Galleries.CONFIG.TRANSITION_DURATION + 100);
 				element.addEventListener('transitionend', () => {
 					clearTimeout(timeout);
 					resolve();

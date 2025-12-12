@@ -16,10 +16,35 @@ function getRecordCount() {
 	return 5;
 }
 
-// Fetch records from API - now uses dataCache
-async function fetchRecords(endpoint) {
+// Utility to pause execution for a set time (in milliseconds)
+const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// Fetch records with specific handling for Rate Limiting (429)
+async function fetchRecords(endpoint, retries = 3, delay = 1000) {
 	const url = `${endpoint}?count=5`;
-	return dataCache.fetch(url);
+	
+	try {
+		// Attempt the fetch via your dataCache
+		return await dataCache.fetch(url);
+		
+	} catch (error) {
+		// Check if we have retries left and if the error looks like a rate limit
+		// (Assuming your dataCache/fetch error object includes a 'status' or 'code')
+		const isRateLimit = error.status === 429 || error.code === 429;
+		
+		if (retries > 0 && isRateLimit) {
+			console.warn(`Rate limit hit for ${endpoint}. Retrying in ${delay}ms...`);
+			
+			// Wait for the delay duration
+			await wait(delay);
+			
+			// Recursive call: Decrement retries, double the delay (Exponential Backoff)
+			return fetchRecords(endpoint, retries - 1, delay * 2);
+		}
+		
+		// If it's not a 429 or we ran out of retries, throw the error normally
+		throw error;
+	}
 }
 
 // Create a single record element from template
@@ -101,6 +126,7 @@ function initAlbumHover() {
 			if (parent) {
 				parent.classList.add('is-active');
 				parent.classList.remove('is-leaving');
+				// Always ensure the active card is higher than the last one visited
 				parent.style.zIndex = zIndex++;
 			}
 		});
@@ -113,16 +139,18 @@ function initAlbumHover() {
 				parent.classList.add('is-leaving');
 			}
 			
+			// Use { once: true } to prevent event listener buildup
 			album.addEventListener('transitionend', function cleanup(e) {
 				if (e.propertyName === 'transform') {
 					album.classList.remove('is-leaving');
 					if (parent) {
 						parent.classList.remove('is-leaving');
-						parent.style.zIndex = '';
+						// DELETED: parent.style.zIndex = ''; 
+						// keeping the z-index ensures it stays above 
+						// neighbors until a new one is hovered.
 					}
-					album.removeEventListener('transitionend', cleanup);
 				}
-			});
+			}, { once: true });
 		});
 	});
 }
