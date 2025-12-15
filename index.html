@@ -85,7 +85,8 @@
 			  "streetAddress": "6901 Wadsworth Blvd",
 			  "addressLocality": "Arvada",
 			  "addressRegion": "CO",
-			  "addressCountry": "US"
+			  "addressCountry": "US",
+			  "postalCode": "80010"
 			}
 		  },
 		  "hasOccupation": {
@@ -113,15 +114,13 @@
 		<link rel="stylesheet" href="css/dist/style.css">
 	</head>
 	<body>
-
-		<main id="main-content">
-
-			<header>
+		<main id="main-content" class="fade-in">
+			<header class="fade-in">
 				<h1>Casey Burnham</h1>
 				<p>Sound Engineer & Elevation Enthusiast</p>
 			</header>
 
-			<div class="nav-wrapper">
+			<div class="nav-wrapper fade-in">
 				<button aria-label="Toggle navigation menu">🍔</button>
 				<nav>
 					<a href="#main-content">#about</a>
@@ -135,7 +134,7 @@
 				</nav>
 			</div>
 
-			<section id="bio" class="bio-wrapper grid" aria-labelledby="bio-heading">
+			<section id="bio" class="bio-wrapper grid fade-in" aria-labelledby="bio-heading">
 				<h5 id="bio-heading" class="sr-only">About Casey - Audio Engineer in Denver, Colorado</h5>
 				<div>
 					<p>
@@ -153,7 +152,7 @@
 				<small>(PS, I also <a href="#now-playing">collect</a> and <a href="https://www.discogs.com/seller/crashandburnham/profile" target="_blank" rel="noopener noreferrer">sell</a> vinyl records)</small>
 			</section>
 
-			<section id="skills" class="grid" aria-labelledby="experience-heading">
+			<section id="skills" class="grid fade-in" aria-labelledby="experience-heading">
 				<h5 id="details-heading" class="sr-only">Professional Audio Engineering Skills & Experience</h5>
 				<details>
 					<summary id="experience-heading" class="text-center">Skills & Experience</summary>
@@ -198,7 +197,7 @@
 				</details>
 			</section>
 
-			<section id="productions" aria-labelledby="productions-heading">
+			<section id="productions" class="fade-in" aria-labelledby="productions-heading">
 				<h5 id="productions-heading" class="sr-only">Theater Productions & Sound Design Portfolio</h5>
 				<table id="productions-table" aria-label="Theatrical Productions and Audio Engineering Credits">
 					<thead>
@@ -236,9 +235,9 @@
 				</table>
 			</section>
 
-			<hr>
+			<hr class="fade-in">
 
-			<section id="galleries" class="grid" aria-labelledby="gallery-heading">
+			<section id="galleries" class="grid fade-in" aria-labelledby="gallery-heading">
 				<h5 id="gallery-heading" class="sr-only">Photography Gallery</h5>
 				<template id="gallery-button-template">
 					<button type="button" class="gallery-btn" role="tab" aria-selected="false" data-gallery=""></button>
@@ -268,9 +267,9 @@
 				</template>
 			</section>
 
-			<hr>
+			<hr class="fade-in">
 
-			<section id="tables" class="data-tables" aria-labelledby="data-heading">
+			<section id="tables" class="data-tables fade-in" aria-labelledby="data-heading">
 				<h5 id="data-heading" class="sr-only">Personal Statistics - Mountains & Concerts</h5>
 				<table id="mountains" class="flex-item js-abbr" aria-labelledby="mountains-caption">
 					<caption id="mountains-caption">
@@ -282,8 +281,8 @@
 					<thead>
 						<tr>
 							<th scope="col">⛰️ Peak</th>
-							<th scope="col">Elevation</th>
-							<th scope="col">Range</th>
+							<th scope="col" class="text-center">Elevation</th>
+							<th scope="col" class="range">Range</th>
 							<th scope="col" class="text-center">Summit</th>
 							<th scope="col" class="text-center"><abbr title="Ranking requires 300' of Prominence">#</abbr></th>
 							<th scope="col" class="text-center">📸</th>
@@ -401,16 +400,16 @@
 				</table>
 			</section>
 
-			<br>
+			<br class="fade-in">
 
-			<section aria-labelledby="climbing-map">
+			<section class="fade-in" aria-labelledby="climbing-map">
 				<h5 id="climbing-map" class="sr-only">Climbing Map</h5>
 				<div id="map"></div>
 			</section>
 
-			<hr>
+			<hr class="fade-in">
 
-			<section id="now-playing" aria-labelledby="now-playing-heading">
+			<section id="now-playing" class="fade-in" aria-labelledby="now-playing-heading">
 				<h5 id="now-playing-heading" class="sr-only">Now Playing</h5>
 				<h3>
 					<a href="https://www.discogs.com/user/crashandburnham/collection?folder=2166321" target="_blank" rel="noopener noreferrer">Personal Collection</a>
@@ -467,7 +466,7 @@
 			</section>
 		</main>
 
-		<footer class="text-center">
+		<footer class="text-center fade-in">
 			<span class="flags">
 				<span>🏳️‍🌈</span>
 				<span>🏴‍☠️</span>
