@@ -1,4 +1,23 @@
-// js/candy.js - Page initialization stuff
+const sections = document.querySelectorAll('.fade-in');
+
+const observerOptions = {
+  threshold: 0,
+  rootMargin: '0px 0px -10px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+	if (entry.isIntersecting) {
+	  setTimeout(() => {
+		entry.target.classList.add('is-visible');
+	  }, index * 150);
+	  observer.unobserve(entry.target);
+	}
+  });
+}, observerOptions);
+
+sections.forEach(section => observer.observe(section));
+
 class TooltipManager {
 	constructor() {
 		this.activeTooltip = null;
@@ -81,12 +100,10 @@ class Navigation {
 	}
 }
 
-// Initialize everything on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
 	new TooltipManager();
 	new Navigation();
 	
-	// Copyright year
 	const yearEl = document.getElementById('year');
 	if (yearEl) yearEl.textContent = new Date().getFullYear();
 
