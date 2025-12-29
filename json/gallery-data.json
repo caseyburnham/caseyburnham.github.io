@@ -564,6 +564,16 @@
                     "avif": "/images/galleries/high-country/avif/view-from-huron-peak.avif"
                 },
                 "thumbnail": "/images/galleries/high-country/thumbnails/view-from-huron-peak.avif"
+            },
+            {
+                "id": "marmot",
+                "alt": "Featured in Colorado Outdoors 2025 Photography Issue",
+                "title": "Marmot",
+                "layout": "landscape",
+                "sources": {
+                    "jpeg": "/images/galleries/high-country/jpeg/marmot.jpeg"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/marmot.jpeg"
             }
         ]
     },
