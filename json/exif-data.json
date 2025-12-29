@@ -4930,6 +4930,39 @@
     "title": "Kendall Peak from Silver Lake",
     "caption": "Kendall Peak from Silver Lake"
   },
+  "galleries/high-country/jpeg/marmot.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2025,
+      "month": 7,
+      "day": 4,
+      "hour": 7,
+      "minute": 2,
+      "second": 4,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2025:07:04 07:02:04",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 160,
+    "lens": 77,
+    "aperture": 2.8,
+    "shutter": "1/99",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "JPEG",
+    "gps": {
+      "lat": 38.6310388888889,
+      "lon": -106.359877777778,
+      "latDMS": "38\u00b037'51.74\" N",
+      "lonDMS": "106\u00b021'35.56\" W",
+      "alt": 3434.525974,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": "Featured in Colorado Outdoors 2025 Photography Issue"
+  },
   "galleries/off-road/avif/glacier-mountain.avif": {
     "date": {
       "_ctor": "ExifDateTime",

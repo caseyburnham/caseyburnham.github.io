@@ -10,8 +10,7 @@ class Galleries {
 		BUTTON_SELECTOR: '.gallery-btn',
 		CONTAINER_SELECTOR: '[aria-labelledby="gallery-heading"]',
 		TRANSITION_DURATION: 400,
-		
-		// Simple row limits
+
 		LANDSCAPE_MAX: 5,
 		PORTRAIT_MAX: 6,
 		MIN_IMAGES: 3
@@ -43,7 +42,7 @@ class Galleries {
 			const controls = this.#galleryContainer?.querySelector('.gallery-controls');
 			controls?.removeEventListener('click', this.#clickHandler);
 		}
-		
+
 		this.#galleries.clear();
 		this.#currentGallery = null;
 		this.#isInitialized = false;
@@ -57,11 +56,10 @@ class Galleries {
 
 	#setupResponsiveHandler() {
 		let lastWidth = window.innerWidth;
-		
+
 		this.#resizeHandler = debounce(() => {
 			const currentWidth = window.innerWidth;
-			
-			// Only re-render if width actually changed (ignore mobile address bar)
+
 			if (currentWidth !== lastWidth && this.#isInitialized && this.#currentGallery) {
 				lastWidth = currentWidth;
 				const gallery = this.#galleries.get(this.#currentGallery);
@@ -378,44 +376,90 @@ class Galleries {
 		return row;
 	}
 
-	async #transitionToNewGallery(newContentFragment) {
+async #transitionToNewGallery(newContentFragment) {
 		const existingGrids = Array.from(
 			this.#galleryContainer.querySelectorAll(Galleries.CONFIG.GRID_SELECTOR)
 		);
 	
-		// Lock the container height before removing content
-		const currentHeight = this.#galleryContainer.offsetHeight;
-		this.#galleryContainer.style.minHeight = `${currentHeight}px`;
+		// Measure the new content's natural height
+		const tempContainer = document.createElement('div');
+		tempContainer.style.cssText = 'position: absolute; visibility: hidden; pointer-events: none;';
+		tempContainer.style.width = `${this.#galleryContainer.offsetWidth}px`;
+		tempContainer.appendChild(newContentFragment.cloneNode(true));
+		this.#galleryContainer.appendChild(tempContainer);
+		const newHeight = tempContainer.offsetHeight;
+		tempContainer.remove();
 	
-		// Fade out existing
+		// Lock to the NEW gallery's height to prevent gaps
+		this.#galleryContainer.style.minHeight = `${newHeight}px`;
+	
+		// Fade out existing grids simultaneously (not staggered)
 		await Promise.all(existingGrids.map(grid => this.#fadeOut(grid)));
 		existingGrids.forEach(grid => grid.remove());
 	
-		// Fade in new
+		// Add new content (hidden)
 		const newGrids = Array.from(newContentFragment.children);
-		newGrids.forEach(grid => { grid.style.opacity = '0'; });
 		this.#galleryContainer.appendChild(newContentFragment);
 	
-		await Promise.all(
-			newGrids.map((grid, index) => this.#fadeIn(grid, index * 100))
+		// Get all images for sequential fade-in
+		const allImages = Array.from(
+			this.#galleryContainer.querySelectorAll('.photo-thumb')
 		);
+	
+		// Hide all images initially
+		allImages.forEach(thumb => {
+			thumb.style.opacity = '0';
+			thumb.style.transform = 'translateY(10px)';
+			thumb.style.transition = 'opacity 300ms ease, transform 300ms ease';
+		});
+	
+		// Force reflow to ensure styles are applied
+		this.#galleryContainer.offsetHeight;
+	
+		// Show grids immediately (they're just containers)
+		newGrids.forEach(grid => {
+			grid.style.opacity = '1';
+		});
+	
+		// Fade in images sequentially with stagger
+		const staggerDelay = 40; // ms between each image
+		const imagePromises = allImages.map((thumb, index) => {
+			return new Promise(resolve => {
+				setTimeout(() => {
+					thumb.style.opacity = '1';
+					thumb.style.transform = 'translateY(0)';
+					// Resolve after transition completes
+					setTimeout(resolve, 300);
+				}, index * staggerDelay);
+			});
+		});
+	
+		// Wait for all images to fade in
+		await Promise.all(imagePromises);
+	
+		// Extra frame wait to ensure paint is complete
+		await new Promise(resolve => requestAnimationFrame(() => {
+			requestAnimationFrame(resolve);
+		}));
 	
 		// Release the height lock
 		this.#galleryContainer.style.minHeight = '';
 	
+		// Clean up inline styles
+		allImages.forEach(thumb => {
+			thumb.style.transition = '';
+			thumb.style.transform = '';
+		});
+	
 		this.#photoModal?.refreshImageTracking?.();
 	}
-
+	
 	#fadeOut(element) {
 		return new Promise(resolve => {
 			element.style.transition = `opacity ${Galleries.CONFIG.TRANSITION_DURATION}ms ease`;
 			element.style.opacity = '0';
 			
-			const timeout = setTimeout(resolve, Galleries.CONFIG.TRANSITION_DURATION);
-			element.addEventListener('transitionend', () => {
-				clearTimeout(timeout);
-				resolve();
-			}, { once: true });
+			setTimeout(resolve, Galleries.CONFIG.TRANSITION_DURATION);
 		});
 	}
 
