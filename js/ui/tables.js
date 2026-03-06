@@ -199,6 +199,21 @@ function renderMountains(mountains) {
 
 	const finalizeSameDayGroup = () => {
 		if (sameDayGroup.length > 1) {
+			// Set rowspan on the first row's date cell
+			const firstDateCell = sameDayGroup[0].querySelector('.mtn-date');
+			if (firstDateCell) {
+				firstDateCell.rowSpan = sameDayGroup.length;
+			}
+			
+			// Remove date cells from subsequent rows
+			for (let i = 1; i < sameDayGroup.length; i++) {
+				const dateCell = sameDayGroup[i].querySelector('.mtn-date');
+				if (dateCell) {
+					dateCell.remove();
+				}
+			}
+			
+			// Add sequence classes for styling
 			sameDayGroup[0].classList.add('sequence-first');
 			sameDayGroup[sameDayGroup.length - 1].classList.add('sequence-last');
 			sameDayGroup.forEach(row => row.classList.add('sequence-group'));
@@ -244,6 +259,9 @@ function renderMountains(mountains) {
 	updateElement('#fourteeners', stats.fourteeners);
 	updateProgressBar('thirteeners', stats.thirteeners);
 	updateProgressBar('fourteeners', stats.fourteeners);
+	
+	// Style sequence groups after rendering
+	styleSequenceGroups();
 }
 
 function createMountainRow(mountain, template) {
@@ -413,6 +431,34 @@ function highlightVenues() {
 function updateElement(selector, content) {
 	const element = document.querySelector(selector);
 	if (element) element.textContent = content;
+}
+
+function styleSequenceGroups() {
+	const colors = ['--sequence-0', '--sequence-1', '--sequence-2', '--sequence-3'];
+	
+	document.querySelectorAll('.sequence-first').forEach((first) => {
+		let climbIndex = 0;
+		
+		// Style the first row
+		const firstTh = first.querySelector('th');
+		if (firstTh) {
+			const colorVar = colors[climbIndex % 4];
+			firstTh.style.backgroundColor = `oklch(from var(${colorVar}) l c h)`;
+			climbIndex++;
+		}
+		
+		// Style subsequent rows in the group
+		let current = first.nextElementSibling;
+		while (current && current.classList.contains('sequence-group') && !current.classList.contains('sequence-first')) {
+			const th = current.querySelector('th');
+			if (th) {
+				const colorVar = colors[climbIndex % 4];
+				th.style.backgroundColor = `oklch(from var(${colorVar}) l c h)`;
+				climbIndex++;
+			}
+			current = current.nextElementSibling;
+		}
+	});
 }
 
 // ============================================================================

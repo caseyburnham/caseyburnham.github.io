@@ -5,14 +5,6 @@ import '/js/ui/tables.js';
 
 // Lazy-loaded features
 const lazyFeatures = [
-	{ 
-		selector: '#climbing-map', 
-		scripts: ['/js/map/map.js'] 
-	},
-	{ 
-		selector: '#now-playing', 
-		scripts: ['/js/ui/discogs-display.js'] 
-	},
 	{
 		selector: '#galleries',
 		scripts: ['/js/modal/modal.js', '/js/ui/galleries.js'],
@@ -22,6 +14,14 @@ const lazyFeatures = [
 			await photoModal.initialize();
 			window.photoModal = photoModal;
 		}
+	},
+	{ 
+		selector: '#climbing-map', 
+		scripts: ['/js/map/map.js'] 
+	},
+	{ 
+		selector: '#now-playing', 
+		scripts: ['/js/ui/discogs-display.js'] 
 	}
 ];
 

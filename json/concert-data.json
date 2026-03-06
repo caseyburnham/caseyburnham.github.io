@@ -1,15 +1,15 @@
 [{
-		"Headliner": "3OH!3",
+		"Headliner": "Chet Faker",
 		"Support": "",
-		"Venue": "Boulder Theater",
+		"Venue": "Summit Music Hall",
 		"Year": "2026",
-		"😃": "‼️",
+		"😃": "🍊",
 		"📷": "—",
 		"PhotoLink": null
 	},
 	{
 		"Headliner": "Charley Crockett",
-		"Support": "",
+		"Support": "Poudre Valley Playboys",
 		"Venue": "Mission Ballroom",
 		"Year": "2026",
 		"😃": "🤠",
@@ -275,6 +275,7 @@
 	},
 	{
 		"Headliner": "Tame Impala",
+		"Support": "Sudan Archives",
 		"Venue": "Ball Arena",
 		"Year": "2021",
 		"😃": "🪩",
@@ -674,7 +675,7 @@
 	{
 		"Headliner": "Phantogram",
 		"Venue": "Ogden Theater",
-		"Year": "9/14",
+		"Year": "2014",
 		"😃": "👍",
 		"📷": "📸",
 		"PhotoLink": null
@@ -760,7 +761,7 @@
 	{
 		"Headliner": "Phantogram",
 		"Venue": "Ogden Theater",
-		"Year": "4/14",
+		"Year": "2014",
 		"😃": "👍",
 		"📷": "—",
 		"PhotoLink": null
