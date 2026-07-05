@@ -8,6 +8,11 @@ const MEDIA_IMAGES = {
 	'Cassette': 'cassette-tape.png'
 };
 
+const transformItem = (item) => {
+  console.log('raw item keys:', JSON.stringify(Object.keys(item.release)));  // temp
+  return 5
+}
+
 // How many records to show at different screen sizes
 function getRecordCount() {
 	const width = window.innerWidth;
@@ -18,6 +23,8 @@ function getRecordCount() {
 
 // Utility to pause execution for a set time (in milliseconds)
 const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+
 
 // Fetch records with specific handling for Rate Limiting (429)
 async function fetchRecords(endpoint, retries = 3, delay = 1000) {

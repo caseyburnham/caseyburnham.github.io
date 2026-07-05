@@ -1,0 +1,22 @@
+@layer base {
+	html {
+		background-color: var(--color-bg-main);
+		color: var(--color-text-primary);
+		font-family: var(--font-family-mono);
+		font-size: var(--text-sm);
+		line-height: var(--line-height-base);
+		padding-inline: var(--fluid-padding-inline);
+		padding-block: var(--space-xl) var(--space-lg);
+		
+		scrollbar-gutter: stable;
+		scroll-behavior: smooth;
+		text-rendering: optimizelegibility;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	@counter-style star {
+		suffix: " ";
+		symbols: "\2726";
+		system: cyclic;
+	}
+}

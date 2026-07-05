@@ -1,0 +1,4 @@
+[[headers]]
+  for = "/json/*.json"
+  [headers.values]
+	Cache-Control = "no-cache"

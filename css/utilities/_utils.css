@@ -8,15 +8,6 @@
 			inline-size: 100%;
 		}
 	}
-	
-	.flex {
-		display: flex;
-		flex-flow: column;
-	}
-
-	.flex-item {
-		flex: 1;
-	}
 
 	.grid {
 		display: grid;
@@ -44,38 +35,38 @@
 	}
 
 	.venue--red-rocks {
-		color: #ff4500;
+		color: oklch(66.02% 0.2293 35.4);
 	}
 
 	.venue--bluebird {
-		color: #2b529c;
+		color: oklch(45.14% 0.1285 261.76);
 	}
 
 	.venue--ogden {
-		color: #ee2738;
+		color: oklch(61.2% 0.2286 23.96);
 	}
 
 	.venue--belly-up {
-		color: #1174b9;
+		color: oklch(54.27% 0.1356 246.65);
 	}
 
 	.venue--golden-tri {
-		color: gold;
+		color: oklch(88.48% 0.1816 94.89);
 	}
 
 	.venue--summit {
-		color: #7130df;
+		color: oklch(50.76% 0.2409 292.31);
 	}
 
 	.venue--fillmore {
-		color: #ecd24c;
+		color: oklch(86.2% 0.1514 98.05);
 	}
 
 	.venue--ball-arena {
-		color: #4ca9c8;
+		color: oklch(69.13% 0.0983 222.89);
 	}
 
 	.venue--gothic {
-		color: #dc5233;
+		color: oklch(61.89% 0.1789 34.15);
 	}
 }

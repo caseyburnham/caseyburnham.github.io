@@ -42,7 +42,7 @@
 }
 
 .maplibregl-popup-content {
-	padding: var(--size-2);
+	padding: 0.5rem;
 	
 	backdrop-filter: blur(4px) saturate(150%);
 	background: var(--color-bg-alpha);

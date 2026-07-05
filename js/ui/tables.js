@@ -20,6 +20,11 @@ const ARTIST_EXCLUSIONS = new Set(['et al.', 'decadence']);
 
 const ELEVATION = { MIN: 13000, MAX: 14440 };
 
+const RANGES_ORDERED = [
+	'Front', 'Tenmile', 'Mosquito', 'Gore', 'Elks',
+	'Sawatch', 'Sangre de Cristo', 'San Juan'
+];
+
 // ============================================================================
 // Data Loading & Processing
 // ============================================================================
@@ -79,6 +84,43 @@ function processMountains(mountains, exifData) {
 			};
 		})
 		.sort((a, b) => b.displayDate.localeCompare(a.displayDate));
+}
+
+function renderRangeSummary(mountains) {
+	const cell = document.querySelector('#range-summary-row td');
+	if (!cell) return;
+
+	const seenPeaks = new Set();
+	const rangeCounts = new Map(RANGES_ORDERED.map(r => [r, 0]));
+
+	mountains.forEach(m => {
+		if (!m?.Peak || !m?.Range || seenPeaks.has(m.Peak)) return;
+		seenPeaks.add(m.Peak);
+		if (rangeCounts.has(m.Range)) {
+			rangeCounts.set(m.Range, rangeCounts.get(m.Range) + 1);
+		}
+	});
+
+	const sorted = Array.from(rangeCounts.entries())
+		.sort((a, b) => b[1] - a[1]);
+
+	const fragment = document.createDocumentFragment();
+
+	sorted.forEach(([range, count], index) => {
+		const span = document.createElement('span');
+		span.classList.add('nowrap');
+		if (count === 0) span.classList.add('range-tally--zero');
+
+		span.innerHTML = `${range} <small>${count}</small>`;
+
+		fragment.appendChild(span);
+
+		if (index < sorted.length - 1) {
+			fragment.appendChild(document.createTextNode(', '));
+		}
+	});
+
+	cell.replaceChildren(fragment);
 }
 
 function calculateMountainStats(mountains) {
@@ -259,6 +301,7 @@ function renderMountains(mountains) {
 	updateElement('#fourteeners', stats.fourteeners);
 	updateProgressBar('thirteeners', stats.thirteeners);
 	updateProgressBar('fourteeners', stats.fourteeners);
+	renderRangeSummary(mountains);
 	
 	// Style sequence groups after rendering
 	styleSequenceGroups();
@@ -335,6 +378,7 @@ function updateProgressBar(peakType, current) {
 	progressBars.forEach(prog => {
 		const total = parseInt(prog.dataset.total, 10) || 1;
 		prog.value = Math.min(current, prog.max);
+		prog.title = `${current}/${total} ${peakType}`; 
 		const percent = Math.min((current / total) * 100, 100);
 		prog.style.setProperty('--progress', `${percent}%`);
 	});
@@ -407,7 +451,7 @@ function updateTopList(selector, countMap, limit) {
 		const venue = VENUES_TO_HIGHLIGHT.find(v => v.name.toLowerCase() === name.toLowerCase());
 		const className = venue ? venue.className : '';
 		
-		const span = `<span class="nowrap"><span class="${className}">${name}</span> <small>x${count}</small></span>`;
+		const span = `<span class="nowrap"><span class="${className}">${name}</span> <small>${count}</small></span>`;
 		return index < sorted.length - 1 ? span + ', <wbr>' : span;
 	}).join('');
 

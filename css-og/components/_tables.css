@@ -1,0 +1,189 @@
+caption {
+	caption-side: bottom;
+	padding: var(--space-sm) 0;
+	text-align: right;
+	z-index: 1000;
+}
+
+table {
+	border-collapse: collapse;
+	font-size: var(--text-table);
+	max-inline-size: 100%;
+}
+
+th {
+	background-color: var(--color-primary-alpha);
+	font-weight: var(--font-weight-heavy);
+	max-inline-size: fit-content;
+	text-align: left;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+:is(th, td) {
+	border: 1px solid var(--color-border);
+	padding-block: var(--space-sm);
+	padding-inline: var(--fluid-padding-table);
+}
+
+tfoot {
+	text-wrap: wrap;
+}
+
+.data-tables {
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: var(--grid-gap-sm);
+}
+
+@container main (width < 850px) {
+	.data-tables {
+	  flex-direction: column;
+	}
+	
+	th {
+	  max-inline-size: 40px;
+	}
+	
+	th.range,
+	td.mtn-range {
+		text-align: center;
+	}
+  }
+
+.year-summary-row td {
+	background: var(--color-accent-alpha);
+	vertical-align: middle;
+}
+
+.sequence-group {
+	border-inline: 2px solid var(--color-accent-0);
+}
+
+.sequence-first {
+	border-block-start: 2px solid var(--color-accent-0);
+}
+
+.sequence-last {
+	border-block-end: 2px solid var(--color-accent-0);
+}
+
+.mtn-elevation data {
+	@property --elevation-fraction {
+	  syntax: '<number>';
+	  inherits: false;
+	  initial-value: 0;
+	}
+	
+	@property --elevation-percent {
+	  syntax: '<percentage>';
+	  inherits: false;
+	  initial-value: 0%;
+	}
+	
+	--glow-color: color-mix(in oklch,
+			var(--heatmap-glow-min-color),
+			var(--heatmap-glow-max-color) var(--elevation-percent));
+	--glow-size: calc(0px + var(--space-sm) * var(--elevation-fraction));
+
+	color: color-mix(in oklch,
+			var(--heatmap-min-color),
+			var(--heatmap-max-color) var(--elevation-percent));
+	font-family: var(--font-family-mono);
+	font-weight: calc(100 + 600 * var(--elevation-fraction));
+	text-shadow:
+		var(--shadow-text-outline),
+		0 0 var(--glow-size) var(--glow-color);
+}
+
+:is(.ranked, .prod-role) {
+	color: var(--color-accent-0);
+	font-size: larger;
+	margin-inline: clamp(var(--space-xs), 1vw, var(--space-md));
+	text-shadow: var(--shadow-glow);
+}
+
+.unranked {
+	color: var(--color-text-muted);
+}
+
+.camera-link {
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: larger;
+	padding: var(--space-xs);
+	position: relative;
+
+	&:focus {
+		outline: none;
+	}
+
+	&::before {
+		content: "📷";
+	}
+
+	&::after {
+		content: "📸";
+		inset-inline-start: var(--space-xs);
+		opacity: 0;
+		pointer-events: none;
+		position: absolute;
+		top: var(--space-xs);
+		transition: opacity var(--transition-fast-ei);
+	}
+
+	&:hover::after {
+		opacity: 1;
+	}
+}
+
+.bar {
+	padding-bottom: var(--space-md);
+	padding-inline: var(--space-md);
+}
+
+progress {
+	appearance: none;
+	-webkit-appearance: none;
+	border-radius: var(--border-radius-sm);
+	height: var(--space-xs);
+	inline-size: 100%;
+
+	&::-webkit-progress-inner-element {
+		border-radius: var(--border-radius-sm);
+		z-index: 1;
+	}
+
+	&::-webkit-progress-bar {
+		background: var(--color-border);
+		border-radius: var(--border-radius-sm);
+		z-index: 2;
+	}
+
+	&::-webkit-progress-value {
+		background: var(--color-accent-0);
+		border-radius: var(--border-radius-sm);
+		box-shadow: var(--shadow-prog);
+		z-index: 3;
+	}
+
+	&::-moz-progress-inner-element {
+		border-radius: var(--border-radius-sm);
+		z-index: 1;
+	}
+
+	&::-moz-progress-bar {
+		background: var(--color-border);
+		border-radius: var(--border-radius-sm);
+		z-index: 2;
+	}
+
+	&::-moz-progress-value {
+		background: var(--color-accent-0);
+		border-radius: var(--border-radius-sm);
+		box-shadow: var(--shadow-prog);
+		z-index: 3;
+	}
+}
