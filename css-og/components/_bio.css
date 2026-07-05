@@ -1,0 +1,57 @@
+@layer components {
+	#bio {
+		grid-auto-rows: minmax(min-content, max-content);
+		grid-template-columns: 2fr 1fr;
+
+		& p {
+			line-height: var(--line-height-airy);
+			max-inline-size: min(100%, 72ch);
+			text-indent: clamp(1rem, 2.5vw, 2.5rem);
+			text-wrap: pretty;
+		}
+
+		& p:not(:last-child) {
+			margin-bottom: var(--space-md);
+		}
+	}
+
+	@container main (width < 700px) {
+		#bio {
+			grid-template-columns: 1fr;
+
+			& p {
+				text-align: justify;
+				text-wrap: balance;
+			}
+
+			& img {
+				max-height: 20rem;
+				position: relative;
+			}
+		}
+	}
+
+	figure {
+		margin: 0;
+		position: relative;
+
+		& img {
+			border-radius: var(--border-radius-sm);
+			box-shadow: var(--shadow-subtle);
+			height: 100%;
+			inline-size: 100%;
+			object-fit: cover;
+			position: absolute;
+		}
+
+		&:hover figcaption {
+			opacity: 1;
+			pointer-events: auto;
+			transform: translateY(0);
+		}
+	}
+
+	figcaption {
+		transform: translateY(10px);
+	}
+}

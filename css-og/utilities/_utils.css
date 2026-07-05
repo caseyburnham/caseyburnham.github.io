@@ -1,12 +1,7 @@
 @layer utilities {
-	.data-tables {
-		display: flex;
-		gap: var(--grid-gap);
-
-		@container main (width < 48rem) {
-			flex-direction: column;
-			inline-size: 100%;
-		}
+	.flex-item {
+		flex: 1;
+		min-inline-size: 300px;
 	}
 
 	.grid {
@@ -35,38 +30,38 @@
 	}
 
 	.venue--red-rocks {
-		color: oklch(66.02% 0.2293 35.4);
+		color: #ff4500;
 	}
 
 	.venue--bluebird {
-		color: oklch(45.14% 0.1285 261.76);
+		color: #2b529c;
 	}
 
 	.venue--ogden {
-		color: oklch(61.2% 0.2286 23.96);
+		color: #ee2738;
 	}
 
 	.venue--belly-up {
-		color: oklch(54.27% 0.1356 246.65);
+		color: #1174b9;
 	}
 
 	.venue--golden-tri {
-		color: oklch(88.48% 0.1816 94.89);
+		color: gold;
 	}
 
 	.venue--summit {
-		color: oklch(50.76% 0.2409 292.31);
+		color: #7130df;
 	}
 
 	.venue--fillmore {
-		color: oklch(86.2% 0.1514 98.05);
+		color: #ecd24c;
 	}
 
 	.venue--ball-arena {
-		color: oklch(69.13% 0.0983 222.89);
+		color: #4ca9c8;
 	}
 
 	.venue--gothic {
-		color: oklch(61.89% 0.1789 34.15);
+		color: #dc5233;
 	}
 }

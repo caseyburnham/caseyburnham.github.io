@@ -1,4 +1,35 @@
-[{
+[
+	{
+		"Production": "Pete the Cat",
+		"Company": "Arvada Center",
+		"A1": "",
+		"A2": "",
+		"SD": "✘",
+		"AD": "✘",
+		"LZ": "",
+		"Notes": "😸"
+	},
+	{
+		"Production": "Dear Evan Hansen",
+		"Company": "Arvada Center",
+		"A1": "✘",
+		"A2": "",
+		"SD": "",
+		"AD": "✘",
+		"LZ": "",
+		"Notes": "📔"
+	},
+	{
+		"Production": "Misery",
+		"Company": "Arvada Center",
+		"A1": "✘",
+		"A2": "",
+		"SD": "",
+		"AD": "✘",
+		"LZ": "",
+		"Notes": "🪓"
+	},
+	{
 		"Production": "Junie B. Jones",
 		"Company": "Arvada Center",
 		"A1": "✘",

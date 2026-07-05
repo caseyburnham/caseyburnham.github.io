@@ -1,4 +1,61 @@
-[{
+[
+	{
+		"Peak": "Duco Benchmark",
+		"Elevation": "13,347",
+		"Range": "San Juan",
+		"Date": "2026-07-04",
+		"Image": "/images/summits/duco-benchmark.jpeg",
+		"ranked": true
+	},
+	{
+		"Peak": "Mount Sneffels",
+		"Elevation": "14,155",
+		"Range": "San Juan",
+		"Date": "2026-07-03",
+		"Image": "/images/summits/mount-sneffels.jpeg",
+		"ranked": true
+	},
+	{
+		"Peak": "Telluride Peak",
+		"Elevation": "13,514",
+		"Range": "San Juan",
+		"Date": "2026-07-02",
+		"Image": "/images/summits/telluride-peak.jpeg",
+		"ranked": true
+	},
+	{
+		"Peak": "Quandary Peak",
+		"Elevation": "14,271",
+		"Range": "Tenmile",
+		"Date": "2026-06-20",
+		"Image": "/images/summits/quandary.jpeg",
+		"ranked": true
+	},
+	{
+		"Peak": "Mount Tweto",
+		"Elevation": "13,642",
+		"Range": "Mosquito",
+		"Date": "2026-06-12",
+		"Image": "/images/summits/mount-tweto.jpeg",
+		"ranked": true
+	},
+	{
+		"Peak": "Father Dyer Peak",
+		"Elevation": "13,642",
+		"Range": "Tenmile",
+		"Date": "2026-06-06",
+		"Image": "/images/summits/father-dyer-peak.jpeg",
+		"ranked": false
+	},
+	{
+		"Peak": "Crystal Peak",
+		"Elevation": "13,860",
+		"Range": "Tenmile",
+		"Date": "2026-06-06",
+		"Image": "/images/summits/crystal-peak.jpeg",
+		"ranked": true
+	},
+	{
 		"Peak": "Cupid Peak",
 		"Elevation": "13,126",
 		"Range": "Front",

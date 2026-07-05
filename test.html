@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Tooltip Demo</title>
+<style>
+body {
+	font-family: system-ui, -apple-system, sans-serif;
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 2rem;
+	line-height: 1.6;
+}
+
+/* Popover tooltip styling */
+.abbr-tooltip {
+	padding: 0.5rem 0.75rem;
+	background: rgba(0, 0, 0, 0.9);
+	color: white;
+	border-radius: 0.375rem;
+	font-size: 0.875rem;
+	border: none;
+	margin: 0;
+	max-width: 300px;
+}
+
+/* Style for abbreviations */
+abbr[popovertarget] {
+	text-decoration: underline dotted;
+	text-decoration-color: rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	transition: text-decoration-color 0.2s;
+}
+
+abbr[popovertarget]:hover {
+	text-decoration-color: rgba(0, 0, 0, 1);
+}
+
+/* Animation when opening */
+.abbr-tooltip:popover-open {
+	animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+	from { 
+		opacity: 0;
+		transform: translateY(-5px);
+	}
+	to { 
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* If anchor positioning is supported, use it */
+@supports (anchor-name: --test) {
+	.abbr-tooltip {
+		position: fixed;
+		bottom: anchor(top);
+		left: anchor(center);
+		translate: -50% -0.5rem;
+	}
+}
+</style>
+</head>
+<body>
+
+<h1>Modern Tooltip Demo</h1>
+
+<p>
+	This paragraph contains several abbreviations: 
+	<abbr title="HyperText Markup Language">HTML</abbr>, 
+	<abbr title="Cascading Style Sheets">CSS</abbr>, and 
+	<abbr title="JavaScript">JS</abbr> are the core web technologies.
+</p>
+
+<p>
+	You can also learn about <abbr title="Application Programming Interface">API</abbr> 
+	design and <abbr title="User Experience">UX</abbr> principles.
+</p>
+
+<script>
+class TooltipManager {
+	constructor() {
+		// Check if Popover API is supported
+		if (!HTMLElement.prototype.hasOwnProperty('popover')) {
+			console.error('Popover API not supported in this browser');
+			return;
+		}
+		this.init();
+	}
+	
+	init() {
+		document.querySelectorAll('abbr[title]').forEach((abbr, index) => {
+			const id = `tooltip-${index}`;
+			const content = abbr.title;
+			
+			// Store original title first
+			abbr.dataset.tooltip = content;
+			
+			// Create popover tooltip
+			const tooltip = document.createElement('div');
+			tooltip.id = id;
+			tooltip.className = 'abbr-tooltip';
+			tooltip.textContent = content;
+			tooltip.setAttribute('popover', 'auto');
+			
+			// Append to body
+			document.body.appendChild(tooltip);
+			
+			// Set up anchor relationship
+			const anchorName = `--abbr-${index}`;
+			abbr.style.anchorName = anchorName;
+			tooltip.style.positionAnchor = anchorName;
+			
+			// Manual click handler (popovertarget doesn't work when set dynamically)
+			abbr.addEventListener('click', (e) => {
+				e.preventDefault();
+				tooltip.showPopover();
+			});
+			
+			// Remove title attribute to prevent native tooltip
+			abbr.removeAttribute('title');
+			
+			// Auto-hide after 3 seconds
+			tooltip.addEventListener('toggle', (e) => {
+				if (e.newState === 'open') {
+					setTimeout(() => {
+						try {
+							tooltip.hidePopover();
+						} catch (err) {
+							// Already hidden
+						}
+					}, 3000);
+				}
+			});
+		});
+		
+		console.log('Tooltips initialized:', document.querySelectorAll('[popover]').length);
+	}
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', () => new TooltipManager());
+} else {
+	new TooltipManager();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+@layer components {
+	.nav-wrapper {
+		display: flex;
+		inline-size: 100%;
+		justify-content: center;
+		position: sticky;
+		margin-block: var(--space-md);
+		top: var(--space-sm);
+		z-index: 100;
+	}
+
+	.nav-scrolled > * {
+		background: var(--color-bg-light);
+		box-shadow: var(--shadow-elevated);
+		outline: 1px solid var(--color-border-caption);
+	}
+	
+	button:is(.nav-toggle) {
+		backdrop-filter: var(--blur-modal-caption);
+		background: none;
+		outline: 1px solid var(--color-border-caption);
+		border: none;
+		border-radius: var(--border-radius-sm);
+		cursor: pointer;
+		display: none;
+		font-size: var(--text-xl);
+		inline-size: 50%;
+		margin: 0 0 var(--space-md) 0;
+		padding: var(--space-sm);
+		transition: all var(--transition-fast);
+		user-select: none;
+		-webkit-user-select: none;
+	
+		&:hover {
+			background: var(--color-accent-alpha);
+		}
+	
+		&:active {
+			box-shadow: var(--shadow-subtle);
+			transform: translateY(2px);
+		}
+	
+		@media (max-width: 54em) {
+			display: block;
+		}
+	}
+
+	nav {
+		backdrop-filter: var(--blur-modal-caption);
+		border-radius: var(--border-radius-sm);
+		display: flex;
+		inline-size: fit-content;
+		padding: var(--space-sm);
+		text-align: center;
+		transition: all var(--transition-fast);
+		z-index: 100;
+
+		& a {
+			color: var(--color-text-primary);
+			font-size: var(--text-xs);
+			padding: var(--space-sm);
+			text-decoration: none;
+			transition: text-decoration var(--transition-fast);
+
+			&:hover {
+				color: var(--color-accent);
+				text-decoration: underline;
+				text-decoration-color: var(--color-accent-0);
+			}
+		}
+
+		& ul {
+			display: flex;
+			list-style: none;
+		}
+
+		& li {
+			display: flex;
+			align-items: center;
+		}
+
+		& li:not(:last-child)::after {
+			content: '|';
+			margin: 0 var(--space-sm);
+			opacity: 0.4;
+			color: inherit;
+		}
+	}
+
+	@media (max-width: 54em) {
+		nav {
+			background-color: var(--color-bg-light);
+			flex-direction: column;
+			inline-size: 50%;
+			opacity: 0;
+			position: absolute;
+			top: 100%;
+			transition: all var(--transition-fast-io);
+			visibility: hidden;
+
+			&.is-open {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			& ul {
+				flex-direction: column;
+			}
+
+			& li::after {
+				display: none;
+			}
+
+			& a {
+				width: 100%;
+				padding: var(--space-sm) var(--space-md);
+			}
+		}
+	}
+}

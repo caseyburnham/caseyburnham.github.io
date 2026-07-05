@@ -230,6 +230,39 @@
     "title": null,
     "caption": "Green Mountain"
   },
+  "summits/father-dyer-peak.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 6,
+      "day": 6,
+      "hour": 9,
+      "minute": 57,
+      "second": 58,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:06:06 09:57:58",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/8000",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.4310694444444,
+      "lon": -106.104844444444,
+      "latDMS": "39\u00b025'51.85\" N",
+      "lonDMS": "106\u00b06'17.44\" W",
+      "alt": 4159.147773,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": null,
+    "caption": "Rocky on Father Dyer Peak"
+  },
   "summits/mount-yale.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -262,6 +295,39 @@
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": "Mt. Yale"
+  },
+  "summits/telluride-peak.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 7,
+      "day": 2,
+      "hour": 15,
+      "minute": 50,
+      "second": 59,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:07:02 15:50:59",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/8000",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "JPEG",
+    "gps": {
+      "lat": 37.9248694444444,
+      "lon": -107.736419444444,
+      "latDMS": "37\u00b055'29.53\" N",
+      "lonDMS": "107\u00b044'11.11\" W",
+      "alt": 4118.220238,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/cottonwood-peak.jpeg": {
     "date": {
@@ -454,6 +520,39 @@
     "title": null,
     "caption": null
   },
+  "summits/mount-sneffels.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 7,
+      "day": 3,
+      "hour": 9,
+      "minute": 42,
+      "second": 52,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:07:03 09:42:52",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/8000",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "JPEG",
+    "gps": {
+      "lat": 38.0038527777778,
+      "lon": -107.792319444444,
+      "latDMS": "38\u00b00'13.87\" N",
+      "lonDMS": "107\u00b047'32.35\" W",
+      "alt": 4318.100089,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": null,
+    "caption": null
+  },
   "summits/un-13128.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -484,6 +583,39 @@
       "altRef": 0
     },
     "copyright": "\u00a9 2025 Casey Burnham",
+    "title": null,
+    "caption": null
+  },
+  "summits/mount-tweto.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 6,
+      "day": 12,
+      "hour": 8,
+      "minute": 51,
+      "second": 47,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:06:12 08:51:47",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/6173",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.3222583333333,
+      "lon": -106.169463888889,
+      "latDMS": "39\u00b019'20.13\" N",
+      "lonDMS": "106\u00b010'10.07\" W",
+      "alt": 4173.926761,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": null
   },
@@ -652,6 +784,39 @@
     "title": null,
     "caption": null
   },
+  "summits/quandary.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 6,
+      "day": 20,
+      "hour": 8,
+      "minute": 53,
+      "second": 26,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:06:20 08:53:26",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 25,
+    "lens": 14,
+    "aperture": 2.2,
+    "shutter": "1/770",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.397225,
+      "lon": -106.106505555556,
+      "latDMS": "39\u00b023'50.01\" N",
+      "lonDMS": "106\u00b06'23.42\" W",
+      "alt": 4345.304527,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": null,
+    "caption": null
+  },
   "summits/mount-evans.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -748,6 +913,39 @@
       "altRef": 0
     },
     "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
+  },
+  "summits/duco-benchmark.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 7,
+      "day": 4,
+      "hour": 12,
+      "minute": 42,
+      "second": 34,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:07:04 12:42:34",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/7353",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "JPEG",
+    "gps": {
+      "lat": 37.9209555555556,
+      "lon": -107.637833333333,
+      "latDMS": "37\u00b055'15.44\" N",
+      "lonDMS": "107\u00b038'16.20\" W",
+      "alt": 4063.238372,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": null
   },
@@ -1078,6 +1276,39 @@
       "altRef": 0
     },
     "copyright": "\u00a9 2024 Casey Burnham",
+    "title": null,
+    "caption": null
+  },
+  "summits/crystal-peak.jpeg": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 6,
+      "day": 6,
+      "hour": 9,
+      "minute": 10,
+      "second": 47,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:06:06 09:10:47",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/8000",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "JPEG",
+    "gps": {
+      "lat": 39.4346555555556,
+      "lon": -106.114416666667,
+      "latDMS": "39\u00b026'4.76\" N",
+      "lonDMS": "106\u00b06'51.90\" W",
+      "alt": 4218.813411,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": null
   },

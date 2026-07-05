@@ -1,6 +1,5 @@
 #map {
-	/* border: 1px solid var(--color-border);
-	border-radius: var(--radius-section); */
+	border: 1px solid var(--color-border);
 	height: 15rem;
 	width: 100%;
 	z-index: 1;
@@ -42,16 +41,12 @@
 }
 
 .maplibregl-popup-content {
-	padding: 0.5rem;
-	
-	backdrop-filter: blur(4px) saturate(150%);
-	background: var(--color-bg-alpha);
-	border: 1px solid var(--color-border);
-	border-radius: var(--radius-section);
-	box-shadow:
-		var(--shadow-glass),
-		var(--shadow-main);
-	overflow: hidden;
+	backdrop-filter: var(--blur-modal-caption);
+	background: var(--color-bg-caption);
+	border: 1px solid var(--color-border-caption);
+	border-radius: var(--border-radius-sm);
+	box-shadow: var(--shadow-subtle);
+	padding: var(--space-ms);
 }
 
 .maplibregl-popup-tip {
@@ -72,5 +67,4 @@
 	color: var(--color-text-muted);
 	font-size: var(--text-xs);
 	line-height: var(--line-height-compact);
-
 }

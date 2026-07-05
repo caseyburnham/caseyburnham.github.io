@@ -1,0 +1,23 @@
+@layer base {
+	main {
+		container-type: inline-size;
+		container-name: main;
+		border-radius: var(--border-radius-main);
+		box-shadow: var(--shadow-main);
+		margin-inline: auto;
+		max-inline-size: min(100%, 120ch);
+		padding: var(--space-xl) var(--fluid-padding-inline);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+	}
+
+	hr {
+		background: oklch(from var(--color-border) l c h / 0.5);
+		border: none;
+		block-size: 1px;
+		margin-block: var(--space-hr);
+	}
+}
