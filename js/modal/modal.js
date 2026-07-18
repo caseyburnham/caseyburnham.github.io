@@ -1,6 +1,11 @@
 import dataCache from '../utils/shared-data.js';
 import { formatExifDate, formatElevation, findExifData } from '../utils/exif-utils.js';
 
+const hasExifValue = value =>
+	value != null &&
+	String(value).trim() !== '' &&
+	String(value).trim().toLowerCase() !== 'unknown';
+
 export class PhotoModal {
 	constructor(galleryContainerSelector = '.photo-gallery') {
 		this.exifData = {};
@@ -8,6 +13,7 @@ export class PhotoModal {
 		this.photos = [];
 		this.currentIndex = -1;
 		this.container = document.querySelector(galleryContainerSelector) || document.body;
+		this.abortController = new AbortController();
 	}
 
 	async initialize() {
@@ -25,45 +31,56 @@ export class PhotoModal {
 		const dialog = fragment.querySelector('dialog');
 		document.body.appendChild(dialog);
 
-		// Cache references using a data-attribute convention if possible, 
-		// or just clean selectors.
-		const q = (s) => dialog.querySelector(s);
+		const query = selector => dialog.querySelector(selector);
 		this.elements = {
 			modal: dialog,
-			closeBtn: q('.dialog-close'),
-			image: q('.modal-image'),
-			title: q('.photo-title'),
-			date: q('.photo-date'),
-			altitude: q('.altitude'),
-			gps: q('.gps'),
-			camera: q('.exif-data'),
-			copyright: q('.copyright')
+			image: query('.modal-image'),
+			title: query('.photo-title'),
+			metadata: query('.photo-metadata'),
+			date: query('.photo-date'),
+			altitude: query('.altitude'),
+			gpsRow: query('.gps'),
+			gpsLabel: query('.gps-label'),
+			gpsData: query('.gps-data'),
+			gpsLink: query('.gps-link'),
+			specs: [...dialog.querySelectorAll('[data-spec]')],
+			copyright: query('.copyright'),
+			previous: query('.dialog-previous'),
+			next: query('.dialog-next')
 		};
-
-		this.elements.closeBtn?.addEventListener('click', () => this.close());
-		this.elements.modal.addEventListener('close', () => this._handleClose());
-		
 	}
 
 	_setupEventListeners() {
+		const { signal } = this.abortController;
+
 		this.container.addEventListener('click', (e) => {
 			const trigger = e.target.closest('.photo-thumb, .camera-link');
 			if (!trigger) return;
 
 			e.preventDefault();
 			this.open(trigger);
-		});
+		}, { signal });
 
 		this.elements.modal.addEventListener('click', (e) => {
 			if (e.target === this.elements.modal) {
 				this.close();
 			}
-		});
+		}, { signal });
 		
 		this.elements.modal.addEventListener('keydown', (e) => {
-			if (e.key === 'ArrowRight') this.navigate(1);
-			if (e.key === 'ArrowLeft') this.navigate(-1);
-		});
+			if (e.key === 'ArrowRight') {
+				e.preventDefault();
+				this.navigate(1);
+			}
+			if (e.key === 'ArrowLeft') {
+				e.preventDefault();
+				this.navigate(-1);
+			}
+		}, { signal });
+
+		this.elements.previous.addEventListener('click', () => this.navigate(-1), { signal });
+		this.elements.next.addEventListener('click', () => this.navigate(1), { signal });
+		this.elements.modal.addEventListener('close', () => this._handleClose(), { signal });
 	}
 
 	/**
@@ -73,17 +90,21 @@ export class PhotoModal {
 		const img = trigger.querySelector('img') || trigger;
 		const src = this._getBestSource(trigger);
 		const title = trigger.dataset.title || img.dataset?.title || 'Untitled';
+		if (!src) return;
 
-		this.photos = Array.from(this.container.querySelectorAll('.photo-thumb'));
-		this.currentIndex = this.photos.indexOf(trigger.closest('.photo-thumb'));
+		const itemSelector = trigger.matches('.camera-link')
+			? '.camera-link'
+			: '.photo-thumb';
+
+		this.photos = Array.from(this.container.querySelectorAll(itemSelector));
+		this.currentIndex = this.photos.indexOf(trigger.closest(itemSelector));
 
 		this._render(src, img.alt, title);
+		this._updateNavigation();
 		
 		if (!this.elements.modal.open) {
 			this.originalTrigger = trigger;
 			this.elements.modal.showModal();
-			window.scrollTo({ top: scrollY, behavior: 'instant' });
-			this.elements.modal.focus({ preventScroll: true });
 		}
 	}
 
@@ -94,80 +115,102 @@ export class PhotoModal {
 		image.alt = alt || title;
 		titleEl.textContent = title;
 
-		this._renderMetadata(src, title);
+		this._renderMetadata(src);
 	}
 
-	_renderMetadata(src, title) {
+	_renderMetadata(src) {
 		const exif = findExifData(src, this.exifData);
-		const { modal, copyright } = this.elements;
+		const {
+			metadata,
+			date,
+			altitude,
+			gpsRow,
+			gpsLabel,
+			gpsData,
+			gpsLink,
+			specs,
+			copyright
+		} = this.elements;
 	
 		if (!exif) {
-			modal.querySelector('.photo-metadata').hidden = true;
+			metadata.hidden = true;
+			copyright.hidden = true;
 			return;
 		}
-		modal.querySelector('.photo-metadata').hidden = false;
+		metadata.hidden = false;
 
-		const dateEl = modal.querySelector('.photo-date');
 		const dateStr = formatExifDate(exif.date);
-		dateEl.textContent = dateStr;
-		dateEl.setAttribute('datetime', dateStr);
+		date.textContent = dateStr || '';
+		date.dateTime = dateStr || '';
+		date.parentElement.hidden = !dateStr;
 	
-		const altEl = modal.querySelector('.altitude');
-		if (exif.gps?.alt) {
-			const { display, value } = formatElevation(exif.gps.alt);
-			altEl.textContent = display;
-			altEl.value = value;
+		const altitudeValue = exif.gps?.alt;
+		const hasAltitude =
+			hasExifValue(altitudeValue) &&
+			Number.isFinite(Number(altitudeValue));
+		altitude.parentElement.hidden = !hasAltitude;
+		if (hasAltitude) {
+			const { display, feetRaw } = formatElevation(altitudeValue);
+			altitude.textContent = display;
+			altitude.value = feetRaw;
 		} else {
-			altEl.parentElement.hidden = true;
-			altEl.parentElement.previousElementSibling.hidden = true;
+			altitude.textContent = '';
+			altitude.value = '';
 		}
-		const gpsRow = modal.querySelector('[data-gps-row]');
-		const gpsLabel = modal.querySelector('[data-gps-label]');
 		
-		if (exif.gps?.lat && exif.gps?.lon) {
+		const latitude = exif.gps?.lat;
+		const longitude = exif.gps?.lon;
+		const hasCoordinates =
+			hasExifValue(latitude) &&
+			hasExifValue(longitude) &&
+			Number.isFinite(Number(latitude)) &&
+			Number.isFinite(Number(longitude));
+
+		if (hasCoordinates) {
 			const { lat, lon, latDMS, lonDMS } = exif.gps;
-			const dataTag = gpsRow.querySelector('.gps-data');
-			const anchor = gpsRow.querySelector('.gps-link');
 			const coords = `${lat}, ${lon}`;
 			
-			dataTag.title = coords;
-			dataTag.value = coords;
-			dataTag.textContent = latDMS ? `${latDMS}, ${lonDMS}` : coords;
-			
-			anchor.href = `https://caltopo.com/map.html#ll=${lat},${lon}&z=16&b=mbt`;
+			gpsData.title = coords;
+			gpsData.value = coords;
+			gpsData.textContent = latDMS && lonDMS ? `${latDMS}, ${lonDMS}` : coords;
+			gpsLink.href = `https://caltopo.com/map.html#ll=${lat},${lon}&z=16&b=mbt`;
 			
 			gpsRow.hidden = false;
 			gpsLabel.hidden = false;
 		} else {
 			gpsRow.hidden = true;
 			gpsLabel.hidden = true;
+			gpsData.textContent = '';
+			gpsData.value = '';
+			gpsData.title = '';
+			gpsLink.removeAttribute('href');
 		}
 	
-		const specs = modal.querySelectorAll('[data-spec]');
 		specs.forEach(spec => {
 			const key = spec.dataset.spec;
-			const val = exif[key] || (key === 'model' ? exif.cameraModel : null);
+			const value = exif[key] ?? (key === 'model' ? exif.cameraModel : null);
 			const dataTag = spec.querySelector('data');
 	
-			if (val) {
-				spec.hidden = false;
-				if (dataTag) {
-					dataTag.textContent = val;
-					dataTag.value = val;
-				} else {
-					spec.textContent = key === 'format' ? val.toUpperCase() : val;
-				}
-			} else {
-				spec.hidden = true;
+			spec.hidden = !hasExifValue(value);
+			if (!spec.hidden && dataTag) {
+				const displayValue = key === 'format' ? String(value).toUpperCase() : value;
+				dataTag.textContent = displayValue;
+				dataTag.value = value;
+			} else if (!spec.hidden) {
+				spec.textContent = value;
+			} else if (dataTag) {
+				dataTag.textContent = '';
+				dataTag.value = '';
 			}
 		});
 	
-		copyright.textContent = exif.copyright || '';
-		copyright.hidden = !exif.copyright;
+		const copyrightValue = hasExifValue(exif.copyright) ? exif.copyright : '';
+		copyright.textContent = copyrightValue;
+		copyright.hidden = !copyrightValue;
 	}
 
 	navigate(direction) {
-		if (this.photos.length <= 1) return;
+		if (this.photos.length <= 1 || this.currentIndex < 0) return;
 		
 		this.currentIndex = (this.currentIndex + direction + this.photos.length) % this.photos.length;
 		const nextTarget = this.photos[this.currentIndex];
@@ -175,12 +218,25 @@ export class PhotoModal {
 	}
 
 	close() {
-		this.elements.modal.close();
+		if (this.elements.modal.open) this.elements.modal.close();
 	}
 
 	_handleClose() {
-		this.elements.image.src = '';
+		this.elements.image.removeAttribute('src');
 		this.originalTrigger?.focus();
+		this.originalTrigger = null;
+	}
+
+	_updateNavigation() {
+		const canNavigate = this.photos.length > 1 && this.currentIndex >= 0;
+		this.elements.previous.hidden = !canNavigate;
+		this.elements.next.hidden = !canNavigate;
+	}
+
+	destroy() {
+		this.abortController.abort();
+		this.elements.modal?.remove();
+		this.elements = {};
 	}
 
 	_getBestSource(el) {
@@ -191,11 +247,11 @@ export class PhotoModal {
 			try {
 				const sources = JSON.parse(sourcesAttr);
 				return sources.avif || sources.webp || sources.jpg || img.src;
-			} catch (e) {
-				console.warn("Source parse failed", e);
+			} catch (error) {
+				console.warn('Source parse failed', error);
 			}
 		}
 
-		return el.dataset.image || img.dataset.image || img.src || el.href;
+		return el.dataset.image || img.dataset.image || img.currentSrc || img.src || el.href;
 	}
 }

@@ -1,28 +1,12 @@
-// ============================================================================
-// Netlify Function: get-inventory
-// Fetches random items from Discogs marketplace inventory
-// ============================================================================
+const {
+  createErrorResponse,
+  createResponse,
+  fetchDiscogs,
+  getCredentials,
+  getMediaType,
+  parseCount
+} = require('./discogs-utils');
 
-const DISCOGS_API_BASE = 'https://api.discogs.com';
-
-// Utility: Determine media type from formats
-const getMediaType = (formats) => {
-  if (!Array.isArray(formats)) return 'Vinyl';
-  const formatNames = formats.map(f => f.name);
-  return formatNames.find(f => ['Vinyl', 'CD', 'Cassette'].includes(f)) || 'Vinyl';
-};
-
-// Utility: Create auth header
-const authHeader = (token) => ({ 'Authorization': `Discogs token=${token}` });
-
-// Utility: Fetch from Discogs with error handling
-const fetchDiscogs = async (url, token) => {
-  const response = await fetch(url, { headers: authHeader(token) });
-  if (!response.ok) throw new Error(`Discogs API error: ${response.status}`);
-  return response.json();
-};
-
-// Transform inventory item
 const transformItem = (item) => ({
   artist: item.release.artist,
   title: item.release.title,
@@ -34,52 +18,28 @@ const transformItem = (item) => ({
 
 exports.handler = async (event) => {
   try {
-    const { DISCOGS_USERNAME, DISCOGS_TOKEN } = process.env;
-    
-    if (!DISCOGS_USERNAME || !DISCOGS_TOKEN) {
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ error: 'Missing Discogs credentials' })
-      };
-    }
-    
-    const count = Math.min(Math.max(parseInt(event.queryStringParameters?.count) || 5, 1), 100);
-    
-    // Get pagination info
+    const { username, token } = getCredentials();
+    const count = parseCount(event.queryStringParameters?.count, 5, 100);
+
     const paginationData = await fetchDiscogs(
-      `${DISCOGS_API_BASE}/users/${DISCOGS_USERNAME}/inventory?per_page=${count}`,
-      DISCOGS_TOKEN
+      `/users/${username}/inventory?per_page=${count}`,
+      token
     );
-    
+
     if (paginationData.pagination.pages === 0) {
-      return {
-        statusCode: 200,
-        body: JSON.stringify([])
-      };
+      return createResponse(200, []);
     }
-    
-    // Fetch from random page
+
     const randomPage = Math.floor(Math.random() * paginationData.pagination.pages) + 1;
     const inventoryData = await fetchDiscogs(
-      `${DISCOGS_API_BASE}/users/${DISCOGS_USERNAME}/inventory?sort=listed&sort_order=desc&page=${randomPage}&per_page=${count}`,
-      DISCOGS_TOKEN
+      `/users/${username}/inventory?sort=listed&sort_order=desc&page=${randomPage}&per_page=${count}`,
+      token
     );
-    
+
     const inventory = inventoryData.listings.map(transformItem);
-    
-    return {
-      statusCode: 200,
-      body: JSON.stringify(inventory)
-    };
-    
+    return createResponse(200, inventory);
   } catch (error) {
     console.error('get-inventory error:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ 
-        error: 'Failed to fetch inventory',
-        message: error.message 
-      })
-    };
+    return createErrorResponse(error, 'Failed to fetch inventory');
   }
 };

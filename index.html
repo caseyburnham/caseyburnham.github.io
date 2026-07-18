@@ -5,14 +5,13 @@
 		<meta charset="UTF-8">
 		<meta name="author" content="Casey Burnham">
 		<meta name="color-scheme" content="light dark">
-		<meta name="contact" content="casey@crashandburnham.com">
-		<meta name="description" content="Casey Burnham, a professional audio engineer in Colorado specializing in live sound, theater audio, FOH mixing, sound design, audio system design, Dante networking, QLab programming, and Yamaha Rivage consoles. Serving Denver, Boulder, and Colorado Springs.">
-		<meta name="robots" content="index,follow">
+		<meta name="description" content="Casey Burnham, a professional audio engineer in Colorado specializing in live sound, theater audio, FOH mixing, sound design, audio system design, Dante networking, QLab programming, and Yamaha Rivage consoles. Serving Denver, Boulder, Fort Collins, and Colorado Springs.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 		<meta name="view-transition" content="same-origin">
-		<meta property="og:title" content="Casey Burnham - Professional Audio Engineer in Colorado | Live Sound & Theater Audio Specialist">
-		<meta property="og:description" content="Expert audio engineer serving Colorado with live sound reinforcement skills, theater audio knowledge, FOH mixing, sound design, Dante Level 2 certification, QLab programming, and Yamaha Rivage operation. Serving the Colorado area, including Denver, Boulder, and Aurora.">
+		<meta property="og:title" content="Casey Burnham — Sound Engineer">
+		<meta property="og:description" content="Colorado audio director and sound engineer specializing in live sound, theater audio, FOH mixing, sound design, Dante networking, QLab programming, and Yamaha Rivage consoles.">
 		<meta property="og:locale" content="en_US">
+		<meta property="og:type" content="website">
 		<meta property="og:image" content="https://crashandburnham.com/images/posters/jpeg/casey-rocky.jpeg">
 		<meta property="og:image:alt" content="Image of Casey Burnham, professional audio engineer, with his dog, Rocky">
 		<meta property="og:url" content="https://crashandburnham.com">
@@ -102,40 +101,25 @@
 			}
 		</script>
 
-		<title>Crash & Burnham</title>
+		<title>Casey Burnham — Audio Director</title>
+
 		<link rel="canonical" href="https://crashandburnham.com">
-
-		<link rel="dns-prefetch" href="https://arvadacenter.org">
-		<link rel="dns-prefetch" href="https://discogs.com">
-		<link rel="dns-prefetch" href="https://14ers.com">
-
-		<link rel="me" href="https://crashandburnham.com">
-		<link rel="modulepreload" href="js/js-imports.js" as="script">
-
+		<link rel="modulepreload" href="js/js-imports.js">
 		<link rel="preconnect" href="https://api.maptiler.com">
-		<link rel="preconnect" href="https://api.discogs.com">
-
-		<link rel="preload" href="css/dist/style.css" as="style">
 		<link rel="stylesheet" href="css/dist/style.css">
 	</head>
 
 	<body>
 
 		<main id="main-content">
-			<header>
-				<hgroup>
-					<h1>Casey Burnham</h1>
-					<h2>Sound Engineer & Elevation Enthusiast</h2>
-				</hgroup>
-			</header>
-
+			<!-- NAV -->
 			<div class="nav-wrapper">
 				<button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-main">
-					<span>🍔</span>
+					<span aria-hidden="true">🍔</span>
 				</button>
 				<nav id="nav-main">
 					<ul>
-						<li><a href="#bio">About</a></li>
+						<li><a href="#about">About</a></li>
 						<li><a href="#skills">Skills</a></li>
 						<li><a href="#productions">Productions</a></li>
 						<li><a href="#galleries">Gallery</a></li>
@@ -146,13 +130,22 @@
 					</ul>
 				</nav>
 			</div>
-
+			<!-- HEADER -->
+			<header>
+				<hgroup>
+					<h1>Casey Burnham</h1>
+					<h2>Sound Engineer & Elevation Enthusiast</h2>
+				</hgroup>
+			</header>
+			<!-- BIO -->
 			<section id="about" aria-labelledby="bio-heading">
 				<h2 id="bio-heading" class="sr-only">About Casey - Audio Engineer in Denver, Colorado</h2>
 				<div class="bio">
 					<p>
 						After moving to Colorado in <time datetime="2011">2011</time> — and trading Idaho's potato fields for mountain passes — I earned a degree in Audio Engineering from
-						<abbr data-popover="ucd" title="University of Colorado, Denver">UCD</abbr>. For over a decade, I've worked as a <strong>live sound</strong> and <strong>theater engineer</strong>. Currently serving as Audio Director at the <a href="https://arvadacenter.org/" target="_blank" rel="noopener noreferrer" title="Arvada Center for the Arts and Humanities">Arvada Center</a>, I mix musicals, design theatrical sound systems, program show control, and occasionally troubleshoot problems that make you question your career choices.
+						<button type="button" popovertarget="ucd">
+						  <abbr title="University of Colorado, Denver">UCD</abbr>
+						</button>. For over a decade, I've worked as a <strong>live sound</strong> and <strong>theater engineer</strong>. Currently serving as <strong>Audio Director</strong> at the <a href="https://arvadacenter.org/" target="_blank" rel="noopener noreferrer" title="Arvada Center for the Arts and Humanities">Arvada Center</a>, I mix musicals, design theatrical sound systems, program show control, and occasionally troubleshoot problems that make you question your career choices.
 					</p>
 
 					<p>
@@ -161,7 +154,7 @@
 				</div>
 				<figure class="portrait">
 					<div class="matte">
-						<img src="/images/posters/jpeg/casey-rocky.jpeg" alt="Casey and Rocky at Silver Dollar Lake" fetchpriority="high">
+					<img src="/images/posters/jpeg/casey-rocky.jpeg" alt="Casey and Rocky at Silver Dollar Lake" width="935" height="1247" fetchpriority="high">
 					</div>
 				<figcaption>Casey & Rocky</figcaption>
 				</figure>
@@ -170,19 +163,55 @@
 			<section id="skills" class="glass">
 				<h2 id="details-heading" class="sr-only">Professional Audio Engineering Skills & Experience</h2>
 				<details>
-					<summary>Skills & Experience</summary>
+				  <summary>
+					<span class="chevron" aria-hidden="true">
+					  <svg viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</span>
+					<h3>
+					  Skills &amp; Experience
+					</h3>
+				  </summary>
 					<article>
-						<ul>
-							<li><strong>FOH mixing</strong> for large-scale musicals, concerts, and multi-venue events</li>
-							<li><strong>Line-by-line</strong> mixing with live orchestras in theatrical environments</li>
-							<li>Theatrical <strong>sound design</strong>, from concept through opening night</li>
-							<li>Audio system design, installation, and integration — Dante networks, RF coordination, distributed speaker arrays</li>
-							<li>Show control programming in <strong>QLab</strong> 5 and Isadora with OSC, MIDI, video, and laser integration</li>
-							<li>Studio and field <strong>recording</strong>, <strong>mixing</strong>, and <strong>mastering</strong> for digital distribution</li>
-							<li>Post-production and <strong>dialogue editing</strong> for music, podcasts, and multimedia</li>
-							<li><strong>Consultation</strong> on audio production and system design for theaters and artists</li>
-						</ul>
+					  <ul>
+						<li>
+							<span class="power-led" aria-hidden="true"></span>
+						  <p><strong>FOH mixing</strong> for large-scale musicals, concerts, and multi-venue events</p>
+						</li>
+						<li>
+							<span class="power-led" aria-hidden="true"></span>
+						  <p><strong>Line-by-line</strong> mixing with live orchestras in theatrical environments</p>
+						</li>
+						<li>
+							<span class="power-led" aria-hidden="true"></span>
+						  <p>Theatrical <strong>sound design</strong>, from concept through opening night</p>
+						</li>
+						<li>
+							<span class="power-led" aria-hidden="true"></span>
+						  <p>Audio system design, installation, and integration — Dante networks, RF coordination, distributed speaker arrays</p>
+						</li>
+						<li>
+							<span class="power-led" aria-hidden="true"></span>
+						  <p>Show control programming in <strong>QLab</strong> 5 and Isadora with OSC, MIDI, video, and laser integration</p>
+						</li>
+						<li>
+							<span class="power-led" aria-hidden="true"></span>
+						  <p>Studio and field <strong>recording</strong>, <strong>mixing</strong>, and <strong>mastering</strong> for digital distribution</p>
+						</li>
+						<li>
+							<span class="power-led" aria-hidden="true"></span>
+						  <p>Post-production and <strong>dialogue editing</strong> for music, podcasts, and multimedia</p>
+						</li>
+						<li>
+							<span class="power-led" aria-hidden="true"></span>
+						  <p><strong>Consultation</strong> on audio production and system design for theaters and artists</p>
+						</li>
+						<li>
+							<span class="power-led" aria-hidden="true"></span>
+						  <p>Design and implement robust network topologies</p>
+						</li>
+					  </ul>
 					</article>
+
 				</details>
 			</section>
 
@@ -199,11 +228,11 @@
 						<tr>
 							<th scope="col">Production</th>
 							<th scope="col">Company</th>
-							<th scope="col" class="text-center"><abbr data-popover="a1" title="Audio Lead / FOH Mixer">A1</abbr></th>
-							<th scope="col" class="text-center"><abbr data-popover="sd" title="Sound Designer">SD</abbr></th>
-							<th scope="col" class="text-center"><abbr data-popover="ad" title="Audio Director">AD</abbr></th>
-							<th scope="col" class="text-center"><abbr data-popover="lz" title="Laserist">LZ</abbr></th>
-							<th scope="col" class="text-center"><span aria-hidden="true" aria-label="Production Emoji">🎭</span></th>
+							<th scope="col" class="text-center"><button type="button" popovertarget="a1"><abbr title="Audio Lead / FOH Mixer">A1</abbr></button></th>
+							<th scope="col" class="text-center"><button type="button" popovertarget="sd"><abbr title="Sound Designer">SD</abbr></button></th>
+							<th scope="col" class="text-center"><button type="button" popovertarget="ad"><abbr title="Audio Director">AD</abbr></button></th>
+							<th scope="col" class="text-center"><button type="button" popovertarget="lz"><abbr title="Laserist">LZ</abbr></button></th>
+							<th scope="col" class="text-center"><span class="sr-only">Production notes</span><span aria-hidden="true">🎭</span></th>
 						</tr>
 					</thead>
 					<tbody></tbody>
@@ -212,6 +241,7 @@
 
 			<section id="galleries" class="grid" aria-labelledby="gallery-heading">
 				<h2 id="gallery-heading" class="sr-only">Photography Gallery</h2>
+				<!-- TEMPLATE -->
 			</section>
 
 			<section id="tables" class="data-tables" aria-labelledby="data-heading">
@@ -237,34 +267,37 @@
 							<th scope="col" class="text-center">Elevation</th>
 							<th scope="col" class="range">Range</th>
 							<th scope="col" class="text-center">Summit</th>
-							<th scope="col" class="text-center"><abbr data-popover="rank" title="Ranking requires 300' of Prominence">#</abbr></th>
-							<th scope="col" class="text-center"><span aria-hidden="true" aria-label="Photo Link">⛰️</span></th>
+							<th scope="col" class="text-center"><button type="button" popovertarget="rank"><abbr title="Ranking requires 300' of Prominence">#</abbr></button></th>
+							<th scope="col" class="text-center"><span class="sr-only">Summit photo</span><span aria-hidden="true">⛰️</span></th>
 						</tr>
 					</thead>
 					<tbody>
-
+						<!-- TEMPLATE -->
 					</tbody>
 					<tfoot>
 						<tr>
 							<td colspan="2">13ers</td>
 							<td colspan="4">
-								<progress class="peak-progress" data-peak-type="thirteeners" data-total="600" value="0" max="600" title="0/600"></progress>
-								<label class="sr-only">
-									(<span id="thirteeners"></span>/600+)
-								</label>
+								<label class="sr-only" for="thirteener-progress">Colorado 13ers climbed: <span id="thirteeners"></span> of 788</label>
+								<progress id="thirteener-progress" class="peak-progress" data-peak-type="thirteeners" data-total="788" value="0" max="788" title="0/788"></progress>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2">14ers</td>
 							<td colspan="4">
-								<progress class="peak-progress" data-peak-type="fourteeners" data-total="58" value="0" max="58" title="0/58"></progress>
-								<label class="sr-only">
-									(<span id="fourteeners"></span>/58)
-								</label>
+								<label class="sr-only" for="fourteener-progress">Colorado 14ers climbed: <span id="fourteeners"></span> of 58</label>
+								<progress id="fourteener-progress" class="peak-progress" data-peak-type="fourteeners" data-total="58" value="0" max="58" title="0/58"></progress>
 							</td>
 						</tr>
 						<tr id="range-summary-row">
 							<td colspan="6"></td>
+						</tr>
+						<tr>
+						  <td class="elevation-chart-cell" colspan="6">
+							<div class="elevation-chart">
+							  <canvas id="elevationChart" aria-label="Elevation of climbed peaks over time">Elevation history chart. The same climbs are listed in this table.</canvas>
+							</div>
+						  </td>
 						</tr>
 						<tr>
 							<td colspan="4">Peaks Bagged</td>
@@ -290,11 +323,11 @@
 							<th scope="col">Artist</th>
 							<th scope="col">Venue</th>
 							<th scope="col">Year</th>
-							<th scope="col" class="text-center"><span aria-hidden="true" aria-label="Concert Vibe">🎵</span></th>
+							<th scope="col" class="text-center"><span class="sr-only">Concert notes</span><span aria-hidden="true">🎵</span></th>
 						</tr>
 					</thead>
 					<tbody>
-
+						<!-- TEMPLATE -->
 					</tbody>
 					<tfoot>
 						<tr>
@@ -321,7 +354,7 @@
 
 			<section aria-labelledby="climbing-map">
 				<h2 id="climbing-map" class="sr-only">Climbing Map</h2>
-				<div id="map" class="glass"></div>
+				<div id="map" class="glass" role="region" aria-label="Interactive climbing map"></div>
 			</section>
 
 			<section id="now-playing" aria-labelledby="now-playing-heading">
@@ -330,23 +363,21 @@
 					<a href="https://www.discogs.com/user/crashandburnham/collection?folder=2166321" target="_blank" rel="noopener noreferrer">Personal Collection</a>
 				</h3>
 				<div id="discogs-collection-wrapper">
-					<div id="discogs-sleeve-container" class="discogs-grid grid wood">
-						<p>Loading collection...</p>
-					</div>
+					<p id="discogs-collection-status" class="discogs-status" role="status">Loading collection…</p>
+					<div id="discogs-sleeve-container" class="discogs-grid grid wood"></div>
 					<div id="discogs-caption-container" class="discogs-grid grid padding-inline-md"></div>
 				</div>
 
-				<h2 class="sr-only">For Sale</h2>
 				<h3>
 					<a href="https://www.discogs.com/seller/crashandburnham/profile" target="_blank" rel="noopener noreferrer">For Sale</a>
 				</h3>
 				<div id="discogs-inventory-wrapper">
-					<div id="discogs-inventory-sleeve-container" class="discogs-grid grid wood">
-						<p>Loading sale items...</p>
-					</div>
+					<p id="discogs-inventory-status" class="discogs-status" role="status">Loading sale items…</p>
+					<div id="discogs-inventory-sleeve-container" class="discogs-grid grid wood"></div>
 					<div id="discogs-inventory-caption-container" class="discogs-grid grid padding-inline-md"></div>
 				</div>
 			</section>
+
 		</main>
 
 		<footer>
@@ -356,15 +387,15 @@
 				<span>🏳️‍⚧️</span>
 			</span>
 			<address itemscope itemtype="https://schema.org/Person">
-				&copy;<time><span id="year"></span></time>
-				<a href="mailto:casey@crashandburnham.com" itemprop="email" title="Email Casey Burnham - Audio Engineer" aria-label="Email Casey Burnham - Audio Engineer"><span itemprop="name">Casey Burnham</span></a>
+				&copy;<time id="copyright-year"></time>
+				<a href="mailto:casey@crashandburnham.com" itemprop="email" title="Email Casey Burnham - Audio Engineer" aria-label="Email Casey Burnham - Audio Engineer">
+					<span itemprop="name">Casey Burnham</span>
+				</a>
 			</address>
 			<small>Made in Colorado</small>
 		</footer>
 
-		<!-- MapLibre GL JS -->
-		<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-		<script type="module" src="js/js-imports.js" defer></script>
+		<script type="module" src="js/js-imports.js"></script>
 
 		<!-- Popovers -->
 		<div id="ucd"  class="abbr-tooltip" popover="auto">University of Colorado, Denver</div>
@@ -376,80 +407,95 @@
 		
 		<!-- Modal Template-->
 		<template id="photo-modal-template">
-			<dialog aria-labelledby="modal-photo-title">
-				<button class="dialog-close glass" aria-label="Close photo viewer">
-					<svg aria-hidden="true" viewBox="0 0 24 24">
-						<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-					</svg>
-				</button>
-				<figure>
+			<dialog class="photo-dialog" aria-labelledby="modal-photo-title">
+				<form method="dialog">
+					<button class="dialog-close glass" value="close" aria-label="Close photo viewer">
+						<svg aria-hidden="true" viewBox="0 0 24 24">
+							<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+						</svg>
+					</button>
+				</form>
+				<figure class="modal-content">
+					<img class="modal-image" alt="" decoding="async">
 					<figcaption class="photo-details">
 						<h3 id="modal-photo-title" class="photo-title"></h3>
 						<dl class="photo-metadata">
 							<dt>Date</dt>
-							<dd><time title="Date Captured" class="photo-date"></time></dd>
+							<dd class="metadata-date"><time title="Date Captured" class="photo-date"></time></dd>
 
 							<dt>Elevation</dt>
-							<dd><data title="Elevation" class="altitude" value=""></data></dd>
+							<dd class="metadata-elevation"><data title="Elevation" class="altitude" value=""></data></dd>
 
-							<dt data-gps-label>Location</dt>
-							<dd data-gps-row>
+							<dt class="gps-label">Location</dt>
+							<dd class="gps">
 							  <a class="gps-link" href="" target="_blank" rel="noopener noreferrer">
 								<data class="gps-data" title="" value=""></data>
 							  </a>
 							</dd>
 
-							<hr>
-
 							<dt>Camera</dt>
 							<dd class="exif-data">
 								<span title="Camera Model" data-spec="model"></span>
-								<span title="ISO Value" data-spec="iso">ISO <data></data></span>
-								<span title="Focal Length" data-spec="lens"><data></data> mm</span>
-								<span title="Aperture" data-spec="aperture"><i>&#402;</i> <data></data></span>
-								<span title="Shutter Speed" data-spec="shutter"><data></data>s</span>
-								<span title="File Format" data-spec="format" class="format"><data></data></span>
+								<span title="ISO Value" data-spec="iso">ISO <data value=""></data></span>
+								<span title="Focal Length" data-spec="lens"><data value=""></data> mm</span>
+								<span title="Aperture" data-spec="aperture"><i>&#402;</i> <data value=""></data></span>
+								<span title="Shutter Speed" data-spec="shutter"><data value=""></data>s</span>
+								<span title="File Format" data-spec="format" class="format"><data value=""></data></span>
 							</dd>
 						</dl>
 					</figcaption>
-					<img class="modal-image" src="" alt="">
 				</figure>
+				<div class="dialog-navigation" aria-label="Photo navigation">
+					<button type="button" class="dialog-previous glass" aria-label="Previous photo">←</button>
+					<button type="button" class="dialog-next glass" aria-label="Next photo">→</button>
+				</div>
 				<small class="copyright"></small>
 			</dialog>
 		</template>
 
 		<!-- Templates -->
-		<section id="templates" hidden>
 			<!-- Production Table -->
 			<template id="production-row-template">
 				<tr>
 					<th scope="row" class="prod-production"></th>
 					<td class="prod-company"></td>
-					<td class="prod-a1 text-center"></td>
-					<td class="prod-sd text-center"></td>
-					<td class="prod-ad text-center"></td>
-					<td class="prod-lz text-center"></td>
+					<td class="prod-a1 prod-role text-center"></td>
+					<td class="prod-sd prod-role text-center"></td>
+					<td class="prod-ad prod-role text-center"></td>
+					<td class="prod-lz prod-role text-center"></td>
 					<td class="prod-notes text-center"></td>
 				</tr>
 			</template>
 
 			<!-- Gallery Buttons -->
-			<template id="gallery-button-template">
-				<button type="button" class="gallery-btn" role="tab" aria-selected="false" data-gallery=""></button>
-			</template>
-
-			<!-- Gallery -->
-			<template id="photo-thumb-template">
-				<div class="photo-thumb">
-					<img src="" alt="" loading="lazy" decoding="async">
+			<template id="gallery-controls-template">
+				<div class="gallery-controls">
+					<div class="gallery-buttons" role="group" aria-label="Photo galleries"></div>
 				</div>
 			</template>
 
+			<template id="gallery-button-template">
+				<button type="button" class="gallery-btn" aria-pressed="false"></button>
+			</template>
+
+			<!-- Gallery Rows and Images -->
+			<template id="photo-grid-template">
+				<div class="photo-grid grid" role="group"></div>
+			</template>
+
+			<template id="photo-thumb-template">
+				<button type="button" class="photo-thumb">
+					<img src="" alt="" loading="lazy" decoding="async">
+				</button>
+			</template>
+
 			<!-- Mountain Table -->
-			<template id="mountain-row-template">
-				<tr>
+				<template id="mountain-row-template">
+					<tr>
 					<th scope="row" class="mtn-peak"></th>
-					<td class="mtn-elevation text-center"></td>
+					<td class="mtn-elevation text-center">
+						<data class="mtn-elevation-data" value=""></data>
+					</td>
 					<td class="mtn-range"></td>
 					<td class="mtn-date text-center">
 						<time></time>
@@ -459,17 +505,46 @@
 						<span class="unranked">-</span>
 					</td>
 					<td class="mtn-image text-center">
-						<button class="camera-link" aria-label="View Summit Image"></button>
+						<button type="button" class="camera-link" aria-label="View summit image"></button>
 					</td>
-				</tr>
-			</template>
+					</tr>
+				</template>
 
-			<!-- Summary Row -->
-			<template id="summary-row-template">
+				<!-- Climbing Map -->
+				<template id="map-marker-template">
+					<button type="button" class="map-marker"></button>
+				</template>
+
+				<template id="map-popup-template">
+					<article class="popup-content">
+						<h3 class="popup-title"></h3>
+						<dl class="popup-details">
+							<div>
+								<dt class="sr-only">Elevation</dt>
+								<dd><data class="popup-elevation" value=""></data> ft</dd>
+							</div>
+							<div>
+								<dt class="sr-only">Summit date</dt>
+								<dd><time class="popup-date"></time></dd>
+							</div>
+							<div>
+								<dt class="sr-only">Mountain range</dt>
+								<dd><span class="popup-range"></span> Range</dd>
+							</div>
+						</dl>
+					</article>
+				</template>
+
+				<template id="map-error-template">
+					<p class="error" role="status">Unable to load map data</p>
+				</template>
+
+				<!-- Summary Row -->
+				<template id="summary-row-template">
 				<tr class="year-summary-row">
-					<td scope="rowgroup" colspan="6">
+					<th scope="rowgroup" colspan="6">
 						<strong><span class="summary-count"></span> </strong><span class="summary-label"></span> in <span class="summary-year"></span>
-					</td>
+					</th>
 				</tr>
 			</template>
 
@@ -491,44 +566,51 @@
 				</tr>
 			</template>
 
-			<!-- Collection -->
+			<!-- Table Footer Tallies -->
+			<template id="table-tally-template">
+				<span class="table-tally nowrap">
+					<span class="table-tally-name"></span>
+					<small>x</small><small class="table-tally-count"></small></span><span class="table-tally-separator" aria-hidden="true">, </span><wbr class="table-tally-break">
+			</template>
+
+			<!-- Record Collection -->
 			<template id="record-template">
 				<div class="discogs-record">
 					<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
 						<div class="album-sleeve">
-							<img class="album-art" src="" alt="">
-							<img class="album-media" alt="">
+							<img class="album-art" src="" alt="" decoding="async">
+							<img class="album-media" src="" alt="" decoding="async">
 						</div>
 					</a>
 				</div>
 				<div class="record-caption text-center">
-					<label class="record-title"></label>
+				<p>
+					<cite class="record-title"></cite>
 					<br>
-					<label class="record-artist"></label>
+					<span class="record-artist"></span>
+				</p>
 				</div>
 			</template>
 
-			<!-- For Sale -->
+			<!-- Records For Sale -->
 			<template id="inventory-item-template">
 				<div class="discogs-record">
 					<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
 						<div class="album-sleeve">
-							<img class="album-art" src="" alt="">
-							<img class="album-media" alt="">
+							<img class="album-art" src="" alt="" decoding="async">
+							<img class="album-media" src="" alt="" decoding="async">
 						</div>
 					</a>
 				</div>
 				<div class="record-caption for-sale">
-					<div class="record-info">
-						<label class="record-title"></label>
+					<p class="record-info">
+						<cite class="record-title"></cite>
 						<br>
-						<label class="record-artist"></label>
-					</div>
-					<data class="record-price"></data>
+						<span class="record-artist"></span>
+					</p>
+					<data class="record-price" value=""></data>
 				</div>
 			</template>
-
-		</section>
 
 	</body>
 

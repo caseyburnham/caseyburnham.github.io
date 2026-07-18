@@ -1,80 +1,287 @@
-// const sections = document.querySelectorAll('.fade-in');
-// 
-// const observerOptions = {
-// threshold: 0,
-// rootMargin: '0px 0px -10px 0px'
-// };
-// 
-// const observer = new IntersectionObserver((entries) => {
-// entries.forEach((entry, index) => {
-// 	if (entry.isIntersecting) {
-// 		setTimeout(() => {
-// 			entry.target.classList.add('is-visible');
-// 		}, index * 150);
-// 		observer.unobserve(entry.target);
-// 	}
-// });
-// }, observerOptions);
-// 
-// sections.forEach(section => observer.observe(section));
+const POPOVER_TIMEOUT = 3000;
 
-class Navigation {
-	constructor() {
-		const nav = document.querySelector('.nav-wrapper');
-		const menu = document.querySelector('nav');
-		const hamburger = document.querySelector('.nav-wrapper button');
-		const closeMenu = () => {
-			menu.classList.remove('is-open');
-			hamburger.setAttribute('aria-expanded', 'false');
-		};
-		
-		if (!nav || !menu || !hamburger) return;
+const RACK_ANIMATION = {
+  closeDuration: 400,
+  openDuration: 420,
+  easing: 'cubic-bezier(.4, 0, .2, 1)',
+};
 
-		window.addEventListener('scroll', () => {
-			nav.classList.toggle('nav-scrolled', window.scrollY > 10);
-		});
+/**
+ * Navigation
+ */
+function initNavigation() {
+  const wrapper = document.querySelector('.nav-wrapper');
+  const menu = wrapper?.querySelector('nav');
+  const toggle = wrapper?.querySelector('.nav-toggle');
 
-hamburger.addEventListener('click', (e) => {
-			e.stopPropagation();
-			const isOpen = menu.classList.toggle('is-open');
-			hamburger.setAttribute('aria-expanded', isOpen);
-		});
+  if (!wrapper || !menu || !toggle) return;
 
-		menu.addEventListener('click', (e) => {
-			if (e.target.closest('a')) {
-				menu.classList.remove('is-open');
-			}
-		});
+  const closeMenu = ({ restoreFocus = false } = {}) => {
+	menu.classList.remove('is-open');
+	toggle.setAttribute('aria-expanded', 'false');
 
-		document.addEventListener('click', (e) => {
-			if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-				menu.classList.remove('is-open');
-			}
-		});
+	if (restoreFocus) {
+	  toggle.focus();
 	}
+  };
+
+  const updateScrollState = () => {
+	wrapper.classList.toggle('nav-scrolled', scrollY > 10);
+  };
+
+  // Set the correct state before the user scrolls.
+  updateScrollState();
+
+  window.addEventListener('scroll', updateScrollState, {
+	passive: true,
+  });
+
+  toggle.addEventListener('click', (event) => {
+	event.stopPropagation();
+
+	const isOpen = menu.classList.toggle('is-open');
+	toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  menu.addEventListener('click', (event) => {
+	if (
+	  event.target instanceof Element &&
+	  event.target.closest('a')
+	) {
+	  closeMenu();
+	}
+  });
+
+  document.addEventListener('click', (event) => {
+	if (
+	  event.target instanceof Node &&
+	  !wrapper.contains(event.target)
+	) {
+	  closeMenu();
+	}
+  });
+
+  document.addEventListener('keydown', (event) => {
+	if (
+	  event.key === 'Escape' &&
+	  menu.classList.contains('is-open')
+	) {
+	  closeMenu({ restoreFocus: true });
+	}
+  });
 }
 
-document.querySelectorAll('abbr[data-popover]')
-  .forEach(abbr => {
-	const popover = document.getElementById(abbr.dataset.popover);
-	let closeTimeout;
+/**
+ * Native popovers
+ *
+ * Opening, closing, focus handling, Escape, and light dismissal are
+ * handled natively. This only adds the optional automatic timeout.
+ */
+function initPopoverTimeouts() {
+  const timers = new WeakMap();
 
-	abbr.addEventListener('click', (e) => {
-	  e.preventDefault();
-	  clearTimeout(closeTimeout);
+  document.addEventListener(
+	'toggle',
+	(event) => {
+	  const popover = event.target;
 
-	  if (popover.matches(':popover-open')) {
-		popover.hidePopover();
+	  if (
+		!(popover instanceof HTMLElement) ||
+		!popover.matches('[popover]')
+	  ) {
 		return;
 	  }
 
-	  popover.showPopover();
-	  closeTimeout = setTimeout(() => popover.hidePopover(), 3000);
+	  const existingTimer = timers.get(popover);
+
+	  if (existingTimer) {
+		clearTimeout(existingTimer);
+		timers.delete(popover);
+	  }
+
+	  if (event.newState !== 'open') return;
+
+	  const timer = setTimeout(() => {
+		if (popover.matches(':popover-open')) {
+		  popover.hidePopover();
+		}
+
+		timers.delete(popover);
+	  }, POPOVER_TIMEOUT);
+
+	  timers.set(popover, timer);
+	},
+	true,
+  );
+}
+
+/**
+ * Copyright year
+ */
+function updateCopyrightYear() {
+  const year = document.getElementById('copyright-year');
+
+  if (year) {
+	const currentYear = String(new Date().getFullYear());
+	year.dateTime = currentYear;
+	year.textContent = currentYear;
+  }
+}
+
+/**
+ * Animated details/channel rack
+ */
+function initChannelRacks() {
+  const reduceMotion = matchMedia(
+	'(prefers-reduced-motion: reduce)',
+  ).matches;
+
+  document
+	.querySelectorAll('#skills details')
+	.forEach((details) => {
+	  initChannelRack(details, reduceMotion);
 	});
+}
+
+function initChannelRack(details, reduceMotion) {
+  const summary = details.querySelector('summary');
+  const body = details.querySelector('article');
+
+  if (!summary || !body) return;
+
+  let animation = null;
+  let isClosing = false;
+  let isExpanding = false;
+
+  const syncOpenClass = () => {
+	details.classList.toggle('is-open', details.open);
+  };
+
+  // Ensure the initial styling matches the native open state.
+  syncOpenClass();
+
+  if (reduceMotion) {
+	details.addEventListener('toggle', syncOpenClass);
+	return;
+  }
+
+  const animateHeight = (startHeight, endHeight, duration) => {
+	animation?.cancel();
+
+	animation = details.animate(
+	  {
+		height: [startHeight, endHeight],
+	  },
+	  {
+		duration,
+		easing: RACK_ANIMATION.easing,
+	  },
+	);
+
+	return animation;
+  };
+
+  const finishAnimation = (shouldOpen) => {
+	details.open = shouldOpen;
+	details.classList.toggle('is-open', shouldOpen);
+
+	animation = null;
+	isClosing = false;
+	isExpanding = false;
+
+	details.style.height = '';
+	details.style.overflow = '';
+  };
+
+  const shrinkRack = () => {
+	isClosing = true;
+	isExpanding = false;
+
+	details.classList.remove('is-open');
+
+	const startHeight = `${details.offsetHeight}px`;
+	const endHeight = `${summary.offsetHeight}px`;
+
+	const currentAnimation = animateHeight(
+	  startHeight,
+	  endHeight,
+	  RACK_ANIMATION.closeDuration,
+	);
+
+	currentAnimation.addEventListener(
+	  'finish',
+	  () => finishAnimation(false),
+	  { once: true },
+	);
+
+	currentAnimation.addEventListener(
+	  'cancel',
+	  () => {
+		isClosing = false;
+	  },
+	  { once: true },
+	);
+  };
+
+  const expandRack = () => {
+	isExpanding = true;
+	isClosing = false;
+
+	const startHeight = `${details.offsetHeight}px`;
+	const endHeight =
+	  `${summary.offsetHeight + body.offsetHeight}px`;
+
+	const currentAnimation = animateHeight(
+	  startHeight,
+	  endHeight,
+	  RACK_ANIMATION.openDuration,
+	);
+
+	currentAnimation.addEventListener(
+	  'finish',
+	  () => finishAnimation(true),
+	  { once: true },
+	);
+
+	currentAnimation.addEventListener(
+	  'cancel',
+	  () => {
+		isExpanding = false;
+	  },
+	  { once: true },
+	);
+
+	requestAnimationFrame(() => {
+	  details.classList.add('is-open');
+	});
+  };
+
+  const openRack = () => {
+	details.style.height = `${details.offsetHeight}px`;
+	details.open = true;
+
+	requestAnimationFrame(expandRack);
+  };
+
+  summary.addEventListener('click', (event) => {
+	event.preventDefault();
+
+	details.style.overflow = 'hidden';
+
+	if (isClosing || !details.open) {
+	  openRack();
+	} else if (isExpanding || details.open) {
+	  shrinkRack();
+	}
   });
-document.addEventListener('DOMContentLoaded', () => {
-	new Navigation();
-	const yearEl = document.getElementById('year');
-	if (yearEl) yearEl.textContent = new Date()
-		.getFullYear();
-});
+}
+
+/**
+ * Initialize
+ */
+export function initCandy() {
+  initNavigation();
+  initPopoverTimeouts();
+  updateCopyrightYear();
+  initChannelRacks();
+}

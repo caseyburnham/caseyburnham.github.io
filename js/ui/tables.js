@@ -16,7 +16,7 @@ const VENUES_TO_HIGHLIGHT = [
 	{ name: 'Gothic Theater', className: 'venue--gothic' }
 ];
 
-const ARTIST_EXCLUSIONS = new Set(['et al.', 'decadence']);
+const ARTIST_EXCLUSIONS = new Set(['et al.', 'decadence', '(DJ Set)']);
 
 const ELEVATION = { MIN: 13000, MAX: 14440 };
 
@@ -34,7 +34,8 @@ function validateTemplates() {
 		'production-row-template',
 		'mountain-row-template',
 		'summary-row-template',
-		'concert-row-template'
+		'concert-row-template',
+		'table-tally-template'
 	];
 	
 	const missing = required.filter(id => !document.getElementById(id));
@@ -88,7 +89,8 @@ function processMountains(mountains, exifData) {
 
 function renderRangeSummary(mountains) {
 	const cell = document.querySelector('#range-summary-row td');
-	if (!cell) return;
+	const template = document.getElementById('table-tally-template');
+	if (!cell || !template) return;
 
 	const seenPeaks = new Set();
 	const rangeCounts = new Map(RANGES_ORDERED.map(r => [r, 0]));
@@ -104,23 +106,9 @@ function renderRangeSummary(mountains) {
 	const sorted = Array.from(rangeCounts.entries())
 		.sort((a, b) => b[1] - a[1]);
 
-	const fragment = document.createDocumentFragment();
-
-	sorted.forEach(([range, count], index) => {
-		const span = document.createElement('span');
-		span.classList.add('nowrap');
-		if (count === 0) span.classList.add('range-tally--zero');
-
-		span.innerHTML = `${range} <small>${count}</small>`;
-
-		fragment.appendChild(span);
-
-		if (index < sorted.length - 1) {
-			fragment.appendChild(document.createTextNode(', '));
-		}
-	});
-
-	cell.replaceChildren(fragment);
+	cell.replaceChildren(createTallyList(sorted, template, {
+		itemClass: ([, count]) => count === 0 ? 'range-tally--zero' : ''
+	}));
 }
 
 function calculateMountainStats(mountains) {
@@ -198,19 +186,15 @@ function renderProductions(productions) {
 		
 		//A1
 		row.querySelector('.prod-a1').textContent = prod.A1 || '';
-		row.querySelector('.prod-a1').classList.add('prod-role');
 		
 		//SD
 		row.querySelector('.prod-sd').textContent = prod.SD || '';
-		row.querySelector('.prod-sd').classList.add('prod-role');
 		
 		//AD
 		row.querySelector('.prod-ad').textContent = prod.AD || '';
-		row.querySelector('.prod-ad').classList.add('prod-role');
 		
 		//LZ
 		row.querySelector('.prod-lz').textContent = prod.LZ || '';
-		row.querySelector('.prod-lz').classList.add('prod-role');
 		
 		//Emoji
 		row.querySelector('.prod-notes').textContent = prod.Notes || '';
@@ -259,6 +243,7 @@ function renderMountains(mountains) {
 			sameDayGroup[0].classList.add('sequence-first');
 			sameDayGroup[sameDayGroup.length - 1].classList.add('sequence-last');
 			sameDayGroup.forEach(row => row.classList.add('sequence-group'));
+			styleSequenceGroup(sameDayGroup);
 		}
 		sameDayGroup = [];
 	};
@@ -302,9 +287,6 @@ function renderMountains(mountains) {
 	updateProgressBar('thirteeners', stats.thirteeners);
 	updateProgressBar('fourteeners', stats.fourteeners);
 	renderRangeSummary(mountains);
-	
-	// Style sequence groups after rendering
-	styleSequenceGroups();
 }
 
 function createMountainRow(mountain, template) {
@@ -315,22 +297,22 @@ function createMountainRow(mountain, template) {
 	tr.querySelector('.mtn-peak').textContent = mountain.Peak || '';
 
 	// Elevation with gradient
-	const elevCell = tr.querySelector('.mtn-elevation');
+	const elevationData = tr.querySelector('.mtn-elevation-data');
 	if (mountain.Elevation) {
 		const numElev = parseInt(mountain.Elevation.replace(/,/g, ''), 10);
-		if (!isNaN(numElev)) {
+		if (!isNaN(numElev) && elevationData) {
 			const fraction = Math.max(0, Math.min(1, (numElev - ELEVATION.MIN) / (ELEVATION.MAX - ELEVATION.MIN)));
 			const percent = fraction * 100;
 
-			const data = document.createElement('data');
-			data.textContent = mountain.Elevation;
-			data.value = numElev;
-			data.style.setProperty('--elevation-percent', `${percent.toFixed(2)}%`);
-			data.style.setProperty('--elevation-fraction', fraction.toFixed(3));
-			elevCell.appendChild(data);
+			elevationData.textContent = mountain.Elevation;
+			elevationData.value = numElev;
+			elevationData.style.setProperty('--elevation-percent', `${percent.toFixed(2)}%`);
+			elevationData.style.setProperty('--elevation-fraction', fraction.toFixed(3));
 		} else {
-			elevCell.textContent = mountain.Elevation;
+			elevationData.textContent = mountain.Elevation;
 		}
+	} else {
+		elevationData?.remove();
 	}
 
 	// Range
@@ -440,22 +422,19 @@ function renderConcerts(concerts) {
 
 function updateTopList(selector, countMap, limit) {
 	const element = document.querySelector(selector);
-	if (!element || !countMap.size) return;
+	const template = document.getElementById('table-tally-template');
+	if (!element || !template || !countMap.size) return;
 
 	const sorted = Array.from(countMap.entries())
 		.sort((a, b) => b[1] - a[1])
 		.slice(0, limit);
 
-	const html = sorted.map(([name, count], index) => {
-		// Check if venue should be highlighted
-		const venue = VENUES_TO_HIGHLIGHT.find(v => v.name.toLowerCase() === name.toLowerCase());
-		const className = venue ? venue.className : '';
-		
-		const span = `<span class="nowrap"><span class="${className}">${name}</span> <small>${count}</small></span>`;
-		return index < sorted.length - 1 ? span + ', <wbr>' : span;
-	}).join('');
-
-	element.innerHTML = html;
+	element.replaceChildren(createTallyList(sorted, template, {
+		itemClass: ([name]) => {
+			const venue = VENUES_TO_HIGHLIGHT.find(v => v.name.toLowerCase() === name.toLowerCase());
+			return venue?.className || '';
+		}
+	}));
 }
 
 function highlightVenues() {
@@ -477,31 +456,43 @@ function updateElement(selector, content) {
 	if (element) element.textContent = content;
 }
 
-function styleSequenceGroups() {
-	const colors = ['--sequence-0', '--sequence-1', '--sequence-2', '--sequence-3'];
-	
-	document.querySelectorAll('.sequence-first').forEach((first) => {
-		let climbIndex = 0;
-		
-		// Style the first row
-		const firstTh = first.querySelector('th');
-		if (firstTh) {
-			const colorVar = colors[climbIndex % 4];
-			firstTh.style.backgroundColor = `oklch(from var(${colorVar}) l c h)`;
-			climbIndex++;
+function createTallyList(entries, template, { itemClass = () => '' } = {}) {
+	const fragment = document.createDocumentFragment();
+
+	entries.forEach((entry, index) => {
+		const [name, count] = entry;
+		const tally = template.content.cloneNode(true);
+		const nameElement = tally.querySelector('.table-tally-name');
+		const className = itemClass(entry);
+
+		nameElement.textContent = name;
+		tally.querySelector('.table-tally-count').textContent = count;
+		if (className) nameElement.classList.add(className);
+
+		if (index === entries.length - 1) {
+			tally.querySelector('.table-tally-separator')?.remove();
+			tally.querySelector('.table-tally-break')?.remove();
 		}
-		
-		// Style subsequent rows in the group
-		let current = first.nextElementSibling;
-		while (current && current.classList.contains('sequence-group') && !current.classList.contains('sequence-first')) {
-			const th = current.querySelector('th');
-			if (th) {
-				const colorVar = colors[climbIndex % 4];
-				th.style.backgroundColor = `oklch(from var(${colorVar}) l c h)`;
-				climbIndex++;
-			}
-			current = current.nextElementSibling;
-		}
+
+		fragment.appendChild(tally);
+	});
+
+	return fragment;
+}
+
+function styleSequenceGroup(rows) {
+	const finalIndex = rows.length - 1;
+
+	rows.forEach((row, index) => {
+		const heading = row.querySelector('th');
+		if (!heading) return;
+
+		const position = index / finalIndex;
+		const lightness = (position * 0.25).toFixed(3);
+		const alpha = (0.05 + position * 0.15).toFixed(3);
+
+		heading.style.backgroundColor =
+			`oklch(from var(--color-accent-0) calc(l + ${lightness}) c h / ${alpha})`;
 	});
 }
 
@@ -509,25 +500,15 @@ function styleSequenceGroups() {
 // Initialization
 // ============================================================================
 
-async function init() {
-	try {
-		validateTemplates();
-		
-		const { exifData, productions, mountains, concerts } = await loadAllData();
+export async function initTables() {
+	validateTemplates();
 
-		if (productions) renderProductions(productions);
-		if (concerts) renderConcerts(concerts);
-		if (mountains) {
-			const processed = processMountains(mountains, exifData);
-			renderMountains(processed);
-		}
-	} catch (error) {
-		console.error('Initialization failed:', error);
+	const { exifData, productions, mountains, concerts } = await loadAllData();
+
+	if (productions) renderProductions(productions);
+	if (concerts) renderConcerts(concerts);
+	if (mountains) {
+		const processed = processMountains(mountains, exifData);
+		renderMountains(processed);
 	}
-}
-
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', init);
-} else {
-	init();
 }
