@@ -1,0 +1,42 @@
+@layer reset {
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		interpolate-size: allow-keywords;
+		margin: 0;
+		padding: 0;
+	}
+
+	button, summary {
+		cursor: pointer;
+		touch-action: manipulation;
+		user-select: none;
+		-webkit-user-select: none;
+	}
+
+	:is(img, picture, video, canvas, svg) {
+		display: block;
+		max-inline-size: 100%;
+	}
+
+	:is(input, button, textarea, select) {
+		font: inherit;
+	}
+
+	:is(p, h1, h2, h3, h4, h5, h6) {
+		overflow-wrap: break-word;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-accent-0);
+		outline-offset: 0.2em;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html:focus-within {
+			scroll-behavior: auto;
+		}
+	}
+}
