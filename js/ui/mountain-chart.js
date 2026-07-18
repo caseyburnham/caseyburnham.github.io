@@ -1,0 +1,72 @@
+import dataCache from '../utils/shared-data.js';
+
+const CHART_MIN = 13000;
+const CHART_MAX = 14438;
+
+async function renderElevationChart(canvasId, dataPath = '/json/mountain-data.json') {
+  const mountains = await dataCache.fetch(dataPath);
+
+  const sorted = [...mountains].sort((a, b) => new Date(a.Date) - new Date(b.Date));
+
+  const labels = sorted.map(m =>
+	new Date(m.Date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', year: '2-digit' })
+  );
+  const elevations = sorted.map(m => parseInt(m.Elevation.replace(/,/g, ''), 10));
+
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) {
+	throw new Error(`Chart canvas not found: #${canvasId}`);
+  }
+  if (typeof Chart === 'undefined') {
+	throw new Error('Chart.js is not loaded');
+  }
+
+  return new Chart(canvas, {
+	type: 'line',
+	data: {
+	  labels,
+	  datasets: [{
+		data: elevations,
+		borderColor: 'oklch(67% 0.222 37.42)',
+		backgroundColor: 'oklch(67% 0.222 37.42 / 25%)',
+		borderWidth: 1.5,
+		pointRadius: 2,
+		pointStyle: 'circle',
+		pointHoverRadius: 5,
+		pointBackgroundColor: 'oklch(67% 0.222 37.42)',
+		fill: 'origin',
+		tension: 0
+	  }]
+	},
+	options: {
+	  responsive: true,
+	  maintainAspectRatio: false,
+	  plugins: {
+		legend: { display: false },
+		tooltip: {
+		  callbacks: {
+			title: items => sorted[items[0].dataIndex].Peak
+		  }
+		}
+	  },
+	  scales: {
+		y: {
+		  display: false,
+		  min: CHART_MIN,
+		  max: CHART_MAX,
+		  ticks: { callback: v => (v / 10).toFixed(0) + 'k' },
+		  grid: { color: '#e1e0d9' }
+		},
+		x: {
+		  display: false,
+		  grid: { display: true },
+		  ticks: { maxRotation: 45, autoSkip: true, maxTicksLimit: 14 }
+		}
+	  }
+	}
+  });
+}
+
+export function initMountainChart() {
+  return renderElevationChart('elevationChart');
+}

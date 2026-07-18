@@ -1,235 +1,223 @@
 import { debounce } from '../utils/shared-utils.js';
 import dataCache from '../utils/shared-data.js';
 
-// Media type to image filename
+const FETCH_COUNT = 5;
 const MEDIA_IMAGES = {
-	'Vinyl': 'vinyl-record.png',
-	'CD': 'cd-disc.png',
-	'Cassette': 'cassette-tape.png'
+	Vinyl: 'vinyl-record.png',
+	CD: 'cd-disc.png',
+	Cassette: 'cassette-tape.png'
 };
 
-const transformItem = (item) => {
-  console.log('raw item keys:', JSON.stringify(Object.keys(item.release)));  // temp
-  return 5
-}
+const sections = [
+	{
+		wrapperId: 'discogs-collection-wrapper',
+		sleeveContainerId: 'discogs-sleeve-container',
+		captionContainerId: 'discogs-caption-container',
+		statusId: 'discogs-collection-status',
+		templateId: 'record-template',
+		endpoint: '/.netlify/functions/get-record',
+		loadingMessage: 'Loading collection…',
+		emptyMessage: 'No collection records are available.',
+		errorMessage: 'Could not fetch records at this time.',
+		showPrice: false,
+		records: []
+	},
+	{
+		wrapperId: 'discogs-inventory-wrapper',
+		sleeveContainerId: 'discogs-inventory-sleeve-container',
+		captionContainerId: 'discogs-inventory-caption-container',
+		statusId: 'discogs-inventory-status',
+		templateId: 'inventory-item-template',
+		endpoint: '/.netlify/functions/get-inventory',
+		loadingMessage: 'Loading sale items…',
+		emptyMessage: 'No records are currently for sale.',
+		errorMessage: 'Could not fetch sale items.',
+		showPrice: true,
+		records: []
+	}
+].map(section => ({
+	...section,
+	wrapper: document.getElementById(section.wrapperId),
+	sleeveContainer: document.getElementById(section.sleeveContainerId),
+	captionContainer: document.getElementById(section.captionContainerId),
+	status: document.getElementById(section.statusId),
+	template: document.getElementById(section.templateId)
+})).filter(section =>
+	section.wrapper &&
+	section.sleeveContainer &&
+	section.captionContainer &&
+	section.status &&
+	section.template
+);
 
-// How many records to show at different screen sizes
 function getRecordCount() {
-	const width = window.innerWidth;
-	if (width <= 640) return 2;
-	if (width <= 1024) return 3;
-	return 5;
+	if (window.innerWidth <= 640) return 2;
+	if (window.innerWidth <= 1024) return 3;
+	return FETCH_COUNT;
 }
 
-// Utility to pause execution for a set time (in milliseconds)
-const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const wait = (milliseconds) =>
+	new Promise(resolve => window.setTimeout(resolve, milliseconds));
 
-
-
-// Fetch records with specific handling for Rate Limiting (429)
 async function fetchRecords(endpoint, retries = 3, delay = 1000) {
-	const url = `${endpoint}?count=5`;
-	
+	const url = `${endpoint}?count=${FETCH_COUNT}`;
+
 	try {
-		// Attempt the fetch via your dataCache
 		return await dataCache.fetch(url);
-		
 	} catch (error) {
-		// Check if we have retries left and if the error looks like a rate limit
-		// (Assuming your dataCache/fetch error object includes a 'status' or 'code')
-		const isRateLimit = error.status === 429 || error.code === 429;
-		
-		if (retries > 0 && isRateLimit) {
-			console.warn(`Rate limit hit for ${endpoint}. Retrying in ${delay}ms...`);
-			
-			// Wait for the delay duration
-			await wait(delay);
-			
-			// Recursive call: Decrement retries, double the delay (Exponential Backoff)
-			return fetchRecords(endpoint, retries - 1, delay * 2);
+		if (retries === 0 || error.status !== 429) {
+			throw error;
 		}
-		
-		// If it's not a 429 or we ran out of retries, throw the error normally
-		throw error;
+
+		console.warn(`Rate limit hit for ${endpoint}. Retrying in ${delay}ms…`);
+		await wait(delay);
+		return fetchRecords(endpoint, retries - 1, delay * 2);
 	}
 }
 
-// Create a single record element from template
 function createRecord(template, data, showPrice) {
 	const clone = template.content.cloneNode(true);
-	
-	// Link
-	clone.querySelector('.record-link').href = data.url || '#';
-	
-	// Cover image
+	const record = clone.querySelector('.discogs-record');
+	const link = clone.querySelector('.record-link');
 	const cover = clone.querySelector('.album-art');
+	const mediaImage = clone.querySelector('.album-media');
+	const title = clone.querySelector('.record-title');
 	const artist = data.artist?.replace(/\s\(\d+\)$/, '') || 'Unknown';
+	const mediaType = MEDIA_IMAGES[data.mediaType] ? data.mediaType : 'Vinyl';
+
+	link.href = data.url || '#';
 	cover.src = data.cover_image || '';
 	cover.alt = `${data.title || 'Unknown'} by ${artist}`;
-	
-	// Artist
-	clone.querySelector('.record-artist').textContent = artist;
-	
-	// Title
-	const title = clone.querySelector('.record-title');
+	mediaImage.src = `/images/assets/png/${MEDIA_IMAGES[mediaType]}`;
+	mediaImage.alt = `${mediaType} format`;
+	record.classList.add(`is-${mediaType.toLowerCase()}`);
+
 	title.textContent = data.title || 'Unknown';
-	if (data.rating === 5) title.classList.add('is-favorite');
-	
-	// Media type image
-	const mediaType = data.mediaType || 'Vinyl';
-	const mediaImg = clone.querySelector('.album-media');
-	mediaImg.src = `/images/assets/png/${MEDIA_IMAGES[mediaType] || MEDIA_IMAGES.Vinyl}`;
-	mediaImg.alt = `${mediaType} format`;
-	
-	// Add media type class
-	clone.querySelector('.discogs-record').classList.add(`is-${mediaType.toLowerCase()}`);
-	
-	// Price (for sale items only)
-	if (showPrice && data.price) {
-		clone.querySelector('.record-price').textContent = `$${data.price}`;
+	title.classList.toggle('is-favorite', data.rating === 5);
+	clone.querySelector('.record-artist').textContent = artist;
+
+	if (showPrice) {
+		const price = clone.querySelector('.record-price');
+		if (data.price) {
+			price.value = data.price;
+			price.textContent = `$${data.price}`;
+		} else {
+			price.hidden = true;
+		}
 	}
-	
+
 	return clone;
 }
 
-// Render records to the page
-function renderRecords(sleeveContainer, captionContainer, template, records, showPrice) {
-	if (!records?.length) {
-		sleeveContainer.innerHTML = '<p>No records available</p>';
-		captionContainer.innerHTML = '';
-		return;
-	}
-	
+function renderSection(section, count) {
 	const sleeveFragment = document.createDocumentFragment();
 	const captionFragment = document.createDocumentFragment();
-	
-	records.forEach(record => {
-		const element = createRecord(template, record, showPrice);
-		const [sleeve, caption] = element.children;
-		
+
+	section.records.slice(0, count).forEach(recordData => {
+		const record = createRecord(section.template, recordData, section.showPrice);
+		const [sleeve, caption] = record.children;
 		sleeveFragment.appendChild(sleeve);
 		captionFragment.appendChild(caption);
 	});
-	
-	sleeveContainer.innerHTML = '';
-	captionContainer.innerHTML = '';
-	sleeveContainer.appendChild(sleeveFragment);
-	captionContainer.appendChild(captionFragment);
-	
-	// Album hover effects
-	initAlbumHover();
+
+	section.sleeveContainer.replaceChildren(sleeveFragment);
+	section.captionContainer.replaceChildren(captionFragment);
 }
 
-// Initialize hover effects for album sleeves
-function initAlbumHover() {
-	let zIndex = 10;
-	
-	document.querySelectorAll('.album-sleeve').forEach(album => {
-		const parent = album.closest('.discogs-record');
-		
-		album.addEventListener('mouseenter', () => {
-			album.classList.add('is-active');
-			album.classList.remove('is-leaving');
-			if (parent) {
-				parent.classList.add('is-active');
-				parent.classList.remove('is-leaving');
-				// Always ensure the active card is higher than the last one visited
-				parent.style.zIndex = zIndex++;
-			}
-		});
-		
-		album.addEventListener('mouseleave', () => {
-			album.classList.remove('is-active');
-			album.classList.add('is-leaving');
-			if (parent) {
-				parent.classList.remove('is-active');
-				parent.classList.add('is-leaving');
-			}
-			
-			// Use { once: true } to prevent event listener buildup
-			album.addEventListener('transitionend', function cleanup(e) {
-				if (e.propertyName === 'transform') {
-					album.classList.remove('is-leaving');
-					if (parent) {
-						parent.classList.remove('is-leaving');
-						// DELETED: parent.style.zIndex = ''; 
-						// keeping the z-index ensures it stays above 
-						// neighbors until a new one is hovered.
-					}
-				}
-			}, { once: true });
-		});
+function setStatus(section, message = '') {
+	section.status.textContent = message;
+	section.status.hidden = !message;
+}
+
+async function loadSection(section) {
+	setStatus(section, section.loadingMessage);
+	section.wrapper.classList.add('is-loading');
+	section.wrapper.setAttribute('aria-busy', 'true');
+
+	try {
+		section.records = await fetchRecords(section.endpoint);
+
+		if (section.records.length === 0) {
+			setStatus(section, section.emptyMessage);
+			return;
+		}
+
+		renderSection(section, visibleRecordCount);
+		setStatus(section);
+	} catch (error) {
+		console.error(`Failed to load ${section.endpoint}:`, error);
+		setStatus(section, section.errorMessage);
+	} finally {
+		section.wrapper.classList.remove('is-loading');
+		section.wrapper.removeAttribute('aria-busy');
+	}
+}
+
+let activeZIndex = 10;
+
+function getSleeve(event) {
+	const sleeve = event.target.closest('.album-sleeve');
+	return sleeve && event.currentTarget.contains(sleeve) ? sleeve : null;
+}
+
+function activateSleeve(sleeve) {
+	sleeve.classList.add('is-active');
+	sleeve.closest('.discogs-record').style.zIndex = activeZIndex++;
+}
+
+function deactivateSleeve(sleeve) {
+	sleeve.classList.remove('is-active');
+}
+
+function initializeSleeveInteractions() {
+	const section = document.getElementById('now-playing');
+	if (!section) return;
+
+	section.addEventListener('mouseover', event => {
+		const sleeve = getSleeve(event);
+		if (sleeve && !sleeve.contains(event.relatedTarget)) {
+			activateSleeve(sleeve);
+		}
+	});
+
+	section.addEventListener('mouseout', event => {
+		const sleeve = getSleeve(event);
+		if (sleeve && !sleeve.contains(event.relatedTarget)) {
+			deactivateSleeve(sleeve);
+		}
+	});
+
+	section.addEventListener('focusin', event => {
+		const sleeve = getSleeve(event);
+		if (sleeve) activateSleeve(sleeve);
+	});
+
+	section.addEventListener('focusout', event => {
+		const sleeve = getSleeve(event);
+		if (sleeve && !sleeve.contains(event.relatedTarget)) {
+			deactivateSleeve(sleeve);
+		}
 	});
 }
 
-// Display collection
-async function displayCollection() {
-	const sleeveContainer = document.getElementById('discogs-sleeve-container');
-	const captionContainer = document.getElementById('discogs-caption-container');
-	const template = document.getElementById('record-template');
-	
-	if (!sleeveContainer || !captionContainer || !template) return;
-	
-	sleeveContainer.classList.add('is-loading');
-	
-	try {
-		const records = await fetchRecords('/.netlify/functions/get-record');
-		const count = getRecordCount();
-		renderRecords(sleeveContainer, captionContainer, template, records.slice(0, count), false);
-	} catch (error) {
-		console.error('Failed to load collection:', error);
-		sleeveContainer.innerHTML = '<p class="error-message">Could not fetch records at this time.</p>';
-		captionContainer.innerHTML = '';
-	} finally {
-		sleeveContainer.classList.remove('is-loading');
-	}
-}
+let visibleRecordCount = getRecordCount();
 
-// Display inventory (for sale)
-async function displayInventory() {
-	const sleeveContainer = document.getElementById('discogs-inventory-sleeve-container');
-	const captionContainer = document.getElementById('discogs-inventory-caption-container');
-	const template = document.getElementById('inventory-item-template');
-	
-	if (!sleeveContainer || !captionContainer || !template) return;
-	
-	sleeveContainer.classList.add('is-loading');
-	
-	try {
-		const records = await fetchRecords('/.netlify/functions/get-inventory');
-		const count = getRecordCount();
-		renderRecords(sleeveContainer, captionContainer, template, records.slice(0, count), true);
-	} catch (error) {
-		console.error('Failed to load inventory:', error);
-		sleeveContainer.innerHTML = '<p class="error-message">Could not fetch sale items.</p>';
-		captionContainer.innerHTML = '';
-	} finally {
-		sleeveContainer.classList.remove('is-loading');
-	}
-}
-
-// Re-render on window resize
 const handleResize = debounce(() => {
-	// Re-fetch from cache (instant since cached)
-	const collectionContainer = document.getElementById('discogs-sleeve-container');
-	const inventoryContainer = document.getElementById('discogs-inventory-sleeve-container');
-	
-	if (collectionContainer && dataCache.has('/.netlify/functions/get-record?count=5')) {
-		displayCollection();
-	}
-	
-	if (inventoryContainer && dataCache.has('/.netlify/functions/get-inventory?count=5')) {
-		displayInventory();
-	}
+	const nextCount = getRecordCount();
+	if (nextCount === visibleRecordCount) return;
+
+	visibleRecordCount = nextCount;
+	sections.forEach(section => {
+		if (section.records.length > 0) {
+			renderSection(section, visibleRecordCount);
+		}
+	});
 }, 250);
 
-// Initialize
-if (document.getElementById('discogs-collection-wrapper')) {
-	displayCollection();
-}
+export async function initDiscogs() {
+  if (sections.length === 0) return;
 
-if (document.getElementById('discogs-inventory-wrapper')) {
-	displayInventory();
+	initializeSleeveInteractions();
+	window.addEventListener('resize', handleResize);
+	await Promise.all(sections.map(loadSection));
 }
-
-window.addEventListener('resize', handleResize);

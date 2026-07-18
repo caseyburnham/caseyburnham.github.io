@@ -1,16 +1,12 @@
 /**
- * Galleries - Simplified (Actually simplified this time)
+ * Interactive photo galleries.
  */
-import { debounce } from '../utils/shared-utils.js';
-
-class Galleries {
+export class Galleries {
 	static CONFIG = {
 		DATA_URL: '/json/gallery-data.json',
 		GRID_SELECTOR: '.photo-grid',
 		BUTTON_SELECTOR: '.gallery-btn',
-		CONTAINER_SELECTOR: '[aria-labelledby="gallery-heading"]',
-		TRANSITION_DURATION: 400,
-
+		CONTAINER_SELECTOR: '#galleries',
 		LANDSCAPE_MAX: 5,
 		PORTRAIT_MAX: 6,
 		MIN_IMAGES: 3
@@ -18,26 +14,20 @@ class Galleries {
 
 	#galleries = new Map();
 	#currentGallery = null;
-	#isInitialized = false;
-	#photoModal = null;
 	#galleryContainer = null;
+	#controlsTemplate = null;
 	#buttonTemplate = null;
+	#gridTemplate = null;
 	#thumbTemplate = null;
-	#resizeHandler = null;
 	#clickHandler = null;
+	#transitionVersion = 0;
 	
-	constructor(options = {}) {
-		this.#photoModal = options.photoModal || null;
+	constructor() {
 		this.#initializeDOM();
-		this.#setupResponsiveHandler();
-		this.init();
 	}
 
 	destroy() {
 		// Clean up event listeners
-		if (this.#resizeHandler) {
-			window.removeEventListener('resize', this.#resizeHandler);
-		}
 		if (this.#clickHandler) {
 			const controls = this.#galleryContainer?.querySelector('.gallery-controls');
 			controls?.removeEventListener('click', this.#clickHandler);
@@ -45,45 +35,37 @@ class Galleries {
 
 		this.#galleries.clear();
 		this.#currentGallery = null;
-		this.#isInitialized = false;
+		this.#clickHandler = null;
+		this.#transitionVersion++;
 	}
 
 	#initializeDOM() {
 		this.#galleryContainer = document.querySelector(Galleries.CONFIG.CONTAINER_SELECTOR);
+		this.#controlsTemplate = document.getElementById('gallery-controls-template');
 		this.#buttonTemplate = document.getElementById('gallery-button-template');
+		this.#gridTemplate = document.getElementById('photo-grid-template');
 		this.#thumbTemplate = document.getElementById('photo-thumb-template');
 	}
 
-	#setupResponsiveHandler() {
-		let lastWidth = window.innerWidth;
-
-		this.#resizeHandler = debounce(() => {
-			const currentWidth = window.innerWidth;
-
-			if (currentWidth !== lastWidth && this.#isInitialized && this.#currentGallery) {
-				lastWidth = currentWidth;
-				const gallery = this.#galleries.get(this.#currentGallery);
-				if (gallery) this.#renderGallery(gallery, false);
-			}
-		}, 250);
-	
-		window.addEventListener('resize', this.#resizeHandler);
-	}
-
 	async init() {
-		if (!this.#galleryContainer || !this.#buttonTemplate || !this.#thumbTemplate) {
-			console.error('Gallery initialization failed: missing elements');
-			this.#createFallbackGallery();
-			return;
+		const requiredElements = [
+			this.#galleryContainer,
+			this.#controlsTemplate,
+			this.#buttonTemplate,
+			this.#gridTemplate,
+			this.#thumbTemplate
+		];
+
+		if (requiredElements.some(element => !element)) {
+			throw new Error('Gallery initialization failed: missing required template');
 		}
 
 		try {
 			await this.#loadGalleries();
 			this.#renderControls();
-			this.#isInitialized = true;
 		} catch (error) {
 			console.error('Gallery initialization failed:', error);
-			this.#createFallbackGallery();
+			this.#galleryContainer.dataset.state = 'error';
 		}
 	}
 
@@ -110,35 +92,13 @@ class Galleries {
 		this.#loadDefaultGallery();
 	}
 
-	#createFallbackGallery() {
-		const images = Array.from(document.querySelectorAll('.photo-thumb img'))
-			.filter(img => img.src)
-			.map(img => ({
-				id: img.dataset.filename || `img-${crypto.randomUUID()}`,
-				sources: { avif: img.src },
-				thumbnail: img.src,
-				alt: img.alt || 'Untitled',
-				title: img.dataset.title || img.alt || 'Untitled',
-				layout: 'landscape',
-			}));
-		
-		this.#galleries.set('fallback', { name: 'Photo Gallery', images });
-		this.#currentGallery = 'fallback';
-		this.#renderControls();
-		this.#renderGallery(this.#galleries.get('fallback'));
-	}
-
 	#renderControls() {
 		const galleryKeys = Array.from(this.#galleries.keys());
 		if (galleryKeys.length <= 1) return;
 
-		const controls = document.createElement('div');
-		controls.className = 'gallery-controls';
-		
-		const buttonsContainer = document.createElement('div');
-		buttonsContainer.className = 'gallery-buttons';
-		buttonsContainer.role = 'tablist';
-		buttonsContainer.setAttribute('aria-label', 'Photo galleries');
+		const controlsFragment = this.#controlsTemplate.content.cloneNode(true);
+		const controls = controlsFragment.querySelector('.gallery-controls');
+		const buttonsContainer = controls.querySelector('.gallery-buttons');
 
 		const fragment = document.createDocumentFragment();
 
@@ -151,20 +111,18 @@ class Galleries {
 			
 			button.dataset.gallery = key;
 			button.textContent = gallery.name || key;
-			button.classList.toggle('active', isActive);
-			button.setAttribute('aria-selected', isActive.toString());
+			button.classList.toggle('selected', isActive);
+			button.setAttribute('aria-pressed', isActive.toString());
 			
 			fragment.appendChild(buttonClone);
 		});
 
 		buttonsContainer.appendChild(fragment);
-		controls.appendChild(buttonsContainer);
-
 		this.#galleryContainer.querySelector('.gallery-controls')?.remove();
 		
 		const insertPoint = this.#galleryContainer.querySelector(Galleries.CONFIG.GRID_SELECTOR) 
 			|| this.#galleryContainer.firstElementChild;
-		this.#galleryContainer.insertBefore(controls, insertPoint);
+		this.#galleryContainer.insertBefore(controlsFragment, insertPoint);
 
 		this.#clickHandler = (e) => {
 			const button = e.target.closest(Galleries.CONFIG.BUTTON_SELECTOR);
@@ -200,8 +158,8 @@ class Galleries {
 		const buttons = this.#galleryContainer.querySelectorAll(Galleries.CONFIG.BUTTON_SELECTOR);
 		buttons.forEach(btn => {
 			const isActive = btn.dataset.gallery === activeKey;
-			btn.classList.toggle('active', isActive);
-			btn.setAttribute('aria-selected', isActive.toString());
+			btn.classList.toggle('selected', isActive);
+			btn.setAttribute('aria-pressed', isActive.toString());
 		});
 	}
 
@@ -219,7 +177,6 @@ class Galleries {
 			const existingGrids = this.#galleryContainer.querySelectorAll(Galleries.CONFIG.GRID_SELECTOR);
 			existingGrids.forEach(grid => grid.remove());
 			this.#galleryContainer.appendChild(newGridsFragment);
-			this.#photoModal?.refreshImageTracking?.();
 		}
 	}
 
@@ -348,9 +305,9 @@ class Galleries {
 	}
 
 	#createImageGrid(images, rowClass) {
-		const row = document.createElement('div');
-		row.className = `photo-grid grid ${rowClass}`;
-		row.setAttribute('role', 'group');
+		const gridFragment = this.#gridTemplate.content.cloneNode(true);
+		const row = gridFragment.querySelector(Galleries.CONFIG.GRID_SELECTOR);
+		row.classList.add(rowClass);
 
 		const fragment = document.createDocumentFragment();
 
@@ -373,130 +330,61 @@ class Galleries {
 		});
 
 		row.appendChild(fragment);
-		return row;
+		return gridFragment;
 	}
 
-async #transitionToNewGallery(newContentFragment) {
+	async #transitionToNewGallery(newContentFragment) {
+		const transitionVersion = ++this.#transitionVersion;
 		const existingGrids = Array.from(
 			this.#galleryContainer.querySelectorAll(Galleries.CONFIG.GRID_SELECTOR)
 		);
-	
-		// Measure the new content's natural height
-		const tempContainer = document.createElement('div');
-		tempContainer.style.cssText = 'position: absolute; visibility: hidden; pointer-events: none;';
-		tempContainer.style.width = `${this.#galleryContainer.offsetWidth}px`;
-		tempContainer.appendChild(newContentFragment.cloneNode(true));
-		this.#galleryContainer.appendChild(tempContainer);
-		const newHeight = tempContainer.offsetHeight;
-		tempContainer.remove();
-	
-		// Lock to the NEW gallery's height to prevent gaps
-		this.#galleryContainer.style.minHeight = `${newHeight}px`;
-	
-		// Fade out existing grids simultaneously (not staggered)
-		await Promise.all(existingGrids.map(grid => this.#fadeOut(grid)));
-		existingGrids.forEach(grid => grid.remove());
-	
-		// Add new content (hidden)
 		const newGrids = Array.from(newContentFragment.children);
-		this.#galleryContainer.appendChild(newContentFragment);
-	
-		// Get all images for sequential fade-in
-		const allImages = Array.from(
-			this.#galleryContainer.querySelectorAll('.photo-thumb')
+
+		const shouldSkipAnimation =
+			window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+			typeof Element.prototype.animate !== 'function';
+
+		if (shouldSkipAnimation) {
+			existingGrids.forEach(grid => grid.remove());
+			this.#galleryContainer.appendChild(newContentFragment);
+			return;
+		}
+
+		await this.#animateElements(
+			existingGrids,
+			[{ opacity: 1 }, { opacity: 0 }],
+			{ duration: 200, easing: 'ease-in' }
 		);
-	
-		// Hide all images initially
-		allImages.forEach(thumb => {
-			thumb.style.opacity = '0';
-			thumb.style.transform = 'translateY(10px)';
-			thumb.style.transition = 'opacity 300ms ease, transform 300ms ease';
-		});
-	
-		// Force reflow to ensure styles are applied
-		this.#galleryContainer.offsetHeight;
-	
-		// Show grids immediately (they're just containers)
-		newGrids.forEach(grid => {
-			grid.style.opacity = '1';
-		});
-	
-		// Fade in images sequentially with stagger
-		const staggerDelay = 40; // ms between each image
-		const imagePromises = allImages.map((thumb, index) => {
-			return new Promise(resolve => {
-				setTimeout(() => {
-					thumb.style.opacity = '1';
-					thumb.style.transform = 'translateY(0)';
-					// Resolve after transition completes
-					setTimeout(resolve, 300);
-				}, index * staggerDelay);
-			});
-		});
-	
-		// Wait for all images to fade in
-		await Promise.all(imagePromises);
-	
-		// Extra frame wait to ensure paint is complete
-		await new Promise(resolve => requestAnimationFrame(() => {
-			requestAnimationFrame(resolve);
-		}));
-	
-		// Release the height lock
-		this.#galleryContainer.style.minHeight = '';
-	
-		// Clean up inline styles
-		allImages.forEach(thumb => {
-			thumb.style.transition = '';
-			thumb.style.transform = '';
-		});
-	
-		this.#photoModal?.refreshImageTracking?.();
-	}
-	
-	#fadeOut(element) {
-		return new Promise(resolve => {
-			element.style.transition = `opacity ${Galleries.CONFIG.TRANSITION_DURATION}ms ease`;
-			element.style.opacity = '0';
-			
-			setTimeout(resolve, Galleries.CONFIG.TRANSITION_DURATION);
-		});
+
+		if (transitionVersion !== this.#transitionVersion) return;
+
+		existingGrids.forEach(grid => grid.remove());
+		this.#galleryContainer.appendChild(newContentFragment);
+
+		const thumbnails = newGrids.flatMap(grid =>
+			Array.from(grid.querySelectorAll('.photo-thumb'))
+		);
+
+		await this.#animateElements(
+			thumbnails,
+			[
+				{ opacity: 0, transform: 'translateY(0.625rem)' },
+				{ opacity: 1, transform: 'translateY(0)' }
+			],
+			{ duration: 300, easing: 'ease-out', stagger: 40 }
+		);
 	}
 
-	#fadeIn(element, delay = 0) {
-		return new Promise(resolve => {
-			setTimeout(() => {
-				element.style.transition = `opacity ${Galleries.CONFIG.TRANSITION_DURATION}ms ease`;
-				element.style.opacity = '1';
-				
-				const timeout = setTimeout(resolve, Galleries.CONFIG.TRANSITION_DURATION + 100);
-				element.addEventListener('transitionend', () => {
-					clearTimeout(timeout);
-					resolve();
-				}, { once: true });
-			}, delay);
-		});
+	async #animateElements(elements, keyframes, options) {
+		const { stagger = 0, ...animationOptions } = options;
+		const animations = elements.map((element, index) =>
+			element.animate(keyframes, {
+				...animationOptions,
+				delay: index * stagger,
+				fill: 'backwards'
+			})
+		);
+
+		await Promise.allSettled(animations.map(animation => animation.finished));
 	}
 }
-
-// Initialize
-function initializeGalleries() {
-	try {
-		window.Galleries?.destroy?.();
-		window.Galleries = new Galleries({
-			photoModal: window.photoModal
-		});
-	} catch (error) {
-		console.error('Galleries initialization failed:', error);
-	}
-}
-
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initializeGalleries);
-} else {
-	initializeGalleries();
-}
-
-window.addEventListener('beforeunload', () => {
-	window.Galleries?.destroy();
-});

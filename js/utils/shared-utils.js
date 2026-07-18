@@ -1,24 +1,16 @@
-/**
- * Debounce function execution
- */
+/** Delay execution until calls have stopped for the specified time. */
 export function debounce(func, wait) {
   let timeout;
-  return function(...args) {
+
+  function debounced(...args) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(this, args), wait);
-  };
-}
+  }
 
-/**
- * Throttle function execution
- */
-export function throttle(func, limit) {
-  let inThrottle;
-  return function(...args) {
-    if (!inThrottle) {
-      func.apply(this, args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
+  debounced.cancel = () => {
+    clearTimeout(timeout);
+    timeout = undefined;
   };
+
+  return debounced;
 }

@@ -1,5 +1,13 @@
 [
 	{
+		"Peak": "Tincup Peak",
+		"Elevation": "13,351",
+		"Range": "Sawatch",
+		"Date": "2026-07-13",
+		"Image": "/images/summits/tincup-peak.jpeg",
+		"ranked": true
+	},
+	{
 		"Peak": "Duco Benchmark",
 		"Elevation": "13,347",
 		"Range": "San Juan",
@@ -28,7 +36,7 @@
 		"Elevation": "14,271",
 		"Range": "Tenmile",
 		"Date": "2026-06-20",
-		"Image": "/images/summits/quandary.jpeg",
+		"Image": "/images/summits/quandary-peak.jpeg",
 		"ranked": true
 	},
 	{

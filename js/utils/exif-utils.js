@@ -51,19 +51,27 @@ export function formatExifDate(input) {
  * Format elevation for display
  */
 export function formatElevation(altitudeMeters) {
-	if (!altitudeMeters || isNaN(altitudeMeters)) {
-		return { feet: 'Unknown', meters: 'Unknown', display: 'Unknown' };
-	}
-	
-	const feet = Math.round(altitudeMeters * 3.28084);
-	const meters = Math.round(altitudeMeters);
-	
-	return {
-		feet: feet.toLocaleString(),
-		meters: meters.toLocaleString(),
-		display: `${feet.toLocaleString()} ft`
-	};
-}
+	 if (!altitudeMeters || isNaN(altitudeMeters)) {
+		 return {
+			 feet: 'Unknown',
+			 meters: 'Unknown',
+			 display: 'Unknown',
+			 feetRaw: null,
+			 metersRaw: null
+		 };
+	 }
+	 
+	 const feetRaw = Math.round(altitudeMeters * 3.28084);
+	 const metersRaw = Math.round(altitudeMeters);
+	 
+	 return {
+		 feet: feetRaw.toLocaleString(),
+		 meters: metersRaw.toLocaleString(),
+		 display: `${feetRaw.toLocaleString()} ft`,
+		 feetRaw,
+		 metersRaw
+	 };
+ }
 
 /**
  * Find EXIF data for an image by matching filename
