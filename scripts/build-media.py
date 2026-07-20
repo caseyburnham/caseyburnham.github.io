@@ -31,8 +31,10 @@ GALLERY_FORMATS = ("avif", "jpeg", "png")
 SUPPORTED_INPUTS = {".avif", ".heic", ".jpeg", ".jpg", ".png"}
 MAX_MODAL_EDGE = 2560
 MAX_THUMBNAIL_EDGE = 720
+MAX_PANO_THUMBNAIL_EDGE = 2560
 MAX_MODAL_BYTES = 2_000_000
 MAX_THUMBNAIL_BYTES = 500_000
+PANO_ASPECT_RATIO = 2.5
 COPYRIGHT_HOLDER = "Casey Burnham"
 THUMBNAIL_QUALITY = {"avif": 58, "jpeg": 72, "png": 85}
 
@@ -320,7 +322,18 @@ def render_modal(source: Path, destination: Path) -> None:
         temporary.unlink(missing_ok=True)
 
 
-def render_thumbnail(source: Path, destination: Path) -> None:
+def thumbnail_target_edge(width: int, height: int) -> int:
+    if height and width / height > PANO_ASPECT_RATIO:
+        return MAX_PANO_THUMBNAIL_EDGE
+    return MAX_THUMBNAIL_EDGE
+
+
+def render_thumbnail(
+    source: Path,
+    destination: Path,
+    *,
+    max_edge: int,
+) -> None:
     format_name = destination.suffix.removeprefix(".")
     temporary = temporary_output(destination)
     try:
@@ -330,7 +343,7 @@ def render_thumbnail(source: Path, destination: Path) -> None:
                 f"{source}[0]",
                 "-auto-orient",
                 "-resize",
-                f"{MAX_THUMBNAIL_EDGE}x{MAX_THUMBNAIL_EDGE}>",
+                f"{max_edge}x{max_edge}>",
                 "-strip",
                 "-quality",
                 str(THUMBNAIL_QUALITY[format_name]),
@@ -371,11 +384,19 @@ def build_images(*, force: bool) -> tuple[int, int]:
             logging.info("Modal: %s", relative(output))
             render_modal(source, output)
             modal_count += 1
+            output_record = read_exif([output]).get(output.resolve(), {})
 
         if thumbnail is None:
             continue
+        output_width = int(output_record.get("ImageWidth", 0))
+        output_height = int(output_record.get("ImageHeight", 0))
+        output_edge = max(output_width, output_height)
+        target_thumbnail_edge = min(
+            thumbnail_target_edge(output_width, output_height),
+            output_edge,
+        )
         thumbnail_record = dimensions.get(thumbnail.resolve(), {})
-        thumbnail_edge = max(
+        current_thumbnail_edge = max(
             int(thumbnail_record.get("ImageWidth", 0)),
             int(thumbnail_record.get("ImageHeight", 0)),
         )
@@ -384,12 +405,17 @@ def build_images(*, force: bool) -> tuple[int, int]:
             or rebuild_modal
             or not thumbnail.exists()
             or output.stat().st_mtime_ns > thumbnail.stat().st_mtime_ns
-            or thumbnail_edge > MAX_THUMBNAIL_EDGE
+            or current_thumbnail_edge < target_thumbnail_edge
+            or current_thumbnail_edge > target_thumbnail_edge
             or thumbnail.stat().st_size > MAX_THUMBNAIL_BYTES
         )
         if rebuild_thumbnail:
             logging.info("Thumbnail: %s", relative(thumbnail))
-            render_thumbnail(output, thumbnail)
+            render_thumbnail(
+                output,
+                thumbnail,
+                max_edge=target_thumbnail_edge,
+            )
             thumbnail_count += 1
 
     return modal_count, thumbnail_count
@@ -644,6 +670,7 @@ def validation_errors() -> list[str]:
     )
     metadata = read_exif([*outputs, *thumbnails])
     errors: list[str] = []
+    output_by_thumbnail: dict[Path, Path] = {}
 
     for output in outputs:
         record = metadata.get(output.resolve(), {})
@@ -666,19 +693,30 @@ def validation_errors() -> list[str]:
                 output.resolve(),
                 output.parent.parent / "thumbnails" / output.name,
             )
+            output_by_thumbnail[thumbnail.resolve()] = output
             if not thumbnail.exists():
                 errors.append(f"Missing thumbnail: {relative(thumbnail)}")
 
     for thumbnail in thumbnails:
         record = metadata.get(thumbnail.resolve(), {})
+        width = int(record.get("ImageWidth", 0))
+        height = int(record.get("ImageHeight", 0))
         longest_edge = max(
-            int(record.get("ImageWidth", 0)),
-            int(record.get("ImageHeight", 0)),
+            width,
+            height,
         )
-        if longest_edge > MAX_THUMBNAIL_EDGE:
+        output = output_by_thumbnail.get(thumbnail.resolve())
+        output_record = metadata.get(output.resolve(), {}) if output else {}
+        output_width = int(output_record.get("ImageWidth", 0))
+        output_height = int(output_record.get("ImageHeight", 0))
+        expected_edge = min(
+            thumbnail_target_edge(output_width, output_height),
+            max(output_width, output_height),
+        )
+        if output and longest_edge != expected_edge:
             errors.append(
                 f"{relative(thumbnail)} is {longest_edge}px; "
-                f"max is {MAX_THUMBNAIL_EDGE}px"
+                f"expected {expected_edge}px"
             )
         if thumbnail.stat().st_size > MAX_THUMBNAIL_BYTES:
             errors.append(

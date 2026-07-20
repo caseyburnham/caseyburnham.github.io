@@ -94,7 +94,8 @@ images/summits/ORIGINALS/
 
 The media builder accepts AVIF, HEIC, JPEG, and PNG files. It creates modal
 images with a longest edge of at most 2560 pixels, creates 720-pixel gallery
-thumbnails, preserves useful EXIF metadata, and regenerates
+thumbnails (2560 pixels for full-width panoramas), preserves useful EXIF
+metadata, and regenerates
 `json/gallery-data.json` and `json/exif-data.json`. Generated modal images are
 kept below 2 MB and thumbnails below 500 KB.
 
