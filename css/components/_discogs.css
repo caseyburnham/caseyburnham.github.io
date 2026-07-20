@@ -1,0 +1,239 @@
+@layer components.discogs {
+	#now-playing {
+		font-family: var(--font-family-ui);
+
+		& h3 {
+			margin: 0 0 0.5rem 0;
+		}
+	}
+
+	#discogs-collection-wrapper {
+		margin-block-end: 1rem;
+	}
+
+	#discogs-sleeve-container {
+		align-items: center;
+	}
+
+	#discogs-inventory-sleeve-container {
+		background-position: 50%;
+	}
+
+	.wood {
+		background-image: url(/images/assets/jpeg/wood.jpg);
+		background-size: cover;
+		border-radius: var(--radius-sm);
+		box-shadow: var(--shadow-wood);
+		outline: 0.05em solid var(--color-border);
+		padding: 1rem;
+	}
+
+	.discogs-grid {
+		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+	}
+
+	.discogs-status {
+		color: var(--color-text-muted);
+		padding-block: 1rem;
+		text-align: center;
+	}
+
+	.discogs-record {
+		perspective: 500px;
+		position: relative;
+		z-index: 1;
+	}
+
+	/* Album Sleeve Base */
+	.album-sleeve {
+		aspect-ratio: 1 / 1;
+		box-shadow: var(--shadow-album);
+		position: relative;
+		transform:
+			translateY(0) scale(1) rotateY(0deg) rotateX(0);
+		transform-style: preserve-3d;
+		transition:
+			box-shadow ease 0.2s,
+			transform ease 0.3s;
+		will-change: transform;
+
+		&::before {
+			background:
+				linear-gradient(135deg, oklch(68.30% 0 90), oklch(51.37% 0 90));
+			transform:
+				translateX(0);
+		}
+
+		&::after {
+			background:
+				linear-gradient(135deg, oklch(46.41% 0 90), oklch(36.39% 0 90));
+			transform:
+				translateX(0);
+		}
+	}
+
+	.album-sleeve::before,
+	.album-sleeve::after {
+		content: "";
+		inset: 0;
+		position: absolute;
+		transition:
+			transform ease 0.3s;
+		z-index: -1;
+	}
+
+	/* Active Sleeve States */
+	.album-sleeve.is-active {
+		& .album-art:not(.is-cassette) {
+			box-shadow: var(--shadow-album-art-active);
+		}
+
+		& .album-media {
+			filter:
+				drop-shadow(1px -1px 3px var(--black-1));
+		}
+
+		&::before {
+			transform:
+				translateX(0.025rem);
+		}
+
+		&::after {
+			transform:
+				translateX(0.05rem);
+		}
+	}
+
+	/* Vinyl & CD Active States */
+	.is-vinyl .album-sleeve.is-active,
+	.is-cd .album-sleeve.is-active {
+		box-shadow: var(--shadow-album-active);
+		transform:
+			perspective(500px) translate3d(-0.4375em, 0, 0.625em) rotateY(-1.5deg) scale(1.05);
+	}
+
+	/* Cassette Active State */
+	.is-cassette .album-sleeve.is-active {
+		box-shadow: var(--shadow-cassette-active);
+		transform:
+			translateY(-0.4375em) scale(1.05) rotateY(-8deg) rotateX(1deg);
+	}
+
+	/* Album Art & Media Elements */
+	.album-art {
+		box-shadow: none;
+		object-fit: cover;
+		transition: box-shadow ease 0.2s;
+		z-index: 2;
+	}
+
+	.album-media {
+		filter:
+			drop-shadow(0 0 0 var(--black-0));
+		pointer-events: none;
+		transition:
+			filter ease 0.2s;
+		z-index: 1;
+	}
+
+	.album-art,
+	.album-media {
+		height: 100%;
+		inline-size: 100%;
+		inset-inline-start: 0;
+		position: absolute;
+		top: 0;
+	}
+
+	/* Vinyl Styling */
+	.is-vinyl .album-sleeve {
+		aspect-ratio: 1 / 1;
+
+		& .album-media {
+			transform:
+				scale(0.95) translateX(0) rotate(0);
+			transition:
+				filter ease 0.2s,
+				transform 0.65s var(--timing-media);
+		}
+
+		&.is-active .album-media {
+			transform:
+				scale(0.95) translateX(35%) rotate(50deg);
+		}
+	}
+
+	/* CD Styling */
+	.is-cd .album-sleeve {
+		aspect-ratio: 1 / 1;
+
+		& .album-media {
+			transform:
+				translateX(0) rotate(0);
+			transition:
+				filter ease 0.2s,
+				transform 0.65s var(--timing-media);
+		}
+
+		&.is-active .album-media {
+			transform:
+				translateX(35%) rotate(90deg);
+		}
+	}
+
+	/* Cassette Styling */
+	.is-cassette .album-sleeve {
+		aspect-ratio: 16 / 9;
+
+		& .album-media {
+			transform:
+				translateY(0);
+			transition:
+				filter ease 0.2s,
+				transform ease 0.3s;
+		}
+
+		&.is-active .album-media {
+			transform:
+				translateY(50%);
+		}
+	}
+
+	/* Record Caption */
+	.record-caption p {
+		font-size: smaller;
+		font-style: normal;
+		font-weight: lighter;
+		line-height: var(--line-height-base);
+		padding-top: 0.5rem;
+
+		& .record-title {
+			font-style: inherit;
+		}
+
+		& .record-artist {
+			color: var(--color-text-muted);
+		}
+	}
+
+	.for-sale {
+		align-items: baseline;
+		display: flex;
+		justify-content: space-between;
+
+		& data {
+			border-radius: 0.025em;
+			color: var(--green);
+			font-size: var(--text-xs);
+			outline: 1px solid var(--green);
+			padding: 0.125rem;
+		}
+	}
+
+	.record-title.is-favorite::after {
+		color: var(--paradise-pink);
+		content: "★";
+		font-size: var(--text-xs);
+		margin-inline-start: 0.25rem;
+	}
+}

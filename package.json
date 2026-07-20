@@ -1,0 +1,36 @@
+{
+	"name": "gtp-site",
+	"version": "1.0.0",
+	"description": "It's kind of like a nutrition label — but instead of calories and sodium, you’ll find mountains, concerts, photography, and productions I've worked on. # [![Netlify Status](https://api.netlify.com/api/v1/badges/24b0e648-c6da-49c5-8d87-8efef5a893d6/deploy-status)](https://app.netlify.com/projects/crashandburnham/deploys)",
+	"main": "index.js",
+	"scripts": {
+		"build": "node scripts/build.mjs",
+		"build:css": "postcss css/main/_imports.css -o css/dist/style.css --config utility",
+		"build:media": "python3 scripts/build-media.py",
+		"check": "node scripts/check-build.mjs && npm run check:media",
+		"check:media": "python3 scripts/build-media.py --check",
+		"format:css": "node scripts/sort-css.mjs",
+		"watch:css": "postcss css/main/_imports.css -o css/dist/style.css --watch --config utility"
+	},
+	"keywords": [],
+	"author": "Casey Burnham",
+	"license": "ISC",
+	"type": "commonjs",
+	"engines": {
+		"node": "26.5.0"
+	},
+	"dependencies": {
+		"exiftool-vendored": "^36.1.0"
+	},
+	"devDependencies": {
+		"baseline-browser-mapping": "^2.9.14",
+		"chart.js": "^4.5.0",
+		"cssnano": "^7.1.1",
+		"esbuild": "^0.28.1",
+		"maplibre-gl": "^4.7.1",
+		"postcss": "^8.5.6",
+		"postcss-cli": "^11.0.1",
+		"postcss-import": "^16.1.1",
+		"postcss-sorting": "^10.0.0"
+	}
+}

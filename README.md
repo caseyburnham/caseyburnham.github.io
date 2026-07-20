@@ -37,7 +37,8 @@ The site is intentionally framework-free. It uses semantic HTML, modular browser
 │   ├── base/               Element-level styles
 │   ├── components/         Component styles
 │   ├── maps/               MapLibre overrides
-│   └── dist/style.css      Compiled stylesheet
+│   └── dist/style.css      Local compiled preview
+├── dist/                   Generated Netlify deployment (ignored)
 ├── js/
 │   ├── js-imports.js       Feature loading and initialization
 │   ├── modal/              Photo dialog
@@ -47,6 +48,7 @@ The site is intentionally framework-free. It uses semantic HTML, modular browser
 ├── json/                   Site content and generated metadata
 ├── images/                 Posters, gallery images, thumbnails, and summit photos
 ├── netlify/functions/      Discogs API endpoints
+├── scripts/                Repeatable build and artifact checks
 ├── utility/                Local content-generation tools
 ├── _headers                Security and caching headers
 └── netlify.toml            Netlify configuration
@@ -61,15 +63,91 @@ Most repeatable content lives in `json/`:
 - `concert-data.json` and `production-data.json` supply their respective tables.
 - `exif-data.json` supplies photo metadata and GPS coordinates used by the modal, tables, and map.
 
-## CSS workflow
+## Build workflow
 
-Source files are imported by `css/main/_imports.css` and concatenated with PostCSS via `npm run build:css`. The generated `css/dist/style.css` is the stylesheet served by the site.
+Install the exact locked dependencies and create a complete deployment:
+
+```sh
+npm ci
+npm run build
+npm run check
+```
+
+The build starts from an empty `dist/`, compiles the PostCSS entry point, bundles
+the browser module graph and its lazy features, fingerprints the generated CSS
+and JavaScript, rewrites their references in `dist/index.html`, and copies the
+site's stable images and JSON data. Netlify runs the same `npm run build`
+command and publishes only `dist/`.
+
+`npm run build:css` remains available when only the local
+`css/dist/style.css` preview needs to be refreshed. Run `npm run format:css`
+to alphabetize declarations in the authored CSS files.
+
+### Adding gallery and summit photos
+
+Keep full-resolution source photos locally in these ignored folders:
+
+```text
+images/galleries/<gallery-name>/ORIGINALS/
+images/summits/ORIGINALS/
+```
+
+The media builder accepts AVIF, HEIC, JPEG, and PNG files. It creates modal
+images with a longest edge of at most 2560 pixels, creates 720-pixel gallery
+thumbnails, preserves useful EXIF metadata, and regenerates
+`json/gallery-data.json` and `json/exif-data.json`. Generated modal images are
+kept below 2 MB and thumbnails below 500 KB.
+
+In Nova, select the **Gallery Build** task and use **Project → Build** or
+<kbd>Command</kbd>+<kbd>B</kbd>. That one task runs the media builder, builds
+the complete site, and validates both outputs. From a terminal, the equivalent
+is:
+
+```sh
+npm run build:media
+npm run build
+npm run check
+```
+
+Only new, changed, missing, or oversized images are rebuilt. The generated web
+images and JSON files are committed to Git; the `ORIGINALS` folders are ignored
+and are not pushed to GitHub. Keep another backup of those originals in Photos,
+cloud storage, or an external drive. A new summit image also needs a matching
+`Image` reference in `json/mountain-data.json`.
+
+The media task requires ImageMagick and ExifTool. On macOS they can be installed
+with:
+
+```sh
+brew install imagemagick exiftool
+```
 
 Layer order follows:
 
 ```text
 reset → tokens → base → layout → components → integrations → utilities
 ```
+
+### Existing Git media history
+
+Optimizing the current files does not remove their older full-resolution
+versions from Git's database. Cleaning that database is a separate,
+history-rewriting operation: it changes commit IDs and requires a coordinated
+force-push. Before doing it, commit the optimized media, make a repository
+backup, and ensure any other clones can be replaced.
+
+The safest cleanup for this repository is to remove
+`images/galleries/` and `images/summits/` from all old commits with
+`git-filter-repo`, restore only the current optimized versions, commit them, and
+force-push the rewritten branches and tags. Do not run that operation as part
+of the normal Nova task.
+
+## Caching
+
+Only content-hashed files under `/assets/` are cached for one year with
+`immutable`. HTML, JSON, and stable image URLs use Netlify's default browser
+revalidation and deploy-aware edge cache. Netlify Functions set their own
+response caching headers.
 
 ## Author
 

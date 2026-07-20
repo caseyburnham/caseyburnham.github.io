@@ -50,16 +50,16 @@
 		border-bottom-width: 0px;
 		border-color: oklch(from var(--color-bg-main) l c h / .31);
 		border-left-width: 0.8px;
+		border-radius: var(--radius-section);
 		border-right-width: 0px;
 		border-style: solid;
 		border-top-width: 1px;
-		border-radius: var(--radius-section);
 		box-shadow:
 			var(--shadow-glass),
 			var(--shadow-elevated);
+		overflow: hidden;
 		padding: 0.5rem;
 		text-shadow: var(--shadow-text-caption);
-		overflow: hidden;
 	}
 
 	.maplibregl-popup-tip {
@@ -68,11 +68,11 @@
 
 	.maplibregl-ctrl-group {
 		backdrop-filter: blur(2.5px);
-		border-radius: 0.5rem;
 		background: var(--color-bg-light);
 		border-bottom-width: 0px;
 		border-color: oklch(from var(--color-bg-main) l c h / .31);
 		border-left-width: 0.8px;
+		border-radius: 0.5rem;
 		border-right-width: 0px;
 		border-style: solid;
 		border-top-width: 1px;

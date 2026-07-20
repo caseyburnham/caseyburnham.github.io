@@ -3,11 +3,8 @@
 Thumbs.db
 .nova
 
-# CSS
-css/base/
-css/components/
-css/main/
-css/utils/
+# Generated CSS
+css/dist/
 
 # Compiled source #
 *.class
@@ -16,12 +13,11 @@ css/utils/
 
 # Node modules
 node_modules/
-package-lock.json
-package.json
 stylelintrc.json
 
-# Utility Scripts
-utility/
+# Local content utilities
+utility/*
+!utility/postcss.config.js
 update-gal.zsh
 
 # Python
@@ -42,16 +38,9 @@ venv/
 # Old Files
 old/
 
-# ORIGINALS
-images/galleries/abstract/ORIGINALS/
-images/galleries/cemeteries/ORIGINALS/
-images/galleries/high-country/ORIGINALS/
-images/galleries/live-sound/ORIGINALS/
-images/galleries/off-road/ORIGINALS/
-images/galleries/plant-based/ORIGINALS/
-images/galleries/prospecting/ORIGINALS/
-images/galleries/rocks/ORIGINALS/
-images/galleries/summit-dog/ORIGINALS/
+# Local high-resolution sources
+images/galleries/*/ORIGINALS/
+images/summits/ORIGINALS/
 
 # Local Netlify folder
 .netlify

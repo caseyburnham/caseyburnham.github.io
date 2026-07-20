@@ -1,6 +1,7 @@
 /**
  * Map - Vector tiles with MapLibre GL
  */
+import maplibregl from 'maplibre-gl';
 import dataCache from '../utils/shared-data.js';
 import { normalizeImagePath } from '../utils/exif-utils.js';
 
