@@ -1,7 +1,7 @@
 @layer integrations.map {
 	#map {
-		/* border: 1px solid var(--color-border);
-	border-radius: var(--radius-section); */
+		border-radius: var(--radius-section);
+		box-shadow: var(--shadow-main);
 		height: 15rem;
 		width: 100%;
 		z-index: 1;

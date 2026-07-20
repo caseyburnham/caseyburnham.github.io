@@ -153,17 +153,7 @@ function initChannelRack(details, reduceMotion) {
   let isClosing = false;
   let isExpanding = false;
 
-  const syncOpenClass = () => {
-	details.classList.toggle('is-open', details.open);
-  };
-
-  // Ensure the initial styling matches the native open state.
-  syncOpenClass();
-
-  if (reduceMotion) {
-	details.addEventListener('toggle', syncOpenClass);
-	return;
-  }
+  if (reduceMotion) return;
 
   const animateHeight = (startHeight, endHeight, duration) => {
 	animation?.cancel();
@@ -183,7 +173,6 @@ function initChannelRack(details, reduceMotion) {
 
   const finishAnimation = (shouldOpen) => {
 	details.open = shouldOpen;
-	details.classList.toggle('is-open', shouldOpen);
 
 	animation = null;
 	isClosing = false;
@@ -196,8 +185,6 @@ function initChannelRack(details, reduceMotion) {
   const shrinkRack = () => {
 	isClosing = true;
 	isExpanding = false;
-
-	details.classList.remove('is-open');
 
 	const startHeight = `${details.offsetHeight}px`;
 	const endHeight = `${summary.offsetHeight}px`;
@@ -251,9 +238,6 @@ function initChannelRack(details, reduceMotion) {
 	  { once: true },
 	);
 
-	requestAnimationFrame(() => {
-	  details.classList.add('is-open');
-	});
   };
 
   const openRack = () => {

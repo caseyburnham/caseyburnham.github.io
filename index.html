@@ -112,7 +112,6 @@
 	<body>
 
 		<main id="main-content">
-			<!-- NAV -->
 			<div class="nav-wrapper">
 				<button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-main">
 					<span aria-hidden="true">🍔</span>
@@ -130,14 +129,14 @@
 					</ul>
 				</nav>
 			</div>
-			<!-- HEADER -->
+
 			<header>
 				<hgroup>
 					<h1>Casey Burnham</h1>
 					<h2>Sound Engineer & Elevation Enthusiast</h2>
 				</hgroup>
 			</header>
-			<!-- BIO -->
+
 			<section id="about" aria-labelledby="bio-heading">
 				<h2 id="bio-heading" class="sr-only">About Casey - Audio Engineer in Denver, Colorado</h2>
 				<div class="bio">
@@ -175,39 +174,39 @@
 					  <ul>
 						<li>
 							<span class="power-led" aria-hidden="true"></span>
-						  <p><strong>FOH mixing</strong> for large-scale musicals, concerts, and multi-venue events</p>
+							<p><strong>FOH mixing</strong> for large-scale musicals, concerts, and multi-venue events</p>
 						</li>
 						<li>
 							<span class="power-led" aria-hidden="true"></span>
-						  <p><strong>Line-by-line</strong> mixing with live orchestras in theatrical environments</p>
+							<p><strong>Line-by-line</strong> mixing with live orchestras in theatrical environments</p>
 						</li>
 						<li>
 							<span class="power-led" aria-hidden="true"></span>
-						  <p>Theatrical <strong>sound design</strong>, from concept through opening night</p>
+							<p>Theatrical <strong>sound design</strong>, from concept through opening night</p>
 						</li>
 						<li>
 							<span class="power-led" aria-hidden="true"></span>
-						  <p>Audio system design, installation, and integration — Dante networks, RF coordination, distributed speaker arrays</p>
+							<p>Audio system design, installation, and integration — Dante networks, RF coordination, distributed speaker arrays</p>
 						</li>
 						<li>
 							<span class="power-led" aria-hidden="true"></span>
-						  <p>Show control programming in <strong>QLab</strong> 5 and Isadora with OSC, MIDI, video, and laser integration</p>
+							<p>Show control programming in <strong>QLab</strong> 5 and Isadora with OSC, MIDI, video, and laser integration</p>
 						</li>
 						<li>
 							<span class="power-led" aria-hidden="true"></span>
-						  <p>Studio and field <strong>recording</strong>, <strong>mixing</strong>, and <strong>mastering</strong> for digital distribution</p>
+							<p>Studio and field <strong>recording</strong>, <strong>mixing</strong>, and <strong>mastering</strong> for digital distribution</p>
 						</li>
 						<li>
 							<span class="power-led" aria-hidden="true"></span>
-						  <p>Post-production and <strong>dialogue editing</strong> for music, podcasts, and multimedia</p>
+							<p>Post-production and <strong>dialogue editing</strong> for music, podcasts, and multimedia</p>
 						</li>
 						<li>
 							<span class="power-led" aria-hidden="true"></span>
-						  <p><strong>Consultation</strong> on audio production and system design for theaters and artists</p>
+							<p><strong>Consultation</strong> on audio production and system design for theaters and artists</p>
 						</li>
 						<li>
 							<span class="power-led" aria-hidden="true"></span>
-						  <p>Design and implement robust network topologies</p>
+							<p>Design and implement robust network topologies</p>
 						</li>
 					  </ul>
 					</article>
@@ -354,7 +353,7 @@
 
 			<section aria-labelledby="climbing-map">
 				<h2 id="climbing-map" class="sr-only">Climbing Map</h2>
-				<div id="map" class="glass" role="region" aria-label="Interactive climbing map"></div>
+				<div id="map"  role="region" aria-label="Interactive climbing map"></div>
 			</section>
 
 			<section id="now-playing" aria-labelledby="now-playing-heading">
@@ -398,18 +397,18 @@
 		<script type="module" src="js/js-imports.js"></script>
 
 		<!-- Popovers -->
-		<div id="ucd"  class="abbr-tooltip" popover="auto">University of Colorado, Denver</div>
-		<div id="a1"   class="abbr-tooltip" popover="auto">Audio Lead / Front of House Mixer</div>
-		<div id="ad"   class="abbr-tooltip" popover="auto">Audio Director</div>
-		<div id="sd"   class="abbr-tooltip" popover="auto">Sound Designer</div>
-		<div id="lz"   class="abbr-tooltip" popover="auto">Laserist</div>
-		<div id="rank" class="abbr-tooltip" popover="auto">Ranking requires 300' of Prominence</div>
+		<div id="ucd"  class="glass" popover="auto">University of Colorado, Denver</div>
+		<div id="a1"   class="glass" popover="auto">Audio Lead / Front of House Mixer</div>
+		<div id="ad"   class="glass" popover="auto">Audio Director</div>
+		<div id="sd"   class="glass" popover="auto">Sound Designer</div>
+		<div id="lz"   class="glass" popover="auto">Laserist</div>
+		<div id="rank" class="glass" popover="auto">Ranking requires 300' of Prominence</div>
 		
 		<!-- Modal Template-->
 		<template id="photo-modal-template">
 			<dialog class="photo-dialog" aria-labelledby="modal-photo-title">
 				<form method="dialog">
-					<button class="dialog-close glass" value="close" aria-label="Close photo viewer">
+					<button class="dialog-close" value="close" aria-label="Close photo viewer">
 						<svg aria-hidden="true" viewBox="0 0 24 24">
 							<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
 						</svg>
@@ -446,8 +445,8 @@
 					</figcaption>
 				</figure>
 				<div class="dialog-navigation" aria-label="Photo navigation">
-					<button type="button" class="dialog-previous glass" aria-label="Previous photo">←</button>
-					<button type="button" class="dialog-next glass" aria-label="Next photo">→</button>
+					<button type="button" class="dialog-previous" aria-label="Previous photo">←</button>
+					<button type="button" class="dialog-next" aria-label="Next photo">→</button>
 				</div>
 				<small class="copyright"></small>
 			</dialog>
@@ -475,7 +474,7 @@
 			</template>
 
 			<template id="gallery-button-template">
-				<button type="button" class="gallery-btn" aria-pressed="false"></button>
+				<button type="button" class="gallery-btn glass" aria-pressed="false"></button>
 			</template>
 
 			<!-- Gallery Rows and Images -->
