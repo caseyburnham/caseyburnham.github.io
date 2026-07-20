@@ -3,6 +3,15 @@ import dataCache from '../utils/shared-data.js';
 const CHART_MIN = 13000;
 const CHART_MAX = 14438;
 
+function getChartColors(canvas) {
+  const styles = getComputedStyle(canvas);
+
+  return {
+	borderColor: styles.getPropertyValue('--mountain-chart-color').trim(),
+	backgroundColor: styles.getPropertyValue('--mountain-chart-fill').trim()
+  };
+}
+
 async function renderElevationChart(canvasId, dataPath = '/json/mountain-data.json') {
   const mountains = await dataCache.fetch(dataPath);
 
@@ -21,19 +30,20 @@ async function renderElevationChart(canvasId, dataPath = '/json/mountain-data.js
 	throw new Error('Chart.js is not loaded');
   }
 
-  return new Chart(canvas, {
+  const colors = getChartColors(canvas);
+  const chart = new Chart(canvas, {
 	type: 'line',
 	data: {
 	  labels,
 	  datasets: [{
 		data: elevations,
-		borderColor: 'oklch(67% 0.222 37.42)',
-		backgroundColor: 'oklch(67% 0.222 37.42 / 25%)',
+		borderColor: colors.borderColor,
+		backgroundColor: colors.backgroundColor,
 		borderWidth: 1.5,
 		pointRadius: 2,
 		pointStyle: 'circle',
 		pointHoverRadius: 5,
-		pointBackgroundColor: 'oklch(67% 0.222 37.42)',
+		pointBackgroundColor: colors.borderColor,
 		fill: 'origin',
 		tension: 0
 	  }]
@@ -65,6 +75,18 @@ async function renderElevationChart(canvasId, dataPath = '/json/mountain-data.js
 	  }
 	}
   });
+
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+	const nextColors = getChartColors(canvas);
+	const [dataset] = chart.data.datasets;
+
+	dataset.borderColor = nextColors.borderColor;
+	dataset.backgroundColor = nextColors.backgroundColor;
+	dataset.pointBackgroundColor = nextColors.borderColor;
+	chart.update('none');
+  });
+
+  return chart;
 }
 
 export function initMountainChart() {
