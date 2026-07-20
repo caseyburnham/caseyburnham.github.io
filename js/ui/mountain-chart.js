@@ -1,7 +1,10 @@
+import { Chart, registerables } from 'chart.js';
 import dataCache from '../utils/shared-data.js';
 
 const CHART_MIN = 13000;
 const CHART_MAX = 14438;
+
+Chart.register(...registerables);
 
 function getChartColors(canvas) {
   const styles = getComputedStyle(canvas);
@@ -26,10 +29,6 @@ async function renderElevationChart(canvasId, dataPath = '/json/mountain-data.js
   if (!canvas) {
 	throw new Error(`Chart canvas not found: #${canvasId}`);
   }
-  if (typeof Chart === 'undefined') {
-	throw new Error('Chart.js is not loaded');
-  }
-
   const colors = getChartColors(canvas);
   const chart = new Chart(canvas, {
 	type: 'line',

@@ -1,0 +1,43 @@
+@layer layout {
+	main {
+		container-name: main;
+		container-type: inline-size;
+		display: flex;
+		flex-direction: column;
+		margin-block-end: 5rem;
+		margin-inline: var(--fluid-padding-inline);
+	}
+	
+	section:not(:last-child) {
+		margin-block: 1.5rem;
+	}
+
+	hr {
+		background: oklch(from var(--color-border) l c h / 0.5);
+		block-size: 1px;
+		border: none;
+		margin-block: var(--space-hr);
+	}
+	
+		
+	footer {
+		line-height: var(--line-height-loose);
+		margin-block-end: 5rem;
+		text-align: center;
+	
+		& .flags {
+			cursor: default;
+			font-size: var(--text-base);
+		}
+		
+		& address {
+			font-style: normal;
+			text-transform: uppercase;
+		}
+	
+		& small {
+			color: var(--color-accent-0);
+			font-style: normal;
+		}
+	}
+}

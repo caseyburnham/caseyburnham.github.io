@@ -1,0 +1,75 @@
+@layer base {
+	a[target="_blank"]:not(.record-link, #map a)::after {
+		color: currentcolor;
+		content: "\2197";
+	}
+
+	abbr[title] {
+		cursor: help;
+		font-variant: all-small-caps;
+		text-decoration: underline dotted var(--color-accent-0);
+		text-decoration-skip-ink: none;
+	}
+
+	hgroup {
+		font-family: serif;
+
+		& h1 {
+			transform: scaleY(350%) skewX(-20deg);
+		}
+
+		& h2 {
+			color: var(--color-accent-0);
+			padding-block-start: .25rem;
+			text-wrap: nowrap;
+		}
+	}
+
+	strong {
+		color: var(--color-accent-0);
+		text-shadow: var(--shadow-glow);
+	}
+
+	:is(abbr, data, time) {
+		font-family: var(--font-family-mono);
+	}
+
+	:is(caption, label, small) {
+		font-style: italic;
+		font-weight: var(--font-weight-light);
+	}
+
+	:is(caption, data, label, small, time, [popover]) {
+		color: var(--color-text-secondary);
+	}
+
+	:is(data, time, summary) {
+		font-variant-numeric: tabular-nums;
+		text-align: center;
+		text-wrap: nowrap;
+	}
+
+	:is(header, p) {
+		line-height: var(--line-height-airy);
+	}
+
+	.bio {
+		& p {
+			text-indent: clamp(1rem, 2.5vw, 2.5rem);
+			text-wrap: pretty;
+		}
+
+		& p:not(:last-child) {
+			margin-block-end: 1.5rem;
+		}
+	}
+
+	.portrait {
+		& figcaption {
+			color: var(--black-2);
+			font-family: serif;
+			font-style: italic;
+			text-align: center;
+		}
+	}
+}

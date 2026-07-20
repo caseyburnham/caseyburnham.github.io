@@ -12,8 +12,8 @@
 	button, summary {
 		cursor: pointer;
 		touch-action: manipulation;
-		user-select: none;
 		-webkit-user-select: none;
+		user-select: none;
 	}
 
 	:is(img, picture, video, canvas, svg) {

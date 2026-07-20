@@ -30,7 +30,6 @@ const lazyFeatures = [
 	{
 		selector: '#tables',
 		load: async () => {
-			await import('https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js');
 			const { initMountainChart } = await import('./ui/mountain-chart.js');
 			await initMountainChart();
 		}
@@ -38,7 +37,6 @@ const lazyFeatures = [
 	{
 		selector: '#map',
 		load: async () => {
-			await import('https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js');
 			const { initMap } = await import('./map/map.js');
 			await initMap();
 		}

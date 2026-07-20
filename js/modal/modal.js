@@ -246,7 +246,14 @@ export class PhotoModal {
 		if (sourcesAttr) {
 			try {
 				const sources = JSON.parse(sourcesAttr);
-				return sources.avif || sources.webp || sources.jpg || img.src;
+				return (
+					sources.avif ||
+					sources.webp ||
+					sources.jpeg ||
+					sources.jpg ||
+					sources.png ||
+					img.src
+				);
 			} catch (error) {
 				console.warn('Source parse failed', error);
 			}

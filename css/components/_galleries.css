@@ -1,0 +1,106 @@
+@layer components.galleries {
+	.gallery-buttons {
+		display: grid;
+		gap: var(--grid-gap-sm);
+		grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+
+		& button:is(.gallery-btn) {
+			border-radius: var(--radius-main);
+			box-shadow: var(--shadow-button);
+			color: var(--color-text-primary);
+			font-size: var(--text-xs);
+			font-weight: var(--font-weight-normal);
+			padding: 0.5rem;
+			text-wrap: wrap;
+			transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, transform 0.3s ease;
+			z-index: 2;
+
+			&:hover {
+				box-shadow: var(--shadow-elevated);
+				transform: translateY(-2px);
+				z-index: 3;
+			}
+
+			&:active {
+				box-shadow: var(--shadow-subtle);
+				transform: translateY(0px);
+			}
+
+			&.selected {
+				background: var(--color-accent-light);
+				border-color: var(--color-border);
+				border-style: double;
+				box-shadow: unset;
+				color: var(--color-text-selected);
+				cursor: default;
+				font-weight: var(--font-weight-heavy);
+
+				&:hover {
+					box-shadow: unset;
+					transform: translateY(0);
+				}
+
+				&:active {
+					cursor: not-allowed;
+				}
+			}
+		}
+	}
+
+	.photo-grid {
+		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+	}
+
+	.photo-thumb {
+		appearance: none;
+		background: none;
+		border: 0;
+		border-radius: var(--radius-image);
+		box-shadow: var(--shadow-subtle);
+		cursor: pointer;
+		outline: 0.075em solid var(--color-border);
+		overflow: hidden;
+		padding: 0;
+		perspective: 500px;
+		transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		will-change: box-shadow, transform;
+		z-index: 2;
+
+		& img {
+			block-size: 100%;
+			filter: grayscale(100%);
+			inline-size: 100%;
+			object-fit: cover;
+			transition: inherit;
+			will-change: transform;
+		}
+
+		&:hover {
+			box-shadow: var(--shadow-elevated);
+			transform: translate3d(0, -0.25rem, 0) scale(1.025);
+			z-index: 3;
+
+			& img {
+				filter: grayscale(0%);
+				transform: scale(1.1);
+			}
+		}
+
+		&:active {
+			box-shadow: var(--shadow-subtle);
+			transform: translate3d(0, 0, 0.5em) scale(1);
+		}
+	}
+	
+	.landscape-row .photo-thumb {
+		aspect-ratio: 4/3;
+	}
+
+	.portrait-row .photo-thumb {
+		aspect-ratio: 3/4;
+	}
+	
+	.pano-row .photo-thumb {
+		aspect-ratio: 4/1;
+	}
+}

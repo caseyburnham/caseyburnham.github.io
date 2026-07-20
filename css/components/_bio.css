@@ -1,0 +1,93 @@
+@layer components.bio {
+	section:has(> .bio) {
+		align-items: center;
+		display: grid;
+		gap: var(--grid-gap);
+		grid-auto-rows: minmax(min-content, max-content);
+		grid-template-columns: 1fr 1fr;
+		justify-items: center;
+		padding-inline: clamp(0rem, 5vw - 1rem, 5rem);
+
+		& .portrait {
+			background: whitesmoke;
+			border: 8px outset light-dark(silver, black);
+			box-shadow: var(--shadow-frame);
+			display: inline-block;
+			height: fit-content;
+			padding: 14px;
+			position: relative;
+			transform-origin: 45% 20%;
+			transition: transform 2s var(--timing-frame);
+			
+			& figcaption {
+				margin-block-start: .75rem;
+			}
+
+			&:hover {
+				transform: rotate(3deg) translateY(.1rem);
+			}
+
+			& .matte {
+				background: snow;
+				border: 1px inset ghostwhite;
+				box-shadow: var(--shadow-matte);
+				padding: 20px;
+				position: relative;
+
+				& img {
+					aspect-ratio: 4/3;
+					display: block;
+					height: 100%;
+					max-block-size: 12rem;
+					object-fit: cover;
+					width: 100%;
+				}
+			}
+
+			&::after {
+				background:
+					radial-gradient(140% 140% at 65% -25%,
+					oklch(from var(--black-0) l c h / .45) 0%,
+					oklch(from var(--black-1) l c h / .25) 25%,
+					oklch(from var(--black-2) l c h / .12) 45%,
+					oklch(from var(--black-3) l c h / .10) 65%);
+				content: "";
+				inset: 0;
+				mix-blend-mode: screen;
+				pointer-events: none;
+				position: absolute;
+			}
+
+			&::before {
+				background:
+					linear-gradient(to bottom right,
+					oklch(from var(--black-0) l c h / .1),
+					oklch(from var(--black-1) l c h / .05) 45%);
+				content: "";
+				inset: 0;
+				mix-blend-mode: multiply;
+				pointer-events: none;
+				position: absolute;
+			}
+		}
+
+		@container main (width < 48rem) {
+			grid-template-columns: 1fr;
+
+			& p {
+				max-inline-size: min(100%);
+				text-align: justify;
+			}
+
+			& figure {
+				margin-block-start: 2.5rem;
+				margin-inline: 5rem;
+			}
+
+			& img {
+				min-block-size: 15rem;
+				position: relative;
+			}
+		}
+	}
+}
