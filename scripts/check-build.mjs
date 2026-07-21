@@ -10,19 +10,40 @@ const manifest = JSON.parse(
 );
 const html = await readFile(path.join(dist, 'index.html'), 'utf8');
 const headers = await readFile(path.join(dist, '_headers'), 'utf8');
+const javascript = await readFile(
+	path.join(dist, manifest.js.replace(/^\//, '')),
+	'utf8'
+);
+const [criticalCss, mapCss] = await Promise.all([
+	readFile(path.join(dist, manifest.css.replace(/^\//, '')), 'utf8'),
+	readFile(path.join(dist, manifest.mapCss.replace(/^\//, '')), 'utf8')
+]);
 
 for (const [type, url] of Object.entries(manifest)) {
-	const pattern = type === 'css'
-		? /^\/assets\/style-[a-f0-9]{12}\.css$/
-		: /^\/assets\/main-[A-Z0-9]+\.js$/;
+	const patterns = {
+		css: /^\/assets\/style-[a-f0-9]{12}\.css$/,
+		mapCss: /^\/assets\/map-[a-f0-9]{12}\.css$/,
+		js: /^\/assets\/main-[A-Z0-9]+\.js$/
+	};
 
-	if (!pattern.test(url)) {
+	if (!patterns[type]?.test(url)) {
 		throw new Error(`Unexpected ${type} asset name: ${url}`);
 	}
-	if (!html.includes(url)) {
-		throw new Error(`Generated HTML does not reference ${url}`);
-	}
 	await access(path.join(dist, url));
+}
+
+if (!html.includes(manifest.css) || !html.includes(manifest.js)) {
+	throw new Error('Generated HTML does not reference its critical assets.');
+}
+if (html.includes(manifest.mapCss) || !javascript.includes(manifest.mapCss)) {
+	throw new Error('Map CSS is not referenced exclusively by the lazy loader.');
+}
+if (
+	criticalCss.includes('.maplibregl-') ||
+	!mapCss.includes('.maplibregl-map') ||
+	!mapCss.includes('.map-marker')
+) {
+	throw new Error('MapLibre CSS was not isolated in the lazy stylesheet.');
 }
 
 for (const pathname of [

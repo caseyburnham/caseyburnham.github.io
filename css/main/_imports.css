@@ -16,6 +16,4 @@
 @import url('components/_galleries.css');
 @import url('components/_modal.css');
 @import url('components/_discogs.css');
-@import url("maplibre-gl/dist/maplibre-gl.css") layer(integrations.maplibre);
-@import url('maps/_map.css');
 @import url('utilities/_utils.css');

@@ -1,0 +1,4 @@
+@layer integrations.maplibre, integrations.map;
+
+@import url("maplibre-gl/dist/maplibre-gl.css") layer(integrations.maplibre);
+@import url('_map.css');
