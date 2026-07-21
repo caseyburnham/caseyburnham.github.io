@@ -15,8 +15,18 @@ import postcss from 'postcss';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const assets = path.join(dist, 'assets');
-const cssEntry = path.join(root, 'css/main/_imports.css');
-const legacyCss = path.join(root, 'css/dist/style.css');
+const cssEntries = {
+	main: {
+		source: path.join(root, 'css/main/_imports.css'),
+		preview: path.join(root, 'css/dist/style.css'),
+		prefix: 'style'
+	},
+	map: {
+		source: path.join(root, 'css/maps/_imports.css'),
+		preview: path.join(root, 'css/dist/map.css'),
+		prefix: 'map'
+	}
+};
 const require = createRequire(import.meta.url);
 const postcssConfig = require('../utility/postcss.config.js');
 
@@ -29,24 +39,33 @@ function shouldCopy(source) {
 	return !segments.includes('.DS_Store') && !segments.includes('ORIGINALS');
 }
 
-async function compileCss() {
-	const source = await readFile(cssEntry, 'utf8');
+async function compileStylesheet({ source: entry, preview, prefix }) {
+	const source = await readFile(entry, 'utf8');
 	const result = await postcss(postcssConfig.plugins).process(source, {
-		from: cssEntry,
+		from: entry,
 		map: false
 	});
-	const filename = `style-${hash(result.css)}.css`;
+	const filename = `${prefix}-${hash(result.css)}.css`;
 
-	await mkdir(path.dirname(legacyCss), { recursive: true });
+	await mkdir(path.dirname(preview), { recursive: true });
 	await Promise.all([
 		writeFile(path.join(assets, filename), result.css),
-		writeFile(legacyCss, result.css)
+		writeFile(preview, result.css)
 	]);
 
 	return `/assets/${filename}`;
 }
 
-async function bundleJavaScript() {
+async function compileStylesheets() {
+	const [css, mapCss] = await Promise.all([
+		compileStylesheet(cssEntries.main),
+		compileStylesheet(cssEntries.map)
+	]);
+
+	return { css, mapCss };
+}
+
+async function bundleJavaScript(mapCss) {
 	const result = await bundle({
 		absWorkingDir: root,
 		entryPoints: { main: 'js/js-imports.js' },
@@ -61,7 +80,10 @@ async function bundleJavaScript() {
 		metafile: true,
 		sourcemap: false,
 		target: ['es2022'],
-		logLevel: 'info'
+		logLevel: 'info',
+		define: {
+			__MAP_STYLESHEET_URL__: JSON.stringify(mapCss)
+		}
 	});
 
 	const entry = Object.entries(result.metafile.outputs).find(
@@ -108,21 +130,21 @@ async function main() {
 	await rm(dist, { force: true, recursive: true });
 	await mkdir(assets, { recursive: true });
 
-	const [css, js] = await Promise.all([
-		compileCss(),
-		bundleJavaScript()
-	]);
+	const { css, mapCss } = await compileStylesheets();
+	const js = await bundleJavaScript(mapCss);
 
 	await Promise.all([
 		writeHtml({ css, js }),
 		copyStaticFiles(),
 		writeFile(
 			path.join(dist, 'asset-manifest.json'),
-			`${JSON.stringify({ css, js }, null, 2)}\n`
+			`${JSON.stringify({ css, mapCss, js }, null, 2)}\n`
 		)
 	]);
 
-	console.log(`Built ${path.relative(root, dist)} with ${css} and ${js}`);
+	console.log(
+		`Built ${path.relative(root, dist)} with ${css}, ${mapCss}, and ${js}`
+	);
 }
 
 await main();

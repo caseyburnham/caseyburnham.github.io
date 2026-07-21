@@ -32,12 +32,12 @@ The site is intentionally framework-free. It uses semantic HTML, modular browser
 .
 ├── index.html              Main document and reusable HTML templates
 ├── css/
-│   ├── main/_imports.css   PostCSS entry point
+│   ├── main/_imports.css   Primary PostCSS entry point
 │   ├── tokens/             Design tokens
 │   ├── base/               Element-level styles
 │   ├── components/         Component styles
-│   ├── maps/               MapLibre overrides
-│   └── dist/style.css      Local compiled preview
+│   ├── maps/               Lazy MapLibre CSS entry and overrides
+│   └── dist/               Local primary and map CSS previews
 ├── dist/                   Generated Netlify deployment (ignored)
 ├── js/
 │   ├── js-imports.js       Feature loading and initialization
@@ -73,15 +73,16 @@ npm run build
 npm run check
 ```
 
-The build starts from an empty `dist/`, compiles the PostCSS entry point, bundles
-the browser module graph and its lazy features, fingerprints the generated CSS
-and JavaScript, rewrites their references in `dist/index.html`, and copies the
-site's stable images and JSON data. Netlify runs the same `npm run build`
-command and publishes only `dist/`.
+The build starts from an empty `dist/`, compiles the primary and lazy MapLibre
+PostCSS entry points, bundles the browser module graph and its lazy features,
+fingerprints the generated CSS and JavaScript, rewrites their references, and
+copies the site's stable images and JSON data. The map stylesheet loads with
+the lazy map module rather than blocking the initial render. Netlify runs the
+same `npm run build` command and publishes only `dist/`.
 
 `npm run build:css` remains available when only the local
-`css/dist/style.css` preview needs to be refreshed. Run `npm run format:css`
-to alphabetize declarations in the authored CSS files.
+`css/dist/style.css` and `css/dist/map.css` previews need to be refreshed. Run
+`npm run format:css` to alphabetize declarations in the authored CSS files.
 
 ### Adding gallery and summit photos
 

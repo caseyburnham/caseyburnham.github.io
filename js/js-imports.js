@@ -1,10 +1,36 @@
 import { initCandy } from './ui/candy.js';
 import { initTables } from './ui/tables.js';
 
+const MAP_STYLESHEET_URL =
+	typeof __MAP_STYLESHEET_URL__ === 'string'
+		? __MAP_STYLESHEET_URL__
+		: '/css/dist/map.css';
+
 initCandy();
 initTables().catch(error => {
 	console.error('Failed to initialize tables:', error);
 });
+
+let mapStylesheetPromise;
+
+function loadMapStylesheet() {
+	if (mapStylesheetPromise) return mapStylesheetPromise;
+
+	mapStylesheetPromise = new Promise((resolve, reject) => {
+		const stylesheet = document.createElement('link');
+		stylesheet.rel = 'stylesheet';
+		stylesheet.href = MAP_STYLESHEET_URL;
+		stylesheet.addEventListener('load', resolve, { once: true });
+		stylesheet.addEventListener('error', () => {
+			stylesheet.remove();
+			mapStylesheetPromise = undefined;
+			reject(new Error('Failed to load the MapLibre stylesheet.'));
+		}, { once: true });
+		document.head.append(stylesheet);
+	});
+
+	return mapStylesheetPromise;
+}
 
 // Lazy-loaded features
 const lazyFeatures = [
@@ -37,7 +63,10 @@ const lazyFeatures = [
 	{
 		selector: '#map',
 		load: async () => {
-			const { initMap } = await import('./map/map.js');
+			const [{ initMap }] = await Promise.all([
+				import('./map/map.js'),
+				loadMapStylesheet()
+			]);
 			await initMap();
 		}
 	},
