@@ -28,7 +28,7 @@
 		}
 
 		&::backdrop {
-			backdrop-filter: var(--blur-modal);
+			backdrop-filter: blur(1.5rem);
 			background: var(--color-bg-alpha);
 			opacity: 0;
 			transition:

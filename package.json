@@ -5,12 +5,20 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "node scripts/build.mjs",
-		"build:css": "postcss css/main/_imports.css -o css/dist/style.css --config utility && postcss css/maps/_imports.css -o css/dist/map.css --config utility",
+		"build:css": "postcss css/main/_imports.css -o css/dist/style.css --config config && postcss css/maps/_imports.css -o css/dist/map.css --config config",
 		"build:media": "python3 scripts/build-media.py",
-		"check": "node scripts/check-build.mjs && npm run check:media",
+		"check": "npm run validate && npm run lint && node scripts/check-build.mjs && npm run check:media",
 		"check:media": "python3 scripts/build-media.py --check",
+		"dev": "netlify dev",
+		"lint": "npm run lint:js && npm run lint:css",
+		"lint:css": "stylelint \"css/**/*.css\" --config config/stylelint.config.mjs",
+		"lint:js": "eslint . --config config/eslint.config.mjs",
+		"preview": "node scripts/serve-dist.mjs",
+		"smoke": "playwright test --config config/playwright.config.mjs",
 		"format:css": "node scripts/sort-css.mjs",
-		"watch:css": "node scripts/watch-css.mjs"
+		"validate": "node scripts/validate-data.mjs",
+		"watch:css": "node scripts/watch-css.mjs",
+		"watch:dev": "node scripts/watch-dev.mjs"
 	},
 	"keywords": [],
 	"author": "Casey Burnham",
@@ -23,14 +31,23 @@
 		"exiftool-vendored": "^36.1.0"
 	},
 	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"@playwright/test": "^1.61.1",
+		"ajv": "^8.20.0",
 		"baseline-browser-mapping": "^2.9.14",
 		"chart.js": "^4.5.0",
 		"cssnano": "^7.1.1",
 		"esbuild": "^0.28.1",
+		"eslint": "^10.7.0",
+		"globals": "^17.7.0",
 		"maplibre-gl": "^4.7.1",
+		"netlify-cli": "^26.2.0",
 		"postcss": "^8.5.6",
 		"postcss-cli": "^11.0.1",
 		"postcss-import": "^16.1.1",
-		"postcss-sorting": "^10.0.0"
+		"postcss-sorting": "^10.0.0",
+		"stylelint": "^17.14.1",
+		"stylelint-config-standard": "^40.0.0",
+		"stylelint-order": "^8.1.1"
 	}
 }

@@ -10,7 +10,7 @@
 - Mountain, concert, and production data
 - Photography galleries with a native dialog viewer and EXIF details
 - An elevation-history chart
-- A MapLibre map built from photo GPS metadata
+- A MapLibre map built from summit-photo GPS metadata
 - A Discogs-powered “Now Playing” and “For Sale” section
 - Responsive navigation, light and dark color schemes, and reduced-motion support
 
@@ -61,7 +61,8 @@ Most repeatable content lives in `json/`:
 - `gallery-data.json` defines gallery groups and images.
 - `mountain-data.json` supplies summit records, tables, chart data, and map relationships.
 - `concert-data.json` and `production-data.json` supply their respective tables.
-- `exif-data.json` supplies photo metadata and GPS coordinates used by the modal, tables, and map.
+- `exif-data.json` supplies photo metadata, including available GPS coordinates,
+  to the modal and tables. Summit-photo coordinates also supply the map.
 
 ## Build workflow
 
@@ -71,32 +72,56 @@ Install the exact locked dependencies and create a complete deployment:
 npm ci
 npm run build
 npm run check
+npm run smoke
 ```
 
 The build starts from an empty `dist/`, compiles the primary and lazy MapLibre
 PostCSS entry points, bundles the browser module graph and its lazy features,
 fingerprints the generated CSS and JavaScript, rewrites their references, and
-copies the site's stable images and JSON data. The map stylesheet loads with
+copies the site's stable images and JSON data. It also refreshes the sitemap's
+`lastmod` date from public source changes or the latest public-content commit.
+The map stylesheet loads with
 the lazy map module rather than blocking the initial render. Netlify runs the
 same `npm run build` command and publishes only `dist/`.
+
+`npm run check` validates each JSON dataset against the schemas in `schemas/`,
+checks cross-file relationships and referenced assets, lints the authored
+JavaScript and CSS, verifies the built asset contract, and runs the media
+privacy/size checks. `npm run smoke` starts a local `dist/` preview and runs a
+small Chromium suite for desktop data rendering, mobile navigation, the lazy
+gallery/photo dialog, and the lazy map. Install its browser once with
+`npx playwright install chromium` if Playwright prompts for it. The GitHub
+Actions quality workflow runs the full build, check, and smoke sequence on
+every push and pull request.
 
 `npm run build:css` remains available when only the local
 `css/dist/style.css` and `css/dist/map.css` previews need to be refreshed. Run
 `npm run format:css` to alphabetize declarations in the authored CSS files.
 
+For fast local CSS work with live Netlify Functions, run `npm run dev` and open
+`http://localhost:8888`. Netlify Dev serves the source `index.html`, runs the
+CSS watcher and development JavaScript bundler in the background, and handles
+the `/api/discogs/*` routes without creating hashed production assets after
+every edit.
+
 ### Adding gallery and summit photos
 
-Keep full-resolution source photos locally in these ignored folders:
+Drop a new full-resolution gallery photo directly into its gallery folder:
 
 ```text
-images/galleries/<gallery-name>/ORIGINALS/
-images/summits/ORIGINALS/
+images/galleries/<gallery-name>/<new-photo>
 ```
+
+The media builder converts it into the appropriate `avif`, `jpeg`, or `png`
+subfolder, creates its thumbnail, and then moves the source into the ignored
+`ORIGINALS` folder. It never reads either gallery or summit `ORIGINALS`
+folders as build inputs. Summit images must already be web-ready files placed
+in `images/summits/`.
 
 The media builder accepts AVIF, HEIC, JPEG, and PNG files. It creates modal
 images with a longest edge of at most 2560 pixels, creates 720-pixel gallery
-thumbnails (2560 pixels for full-width panoramas), preserves useful EXIF
-metadata, and regenerates
+thumbnails (2560 pixels for full-width panoramas), preserves source EXIF
+metadata including GPS in modal and summit images, and regenerates
 `json/gallery-data.json` and `json/exif-data.json`. Generated modal images are
 kept below 2 MB and thumbnails below 500 KB.
 
@@ -111,11 +136,18 @@ npm run build
 npm run check
 ```
 
-Only new, changed, missing, or oversized images are rebuilt. The generated web
-images and JSON files are committed to Git; the `ORIGINALS` folders are ignored
-and are not pushed to GitHub. Keep another backup of those originals in Photos,
-cloud storage, or an external drive. A new summit image also needs a matching
-`Image` reference in `json/mountain-data.json`.
+New gallery files are processed and archived. Existing files in the format
+subfolders are the source of truth: removing one also removes its thumbnail and
+both JSON entries during the next media build. The generated web images and
+JSON files are committed to Git; the `ORIGINALS` folders are ignored and are not
+pushed to GitHub. Keep another backup of those originals in Photos, cloud
+storage, or an external drive. A new summit image also needs a matching `Image`
+reference in `json/mountain-data.json`.
+
+GPS metadata in generated images and `json/exif-data.json` is public and drives
+the modal's location display. Review every photo's location before publishing
+it, and remove GPS from its source when the shooting location should remain
+private.
 
 The media task requires ImageMagick and ExifTool. On macOS they can be installed
 with:

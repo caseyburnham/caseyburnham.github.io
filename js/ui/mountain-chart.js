@@ -7,12 +7,38 @@ const CHART_MAX = 14438;
 Chart.register(...registerables);
 
 function getChartColors(canvas) {
-  const styles = getComputedStyle(canvas);
+  const container = canvas.parentElement;
+  const probe = document.createElement('span');
+  const colorCanvas = document.createElement('canvas');
+  const context = colorCanvas.getContext('2d', { willReadFrequently: true });
 
-  return {
-	borderColor: styles.getPropertyValue('--mountain-chart-color').trim(),
-	backgroundColor: styles.getPropertyValue('--mountain-chart-fill').trim()
+  if (!container || !context) {
+	throw new Error('Unable to resolve mountain chart colors');
+  }
+
+  colorCanvas.width = 1;
+  colorCanvas.height = 1;
+  probe.hidden = true;
+  container.append(probe);
+
+  const resolveColor = token => {
+	probe.style.color = `var(${token})`;
+	context.clearRect(0, 0, 1, 1);
+	context.fillStyle = getComputedStyle(probe).color;
+	context.fillRect(0, 0, 1, 1);
+
+	const [red, green, blue, alpha] = context.getImageData(0, 0, 1, 1).data;
+	return `rgb(${red} ${green} ${blue} / ${alpha / 255})`;
   };
+
+  try {
+	return {
+	  borderColor: resolveColor('--mountain-chart-color'),
+	  backgroundColor: resolveColor('--mountain-chart-fill')
+	};
+  } finally {
+	probe.remove();
+  }
 }
 
 async function renderElevationChart(canvasId, dataPath = '/json/mountain-data.json') {

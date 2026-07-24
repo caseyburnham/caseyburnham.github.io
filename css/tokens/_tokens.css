@@ -8,7 +8,7 @@
 		--space-md: clamp(0.5rem, 2vw, 1rem);
 		--space-lg: clamp(1rem, 4vw, 2rem);
 
-		--fluid-padding-inline: clamp(0rem, 5vw, 5rem);
+		--fluid-padding-inline: clamp(1rem, 10vw - 2rem, 12rem);
 		--fluid-padding-table: round(clamp(0.25rem, 2vw - 0.5rem, 0.5rem), 0.0125rem);
 
 		/* Modal Constraints */
@@ -37,14 +37,6 @@
 
 		--text-table: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
 
-		--color-bg-main: light-dark(var(--white-0), var(--black-0));
-		--color-text: light-dark(var(--black-0), var(--white-0));
-		--color-text-primary: var(--color-text);
-		--color-text-secondary: oklch(from var(--color-text-primary) l c h / 0.7);
-		--color-text-muted: oklch(from var(--color-text-primary) l c h / 0.5);
-		--color-text-selected: var(--color-bg-main);
-		--color-text-selection: oklch(from var(--color-accent-0) l c h / 0.9);
-
 		--line-height-base: 1;
 		--line-height-compact: 1.3;
 		--line-height-airy: 1.5;
@@ -52,22 +44,17 @@
 
 		/* Border Radii */
 		--radius-sm: 0.25rem;
+		--radius-md: 0.5rem;
 		--radius-main: clamp(0.5rem, 2vw, 2rem);
 		--radius-section: clamp(0.25rem, 2vw, 1rem);
-		--radius-image: clamp(0.125rem, 2vw - 0.5rem, 1rem);
-
-		/* Grid */
-		--grid-gap-sm: var(--space-sm);
-		--grid-gap: var(--space-md);
 
 		/* Effects */
 		--blur-modal: blur(1.5em);
 		--blur-modal-caption: blur(1em);
 
-		/* Base Color Palette */
+		/* Color Palette */
 		--turquoise: oklch(75% 0.13 185);
 		--international-orange: oklch(67% 0.222 37.42);
-		--blue: oklch(66% 47% 250deg);
 		--green: oklch(62% 34% 161deg);
 		--paradise-pink: oklch(0.632 0.2406 23.18);
 
@@ -80,14 +67,35 @@
 		--slate-0: oklch(40% 0.04 197);
 
 		--white-0: oklch(98.52% 0 89.88);
-		--white-1: oklch(79% 0.005 none);
 
 		/* Color Variables */
+		--color-primary: light-dark(var(--turquoise), var(--turquoise));
+
 		--color-accent-light: oklch(from var(--color-accent-0) l c h / 0.75);
 		--color-accent-alpha: oklch(from var(--color-accent-0) l c h / 0.15);
 
+		--color-bg-main: light-dark(var(--white-0), var(--black-0));
 		--color-bg-light: oklch(from var(--color-bg-main) l c h / 0.50);
 		--color-bg-alpha: oklch(from var(--color-bg-main) l c h / 0.15);
+
+		--color-text-primary: light-dark(var(--black-0), var(--white-0));
+		--color-text-secondary: oklch(from var(--color-text-primary) l c h / 0.7);
+		--color-text-muted: oklch(from var(--color-text-primary) l c h / 0.5);
+		--color-text-selected: var(--color-bg-main);
+		--color-text-selection: oklch(from var(--color-accent-0) l c h / 0.9);
+
+		--color-accent-0: light-dark(var(--international-orange), var(--turquoise));
+		--color-accent-1: light-dark(oklch(from var(--color-primary) l c calc(h + 80)), oklch(76% 38% 232deg));
+		--color-accent-2: light-dark(oklch(from var(--color-primary) l c calc(h - 180)), oklch(65% 48% 254deg));
+		--color-accent-3: light-dark(oklch(from var(--color-primary) l c calc(h - 120)), oklch(59% 25% 246deg));
+
+		--color-border: light-dark(oklch(from var(--gray-0) l c h / .3), var(--slate-0));
+		--color-border-caption: light-dark(var(--black-0), var(--color-accent-0));
+
+		--color-shadow-0: light-dark(var(--black-0), var(--color-accent-0));
+		--color-shadow-1: light-dark(var(--black-1), var(--color-accent-0));
+		--color-shadow-2: light-dark(var(--black-2), var(--color-accent-0));
+		--color-shadow-3: light-dark(var(--black-3), var(--color-accent-0));
 
 		--color-glow-0: oklch(from var(--color-accent-0) calc(l + 0.05) c h);
 		--color-glow-1: oklch(from var(--color-glow-0)   calc(l + 0.15) c h);
@@ -96,23 +104,7 @@
 		--color-primary-light: oklch(from var(--color-primary) l c h / 0.90);
 		--color-primary-alpha: oklch(from var(--color-primary) l c h / 0.15);
 
-		/* Heatmap */
-		--heatmap-min-color: oklch(from var(--color-accent-0)    l calc(c - 0.22) h);
-		--heatmap-max-color: oklch(from var(--color-accent-0)    l c h);
-		--heatmap-glow-min-color: oklch(from var(--color-glow-2) l c h / 0.6);
-		--heatmap-glow-max-color: oklch(from var(--color-glow-0) l c h / 0.8);
-
 		/* Shadows */
-		--shadow-button:
-			oklch(from var(--color-shadow-0) l c h / 0.50) 0 1px 1px,
-			oklch(from var(--color-shadow-1) l c h / 0.25) 0 2px 8px,
-			oklch(from var(--color-shadow-2) l c h / 0.25) 0 3px 16px;
-
-		--shadow-subtle:
-			oklch(from var(--color-shadow-0) l c h / 0.75) 0 2px 2px,
-			oklch(from var(--color-shadow-1) l c h / 0.50) 0 3px 3px,
-			oklch(from var(--color-shadow-2) l c h / 0.25) 0 4px 4px;
-
 		--shadow-elevated:
 			oklch(from var(--color-shadow-0) l c h / 0.25) 0 1px 2px,
 			oklch(from var(--color-shadow-1) l c h / 0.60) 0 8px 24px,
@@ -124,7 +116,7 @@
 			oklch(from var(--black-0) l c h / 0.1) -20px -20px 60px inset,
 			oklch(from var(--black-1) l c h / 0.1) 0 8px 32px,
 			oklch(from var(--black-2) l c h / 0.1) 0 8px 16px,
-			oklch(from var(--white-1) l c h / 0.125) 0 1px 5px inset;
+			oklch(from var(--white-0) l c h / 0.125) 0 1px 5px inset;
 
 		--shadow-glow:
 			var(--shadow-text-outline),
@@ -132,70 +124,10 @@
 			oklch(from var(--color-shadow-1) l c h / 0.7) 0 0 7px,
 			oklch(from var(--color-shadow-2) l c h / 0.5) 0 0 10px;
 
-		--shadow-main:
-			oklch(from var(--color-shadow-0) l c h / 0.5) 0 2px 4px,
-			oklch(from var(--color-shadow-1) l c h / 0.4) 0 7px 13px -3px,
-			oklch(from var(--color-shadow-2) l c h / 0.3) 0 -3px 0 inset;
-
 		--shadow-modal:
 			oklch(from var(--black-0) l c h / 0.50) 0 1px 1px,
 			oklch(from var(--black-1) l c h / 0.25) 0 2px 8px,
 			oklch(from var(--black-1) l c h / 0.25) 0 3px 16px;
-
-		--shadow-table:
-			oklch(from var(--black-1) l c h / 0.25) 0 8px 32px,
-			oklch(from var(--black-2) l c h / 0.25) 0 8px 16px;
-
-		--shadow-frame:
-			oklch(from var(--black-3) l c h / 1) 0 0 2px,
-			oklch(from var(--black-0) l c h / 0.125) 0 0 0 1px inset,
-			oklch(from var(--black-0) l c h / 0.5) 3px 3px 6px inset,
-			oklch(from var(--white-0) l c h / 0.15) -1px -1px 3px inset,
-			oklch(from var(--black-0) l c h / 0.6) 2px 4px 8px 1px,
-			oklch(from var(--black-1) l c h / 0.3) 4px 8px 24px 2px;
-
-		--shadow-matte:
-			oklch(from var(--black-0) l c h / 0.95) 0 0 2px -1px inset;
-
-		--shadow-led-off:
-			inset 0 0 2px 1px rgb(0 0 0 / 0.7),
-			inset 0 -2px 6px rgb(0 0 0 / 0.5);
-
-		--shadow-led-on:
-			inset 0 0px 2px 0px rgb(0 0 0 / 0.95),
-			inset 0 0px 2px 1px rgb(0 0 0 / 0.25),
-			0 0 8px 1px oklch(from var(--color-glow-0) l c h / 0.5);
-
-		--shadow-map-marker:
-			oklch(from var(--black-0) l c h / 0.5) 0 1px 3px;
-
-		--shadow-wood:
-			var(--black-0) 0 0 9px inset,
-			var(--black-1) 0 3px 5px inset;
-
-		--shadow-album:
-			oklch(from var(--black-0) l c h / 0.75) 0 1px 1px,
-			oklch(from var(--black-1) l c h / 0.5) 0 2px 2px,
-			oklch(from var(--black-3) l c h / 0.25) 0 3px 3px;
-
-		--shadow-album-art-active:
-			var(--black-0) 0 0 1px,
-			oklch(from var(--black-1) l c h / 0.95) 6px 0 3px -6px;
-
-		--shadow-album-active:
-			oklch(from var(--black-0) l c h / 0.65) 3px 1px 3px 1px,
-			oklch(from var(--black-1) l c h / 0.4) 7px 4px 7px 1px,
-			oklch(from var(--black-3) l c h / 0.15) 10px 3px 8px 2px;
-
-		--shadow-cassette-active:
-			oklch(from var(--black-0) l c h / 0.65) 0 1px 3px 1px,
-			oklch(from var(--black-1) l c h / 0.4) 0 4px 7px 1px,
-			oklch(from var(--black-3) l c h / 0.15) 0 3px 8px 2px;
-
-		--shadow-prog:
-			oklch(from var(--color-glow-0) l c h / 0.9) 0 0 3px,
-			oklch(from var(--color-glow-1) l c h / 0.7) 0 0 7px,
-			oklch(from var(--color-glow-2) l c h / 0.5) 0 0 10px;
 
 		--shadow-text:
 			oklch(from var(--color-shadow-0) l c h / .5) 1px 1px 4px;
@@ -214,41 +146,7 @@
 
 	@media (prefers-color-scheme: light) {
 		:root {
-			--color-accent-0: var(--international-orange);
-			--color-accent-1: oklch(from var(--color-primary) l c calc(h + 80));
-			--color-accent-2: oklch(from var(--color-primary) l c calc(h - 180));
-			--color-accent-3: oklch(from var(--color-primary) l c calc(h - 120));
-
-			--color-border: oklch(from var(--gray-0) l c h / .3);
-			--color-border-caption: var(--black-0);
-
-			--color-primary: var(--turquoise);
-
-			--color-shadow-0: var(--black-0);
-			--color-shadow-1: var(--black-1);
-			--color-shadow-2: var(--black-2);
-			--color-shadow-3: var(--black-3);
-
 			--shadow-glow: none;
-		}
-	}
-
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--color-accent-0: var(--turquoise);
-			--color-accent-1: oklch(76% 38% 232deg);
-			--color-accent-2: oklch(65% 48% 254deg);
-			--color-accent-3: oklch(59% 25% 246deg);
-
-			--color-border: var(--slate-0);
-			--color-border-caption: var(--color-accent-0);
-
-			--color-primary: var(--turquoise);
-
-			--color-shadow-0: oklch(from var(--color-accent-0) l c h);
-			--color-shadow-1: oklch(from var(--color-accent-0) l c h);
-			--color-shadow-2: oklch(from var(--color-accent-0) l c h);
-			--color-shadow-3: oklch(from var(--color-accent-0) l c h);
 		}
 	}
 
@@ -258,11 +156,5 @@
 			--color-border: #000;
 			--color-text-primary: #000;
 		}
-	}
-
-	@counter-style star {
-		suffix: " ";
-		symbols: "\2726";
-		system: cyclic;
 	}
 }

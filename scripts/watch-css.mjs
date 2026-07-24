@@ -4,7 +4,7 @@ import process from 'node:process';
 const postcss = process.platform === 'win32'
 	? 'node_modules\\.bin\\postcss.cmd'
 	: 'node_modules/.bin/postcss';
-const config = ['--watch', '--config', 'utility'];
+const config = ['--watch', '--config', 'config'];
 const entries = [
 	['css/main/_imports.css', '-o', 'css/dist/style.css'],
 	['css/maps/_imports.css', '-o', 'css/dist/map.css']

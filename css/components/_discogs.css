@@ -23,7 +23,9 @@
 		background-image: url(/images/assets/jpeg/wood.jpg);
 		background-size: cover;
 		border-radius: var(--radius-sm);
-		box-shadow: var(--shadow-wood);
+		box-shadow: 
+			var(--black-0) 0 0 9px inset,
+			var(--black-1) 0 3px 5px inset;
 		outline: 0.05em solid var(--color-border);
 		padding: 1rem;
 	}
@@ -46,6 +48,25 @@
 
 	/* Album Sleeve Base */
 	.album-sleeve {
+		--shadow-album:
+			oklch(from var(--black-0) l c h / 0.75) 0 1px 1px,
+			oklch(from var(--black-1) l c h / 0.5) 0 2px 2px,
+			oklch(from var(--black-3) l c h / 0.25) 0 3px 3px;
+		
+		--shadow-album-art-active:
+			var(--black-0) 0 0 1px,
+			oklch(from var(--black-1) l c h / 0.95) 6px 0 3px -6px;
+		
+		--shadow-album-active:
+			oklch(from var(--black-0) l c h / 0.65) 3px 1px 3px 1px,
+			oklch(from var(--black-1) l c h / 0.4) 7px 4px 7px 1px,
+			oklch(from var(--black-3) l c h / 0.15) 10px 3px 8px 2px;
+		
+		--shadow-cassette-active:
+			oklch(from var(--black-0) l c h / 0.65) 0 1px 3px 1px,
+			oklch(from var(--black-1) l c h / 0.4) 0 4px 7px 1px,
+			oklch(from var(--black-3) l c h / 0.15) 0 3px 8px 2px;
+
 		aspect-ratio: 1 / 1;
 		box-shadow: var(--shadow-album);
 		position: relative;

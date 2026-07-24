@@ -5,3 +5,10 @@
 
 [build.environment]
   NODE_VERSION = "26.5.0"
+
+[dev]
+  autoLaunch = false
+  command = "npm run watch:dev"
+  framework = "#static"
+  port = 8888
+  publish = "."

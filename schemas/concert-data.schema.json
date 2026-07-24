@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Concert data",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"additionalProperties": false,
+		"required": ["Headliner", "Venue", "Year", "😃", "📷", "PhotoLink"],
+		"properties": {
+			"Headliner": { "type": "string", "minLength": 1 },
+			"Support": { "type": "string" },
+			"Venue": { "type": "string", "minLength": 1 },
+			"Year": { "type": "string", "pattern": "^([0-9]{4}|—)$" },
+			"😃": { "type": "string", "minLength": 1 },
+			"📷": { "type": "string", "minLength": 1 },
+			"PhotoLink": { "type": ["string", "null"] }
+		}
+	}
+}

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data entry</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --bg: #f5f4f0;
+    --surface: #ffffff;
+    --border: rgba(0,0,0,0.12);
+    --border-strong: rgba(0,0,0,0.22);
+    --text: #1a1a18;
+    --text-2: #5a5a56;
+    --text-3: #909088;
+    --accent: #1a6bcc;
+    --accent-bg: #e8f0fb;
+    --success: #1a7a4a;
+    --danger: #b53030;
+    --radius: 8px;
+    --font: system-ui, -apple-system, sans-serif;
+    --mono: ui-monospace, 'Cascadia Code', monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1a18;
+      --surface: #242422;
+      --border: rgba(255,255,255,0.1);
+      --border-strong: rgba(255,255,255,0.2);
+      --text: #e8e8e2;
+      --text-2: #a0a098;
+      --text-3: #666660;
+      --accent: #5b9eed;
+      --accent-bg: #1a2a3e;
+      --success: #4caf7a;
+      --danger: #e07070;
+    }
+  }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); margin: 0; min-height: 100vh; display: flex; justify-content: center; padding: 2rem 1rem; }
+  .app { width: 100%; max-width: 560px; }
+  h1 { font-size: 18px; font-weight: 500; margin: 0 0 1.5rem; }
+  .card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+  .tab-row { display: flex; gap: 6px; margin-bottom: 1.25rem; }
+  .tab { padding: 6px 14px; border-radius: var(--radius); border: 0.5px solid var(--border-strong); background: transparent; color: var(--text-2); cursor: pointer; font-size: 13px; font-family: var(--font); transition: background 0.1s; }
+  .tab:hover { background: var(--bg); }
+  .tab.active { background: var(--bg); color: var(--text); border-color: var(--border-strong); font-weight: 500; }
+  .file-bar { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); margin-bottom: 1.25rem; }
+  .file-name { font-size: 12px; color: var(--text-2); flex: 1; font-family: var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .section-label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); margin: 1.25rem 0 0.6rem; border-bottom: 0.5px solid var(--border); padding-bottom: 5px; }
+  .section-label:first-child { margin-top: 0; }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 13px; color: var(--text-2); margin-bottom: 4px; }
+  .field input[type="text"],
+  .field input[type="date"],
+  .field select {
+    width: 100%;
+    padding: 7px 10px;
+    font-size: 14px;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .field input:focus, .field select:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-bg); }
+  .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px; }
+  /* Image path field with prefix */
+  .path-field { display: flex; align-items: center; border: 0.5px solid var(--border-strong); border-radius: var(--radius); overflow: hidden; transition: border-color 0.15s; }
+  .path-field:focus-within { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-bg); }
+  .path-prefix { padding: 7px 0 7px 10px; font-size: 14px; font-family: var(--mono); color: var(--text-3); background: var(--bg); white-space: nowrap; user-select: none; }
+  .path-field input { border: none !important; box-shadow: none !important; border-radius: 0; padding-left: 2px; font-family: var(--mono); flex: 1; min-width: 0; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .checkbox-field { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+  .checkbox-field input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+  .checkbox-field label { font-size: 14px; color: var(--text); cursor: pointer; margin: 0; }
+  .roles-grid { display: flex; gap: 20px; flex-wrap: wrap; }
+  .role-check { display: flex; align-items: center; gap: 6px; }
+  .role-check input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+  .role-check label { font-size: 14px; font-weight: 500; color: var(--text); cursor: pointer; margin: 0; }
+  /* Entry blocks */
+  .entry-block { border: 0.5px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 10px; position: relative; }
+  .entry-block-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+  .entry-block-label { font-size: 12px; font-weight: 500; color: var(--text-3); }
+  .btn-remove { background: none; border: none; cursor: pointer; color: var(--text-3); font-size: 18px; line-height: 1; padding: 0 2px; transition: color 0.1s; }
+  .btn-remove:hover { color: var(--danger); }
+  .btn-add { display: flex; align-items: center; gap: 6px; width: 100%; padding: 8px; border: 0.5px dashed var(--border-strong); border-radius: var(--radius); background: transparent; color: var(--text-3); font-size: 13px; font-family: var(--font); cursor: pointer; justify-content: center; margin-bottom: 1rem; transition: color 0.1s, border-color 0.1s; }
+  .btn-add:hover { color: var(--accent); border-color: var(--accent); }
+  .btn-row { display: flex; align-items: center; gap: 12px; margin-top: 0.5rem; }
+  .btn { padding: 8px 18px; border-radius: var(--radius); font-size: 14px; font-family: var(--font); cursor: pointer; border: 0.5px solid var(--border-strong); background: transparent; color: var(--text); transition: background 0.1s; }
+  .btn:hover { background: var(--bg); }
+  .btn-primary { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 500; }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-sm { padding: 4px 10px; font-size: 12px; }
+  .status { font-size: 13px; color: var(--text-3); }
+  .status.ok { color: var(--success); }
+  .status.err { color: var(--danger); }
+  .hint { font-size: 12px; color: var(--text-3); margin-top: 3px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <h1>Data entry</h1>
+  <div class="card">
+    <div class="tab-row" role="tablist">
+      <button class="tab active" onclick="switchTab('mountain', this)" role="tab" aria-selected="true">Mountain</button>
+      <button class="tab" onclick="switchTab('concert', this)" role="tab" aria-selected="false">Concert</button>
+      <button class="tab" onclick="switchTab('production', this)" role="tab" aria-selected="false">Production</button>
+    </div>
+
+    <div class="file-bar">
+      <span class="file-name" id="file-label">No file open</span>
+      <button class="btn btn-sm" onclick="openFile()">Open JSON…</button>
+    </div>
+
+    <div id="entries-container"></div>
+
+    <button class="btn-add" onclick="addEntryBlock()">+ Add another entry</button>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="saveAll()">Save all</button>
+      <span class="status" id="status"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentTab = 'mountain';
+  let fileHandle = null;
+  let fileData = null;
+  let blockCount = 0;
+
+  // --- Tab switching ---
+  function switchTab(tab, btn) {
+    currentTab = tab;
+    document.querySelectorAll('.tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    setStatus('');
+    // Rebuild with a single fresh block
+    const container = document.getElementById('entries-container');
+    container.innerHTML = '';
+    blockCount = 0;
+    addEntryBlock();
+  }
+
+  // --- File open ---
+  async function openFile() {
+    if (!window.showOpenFilePicker) {
+      setStatus('File System Access API not supported — try Chrome or Edge', true);
+      return;
+    }
+    try {
+      [fileHandle] = await window.showOpenFilePicker({
+        types: [{ description: 'JSON files', accept: { 'application/json': ['.json'] } }],
+        multiple: false
+      });
+      const file = await fileHandle.getFile();
+      const text = await file.text();
+      fileData = JSON.parse(text);
+      if (!Array.isArray(fileData)) {
+        setStatus('JSON must be an array at the top level', true);
+        fileHandle = null; fileData = null;
+        return;
+      }
+      document.getElementById('file-label').textContent = file.name + '  (' + fileData.length + ' entries)';
+      setStatus('Opened ' + file.name, false);
+    } catch (e) {
+      if (e.name !== 'AbortError') setStatus('Could not open: ' + e.message, true);
+    }
+  }
+
+  // --- Build form HTML per tab ---
+  function buildFormHTML(id) {
+    if (currentTab === 'mountain') {
+      return `
+        <p class="section-label" style="margin-top:0">Summit details</p>
+        <div class="row">
+          <div class="field"><label>Peak name</label><input type="text" data-key="Peak" placeholder="Quandary Peak"></div>
+          <div class="field"><label>Elevation</label><input type="text" data-key="Elevation" placeholder="14,271"></div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label>Range</label>
+            <select data-key="Range">
+              <option value="">Select range…</option>
+              <option>Front</option><option>Tenmile</option><option>Mosquito</option>
+              <option>Gore</option><option>Elks</option><option>Sawatch</option>
+              <option>Sangre de Cristo</option><option>San Juan</option>
+            </select>
+          </div>
+          <div class="field"><label>Date climbed</label><input type="date" data-key="Date"></div>
+        </div>
+        <div class="field">
+          <label>Image</label>
+          <div class="path-field">
+            <span class="path-prefix">/images/summits/</span>
+            <input type="text" data-key="Image" data-prefix="/images/summits/" placeholder="quandary.jpeg">
+          </div>
+        </div>
+        <div class="checkbox-field">
+          <input type="checkbox" id="ranked-${id}" data-key="ranked" data-type="bool">
+          <label for="ranked-${id}">Ranked (13er / 14er official list)</label>
+        </div>`;
+    }
+    if (currentTab === 'concert') {
+      return `
+        <p class="section-label" style="margin-top:0">Show details</p>
+        <div class="row">
+          <div class="field"><label>Headliner</label><input type="text" data-key="Headliner" placeholder="Dylan Brady"></div>
+          <div class="field"><label>Support</label><input type="text" data-key="Support" placeholder="Leave blank if none"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Venue</label><input type="text" data-key="Venue" placeholder="The Black Box"></div>
+          <div class="field"><label>Year</label><input type="text" data-key="Year" placeholder="2026"></div>
+        </div>
+        <p class="section-label">Ratings &amp; photo</p>
+        <div class="row">
+          <div class="field"><label>Enjoyment (😃)</label><input type="text" data-key="😃" placeholder="💉 or any emoji"></div>
+          <div class="field">
+            <label>Photo (📷)</label>
+            <select data-key="📷">
+              <option value="—">— (none)</option>
+              <option value="📷">📷 (taken)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Photo link</label><input type="text" data-key="PhotoLink" placeholder="Leave blank if none"></div>`;
+    }
+    // production
+    return `
+      <p class="section-label" style="margin-top:0">Production details</p>
+      <div class="row">
+        <div class="field"><label>Production name</label><input type="text" data-key="Production" placeholder="Pete the Cat"></div>
+        <div class="field"><label>Company</label><input type="text" data-key="Company" placeholder="Arvada Center"></div>
+      </div>
+      <p class="section-label">Roles</p>
+      <div class="roles-grid">
+        <div class="role-check"><input type="checkbox" id="a1-${id}" data-key="A1" data-type="check"><label for="a1-${id}">A1</label></div>
+        <div class="role-check"><input type="checkbox" id="a2-${id}" data-key="A2" data-type="check"><label for="a2-${id}">A2</label></div>
+        <div class="role-check"><input type="checkbox" id="sd-${id}" data-key="SD" data-type="check"><label for="sd-${id}">SD</label></div>
+        <div class="role-check"><input type="checkbox" id="ad-${id}" data-key="AD" data-type="check"><label for="ad-${id}">AD</label></div>
+        <div class="role-check"><input type="checkbox" id="lz-${id}" data-key="LZ" data-type="check"><label for="lz-${id}">LZ</label></div>
+      </div>
+      <div class="field" style="margin-top:14px"><label>Notes</label><input type="text" data-key="Notes" placeholder="😸"></div>`;
+  }
+
+  // --- Add an entry block to the container ---
+  function addEntryBlock() {
+    blockCount++;
+    const id = blockCount;
+    const container = document.getElementById('entries-container');
+    const block = document.createElement('div');
+    block.className = 'entry-block';
+    block.dataset.blockId = id;
+
+    const allBlocks = container.querySelectorAll('.entry-block');
+    const showHeader = allBlocks.length > 0; // show label + remove btn if not first
+
+    block.innerHTML = `
+      <div class="entry-block-header" style="${showHeader ? '' : 'display:none'}">
+        <span class="entry-block-label">Entry ${id}</span>
+        <button class="btn-remove" onclick="removeBlock(${id})" title="Remove this entry">×</button>
+      </div>
+      ${buildFormHTML(id)}
+    `;
+    container.appendChild(block);
+    updateBlockHeaders();
+  }
+
+  function removeBlock(id) {
+    const block = document.querySelector(`.entry-block[data-block-id="${id}"]`);
+    if (block) block.remove();
+    updateBlockHeaders();
+  }
+
+  function updateBlockHeaders() {
+    const blocks = document.querySelectorAll('.entry-block');
+    blocks.forEach((block, i) => {
+      const header = block.querySelector('.entry-block-header');
+      if (blocks.length === 1) {
+        header.style.display = 'none';
+      } else {
+        header.style.display = '';
+        block.querySelector('.entry-block-label').textContent = 'Entry ' + (i + 1);
+      }
+    });
+  }
+
+  // --- Read one block into an entry object ---
+  function readBlock(block) {
+    const entry = {};
+    block.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.dataset.key;
+      const type = el.dataset.type;
+      if (type === 'bool') {
+        entry[key] = el.checked;
+      } else if (type === 'check') {
+        entry[key] = el.checked ? '✘' : '';
+      } else if (el.dataset.prefix) {
+        const filename = el.value.trim();
+        entry[key] = filename ? el.dataset.prefix + filename : '';
+      } else {
+        const val = el.value.trim();
+        // PhotoLink: null when empty
+        entry[key] = (key === 'PhotoLink' && !val) ? null : val;
+      }
+    });
+    return entry;
+  }
+
+  // --- Required field per tab ---
+  const REQUIRED = { mountain: 'Peak', concert: 'Headliner', production: 'Production' };
+
+  // --- Save all blocks ---
+  async function saveAll() {
+    if (!fileHandle || !fileData) { setStatus('Open a JSON file first', true); return; }
+
+    const blocks = document.querySelectorAll('.entry-block');
+    if (!blocks.length) { setStatus('No entries to save', true); return; }
+
+    const entries = [];
+    const reqField = REQUIRED[currentTab];
+    let invalid = false;
+
+    blocks.forEach((block, i) => {
+      const entry = readBlock(block);
+      if (!entry[reqField]) {
+        setStatus((blocks.length > 1 ? 'Entry ' + (i + 1) + ': ' : '') + reqField + ' is required', true);
+        invalid = true;
+      }
+      entries.push(entry);
+    });
+    if (invalid) return;
+
+    // Prepend all entries (reversed so first form ends up first in file)
+    const toInsert = entries.slice().reverse();
+    toInsert.forEach(e => fileData.unshift(e));
+
+    try {
+      const writable = await fileHandle.createWritable();
+      await writable.write(JSON.stringify(fileData, null, '\t'));
+      await writable.close();
+      const count = fileData.length;
+      document.getElementById('file-label').textContent = fileHandle.name + '  (' + count + ' entries)';
+      const n = entries.length;
+      setStatus('Saved ' + n + ' entr' + (n === 1 ? 'y' : 'ies') + ' — ' + count + ' total', false);
+      // Reset to single blank block
+      document.getElementById('entries-container').innerHTML = '';
+      blockCount = 0;
+      addEntryBlock();
+    } catch (e) {
+      // Roll back
+      for (let i = 0; i < entries.length; i++) fileData.shift();
+      setStatus('Write failed: ' + e.message, true);
+    }
+  }
+
+  function setStatus(msg, isErr) {
+    const el = document.getElementById('status');
+    el.textContent = msg;
+    el.className = 'status' + (isErr === true ? ' err' : isErr === false ? ' ok' : '');
+  }
+
+  // Init with first block
+  addEntryBlock();
+</script>
+</body>
+</html>

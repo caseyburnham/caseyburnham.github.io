@@ -1,7 +1,8 @@
 @layer integrations.map {
 	#map {
-		border-radius: var(--radius-section);
-		box-shadow: var(--shadow-main);
+		/* box-shadow: var(--shadow-main); */
+		border: 1px solid light-dark(var(--gray-0), var(--slate-0));
+		border-radius: var(--radius-sm);
 		height: 15rem;
 		width: 100%;
 		z-index: 1;
@@ -14,17 +15,7 @@
 		box-sizing: content-box !important;
 	}
 
-	@media (prefers-color-scheme: light) {
-		.map-marker {
-			border: 1.5px solid var(--white-0);
-		}
-	}
-
 	@media (prefers-color-scheme: dark) {
-		.map-marker {
-			border: 1.5px solid var(--black-0);
-		}
-
 		.maplibregl-ctrl-attrib.maplibregl-compact,
 		.maplibregl-ctrl-group {
 			filter: invert();
@@ -36,8 +27,10 @@
 		appearance: none;
 		backdrop-filter: blur(1px);
 		background: var(--color-accent-light);
+		border: 1.5px solid;
+		border-color: light-dark(var(--white-0), var(--black-0));
 		border-radius: 50%;
-		box-shadow: var(--shadow-map-marker);
+		box-shadow: oklch(from var(--black-0) l c h / 0.5) 0 1px 3px;
 		cursor: pointer;
 		height: 12px;
 		padding: 0;
@@ -48,7 +41,7 @@
 		backdrop-filter: blur(4px) saturate(150%);
 		background: var(--color-bg-alpha);
 		border-bottom-width: 0px;
-		border-color: oklch(from var(--color-bg-main) l c h / .31);
+		border-color: var(--color-border);
 		border-left-width: 0.8px;
 		border-radius: var(--radius-section);
 		border-right-width: 0px;
@@ -56,7 +49,7 @@
 		border-top-width: 1px;
 		box-shadow:
 			var(--shadow-glass),
-			var(--shadow-elevated);
+			var(--shadow-modal);
 		overflow: hidden;
 		padding: 0.5rem;
 		text-shadow: var(--shadow-text-caption);
@@ -69,16 +62,11 @@
 	.maplibregl-ctrl-group {
 		backdrop-filter: blur(2.5px);
 		background: var(--color-bg-light);
-		border-bottom-width: 0px;
-		border-color: oklch(from var(--color-bg-main) l c h / .31);
-		border-left-width: 0.8px;
-		border-radius: 0.5rem;
-		border-right-width: 0px;
-		border-style: solid;
-		border-top-width: 1px;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm);
 
 		&:not(:empty) {
-			box-shadow: var(--shadow-button);
+			box-shadow: var(--shadow-modal);
 		}
 	}
 

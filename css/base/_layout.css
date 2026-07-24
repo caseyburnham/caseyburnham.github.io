@@ -4,12 +4,12 @@
 		container-type: inline-size;
 		display: flex;
 		flex-direction: column;
-		margin-block-end: 5rem;
+		margin-block-end: 0.5rem;
 		margin-inline: var(--fluid-padding-inline);
 	}
 	
-	section:not(:last-child) {
-		margin-block: 1.5rem;
+	section {
+		margin-block: 1.25rem;
 	}
 
 	hr {
@@ -22,7 +22,7 @@
 		
 	footer {
 		line-height: var(--line-height-loose);
-		margin-block-end: 5rem;
+		margin-block-end: 2.5rem;
 		text-align: center;
 	
 		& .flags {

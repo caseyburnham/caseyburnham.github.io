@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { execFile } from 'node:child_process';
 import {
 	cp,
 	mkdir,
@@ -9,6 +10,7 @@ import {
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import { promisify } from 'node:util';
 import { build as bundle } from 'esbuild';
 import postcss from 'postcss';
 
@@ -28,7 +30,10 @@ const cssEntries = {
 	}
 };
 const require = createRequire(import.meta.url);
-const postcssConfig = require('../utility/postcss.config.js');
+const execFileAsync = promisify(execFile);
+const postcssConfig = require('../config/postcss.config.js');
+const sitemapInputs = ['index.html', 'css', 'js', 'json', 'images'];
+const sitemapTimeZone = 'America/Denver';
 
 const toPosix = value => value.split(path.sep).join('/');
 const hash = value =>
@@ -99,15 +104,68 @@ async function bundleJavaScript(mapCss) {
 async function writeHtml({ css, js }) {
 	const source = await readFile(path.join(root, 'index.html'), 'utf8');
 	const html = source
-		.replaceAll('href="js/js-imports.js"', `href="${js}"`)
+		.replaceAll('href="js/dist/main.js"', `href="${js}"`)
 		.replace('href="css/dist/style.css"', `href="${css}"`)
-		.replace('src="js/js-imports.js"', `src="${js}"`);
+		.replace('src="js/dist/main.js"', `src="${js}"`);
 
 	if (html === source) {
 		throw new Error('Build asset references were not updated in index.html.');
 	}
 
 	await writeFile(path.join(dist, 'index.html'), html);
+}
+
+function getCurrentSitemapDate() {
+	const parts = new Intl.DateTimeFormat('en-US', {
+		day: '2-digit',
+		month: '2-digit',
+		timeZone: sitemapTimeZone,
+		year: 'numeric'
+	}).formatToParts();
+	const values = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
+	return `${values.year}-${values.month}-${values.day}`;
+}
+
+async function getSitemapDate(existingDate) {
+	try {
+		const { stdout: status } = await execFileAsync(
+			'git',
+			['status', '--porcelain', '--untracked-files=normal', '--', ...sitemapInputs],
+			{ cwd: root }
+		);
+
+		if (status.trim()) return getCurrentSitemapDate();
+
+		const { stdout: commitDate } = await execFileAsync(
+			'git',
+			['log', '-1', '--format=%cI', '--', ...sitemapInputs],
+			{ cwd: root }
+		);
+		const committedDate = commitDate.trim().slice(0, 10);
+		return [existingDate, committedDate].filter(Boolean).sort().at(-1);
+	} catch {
+		return existingDate || getCurrentSitemapDate();
+	}
+}
+
+async function writeSitemap() {
+	const filename = path.join(root, 'sitemap.xml');
+	const source = await readFile(filename, 'utf8');
+	const existingDate = source.match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/)?.[1];
+	const lastModified = await getSitemapDate(existingDate);
+	const sitemap = source.replace(
+		/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/,
+		`<lastmod>${lastModified}</lastmod>`
+	);
+
+	if (sitemap === source && !existingDate) {
+		throw new Error('sitemap.xml is missing a valid <lastmod> value.');
+	}
+
+	await Promise.all([
+		writeFile(filename, sitemap),
+		writeFile(path.join(dist, 'sitemap.xml'), sitemap)
+	]);
 }
 
 async function copyStaticFiles() {
@@ -120,7 +178,7 @@ async function copyStaticFiles() {
 			recursive: true,
 			filter: shouldCopy
 		}),
-		...['_headers', 'robots.txt', 'sitemap.xml'].map(filename =>
+		...['_headers', 'robots.txt'].map(filename =>
 			cp(path.join(root, filename), path.join(dist, filename))
 		)
 	]);
@@ -136,6 +194,7 @@ async function main() {
 	await Promise.all([
 		writeHtml({ css, js }),
 		copyStaticFiles(),
+		writeSitemap(),
 		writeFile(
 			path.join(dist, 'asset-manifest.json'),
 			`${JSON.stringify({ css, mapCss, js }, null, 2)}\n`

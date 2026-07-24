@@ -1,4 +1,70 @@
 {
+  "galleries/abstract/avif/air-bubbles.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 6,
+      "day": 12,
+      "hour": 9,
+      "minute": 48,
+      "second": 6,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:06:12 09:48:06",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 40,
+    "lens": 14,
+    "aperture": 2.2,
+    "shutter": "1/228",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.3180305555556,
+      "lon": -106.172944444444,
+      "latDMS": "39\u00b019'4.91\" N",
+      "lonDMS": "106\u00b010'22.60\" W",
+      "alt": 4013.225434,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Air Bubbles",
+    "caption": null
+  },
+  "galleries/abstract/avif/alpine-ice.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 6,
+      "day": 12,
+      "hour": 9,
+      "minute": 49,
+      "second": 54,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:06:12 09:49:54",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 40,
+    "lens": 14,
+    "aperture": 2.2,
+    "shutter": "1/545",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.3180194444444,
+      "lon": -106.172919444444,
+      "latDMS": "39\u00b019'4.87\" N",
+      "lonDMS": "106\u00b010'22.51\" W",
+      "alt": 4011.986799,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Alpine Ice",
+    "caption": null
+  },
   "galleries/abstract/avif/cowboy-print.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -31,6 +97,39 @@
     "copyright": "\u00a9 2019 Casey Burnham",
     "title": "Cowboy Print",
     "caption": "Cowboy Print Wallpaper"
+  },
+  "galleries/abstract/avif/cracked-egg.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 5,
+      "day": 23,
+      "hour": 11,
+      "minute": 30,
+      "second": 37,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:05:23 11:30:37",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 64,
+    "lens": 48,
+    "aperture": 1.8,
+    "shutter": "1/8000",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 36.2675944444444,
+      "lon": -108.223602777778,
+      "latDMS": "36\u00b016'3.34\" N",
+      "lonDMS": "108\u00b013'24.97\" W",
+      "alt": 1773.870787,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Cracked Egg",
+    "caption": null
   },
   "galleries/abstract/avif/frozen-rocks.avif": {
     "date": {
@@ -1007,7 +1106,7 @@
     "lens": 26,
     "aperture": 1.5,
     "shutter": "1",
-    "exposureCompensation": "1.7265625",
+    "exposureCompensation": "1.73",
     "cameraModel": "iPhone 13 Pro Max",
     "format": "AVIF",
     "gps": {
@@ -1120,6 +1219,39 @@
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": "Bierstadt Billy",
     "caption": "Bierstadt Billy"
+  },
+  "galleries/high-country/avif/clear-lake.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 7,
+      "day": 4,
+      "hour": 7,
+      "minute": 0,
+      "second": 25,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:07:04 07:00:25",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 64,
+    "lens": 35,
+    "aperture": 1.8,
+    "shutter": "1/224",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 37.8259972222222,
+      "lon": -107.782408333333,
+      "latDMS": "37\u00b049'33.59\" N",
+      "lonDMS": "107\u00b046'56.67\" W",
+      "alt": 3649.394619,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Clear Lake",
+    "caption": null
   },
   "galleries/high-country/avif/cloudy-ridge.avif": {
     "date": {
@@ -1318,6 +1450,39 @@
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": "Longs Peak",
     "caption": "Longs Peak"
+  },
+  "galleries/high-country/avif/moonrise-kingdom.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 7,
+      "day": 3,
+      "hour": 7,
+      "minute": 39,
+      "second": 55,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:07:03 07:39:55",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 20,
+    "lens": 200,
+    "aperture": 2.8,
+    "shutter": "1/639",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 37.9820638888889,
+      "lon": -107.760016666667,
+      "latDMS": "37\u00b058'55.43\" N",
+      "lonDMS": "107\u00b045'36.06\" W",
+      "alt": 3301.6,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Moonrise Kingdom",
+    "caption": null
   },
   "galleries/high-country/avif/mount-audubon.avif": {
     "date": {
@@ -1615,39 +1780,6 @@
     "copyright": "\u00a9 2024 Casey Burnham",
     "title": "Sheep Mountain",
     "caption": "Sheep Mountain"
-  },
-  "galleries/high-country/avif/silver-lake-reflections.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2025,
-      "month": 7,
-      "day": 20,
-      "hour": 8,
-      "minute": 36,
-      "second": 6,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2025:07:20 08:36:06",
-      "zoneName": "UTC-06:00",
-      "inferredZone": false
-    },
-    "iso": 50,
-    "lens": 26,
-    "aperture": 1.5,
-    "shutter": "1/3077",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 37.7920444444444,
-      "lon": -107.605041666667,
-      "latDMS": "37\u00b047'31.36\" N",
-      "lonDMS": "107\u00b036'18.15\" W",
-      "alt": 3721.709046,
-      "altRef": 0
-    },
-    "copyright": "\u00a9 2025 Casey Burnham",
-    "title": "Silver Lake Reflections",
-    "caption": "Silver Lake Reflections"
   },
   "galleries/high-country/avif/stoney-pass.avif": {
     "date": {
@@ -1979,6 +2111,39 @@
     "title": "Ashnikko",
     "caption": "Ashnikko @ Mission Ballroom, 2023"
   },
+  "galleries/live-sound/avif/charley-crockett.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 1,
+      "day": 9,
+      "hour": 22,
+      "minute": 14,
+      "second": 46,
+      "tzoffsetMinutes": -420,
+      "rawValue": "2026:01:09 22:14:46",
+      "zoneName": "UTC-07:00",
+      "inferredZone": false
+    },
+    "iso": 500,
+    "lens": 48,
+    "aperture": 1.8,
+    "shutter": "1/39",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.7762333333333,
+      "lon": -104.969269444444,
+      "latDMS": "39\u00b046'34.44\" N",
+      "lonDMS": "104\u00b058'9.37\" W",
+      "alt": 1586.259494,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Charley Crockett",
+    "caption": null
+  },
   "galleries/live-sound/avif/dave,-glass-animals.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -2011,6 +2176,39 @@
     "copyright": "\u00a9 2015 Casey Burnham",
     "title": "Dave, Glass Animals",
     "caption": "Glass Animals @ The Ogden Theater, 2015"
+  },
+  "galleries/live-sound/avif/dylan-brady.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "hour": 0,
+      "minute": 33,
+      "second": 23,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:04:24 00:33:23",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 4000,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/9",
+    "exposureCompensation": "-0.0273",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.7366944444444,
+      "lon": -104.982947222222,
+      "latDMS": "39\u00b044'12.10\" N",
+      "lonDMS": "104\u00b058'58.61\" W",
+      "alt": 1611.575221,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Dylan Brady",
+    "caption": null
   },
   "galleries/live-sound/avif/flume-&-laurel.avif": {
     "date": {
@@ -2162,7 +2360,7 @@
     "lens": 26,
     "aperture": 1.5,
     "shutter": "1/9",
-    "exposureCompensation": "0.015625",
+    "exposureCompensation": "0.0156",
     "cameraModel": "iPhone 13 Pro Max",
     "format": "AVIF",
     "gps": {
@@ -2195,7 +2393,7 @@
     "lens": 26,
     "aperture": 1.5,
     "shutter": "1/15",
-    "exposureCompensation": "0.1015625",
+    "exposureCompensation": "0.102",
     "cameraModel": "iPhone 13 Pro Max",
     "format": "AVIF",
     "gps": {
@@ -2440,6 +2638,39 @@
     "copyright": "\u00a9 2024 Casey Burnham",
     "title": "Cemetery Road",
     "caption": "Cemetery Road, near Taylor Mountain"
+  },
+  "galleries/off-road/avif/corkscrew-pass.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 7,
+      "day": 4,
+      "hour": 11,
+      "minute": 5,
+      "second": 47,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:07:04 11:05:47",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 64,
+    "lens": 48,
+    "aperture": 1.8,
+    "shutter": "1/7874",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 37.9045722222222,
+      "lon": -107.663283333333,
+      "latDMS": "37\u00b054'16.46\" N",
+      "lonDMS": "107\u00b039'47.82\" W",
+      "alt": 3763.408451,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Corkscrew Pass",
+    "caption": null
   },
   "galleries/off-road/avif/glacier-mountain.avif": {
     "date": {
@@ -3166,6 +3397,39 @@
     "copyright": "\u00a9 2019 Casey Burnham",
     "title": "Garden Tulip",
     "caption": "Garden Tulip, Denver Botanic Gardens"
+  },
+  "galleries/plant-based/avif/hibiscus.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2024,
+      "month": 5,
+      "day": 7,
+      "hour": 10,
+      "minute": 18,
+      "second": 32,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2024:05:07 10:18:32",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 32,
+    "lens": 25,
+    "aperture": 1.8,
+    "shutter": "1/2801",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 13 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 37.3228388888889,
+      "lon": -111.012427777778,
+      "latDMS": "37\u00b019'22.22\" N",
+      "lonDMS": "111\u00b00'44.74\" W",
+      "alt": 1216.66729,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2024 Casey Burnham",
+    "title": "Hibiscus",
+    "caption": "Hibiscus"
   },
   "galleries/plant-based/avif/lady-tulip.avif": {
     "date": {
@@ -4289,6 +4553,39 @@
     "title": "Silver Lake Cabins",
     "caption": "Silver Lake Cabins"
   },
+  "galleries/rocks/avif/alien-throne.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 5,
+      "day": 24,
+      "hour": 11,
+      "minute": 17,
+      "second": 18,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:05:24 11:17:18",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 20,
+    "lens": 14,
+    "aperture": 2.2,
+    "shutter": "1/770",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 36.1488388888889,
+      "lon": -107.980622222222,
+      "latDMS": "36\u00b08'55.82\" N",
+      "lonDMS": "107\u00b058'50.24\" W",
+      "alt": 1888.668246,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Alien Throne",
+    "caption": null
+  },
   "galleries/rocks/avif/badwater-basin.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -4685,6 +4982,39 @@
     "title": "Bryce Canyon",
     "caption": "Bryce Canyon"
   },
+  "galleries/rocks/avif/king-of-wings.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 5,
+      "day": 23,
+      "hour": 16,
+      "minute": 47,
+      "second": 31,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:05:23 16:47:31",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/6173",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 36.1710861111111,
+      "lon": -107.972655555556,
+      "latDMS": "36\u00b010'15.91\" N",
+      "lonDMS": "107\u00b058'21.56\" W",
+      "alt": 1900.484127,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "King of Wings",
+    "caption": null
+  },
   "galleries/rocks/avif/kodachrome-basin.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -5047,39 +5377,6 @@
     "copyright": "\u00a9 2024 Casey Burnham",
     "title": "Sooner Rocks",
     "caption": "Sooner Rocks in Utah"
-  },
-  "galleries/rocks/avif/stained-rocks.avif": {
-    "date": {
-      "_ctor": "ExifDateTime",
-      "year": 2024,
-      "month": 5,
-      "day": 7,
-      "hour": 11,
-      "minute": 11,
-      "second": 44,
-      "tzoffsetMinutes": -360,
-      "rawValue": "2024:05:07 11:11:44",
-      "zoneName": "UTC-06:00",
-      "inferredZone": false
-    },
-    "iso": 32,
-    "lens": 77,
-    "aperture": 2.8,
-    "shutter": "1/99",
-    "exposureCompensation": "0",
-    "cameraModel": "iPhone 13 Pro Max",
-    "format": "AVIF",
-    "gps": {
-      "lat": 37.3276666666667,
-      "lon": -110.999527777778,
-      "latDMS": "37\u00b019'39.60\" N",
-      "lonDMS": "110\u00b059'58.30\" W",
-      "alt": 1175.542767,
-      "altRef": 0
-    },
-    "copyright": "\u00a9 2024 Casey Burnham",
-    "title": "Stained Rocks",
-    "caption": "Glen Canyon National Recreation Area"
   },
   "galleries/rocks/avif/zabriskie-point.avif": {
     "date": {
@@ -7577,14 +7874,6 @@
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
     "format": "JPEG",
-    "gps": {
-      "lat": 38.2094694444444,
-      "lon": -105.736497222222,
-      "latDMS": "38\u00b012'34.09\" N",
-      "lonDMS": "105\u00b044'11.39\" W",
-      "alt": 4030.102381,
-      "altRef": 0
-    },
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Thirsty Peak"
@@ -7739,10 +8028,9 @@
     "lens": 26,
     "aperture": 1.5,
     "shutter": "1/5076",
-    "exposureCompensation": "-0.00390625",
+    "exposureCompensation": "-0.00391",
     "cameraModel": "iPhone 13 Pro Max",
     "format": "JPEG",
-    "gps": null,
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": null
@@ -7765,7 +8053,7 @@
     "lens": 26,
     "aperture": 1.5,
     "shutter": "1/6993",
-    "exposureCompensation": "0.00390625",
+    "exposureCompensation": "0.00391",
     "cameraModel": "iPhone 13 Pro Max",
     "format": "JPEG",
     "gps": {

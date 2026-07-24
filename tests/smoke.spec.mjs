@@ -1,0 +1,124 @@
+import { expect, test } from '@playwright/test';
+
+async function preparePage(page) {
+	await page.route('**/api/discogs/**', route => route.fulfill({
+		body: '[]',
+		contentType: 'application/json',
+		status: 200
+	}));
+	await page.route('https://api.maptiler.com/maps/**', route => route.fulfill({
+		body: JSON.stringify({ version: 8, sources: {}, layers: [] }),
+		contentType: 'application/json',
+		status: 200
+	}));
+}
+
+async function expectGalleryShape(page, galleryName, marker, expected) {
+	await page.getByRole('button', { name: galleryName, exact: true }).click();
+	await expect(page.locator(`#galleries img[data-filename="${marker}"]`)).toHaveCount(1);
+	const rowShapes = await page.locator('#galleries .photo-grid')
+		.evaluateAll(elements => elements.map(row => ({
+			count: row.querySelectorAll('.photo-thumb').length,
+			layout: row.classList.contains('landscape-row')
+				? 'landscape'
+				: row.classList.contains('portrait-row') ? 'portrait' : 'pano'
+		})));
+	expect(rowShapes).toEqual(expected);
+}
+
+test.beforeEach(async ({ page }) => {
+	await preparePage(page);
+});
+
+test('renders the primary content and data tables', async ({ page }) => {
+	await page.goto('/');
+
+	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Casey Burnham');
+	await expect(page.locator('#productions-table tbody tr')).not.toHaveCount(0);
+	await expect(page.locator('#mountains tbody tr:not(.summary-row)')).not.toHaveCount(0);
+	await expect(page.locator('#concerts tbody tr:not(.summary-row)')).not.toHaveCount(0);
+
+	const hasHorizontalOverflow = await page.evaluate(() =>
+		document.documentElement.scrollWidth > document.documentElement.clientWidth
+	);
+	expect(hasHorizontalOverflow).toBe(false);
+});
+
+test('opens the mobile navigation', async ({ page }) => {
+	await page.setViewportSize({ width: 390, height: 844 });
+	await page.goto('/');
+
+	const toggle = page.getByRole('button', { name: 'Toggle navigation menu' });
+	await toggle.click();
+
+	await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+	await expect(page.locator('#nav-main')).toHaveClass(/is-open/);
+});
+
+test('loads a gallery and opens a photo dialog', async ({ page }) => {
+	await page.goto('/');
+	await page.locator('#galleries').scrollIntoViewIfNeeded();
+
+	const thumbnail = page.locator('#galleries .photo-thumb').first();
+	await expect(thumbnail).toBeVisible();
+	await expect(thumbnail).toHaveAttribute('itemtype', 'https://schema.org/ImageObject');
+	await expect(thumbnail.locator('[itemprop="contentUrl"]')).toHaveAttribute('href', /\/images\/galleries\//);
+	await expect(thumbnail.locator('[itemprop="dateCreated"]')).toHaveAttribute('content', /^\d{4}-\d{2}-\d{2}$/);
+	await expect(thumbnail.locator('[itemprop="copyrightNotice"]')).toHaveAttribute('content', /^© \d{4} Casey Burnham$/);
+	await thumbnail.click();
+
+	await expect(page.locator('dialog.photo-dialog')).toHaveAttribute('open', '');
+	await expect(page.locator('dialog .photo-title')).not.toBeEmpty();
+});
+
+test('balances gallery rows while keeping each orientation newest-first', async ({ page }) => {
+	await page.goto('/');
+	await page.locator('#galleries').scrollIntoViewIfNeeded();
+	await expectGalleryShape(page, 'Abstract', 'air-bubbles', [
+		{ count: 5, layout: 'landscape' },
+		{ count: 4, layout: 'portrait' },
+		{ count: 5, layout: 'portrait' }
+	]);
+
+	for (const layout of ['landscape', 'portrait']) {
+		const dates = await page.locator(`#galleries .${layout}-row [itemprop="dateCreated"]`)
+			.evaluateAll(elements => elements.map(element => element.getAttribute('content')));
+		expect(dates).toEqual([...dates].sort().reverse());
+	}
+
+	await expectGalleryShape(page, 'Live Sound', '100-gecs', [
+		{ count: 4, layout: 'landscape' },
+		{ count: 6, layout: 'portrait' },
+		{ count: 4, layout: 'landscape' }
+	]);
+	await expectGalleryShape(page, 'Prospecting', 'alpine-tunnel', [
+		{ count: 5, layout: 'landscape' },
+		{ count: 5, layout: 'portrait' },
+		{ count: 4, layout: 'landscape' },
+		{ count: 3, layout: 'landscape' }
+	]);
+	await expectGalleryShape(page, 'High Country', 'above-the-clouds', [
+		{ count: 5, layout: 'landscape' },
+		{ count: 1, layout: 'pano' },
+		{ count: 4, layout: 'landscape' },
+		{ count: 1, layout: 'pano' },
+		{ count: 5, layout: 'landscape' },
+		{ count: 1, layout: 'pano' },
+		{ count: 4, layout: 'portrait' },
+		{ count: 1, layout: 'pano' },
+		{ count: 3, layout: 'landscape' },
+		{ count: 4, layout: 'portrait' }
+	]);
+});
+
+test('lazy-loads the map stylesheet, map, and markers', async ({ page }) => {
+	await page.goto('/');
+	const mapStylesheet = page.locator('link[rel="stylesheet"][href*="/assets/map-"]');
+
+	await expect(mapStylesheet).toHaveCount(0);
+	await page.locator('#map').scrollIntoViewIfNeeded();
+
+	await expect(mapStylesheet).toHaveCount(1);
+	await expect(page.locator('#map.maplibregl-map')).toBeVisible();
+	await expect(page.locator('#map .map-marker').first()).toBeVisible();
+});

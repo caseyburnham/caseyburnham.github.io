@@ -1,8 +1,19 @@
 @layer components.bio {
-	section:has(> .bio) {
+	#about {
+		--shadow-frame:
+			oklch(from var(--black-3) l c h / 1) 0 0 2px,
+			oklch(from var(--black-0) l c h / 0.125) 0 0 0 1px inset,
+			oklch(from var(--black-0) l c h / 0.5) 3px 3px 6px inset,
+			oklch(from var(--white-0) l c h / 0.15) -1px -1px 3px inset,
+			oklch(from var(--black-0) l c h / 0.6) 2px 4px 8px 1px,
+			oklch(from var(--black-1) l c h / 0.3) 4px 8px 24px 2px;
+
+		--shadow-matte:
+			oklch(from var(--black-0) l c h / 0.95) 0 0 2px -1px inset;
+
 		align-items: center;
 		display: grid;
-		gap: var(--grid-gap);
+		gap: var(--space-md);
 		grid-auto-rows: minmax(min-content, max-content);
 		grid-template-columns: 1fr 1fr;
 		justify-items: center;
@@ -25,6 +36,7 @@
 
 			&:hover {
 				transform: rotate(3deg) translateY(.1rem);
+				transition: transform 2s var(--timing-frame);
 			}
 
 			& .matte {

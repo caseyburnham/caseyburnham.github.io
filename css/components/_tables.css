@@ -2,11 +2,9 @@
 	table {
 		background-color: var(--color-bg-main);
 		border-collapse: collapse;
-		box-shadow: var(--shadow-table);
 		font-size: var(--text-table);
 		inline-size: 100%;
 		table-layout: auto;
-		z-index: 1;
 
 		& caption {
 			caption-side: bottom;
@@ -14,16 +12,42 @@
 			padding-block-start: 0.5rem;
 			text-align: right;
 			text-shadow: var(--shadow-text-outline);
-			z-index: 2;
 		}
-	}
 
-	thead {
-		background-color: var(--color-primary-alpha);
-	}
+		& thead {
+			background-color: var(--color-primary-alpha);
+		}
 
-	th {
-		text-align: left;
+		& th {
+			text-align: left;
+		}
+
+		& button:is(.camera-link) {
+			background: none;
+			border: none;
+			font-size: larger;
+			padding: 0.25rem;
+			position: relative;
+		
+			&::before {
+				content: "📷";
+			}
+		
+			&::after {
+				content: "📸";
+				inset-inline-start: 0.25rem;
+				opacity: 0;
+				pointer-events: none;
+				position: absolute;
+				top: 0.25rem;
+				transition: opacity 0.95s var(--timing-frame);
+			}
+		
+			&:hover::after {
+				animation: flash .05s var(--timing-led);
+				opacity: 1;
+			}
+		}
 	}
 
 	:is(th, td) {
@@ -46,10 +70,6 @@
 		background: var(--color-accent-alpha);
 		font-weight: var(--font-weight-normal);
 		text-align: center;
-
-		& strong {
-			font-weight: var(--font-weight-heavy);
-		}
 	}
 
 	.elevation-chart-cell {
@@ -58,8 +78,7 @@
 
 	.elevation-chart {
 		--mountain-chart-color: var(--color-accent-0);
-		--mountain-chart-fill: oklch(from var(--color-accent-0) l c h / 25%);
-
+		--mountain-chart-fill: var(--color-accent-alpha);
 		block-size: 3rem;
 	}
 
@@ -76,6 +95,11 @@
 	}
 
 	.mtn-elevation data {
+		--heatmap-min-color: oklch(from var(--color-accent-0)    l calc(c - 0.22) h);
+		--heatmap-max-color: oklch(from var(--color-accent-0)    l c h);
+		--heatmap-glow-min-color: oklch(from var(--color-glow-2) l c h / 0.6);
+		--heatmap-glow-max-color: oklch(from var(--color-glow-0) l c h / 0.8);
+
 		@property --elevation-fraction {
 			inherits: false;
 			initial-value: 0;
@@ -99,89 +123,5 @@
 		font-weight: calc(100 + 600 * var(--elevation-fraction));
 		text-shadow: var(--shadow-text-outline),
 		0 0 var(--glow-size) var(--glow-color);
-	}
-
-	button:is(.camera-link) {
-		background: none;
-		border: none;
-		font-size: larger;
-		padding: 0.25rem;
-		position: relative;
-
-		&::before {
-			content: "📷";
-		}
-
-		&::after {
-			content: "📸";
-			inset-inline-start: 0.25rem;
-			opacity: 0;
-			pointer-events: none;
-			position: absolute;
-			top: 0.25rem;
-			transition: opacity 0.95s;
-			transition-timing-function: var(--timing-frame);
-		}
-
-		&:hover::after {
-			animation: flash .5s;
-			animation-timing-function: var(--timing-led);
-			opacity: 1;
-		}
-	}
-	
-	@keyframes flash {
-		from {
-			filter: brightness(1.8);
-		}
-	
-		to {
-			filter: brightness(1);
-		}
-	}
-
-	progress {
-		-webkit-appearance: none;
-		appearance: none;
-		border-radius: var(--radius-sm);
-		height: 0.25rem;
-		inline-size: 100%;
-		vertical-align: middle;
-
-		&::-webkit-progress-inner-element {
-			border-radius: var(--radius-sm);
-			z-index: 1;
-		}
-
-		&::-webkit-progress-bar {
-			background: var(--color-border);
-			border-radius: var(--radius-sm);
-			z-index: 2;
-		}
-
-		&::-webkit-progress-value {
-			background: var(--color-accent-0);
-			border-radius: var(--radius-sm);
-			box-shadow: var(--shadow-prog);
-			z-index: 3;
-		}
-
-		&::-moz-progress-inner-element {
-			border-radius: var(--radius-sm);
-			z-index: 1;
-		}
-
-		&::-moz-progress-bar {
-			background: var(--color-border);
-			border-radius: var(--radius-sm);
-			z-index: 2;
-		}
-
-		&::-moz-progress-value {
-			background: var(--color-accent-0);
-			border-radius: var(--radius-sm);
-			box-shadow: var(--shadow-prog);
-			z-index: 3;
-		}
 	}
 }
