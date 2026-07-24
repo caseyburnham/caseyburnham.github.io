@@ -19,94 +19,119 @@
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
-				"@type": "Person",
-				"name": "Casey Burnham",
-				"givenName": "Casey",
-				"familyName": "Burnham",
-				"jobTitle": "Audio Director",
-				"description": "Professional audio engineer specializing in live sound, theater audio, FOH mixing, sound design, and audio system design in Colorado",
-				"url": "https://crashandburnham.com",
-				"email": "casey@crashandburnham.com",
-				"image": "https://crashandburnham.com/images/posters/jpeg/casey-rocky.jpeg",
-				"nationality": {
-					"@type": "Country",
-					"name": "United States"
-				},
-				"address": {
-					"@type": "PostalAddress",
-					"addressLocality": "Denver",
-					"addressRegion": "CO",
-					"addressCountry": "US"
-				},
-				"geo": {
-					"@type": "GeoCoordinates",
-					"latitude": "39.823252",
-					"longitude": "-105.083531"
-				},
-				"sameAs": [
-					"https://www.instagram.com/crashandburnham",
-					"https://github.com/caseyburnham",
-					"https://www.discogs.com/user/crashandburnham"
-				],
-				"knowsAbout": [
-					"Live Sound Engineering",
-					"Theater Audio",
-					"FOH Mixing",
-					"Sound Design",
-					"Audio System Design",
-					"Dante Networking",
-					"QLab Programming",
-					"Yamaha Rivage Consoles",
-					"Audio Recording",
-					"Audio Editing"
-				],
-				"hasCredential": [{
-						"@type": "EducationalOccupationalCredential",
-						"name": "Dante Level 2 Certification",
-						"description": "Networked audio interoperability and troubleshooting"
+				"@graph": [
+					{
+						"@type": "WebSite",
+						"@id": "https://crashandburnham.com/#website",
+						"url": "https://crashandburnham.com/",
+						"name": "Casey Burnham",
+						"inLanguage": "en-US",
+						"publisher": {
+							"@id": "https://crashandburnham.com/#casey"
+						}
 					},
 					{
-						"@type": "EducationalOccupationalCredential",
-						"credentialCategory": "Bachelor of Fine Arts",
-						"name": "Bachelor of Fine Arts in Recording Arts",
-						"educationalLevel": "Bachelor",
-						"provider": {
-							"@type": "EducationalOrganization",
-							"name": "University of Colorado Denver"
+						"@type": "ProfilePage",
+						"@id": "https://crashandburnham.com/#webpage",
+						"url": "https://crashandburnham.com/",
+						"name": "Casey Burnham — Audio Director",
+						"description": "Casey Burnham is a Colorado audio director and sound engineer specializing in live sound, theater audio, FOH mixing, sound design, and audio system design.",
+						"inLanguage": "en-US",
+						"isPartOf": {
+							"@id": "https://crashandburnham.com/#website"
+						},
+						"mainEntity": {
+							"@id": "https://crashandburnham.com/#casey"
+						}
+					},
+					{
+						"@type": "Person",
+						"@id": "https://crashandburnham.com/#casey",
+						"name": "Casey Burnham",
+						"givenName": "Casey",
+						"familyName": "Burnham",
+						"jobTitle": "Audio Director",
+						"description": "Professional audio engineer specializing in live sound, theater audio, FOH mixing, sound design, and audio system design in Colorado",
+						"url": "https://crashandburnham.com/",
+						"email": "casey@crashandburnham.com",
+						"image": "https://crashandburnham.com/images/posters/jpeg/casey-rocky.jpeg",
+						"nationality": {
+							"@type": "Country",
+							"name": "United States"
+						},
+						"address": {
+							"@type": "PostalAddress",
+							"addressLocality": "Denver",
+							"addressRegion": "CO",
+							"addressCountry": "US"
+						},
+						"sameAs": [
+							"https://www.instagram.com/crashandburnham",
+							"https://github.com/caseyburnham",
+							"https://www.discogs.com/user/crashandburnham"
+						],
+						"knowsAbout": [
+							"Live Sound Engineering",
+							"Theater Audio",
+							"FOH Mixing",
+							"Sound Design",
+							"Audio System Design",
+							"Dante Networking",
+							"QLab Programming",
+							"Yamaha Rivage Consoles",
+							"Audio Recording",
+							"Audio Editing"
+						],
+						"hasCredential": [
+							{
+								"@type": "EducationalOccupationalCredential",
+								"name": "Dante Level 2 Certification",
+								"description": "Networked audio interoperability and troubleshooting"
+							},
+							{
+								"@type": "EducationalOccupationalCredential",
+								"credentialCategory": "Bachelor of Fine Arts",
+								"name": "Bachelor of Fine Arts in Recording Arts",
+								"educationalLevel": "Bachelor",
+								"provider": {
+									"@type": "EducationalOrganization",
+									"name": "University of Colorado Denver"
+								}
+							}
+						],
+						"worksFor": {
+							"@type": "Organization",
+							"name": "Arvada Center for the Arts and Humanities",
+							"url": "https://arvadacenter.org",
+							"address": {
+								"@type": "PostalAddress",
+								"streetAddress": "6901 Wadsworth Blvd",
+								"addressLocality": "Arvada",
+								"addressRegion": "CO",
+								"addressCountry": "US",
+								"postalCode": "80003"
+							}
+						},
+						"hasOccupation": {
+							"@type": "Occupation",
+							"name": "Audio Director",
+							"description": "Audio Department Head and Lead Audio Engineer for theatrical productions",
+							"occupationLocation": {
+								"@type": "State",
+								"name": "Colorado"
+							}
 						}
 					}
-				],
-				"worksFor": {
-					"@type": "Organization",
-					"name": "Arvada Center for the Arts and Humanities",
-					"url": "https://arvadacenter.org",
-					"address": {
-						"@type": "PostalAddress",
-						"streetAddress": "6901 Wadsworth Blvd",
-						"addressLocality": "Arvada",
-						"addressRegion": "CO",
-						"addressCountry": "US",
-						"postalCode": "80003"
-					}
-				},
-				"hasOccupation": {
-					"@type": "Occupation",
-					"name": "Audio Director",
-					"description": "Audio Department Head and Lead Audio Engineer for theatrical productions",
-					"occupationLocation": {
-						"@type": "State",
-						"name": "Colorado"
-					}
-				}
+				]
 			}
 		</script>
 
 		<title>Casey Burnham — Audio Director</title>
 
 		<link rel="canonical" href="https://crashandburnham.com">
-		<link rel="modulepreload" href="js/js-imports.js">
 		<link rel="preconnect" href="https://api.maptiler.com">
 		<link rel="stylesheet" href="css/dist/style.css">
+		<script type="module" src="js/dist/main.js"></script>
 	</head>
 
 	<body>
@@ -277,19 +302,19 @@
 						<tr>
 							<td colspan="2">13ers</td>
 							<td colspan="4">
-								<label class="sr-only" for="thirteener-progress">Colorado 13ers climbed: <span id="thirteeners"></span> of 788</label>
+								<label class="sr-only" for="thirteener-progress">Colorado 13ers climbed: <span id="thirteeners"><!-- JS --></span> of 788</label>
 								<progress id="thirteener-progress" class="peak-progress" data-peak-type="thirteeners" data-total="788" value="0" max="788" title="0/788"></progress>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2">14ers</td>
 							<td colspan="4">
-								<label class="sr-only" for="fourteener-progress">Colorado 14ers climbed: <span id="fourteeners"></span> of 58</label>
+								<label class="sr-only" for="fourteener-progress">Colorado 14ers climbed: <span id="fourteeners"><!-- JS --></span> of 58</label>
 								<progress id="fourteener-progress" class="peak-progress" data-peak-type="fourteeners" data-total="58" value="0" max="58" title="0/58"></progress>
 							</td>
 						</tr>
 						<tr id="range-summary-row">
-							<td colspan="6"></td>
+							<td colspan="6"><!-- JS --></td>
 						</tr>
 						<tr>
 						  <td class="elevation-chart-cell" colspan="6">
@@ -301,9 +326,7 @@
 						<tr>
 							<td colspan="4">Peaks Bagged</td>
 							<td colspan="2" class="text-center">
-								<strong>
-									<span id="totalMountains"></span>
-								</strong>
+								<strong><span id="totalMountains"><!-- JS --></span></strong>
 							</td>
 						</tr>
 					</tfoot>
@@ -331,20 +354,18 @@
 					<tfoot>
 						<tr>
 							<td colspan="4">
-								<div id="top-artists" aria-label="Most seen artists"></div>
+								<div id="top-artists" aria-label="Most seen artists"><!-- JS --></div>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="4">
-								<div id="top-venues" aria-label="Most visited venues"></div>
+								<div id="top-venues" aria-label="Most visited venues"><!-- JS --></div>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2">Shows Seen</td>
 							<td colspan="2" class="text-center">
-								<strong>
-									<span id="concert-count"></span>
-								</strong>
+								<strong><span id="concert-count"><!-- JS --></span></strong>
 							</td>
 						</tr>
 					</tfoot>
@@ -353,7 +374,7 @@
 
 			<section aria-labelledby="climbing-map">
 				<h2 id="climbing-map" class="sr-only">Climbing Map</h2>
-				<div id="map"  role="region" aria-label="Interactive climbing map"></div>
+				<div id="map"  role="region" aria-label="Interactive climbing map"><!-- JS --></div>
 			</section>
 
 			<section id="now-playing" aria-labelledby="now-playing-heading">
@@ -362,18 +383,23 @@
 					<a href="https://www.discogs.com/user/crashandburnham/collection?folder=2166321" target="_blank" rel="noopener noreferrer">Personal Collection</a>
 				</h3>
 				<div id="discogs-collection-wrapper">
-					<p id="discogs-collection-status" class="discogs-status" role="status">Loading collection…</p>
-					<div id="discogs-sleeve-container" class="discogs-grid grid wood"></div>
-					<div id="discogs-caption-container" class="discogs-grid grid padding-inline-md"></div>
+					
+					<div id="discogs-sleeve-container" class="discogs-grid grid wood">
+						<p id="discogs-collection-status" class="discogs-status" role="status">Loading collection…</p>
+						<!-- JS -->
+					</div>
+					<div id="discogs-caption-container" class="discogs-grid grid padding-inline-md"><!-- JS --></div>
 				</div>
 
 				<h3>
 					<a href="https://www.discogs.com/seller/crashandburnham/profile" target="_blank" rel="noopener noreferrer">For Sale</a>
 				</h3>
 				<div id="discogs-inventory-wrapper">
-					<p id="discogs-inventory-status" class="discogs-status" role="status">Loading sale items…</p>
-					<div id="discogs-inventory-sleeve-container" class="discogs-grid grid wood"></div>
-					<div id="discogs-inventory-caption-container" class="discogs-grid grid padding-inline-md"></div>
+					<div id="discogs-inventory-sleeve-container" class="discogs-grid grid wood">
+						<p id="discogs-inventory-status" class="discogs-status" role="status">Loading sale items…</p>
+						<!-- JS -->
+					</div>
+					<div id="discogs-inventory-caption-container" class="discogs-grid grid padding-inline-md"><!-- JS --></div>
 				</div>
 			</section>
 
@@ -385,16 +411,14 @@
 				<span>🏴‍☠️</span>
 				<span>🏳️‍⚧️</span>
 			</span>
-			<address itemscope itemtype="https://schema.org/Person">
-				&copy;<time id="copyright-year"></time>
-				<a href="mailto:casey@crashandburnham.com" itemprop="email" title="Email Casey Burnham - Audio Engineer" aria-label="Email Casey Burnham - Audio Engineer">
-					<span itemprop="name">Casey Burnham</span>
+			<address>
+				&copy;<time id="copyright-year"><!-- JS --></time>
+				<a href="mailto:casey@crashandburnham.com" title="Email Casey Burnham - Audio Engineer" aria-label="Email Casey Burnham - Audio Engineer">
+					<span>Casey Burnham</span>
 				</a>
 			</address>
 			<small>Made in Colorado</small>
 		</footer>
-
-		<script type="module" src="js/js-imports.js"></script>
 
 		<!-- Popovers -->
 		<div id="ucd"  class="glass" popover="auto">University of Colorado, Denver</div>
@@ -403,7 +427,8 @@
 		<div id="sd"   class="glass" popover="auto">Sound Designer</div>
 		<div id="lz"   class="glass" popover="auto">Laserist</div>
 		<div id="rank" class="glass" popover="auto">Ranking requires 300' of Prominence</div>
-		
+
+		<!-- Templates -->
 		<!-- Modal Template-->
 		<template id="photo-modal-template">
 			<dialog class="photo-dialog" aria-labelledby="modal-photo-title">
@@ -414,202 +439,218 @@
 						</svg>
 					</button>
 				</form>
+
 				<figure class="modal-content">
 					<img class="modal-image" alt="" decoding="async">
 					<figcaption class="photo-details">
-						<h3 id="modal-photo-title" class="photo-title"></h3>
+						<h3 id="modal-photo-title" class="photo-title"><!-- JS --></h3>
 						<dl class="photo-metadata">
 							<dt>Date</dt>
-							<dd class="metadata-date"><time title="Date Captured" class="photo-date"></time></dd>
+							<dd class="metadata-date"><time title="Date Captured" class="photo-date"><!-- JS --></time></dd>
 
 							<dt>Elevation</dt>
-							<dd class="metadata-elevation"><data title="Elevation" class="altitude" value=""></data></dd>
+							<dd class="metadata-elevation"><data title="Elevation" class="altitude" value=""><!-- JS --></data></dd>
 
 							<dt class="gps-label">Location</dt>
 							<dd class="gps">
 							  <a class="gps-link" href="" target="_blank" rel="noopener noreferrer">
-								<data class="gps-data" title="" value=""></data>
+								<data class="gps-data" title="" value=""><!-- JS --></data>
 							  </a>
 							</dd>
 
 							<dt>Camera</dt>
 							<dd class="exif-data">
-								<span title="Camera Model" data-spec="model"></span>
-								<span title="ISO Value" data-spec="iso">ISO <data value=""></data></span>
-								<span title="Focal Length" data-spec="lens"><data value=""></data> mm</span>
-								<span title="Aperture" data-spec="aperture"><i>&#402;</i> <data value=""></data></span>
-								<span title="Shutter Speed" data-spec="shutter"><data value=""></data>s</span>
-								<span title="File Format" data-spec="format" class="format"><data value=""></data></span>
+								<span title="Camera Model" data-spec="model"><!-- JS --></span>
+								<span title="ISO Value" data-spec="iso">ISO <data value=""><!-- JS --></data></span>
+								<span title="Focal Length" data-spec="lens"><data value=""><!-- JS --></data> mm</span>
+								<span title="Aperture" data-spec="aperture"><i>&#402;</i> <data value=""><!-- JS --></data></span>
+								<span title="Shutter Speed" data-spec="shutter"><data value=""><!-- JS --></data>s</span>
+								<span title="File Format" data-spec="format" class="format"><data value=""><!-- JS --></data></span>
 							</dd>
 						</dl>
 					</figcaption>
 				</figure>
+
 				<div class="dialog-navigation" aria-label="Photo navigation">
 					<button type="button" class="dialog-previous" aria-label="Previous photo">←</button>
 					<button type="button" class="dialog-next" aria-label="Next photo">→</button>
 				</div>
+
 				<small class="copyright"></small>
+
 			</dialog>
 		</template>
 
-		<!-- Templates -->
-			<!-- Production Table -->
-			<template id="production-row-template">
-				<tr>
-					<th scope="row" class="prod-production"></th>
-					<td class="prod-company"></td>
-					<td class="prod-a1 prod-role text-center"></td>
-					<td class="prod-sd prod-role text-center"></td>
-					<td class="prod-ad prod-role text-center"></td>
-					<td class="prod-lz prod-role text-center"></td>
-					<td class="prod-notes text-center"></td>
-				</tr>
-			</template>
+		<!-- Production Table -->
+		<template id="production-row-template">
+			<tr>
+				<th scope="row" class="prod-production"></th>
+				<td class="prod-company"></td>
+				<td class="prod-a1 prod-role text-center"><!-- JS --></td>
+				<td class="prod-sd prod-role text-center"><!-- JS --></td>
+				<td class="prod-ad prod-role text-center"><!-- JS --></td>
+				<td class="prod-lz prod-role text-center"><!-- JS --></td>
+				<td class="prod-notes text-center"></td>
+			</tr>
+		</template>
 
-			<!-- Gallery Buttons -->
-			<template id="gallery-controls-template">
-				<div class="gallery-controls">
-					<div class="gallery-buttons" role="group" aria-label="Photo galleries"></div>
-				</div>
-			</template>
+		<!-- Gallery -->
+		<!-- Buttons -->
+		<template id="gallery-controls-template">
+			<div class="gallery-controls">
+				<div class="gallery-buttons" role="group" aria-label="Photo galleries"><!-- JS --></div>
+			</div>
+		</template>
 
-			<template id="gallery-button-template">
-				<button type="button" class="gallery-btn glass" aria-pressed="false"></button>
-			</template>
+		<template id="gallery-button-template">
+			<button type="button" class="gallery-btn glass" aria-pressed="false"><!-- JS --></button>
+		</template>
 
-			<!-- Gallery Rows and Images -->
-			<template id="photo-grid-template">
-				<div class="photo-grid grid" role="group"></div>
-			</template>
+		<!-- Gallery Grid -->
+		<template id="photo-grid-template">
+			<div class="photo-grid grid" role="group"><!-- JS --></div>
+		</template>
 
-			<template id="photo-thumb-template">
-				<button type="button" class="photo-thumb">
-					<img src="" alt="" loading="lazy" decoding="async">
-				</button>
-			</template>
+		<!-- Thumbnails -->
+		<template id="photo-thumb-template">
+			<button type="button" class="photo-thumb" itemscope itemtype="https://schema.org/ImageObject">
+				<link class="photo-content-url" itemprop="contentUrl" href="">
+				<meta class="photo-name" itemprop="name" content="">
+				<meta class="photo-description" itemprop="description" content="">
+				<meta class="photo-date-created" itemprop="dateCreated" content="">
+				<meta class="photo-copyright-notice" itemprop="copyrightNotice" content="">
+				<span itemprop="creator copyrightHolder" itemscope itemtype="https://schema.org/Person" itemid="https://crashandburnham.com/#casey">
+					<meta itemprop="name" content="Casey Burnham">
+				</span>
+				<img src="" alt="" loading="lazy" decoding="async" itemprop="thumbnailUrl">
+			</button>
+		</template>
 
-			<!-- Mountain Table -->
-				<template id="mountain-row-template">
-					<tr>
-					<th scope="row" class="mtn-peak"></th>
-					<td class="mtn-elevation text-center">
-						<data class="mtn-elevation-data" value=""></data>
-					</td>
-					<td class="mtn-range"></td>
-					<td class="mtn-date text-center">
-						<time></time>
-					</td>
-					<td class="mtn-rank text-center">
-						<span class="ranked">&#10004;</span>
-						<span class="unranked">-</span>
-					</td>
-					<td class="mtn-image text-center">
-						<button type="button" class="camera-link" aria-label="View summit image"></button>
-					</td>
-					</tr>
-				</template>
+		<!-- Mountain Table -->
+		<template id="mountain-row-template">
+			<tr>
+			<th scope="row" class="mtn-peak"></th>
+			<td class="mtn-elevation text-center">
+				<data class="mtn-elevation-data" value=""><!-- JS --></data>
+			</td>
 
-				<!-- Climbing Map -->
-				<template id="map-marker-template">
-					<button type="button" class="map-marker"></button>
-				</template>
+			<td class="mtn-range"></td>
+			<td class="mtn-date text-center">
+				<time><!-- JS --></time>
+			</td>
 
-				<template id="map-popup-template">
-					<article class="popup-content">
-						<h3 class="popup-title"></h3>
-						<dl class="popup-details">
-							<div>
-								<dt class="sr-only">Elevation</dt>
-								<dd><data class="popup-elevation" value=""></data> ft</dd>
-							</div>
-							<div>
-								<dt class="sr-only">Summit date</dt>
-								<dd><time class="popup-date"></time></dd>
-							</div>
-							<div>
-								<dt class="sr-only">Mountain range</dt>
-								<dd><span class="popup-range"></span> Range</dd>
-							</div>
-						</dl>
-					</article>
-				</template>
+			<td class="mtn-rank text-center">
+				<span class="ranked">&#10004;</span>
+				<span class="unranked">-</span>
+			</td>
 
-				<template id="map-error-template">
-					<p class="error" role="status">Unable to load map data</p>
-				</template>
+			<td class="mtn-image text-center">
+				<button type="button" class="camera-link" aria-label="View summit image"><!-- JS --></button>
+			</td>
+			</tr>
+		</template>
 
-				<!-- Summary Row -->
-				<template id="summary-row-template">
-				<tr class="year-summary-row">
-					<th scope="rowgroup" colspan="6">
-						<strong><span class="summary-count"></span> </strong><span class="summary-label"></span> in <span class="summary-year"></span>
-					</th>
-				</tr>
-			</template>
+		<!-- Summary Row -->
+		<template id="summary-row-template">
+			<tr class="year-summary-row">
+				<th scope="rowgroup" colspan="6">
+					<strong><span class="summary-count"><!-- JS --></span> </strong><span class="summary-label"><!-- JS --></span> in <span class="summary-year"><!-- JS --></span>
+				</th>
+			</tr>
+		</template>
 
-			<!-- Concert Table -->
-			<template id="concert-row-template">
-				<tr>
-					<th class="concert-artist">
-						<span class="artist-headliner"></span>
-						<br>
-						<span class="artist-support-group">
-							<small class="artist-support-name"></small>
-						</span>
-					</th>
-					<td class="concert-venue"></td>
-					<td class="concert-year text-center">
-						<time></time>
-					</td>
-					<td class="concert-emoji text-center"></td>
-				</tr>
-			</template>
-
-			<!-- Table Footer Tallies -->
-			<template id="table-tally-template">
-				<span class="table-tally nowrap">
-					<span class="table-tally-name"></span>
-					<small>x</small><small class="table-tally-count"></small></span><span class="table-tally-separator" aria-hidden="true">, </span><wbr class="table-tally-break">
-			</template>
-
-			<!-- Record Collection -->
-			<template id="record-template">
-				<div class="discogs-record">
-					<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
-						<div class="album-sleeve">
-							<img class="album-art" src="" alt="" decoding="async">
-							<img class="album-media" src="" alt="" decoding="async">
-						</div>
-					</a>
-				</div>
-				<div class="record-caption text-center">
-				<p>
-					<cite class="record-title"></cite>
+		<!-- Concert Table -->
+		<template id="concert-row-template">
+			<tr>
+				<th class="concert-artist">
+					<span class="artist-headliner"><!-- JS --></span>
 					<br>
-					<span class="record-artist"></span>
-				</p>
-				</div>
-			</template>
+					<span class="artist-support-group">
+						<small class="artist-support-name"><!-- JS --></small>
+					</span>
+				</th>
+				<td class="concert-venue"></td>
+				<td class="concert-year text-center">
+					<time><!-- JS --></time>
+				</td>
+				<td class="concert-emoji text-center"><!-- JS --></td>
+			</tr>
+		</template>
 
-			<!-- Records For Sale -->
-			<template id="inventory-item-template">
-				<div class="discogs-record">
-					<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
-						<div class="album-sleeve">
-							<img class="album-art" src="" alt="" decoding="async">
-							<img class="album-media" src="" alt="" decoding="async">
-						</div>
-					</a>
-				</div>
-				<div class="record-caption for-sale">
-					<p class="record-info">
-						<cite class="record-title"></cite>
-						<br>
-						<span class="record-artist"></span>
-					</p>
-					<data class="record-price" value=""></data>
-				</div>
-			</template>
+		<!-- Table Footer Tallies -->
+		<template id="table-tally-template">
+			<span class="table-tally nowrap">
+				<span class="table-tally-name"><!-- JS --></span>
+				<small>x</small><small class="table-tally-count"><!-- JS --></small></span><span class="table-tally-separator" aria-hidden="true">, </span><wbr class="table-tally-break">
+		</template>
+
+		<!-- Climbing Map -->
+		<template id="map-marker-template">
+			<button type="button" class="map-marker"></button>
+		</template>
+		
+		<template id="map-popup-template">
+			<article class="popup-content">
+				<h3 class="popup-title"></h3>
+				<dl class="popup-details">
+					<div>
+						<dt class="sr-only">Elevation</dt>
+						<dd><data class="popup-elevation" value=""><!-- JS --></data> ft</dd>
+					</div>
+					<div>
+						<dt class="sr-only">Summit date</dt>
+						<dd><time class="popup-date"><!-- JS --></time></dd>
+					</div>
+					<div>
+						<dt class="sr-only">Mountain range</dt>
+						<dd><span class="popup-range"><!-- JS --></span> Range</dd>
+					</div>
+				</dl>
+			</article>
+		</template>
+
+		<template id="map-error-template">
+			<p class="error" role="status">Unable to load map data</p>
+		</template>
+
+		<!-- Record Collection -->
+		<template id="record-template">
+			<div class="discogs-record">
+				<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
+					<div class="album-sleeve">
+						<img class="album-art" src="" alt="" decoding="async">
+						<img class="album-media" src="" alt="" decoding="async">
+					</div>
+				</a>
+			</div>
+			<div class="record-caption text-center">
+			<p>
+				<cite class="record-title"><!-- JS --></cite>
+				<br>
+				<span class="record-artist"><!-- JS --></span>
+			</p>
+			</div>
+		</template>
+
+		<!-- Records For Sale -->
+		<template id="inventory-item-template">
+			<div class="discogs-record">
+				<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
+					<div class="album-sleeve">
+						<img class="album-art" src="" alt="" decoding="async">
+						<img class="album-media" src="" alt="" decoding="async">
+					</div>
+				</a>
+			</div>
+			<div class="record-caption for-sale">
+				<p class="record-info">
+					<cite class="record-title"><!-- JS --></cite>
+					<br>
+					<span class="record-artist"><!-- JS --></span>
+				</p>
+				<data class="record-price" value=""><!-- JS --></data>
+			</div>
+		</template>
 
 	</body>
 

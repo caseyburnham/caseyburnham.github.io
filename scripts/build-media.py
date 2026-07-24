@@ -29,6 +29,7 @@ GALLERY_JSON = JSON_DIR / "gallery-data.json"
 ORIGINALS = "ORIGINALS"
 GALLERY_FORMATS = ("avif", "jpeg", "png")
 SUPPORTED_INPUTS = {".avif", ".heic", ".jpeg", ".jpg", ".png"}
+WEB_OUTPUTS = {".avif", ".jpeg", ".jpg", ".png"}
 MAX_MODAL_EDGE = 2560
 MAX_THUMBNAIL_EDGE = 720
 MAX_PANO_THUMBNAIL_EDGE = 2560
@@ -145,63 +146,34 @@ def gallery_outputs(gallery: Path) -> list[Path]:
         path
         for format_name in GALLERY_FORMATS
         for path in image_files(gallery / format_name)
+        if normalized_extension(path) == format_name
+        and path.suffix.lower() != ".heic"
     )
 
 
 def summit_outputs() -> list[Path]:
-    return image_files(SUMMITS)
-
-
-def archive_existing_outputs() -> int:
-    """Seed ignored ORIGINALS folders without overwriting existing sources."""
-    archived = 0
-    locations = [
-        (gallery_outputs(gallery), gallery / ORIGINALS)
-        for gallery in sorted(GALLERIES.iterdir())
-        if gallery.is_dir()
+    return [
+        path
+        for path in image_files(SUMMITS)
+        if path.suffix.lower() in WEB_OUTPUTS
     ]
-    locations.append((summit_outputs(), SUMMITS / ORIGINALS))
-
-    for outputs, originals_dir in locations:
-        originals_dir.mkdir(parents=True, exist_ok=True)
-        existing_stems = {
-            slugify(path.stem)
-            for path in image_files(originals_dir)
-        }
-        for output in outputs:
-            if slugify(output.stem) in existing_stems:
-                continue
-            destination = originals_dir / output.name
-            shutil.copy2(output, destination)
-            existing_stems.add(slugify(output.stem))
-            archived += 1
-            logging.info("Archived source: %s", relative(destination))
-
-    return archived
 
 
-def output_for_source(source: Path) -> tuple[Path, Path | None]:
+def output_for_source(source: Path) -> tuple[Path, Path]:
     stem = slugify(source.stem)
     if not stem:
         raise ValueError(f"Image filename has no usable characters: {source.name}")
 
     format_name = normalized_extension(source)
     suffix = f".{format_name}"
-    if source.parent.parent == SUMMITS:
-        legacy_output = SUMMITS / source.name
-        output = (
-            legacy_output
-            if legacy_output.exists()
-            else SUMMITS / f"{stem}{suffix}"
-        )
-        return output, None
-
-    gallery = source.parent.parent
+    gallery = source.parent
     legacy_output = gallery / format_name / source.name
+    canonical_output = gallery / format_name / f"{stem}{suffix}"
     output = (
         legacy_output
         if legacy_output.exists()
-        else gallery / format_name / f"{stem}{suffix}"
+        and legacy_output.suffix.lower() == suffix
+        else canonical_output
     )
     thumbnail = LEGACY_THUMBNAILS.get(
         output.resolve(),
@@ -210,19 +182,22 @@ def output_for_source(source: Path) -> tuple[Path, Path | None]:
     return output, thumbnail
 
 
-def source_jobs() -> list[tuple[Path, Path, Path | None]]:
-    originals_dirs = [
-        gallery / ORIGINALS
-        for gallery in sorted(GALLERIES.iterdir())
+def source_jobs() -> list[tuple[Path, Path, Path]]:
+    galleries = sorted(
+        gallery
+        for gallery in GALLERIES.iterdir()
         if gallery.is_dir()
-    ]
-    originals_dirs.append(SUMMITS / ORIGINALS)
-
-    jobs: list[tuple[Path, Path, Path | None]] = []
+    )
+    jobs: list[tuple[Path, Path, Path]] = []
     destinations: dict[Path, Path] = {}
-    for originals_dir in originals_dirs:
-        originals_dir.mkdir(parents=True, exist_ok=True)
-        for source in image_files(originals_dir):
+    for gallery in galleries:
+        for source in image_files(gallery):
+            archive = gallery / ORIGINALS / source.name
+            if archive.exists():
+                raise ValueError(
+                    f"Cannot archive {relative(source)} because "
+                    f"{relative(archive)} already exists"
+                )
             output, thumbnail = output_for_source(source)
             if output in destinations:
                 previous = destinations[output]
@@ -355,39 +330,50 @@ def render_thumbnail(
         temporary.unlink(missing_ok=True)
 
 
-def build_images(*, force: bool) -> tuple[int, int]:
+def archive_gallery_source(source: Path) -> None:
+    destination = source.parent / ORIGINALS / source.name
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.move(source, destination)
+    logging.info("Archived source: %s", relative(destination))
+
+
+def path_key(path: Path) -> str:
+    return path.resolve().as_posix().casefold()
+
+
+def remove_orphaned_thumbnails() -> int:
+    removed = 0
+    for gallery in sorted(GALLERIES.iterdir()):
+        if not gallery.is_dir():
+            continue
+        expected = {
+            path_key(
+                LEGACY_THUMBNAILS.get(
+                    output.resolve(),
+                    gallery / "thumbnails" / output.name,
+                )
+            )
+            for output in gallery_outputs(gallery)
+        }
+        for thumbnail in image_files(gallery / "thumbnails"):
+            if path_key(thumbnail) in expected:
+                continue
+            thumbnail.unlink()
+            removed += 1
+            logging.info("Removed orphaned thumbnail: %s", relative(thumbnail))
+    return removed
+
+
+def build_images() -> tuple[int, int, int]:
     modal_count = 0
     thumbnail_count = 0
-    jobs = source_jobs()
-    existing = [
-        path
-        for _, output, thumbnail in jobs
-        for path in (output, thumbnail)
-        if path is not None and path.exists()
-    ]
-    dimensions = read_exif(existing)
+    archived_count = 0
+    for source, output, thumbnail in source_jobs():
+        logging.info("Modal: %s", relative(output))
+        render_modal(source, output)
+        modal_count += 1
+        output_record = read_exif([output]).get(output.resolve(), {})
 
-    for source, output, thumbnail in jobs:
-        output_record = dimensions.get(output.resolve(), {})
-        output_edge = max(
-            int(output_record.get("ImageWidth", 0)),
-            int(output_record.get("ImageHeight", 0)),
-        )
-        rebuild_modal = (
-            force
-            or not output.exists()
-            or source.stat().st_mtime_ns > output.stat().st_mtime_ns
-            or output_edge > MAX_MODAL_EDGE
-            or output.stat().st_size > MAX_MODAL_BYTES
-        )
-        if rebuild_modal:
-            logging.info("Modal: %s", relative(output))
-            render_modal(source, output)
-            modal_count += 1
-            output_record = read_exif([output]).get(output.resolve(), {})
-
-        if thumbnail is None:
-            continue
         output_width = int(output_record.get("ImageWidth", 0))
         output_height = int(output_record.get("ImageHeight", 0))
         output_edge = max(output_width, output_height)
@@ -395,30 +381,18 @@ def build_images(*, force: bool) -> tuple[int, int]:
             thumbnail_target_edge(output_width, output_height),
             output_edge,
         )
-        thumbnail_record = dimensions.get(thumbnail.resolve(), {})
-        current_thumbnail_edge = max(
-            int(thumbnail_record.get("ImageWidth", 0)),
-            int(thumbnail_record.get("ImageHeight", 0)),
+        logging.info("Thumbnail: %s", relative(thumbnail))
+        render_thumbnail(
+            output,
+            thumbnail,
+            max_edge=target_thumbnail_edge,
         )
-        rebuild_thumbnail = (
-            force
-            or rebuild_modal
-            or not thumbnail.exists()
-            or output.stat().st_mtime_ns > thumbnail.stat().st_mtime_ns
-            or current_thumbnail_edge < target_thumbnail_edge
-            or current_thumbnail_edge > target_thumbnail_edge
-            or thumbnail.stat().st_size > MAX_THUMBNAIL_BYTES
-        )
-        if rebuild_thumbnail:
-            logging.info("Thumbnail: %s", relative(thumbnail))
-            render_thumbnail(
-                output,
-                thumbnail,
-                max_edge=target_thumbnail_edge,
-            )
-            thumbnail_count += 1
+        thumbnail_count += 1
 
-    return modal_count, thumbnail_count
+        archive_gallery_source(source)
+        archived_count += 1
+
+    return modal_count, thumbnail_count, archived_count
 
 
 def format_exif_date(
@@ -535,18 +509,16 @@ def build_exif_record(
             or metadata.get("ImageDescription")
         ),
     }
-    return {
+    result = {
         key: fallback(value, previous.get(key))
         for key, value in record.items()
     }
+    if result["gps"] is None:
+        del result["gps"]
+    return result
 
 
 def write_json_data() -> None:
-    jobs = source_jobs()
-    source_by_output = {
-        output.resolve(): source
-        for source, output, _ in jobs
-    }
     outputs = sorted(
         [*summit_outputs()]
         + [
@@ -557,9 +529,6 @@ def write_json_data() -> None:
         ]
     )
     output_metadata = read_exif(outputs)
-    source_metadata = read_exif(
-        sorted(set(source_by_output.values()))
-    )
     try:
         existing_exif = json.loads(EXIF_JSON.read_text())
     except (FileNotFoundError, json.JSONDecodeError):
@@ -569,18 +538,11 @@ def write_json_data() -> None:
     dimensions: dict[Path, tuple[int, int]] = {}
     for output in outputs:
         output_record = output_metadata.get(output.resolve(), {})
-        source = source_by_output.get(output.resolve())
-        record = dict(
-            source_metadata.get(source.resolve(), {})
-            if source
-            else output_record
-        )
-        record["FileType"] = output_record.get(
-            "FileType",
-            record.get("FileType"),
-        )
         key = output.relative_to(IMAGES).as_posix()
-        exif_data[key] = build_exif_record(record, existing_exif.get(key, {}))
+        exif_data[key] = build_exif_record(
+            output_record,
+            existing_exif.get(key, {}),
+        )
         dimensions[output] = (
             int(output_record.get("ImageWidth", 0)),
             int(output_record.get("ImageHeight", 0)),
@@ -626,6 +588,14 @@ def write_json_data() -> None:
                     "id": output.stem,
                     "alt": alt,
                     "title": title,
+                    "dateCreated": (
+                        f'{record["date"]["year"]:04d}-'
+                        f'{record["date"]["month"]:02d}-'
+                        f'{record["date"]["day"]:02d}'
+                        if record.get("date")
+                        else None
+                    ),
+                    "copyrightNotice": record.get("copyright"),
                     "layout": layout,
                     "sources": {
                         output.suffix.removeprefix("."): f"/{relative(output)}"
@@ -634,6 +604,8 @@ def write_json_data() -> None:
                 }
             )
 
+        if not entries:
+            continue
         gallery_data[gallery_id] = {
             "name": previous_gallery.get(
                 "name",
@@ -670,7 +642,7 @@ def validation_errors() -> list[str]:
     )
     metadata = read_exif([*outputs, *thumbnails])
     errors: list[str] = []
-    output_by_thumbnail: dict[Path, Path] = {}
+    output_by_thumbnail: dict[str, Path] = {}
 
     for output in outputs:
         record = metadata.get(output.resolve(), {})
@@ -693,7 +665,7 @@ def validation_errors() -> list[str]:
                 output.resolve(),
                 output.parent.parent / "thumbnails" / output.name,
             )
-            output_by_thumbnail[thumbnail.resolve()] = output
+            output_by_thumbnail[path_key(thumbnail)] = output
             if not thumbnail.exists():
                 errors.append(f"Missing thumbnail: {relative(thumbnail)}")
 
@@ -705,7 +677,9 @@ def validation_errors() -> list[str]:
             width,
             height,
         )
-        output = output_by_thumbnail.get(thumbnail.resolve())
+        output = output_by_thumbnail.get(path_key(thumbnail))
+        if output is None:
+            errors.append(f"Orphaned thumbnail: {relative(thumbnail)}")
         output_record = metadata.get(output.resolve(), {}) if output else {}
         output_width = int(output_record.get("ImageWidth", 0))
         output_height = int(output_record.get("ImageHeight", 0))
@@ -724,6 +698,11 @@ def validation_errors() -> list[str]:
                 f"max is {MAX_THUMBNAIL_BYTES:,}"
             )
 
+    try:
+        json.loads(EXIF_JSON.read_text())
+    except (FileNotFoundError, json.JSONDecodeError):
+        errors.append(f"Missing or invalid {relative(EXIF_JSON)}")
+
     return errors
 
 
@@ -738,24 +717,12 @@ def check_media() -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description=(
-            "Build gallery and summit web images from ignored ORIGINALS folders."
-        )
+        description="Process gallery inbox images and synchronize metadata."
     )
     parser.add_argument(
         "--check",
         action="store_true",
         help="Validate generated media without changing files.",
-    )
-    parser.add_argument(
-        "--force",
-        action="store_true",
-        help="Rebuild every image, even when outputs are current.",
-    )
-    parser.add_argument(
-        "--migrate-existing",
-        action="store_true",
-        help="Archive and rebuild all current media at web dimensions.",
     )
     args = parser.parse_args()
 
@@ -773,18 +740,17 @@ def main() -> None:
         check_media()
         return
 
-    archived = archive_existing_outputs()
-    modal_count, thumbnail_count = build_images(
-        force=args.force or args.migrate_existing
-    )
+    modal_count, thumbnail_count, archived = build_images()
+    removed_thumbnail_count = remove_orphaned_thumbnails()
     write_json_data()
     check_media()
     logging.info(
         "Done: %s source(s) archived, %s modal image(s), "
-        "%s thumbnail(s) generated.",
+        "%s thumbnail(s) generated, %s orphaned thumbnail(s) removed.",
         archived,
         modal_count,
         thumbnail_count,
+        removed_thumbnail_count,
     )
 
 

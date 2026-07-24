@@ -1,14 +1,16 @@
 @layer components.details {
 	#skills {
-		border-radius: var(--radius-section);
-		box-shadow: var(--shadow-glass), var(--shadow-main);
+		border: 1px solid light-dark(var(--gray-0), var(--slate-0));
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-glass);
 
 		& details {
-	
+
 			.power-led {
 				background: var(--color-accent-alpha);
 				border-radius: 50%;
-				box-shadow: var(--shadow-led-off);
+				box-shadow: inset 0 0 2px 1px rgb(0 0 0 / 0.7),
+					inset 0 -2px 6px rgb(0 0 0 / 0.5);
 				flex-shrink: 0;
 				height: 8px;
 				margin-inline: 1rem;
@@ -44,7 +46,9 @@
 
 				& .power-led {
 					background: var(--color-accent-light);
-					box-shadow: var(--shadow-led-on);
+					box-shadow: inset 0 0px 2px 0px rgb(0 0 0 / 0.95),
+						inset 0 0px 2px 1px rgb(0 0 0 / 0.25),
+						0 0 8px 1px oklch(from var(--color-glow-0) l c h / 0.5);
 					filter: brightness(1.8);
 				}
 
@@ -154,18 +158,18 @@
 			transform: translateY(0);
 		}
 	}
-	
+
 	@media (prefers-reduced-motion: reduce) {
 		#skills details li {
 			animation: none !important;
 			opacity: 1;
 			transform: none;
 		}
-	
+
 		.chevron {
 			transition: none;
 		}
-	
+
 		#skills details:open .power-led {
 			transition: none;
 		}

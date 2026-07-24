@@ -6,6 +6,9 @@ Thumbs.db
 # Generated CSS
 css/dist/
 
+# Generated development JavaScript
+js/dist/
+
 # Compiled source #
 *.class
 *.o
@@ -14,11 +17,6 @@ css/dist/
 # Node modules
 node_modules/
 stylelintrc.json
-
-# Local content utilities
-utility/*
-!utility/postcss.config.js
-update-gal.zsh
 
 # Python
 __pycache__/
@@ -31,6 +29,8 @@ venv/
 # Build artifacts
 /dist/
 /build/
+/playwright-report/
+/test-results/
 
 # Environment variables (dangerous!)
 .env

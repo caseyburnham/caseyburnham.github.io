@@ -1,5 +1,4 @@
 @layer components.primitives {
-
 	[popovertarget] {
 		appearance: none;
 		background: none;
@@ -14,7 +13,7 @@
 		border-radius: var(--radius-section);
 		box-shadow:
 			var(--shadow-glass),
-			var(--shadow-button);
+			var(--shadow-modal);
 		font-size: var(--text-xs);
 		height: fit-content;
 		inset: auto;
@@ -37,6 +36,56 @@
 			/* @starting-style {
 				opacity: 1;
 			} */
+		}
+	}
+	
+	progress {
+		--shadow-prog:
+			oklch(from var(--color-glow-0) l c h / 0.9) 0 0 3px,
+			oklch(from var(--color-glow-1) l c h / 0.7) 0 0 7px,
+			oklch(from var(--color-glow-2) l c h / 0.5) 0 0 10px;
+
+		-webkit-appearance: none;
+		appearance: none;
+		border-radius: var(--radius-sm);
+		height: 0.25rem;
+		inline-size: 100%;
+		vertical-align: middle;
+	
+		&::-webkit-progress-inner-element {
+			border-radius: var(--radius-sm);
+			z-index: 1;
+		}
+	
+		&::-webkit-progress-bar {
+			background: var(--color-border);
+			border-radius: var(--radius-sm);
+			z-index: 2;
+		}
+	
+		&::-webkit-progress-value {
+			background: var(--color-accent-0);
+			border-radius: var(--radius-sm);
+			box-shadow: var(--shadow-prog);
+			z-index: 3;
+		}
+	
+		&::-moz-progress-inner-element {
+			border-radius: var(--radius-sm);
+			z-index: 1;
+		}
+	
+		&::-moz-progress-bar {
+			background: var(--color-border);
+			border-radius: var(--radius-sm);
+			z-index: 2;
+		}
+	
+		&::-moz-progress-value {
+			background: var(--color-accent-0);
+			border-radius: var(--radius-sm);
+			box-shadow: var(--shadow-prog);
+			z-index: 3;
 		}
 	}
 

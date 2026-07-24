@@ -10,6 +10,10 @@ const manifest = JSON.parse(
 );
 const html = await readFile(path.join(dist, 'index.html'), 'utf8');
 const headers = await readFile(path.join(dist, '_headers'), 'utf8');
+const [sourceSitemap, builtSitemap] = await Promise.all([
+	readFile(path.join(root, 'sitemap.xml'), 'utf8'),
+	readFile(path.join(dist, 'sitemap.xml'), 'utf8')
+]);
 const javascript = await readFile(
 	path.join(dist, manifest.js.replace(/^\//, '')),
 	'utf8'
@@ -61,6 +65,13 @@ if (!headers.includes('/assets/*') || !headers.includes('immutable')) {
 
 if (/unpkg\.com|cdn\.jsdelivr\.net/.test(html)) {
 	throw new Error('Generated HTML still depends on a package CDN.');
+}
+
+if (
+	sourceSitemap !== builtSitemap ||
+	!/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/.test(builtSitemap)
+) {
+	throw new Error('Generated sitemap is stale or has an invalid lastmod date.');
 }
 
 console.log('Build artifact checks passed.');

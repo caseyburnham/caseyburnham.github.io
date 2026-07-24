@@ -1,5 +1,11 @@
 const DISCOGS_API_BASE = 'https://api.discogs.com';
 const MEDIA_TYPES = new Set(['Vinyl', 'CD', 'Cassette']);
+const PUBLIC_CACHE_CONTROL = [
+  'public',
+  'durable',
+  'max-age=900',
+  'stale-while-revalidate=86400'
+].join(', ');
 
 class DiscogsError extends Error {
   constructor(status, message) {
@@ -39,30 +45,54 @@ const getCredentials = () => {
   return { username, token };
 };
 
-const parseCount = (value, fallback, maximum) => {
-  const parsed = Number.parseInt(value, 10);
-  return Math.min(Math.max(Number.isNaN(parsed) ? fallback : parsed, 1), maximum);
+const rejectUnsupportedMethod = (request) => {
+  if (request.method === 'GET') return null;
+
+  return createResponse(405, { error: 'Method not allowed' }, {
+    Allow: 'GET',
+    'Cache-Control': 'no-store'
+  });
 };
 
-const createResponse = (statusCode, body) => ({
-  statusCode,
-  headers: {
-    'Cache-Control': 'no-store',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(body)
+const sampleItems = (items, count) => {
+  const shuffled = [...items];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+  }
+
+  return shuffled.slice(0, count);
+};
+
+const createResponse = (status, body, headers = {}) => new Response(
+  JSON.stringify(body),
+  {
+    status,
+    headers: {
+      'Content-Type': 'application/json',
+      ...headers
+    }
+  }
+);
+
+const createCachedResponse = (body) => createResponse(200, body, {
+  'Cache-Control': 'public, max-age=0, must-revalidate',
+  'Netlify-CDN-Cache-Control': PUBLIC_CACHE_CONTROL
 });
 
 const createErrorResponse = (error, fallbackMessage) => {
   const statusCode = Number.isInteger(error.status) ? error.status : 500;
-  return createResponse(statusCode, { error: fallbackMessage });
+  return createResponse(statusCode, { error: fallbackMessage }, {
+    'Cache-Control': 'no-store'
+  });
 };
 
-module.exports = {
+export {
+  createCachedResponse,
   createErrorResponse,
-  createResponse,
   fetchDiscogs,
   getCredentials,
   getMediaType,
-  parseCount
+  rejectUnsupportedMethod,
+  sampleItems
 };

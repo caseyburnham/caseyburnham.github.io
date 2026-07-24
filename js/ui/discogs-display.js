@@ -15,7 +15,7 @@ const sections = [
 		captionContainerId: 'discogs-caption-container',
 		statusId: 'discogs-collection-status',
 		templateId: 'record-template',
-		endpoint: '/.netlify/functions/get-record',
+		endpoint: '/api/discogs/records',
 		loadingMessage: 'Loading collection…',
 		emptyMessage: 'No collection records are available.',
 		errorMessage: 'Could not fetch records at this time.',
@@ -28,7 +28,7 @@ const sections = [
 		captionContainerId: 'discogs-inventory-caption-container',
 		statusId: 'discogs-inventory-status',
 		templateId: 'inventory-item-template',
-		endpoint: '/.netlify/functions/get-inventory',
+		endpoint: '/api/discogs/inventory',
 		loadingMessage: 'Loading sale items…',
 		emptyMessage: 'No records are currently for sale.',
 		errorMessage: 'Could not fetch sale items.',
@@ -56,24 +56,7 @@ function getRecordCount() {
 	return FETCH_COUNT;
 }
 
-const wait = (milliseconds) =>
-	new Promise(resolve => window.setTimeout(resolve, milliseconds));
-
-async function fetchRecords(endpoint, retries = 3, delay = 1000) {
-	const url = `${endpoint}?count=${FETCH_COUNT}`;
-
-	try {
-		return await dataCache.fetch(url);
-	} catch (error) {
-		if (retries === 0 || error.status !== 429) {
-			throw error;
-		}
-
-		console.warn(`Rate limit hit for ${endpoint}. Retrying in ${delay}ms…`);
-		await wait(delay);
-		return fetchRecords(endpoint, retries - 1, delay * 2);
-	}
-}
+const fetchRecords = (endpoint) => dataCache.fetch(endpoint);
 
 function createRecord(template, data, showPrice) {
 	const clone = template.content.cloneNode(true);
