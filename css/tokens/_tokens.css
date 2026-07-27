@@ -8,7 +8,6 @@
 		--space-md: clamp(0.5rem, 2vw, 1rem);
 		--space-lg: clamp(1rem, 4vw, 2rem);
 
-		--fluid-padding-inline: clamp(1rem, 10vw - 2rem, 12rem);
 		--fluid-padding-table: round(clamp(0.25rem, 2vw - 0.5rem, 0.5rem), 0.0125rem);
 
 		/* Modal Constraints */
@@ -89,13 +88,13 @@
 		--color-accent-2: light-dark(oklch(from var(--color-primary) l c calc(h - 180)), oklch(65% 48% 254deg));
 		--color-accent-3: light-dark(oklch(from var(--color-primary) l c calc(h - 120)), oklch(59% 25% 246deg));
 
-		--color-border: light-dark(oklch(from var(--gray-0) l c h / .3), var(--slate-0));
+		--color-border: light-dark(var(--gray-0), var(--slate-0));
 		--color-border-caption: light-dark(var(--black-0), var(--color-accent-0));
 
 		--color-shadow-0: light-dark(var(--black-0), var(--color-accent-0));
-		--color-shadow-1: light-dark(var(--black-1), var(--color-accent-0));
-		--color-shadow-2: light-dark(var(--black-2), var(--color-accent-0));
-		--color-shadow-3: light-dark(var(--black-3), var(--color-accent-0));
+		--color-shadow-1: light-dark(var(--black-1), var(--color-accent-1));
+		--color-shadow-2: light-dark(var(--black-2), var(--color-accent-2));
+		--color-shadow-3: light-dark(var(--black-3), var(--color-accent-3));
 
 		--color-glow-0: oklch(from var(--color-accent-0) calc(l + 0.05) c h);
 		--color-glow-1: oklch(from var(--color-glow-0)   calc(l + 0.15) c h);
@@ -104,19 +103,33 @@
 		--color-primary-light: oklch(from var(--color-primary) l c h / 0.90);
 		--color-primary-alpha: oklch(from var(--color-primary) l c h / 0.15);
 
-		/* Shadows */
-		--shadow-elevated:
-			oklch(from var(--color-shadow-0) l c h / 0.25) 0 1px 2px,
-			oklch(from var(--color-shadow-1) l c h / 0.60) 0 8px 24px,
-			oklch(from var(--color-shadow-2) l c h / 0.35) 0 4px 12px,
-			oklch(from var(--color-shadow-3) l c h / 0.10) 0 2px 8px;
+		/* Glass */
+		--glassy:
+			linear-gradient(
+				to bottom,
+				color-mix(in oklch, var(--color-bg-main) 80%, transparent) 0%,
+				color-mix(in oklch, var(--color-bg-main) 65%, transparent) 45%,
+				transparent 100%
+			);
 
+		--glass-frame:
+			inset 0 1px 0 rgb(255 255 255 / .5) /* top */, 
+			inset -1px 0 0px rgb(0 0 0 / .25) /* right */, 
+			inset 1px 0 0px rgb(0 0 0 / .25) /* left */,
+			inset 0 -1px 0 rgb(255 255 255 / .5) /* bottom */;
+		
 		--shadow-glass:
 			oklch(from var(--white-0) l c h / 0.2) 20px 20px 60px inset,
 			oklch(from var(--black-0) l c h / 0.1) -20px -20px 60px inset,
 			oklch(from var(--black-1) l c h / 0.1) 0 8px 32px,
 			oklch(from var(--black-2) l c h / 0.1) 0 8px 16px,
 			oklch(from var(--white-0) l c h / 0.125) 0 1px 5px inset;
+
+		/* Shadows */
+		--shadow-elevated:
+			oklch(from var(--color-shadow-1) l c h / 0.125) 0 1px 2px,
+			oklch(from var(--color-shadow-2) l c h / 0.25) 0 4px 12px,
+			oklch(from var(--color-shadow-3) l c h / 0.05) 0 2px 8px;
 
 		--shadow-glow:
 			var(--shadow-text-outline),
@@ -128,9 +141,6 @@
 			oklch(from var(--black-0) l c h / 0.50) 0 1px 1px,
 			oklch(from var(--black-1) l c h / 0.25) 0 2px 8px,
 			oklch(from var(--black-1) l c h / 0.25) 0 3px 16px;
-
-		--shadow-text:
-			oklch(from var(--color-shadow-0) l c h / .5) 1px 1px 4px;
 
 		--shadow-text-caption:
 			oklch(from var(--color-bg-main) l c h / 0.25) 0 2px 3px;

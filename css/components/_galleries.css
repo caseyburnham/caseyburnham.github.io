@@ -6,7 +6,7 @@
 
 		& button {
 			background: var(--color-bg-main);
-			border: 1px solid light-dark(var(--gray-0), var(--slate-0));
+			border: 1px solid var(--color-border);
 			border-radius: var(--radius-main);
 			font-size: var(--text-xs);
 			outline: 2px solid;
@@ -18,11 +18,11 @@
 			z-index: 2;
 
 			&:hover {
-				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.05) c h), oklch(from var(--color-bg-main) calc(l + 0.05) c h));
+				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.05) c h), oklch(from var(--color-bg-main) calc(l + 0.15) c h));
 			}
 
 			&:active {
-				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.2) c h), oklch(from var(--color-bg-main) calc(l + 0.1) c h));
+				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.2) c h), oklch(from var(--color-bg-main) calc(l + 0.25) c h));
 			}
 
 			&.selected {
@@ -31,6 +31,7 @@
 				box-shadow: none;
 				color: var(--color-text-selected);
 				cursor: default;
+				outline: 2px solid;
 				outline-color: var(--color-accent-0);
 
 				&:active {
@@ -45,12 +46,10 @@
 		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 
 		& button {
-			appearance: none;
-			background: none;
 			border: 0;
 			border-radius: var(--radius-md);
 			cursor: pointer;
-			outline: 2px solid;
+			outline: 0px solid;
 			outline-color: transparent;
 			outline-offset: 1px;
 			overflow: hidden;
@@ -74,6 +73,7 @@
 			}
 
 			&:active {
+				outline: 2px solid;
 				outline-color: var(--color-accent-0);
 			}
 		}
@@ -89,15 +89,5 @@
 
 	.pano-row .photo-thumb {
 		aspect-ratio: 4/1;
-	}
-	
-	@keyframes flash {
-		from {
-			filter: brightness(1.8);
-		}
-	
-		to {
-			filter: brightness(1);
-		}
 	}
 }

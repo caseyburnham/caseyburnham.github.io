@@ -1,16 +1,17 @@
 @layer components.bio {
+	
+	@keyframes tilt 
+		{
+			0% {
+				transform: rotate(0) translateY(0);
+			}
+			
+			100% {
+				transform: rotate(3deg) translateY(.1rem);
+			}
+		}
+
 	#about {
-		--shadow-frame:
-			oklch(from var(--black-3) l c h / 1) 0 0 2px,
-			oklch(from var(--black-0) l c h / 0.125) 0 0 0 1px inset,
-			oklch(from var(--black-0) l c h / 0.5) 3px 3px 6px inset,
-			oklch(from var(--white-0) l c h / 0.15) -1px -1px 3px inset,
-			oklch(from var(--black-0) l c h / 0.6) 2px 4px 8px 1px,
-			oklch(from var(--black-1) l c h / 0.3) 4px 8px 24px 2px;
-
-		--shadow-matte:
-			oklch(from var(--black-0) l c h / 0.95) 0 0 2px -1px inset;
-
 		align-items: center;
 		display: grid;
 		gap: var(--space-md);
@@ -20,29 +21,35 @@
 		padding-inline: clamp(0rem, 5vw - 1rem, 5rem);
 
 		& .portrait {
-			background: whitesmoke;
-			border: 8px outset light-dark(silver, black);
-			box-shadow: var(--shadow-frame);
+			background: snow;
+			border: 8px outset black;
+			box-shadow: 
+				oklch(from var(--black-3) l c h / 1) 0 0 2px,
+				oklch(from var(--black-0) l c h / 0.125) 0 0 0 1px inset,
+				oklch(from var(--black-0) l c h / 0.5) 3px 3px 6px inset,
+				oklch(from var(--white-0) l c h / 1) -1px -1px 4px 2px inset,
+				oklch(from var(--black-0) l c h / 0.6) 2px 4px 8px 1px,
+				oklch(from var(--black-1) l c h / 0.3) 4px 8px 24px 2px;
 			display: inline-block;
 			height: fit-content;
 			padding: 14px;
 			position: relative;
 			transform-origin: 45% 20%;
-			transition: transform 2s var(--timing-frame);
 			
 			& figcaption {
 				margin-block-start: .75rem;
 			}
 
-			&:hover {
-				transform: rotate(3deg) translateY(.1rem);
-				transition: transform 2s var(--timing-frame);
+			&.is-tilted {
+				animation: tilt 2s var(--timing-frame) forwards;
 			}
 
 			& .matte {
 				background: snow;
 				border: 1px inset ghostwhite;
-				box-shadow: var(--shadow-matte);
+				box-shadow: 
+					oklch(from var(--black-0) l c h / 0.95) 0 0 2px -1px inset,
+					oklch(from var(--white-0) l c h / 0.95) -1px -1px 2px -1px inset;
 				padding: 20px;
 				position: relative;
 

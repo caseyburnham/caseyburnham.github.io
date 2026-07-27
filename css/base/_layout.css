@@ -5,18 +5,11 @@
 		display: flex;
 		flex-direction: column;
 		margin-block-end: 0.5rem;
-		margin-inline: var(--fluid-padding-inline);
+		margin-inline: clamp(1rem, 10vw - 2rem, 12rem);
 	}
 	
 	section {
 		margin-block: 1.25rem;
-	}
-
-	hr {
-		background: oklch(from var(--color-border) l c h / 0.5);
-		block-size: 1px;
-		border: none;
-		margin-block: var(--space-hr);
 	}
 	
 		

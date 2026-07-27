@@ -27,14 +27,38 @@
 			}
 		}
 
+		& button {
+			aspect-ratio: 1;
+			backdrop-filter: blur(2.5px);
+			background: var(--color-bg-light);
+			border: 1px solid var(--color-border);
+			border-radius: 50%;
+			box-shadow: var(--shadow-glass);
+			color: var(--color-accent-0);
+			display: grid;
+			font-size: var(--text-lg);
+			inline-size: 2.25rem;
+			place-items: center;
+			position: absolute;
+			top: 50%;
+			transition: background 300ms ease;
+
+			/* translate: 0 -50%; */
+			
+			&:hover {
+				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.05) c h), oklch(from var(--color-bg-main) calc(l + 0.15) c h));
+			}
+			
+			&:active {
+				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.2) c h), oklch(from var(--color-bg-main) calc(l + 0.25) c h));
+			}
+		}
+
 		&::backdrop {
 			backdrop-filter: blur(1.5rem);
 			background: var(--color-bg-alpha);
 			opacity: 0;
-			transition:
-				display 0.3s allow-discrete,
-				overlay 0.3s allow-discrete,
-				opacity 0.3s ease;
+			transition: inherit;
 		}
 
 		&[open]::backdrop {
@@ -55,12 +79,13 @@
 			overflow: hidden;
 			position: relative;
 		
-			&:is(:hover, :focus-within) .photo-details {
-				backdrop-filter: blur(8px) saturate(150%);
+			&:hover figcaption
+			{
+				backdrop-filter: blur(8px) saturate(120%);
 				filter: blur(0);
 				opacity: 1;
 			}
-			
+
 			& img {
 				block-size: auto;
 				inline-size: auto;
@@ -68,16 +93,17 @@
 				max-inline-size: var(--modal-max-width);
 				object-fit: contain;
 			}
-			
+
 			& figcaption {
 				align-items: center;
-				backdrop-filter: blur(0) saturate(0);
-				background: var(--color-bg-light);
-				border: 1px solid var(--color-border);
-				border-radius: var(--radius-section);
-				box-shadow: var(--shadow-glass), var(--shadow-elevated);
+				background: var(--glassy);
+				border-radius: inherit;
+				box-shadow: 
+					var(--glass-frame),
+					var(--shadow-glass),
+					var(--shadow-modal);
 				display: grid;
-				filter: blur(1rem);
+				filter: blur(20px);
 				font-size: var(--text-xs);
 				grid-template:
 					"date title elevation" auto
@@ -90,12 +116,9 @@
 				padding: 0.5rem;
 				position: absolute;
 				text-shadow: var(--shadow-text-caption);
-				transition:
-					backdrop-filter 0.3s,
-					filter .6s,
-					opacity 0.3s,
-					transform 0.3s;
-				transition-timing-function: var(--timing-caption);
+				transition: backdrop-filter, filter, opacity, transform;
+				transition-duration: 300ms;
+				transition-timing-function: ease-out;
 			
 				& h3 {
 					font-size: var(--text-md);
@@ -144,6 +167,9 @@
 		& a {
 			color: var(--color-accent-0);
 			text-decoration: none;
+			text-shadow: 
+			var(--shadow-text-outline),
+			oklch(from var(--color-bg-main) l c h / 0.5) 0 2px 3px;
 
 			& data {
 				color: unset;
@@ -172,38 +198,23 @@
 		}
 	}
 
-	.dialog-close,
-	.dialog-navigation button {
-		color: var(--color-accent-0);
-		display: grid;
-		place-items: center;
-	}
-
 	.dialog-close {
 		aspect-ratio: 1;
-		padding: 0.35rem;
+		inline-size: 1.25rem;
+		padding: 0.125rem;
 		position: absolute;
-		right: 0.5rem;
-		top: 0.5rem;
+		right: 1.75rem;
+		top: 1.75rem;
 		z-index: 2;
 
 		& svg {
 			fill: currentColor;
-			inline-size: 1rem;
+			inline-size: 2rem;
 		}
 	}
 
 	.dialog-navigation {
 		display: contents;
-
-		& button {
-			aspect-ratio: 1;
-			font-size: var(--text-lg);
-			inline-size: 2.25rem;
-			position: absolute;
-			top: 50%;
-			translate: 0 -50%;
-		}
 	}
 
 	.dialog-previous {

@@ -1,21 +1,24 @@
 @layer components.details {
 	#skills {
-		border: 1px solid light-dark(var(--gray-0), var(--slate-0));
+		backdrop-filter: blur(2.5px);
+		background: var(--glassy);
+		border: 1px solid var(--color-border);
 		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-glass);
 
 		& details {
 
 			.power-led {
-				background: var(--color-accent-alpha);
+				background: radial-gradient(var(--color-accent-0) 55%, oklch(from var(--black-0) l c h / .95) 75%);
 				border-radius: 50%;
-				box-shadow: inset 0 0 2px 1px rgb(0 0 0 / 0.7),
-					inset 0 -2px 6px rgb(0 0 0 / 0.5);
+				box-shadow: none;
+				filter: brightness(.6);
 				flex-shrink: 0;
 				height: 8px;
 				margin-inline: 1rem;
-				transition: background 0.4s ease, box-shadow 0.4s ease, filter 0.4s var(--timing-led);
-				transition-delay: calc(var(--i) * 75ms + 45ms);
+				transition: background, box-shadow, filter;
+				transition-delay: calc(var(--i) * 45ms + 120ms);
+				transition-duration: 500ms;
+				transition-timing-function: var(--timing-led);
 				width: 8px;
 			}
 
@@ -27,7 +30,9 @@
 				flex-shrink: 0;
 				height: 22px;
 				place-items: center;
-				transition: transform 0.4s cubic-bezier(.4, 0, .2, 1), border-color 0.4s ease, color 0.4s ease;
+				transition: border-color, color, transform;
+				transition-duration: 400ms;
+				transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 				width: 22px;
 
 				& svg {
@@ -41,14 +46,15 @@
 				& .chevron {
 					border-color: var(--color-accent-0);
 					color: var(--color-accent-0);
-					transform: rotate(180deg);
+					transform: rotate(-180deg);
 				}
 
 				& .power-led {
-					background: var(--color-accent-light);
-					box-shadow: inset 0 0px 2px 0px rgb(0 0 0 / 0.95),
-						inset 0 0px 2px 1px rgb(0 0 0 / 0.25),
-						0 0 8px 1px oklch(from var(--color-glow-0) l c h / 0.5);
+					background: 
+						radial-gradient(
+							var(--color-accent-0) 55%, 
+							oklch(from var(--black-0) l c h / .95) 75%);
+					box-shadow: 0 0 8px 1px oklch(from var(--color-glow-0) l c h / 0.5);
 					filter: brightness(1.8);
 				}
 
@@ -70,10 +76,7 @@
 					display: none;
 				}
 
-				&:focus-visible {
-					outline: 2px solid var(--color-accent-0);
-					outline-offset: -2px;
-				}
+				
 
 				& h3 {
 					flex: 1;

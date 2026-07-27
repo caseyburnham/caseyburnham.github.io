@@ -10,10 +10,18 @@
 	}
 
 	button, summary {
+		appearance: none;
+		background: none;
 		cursor: pointer;
 		touch-action: manipulation;
 		-webkit-user-select: none;
 		user-select: none;
+	}
+	
+	:focus-visible {
+		border-radius: var(--radius-md);
+		outline: 2px solid var(--color-accent-0);
+		outline-offset: 2px;
 	}
 
 	:is(img, picture, video, canvas, svg) {
@@ -29,10 +37,6 @@
 		overflow-wrap: break-word;
 	}
 
-	:focus-visible {
-		outline: 2px solid var(--color-accent-0);
-		outline-offset: 0.2em;
-	}
 
 	@media (prefers-reduced-motion: reduce) {
 		html:focus-within {
