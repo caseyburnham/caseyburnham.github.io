@@ -1,11 +1,8 @@
 @layer integrations.map {
-	#map {
-		/* box-shadow: var(--shadow-main); */
-		border: 1px solid light-dark(var(--gray-0), var(--slate-0));
-		border-radius: var(--radius-sm);
+	.maplibregl-map {
+		border: 1px solid var(--color-border);
 		height: 15rem;
 		width: 100%;
-		z-index: 1;
 	}
 
 	#map details,
@@ -16,10 +13,9 @@
 	}
 
 	@media (prefers-color-scheme: dark) {
-		.maplibregl-ctrl-attrib.maplibregl-compact,
-		.maplibregl-ctrl-group {
+		.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,
+		.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon {
 			filter: invert();
-			opacity: 0.75;
 		}
 	}
 
@@ -27,27 +23,25 @@
 		appearance: none;
 		backdrop-filter: blur(1px);
 		background: var(--color-accent-light);
-		border: 1.5px solid;
-		border-color: light-dark(var(--white-0), var(--black-0));
+		border: none;
 		border-radius: 50%;
-		box-shadow: oklch(from var(--black-0) l c h / 0.5) 0 1px 3px;
+		box-shadow:
+			0 0 1px var(--black-0),
+			oklch(from var(--black-0) l c h / 0.5) 0 1px 3px;
 		cursor: pointer;
-		height: 12px;
+		height: 10px;
+		outline: 1.25px solid;
+		outline-color: light-dark(var(--white-0), var(--black-0));
 		padding: 0;
-		width: 12px;
+		width: 10px;
 	}
 
 	.maplibregl-popup-content {
-		backdrop-filter: blur(4px) saturate(150%);
-		background: var(--color-bg-alpha);
-		border-bottom-width: 0px;
-		border-color: var(--color-border);
-		border-left-width: 0.8px;
-		border-radius: var(--radius-section);
-		border-right-width: 0px;
-		border-style: solid;
-		border-top-width: 1px;
+		backdrop-filter: blur(2.5px) saturate(150%);
+		background: var(--glassy);
+		border-radius: var(--radius-md);
 		box-shadow:
+			var(--glass-frame),
 			var(--shadow-glass),
 			var(--shadow-modal);
 		overflow: hidden;
@@ -61,12 +55,30 @@
 
 	.maplibregl-ctrl-group {
 		backdrop-filter: blur(2.5px);
-		background: var(--color-bg-light);
-		border: 1px solid var(--color-border);
+		background: var(--glassy);
 		border-radius: var(--radius-sm);
 
 		&:not(:empty) {
-			box-shadow: var(--shadow-modal);
+			box-shadow:
+				var(--glass-frame),
+				var(--shadow-glass),
+				var(--shadow-modal);
+		}
+	}
+
+	.maplibregl-ctrl-group button + button {
+		border-top: 1px solid oklch(from var(--color-border) l c h / .5);
+		padding-inline: 1px;
+	}
+
+	.maplibregl-popup-close-button {
+		border-radius: var(--radius-sm);
+		right: 4px;
+		top: -4px;
+
+		&:hover {
+			background-color: transparent;
+			text-shadow: var(--shadow-glow);
 		}
 	}
 

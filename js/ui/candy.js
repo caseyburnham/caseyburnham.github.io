@@ -129,6 +129,21 @@ function updateCopyrightYear() {
 }
 
 /**
+ * Portrait
+ *
+ * The framed photo keeps its tilted position after the first pointer hover.
+ */
+function initPortraitTilt() {
+  const portrait = document.querySelector('#about .portrait');
+
+  portrait?.addEventListener(
+	'pointerenter',
+	() => portrait.classList.add('is-tilted'),
+	{ once: true },
+  );
+}
+
+/**
  * Animated details/channel rack
  */
 function initChannelRacks() {
@@ -267,5 +282,6 @@ export function initCandy() {
   initNavigation();
   initPopoverTimeouts();
   updateCopyrightYear();
+  initPortraitTilt();
   initChannelRacks();
 }

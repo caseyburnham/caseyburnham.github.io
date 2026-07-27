@@ -1,7 +1,5 @@
 @layer components.primitives {
 	[popovertarget] {
-		appearance: none;
-		background: none;
 		border: 0;
 		color: inherit;
 		display: inline;
@@ -10,14 +8,15 @@
 	}
 
 	[popover] {
+		backdrop-filter: blur(2.5px);
+		background: var(--glassy);
+		border: none;
 		border-radius: var(--radius-section);
 		box-shadow:
+			var(--glass-frame),
 			var(--shadow-glass),
 			var(--shadow-modal);
 		font-size: var(--text-xs);
-		height: fit-content;
-		inset: auto;
-		margin: 0.5rem 0 0;
 		opacity: 0;
 		overflow: hidden;
 		padding: 0.5rem;
@@ -87,23 +86,5 @@
 			box-shadow: var(--shadow-prog);
 			z-index: 3;
 		}
-	}
-
-	.glass {
-		backdrop-filter: blur(2.5px) saturate(150%);
-		background: var(--color-bg-alpha);
-		background: 
-		linear-gradient(
-			180deg, 
-			oklch(from var(--color-bg-main) l c h / .6) 0%, 
-			oklch(from var(--color-bg-main) l c h / .4) 10%, 
-			oklch(from var(--color-bg-main) l c h / 0) 40%, 
-			oklch(from var(--color-bg-main) l c h / .2) 80%, 
-			oklch(from var(--color-bg-main) l c h / .4) 100%
-		);
-		border-color: oklch(from var(--color-bg-main) l c h / .31);
-		border-style: solid;
-		border-width: 1px 0 0 0.8px;
-		overflow: hidden;
 	}
 }
