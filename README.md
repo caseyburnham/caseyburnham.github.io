@@ -115,8 +115,8 @@ images/galleries/<gallery-name>/<new-photo>
 The media builder converts it into the appropriate `avif`, `jpeg`, or `png`
 subfolder, creates its thumbnail, and then moves the source into the ignored
 `ORIGINALS` folder. It never reads either gallery or summit `ORIGINALS`
-folders as build inputs. Summit images must already be web-ready files placed
-in `images/summits/`.
+folders as build inputs. A summit HEIC placed in `images/summits/` becomes a
+slugged AVIF in that folder and is then archived to `images/summits/ORIGINALS/`.
 
 The media builder accepts AVIF, HEIC, JPEG, and PNG files. It creates modal
 images with a longest edge of at most 2560 pixels, creates 720-pixel gallery
@@ -126,12 +126,10 @@ metadata including GPS in modal and summit images, and regenerates
 kept below 2 MB and thumbnails below 500 KB.
 
 In Nova, select the **Gallery Build** task and use **Project → Build** or
-<kbd>Command</kbd>+<kbd>B</kbd>. That one task runs the media builder, builds
-the complete site, and validates both outputs. From a terminal, the equivalent
-is:
+<kbd>Command</kbd>+<kbd>B</kbd>. That one task runs the media builder before
+building and validating the complete site. From a terminal, the equivalent is:
 
 ```sh
-npm run build:media
 npm run build
 npm run check
 ```

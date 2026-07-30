@@ -67,7 +67,6 @@
 			oklch(from var(--black-1) l c h / 0.4) 0 4px 7px 1px,
 			oklch(from var(--black-3) l c h / 0.15) 0 3px 8px 2px;
 
-		aspect-ratio: 1 / 1;
 		box-shadow: var(--shadow-album);
 		position: relative;
 		transform: translateY(0) scale(1) rotateY(0deg) rotateX(0);

@@ -13,7 +13,8 @@ const VENUES_TO_HIGHLIGHT = [
 	{ name: 'Summit Music Hall', className: 'venue--summit' },
 	{ name: 'Fillmore Auditorium', className: 'venue--fillmore' },
 	{ name: 'Ball Arena', className: 'venue--ball-arena' },
-	{ name: 'Gothic Theater', className: 'venue--gothic' }
+	{ name: 'Gothic Theater', className: 'venue--gothic' },
+	{ name: 'Golden Triangle', className: 'venue--golden-tri' }
 ];
 
 const ARTIST_EXCLUSIONS = new Set(['et al.', 'decadence', '(DJ Set)']);

@@ -1,4 +1,4 @@
-@layer reset, tokens, base, layout, components, integrations, utilities;
+@layer reset, tokens, base, layout, components, integrations, utilities, preferences;
 @layer components.primitives, components.navigation, components.bio, components.details, components.tables, components.galleries, components.modal, components.discogs;
 @layer integrations.maplibre, integrations.map;
 
@@ -17,3 +17,4 @@
 @import url('components/_modal.css');
 @import url('components/_discogs.css');
 @import url('utilities/_utils.css');
+@import url('preferences/_accessibility.css');

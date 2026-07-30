@@ -11,17 +11,21 @@
 		text-decoration-skip-ink: none;
 	}
 
-	hgroup {
-		font-family: serif;
+	header {
+		margin-block-start: 2rem;
 
-		& h1 {
-			transform: scaleY(350%) skewX(-20deg);
-		}
+		& hgroup {
+			font-family: serif;
 
-		& h2 {
-			color: var(--color-accent-0);
-			padding-block-start: .25rem;
-			text-wrap: nowrap;
+			& h1 {
+				transform: scaleY(350%) skewX(-20deg);
+			}
+
+			& h2 {
+				color: var(--color-accent-0);
+				padding-block-start: .25rem;
+				text-wrap: nowrap;
+			}
 		}
 	}
 
@@ -35,6 +39,7 @@
 	}
 
 	:is(caption, label, small) {
+		font-size: smaller;
 		font-style: italic;
 		font-weight: var(--font-weight-light);
 	}
@@ -51,25 +56,5 @@
 
 	:is(header, p) {
 		line-height: var(--line-height-airy);
-	}
-
-	.bio {
-		& p {
-			text-indent: clamp(1rem, 2.5vw, 2.5rem);
-			text-wrap: pretty;
-		}
-
-		& p:not(:last-child) {
-			margin-block-end: 1.5rem;
-		}
-	}
-
-	.portrait {
-		& figcaption {
-			color: var(--black-2);
-			font-family: serif;
-			font-style: italic;
-			text-align: center;
-		}
 	}
 }

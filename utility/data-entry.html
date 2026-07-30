@@ -313,8 +313,35 @@
     return entry;
   }
 
-  // --- Required field per tab ---
-  const REQUIRED = { mountain: 'Peak', concert: 'Headliner', production: 'Production' };
+  // --- Entry validation: keep generated records compatible with the site schemas ---
+  const REQUIRED_FIELDS = {
+    mountain: ['Peak', 'Elevation', 'Range', 'Date', 'Image'],
+    concert: ['Headliner', 'Venue', 'Year', '😃'],
+    production: ['Production', 'Company']
+  };
+
+  function validateEntry(entry) {
+    const missing = REQUIRED_FIELDS[currentTab].find(key => !entry[key]);
+    if (missing) return missing + ' is required';
+
+    if (currentTab === 'mountain') {
+      if (!/^[0-9]{2},[0-9]{3}$/.test(entry.Elevation)) {
+        return 'Elevation must use the format 13,351';
+      }
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.Date)) {
+        return 'Date climbed must use the format YYYY-MM-DD';
+      }
+      if (!/^\/images\/summits\/.+\.(avif|jpe?g|png)$/.test(entry.Image)) {
+        return 'Image must be an AVIF, JPEG, or PNG in /images/summits/';
+      }
+    }
+
+    if (currentTab === 'concert' && !/^([0-9]{4}|—)$/.test(entry.Year)) {
+      return 'Year must be a four-digit year or —';
+    }
+
+    return '';
+  }
 
   // --- Save all blocks ---
   async function saveAll() {
@@ -324,13 +351,13 @@
     if (!blocks.length) { setStatus('No entries to save', true); return; }
 
     const entries = [];
-    const reqField = REQUIRED[currentTab];
     let invalid = false;
 
     blocks.forEach((block, i) => {
       const entry = readBlock(block);
-      if (!entry[reqField]) {
-        setStatus((blocks.length > 1 ? 'Entry ' + (i + 1) + ': ' : '') + reqField + ' is required', true);
+      const error = validateEntry(entry);
+      if (error) {
+        setStatus((blocks.length > 1 ? 'Entry ' + (i + 1) + ': ' : '') + error, true);
         invalid = true;
       }
       entries.push(entry);

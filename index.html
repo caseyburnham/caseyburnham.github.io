@@ -440,7 +440,14 @@
 				</form>
 
 				<figure class="modal-content">
-					<img class="modal-image" alt="" decoding="async">
+					<div class="modal-media">
+						<img class="modal-image is-active" alt="" decoding="async">
+						<img class="modal-image" alt="" decoding="async" aria-hidden="true">
+						<div class="modal-loading" role="status" aria-live="polite" hidden>
+							<span class="modal-loading-spinner" aria-hidden="true"></span>
+							<span class="modal-loading-message">Loading photo…</span>
+						</div>
+					</div>
 					<figcaption class="photo-details">
 						<h3 id="modal-photo-title" class="photo-title"><!-- JS --></h3>
 						<dl class="photo-metadata">

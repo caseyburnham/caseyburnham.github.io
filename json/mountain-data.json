@@ -1,5 +1,21 @@
 [
 	{
+		"Peak": "Rogers Peak",
+		"Elevation": "13,361",
+		"Range": "Front",
+		"Date": "2026-07-30",
+		"Image": "/images/summits/rogers-peak.avif",
+		"ranked": true
+	},
+	{
+		"Peak": "Mount Warren",
+		"Elevation": "13,314",
+		"Range": "Front",
+		"Date": "2026-07-30",
+		"Image": "/images/summits/mount-warren.avif",
+		"ranked": true
+	},
+	{
 		"Peak": "Tincup Peak",
 		"Elevation": "13,351",
 		"Range": "Sawatch",

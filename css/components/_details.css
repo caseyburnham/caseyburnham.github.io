@@ -6,6 +6,7 @@
 		border-radius: var(--radius-md);
 
 		& details {
+		transition: box-shadow 300ms ease;
 
 			.power-led {
 				background: radial-gradient(var(--color-accent-0) 55%, oklch(from var(--black-0) l c h / .95) 75%);
@@ -30,8 +31,9 @@
 				flex-shrink: 0;
 				height: 22px;
 				place-items: center;
+				transform: rotate(270deg);
 				transition: border-color, color, transform;
-				transition-duration: 400ms;
+				transition-duration: 200ms;
 				transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 				width: 22px;
 
@@ -42,11 +44,12 @@
 			}
 
 			&:open {
+				box-shadow: var(--shadow-glass);
 
 				& .chevron {
 					border-color: var(--color-accent-0);
 					color: var(--color-accent-0);
-					transform: rotate(-180deg);
+					transform: rotate(360deg);
 				}
 
 				& .power-led {
@@ -162,19 +165,4 @@
 		}
 	}
 
-	@media (prefers-reduced-motion: reduce) {
-		#skills details li {
-			animation: none !important;
-			opacity: 1;
-			transform: none;
-		}
-
-		.chevron {
-			transition: none;
-		}
-
-		#skills details:open .power-led {
-			transition: none;
-		}
-	}
 }

@@ -1,14 +1,13 @@
 @layer components.bio {
-	@keyframes tilt 
-		{
-			0% {
-				transform: rotate(0) translateY(0);
-			}
-			
-			100% {
-				transform: rotate(3deg) translateY(.1rem);
-			}
+	@keyframes tilt {
+		0% {
+			transform: rotate(0) translateY(0);
 		}
+
+		100% {
+			transform: rotate(3deg) translateY(.1rem);
+		}
+	}
 
 	#about {
 		align-items: center;
@@ -19,10 +18,19 @@
 		justify-items: center;
 		padding-inline: clamp(0rem, 5vw - 1rem, 5rem);
 
-		& .portrait {
+		& p {
+			text-indent: clamp(1rem, 2.5vw, 2.5rem);
+			text-wrap: pretty;
+
+			&:not(:last-child) {
+				margin-block-end: 1.5rem;
+			}
+		}
+
+		& figure {
 			background: snow;
 			border: 8px outset black;
-			box-shadow: 
+			box-shadow:
 				oklch(from var(--black-3) l c h / 1) 0 0 2px,
 				oklch(from var(--black-0) l c h / 0.125) 0 0 0 1px inset,
 				oklch(from var(--black-0) l c h / 0.5) 3px 3px 6px inset,
@@ -34,9 +42,13 @@
 			padding: 14px;
 			position: relative;
 			transform-origin: 45% 20%;
-			
+
 			& figcaption {
+				color: var(--black-2);
+				font-family: serif;
+				font-style: italic;
 				margin-block-start: .75rem;
+				text-align: center;
 			}
 
 			&.is-tilted {
@@ -46,7 +58,7 @@
 			& .matte {
 				background: snow;
 				border: 1px inset ghostwhite;
-				box-shadow: 
+				box-shadow:
 					oklch(from var(--black-0) l c h / 0.95) 0 0 2px -1px inset,
 					oklch(from var(--white-0) l c h / 0.95) -1px -1px 2px -1px inset;
 				padding: 20px;
@@ -65,10 +77,10 @@
 			&::after {
 				background:
 					radial-gradient(140% 140% at 65% -25%,
-					oklch(from var(--black-0) l c h / .45) 0%,
-					oklch(from var(--black-1) l c h / .25) 25%,
-					oklch(from var(--black-2) l c h / .12) 45%,
-					oklch(from var(--black-3) l c h / .10) 65%);
+						oklch(from var(--black-0) l c h / .45) 0%,
+						oklch(from var(--black-1) l c h / .25) 25%,
+						oklch(from var(--black-2) l c h / .12) 45%,
+						oklch(from var(--black-3) l c h / .10) 65%);
 				content: "";
 				inset: 0;
 				mix-blend-mode: screen;
@@ -79,8 +91,8 @@
 			&::before {
 				background:
 					linear-gradient(to bottom right,
-					oklch(from var(--black-0) l c h / .1),
-					oklch(from var(--black-1) l c h / .05) 45%);
+						oklch(from var(--black-0) l c h / .1),
+						oklch(from var(--black-1) l c h / .05) 45%);
 				content: "";
 				inset: 0;
 				mix-blend-mode: multiply;

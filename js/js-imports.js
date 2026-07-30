@@ -1,5 +1,6 @@
 import { initCandy } from './ui/candy.js';
 import { initTables } from './ui/tables.js';
+import { PhotoModal } from './modal/modal.js';
 
 const MAP_STYLESHEET_URL =
 	typeof __MAP_STYLESHEET_URL__ === 'string'
@@ -10,6 +11,11 @@ initCandy();
 initTables().catch(error => {
 	console.error('Failed to initialize tables:', error);
 });
+
+// Summit buttons are populated separately from the lazy gallery. Initialize the
+// shared viewer now so either image collection can open it first.
+const photoModal = new PhotoModal();
+const photoModalReady = photoModal.initialize();
 
 let mapStylesheetPromise;
 
@@ -37,12 +43,10 @@ const lazyFeatures = [
 	{
 		selector: '#galleries',
 		load: async () => {
-			const [{ PhotoModal }, { Galleries }] = await Promise.all([
-				import('./modal/modal.js'),
-				import('./ui/galleries.js')
+			const [{ Galleries }] = await Promise.all([
+				import('./ui/galleries.js'),
+				photoModalReady
 			]);
-			const photoModal = new PhotoModal();
-			await photoModal.initialize();
 
 			try {
 				const galleries = new Galleries();

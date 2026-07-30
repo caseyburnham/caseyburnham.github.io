@@ -7424,6 +7424,39 @@
     "title": null,
     "caption": null
   },
+  "summits/mount-warren.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 7,
+      "day": 30,
+      "hour": 10,
+      "minute": 10,
+      "second": 34,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:07:30 10:10:34",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/5319",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.6068083333333,
+      "lon": -105.631919444444,
+      "latDMS": "39\u00b036'24.51\" N",
+      "lonDMS": "105\u00b037'54.91\" W",
+      "alt": 4052.202643,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Mount Warren",
+    "caption": null
+  },
   "summits/mount-white.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -7686,6 +7719,39 @@
     },
     "copyright": "\u00a9 2024 Casey Burnham",
     "title": null,
+    "caption": null
+  },
+  "summits/rogers-peak.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 7,
+      "day": 30,
+      "hour": 10,
+      "minute": 48,
+      "second": 41,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:07:30 10:48:41",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/5319",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.6154666666667,
+      "lon": -105.617538888889,
+      "latDMS": "39\u00b036'55.68\" N",
+      "lonDMS": "105\u00b037'3.14\" W",
+      "alt": 4072.720126,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Rogers Peak",
     "caption": null
   },
   "summits/santa-fe-peak.jpeg": {

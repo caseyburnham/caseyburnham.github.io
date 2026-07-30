@@ -55,6 +55,18 @@ test('opens the mobile navigation', async ({ page }) => {
 	await expect(page.locator('#nav-main')).toHaveClass(/is-open/);
 });
 
+test('opens a summit photo before the gallery has loaded', async ({ page }) => {
+	await page.goto('/');
+	await expect(page.locator('#mountains .camera-link').first()).toBeAttached();
+
+	const dialog = page.locator('dialog.photo-dialog');
+	await expect(dialog).toHaveCount(1);
+	await page.locator('#mountains .camera-link').first().evaluate(button => button.click());
+
+	await expect(dialog).toHaveAttribute('open', '');
+	await expect(dialog.locator('.photo-title')).not.toBeEmpty();
+});
+
 test('loads a gallery and opens a photo dialog', async ({ page }) => {
 	await page.goto('/');
 	await page.locator('#galleries').scrollIntoViewIfNeeded();
@@ -67,8 +79,57 @@ test('loads a gallery and opens a photo dialog', async ({ page }) => {
 	await expect(thumbnail.locator('[itemprop="copyrightNotice"]')).toHaveAttribute('content', /^© \d{4} Casey Burnham$/);
 	await thumbnail.click();
 
-	await expect(page.locator('dialog.photo-dialog')).toHaveAttribute('open', '');
-	await expect(page.locator('dialog .photo-title')).not.toBeEmpty();
+	const dialog = page.locator('dialog.photo-dialog');
+	const title = dialog.locator('.photo-title');
+	const media = dialog.locator('.modal-media');
+	await expect(dialog).toHaveAttribute('open', '');
+	await expect(title).not.toBeEmpty();
+	await expect(dialog.locator('.modal-image')).toHaveCount(2);
+	await expect(dialog.locator('.modal-image.is-active')).toBeVisible();
+
+	const firstTitle = await title.textContent();
+	await page.keyboard.press('ArrowRight');
+	await expect(title).not.toHaveText(firstTitle);
+	await expect(dialog.locator('.modal-loading')).toBeHidden();
+
+	const secondTitle = await title.textContent();
+	await media.dispatchEvent('pointerdown', {
+		clientX: 300,
+		clientY: 200,
+		pointerId: 1,
+		pointerType: 'touch'
+	});
+	await media.dispatchEvent('pointerup', {
+		clientX: 100,
+		clientY: 205,
+		pointerId: 1,
+		pointerType: 'touch'
+	});
+	await expect(title).not.toHaveText(secondTitle);
+
+	const thirdTitle = await title.textContent();
+	await page.mouse.move(5, 5);
+	await page.mouse.wheel(80, 0);
+	await page.waitForTimeout(40);
+	await page.mouse.wheel(18, 0);
+	await page.waitForTimeout(40);
+	await page.mouse.wheel(12, 0);
+	await page.waitForTimeout(40);
+	await page.mouse.wheel(6, 0);
+	await expect(title).not.toHaveText(thirdTitle);
+
+	const fourthTitle = await title.textContent();
+	await page.waitForTimeout(40);
+	await page.mouse.wheel(20, 0);
+	await page.mouse.wheel(45, 0);
+	await expect(title).not.toHaveText(fourthTitle);
+
+	await dialog.getByRole('button', {
+		name: 'Close photo viewer'
+	}).click();
+	await expect(dialog).not.toHaveAttribute('open', '');
+	await page.waitForTimeout(350);
+	await expect(dialog.locator('.modal-image[src]')).toHaveCount(0);
 });
 
 test('balances gallery rows while keeping each orientation newest-first', async ({ page }) => {
