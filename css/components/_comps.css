@@ -17,12 +17,13 @@
 			var(--shadow-glass),
 			var(--shadow-modal);
 		font-size: var(--text-xs);
+		margin-block-start: 0.25rem;
 		opacity: 0;
 		overflow: hidden;
 		padding: 0.5rem;
 		position: absolute;
 		position-area: block-end;
-		position-try-fallbacks: flip-block, flip-inline;
+		position-try-fallbacks: flip-inline;
 		transition:
 			display 0.3s allow-discrete,
 			overlay 0.3s allow-discrete,

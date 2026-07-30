@@ -1,0 +1,41 @@
+/*
+ * Cross-cutting user preferences belong here.
+ *
+ * Keep responsive layout rules with the component they change. Use the `main`
+ * container for content-width changes; reserve viewport media queries for
+ * viewport-bound UI (such as dialogs) and input-capability queries (hover).
+ */
+@layer preferences {
+	@media (prefers-contrast: more) {
+		:root {
+			--color-primary: LinkText;
+			--color-accent-0: LinkText;
+			--color-bg-main: Canvas;
+			--color-bg-light: Canvas;
+			--color-bg-alpha: Canvas;
+			--color-border: CanvasText;
+			--color-border-caption: CanvasText;
+			--color-text-primary: CanvasText;
+			--color-text-secondary: CanvasText;
+			--color-text-muted: CanvasText;
+			--shadow-glow: none;
+			--shadow-text-caption: none;
+			--shadow-text-outline: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html:focus-within {
+			scroll-behavior: auto;
+		}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+	}
+}

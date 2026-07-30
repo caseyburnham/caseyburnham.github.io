@@ -182,13 +182,13 @@ def output_for_source(source: Path) -> tuple[Path, Path]:
     return output, thumbnail
 
 
-def source_jobs() -> list[tuple[Path, Path, Path]]:
+def source_jobs() -> list[tuple[Path, Path, Path | None]]:
     galleries = sorted(
         gallery
         for gallery in GALLERIES.iterdir()
         if gallery.is_dir()
     )
-    jobs: list[tuple[Path, Path, Path]] = []
+    jobs: list[tuple[Path, Path, Path | None]] = []
     destinations: dict[Path, Path] = {}
     for gallery in galleries:
         for source in image_files(gallery):
@@ -207,6 +207,25 @@ def source_jobs() -> list[tuple[Path, Path, Path]]:
                 )
             destinations[output] = source
             jobs.append((source, output, thumbnail))
+
+    for source in image_files(SUMMITS):
+        if source.suffix.lower() != ".heic":
+            continue
+        archive = SUMMITS / ORIGINALS / source.name
+        if archive.exists():
+            raise ValueError(
+                f"Cannot archive {relative(source)} because "
+                f"{relative(archive)} already exists"
+            )
+        output = SUMMITS / f"{slugify(source.stem)}.avif"
+        if output in destinations:
+            previous = destinations[output]
+            raise ValueError(
+                f"Filename collision: {relative(previous)} and "
+                f"{relative(source)} both produce {relative(output)}"
+            )
+        destinations[output] = source
+        jobs.append((source, output, None))
     return jobs
 
 
@@ -330,7 +349,7 @@ def render_thumbnail(
         temporary.unlink(missing_ok=True)
 
 
-def archive_gallery_source(source: Path) -> None:
+def archive_source(source: Path) -> None:
     destination = source.parent / ORIGINALS / source.name
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.move(source, destination)
@@ -372,24 +391,25 @@ def build_images() -> tuple[int, int, int]:
         logging.info("Modal: %s", relative(output))
         render_modal(source, output)
         modal_count += 1
-        output_record = read_exif([output]).get(output.resolve(), {})
+        if thumbnail:
+            output_record = read_exif([output]).get(output.resolve(), {})
 
-        output_width = int(output_record.get("ImageWidth", 0))
-        output_height = int(output_record.get("ImageHeight", 0))
-        output_edge = max(output_width, output_height)
-        target_thumbnail_edge = min(
-            thumbnail_target_edge(output_width, output_height),
-            output_edge,
-        )
-        logging.info("Thumbnail: %s", relative(thumbnail))
-        render_thumbnail(
-            output,
-            thumbnail,
-            max_edge=target_thumbnail_edge,
-        )
-        thumbnail_count += 1
+            output_width = int(output_record.get("ImageWidth", 0))
+            output_height = int(output_record.get("ImageHeight", 0))
+            output_edge = max(output_width, output_height)
+            target_thumbnail_edge = min(
+                thumbnail_target_edge(output_width, output_height),
+                output_edge,
+            )
+            logging.info("Thumbnail: %s", relative(thumbnail))
+            render_thumbnail(
+                output,
+                thumbnail,
+                max_edge=target_thumbnail_edge,
+            )
+            thumbnail_count += 1
 
-        archive_gallery_source(source)
+        archive_source(source)
         archived_count += 1
 
     return modal_count, thumbnail_count, archived_count
