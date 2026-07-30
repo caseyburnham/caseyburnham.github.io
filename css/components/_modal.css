@@ -91,7 +91,7 @@
 			& img {
 				block-size: auto;
 				inline-size: auto;
-				
+
 				inset: 0;
 				margin: auto;
 				max-block-size: 100%;
@@ -253,6 +253,7 @@
 	}
 
 	.modal-content {
+
 		&.is-loading,
 		&[data-load-error] {
 			background: var(--color-bg-light);
@@ -310,10 +311,11 @@
 	(max-width: 48rem) {
 		.photo-dialog {
 			padding: 0.5rem;
+
 			& figure {
 				box-shadow: none;
 				overflow: visible;
-				
+
 				& img {
 					border-radius: var(--radius-sm);
 				}

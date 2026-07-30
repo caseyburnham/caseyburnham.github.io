@@ -81,8 +81,9 @@ fingerprints the generated CSS and JavaScript, rewrites their references, and
 copies the site's stable images and JSON data. It also refreshes the sitemap's
 `lastmod` date from public source changes or the latest public-content commit.
 The map stylesheet loads with
-the lazy map module rather than blocking the initial render. Netlify runs the
-same `npm run build` command and publishes only `dist/`.
+the lazy map module rather than blocking the initial render. Netlify runs
+`npm run build:deploy` and publishes only `dist/`; generated gallery media and
+metadata are committed after they are built locally.
 
 `npm run check` validates each JSON dataset against the schemas in `schemas/`,
 checks cross-file relationships and referenced assets, lints the authored

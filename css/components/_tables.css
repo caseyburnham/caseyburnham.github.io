@@ -1,5 +1,18 @@
 @layer components.tables {
 	table {
+
+		@property --elevation-fraction {
+			inherits: false;
+			initial-value: 0;
+			syntax: '<number>';
+		}
+
+		@property --elevation-percent {
+			inherits: false;
+			initial-value: 0%;
+			syntax: '<percentage>';
+		}
+
 		background-color: var(--color-bg-main);
 		border-collapse: collapse;
 		font-size: var(--text-table);
@@ -99,18 +112,6 @@
 		--heatmap-max-color: oklch(from var(--color-accent-0)    l c h);
 		--heatmap-glow-min-color: oklch(from var(--color-glow-2) l c h / 0.6);
 		--heatmap-glow-max-color: oklch(from var(--color-glow-0) l c h / 0.8);
-
-		@property --elevation-fraction {
-			inherits: false;
-			initial-value: 0;
-			syntax: '<number>';
-		}
-
-		@property --elevation-percent {
-			inherits: false;
-			initial-value: 0%;
-			syntax: '<percentage>';
-		}
 
 		--glow-color: color-mix(in oklch,
 			var(--heatmap-glow-min-color),

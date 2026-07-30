@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "npm run build:media && node scripts/build.mjs",
+		"build:deploy": "node scripts/build.mjs",
 		"build:css": "postcss css/main/_imports.css -o css/dist/style.css --config config && postcss css/maps/_imports.css -o css/dist/map.css --config config",
 		"build:media": "python3 scripts/build-media.py",
 		"check": "npm run build:media && npm run validate && npm run lint && node scripts/check-build.mjs && npm run check:media",
