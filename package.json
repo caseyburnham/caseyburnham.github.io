@@ -41,7 +41,7 @@
 		"eslint": "^10.7.0",
 		"globals": "^17.7.0",
 		"maplibre-gl": "^4.7.1",
-		"netlify-cli": "^26.2.0",
+		"netlify-cli": "^27.0.1",
 		"postcss": "^8.5.6",
 		"postcss-cli": "^11.0.1",
 		"postcss-import": "^16.1.1",
