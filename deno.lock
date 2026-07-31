@@ -22,7 +22,7 @@
         "npm:exiftool-vendored@^36.1.0",
         "npm:globals@^17.7.0",
         "npm:maplibre-gl@^4.7.1",
-        "npm:netlify-cli@^26.2.0",
+        "npm:netlify-cli@^27.0.1",
         "npm:postcss-cli@^11.0.1",
         "npm:postcss-import@^16.1.1",
         "npm:postcss-sorting@10",
@@ -30,7 +30,12 @@
         "npm:stylelint-config-standard@40",
         "npm:stylelint-order@^8.1.1",
         "npm:stylelint@^17.14.1"
-      ]
+      ],
+      "overrides": {
+        "ipx": {
+          "sharp": "0.35.3"
+        }
+      }
     }
   }
 }
