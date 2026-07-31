@@ -74,6 +74,11 @@ def command_exists(name: str) -> bool:
     return shutil.which(name) is not None
 
 
+def imagemagick_command() -> str:
+    """Return the ImageMagick entry point available on this platform."""
+    return "magick" if command_exists("magick") else "convert"
+
+
 def run(command: list[str], *, capture: bool = False) -> str:
     result = subprocess.run(
         command,
@@ -278,7 +283,7 @@ def render_modal(source: Path, destination: Path) -> None:
             temporary.unlink(missing_ok=True)
             run(
                 [
-                    "magick",
+                    imagemagick_command(),
                     f"{source}[0]",
                     "-auto-orient",
                     "-resize",
@@ -333,7 +338,7 @@ def render_thumbnail(
     try:
         run(
             [
-                "magick",
+                imagemagick_command(),
                 f"{source}[0]",
                 "-auto-orient",
                 "-resize",
@@ -746,11 +751,11 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    missing = [
-        command
-        for command in ("magick", "exiftool")
-        if not command_exists(command)
-    ]
+    missing = []
+    if not (command_exists("magick") or command_exists("convert")):
+        missing.append("ImageMagick (magick or convert)")
+    if not command_exists("exiftool"):
+        missing.append("exiftool")
     if missing:
         raise SystemExit(
             f"Missing required command(s): {', '.join(missing)}"
