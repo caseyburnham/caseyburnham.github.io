@@ -6,8 +6,6 @@
 		border-radius: var(--radius-md);
 
 		& details {
-		transition: box-shadow 300ms ease;
-
 			.power-led {
 				background: radial-gradient(var(--color-accent-0) 55%, oklch(from var(--black-0) l c h / .95) 75%);
 				border-radius: 50%;
@@ -44,8 +42,6 @@
 			}
 
 			&:open {
-				box-shadow: var(--shadow-glass);
-
 				& .chevron {
 					border-color: var(--color-accent-0);
 					color: var(--color-accent-0);
@@ -57,7 +53,7 @@
 						radial-gradient(
 							var(--color-accent-0) 55%, 
 							oklch(from var(--black-0) l c h / .95) 75%);
-					box-shadow: 0 0 8px 1px oklch(from var(--color-glow-0) l c h / 0.5);
+					box-shadow: 0 0 8px 0px oklch(from var(--color-glow-0) l c h / 0.5);
 					filter: brightness(1.8);
 				}
 
@@ -78,8 +74,6 @@
 				&::-webkit-details-marker {
 					display: none;
 				}
-
-				
 
 				& h3 {
 					flex: 1;

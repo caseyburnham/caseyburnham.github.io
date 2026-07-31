@@ -116,7 +116,6 @@
 				background: var(--glassy);
 				border-radius: inherit;
 				box-shadow:
-					var(--glass-frame),
 					/* var(--shadow-glass), */
 					var(--shadow-modal);
 				display: grid;

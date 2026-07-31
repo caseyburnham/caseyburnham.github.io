@@ -1,18 +1,17 @@
 @layer components.tables {
+	@property --elevation-fraction {
+		inherits: false;
+		initial-value: 0;
+		syntax: '<number>';
+	}
+
+	@property --elevation-percent {
+		inherits: false;
+		initial-value: 0%;
+		syntax: '<percentage>';
+	}
+
 	table {
-
-		@property --elevation-fraction {
-			inherits: false;
-			initial-value: 0;
-			syntax: '<number>';
-		}
-
-		@property --elevation-percent {
-			inherits: false;
-			initial-value: 0%;
-			syntax: '<percentage>';
-		}
-
 		background-color: var(--color-bg-main);
 		border-collapse: collapse;
 		font-size: var(--text-table);
