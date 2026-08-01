@@ -13,17 +13,54 @@ async function preparePage(page) {
 	}));
 }
 
-async function expectGalleryShape(page, galleryName, marker, expected) {
-	await page.getByRole('button', { name: galleryName, exact: true }).click();
-	await expect(page.locator(`#galleries img[data-filename="${marker}"]`)).toHaveCount(1);
-	const rowShapes = await page.locator('#galleries .photo-grid')
+function sortImagesNewestFirst(images) {
+	return [...images].sort((a, b) => {
+		const dateComparison = (b.dateCreated || '').localeCompare(a.dateCreated || '');
+		return dateComparison || (a.id || '').localeCompare(b.id || '');
+	});
+}
+
+async function expectGalleryLayout(page, galleryName) {
+	const button = page.getByRole('button', { name: galleryName, exact: true });
+	const galleryKey = await button.getAttribute('data-gallery');
+	const images = await page.evaluate(async key => {
+		const response = await fetch('/json/gallery-data.json');
+		const galleries = await response.json();
+		return galleries[key].images;
+	}, galleryKey);
+	const groups = Object.groupBy(images, image => image.layout);
+
+	await button.click();
+	await expect(button).toHaveAttribute('aria-pressed', 'true');
+
+	const newestImage = sortImagesNewestFirst(images)[0];
+	await expect(page.locator(`#galleries img[data-filename="${newestImage.id}"]`)).toHaveCount(1);
+
+	const rows = await page.locator('#galleries .photo-grid')
 		.evaluateAll(elements => elements.map(row => ({
-			count: row.querySelectorAll('.photo-thumb').length,
+			ids: Array.from(row.querySelectorAll('img[data-filename]'), image => image.dataset.filename),
 			layout: row.classList.contains('landscape-row')
 				? 'landscape'
 				: row.classList.contains('portrait-row') ? 'portrait' : 'pano'
 		})));
-	expect(rowShapes).toEqual(expected);
+
+	for (const [layout, maxPerRow] of Object.entries({ landscape: 5, portrait: 6 })) {
+		const expectedImages = sortImagesNewestFirst(groups[layout] || []);
+		const layoutRows = rows.filter(row => row.layout === layout);
+
+		expect(layoutRows).toHaveLength(Math.ceil(expectedImages.length / maxPerRow));
+		expect(layoutRows.flatMap(row => row.ids)).toEqual(expectedImages.map(image => image.id));
+		for (const row of layoutRows) {
+			expect(row.ids.length).toBeGreaterThanOrEqual(Math.min(3, expectedImages.length));
+			expect(row.ids.length).toBeLessThanOrEqual(maxPerRow);
+		}
+	}
+
+	const panoRows = rows.filter(row => row.layout === 'pano');
+	const expectedPanos = sortImagesNewestFirst(groups.pano || []);
+	expect(panoRows).toHaveLength(expectedPanos.length);
+	expect(panoRows.every(row => row.ids.length === 1)).toBe(true);
+	expect(panoRows.flatMap(row => row.ids)).toEqual(expectedPanos.map(image => image.id));
 }
 
 test.beforeEach(async ({ page }) => {
@@ -135,41 +172,10 @@ test('loads a gallery and opens a photo dialog', async ({ page }) => {
 test('balances gallery rows while keeping each orientation newest-first', async ({ page }) => {
 	await page.goto('/');
 	await page.locator('#galleries').scrollIntoViewIfNeeded();
-	await expectGalleryShape(page, 'Abstract', 'air-bubbles', [
-		{ count: 5, layout: 'landscape' },
-		{ count: 4, layout: 'portrait' },
-		{ count: 5, layout: 'portrait' }
-	]);
 
-	for (const layout of ['landscape', 'portrait']) {
-		const dates = await page.locator(`#galleries .${layout}-row [itemprop="dateCreated"]`)
-			.evaluateAll(elements => elements.map(element => element.getAttribute('content')));
-		expect(dates).toEqual([...dates].sort().reverse());
+	for (const galleryName of ['Abstract', 'Live Sound', 'Prospecting', 'High Country']) {
+		await expectGalleryLayout(page, galleryName);
 	}
-
-	await expectGalleryShape(page, 'Live Sound', '100-gecs', [
-		{ count: 4, layout: 'landscape' },
-		{ count: 6, layout: 'portrait' },
-		{ count: 4, layout: 'landscape' }
-	]);
-	await expectGalleryShape(page, 'Prospecting', 'alpine-tunnel', [
-		{ count: 5, layout: 'landscape' },
-		{ count: 5, layout: 'portrait' },
-		{ count: 4, layout: 'landscape' },
-		{ count: 3, layout: 'landscape' }
-	]);
-	await expectGalleryShape(page, 'High Country', 'above-the-clouds', [
-		{ count: 5, layout: 'landscape' },
-		{ count: 1, layout: 'pano' },
-		{ count: 4, layout: 'landscape' },
-		{ count: 1, layout: 'pano' },
-		{ count: 5, layout: 'landscape' },
-		{ count: 1, layout: 'pano' },
-		{ count: 4, layout: 'portrait' },
-		{ count: 1, layout: 'pano' },
-		{ count: 3, layout: 'landscape' },
-		{ count: 4, layout: 'portrait' }
-	]);
 });
 
 test('lazy-loads the map stylesheet, map, and markers', async ({ page }) => {
