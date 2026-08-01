@@ -22,9 +22,6 @@ jobs:
           cache: npm
           node-version: 26.5.0
 
-      - name: Install media tools
-        run: sudo apt-get update && sudo apt-get install --yes imagemagick libimage-exiftool-perl
-
       - name: Install dependencies
         run: npm ci
 
@@ -32,10 +29,10 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Build the site
-        run: npm run build
+        run: npm run build:deploy
 
       - name: Validate and lint
-        run: npm run check
+        run: npm run validate && npm run lint && node scripts/check-build.mjs
 
       - name: Run browser smoke tests
         run: npm run smoke
