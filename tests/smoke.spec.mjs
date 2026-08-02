@@ -104,6 +104,21 @@ test('opens a summit photo before the gallery has loaded', async ({ page }) => {
 	await expect(dialog.locator('.photo-title')).not.toBeEmpty();
 });
 
+test('keeps the summit viewer available when gallery loading fails', async ({ page }) => {
+	await page.route('**/json/gallery-data.json', route => route.fulfill({
+		body: JSON.stringify({ error: 'Unavailable' }),
+		contentType: 'application/json',
+		status: 503
+	}));
+
+	await page.goto('/');
+	await page.locator('#galleries').scrollIntoViewIfNeeded();
+	await expect(page.locator('#galleries')).toHaveAttribute('data-state', 'error');
+
+	await page.locator('#mountains .camera-link').first().click();
+	await expect(page.locator('dialog.photo-dialog')).toHaveAttribute('open', '');
+});
+
 test('loads a gallery and opens a photo dialog', async ({ page }) => {
 	await page.goto('/');
 	await page.locator('#galleries').scrollIntoViewIfNeeded();
@@ -188,4 +203,18 @@ test('lazy-loads the map stylesheet, map, and markers', async ({ page }) => {
 	await expect(mapStylesheet).toHaveCount(1);
 	await expect(page.locator('#map.maplibregl-map')).toBeVisible();
 	await expect(page.locator('#map .map-marker').first()).toBeVisible();
+});
+
+test('shows an error when the map style cannot load', async ({ page }) => {
+	await page.unroute('https://api.maptiler.com/maps/**');
+	await page.route('https://api.maptiler.com/maps/**', route => route.fulfill({
+		body: JSON.stringify({ error: 'Unavailable' }),
+		contentType: 'application/json',
+		status: 503
+	}));
+
+	await page.goto('/');
+	await page.locator('#map').scrollIntoViewIfNeeded();
+
+	await expect(page.locator('#map .error')).toHaveText('Unable to load map data');
 });

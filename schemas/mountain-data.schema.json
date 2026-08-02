@@ -10,7 +10,7 @@
 			"Peak": { "type": "string", "minLength": 1 },
 			"Elevation": { "type": "string", "pattern": "^[0-9]{2},[0-9]{3}$" },
 			"Range": { "type": "string", "minLength": 1 },
-			"Date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+			"Date": { "type": "string", "format": "date" },
 			"Image": { "type": "string", "pattern": "^/images/summits/.+\\.(avif|jpe?g|png)$" },
 			"ranked": { "type": "boolean" }
 		}

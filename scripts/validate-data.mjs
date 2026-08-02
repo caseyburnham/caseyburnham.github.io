@@ -2,6 +2,7 @@ import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import Ajv from 'ajv';
+import { isValidCalendarDate, isValidIsoDate } from '../js/utils/date-utils.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const datasets = [
@@ -12,6 +13,13 @@ const datasets = [
 	'production-data'
 ];
 const ajv = new Ajv({ allErrors: true });
+ajv.addFormat('date', { type: 'string', validate: isValidIsoDate });
+ajv.addKeyword({
+	keyword: 'validCalendarDate',
+	type: 'object',
+	schemaType: 'boolean',
+	validate: (enabled, value) => !enabled || isValidCalendarDate(value.year, value.month, value.day)
+});
 const data = new Map();
 const failures = [];
 

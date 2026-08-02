@@ -161,20 +161,6 @@ Layer order follows:
 reset → tokens → base → layout → components → integrations → utilities
 ```
 
-### Existing Git media history
-
-Optimizing the current files does not remove their older full-resolution
-versions from Git's database. Cleaning that database is a separate,
-history-rewriting operation: it changes commit IDs and requires a coordinated
-force-push. Before doing it, commit the optimized media, make a repository
-backup, and ensure any other clones can be replaced.
-
-The safest cleanup for this repository is to remove
-`images/galleries/` and `images/summits/` from all old commits with
-`git-filter-repo`, restore only the current optimized versions, commit them, and
-force-push the rewritten branches and tags. Do not run that operation as part
-of the normal Nova task.
-
 ## Caching
 
 Only content-hashed files under `/assets/` are cached for one year with

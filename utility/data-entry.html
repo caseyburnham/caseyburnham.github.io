@@ -107,32 +107,81 @@
   <h1>Data entry</h1>
   <div class="card">
     <div class="tab-row" role="tablist">
-      <button class="tab active" onclick="switchTab('mountain', this)" role="tab" aria-selected="true">Mountain</button>
-      <button class="tab" onclick="switchTab('concert', this)" role="tab" aria-selected="false">Concert</button>
-      <button class="tab" onclick="switchTab('production', this)" role="tab" aria-selected="false">Production</button>
+      <button class="tab active" data-tab="mountain" role="tab" aria-selected="true">Mountain</button>
+      <button class="tab" data-tab="concert" role="tab" aria-selected="false">Concert</button>
+      <button class="tab" data-tab="production" role="tab" aria-selected="false">Production</button>
     </div>
 
     <div class="file-bar">
       <span class="file-name" id="file-label">No file open</span>
-      <button class="btn btn-sm" onclick="openFile()">Open JSON…</button>
+      <button class="btn btn-sm" id="file-open">Open JSON…</button>
     </div>
 
     <div id="entries-container"></div>
 
-    <button class="btn-add" onclick="addEntryBlock()">+ Add another entry</button>
+    <button class="btn-add" id="add-entry">+ Add another entry</button>
 
     <div class="btn-row">
-      <button class="btn btn-primary" onclick="saveAll()">Save all</button>
-      <span class="status" id="status"></span>
+      <button class="btn btn-primary" id="save-all">Save all</button>
+      <span class="status" id="status" aria-live="polite"></span>
     </div>
   </div>
 </div>
 
-<script>
+<script type="module">
+  import { isValidIsoDate as isDate } from '../js/utils/date-utils.js';
+
   let currentTab = 'mountain';
   let fileHandle = null;
-  let fileData = null;
   let blockCount = 0;
+
+  const isString = value => typeof value === 'string';
+  const isNonEmptyString = value => isString(value) && value.length > 0;
+  const isElevation = value => isString(value) && /^[0-9]{2},[0-9]{3}$/.test(value);
+  const isSummitImage = value => isString(value) && /^\/images\/summits\/.+\.(avif|jpe?g|png)$/.test(value);
+  const isYear = value => isString(value) && /^([0-9]{4}|—)$/.test(value);
+  const isNullableString = value => value === null || isString(value);
+  const requiredField = (validate, description) => ({ required: true, validate, description });
+  const optionalField = (validate, description) => ({ validate, description });
+
+  const DATASETS = {
+    mountain: {
+      filename: 'mountain-data.json',
+      fields: {
+        Peak: requiredField(isNonEmptyString, 'must be a non-empty string'),
+        Elevation: requiredField(isElevation, 'must use the format 13,351'),
+        Range: requiredField(isNonEmptyString, 'must be a non-empty string'),
+        Date: requiredField(isDate, 'must use the format YYYY-MM-DD'),
+        Image: requiredField(isSummitImage, 'must be an AVIF, JPEG, or PNG in /images/summits/'),
+        ranked: requiredField(value => typeof value === 'boolean', 'must be true or false')
+      }
+    },
+    concert: {
+      filename: 'concert-data.json',
+      fields: {
+        Headliner: requiredField(isNonEmptyString, 'must be a non-empty string'),
+        Support: optionalField(isString, 'must be a string'),
+        Venue: requiredField(isNonEmptyString, 'must be a non-empty string'),
+        Year: requiredField(isYear, 'must be a four-digit year or —'),
+        '😃': requiredField(isNonEmptyString, 'must be a non-empty string'),
+        '📷': requiredField(isNonEmptyString, 'must be a non-empty string'),
+        PhotoLink: requiredField(isNullableString, 'must be a string or null')
+      }
+    },
+    production: {
+      filename: 'production-data.json',
+      fields: {
+        Production: requiredField(isNonEmptyString, 'must be a non-empty string'),
+        Company: requiredField(isNonEmptyString, 'must be a non-empty string'),
+        A1: requiredField(isString, 'must be a string'),
+        A2: requiredField(isString, 'must be a string'),
+        SD: requiredField(isString, 'must be a string'),
+        AD: requiredField(isString, 'must be a string'),
+        LZ: requiredField(isString, 'must be a string'),
+        Notes: requiredField(isString, 'must be a string')
+      }
+    }
+  };
 
   // --- Tab switching ---
   function switchTab(tab, btn) {
@@ -141,6 +190,7 @@
     btn.classList.add('active');
     btn.setAttribute('aria-selected', 'true');
     setStatus('');
+    resetFile();
     // Rebuild with a single fresh block
     const container = document.getElementById('entries-container');
     container.innerHTML = '';
@@ -155,23 +205,37 @@
       return;
     }
     try {
-      [fileHandle] = await window.showOpenFilePicker({
+      const [selectedHandle] = await window.showOpenFilePicker({
         types: [{ description: 'JSON files', accept: { 'application/json': ['.json'] } }],
         multiple: false
       });
-      const file = await fileHandle.getFile();
-      const text = await file.text();
-      fileData = JSON.parse(text);
-      if (!Array.isArray(fileData)) {
-        setStatus('JSON must be an array at the top level', true);
-        fileHandle = null; fileData = null;
-        return;
+      const dataset = DATASETS[currentTab];
+      const file = await selectedHandle.getFile();
+      if (file.name !== dataset.filename) {
+        throw new Error(`Choose ${dataset.filename} for the ${currentTab} tab`);
       }
-      document.getElementById('file-label').textContent = file.name + '  (' + fileData.length + ' entries)';
+      const text = await file.text();
+      const data = JSON.parse(text);
+      const error = validateDataset(data, currentTab);
+      if (error) {
+        throw new Error(`${dataset.filename} is invalid: ${error}`);
+      }
+      fileHandle = selectedHandle;
+      document.getElementById('file-label').textContent = file.name + '  (' + data.length + ' entries)';
       setStatus('Opened ' + file.name, false);
     } catch (e) {
-      if (e.name !== 'AbortError') setStatus('Could not open: ' + e.message, true);
+      if (e.name !== 'AbortError') {
+        resetFile();
+        setStatus('Could not open: ' + e.message, true);
+      }
     }
+  }
+
+  function resetFile() {
+    const filename = DATASETS[currentTab].filename;
+    fileHandle = null;
+    document.getElementById('file-label').textContent = `No ${filename} open`;
+    document.getElementById('file-open').textContent = `Open ${filename}…`;
   }
 
   // --- Build form HTML per tab ---
@@ -225,7 +289,7 @@
             <label>Photo (📷)</label>
             <select data-key="📷">
               <option value="—">— (none)</option>
-              <option value="📷">📷 (taken)</option>
+              <option value="📸">📸 (taken)</option>
             </select>
           </div>
         </div>
@@ -264,7 +328,7 @@
     block.innerHTML = `
       <div class="entry-block-header" style="${showHeader ? '' : 'display:none'}">
         <span class="entry-block-label">Entry ${id}</span>
-        <button class="btn-remove" onclick="removeBlock(${id})" title="Remove this entry">×</button>
+        <button class="btn-remove" data-remove-block="${id}" title="Remove this entry">×</button>
       </div>
       ${buildFormHTML(id)}
     `;
@@ -313,39 +377,39 @@
     return entry;
   }
 
-  // --- Entry validation: keep generated records compatible with the site schemas ---
-  const REQUIRED_FIELDS = {
-    mountain: ['Peak', 'Elevation', 'Range', 'Date', 'Image'],
-    concert: ['Headliner', 'Venue', 'Year', '😃'],
-    production: ['Production', 'Company']
-  };
-
-  function validateEntry(entry) {
-    const missing = REQUIRED_FIELDS[currentTab].find(key => !entry[key]);
-    if (missing) return missing + ' is required';
-
-    if (currentTab === 'mountain') {
-      if (!/^[0-9]{2},[0-9]{3}$/.test(entry.Elevation)) {
-        return 'Elevation must use the format 13,351';
-      }
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.Date)) {
-        return 'Date climbed must use the format YYYY-MM-DD';
-      }
-      if (!/^\/images\/summits\/.+\.(avif|jpe?g|png)$/.test(entry.Image)) {
-        return 'Image must be an AVIF, JPEG, or PNG in /images/summits/';
-      }
+  // --- Dataset validation: mirror the local JSON schemas without a runtime dependency ---
+  function validateEntry(entry, tab = currentTab) {
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+      return 'must be an object';
     }
 
-    if (currentTab === 'concert' && !/^([0-9]{4}|—)$/.test(entry.Year)) {
-      return 'Year must be a four-digit year or —';
-    }
+    const fields = DATASETS[tab].fields;
+    const unexpected = Object.keys(entry).find(key => !Object.hasOwn(fields, key));
+    if (unexpected) return `contains unexpected field "${unexpected}"`;
 
+    for (const [key, rule] of Object.entries(fields)) {
+      if (!Object.hasOwn(entry, key)) {
+        if (rule.required) return `${key} is required`;
+        continue;
+      }
+      if (!rule.validate(entry[key])) return `${key} ${rule.description}`;
+    }
+    return '';
+  }
+
+  function validateDataset(data, tab = currentTab) {
+    if (!Array.isArray(data)) return 'top level must be an array';
+
+    for (let index = 0; index < data.length; index++) {
+      const error = validateEntry(data[index], tab);
+      if (error) return `entry ${index + 1} ${error}`;
+    }
     return '';
   }
 
   // --- Save all blocks ---
   async function saveAll() {
-    if (!fileHandle || !fileData) { setStatus('Open a JSON file first', true); return; }
+    if (!fileHandle) { setStatus(`Open ${DATASETS[currentTab].filename} first`, true); return; }
 
     const blocks = document.querySelectorAll('.entry-block');
     if (!blocks.length) { setStatus('No entries to save', true); return; }
@@ -364,15 +428,22 @@
     });
     if (invalid) return;
 
-    // Prepend all entries (reversed so first form ends up first in file)
-    const toInsert = entries.slice().reverse();
-    toInsert.forEach(e => fileData.unshift(e));
-
     try {
+      const file = await fileHandle.getFile();
+      const currentData = JSON.parse(await file.text());
+      const currentError = validateDataset(currentData);
+      if (currentError) {
+        throw new Error(`The file changed and is now invalid: ${currentError}`);
+      }
+
+      const nextData = [...entries, ...currentData];
+      const nextError = validateDataset(nextData);
+      if (nextError) throw new Error(`Refusing to write invalid data: ${nextError}`);
+
       const writable = await fileHandle.createWritable();
-      await writable.write(JSON.stringify(fileData, null, '\t'));
+      await writable.write(JSON.stringify(nextData, null, '\t'));
       await writable.close();
-      const count = fileData.length;
+      const count = nextData.length;
       document.getElementById('file-label').textContent = fileHandle.name + '  (' + count + ' entries)';
       const n = entries.length;
       setStatus('Saved ' + n + ' entr' + (n === 1 ? 'y' : 'ies') + ' — ' + count + ' total', false);
@@ -381,8 +452,6 @@
       blockCount = 0;
       addEntryBlock();
     } catch (e) {
-      // Roll back
-      for (let i = 0; i < entries.length; i++) fileData.shift();
       setStatus('Write failed: ' + e.message, true);
     }
   }
@@ -393,7 +462,20 @@
     el.className = 'status' + (isErr === true ? ' err' : isErr === false ? ' ok' : '');
   }
 
-  // Init with first block
+  document.querySelector('.tab-row').addEventListener('click', event => {
+    const button = event.target.closest('button[data-tab]');
+    if (button) switchTab(button.dataset.tab, button);
+  });
+  document.getElementById('file-open').addEventListener('click', openFile);
+  document.getElementById('add-entry').addEventListener('click', addEntryBlock);
+  document.getElementById('save-all').addEventListener('click', saveAll);
+  document.getElementById('entries-container').addEventListener('click', event => {
+    const button = event.target.closest('button[data-remove-block]');
+    if (button) removeBlock(button.dataset.removeBlock);
+  });
+
+  // Init with the first dataset and entry block
+  resetFile();
   addEntryBlock();
 </script>
 </body>

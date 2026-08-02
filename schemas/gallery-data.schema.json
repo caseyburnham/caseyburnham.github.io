@@ -38,7 +38,7 @@
 				"id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9,&@'-]*$" },
 				"alt": { "type": "string", "minLength": 1 },
 				"title": { "type": "string", "minLength": 1 },
-				"dateCreated": { "type": "string", "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-([0-2][0-9]|3[01])$" },
+				"dateCreated": { "type": "string", "format": "date" },
 				"copyrightNotice": { "type": "string", "minLength": 1 },
 				"layout": { "enum": ["landscape", "portrait", "pano"] },
 				"sources": {

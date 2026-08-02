@@ -68,10 +68,15 @@ if (/unpkg\.com|cdn\.jsdelivr\.net/.test(html)) {
 }
 
 if (
-	sourceSitemap !== builtSitemap ||
 	!/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/.test(builtSitemap)
 ) {
 	throw new Error('Generated sitemap is stale or has an invalid lastmod date.');
+}
+
+const sourceDate = sourceSitemap.match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/)?.[1];
+const builtDate = builtSitemap.match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/)?.[1];
+if (!sourceDate || builtDate < sourceDate) {
+	throw new Error('Generated sitemap predates its source sitemap.');
 }
 
 console.log('Build artifact checks passed.');

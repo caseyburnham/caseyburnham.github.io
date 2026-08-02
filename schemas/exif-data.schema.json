@@ -28,6 +28,7 @@
 		},
 		"date": {
 			"type": "object",
+			"validCalendarDate": true,
 			"additionalProperties": false,
 			"required": ["_ctor", "year", "month", "day", "hour", "minute", "second", "tzoffsetMinutes", "rawValue", "zoneName", "inferredZone"],
 			"properties": {

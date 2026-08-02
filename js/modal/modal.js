@@ -1,4 +1,4 @@
-import dataCache from '../utils/shared-data.js';
+import dataCache from '../utils/data-cache.js';
 import {
 	formatExifDate,
 	formatElevation,
@@ -28,13 +28,15 @@ export class PhotoModal {
 		this.wheelLastEventTime = 0;
 		this.wheelNavigationTime = 0;
 		this.container = triggerContainer;
-		this.abortController = new AbortController();
 	}
 	async initialize() {
 		this._createModal();
 		this._setupEventListeners();
 		this.exifData = await dataCache.fetch('/json/exif-data.json')
-			.catch(() => ({}));
+			.catch(error => {
+				console.warn('Photo metadata could not be loaded:', error);
+				return {};
+			});
 	}
 	_createModal() {
 		const template = document.getElementById('photo-modal-template');
@@ -67,23 +69,16 @@ export class PhotoModal {
 		[this.activeImage, this.standbyImage] = images;
 	}
 	_setupEventListeners() {
-		const {
-			signal
-		} = this.abortController;
 		this.container.addEventListener('click', (e) => {
 			const trigger = e.target.closest('.photo-thumb, .camera-link');
 			if (!trigger) return;
 			e.preventDefault();
 			this.open(trigger);
-		}, {
-			signal
 		});
 		this.elements.modal.addEventListener('click', (e) => {
 			if (e.target === this.elements.modal) {
 				this.close();
 			}
-		}, {
-			signal
 		});
 		this.elements.modal.addEventListener('keydown', (e) => {
 			if (e.key === 'ArrowRight') {
@@ -94,30 +89,15 @@ export class PhotoModal {
 				e.preventDefault();
 				this.navigate(-1);
 			}
-		}, {
-			signal
 		});
-		this.elements.previous.addEventListener('click', () => this.navigate(-1), {
-			signal
-		});
-		this.elements.next.addEventListener('click', () => this.navigate(1), {
-			signal
-		});
-		this.elements.modal.addEventListener('close', () => this._handleClose(), {
-			signal
-		});
-		this.elements.media.addEventListener('pointerdown', (e) => this._startSwipe(e), {
-			signal
-		});
-		this.elements.media.addEventListener('pointerup', (e) => this._finishSwipe(e), {
-			signal
-		});
-		this.elements.media.addEventListener('pointercancel', () => this._cancelSwipe(), {
-			signal
-		});
+		this.elements.previous.addEventListener('click', () => this.navigate(-1));
+		this.elements.next.addEventListener('click', () => this.navigate(1));
+		this.elements.modal.addEventListener('close', () => this._handleClose());
+		this.elements.media.addEventListener('pointerdown', (e) => this._startSwipe(e));
+		this.elements.media.addEventListener('pointerup', (e) => this._finishSwipe(e));
+		this.elements.media.addEventListener('pointercancel', () => this._cancelSwipe());
 		document.addEventListener('wheel', (e) => this._handleWheel(e), {
-			passive: false,
-			signal
+			passive: false
 		});
 	}
 	/**
@@ -237,9 +217,9 @@ export class PhotoModal {
 		incoming.removeAttribute('aria-hidden');
 		outgoing.classList.add('is-leaving');
 		incoming.classList.add('is-incoming');
-			this.transitionTimer = setTimeout(() => {
-				if (token === this.renderToken) this._finishImageTransition();
-			}, 220);
+		this.transitionTimer = setTimeout(() => {
+			if (token === this.renderToken) this._finishImageTransition();
+		}, 220);
 	}
 	_finishImageTransition() {
 		const incoming = this.standbyImage;
@@ -465,15 +445,6 @@ export class PhotoModal {
 		const canNavigate = this.photos.length > 1 && this.currentIndex >= 0;
 		this.elements.previous.hidden = !canNavigate;
 		this.elements.next.hidden = !canNavigate;
-	}
-	destroy() {
-		this.abortController.abort();
-		clearTimeout(this.loadingTimer);
-		clearTimeout(this.transitionTimer);
-		clearTimeout(this.wheelEndTimer);
-		clearTimeout(this.closeCleanupTimer);
-		this.elements.modal?.remove();
-		this.elements = {};
 	}
 	_getBestSource(el) {
 		const img = el.querySelector('img') || el;

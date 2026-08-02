@@ -7,7 +7,7 @@ export default [
 	},
 	eslint.configs.recommended,
 	{
-		files: ['js/**/*.js'],
+		files: ['js/**/*.js', 'utility/**/*.js'],
 		languageOptions: {
 			ecmaVersion: 'latest',
 			globals: {
@@ -23,6 +23,7 @@ export default [
 			'netlify/**/*.mjs',
 			'config/playwright.config.mjs',
 			'scripts/**/*.mjs',
+			'test/**/*.mjs',
 			'tests/**/*.mjs'
 		],
 		languageOptions: {
@@ -35,7 +36,7 @@ export default [
 		}
 	},
 	{
-		files: ['config/**/*.js'],
+		files: ['config/**/*.cjs'],
 		languageOptions: {
 			ecmaVersion: 'latest',
 			globals: globals.node,

@@ -1,46 +1,40 @@
 {
 	"name": "gtp-site",
 	"version": "1.0.0",
-	"description": "It's kind of like a nutrition label — but instead of calories and sodium, you’ll find mountains, concerts, photography, and productions I've worked on. # [![Netlify Status](https://api.netlify.com/api/v1/badges/24b0e648-c6da-49c5-8d87-8efef5a893d6/deploy-status)](https://app.netlify.com/projects/crashandburnham/deploys)",
-	"main": "index.js",
+	"private": true,
+	"description": "A framework-free personal portfolio for mountains, concerts, photography, and production work.",
 	"scripts": {
 		"build": "npm run build:media && node scripts/build.mjs",
 		"build:deploy": "node scripts/build.mjs",
 		"build:css": "postcss css/main/_imports.css -o css/dist/style.css --config config && postcss css/maps/_imports.css -o css/dist/map.css --config config",
 		"build:media": "python3 scripts/build-media.py",
-		"check": "npm run build:media && npm run validate && npm run lint && node scripts/check-build.mjs && npm run check:media",
+		"check": "npm run build:media && npm run validate && npm run lint && npm run test:unit && node scripts/check-build.mjs && npm run check:media",
 		"check:media": "python3 scripts/build-media.py --check",
 		"dev": "netlify dev",
 		"lint": "npm run lint:js && npm run lint:css",
 		"lint:css": "stylelint \"css/**/*.css\" --config config/stylelint.config.mjs",
-		"lint:js": "eslint . --config config/eslint.config.mjs",
+		"lint:js": "eslint . --config config/eslint.config.mjs && node scripts/lint-inline-modules.mjs",
+		"lint:js:fix": "eslint . --config config/eslint.config.mjs --fix && node scripts/lint-inline-modules.mjs",
 		"preview": "node scripts/serve-dist.mjs",
 		"smoke": "playwright test --config config/playwright.config.mjs",
+		"test:unit": "node --test test/*.test.mjs",
 		"format:css": "node scripts/sort-css.mjs",
 		"validate": "node scripts/validate-data.mjs",
 		"watch:css": "node scripts/watch-css.mjs",
 		"watch:dev": "node scripts/watch-dev.mjs"
 	},
-	"keywords": [],
 	"author": "Casey Burnham",
 	"license": "ISC",
-	"type": "commonjs",
-	"engines": {
-		"node": ">=26.5.0 <27"
-	},
+	"type": "module",
 	"overrides": {
 		"ipx": {
 			"sharp": "0.35.3"
 		}
 	},
-	"dependencies": {
-		"exiftool-vendored": "^36.1.0"
-	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
 		"@playwright/test": "^1.61.1",
 		"ajv": "^8.20.0",
-		"baseline-browser-mapping": "^2.9.14",
 		"chart.js": "^4.5.0",
 		"cssnano": "^7.1.1",
 		"esbuild": "^0.28.1",

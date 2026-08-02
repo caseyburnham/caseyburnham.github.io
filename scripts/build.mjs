@@ -1,9 +1,11 @@
 import { createHash } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import {
+	access,
 	cp,
 	mkdir,
 	readFile,
+	rename,
 	rm,
 	writeFile
 } from 'node:fs/promises';
@@ -16,22 +18,22 @@ import postcss from 'postcss';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
-const assets = path.join(dist, 'assets');
+const staging = path.join(root, 'build');
+const previousDist = path.join(root, '.dist-previous');
+const assets = path.join(staging, 'assets');
 const cssEntries = {
 	main: {
 		source: path.join(root, 'css/main/_imports.css'),
-		preview: path.join(root, 'css/dist/style.css'),
 		prefix: 'style'
 	},
 	map: {
 		source: path.join(root, 'css/maps/_imports.css'),
-		preview: path.join(root, 'css/dist/map.css'),
 		prefix: 'map'
 	}
 };
 const require = createRequire(import.meta.url);
 const execFileAsync = promisify(execFile);
-const postcssConfig = require('../config/postcss.config.js');
+const postcssConfig = require('../config/postcss.config.cjs');
 const sitemapInputs = ['index.html', 'css', 'js', 'json', 'images'];
 const sitemapTimeZone = 'America/Denver';
 
@@ -44,7 +46,7 @@ function shouldCopy(source) {
 	return !segments.includes('.DS_Store') && !segments.includes('ORIGINALS');
 }
 
-async function compileStylesheet({ source: entry, preview, prefix }) {
+async function compileStylesheet({ source: entry, prefix }) {
 	const source = await readFile(entry, 'utf8');
 	const result = await postcss(postcssConfig.plugins).process(source, {
 		from: entry,
@@ -52,11 +54,7 @@ async function compileStylesheet({ source: entry, preview, prefix }) {
 	});
 	const filename = `${prefix}-${hash(result.css)}.css`;
 
-	await mkdir(path.dirname(preview), { recursive: true });
-	await Promise.all([
-		writeFile(path.join(assets, filename), result.css),
-		writeFile(preview, result.css)
-	]);
+	await writeFile(path.join(assets, filename), result.css);
 
 	return `/assets/${filename}`;
 }
@@ -74,7 +72,7 @@ async function bundleJavaScript(mapCss) {
 	const result = await bundle({
 		absWorkingDir: root,
 		entryPoints: { main: 'js/js-imports.js' },
-		outdir: 'dist/assets',
+		outdir: assets,
 		entryNames: '[name]-[hash]',
 		chunkNames: 'chunks/chunk-[hash]',
 		assetNames: 'media/[name]-[hash]',
@@ -98,7 +96,10 @@ async function bundleJavaScript(mapCss) {
 		throw new Error('JavaScript entry point was not emitted.');
 	}
 
-	return `/${toPosix(entry[0]).replace(/^dist\//, '')}`;
+	const emittedPath = path.isAbsolute(entry[0])
+		? entry[0]
+		: path.resolve(root, entry[0]);
+	return `/${toPosix(path.relative(staging, emittedPath))}`;
 }
 
 async function writeHtml({ css, js }) {
@@ -112,7 +113,7 @@ async function writeHtml({ css, js }) {
 		throw new Error('Build asset references were not updated in index.html.');
 	}
 
-	await writeFile(path.join(dist, 'index.html'), html);
+	await writeFile(path.join(staging, 'index.html'), html);
 }
 
 function getCurrentSitemapDate() {
@@ -162,48 +163,78 @@ async function writeSitemap() {
 		throw new Error('sitemap.xml is missing a valid <lastmod> value.');
 	}
 
-	await Promise.all([
-		writeFile(filename, sitemap),
-		writeFile(path.join(dist, 'sitemap.xml'), sitemap)
-	]);
+	await writeFile(path.join(staging, 'sitemap.xml'), sitemap);
 }
 
 async function copyStaticFiles() {
 	await Promise.all([
-		cp(path.join(root, 'images'), path.join(dist, 'images'), {
+		cp(path.join(root, 'images'), path.join(staging, 'images'), {
 			recursive: true,
 			filter: shouldCopy
 		}),
-		cp(path.join(root, 'json'), path.join(dist, 'json'), {
+		cp(path.join(root, 'json'), path.join(staging, 'json'), {
 			recursive: true,
 			filter: shouldCopy
 		}),
 		...['_headers', 'robots.txt'].map(filename =>
-			cp(path.join(root, filename), path.join(dist, filename))
+			cp(path.join(root, filename), path.join(staging, filename))
 		)
 	]);
 }
 
+async function pathExists(filename) {
+	try {
+		await access(filename);
+		return true;
+	} catch {
+		return false;
+	}
+}
+
+async function publishBuild() {
+	const hasExistingDist = await pathExists(dist);
+	if (hasExistingDist) {
+		await rm(previousDist, { force: true, recursive: true });
+		await rename(dist, previousDist);
+	}
+
+	try {
+		await rename(staging, dist);
+	} catch (error) {
+		if (hasExistingDist) await rename(previousDist, dist);
+		throw error;
+	}
+
+	await rm(previousDist, { force: true, recursive: true });
+}
+
 async function main() {
-	await rm(dist, { force: true, recursive: true });
+	await rm(staging, { force: true, recursive: true });
 	await mkdir(assets, { recursive: true });
 
-	const { css, mapCss } = await compileStylesheets();
-	const js = await bundleJavaScript(mapCss);
+	try {
+		const { css, mapCss } = await compileStylesheets();
+		const js = await bundleJavaScript(mapCss);
 
-	await Promise.all([
-		writeHtml({ css, js }),
-		copyStaticFiles(),
-		writeSitemap(),
-		writeFile(
-			path.join(dist, 'asset-manifest.json'),
-			`${JSON.stringify({ css, mapCss, js }, null, 2)}\n`
-		)
-	]);
+		await Promise.all([
+			writeHtml({ css, js }),
+			copyStaticFiles(),
+			writeSitemap(),
+			writeFile(
+				path.join(staging, 'asset-manifest.json'),
+				`${JSON.stringify({ css, mapCss, js }, null, 2)}\n`
+			)
+		]);
 
-	console.log(
-		`Built ${path.relative(root, dist)} with ${css}, ${mapCss}, and ${js}`
-	);
+		await publishBuild();
+
+		console.log(
+			`Built ${path.relative(root, dist)} with ${css}, ${mapCss}, and ${js}`
+		);
+	} catch (error) {
+		await rm(staging, { force: true, recursive: true });
+		throw error;
+	}
 }
 
 await main();
