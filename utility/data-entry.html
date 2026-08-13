@@ -128,15 +128,23 @@
   </div>
 </div>
 
-<script type="module">
-  import { isValidIsoDate as isDate } from '../js/utils/date-utils.js';
-
+<script>
   let currentTab = 'mountain';
   let fileHandle = null;
   let blockCount = 0;
 
   const isString = value => typeof value === 'string';
   const isNonEmptyString = value => isString(value) && value.length > 0;
+  const isDate = value => {
+    if (!isString(value)) return false;
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+    if (!match) return false;
+    const [, year, month, day] = match.map(Number);
+    if (month < 1 || month > 12 || day < 1) return false;
+    const isLeapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+    const daysInMonth = [31, isLeapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    return day <= daysInMonth[month - 1];
+  };
   const isElevation = value => isString(value) && /^[0-9]{2},[0-9]{3}$/.test(value);
   const isSummitImage = value => isString(value) && /^\/images\/summits\/.+\.(avif|jpe?g|png)$/.test(value);
   const isYear = value => isString(value) && /^([0-9]{4}|—)$/.test(value);
@@ -178,7 +186,8 @@
         SD: requiredField(isString, 'must be a string'),
         AD: requiredField(isString, 'must be a string'),
         LZ: requiredField(isString, 'must be a string'),
-        Notes: requiredField(isString, 'must be a string')
+        Notes: requiredField(isString, 'must be a string'),
+        visible: requiredField(value => typeof value === 'boolean', 'must be true or false')
       }
     }
   };
@@ -310,7 +319,11 @@
         <div class="role-check"><input type="checkbox" id="ad-${id}" data-key="AD" data-type="check"><label for="ad-${id}">AD</label></div>
         <div class="role-check"><input type="checkbox" id="lz-${id}" data-key="LZ" data-type="check"><label for="lz-${id}">LZ</label></div>
       </div>
-      <div class="field" style="margin-top:14px"><label>Notes</label><input type="text" data-key="Notes" placeholder="😸"></div>`;
+      <div class="field" style="margin-top:14px"><label>Notes</label><input type="text" data-key="Notes" placeholder="😸"></div>
+      <div class="checkbox-field">
+        <input type="checkbox" id="visible-${id}" data-key="visible" data-type="bool" checked>
+        <label for="visible-${id}">Show on site</label>
+      </div>`;
   }
 
   // --- Add an entry block to the container ---

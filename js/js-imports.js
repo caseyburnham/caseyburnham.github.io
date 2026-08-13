@@ -10,9 +10,14 @@ import {
 	PhotoModal
 }
 from './modal/modal.js';
+import {
+	getPhotoRoute,
+	setPhotoRoute
+}
+from './utils/gallery-route.js';
 const MAP_STYLESHEET_URL = typeof __MAP_STYLESHEET_URL__ === 'string' ? __MAP_STYLESHEET_URL__ : '/css/dist/map.css';
 initCandy();
-initTables()
+const tablesReady = initTables()
 	.catch(error => {
 		console.error('Failed to initialize tables:', error);
 	});
@@ -24,6 +29,8 @@ void photoModalReady.catch(error => {
 	console.error('Failed to initialize the photo viewer:', error);
 });
 let mapStylesheetPromise;
+let galleriesPromise;
+let applyingGalleryRoute = false;
 
 function loadMapStylesheet() {
 	if (mapStylesheetPromise) return mapStylesheetPromise;
@@ -49,14 +56,20 @@ function loadMapStylesheet() {
 const lazyFeatures = [{
 	selector: '#galleries',
 	load: async () => {
-		const [{
-			Galleries
-		}] = await Promise.all([
-			import('./ui/galleries.js'),
-			photoModalReady
-		]);
-		await new Galleries()
-			.init();
+		if (!galleriesPromise) {
+			galleriesPromise = Promise.all([
+				import('./ui/galleries.js'),
+				photoModalReady
+			])
+				.then(async ([{
+					Galleries
+				}]) => {
+					const galleries = new Galleries();
+					await galleries.init();
+					return galleries;
+				});
+		}
+		await galleriesPromise;
 	}
 }, {
 	selector: '#tables',
@@ -117,3 +130,68 @@ for (const feature of lazyFeatures) {
 	featureByElement.set(element, feature);
 	observer.observe(element);
 }
+
+async function applyPhotoRoute({
+	withTransition = false
+} = {}) {
+	const route = getPhotoRoute();
+	if (!route) return;
+	if (route.section === 'mountains') {
+		applyingGalleryRoute = true;
+		try {
+			await Promise.all([tablesReady, photoModalReady]);
+			if (!route.photo) {
+				photoModal.close();
+				return;
+			}
+			document.querySelector(`#mountains .camera-link[data-photo-id="${CSS.escape(route.photo)}"]`)
+				?.click();
+		}
+		finally {
+			applyingGalleryRoute = false;
+		}
+		return;
+	}
+	const galleriesElement = document.querySelector('#galleries');
+	const feature = featureByElement.get(galleriesElement);
+	if (!feature) return;
+	applyingGalleryRoute = true;
+	try {
+		await loadFeature(feature, galleriesElement);
+		const galleries = await galleriesPromise;
+		if (!route.photo) photoModal.close();
+		galleries.applyRoute(route, {
+			withTransition
+		});
+	}
+	finally {
+		applyingGalleryRoute = false;
+	}
+}
+
+document.addEventListener('gallerychange', event => {
+	if (applyingGalleryRoute) return;
+	setPhotoRoute({
+		section: 'galleries',
+		...event.detail
+	});
+});
+document.addEventListener('photochange', event => {
+	if (applyingGalleryRoute) return;
+	const current = getPhotoRoute();
+	if (!event.detail.photo && !current) return;
+	setPhotoRoute({
+		section: event.detail.section || current?.section,
+		gallery: event.detail.gallery || current?.gallery,
+		photo: event.detail.photo
+	}, {
+		replace: !event.detail.photo
+	});
+});
+window.addEventListener('hashchange', () => applyPhotoRoute({
+	withTransition: true
+}));
+window.addEventListener('popstate', () => applyPhotoRoute({
+	withTransition: true
+}));
+void applyPhotoRoute();

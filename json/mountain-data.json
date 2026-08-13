@@ -1,5 +1,37 @@
 [
 	{
+		"Peak": "Iowa Peak",
+		"Elevation": "13,831",
+		"Range": "Sawatch",
+		"Date": "2026-08-09",
+		"Image": "/images/summits/iowa-peak.avif",
+		"ranked": false
+	},
+	{
+		"Peak": "Missouri Mountain",
+		"Elevation": "14,069",
+		"Range": "Sawatch",
+		"Date": "2026-08-09",
+		"Image": "/images/summits/missouri-mountain.avif",
+		"ranked": true
+	},
+	{
+		"Peak": "Peak Nine",
+		"Elevation": "13,207",
+		"Range": "Tenmile",
+		"Date": "2026-08-02",
+		"Image": "/images/summits/peak-nine.avif",
+		"ranked": true
+	},
+	{
+		"Peak": "Peak Ten",
+		"Elevation": "13,641",
+		"Range": "Tenmile",
+		"Date": "2026-08-02",
+		"Image": "/images/summits/peak-ten.avif",
+		"ranked": true
+	},
+	{
 		"Peak": "Rogers Peak",
 		"Elevation": "13,361",
 		"Range": "Front",
@@ -117,7 +149,7 @@
 		"Range": "Sawatch",
 		"Date": "2025-08-17",
 		"Image": "/images/summits/un-13738.jpeg",
-		"ranked": false
+		"ranked": true
 	},
 	{
 		"Peak": "Mount Champion",
@@ -189,7 +221,7 @@
 		"Range": "San Juan",
 		"Date": "2025-07-19",
 		"Image": "/images/summits/green-mountain.jpeg",
-		"ranked": true
+		"ranked": false
 	},
 	{
 		"Peak": "Canby Mountain",
@@ -205,7 +237,7 @@
 		"Range": "Mosquito",
 		"Date": "2025-07-14",
 		"Image": "/images/summits/ptarmigan-peak.jpeg",
-		"ranked": true
+		"ranked": false
 	},
 	{
 		"Peak": "Weston Peak",
@@ -213,7 +245,7 @@
 		"Range": "Mosquito",
 		"Date": "2025-07-14",
 		"Image": "/images/summits/weston-peak.jpeg",
-		"ranked": true
+		"ranked": false
 	},
 	{
 		"Peak": "Mount Guyot",
@@ -269,7 +301,7 @@
 		"Range": "Mosquito",
 		"Date": "2024-10-14",
 		"Image": "/images/summits/gemini-peak.avif",
-		"ranked": true
+		"ranked": false
 	},
 	{
 		"Peak": "Rito Alto Peak",
@@ -325,7 +357,7 @@
 		"Range": "Mosquito",
 		"Date": "2024-09-02",
 		"Image": "/images/summits/kuss-peak.avif",
-		"ranked": true
+		"ranked": false
 	},
 	{
 		"Peak": "Mount Evans",
@@ -333,7 +365,7 @@
 		"Range": "Mosquito",
 		"Date": "2024-09-02",
 		"Image": "/images/summits/mount-evans.avif",
-		"ranked": false
+		"ranked": true
 	},
 	{
 		"Peak": "Treasurevault Mountain",
@@ -341,7 +373,7 @@
 		"Range": "Mosquito",
 		"Date": "2024-09-02",
 		"Image": "/images/summits/treasurevault-mountain.avif",
-		"ranked": true
+		"ranked": false
 	},
 	{
 		"Peak": "Mosquito Peak",
@@ -405,7 +437,7 @@
 		"Range": "Front",
 		"Date": "2023-08-20",
 		"Image": "/images/summits/santa-fe-peak.jpeg",
-		"ranked": false
+		"ranked": true
 	},
 	{
 		"Peak": "Mount Spalding",

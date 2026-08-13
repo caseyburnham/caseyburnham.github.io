@@ -17,7 +17,7 @@
 		"lint:js:fix": "eslint . --config config/eslint.config.mjs --fix && node scripts/lint-inline-modules.mjs",
 		"preview": "node scripts/serve-dist.mjs",
 		"smoke": "playwright test --config config/playwright.config.mjs",
-		"test:unit": "node --test test/*.test.mjs",
+		"test:unit": "node --test tests/unit/*.test.mjs",
 		"format:css": "node scripts/sort-css.mjs",
 		"validate": "node scripts/validate-data.mjs",
 		"watch:css": "node scripts/watch-css.mjs",

@@ -1,4 +1,8 @@
+import dataCache from '../utils/data-cache.js';
+
 const POPOVER_TIMEOUT = 3000;
+const GALLERY_MENU_CLOSE_DELAY = 180;
+const GALLERY_DATA_URL = '/json/gallery-data.json';
 const RACK_ANIMATION = {
 	closeDuration: 400,
 	openDuration: 420,
@@ -10,46 +14,200 @@ const RACK_ANIMATION = {
 function initNavigation() {
 	const wrapper = document.querySelector('.nav-wrapper');
 	const menu = wrapper?.querySelector('nav');
-	const toggle = wrapper?.querySelector('.nav-toggle');
+	const toggle = wrapper?.querySelector('button[aria-controls="nav-main"]');
 	if (!wrapper || !menu || !toggle) return;
+	const links = [...menu.querySelectorAll(':scope > ul > li > a[href^="#"]')];
+	links.forEach((link, index) => link.parentElement.style.setProperty('--i', index));
+	const galleryLink = menu.querySelector(':scope > ul > li > a[href="#galleries"]');
+	const galleryItem = galleryLink?.parentElement;
+	const galleryMenuTemplate = document.getElementById('gallery-nav-menu-template');
+	const galleryLinkTemplate = document.getElementById('gallery-nav-link-template');
+	let galleryMenuPromise;
+	let galleryCloseTimer;
+	let defaultGallery = null;
+	const sections = links.map((link) => {
+		const id = link.hash.slice(1);
+		const section = document.getElementById(id);
+		return section ? {
+			link,
+			section,
+		} : null;
+	}).filter(Boolean);
+	const setCurrentSection = (current) => {
+		const currentTop = current?.section.getBoundingClientRect().top;
+		const sharedTableIds = ['mountains', 'concerts'];
+		const sharesTableState = sharedTableIds.includes(current?.section.id);
+		for (const {
+			link,
+			section
+		} of sections) {
+			const isCurrent = link === current?.link;
+			const sharesCurrentRow = (currentTop !== undefined
+				&& Math.abs(section.getBoundingClientRect().top - currentTop) < 1)
+				|| (sharesTableState && sharedTableIds.includes(section.id));
+			link.classList.toggle('is-current-section', sharesCurrentRow);
+			if (isCurrent) {
+				link.setAttribute('aria-current', 'location');
+			}
+			else {
+				link.removeAttribute('aria-current');
+			}
+		}
+	};
+	const updateCurrentSection = () => {
+		const scrollPaddingTop = Number.parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop);
+		const sectionThreshold = scrollPaddingTop + 1;
+		const current = sections.findLast(({
+			section
+		}) => section.getBoundingClientRect().top <= sectionThreshold) ?? sections[0];
+		setCurrentSection(current);
+	};
+	const updateCurrentSectionFromHash = () => {
+		const id = location.hash.slice(1).split('?')[0];
+		const current = sections.find(({
+			section
+		}) => section.id === id);
+		if (current) {
+			setCurrentSection(current);
+		}
+	};
 	const closeMenu = ({
 		restoreFocus = false
 	} = {}) => {
 		menu.classList.remove('is-open');
+		wrapper.classList.remove('is-open');
 		toggle.setAttribute('aria-expanded', 'false');
 		if (restoreFocus) {
 			toggle.focus();
 		}
 	};
+	const getRouteGallery = () => {
+		const [section, query = ''] = location.hash.slice(1).split('?');
+		if (section !== 'galleries') return null;
+		return new URLSearchParams(query).get('gallery') || defaultGallery;
+	};
+	const updateGalleryLinkState = (gallery = getRouteGallery()) => {
+		menu.querySelectorAll('.gallery-navigation a[data-gallery]')
+			.forEach(link => link.classList.toggle('is-selected-gallery', link.dataset.gallery === gallery));
+	};
+	const loadGalleryMenu = async () => {
+		if (!galleryItem || !galleryLink || !galleryMenuTemplate || !galleryLinkTemplate) return;
+		if (galleryItem.querySelector('.gallery-navigation')) return;
+		if (galleryMenuPromise) return galleryMenuPromise;
+		galleryMenuPromise = dataCache.fetch(GALLERY_DATA_URL)
+			.then(data => {
+				defaultGallery = data._config?.defaultGallery || null;
+				const menuClone = galleryMenuTemplate.content.cloneNode(true);
+				const list = menuClone.querySelector('.gallery-navigation');
+				const linksFragment = document.createDocumentFragment();
+				Object.entries(data)
+					.filter(([key]) => key !== '_config')
+					.forEach(([key, gallery], index) => {
+						const linkClone = galleryLinkTemplate.content.cloneNode(true);
+						const item = linkClone.querySelector('li');
+						const link = linkClone.querySelector('a');
+						item.style.setProperty('--i', index);
+						link.dataset.gallery = key;
+						link.href = `#galleries?gallery=${encodeURIComponent(key)}`;
+						link.textContent = gallery.name || key;
+						linksFragment.appendChild(linkClone);
+					});
+				list.appendChild(linksFragment);
+				galleryItem.appendChild(menuClone);
+				updateGalleryLinkState();
+			})
+			.catch(error => {
+				galleryMenuPromise = undefined;
+				console.error('Failed to initialize gallery navigation:', error);
+			});
+		return galleryMenuPromise;
+	};
+	const openGalleryMenu = async () => {
+		clearTimeout(galleryCloseTimer);
+		await loadGalleryMenu();
+		const galleryPanel = galleryItem?.querySelector('.gallery-navigation');
+		if (!galleryItem?.matches(':hover, :focus-within') || !galleryPanel || getComputedStyle(galleryPanel).display === 'none') return;
+		wrapper.classList.add('is-gallery-open');
+		galleryLink?.setAttribute('aria-expanded', 'true');
+	};
+	const closeGalleryMenu = ({
+		restoreFocus = false
+	} = {}) => {
+		clearTimeout(galleryCloseTimer);
+		wrapper.classList.remove('is-gallery-open');
+		galleryLink?.setAttribute('aria-expanded', 'false');
+		if (restoreFocus) galleryLink?.focus();
+	};
+	const scheduleGalleryMenuClose = () => {
+		clearTimeout(galleryCloseTimer);
+		galleryCloseTimer = setTimeout(() => closeGalleryMenu(), GALLERY_MENU_CLOSE_DELAY);
+	};
+	galleryItem?.addEventListener('pointerenter', openGalleryMenu);
+	galleryItem?.addEventListener('pointerleave', scheduleGalleryMenuClose);
+	galleryItem?.addEventListener('focusin', openGalleryMenu);
+	galleryItem?.addEventListener('focusout', event => {
+		if (!(event.relatedTarget instanceof Node) || !galleryItem.contains(event.relatedTarget)) {
+			scheduleGalleryMenuClose();
+		}
+	});
 	const updateScrollState = () => {
 		wrapper.classList.toggle('nav-scrolled', scrollY > 10);
+		updateCurrentSection();
 	};
 	// Set the correct state before the user scrolls.
 	updateScrollState();
 	window.addEventListener('scroll', updateScrollState, {
 		passive: true,
 	});
+	window.addEventListener('resize', updateCurrentSection, {
+		passive: true,
+	});
+	window.addEventListener('hashchange', updateCurrentSectionFromHash);
 	toggle.addEventListener('click', (event) => {
 		event.stopPropagation();
 		const isOpen = menu.classList.toggle('is-open');
+		wrapper.classList.toggle('is-open', isOpen);
 		toggle.setAttribute('aria-expanded', String(isOpen));
 	});
 	menu.addEventListener('click', (event) => {
-		if (event.target instanceof Element && event.target.closest('a')) {
+		if (event.target instanceof Element) {
+			const link = event.target.closest('a');
+			if (!link) return;
+			const targetId = link.hash.slice(1).split('?')[0];
+			const current = sections.find(({ section }) => section.id === targetId);
+			setCurrentSection(current);
+			if (link.dataset.gallery) {
+				updateGalleryLinkState(link.dataset.gallery);
+				requestAnimationFrame(() => current?.section.scrollIntoView({
+					block: 'start'
+				}));
+			}
+			closeGalleryMenu();
 			closeMenu();
 		}
 	});
 	document.addEventListener('click', (event) => {
 		if (event.target instanceof Node && !wrapper.contains(event.target)) {
+			closeGalleryMenu();
 			closeMenu();
 		}
 	});
 	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && wrapper.classList.contains('is-gallery-open')) {
+			closeGalleryMenu({
+				restoreFocus: true
+			});
+			return;
+		}
 		if (event.key === 'Escape' && menu.classList.contains('is-open')) {
 			closeMenu({
 				restoreFocus: true
 			});
 		}
+	});
+	window.addEventListener('hashchange', () => updateGalleryLinkState());
+	document.addEventListener('gallerychange', event => {
+		updateGalleryLinkState(event.detail?.gallery);
 	});
 }
 /**

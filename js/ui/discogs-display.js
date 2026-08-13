@@ -26,7 +26,7 @@ const sections = [{
 		sleeveContainerId: 'discogs-inventory-sleeve-container',
 		captionContainerId: 'discogs-inventory-caption-container',
 		statusId: 'discogs-inventory-status',
-		templateId: 'inventory-item-template',
+		templateId: 'record-template',
 		endpoint: '/api/discogs/inventory',
 		loadingMessage: 'Loading sale items…',
 		emptyMessage: 'No records are currently for sale.',
@@ -73,9 +73,7 @@ function createRecord(template, data, showPrice) {
 		if (data.price) {
 			price.value = data.price;
 			price.textContent = `$${data.price}`;
-		}
-		else {
-			price.hidden = true;
+			price.hidden = false;
 		}
 	}
 	return clone;

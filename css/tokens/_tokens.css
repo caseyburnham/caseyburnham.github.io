@@ -6,69 +6,53 @@
 		--space-sm: clamp(0.25rem, 1vw, 0.5rem);
 		--space-md: clamp(0.5rem, 2vw, 1rem);
 
-		--fluid-padding-table: round(clamp(0.25rem, 2vw - 0.5rem, 0.5rem), 0.0125rem);
-
-		/* Modal Constraints */
-		--modal-max-width: 85dvw;
-		--modal-max-height: 90dvh;
-
 		/* Typography */
 		--font-family-ui: ui-rounded, sans-serif, systemui;
 		--font-family-mono: ui-monospace, "Cascadia Code", "Source Code Pro", menlo, consolas, "DejaVu Sans Mono", monospace;
-
 		--font-weight-light: 300;
 		--font-weight-normal: 400;
-		--font-weight-heavy: 600;
-
-		--font-base: round(clamp(1rem, 0.9rem + 0.5vw, 1.125rem), 0.0625rem);
-
 		--font-scale: 1.2;
 
-		--text-xs: calc(var(--font-base) * 0.75);
-		--text-sm: calc(var(--font-base) * 0.875);
-		--text-base: var(--font-base);
-		--text-md: calc(var(--font-base) * var(--font-scale));
-		--text-lg: calc(var(--font-base) * var(--font-scale) * 1.2);
-		--text-xl: calc(var(--font-base) * var(--font-scale) * 1.44);
-
-		--text-table: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+		--text-base: round(clamp(1rem, 0.9rem + 0.5vw, 1.125rem), 0.0625rem);
+		--text-xs: calc(var(--text-base) * 0.75);
+		--text-sm: calc(var(--text-base) * 0.875);
+		--text-md: calc(var(--text-base) * var(--font-scale));
+		--text-lg: calc(var(--text-base) * var(--font-scale) * 1.2);
+		--text-xl: calc(var(--text-base) * var(--font-scale) * 1.44);
 
 		--line-height-base: 1;
-		--line-height-compact: 1.3;
 		--line-height-airy: 1.5;
 		--line-height-loose: 2;
 
 		/* Border Radii */
 		--radius-sm: 0.25rem;
 		--radius-md: 0.5rem;
-		--radius-main: clamp(0.5rem, 2vw, 2rem);
-		--radius-section: clamp(0.25rem, 2vw, 1rem);
+		--radius-main: 2rem;
 
 		/* Color Palette */
 		--turquoise: oklch(75% 0.13 185);
 		--international-orange: oklch(67% 0.222 37.42);
-		--green: oklch(62% 34% 161deg);
-		--paradise-pink: oklch(0.632 0.2406 23.18);
 
 		--black-0: oklch(13% 0 none);
 		--black-1: oklch(23% 0 none);
 		--black-2: oklch(36% 0 none);
 		--black-3: oklch(48% 0 none);
 
+		--white-0: oklch(98% 0 248deg);
+
 		--gray-0: oklch(81% 0 90);
 		--slate-0: oklch(40% 0.04 197);
 
-		--white-0: oklch(98.52% 0 89.88);
-
 		/* Color Variables */
 		--color-primary: light-dark(var(--turquoise), var(--turquoise));
-
-		--color-accent-light: oklch(from var(--color-accent-0) l c h / 0.75);
-		--color-accent-alpha: oklch(from var(--color-accent-0) l c h / 0.15);
+		--color-primary-light: color-mix(in oklch, var(--color-primary) 90%, transparent);
+		--color-primary-alpha: color-mix(in oklch, var(--color-primary) 15%, transparent);
+		--color-accent-light: color-mix(in oklch, var(--color-accent-0) 75%, transparent);
+		--color-accent-alpha: color-mix(in oklch, var(--color-accent-0) 15%, transparent);
 
 		--color-bg-main: light-dark(var(--white-0), var(--black-0));
-		--color-bg-light: oklch(from var(--color-bg-main) l c h / 0.50);
-		--color-bg-alpha: oklch(from var(--color-bg-main) l c h / 0.15);
+		--color-bg-light: color-mix(in oklch, var(--color-bg-main) 50%, transparent);
+		--color-bg-alpha: color-mix(in oklch, var(--color-bg-main) 15%, transparent);
 
 		--color-text-primary: light-dark(var(--black-0), var(--white-0));
 		--color-text-secondary: oklch(from var(--color-text-primary) l c h / 0.7);
@@ -82,7 +66,6 @@
 		--color-accent-3: light-dark(oklch(from var(--color-primary) l c calc(h - 120)), oklch(59% 25% 246deg));
 
 		--color-border: light-dark(var(--gray-0), var(--slate-0));
-		--color-border-caption: light-dark(var(--black-0), var(--color-accent-0));
 
 		--color-shadow-0: light-dark(var(--black-0), var(--color-accent-0));
 		--color-shadow-1: light-dark(var(--black-1), var(--color-accent-1));
@@ -93,11 +76,8 @@
 		--color-glow-1: oklch(from var(--color-glow-0)   calc(l + 0.15) c h);
 		--color-glow-2: oklch(from var(--color-glow-0)   calc(l + 0.30) c h);
 
-		--color-primary-light: oklch(from var(--color-primary) l c h / 0.90);
-		--color-primary-alpha: oklch(from var(--color-primary) l c h / 0.15);
-
 		/* Glass */
-		--glassy:
+		--bg-glassy:
 			linear-gradient(
 				to bottom,
 				color-mix(in oklch, var(--color-bg-main) 80%, transparent) 0%,
@@ -106,16 +86,18 @@
 			);
 		 
 		--glass-frame:
-			inset -1px 0 1px -1px light-dark(var(--black-3), oklch(from var(--black-1) l c h / 0.5)) /* right */, 
-			inset 1px 0 1px -1px light-dark(var(--black-3), oklch(from var(--black-1) l c h / 0.5)) /* left */,
-			inset 0 1px 0 light-dark(rgb(255 255 255 / .95), oklch(from var(--black-1) l c h / 0.75)) /* top */, 
-			inset 0 -1px 0 light-dark(rgb(255 255 255 / .5), oklch(from var(--black-3) l c h / 0.5)) /* bottom */;
+			inset -1px 0 1px -0.5px oklch(0 0 0/.25),
+			inset 1px 0 1px -0.5px oklch(0 0 0/.25),
+			inset 0 -1px 0 -0.5px oklch(1 0 360),
+			inset 0 1px 0 -0.5px oklch(1 0 360),
+			inset 0 0 5px 0px oklch(1 0 360),
+			inset 0px 12px 8px -5px oklch(1 0 360/.25),
+			inset 0px 25px 10px -15px rgb(0 0 0 / .0625),
+			inset 0 -12px 8px -12px oklch(1 0 360/.25);
 		
 		--shadow-glass:
 			oklch(from var(--white-0) l c h / 0.2) 20px 20px 60px inset,
 			oklch(from var(--black-0) l c h / 0.1) -20px -20px 60px inset,
-			oklch(from var(--black-1) l c h / 0.1) 0 8px 32px,
-			oklch(from var(--black-2) l c h / 0.1) 0 8px 16px,
 			oklch(from var(--white-0) l c h / 0.125) 0 1px 5px inset;
 
 		/* Shadows */
@@ -125,7 +107,10 @@
 			oklch(from var(--color-shadow-3) l c h / 0.05) 0 2px 8px;
 
 		--shadow-glow:
-			var(--shadow-text-outline), oklch(from var(--color-glow-0) l c h/0.7) 0 0 5px,oklch(from var(--color-glow-1) l c h/.5) 0 0 10px,oklch(from var(--color-glow-2) l c h/0.25) 0 0 20px;
+			var(--shadow-text-outline), 
+			oklch(from var(--color-glow-0) l c h / 0.70) 0 0 5px,
+			oklch(from var(--color-glow-1) l c h / 0.50) 0 0 10px,
+			oklch(from var(--color-glow-2) l c h / 0.25) 0 0 20px;
 
 		--shadow-modal:
 			oklch(from var(--black-0) l c h / 0.50) 0 1px 1px,

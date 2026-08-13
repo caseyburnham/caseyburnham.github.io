@@ -4,12 +4,12 @@ import { ESLint } from 'eslint';
 const filename = 'utility/data-entry.html';
 const html = await readFile(filename, 'utf8');
 const modules = Array.from(
-	html.matchAll(/<script\s+type="module">([\s\S]*?)<\/script>/g),
+	html.matchAll(/<script(?:\s+type="module")?\s*>([\s\S]*?)<\/script>/g),
 	match => match[1].replace(/^ {2}/gm, '')
 );
 
 if (modules.length === 0) {
-	throw new Error(`${filename} contains no inline JavaScript module.`);
+	throw new Error(`${filename} contains no inline JavaScript.`);
 }
 
 const eslint = new ESLint({ overrideConfigFile: 'config/eslint.config.mjs' });

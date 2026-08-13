@@ -126,6 +126,9 @@ function createMountainRow(mountain, template) {
 	if (mountain.Image && imageButton) {
 		imageButton.dataset.title = mountain.Peak;
 		imageButton.dataset.image = mountain.Image;
+		imageButton.dataset.photoId = mountain.Image.split('/')
+			.at(-1)
+			.replace(/\.[^.]+$/, '');
 	}
 	else {
 		imageButton?.remove();

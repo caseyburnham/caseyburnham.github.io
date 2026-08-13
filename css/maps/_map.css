@@ -1,6 +1,7 @@
 @layer integrations.map {
 	.maplibregl-map {
 		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm);
 		height: 15rem;
 		width: 100%;
 	}

@@ -8,13 +8,7 @@ const GALLERY_CONFIG = {
 	BUTTON_SELECTOR: '.gallery-btn',
 	CONTAINER_SELECTOR: '#galleries',
 	LANDSCAPE_MAX: 5,
-	PORTRAIT_MAX: 6,
-	MIN_IMAGES: 3,
-	MAX_ROW_PLANS: 128,
-	ROW_REPEAT_PENALTY: 12,
-	ROW_JUMP_PENALTY: 6,
-	SAME_LAYOUT_PENALTY: 2,
-	ROW_ASCENT_PENALTY: 8
+	PORTRAIT_MAX: 6
 };
 export class Galleries {
 	#galleries = new Map();
@@ -49,6 +43,7 @@ export class Galleries {
 		try {
 			await this.#loadGalleries();
 			this.#renderControls();
+			this.applyRoute();
 			delete this.#galleryContainer.dataset.state;
 		}
 		catch (error) {
@@ -102,7 +97,14 @@ export class Galleries {
 		controls.addEventListener('click', event => {
 			const button = event.target.closest(GALLERY_CONFIG.BUTTON_SELECTOR);
 			if (button?.dataset?.gallery) {
-				this.#switchGallery(button.dataset.gallery);
+				if (this.#switchGallery(button.dataset.gallery)) {
+					this.#galleryContainer.dispatchEvent(new CustomEvent('gallerychange', {
+						bubbles: true,
+						detail: {
+							gallery: button.dataset.gallery
+						}
+					}));
+				}
 			}
 		});
 	}
@@ -122,6 +124,22 @@ export class Galleries {
 		this.#updateButtonStates(galleryKey);
 		this.#renderGallery(this.#galleries.get(galleryKey), true);
 		return true;
+	}
+	applyRoute({
+		gallery = null,
+		photo = null
+	} = {}, {
+		withTransition = false
+	} = {}) {
+		const galleryKey = gallery && this.#galleries.has(gallery) ? gallery : this.#currentGallery;
+		if (galleryKey !== this.#currentGallery) {
+			this.#currentGallery = galleryKey;
+			this.#updateButtonStates(galleryKey);
+			this.#renderGallery(this.#galleries.get(galleryKey), withTransition);
+		}
+		if (!photo) return;
+		const trigger = this.#galleryContainer.querySelector(`.photo-thumb[data-photo-id="${CSS.escape(photo)}"]`);
+		trigger?.click();
 	}
 	#updateButtonStates(activeKey) {
 		const buttons = this.#galleryContainer.querySelectorAll(GALLERY_CONFIG.BUTTON_SELECTOR);
@@ -149,31 +167,14 @@ export class Galleries {
 	#createPhotoGrids(images) {
 		const fragment = document.createDocumentFragment();
 		if (!images?.length) return fragment;
-		const {
-			LANDSCAPE_MAX,
-			PORTRAIT_MAX,
-			MIN_IMAGES
-		} = GALLERY_CONFIG;
-		// Group by layout and keep each orientation newest-first.
-		const groups = {
-			landscape: this.#sortByDate(images.filter(img => img.layout === 'landscape')),
-			portrait: this.#sortByDate(images.filter(img => img.layout === 'portrait')),
-			pano: this.#sortByDate(images.filter(img => img.layout === 'pano'))
-		};
-		const landscapePlans = this.#createRowPlans(groups.landscape, 'landscape-row', LANDSCAPE_MAX, MIN_IMAGES);
-		const portraitPlans = this.#createRowPlans(groups.portrait, 'portrait-row', PORTRAIT_MAX, MIN_IMAGES);
-		const {
-			landscapeRows,
-			portraitRows
-		} = this.#selectRowPlans(landscapePlans, portraitPlans);
-		const panoRows = groups.pano.map(img => ({
-			images: [img],
+		const landscapeRows = this.#createBalancedRows(images, 'landscape', 'landscape-row', GALLERY_CONFIG.LANDSCAPE_MAX);
+		const portraitRows = this.#createBalancedRows(images, 'portrait', 'portrait-row', GALLERY_CONFIG.PORTRAIT_MAX);
+		const panoRows = this.#sortByDate(images.filter(image => image.layout === 'pano')).map(image => ({
+			images: [image],
 			rowClass: 'pano-row'
 		}));
-		// Interleave with better pano distribution
-		const rows = this.#interleaveRows(landscapeRows, portraitRows, panoRows);
-		// Create DOM elements
-		rows.forEach(row => {
+		this.#interleaveRows(landscapeRows, portraitRows, panoRows)
+			.forEach(row => {
 			if (row.images.length > 0) {
 				fragment.appendChild(this.#createImageGrid(row.images, row.rowClass));
 			}
@@ -188,121 +189,31 @@ export class Galleries {
 				.localeCompare(b.id || '');
 		});
 	}
-	#createRowPlans(images, rowClass, maxPerRow, minImages) {
-		if (!images?.length) return [
-			[]
-		];
-		if (images.length < minImages) {
-			return [
-				[{
-					images: [...images],
-					rowClass
-				}]
-			];
-		}
-		const rowSizes = [];
-		let remaining = images.length;
-		while (remaining > 0) {
-			let rowSize;
-			if (remaining <= maxPerRow) {
-				rowSize = remaining;
-			}
-			else if (remaining <= maxPerRow + minImages) {
-				rowSize = Math.ceil(remaining / 2);
-			}
-			else {
-				rowSize = maxPerRow;
-			}
-			rowSizes.push(rowSize);
-			remaining -= rowSize;
-		}
-		const sizePlans = [];
-		const collectPlans = (unused, sizes = []) => {
-			if (sizePlans.length >= GALLERY_CONFIG.MAX_ROW_PLANS) return;
-			if (unused.length === 0) {
-				sizePlans.push(sizes);
-				return;
-			}
-			const usedSizes = new Set();
-			unused.forEach((size, index) => {
-				if (usedSizes.has(size)) return;
-				usedSizes.add(size);
-				collectPlans(unused.filter((_, unusedIndex) => unusedIndex !== index),
-					[...sizes, size]);
-			});
-		};
-		collectPlans(rowSizes);
-		return sizePlans.map(sizes => {
-			let offset = 0;
-			return sizes.map(size => {
-				const row = {
-					images: images.slice(offset, offset + size),
-					rowClass
-				};
-				offset += size;
-				return row;
-			});
+	#createBalancedRows(images, layout, rowClass, maxPerRow) {
+		const sorted = this.#sortByDate(images.filter(image => image.layout === layout));
+		if (sorted.length === 0) return [];
+		const rowCount = Math.ceil(sorted.length / maxPerRow);
+		const baseSize = Math.floor(sorted.length / rowCount);
+		const extraImages = sorted.length % rowCount;
+		let offset = 0;
+		return Array.from({
+			length: rowCount
+		}, (_, index) => {
+			const size = baseSize + (index < extraImages ? 1 : 0);
+			const row = {
+				images: sorted.slice(offset, offset + size),
+				rowClass
+			};
+			offset += size;
+			return row;
 		});
-	}
-	#selectRowPlans(landscapePlans, portraitPlans) {
-		let best = null;
-		landscapePlans.forEach(landscapeRows => {
-			portraitPlans.forEach(portraitRows => {
-				const rows = this.#interleaveRows(landscapeRows, portraitRows, []);
-				const score = this.#scoreRowPlan(rows, landscapeRows, portraitRows);
-				if (!best || score < best.score) {
-					best = {
-						landscapeRows,
-						portraitRows,
-						score
-					};
-				}
-			});
-		});
-		return best || {
-			landscapeRows: [],
-			portraitRows: []
-		};
-	}
-	#scoreRowPlan(rows, landscapeRows, portraitRows) {
-		const {
-			ROW_REPEAT_PENALTY,
-			ROW_JUMP_PENALTY,
-			SAME_LAYOUT_PENALTY,
-			ROW_ASCENT_PENALTY
-		} = GALLERY_CONFIG;
-		let score = 0;
-		for (let index = 1; index < rows.length; index++) {
-			const previous = rows[index - 1];
-			const current = rows[index];
-			const difference = Math.abs(previous.images.length - current.images.length);
-			if (difference === 0) score += ROW_REPEAT_PENALTY;
-			if (difference >= 2) score += (difference - 1) * ROW_JUMP_PENALTY;
-			if (previous.rowClass === current.rowClass) score += SAME_LAYOUT_PENALTY;
-		}
-		[landscapeRows, portraitRows].forEach(rowPlan => {
-			for (let index = 1; index < rowPlan.length; index++) {
-				const increase = rowPlan[index].images.length - rowPlan[index - 1].images.length;
-				if (increase > 0) score += increase * ROW_ASCENT_PENALTY;
-			}
-		});
-		return score;
 	}
 	#interleaveRows(landscapeRows, portraitRows, panoRows) {
-		let nonPanoRows;
-		if (landscapeRows.length >= portraitRows.length + 2 && portraitRows.length >= 2) {
-			nonPanoRows = [...landscapeRows.slice(0, -1), ...portraitRows.slice(0, -1),
-				landscapeRows.at(-1),
-				portraitRows.at(-1)
-			];
-		}
-		else {
-			nonPanoRows = [];
-			const maxLength = Math.max(landscapeRows.length, portraitRows.length);
-			for (let index = 0; index < maxLength; index++) {
-				if (index < landscapeRows.length) nonPanoRows.push(landscapeRows[index]);
-				if (index < portraitRows.length) nonPanoRows.push(portraitRows[index]);
-			}
+		const nonPanoRows = [];
+		const maxLength = Math.max(landscapeRows.length, portraitRows.length);
+		for (let index = 0; index < maxLength; index++) {
+			if (landscapeRows[index]) nonPanoRows.push(landscapeRows[index]);
+			if (portraitRows[index]) nonPanoRows.push(portraitRows[index]);
 		}
 		if (panoRows.length === 0) return nonPanoRows;
 		const panoSlots = Array.from({
@@ -340,6 +251,11 @@ export class Galleries {
 			img.setAttribute('data-sources', JSON.stringify(image.sources));
 			img.setAttribute('data-title', image.title || image.alt || 'Untitled');
 			if (image.id) img.setAttribute('data-filename', image.id);
+			if (image.id) {
+				const trigger = thumbClone.querySelector('.photo-thumb');
+				trigger.dataset.photoId = image.id;
+				trigger.dataset.gallery = this.#currentGallery;
+			}
 			thumbClone.querySelector('.photo-content-url')
 				.href = source;
 			thumbClone.querySelector('.photo-name')

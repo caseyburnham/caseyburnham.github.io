@@ -1,3 +1,4 @@
+/** Browser-level smoke coverage for the production build. */
 import { expect, test } from '@playwright/test';
 
 async function preparePage(page) {
@@ -90,6 +91,89 @@ test('opens the mobile navigation', async ({ page }) => {
 
 	await expect(toggle).toHaveAttribute('aria-expanded', 'true');
 	await expect(page.locator('#nav-main')).toHaveClass(/is-open/);
+	await expect(page.locator('.nav-wrapper')).toHaveClass(/is-open/);
+});
+
+test('expands the desktop gallery navigation', async ({ page }) => {
+	await page.setViewportSize({ width: 1280, height: 900 });
+	const galleryData = await page.request.get('/json/gallery-data.json')
+		.then(response => response.json());
+	const galleryEntries = Object.entries(galleryData)
+		.filter(([key]) => key !== '_config');
+	const [targetKey, targetGallery] = galleryEntries
+		.find(([key]) => key !== galleryData._config.defaultGallery);
+	await page.goto('/');
+
+	const galleryLink = page.locator('#nav-main > ul > li > a[href="#galleries"]');
+	const panel = page.locator('#gallery-navigation');
+	const headerTop = await page.locator('header')
+		.evaluate(header => header.getBoundingClientRect().top);
+	await galleryLink.focus();
+
+	await expect(galleryLink).toHaveAttribute('aria-expanded', 'true');
+	await expect(panel).toBeVisible();
+	await expect(panel.locator('a')).toHaveCount(galleryEntries.length);
+	await expect.poll(() => page.locator('header')
+		.evaluate(header => header.getBoundingClientRect().top))
+		.toBe(headerTop);
+	await page.waitForTimeout(1200);
+	const menuGeometry = await page.evaluate(() => {
+		const mainList = document.querySelector('#nav-main > ul').getBoundingClientRect();
+		const panel = document.querySelector('#gallery-navigation').getBoundingClientRect();
+		const nav = document.querySelector('#nav-main').getBoundingClientRect();
+		const finalLink = document.querySelector('#gallery-navigation > li:last-child > a').getBoundingClientRect();
+		return {
+			bottomClearance: nav.bottom - finalLink.bottom,
+			dividerGap: panel.top - mainList.bottom
+		};
+	});
+	expect(menuGeometry.bottomClearance).toBeGreaterThanOrEqual(8);
+	expect(menuGeometry.dividerGap).toBeGreaterThanOrEqual(4);
+	expect(menuGeometry.dividerGap).toBeLessThanOrEqual(16);
+	const triggerBox = await galleryLink.boundingBox();
+	const panelBox = await panel.boundingBox();
+	await page.mouse.move(
+		triggerBox.x + triggerBox.width / 2,
+		(triggerBox.y + triggerBox.height + panelBox.y) / 2
+	);
+	await page.waitForTimeout(250);
+	await expect(galleryLink).toHaveAttribute('aria-expanded', 'true');
+	await expect(panel).toBeVisible();
+
+	await page.keyboard.press('Escape');
+	await expect(galleryLink).toHaveAttribute('aria-expanded', 'false');
+	await expect(panel).toBeHidden();
+	await expect(galleryLink).toBeFocused();
+
+	await page.mouse.move(0, 0);
+	await page.waitForTimeout(250);
+	await galleryLink.hover();
+	await panel.getByRole('link', { name: targetGallery.name, exact: true }).click();
+	await expect(page).toHaveURL(new RegExp(`#galleries\\?gallery=${targetKey}$`));
+	await expect(page.locator(`.gallery-btn[data-gallery="${targetKey}"]`))
+		.toHaveAttribute('aria-pressed', 'true');
+	await expect.poll(() => page.evaluate(() => {
+		const sectionTop = document.querySelector('#galleries').getBoundingClientRect().top;
+		const scrollPaddingTop = Number.parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop);
+		return Math.abs(sectionTop - scrollPaddingTop);
+	})).toBeLessThanOrEqual(2);
+
+	const originalKey = galleryData._config.defaultGallery;
+	await page.locator(`.gallery-btn[data-gallery="${originalKey}"]`).click();
+	await galleryLink.hover();
+	await expect(panel.locator(`a[data-gallery="${originalKey}"]`))
+		.toHaveClass(/is-selected-gallery/);
+});
+
+test('highlights side-by-side table links together', async ({ page }) => {
+	await page.setViewportSize({ width: 1280, height: 900 });
+	await page.goto('/');
+
+	await page.locator('a[href="#mountains"]').evaluate(link => link.click());
+
+	await expect(page.locator('a[href="#mountains"]')).toHaveClass(/is-current-section/);
+	await expect(page.locator('a[href="#concerts"]')).toHaveClass(/is-current-section/);
+	await expect(page.locator('#nav-main a[aria-current="location"]')).toHaveCount(1);
 });
 
 test('opens a summit photo before the gallery has loaded', async ({ page }) => {
@@ -102,6 +186,28 @@ test('opens a summit photo before the gallery has loaded', async ({ page }) => {
 
 	await expect(dialog).toHaveAttribute('open', '');
 	await expect(dialog.locator('.photo-title')).not.toBeEmpty();
+});
+
+test('hides the GPS row when a summit photo has no coordinates', async ({ page }) => {
+	await page.goto('/');
+	const button = page.locator('#mountains .camera-link[data-image="/images/summits/un-13738.jpeg"]');
+	await expect(button).toBeAttached();
+	await button.click();
+
+	const dialog = page.locator('dialog.photo-dialog');
+	await expect(dialog.locator('.gps')).toBeHidden();
+	await expect(dialog.locator('.gps-link')).not.toHaveAttribute('href');
+});
+
+test('opens a shared summit photo link on a fresh page', async ({ page }) => {
+	const summit = await page.request.get('/json/mountain-data.json')
+		.then(response => response.json())
+		.then(mountains => mountains.find(mountain => mountain.Image));
+	const photo = summit.Image.split('/').at(-1).replace(/\.[^.]+$/, '');
+
+	await page.goto(`/#mountains?photo=${photo}`);
+	await expect(page.locator('dialog.photo-dialog')).toHaveAttribute('open', '');
+	await expect(page.locator('dialog .photo-title')).toHaveText(summit.Peak);
 });
 
 test('keeps the summit viewer available when gallery loading fails', async ({ page }) => {
@@ -182,6 +288,40 @@ test('loads a gallery and opens a photo dialog', async ({ page }) => {
 	await expect(dialog).not.toHaveAttribute('open', '');
 	await page.waitForTimeout(350);
 	await expect(dialog.locator('.modal-image[src]')).toHaveCount(0);
+});
+
+test('opens a shared gallery photo link on a fresh page', async ({ page }) => {
+	const photo = await page.request.get('/json/gallery-data.json')
+		.then(response => response.json())
+		.then(data => {
+			const [gallery, details] = Object.entries(data)
+				.find(([key]) => key !== '_config');
+			return {
+				gallery,
+				photo: details.images[0].id
+			};
+		});
+
+	await page.goto(`/#galleries?gallery=${photo.gallery}&photo=${photo.photo}`);
+	await expect(page.locator(`.gallery-btn[data-gallery="${photo.gallery}"]`))
+		.toHaveAttribute('aria-pressed', 'true');
+	await expect(page.locator('dialog.photo-dialog')).toHaveAttribute('open', '');
+	await expect(page.locator('dialog .photo-title')).not.toBeEmpty();
+});
+
+test('updates a gallery link when switching collections and opening a photo', async ({ page }) => {
+	await page.goto('/');
+	await page.locator('#galleries').scrollIntoViewIfNeeded();
+	const button = page.locator('.gallery-btn').nth(1);
+	await button.click();
+	const gallery = await button.getAttribute('data-gallery');
+	await expect(page).toHaveURL(new RegExp(`#galleries\\?gallery=${gallery}`));
+	await page.locator('#galleries .photo-thumb').first().click();
+	await expect(page).toHaveURL(new RegExp(`#galleries\\?gallery=${gallery}&photo=`));
+	await page.getByRole('button', {
+		name: 'Close photo viewer'
+	}).click();
+	await expect(page).toHaveURL(new RegExp(`#galleries\\?gallery=${gallery}$`));
 });
 
 test('balances gallery rows while keeping each orientation newest-first', async ({ page }) => {

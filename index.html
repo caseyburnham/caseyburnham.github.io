@@ -19,8 +19,7 @@
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
-				"@graph": [
-					{
+				"@graph": [{
 						"@type": "WebSite",
 						"@id": "https://crashandburnham.com/#website",
 						"url": "https://crashandburnham.com/",
@@ -82,8 +81,7 @@
 							"Audio Recording",
 							"Audio Editing"
 						],
-						"hasCredential": [
-							{
+						"hasCredential": [{
 								"@type": "EducationalOccupationalCredential",
 								"name": "Dante Level 2 Certification",
 								"description": "Networked audio interoperability and troubleshooting"
@@ -135,9 +133,9 @@
 	</head>
 
 	<body>
-		<main id="main-content">
+		<main>
 			<div class="nav-wrapper">
-				<button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-main">
+				<button aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-main">
 					<span aria-hidden="true">🍔</span>
 				</button>
 				<nav id="nav-main">
@@ -145,7 +143,7 @@
 						<li><a href="#about">About</a></li>
 						<li><a href="#skills">Skills</a></li>
 						<li><a href="#productions">Productions</a></li>
-						<li><a href="#galleries">Gallery</a></li>
+						<li><a href="#galleries" aria-expanded="false" aria-controls="gallery-navigation">Galleries</a></li>
 						<li><a href="#mountains">Mountains</a></li>
 						<li><a href="#concerts">Concerts</a></li>
 						<li><a href="#map">Map</a></li>
@@ -166,9 +164,7 @@
 				<div class="bio">
 					<p>
 						After moving to Colorado in <time datetime="2011">2011</time> — and trading Idaho's potato fields for mountain passes — I earned a degree in Audio Engineering from
-						<button type="button" popovertarget="ucd">
-						  <abbr title="University of Colorado, Denver">UCD</abbr>
-						</button>. For over a decade, I've worked as a <strong>live sound</strong> and <strong>theater engineer</strong>. Currently serving as <strong>Audio Director</strong> at the <a href="https://arvadacenter.org/" target="_blank" rel="noopener noreferrer" title="Arvada Center for the Arts and Humanities">Arvada Center</a>, I mix musicals, design theatrical sound systems, program show control, and occasionally troubleshoot problems that make you question your career choices.
+						<button type="button" popovertarget="ucd"><abbr title="University of Colorado, Denver">UCD</abbr></button>. For over a decade, I've worked as a <strong>live sound</strong> and <strong>theater engineer</strong>. Currently serving as <strong>Audio Director</strong> at the <a href="https://arvadacenter.org/" target="_blank" rel="noopener noreferrer" title="Arvada Center for the Arts and Humanities">Arvada Center</a>, I mix musicals, design theatrical sound systems, program show control, and occasionally troubleshoot problems that make you question your career choices.
 					</p>
 
 					<p>
@@ -177,62 +173,65 @@
 				</div>
 				<figure class="portrait">
 					<div class="matte">
-					<img src="/images/posters/jpeg/casey-rocky.jpeg" alt="Casey and Rocky at Silver Dollar Lake" width="935" height="1247" fetchpriority="high">
+						<img src="/images/posters/jpeg/casey-rocky.jpeg" alt="Casey and Rocky at Silver Dollar Lake" width="935" height="1247" fetchpriority="high">
 					</div>
-				<figcaption>Casey & Rocky</figcaption>
+					<figcaption>Casey & Rocky</figcaption>
 				</figure>
 			</section>
 
 			<section id="skills">
-				<h2 id="details-heading" class="sr-only">Professional Audio Engineering Skills & Experience</h2>
+				<h2 class="sr-only">Professional Audio Engineering Skills & Experience</h2>
 				<details>
-				  <summary>
-					<span class="chevron" aria-hidden="true">
-					  <svg viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-					</span>
-					<h3>
-					  Skills &amp; Experience
-					</h3>
-				  </summary>
+					<summary>
+						<span class="chevron" aria-hidden="true">
+							<svg viewBox="0 0 12 12" fill="none">
+								<path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+						<h3>
+							Skills &amp; Experience
+						</h3>
+					</summary>
+
 					<article>
-					  <ul>
-						<li>
-							<span class="power-led" aria-hidden="true"></span>
-							<p><strong>FOH mixing</strong> for large-scale musicals, concerts, and multi-venue events</p>
-						</li>
-						<li>
-							<span class="power-led" aria-hidden="true"></span>
-							<p><strong>Line-by-line</strong> mixing with live orchestras in theatrical environments</p>
-						</li>
-						<li>
-							<span class="power-led" aria-hidden="true"></span>
-							<p>Theatrical <strong>sound design</strong>, from concept through opening night</p>
-						</li>
-						<li>
-							<span class="power-led" aria-hidden="true"></span>
-							<p>Audio system design, installation, and integration — Dante networks, RF coordination, distributed speaker arrays</p>
-						</li>
-						<li>
-							<span class="power-led" aria-hidden="true"></span>
-							<p>Show control programming in <strong>QLab</strong> 5 and Isadora with OSC, MIDI, video, and laser integration</p>
-						</li>
-						<li>
-							<span class="power-led" aria-hidden="true"></span>
-							<p>Studio and field <strong>recording</strong>, <strong>mixing</strong>, and <strong>mastering</strong> for digital distribution</p>
-						</li>
-						<li>
-							<span class="power-led" aria-hidden="true"></span>
-							<p>Post-production and <strong>dialogue editing</strong> for music, podcasts, and multimedia</p>
-						</li>
-						<li>
-							<span class="power-led" aria-hidden="true"></span>
-							<p><strong>Consultation</strong> on audio production and system design for theaters and artists</p>
-						</li>
-						<li>
-							<span class="power-led" aria-hidden="true"></span>
-							<p>Design and implement robust network topologies</p>
-						</li>
-					  </ul>
+						<ul>
+							<li>
+								<span class="power-led" aria-hidden="true"></span>
+								<p><strong>A1</strong> and <strong>FOH mixing</strong> for large-scale musicals, concerts, and multi-venue events</p>
+							</li>
+							<li>
+								<span class="power-led" aria-hidden="true"></span>
+								<p><strong>Line-by-line</strong> mixing with live orchestras in theatrical environments</p>
+							</li>
+							<li>
+								<span class="power-led" aria-hidden="true"></span>
+								<p>Theatrical <strong>sound design</strong>, from concept through opening night</p>
+							</li>
+							<li>
+								<span class="power-led" aria-hidden="true"></span>
+								<p>Audio system design, installation, and integration — Dante networks, RF coordination, distributed speaker arrays</p>
+							</li>
+							<li>
+								<span class="power-led" aria-hidden="true"></span>
+								<p>Show control programming in <strong>QLab</strong> 5 and Isadora with OSC, MIDI, video, and laser integration</p>
+							</li>
+							<li>
+								<span class="power-led" aria-hidden="true"></span>
+								<p>Studio and field <strong>recording</strong>, <strong>mixing</strong>, and <strong>mastering</strong> for digital distribution</p>
+							</li>
+							<li>
+								<span class="power-led" aria-hidden="true"></span>
+								<p>Post-production and <strong>dialogue editing</strong> for music, podcasts, and multimedia</p>
+							</li>
+							<li>
+								<span class="power-led" aria-hidden="true"></span>
+								<p><strong>Consultation</strong> on audio production and system design for theaters and artists</p>
+							</li>
+							<li>
+								<span class="power-led" aria-hidden="true"></span>
+								<p>Design and implement robust network topologies</p>
+							</li>
+						</ul>
 					</article>
 
 				</details>
@@ -241,12 +240,7 @@
 			<section id="productions" aria-labelledby="productions-heading">
 				<h2 id="productions-heading" class="sr-only">Theater Productions & Sound Design Portfolio</h2>
 				<table id="productions-table" aria-label="Theatrical Productions and Audio Engineering Credits">
-					<colgroup>
-						<col class="production">
-						<col class="company">
-						<col class="role" span="4">
-						<col class="vibe">
-					</colgroup>
+					<caption>Select productions only.</caption>
 					<thead>
 						<tr>
 							<th scope="col">Production</th>
@@ -270,14 +264,6 @@
 			<section id="tables" class="data-tables" aria-labelledby="data-heading">
 				<h2 id="data-heading" class="sr-only">Personal Statistics - Mountains & Concerts</h2>
 				<table id="mountains" aria-labelledby="mountains-caption">
-					<colgroup>
-						<col class="mountain-peak">
-						<col class="peak-elevation">
-						<col class="mountain-range">
-						<col class="summit-date">
-						<col class="ranking-status">
-						<col class="summit-photo">
-					</colgroup>
 					<caption id="mountains-caption">
 						Non-exhaustive, detailing only climbs over 13,000ft; <wbr>
 						<a href="https://www.14ers.com/php14ers/checklist.php?usernum=109464" target="_blank" rel="noopener noreferrer" aria-label="View my climbing record on 14ers.com">
@@ -288,10 +274,10 @@
 						<tr>
 							<th scope="col">Peak</th>
 							<th scope="col" class="text-center">Elevation</th>
-							<th scope="col" class="range">Range</th>
+							<th scope="col">Range</th>
 							<th scope="col" class="text-center">Summit</th>
 							<th scope="col" class="text-center"><button type="button" popovertarget="rank"><abbr title="Ranking requires 300' of Prominence">#</abbr></button></th>
-							<th scope="col" class="text-center"><span class="sr-only">Summit photo</span><span aria-hidden="true">⛰️</span></th>
+							<th scope="col" class="text-center"><span aria-hidden="true">⛰️</span></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -316,11 +302,11 @@
 							<td colspan="6"><!-- JS --></td>
 						</tr>
 						<tr>
-						  <td class="elevation-chart-cell" colspan="6">
-							<div class="elevation-chart">
-							  <canvas id="elevationChart" aria-label="Elevation of climbed peaks over time">Elevation history chart. The same climbs are listed in this table.</canvas>
-							</div>
-						  </td>
+							<td class="elevation-chart-cell" colspan="6">
+								<div class="elevation-chart">
+									<canvas id="elevationChart" aria-label="Elevation of climbed peaks over time">Elevation history chart. The same climbs are listed in this table.</canvas>
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<td colspan="4">Peaks Bagged</td>
@@ -332,19 +318,13 @@
 				</table>
 
 				<table id="concerts" aria-labelledby="concerts-caption">
-					<colgroup>
-						<col class="performers">
-						<col class="venue">
-						<col class="performance-date">
-						<col class="vibe">
-					</colgroup>
-					<caption id="concerts-caption">Non-exhaustive; Chronology approximate</caption>
+					<caption id="concerts-caption">Non-exhaustive; Chronology approximate.</caption>
 					<thead>
 						<tr>
 							<th scope="col">Artist</th>
 							<th scope="col">Venue</th>
 							<th scope="col">Year</th>
-							<th scope="col" class="text-center"><span class="sr-only">Concert notes</span><span aria-hidden="true">🎵</span></th>
+							<th scope="col" class="text-center"><span aria-hidden="true">🎵</span></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -353,12 +333,12 @@
 					<tfoot>
 						<tr>
 							<td colspan="4">
-								<div id="top-artists" aria-label="Most seen artists"><!-- JS --></div>
+								<div id="top-artists"><!-- JS --></div>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="4">
-								<div id="top-venues" aria-label="Most visited venues"><!-- JS --></div>
+								<div id="top-venues"><!-- JS --></div>
 							</td>
 						</tr>
 						<tr>
@@ -373,7 +353,7 @@
 
 			<section aria-labelledby="climbing-map">
 				<h2 id="climbing-map" class="sr-only">Climbing Map</h2>
-				<div id="map"  role="region" aria-label="Interactive climbing map"><!-- JS --></div>
+				<div id="map" role="region" aria-label="Interactive climbing map"><!-- JS --></div>
 			</section>
 
 			<section id="now-playing" aria-labelledby="now-playing-heading">
@@ -382,7 +362,7 @@
 					<a href="https://www.discogs.com/user/crashandburnham/collection?folder=2166321" target="_blank" rel="noopener noreferrer">Personal Collection</a>
 				</h3>
 				<div id="discogs-collection-wrapper">
-					
+
 					<div id="discogs-sleeve-container" class="discogs-grid grid wood">
 						<p id="discogs-collection-status" class="discogs-status" role="status">Loading collection…</p>
 						<!-- JS -->
@@ -420,11 +400,11 @@
 		</footer>
 
 		<!-- Popovers -->
-		<div id="ucd"  class="glass" popover="auto">University of Colorado, Denver</div>
-		<div id="a1"   class="glass" popover="auto">Audio Lead / Front of House Mixer</div>
-		<div id="ad"   class="glass" popover="auto">Audio Director</div>
-		<div id="sd"   class="glass" popover="auto">Sound Designer</div>
-		<div id="lz"   class="glass" popover="auto">Laserist</div>
+		<div id="ucd" class="glass" popover="auto">University of Colorado, Denver</div>
+		<div id="a1" class="glass" popover="auto">Audio Lead / Front of House Mixer</div>
+		<div id="ad" class="glass" popover="auto">Audio Director</div>
+		<div id="sd" class="glass" popover="auto">Sound Designer</div>
+		<div id="lz" class="glass" popover="auto">Laserist</div>
 		<div id="rank" class="glass" popover="auto">Ranking requires 300' of Prominence</div>
 
 		<!-- Templates -->
@@ -459,9 +439,9 @@
 
 							<dt class="gps-label">Location</dt>
 							<dd class="gps">
-							  <a class="gps-link" href="" target="_blank" rel="noopener noreferrer">
-								<data class="gps-data" title="" value=""><!-- JS --></data>
-							  </a>
+								<a class="gps-link" href="" target="_blank" rel="noopener noreferrer">
+									<data class="gps-data" title="" value=""><!-- JS --></data>
+								</a>
 							</dd>
 
 							<dt>Camera</dt>
@@ -471,7 +451,7 @@
 								<span title="Focal Length" data-spec="lens"><data value=""><!-- JS --></data> mm</span>
 								<span title="Aperture" data-spec="aperture"><i>&#402;</i> <data value=""><!-- JS --></data></span>
 								<span title="Shutter Speed" data-spec="shutter"><data value=""><!-- JS --></data>s</span>
-								<span title="File Format" data-spec="format" class="format"><data value=""><!-- JS --></data></span>
+								<span title="File Format" data-spec="format"><data value=""><!-- JS --></data></span>
 							</dd>
 						</dl>
 					</figcaption>
@@ -490,17 +470,25 @@
 		<!-- Production Table -->
 		<template id="production-row-template">
 			<tr>
-				<th scope="row" class="prod-production"><!-- JS --></th>
-				<td class="prod-company"><!-- JS --></td>
-				<td class="prod-a1 prod-role text-center"><!-- JS --></td>
-				<td class="prod-sd prod-role text-center"><!-- JS --></td>
-				<td class="prod-ad prod-role text-center"><!-- JS --></td>
-				<td class="prod-lz prod-role text-center"><!-- JS --></td>
-				<td class="prod-notes text-center"><!-- JS --></td>
+				<th scope="row" data-field="production"><!-- JS --></th>
+				<td data-field="company"><!-- JS --></td>
+				<td class="prod-role text-center" data-field="a1"><!-- JS --></td>
+				<td class="prod-role text-center" data-field="sd"><!-- JS --></td>
+				<td class="prod-role text-center" data-field="ad"><!-- JS --></td>
+				<td class="prod-role text-center" data-field="lz"><!-- JS --></td>
+				<td class="text-center" data-field="notes"><!-- JS --></td>
 			</tr>
 		</template>
 
 		<!-- Gallery -->
+		<template id="gallery-nav-menu-template">
+			<ul id="gallery-navigation" class="gallery-navigation" aria-label="Photo galleries"><!-- JS --></ul>
+		</template>
+
+		<template id="gallery-nav-link-template">
+			<li><a href="#galleries"><!-- JS --></a></li>
+		</template>
+
 		<!-- Buttons -->
 		<template id="gallery-controls-template">
 			<div class="gallery-controls">
@@ -514,7 +502,7 @@
 
 		<!-- Gallery Grid -->
 		<template id="photo-grid-template">
-			<div class="photo-grid grid" role="group"><!-- JS --></div>
+			<div class="photo-grid"><!-- JS --></div>
 		</template>
 
 		<!-- Thumbnails -->
@@ -535,24 +523,24 @@
 		<!-- Mountain Table -->
 		<template id="mountain-row-template">
 			<tr>
-			<th scope="row" class="mtn-peak"></th>
-			<td class="mtn-elevation text-center">
-				<data class="mtn-elevation-data" value=""><!-- JS --></data>
-			</td>
+				<th scope="row" class="mtn-peak"></th>
+				<td class="mtn-elevation text-center">
+					<data class="mtn-elevation-data" value=""><!-- JS --></data>
+				</td>
 
-			<td class="mtn-range"></td>
-			<td class="mtn-date text-center">
-				<time><!-- JS --></time>
-			</td>
+				<td class="mtn-range"></td>
+				<td class="mtn-date text-center">
+					<time><!-- JS --></time>
+				</td>
 
-			<td class="mtn-rank text-center">
-				<span class="ranked">&#10004;</span>
-				<span class="unranked">-</span>
-			</td>
+				<td class="mtn-rank text-center">
+					<span class="ranked">&#10004;</span>
+					<span class="unranked">-</span>
+				</td>
 
-			<td class="mtn-image text-center">
-				<button type="button" class="camera-link" aria-label="View summit image"><!-- JS --></button>
-			</td>
+				<td class="mtn-image text-center">
+					<button type="button" class="camera-link" aria-label="View summit image"><!-- JS --></button>
+				</td>
 			</tr>
 		</template>
 
@@ -585,16 +573,14 @@
 
 		<!-- Table Footer Tallies -->
 		<template id="table-tally-template">
-			<span class="table-tally nowrap">
-				<span class="table-tally-name"><!-- JS --></span>
-				<small>x</small><small class="table-tally-count"><!-- JS --></small></span><span class="table-tally-separator" aria-hidden="true">, </span><wbr class="table-tally-break">
+			<span class="table-tally nowrap"><span class="table-tally-name"><!-- JS --></span><small> x</small><small class="table-tally-count"><!-- JS --></small></span>
 		</template>
 
 		<!-- Climbing Map -->
 		<template id="map-marker-template">
 			<button type="button" class="map-marker"></button>
 		</template>
-		
+
 		<template id="map-popup-template">
 			<article class="popup-content">
 				<h3 class="popup-title"></h3>
@@ -615,10 +601,6 @@
 			</article>
 		</template>
 
-		<template id="map-error-template">
-			<p class="error" role="status">Unable to load map data</p>
-		</template>
-
 		<!-- Record Collection -->
 		<template id="record-template">
 			<div class="discogs-record">
@@ -629,32 +611,13 @@
 					</div>
 				</a>
 			</div>
-			<div class="record-caption text-center">
-			<p>
-				<cite class="record-title"><!-- JS --></cite>
-				<br>
-				<span class="record-artist"><!-- JS --></span>
-			</p>
-			</div>
-		</template>
-
-		<!-- Records For Sale -->
-		<template id="inventory-item-template">
-			<div class="discogs-record">
-				<a class="record-link" href="#" target="_blank" rel="noopener noreferrer">
-					<div class="album-sleeve">
-						<img class="album-art" src="" alt="" decoding="async">
-						<img class="album-media" src="" alt="" decoding="async">
-					</div>
-				</a>
-			</div>
-			<div class="record-caption for-sale">
-				<p class="record-info">
+			<div class="record-caption">
+				<p>
 					<cite class="record-title"><!-- JS --></cite>
 					<br>
 					<span class="record-artist"><!-- JS --></span>
 				</p>
-				<data class="record-price" value=""><!-- JS --></data>
+				<data class="record-price" value="" hidden><!-- JS --></data>
 			</div>
 		</template>
 

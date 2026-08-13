@@ -1,4 +1,5 @@
 @layer components.modal {
+	
 	dialog {
 		background: transparent;
 		border: 0;
@@ -113,7 +114,7 @@
 
 			& figcaption {
 				align-items: center;
-				background: var(--glassy);
+				background: var(--bg-glassy);
 				border-radius: inherit;
 				box-shadow:
 					/* var(--shadow-glass), */
@@ -144,7 +145,7 @@
 				}
 
 				&::before {
-					background: oklch(from var(--color-border-caption) l c h / 0.25);
+					background: oklch(from var(--color-shadow-0) l c h / 0.25);
 					block-size: 1px;
 					box-shadow: inset 0 1px 0px -.5px rgb(0 0 0 / .25);
 					content: "";
@@ -223,13 +224,16 @@
 		}
 	}
 
+	dialog .photo-metadata dd[hidden] {
+		display: none;
+	}
+
 	.dialog-close {
 		aspect-ratio: 1;
-		inline-size: 1.25rem;
-		padding: 0.125rem;
+		inline-size: 2rem;
 		position: fixed;
-		right: max(1rem, env(safe-area-inset-right));
-		top: max(1rem, env(safe-area-inset-top));
+		right: max(2rem, env(safe-area-inset-right));
+		top: max(2rem, env(safe-area-inset-top));
 		translate: none;
 		z-index: 2;
 
@@ -260,8 +264,8 @@
 	}
 
 	.modal-media {
-		block-size: var(--modal-media-block-size, min(55dvh, var(--modal-max-height)));
-		inline-size: var(--modal-media-inline-size, min(55dvw, var(--modal-max-width)));
+		block-size: var(--modal-media-block-size, min(55dvh, 85dvw));
+		inline-size: var(--modal-media-inline-size, min(55dvw, 90dvh));
 		overflow: hidden;
 		position: relative;
 		touch-action: pan-y pinch-zoom;

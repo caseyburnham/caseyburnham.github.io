@@ -1,9 +1,18 @@
 @layer components.details {
 	#skills {
 		backdrop-filter: blur(2.5px);
-		background: var(--glassy);
+		background: var(--bg-glassy);
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius-md);
+		transition: box-shadow 300ms ease;
+
+		&:hover {
+			box-shadow: var(--glass-frame);
+		}
+		
+		&:has(details:open) {
+			box-shadow: var(--glass-frame);
+		}
 
 		& details {
 			.power-led {
@@ -23,7 +32,7 @@
 
 			.chevron {
 				border: 1px solid var(--color-border);
-				border-radius: 5px;
+				border-radius: var(--radius-sm);
 				color: var(--color-text-secondary);
 				display: grid;
 				flex-shrink: 0;
@@ -49,10 +58,7 @@
 				}
 
 				& .power-led {
-					background: 
-						radial-gradient(
-							var(--color-accent-0) 55%, 
-							oklch(from var(--black-0) l c h / .95) 75%);
+					background: radial-gradient(var(--color-accent-0) 55%, oklch(from var(--black-0) l c h / .95) 75%);
 					box-shadow: 0 0 8px 0px oklch(from var(--color-glow-0) l c h / 0.5);
 					filter: brightness(1.8);
 				}
@@ -81,7 +87,6 @@
 			}
 
 			& article {
-				padding-block-end: .5rem;
 
 				& ul {
 					border-top: 1px solid var(--color-border);
@@ -92,7 +97,7 @@
 						border-bottom: 1px solid var(--color-border);
 						display: flex;
 						opacity: 0;
-						padding-block: .5rem;
+						padding-block: .75rem;
 						padding-inline-start: .5rem;
 						transform: translateY(6px);
 

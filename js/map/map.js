@@ -17,13 +17,11 @@ class ClimbingMap {
 	#mapContainer = null;
 	#markerTemplate = null;
 	#popupTemplate = null;
-	#errorTemplate = null;
 	constructor() {
 		this.#mapContainer = document.getElementById('map');
 		this.#markerTemplate = document.getElementById('map-marker-template');
 		this.#popupTemplate = document.getElementById('map-popup-template');
-		this.#errorTemplate = document.getElementById('map-error-template');
-		const missing = [!this.#mapContainer && '#map', !this.#markerTemplate && '#map-marker-template', !this.#popupTemplate && '#map-popup-template', !this.#errorTemplate && '#map-error-template'].filter(Boolean);
+		const missing = [!this.#mapContainer && '#map', !this.#markerTemplate && '#map-marker-template', !this.#popupTemplate && '#map-popup-template'].filter(Boolean);
 		if (missing.length > 0) {
 			throw new Error(`Missing map elements: ${missing.join(', ')}`);
 		}
@@ -144,7 +142,10 @@ class ClimbingMap {
 		return content;
 	}
 	#showError() {
-		const error = this.#errorTemplate.content.cloneNode(true);
+		const error = document.createElement('p');
+		error.className = 'error';
+		error.role = 'status';
+		error.textContent = 'Unable to load map data';
 		this.#mapContainer.replaceChildren(error);
 	}
 }

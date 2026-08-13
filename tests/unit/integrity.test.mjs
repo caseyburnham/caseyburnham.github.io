@@ -3,14 +3,25 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { URL } from 'node:url';
 import Ajv from 'ajv';
-import { formatElevation } from '../js/utils/exif-utils.js';
-import { DataCache } from '../js/utils/data-cache.js';
+import { formatElevation } from '../../js/utils/exif-utils.js';
+import { DataCache } from '../../js/utils/data-cache.js';
 import {
 	fetchDiscogs,
 	parseDiscogsPage,
 	selectRandomPage
-} from '../netlify/lib/discogs-utils.mjs';
-import { isValidCalendarDate, isValidIsoDate } from '../js/utils/date-utils.js';
+} from '../../netlify/lib/discogs-utils.mjs';
+import { isValidCalendarDate, isValidIsoDate } from '../../js/utils/date-utils.js';
+import { visibleProductions } from '../../js/ui/tables/production-table.js';
+
+test('keeps hidden productions in data but excludes them from display', () => {
+	const productions = [
+		{ Production: 'Public credit', visible: true },
+		{ Production: 'Private record', visible: false }
+	];
+
+	assert.deepEqual(visibleProductions(productions), [productions[0]]);
+	assert.deepEqual(visibleProductions(null), []);
+});
 
 test('validates ISO calendar dates, including leap years', () => {
 	assert.equal(isValidIsoDate('2024-02-29'), true);
@@ -95,9 +106,9 @@ test('date schemas reject impossible calendar dates', async () => {
 	});
 
 	const [mountainSchema, gallerySchema, exifSchema] = await Promise.all([
-		readFile(new URL('../schemas/mountain-data.schema.json', import.meta.url), 'utf8'),
-		readFile(new URL('../schemas/gallery-data.schema.json', import.meta.url), 'utf8'),
-		readFile(new URL('../schemas/exif-data.schema.json', import.meta.url), 'utf8')
+		readFile(new URL('../../schemas/mountain-data.schema.json', import.meta.url), 'utf8'),
+		readFile(new URL('../../schemas/gallery-data.schema.json', import.meta.url), 'utf8'),
+		readFile(new URL('../../schemas/exif-data.schema.json', import.meta.url), 'utf8')
 	]);
 	const validateMountains = ajv.compile(JSON.parse(mountainSchema));
 	const validateGalleries = ajv.compile(JSON.parse(gallerySchema));

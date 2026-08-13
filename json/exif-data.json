@@ -6434,6 +6434,39 @@
     "title": null,
     "caption": "Huron Peak"
   },
+  "summits/iowa-peak.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 8,
+      "day": 9,
+      "hour": 10,
+      "minute": 19,
+      "second": 53,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:08:09 10:19:53",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/8000",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.9396388888889,
+      "lon": -106.382980555556,
+      "latDMS": "38\u00b056'22.70\" N",
+      "lonDMS": "106\u00b022'58.73\" W",
+      "alt": 4216.943333,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Iowa Peak",
+    "caption": null
+  },
   "summits/james-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -6565,6 +6598,39 @@
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": "Longs Peak"
+  },
+  "summits/missouri-mountain.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 8,
+      "day": 9,
+      "hour": 9,
+      "minute": 39,
+      "second": 13,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:08:09 09:39:13",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/6711",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.9475833333333,
+      "lon": -106.378494444444,
+      "latDMS": "38\u00b056'51.30\" N",
+      "lonDMS": "106\u00b022'42.58\" W",
+      "alt": 4290.099955,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Missouri Mountain",
+    "caption": null
   },
   "summits/mosquito-peak.avif": {
     "date": {
@@ -7555,6 +7621,72 @@
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mt. Evans"
+  },
+  "summits/peak-nine.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 8,
+      "day": 2,
+      "hour": 12,
+      "minute": 13,
+      "second": 30,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:08:02 12:13:30",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 48,
+    "aperture": 1.8,
+    "shutter": "1/4587",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.4517472222222,
+      "lon": -106.105361111111,
+      "latDMS": "39\u00b027'6.29\" N",
+      "lonDMS": "106\u00b06'19.30\" W",
+      "alt": 4024.110092,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Peak Nine",
+    "caption": null
+  },
+  "summits/peak-ten.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 8,
+      "day": 2,
+      "hour": 11,
+      "minute": 20,
+      "second": 23,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:08:02 11:20:23",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 64,
+    "lens": 48,
+    "aperture": 1.8,
+    "shutter": "1/5587",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.4433027777778,
+      "lon": -106.102797222222,
+      "latDMS": "39\u00b026'35.89\" N",
+      "lonDMS": "106\u00b06'10.07\" W",
+      "alt": 4157.927711,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Peak Ten",
+    "caption": null
   },
   "summits/peerless-mountain.jpeg": {
     "date": {

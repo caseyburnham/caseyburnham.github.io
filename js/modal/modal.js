@@ -122,6 +122,16 @@ export class PhotoModal {
 		if (isOpening) {
 			this.elements.modal.showModal();
 		}
+		const photo = trigger.closest(itemSelector);
+		if (photo?.dataset.photoId) {
+			document.dispatchEvent(new CustomEvent('photochange', {
+				detail: {
+					section: photo.matches('.camera-link') ? 'mountains' : 'galleries',
+					gallery: photo.dataset.gallery,
+					photo: photo.dataset.photoId
+				}
+			}));
+		}
 	}
 	async _render(src, alt, title) {
 		this._finishImageTransition();
@@ -423,6 +433,13 @@ export class PhotoModal {
 		}, 320);
 		this.originalTrigger?.focus();
 		this.originalTrigger = null;
+		document.dispatchEvent(new CustomEvent('photochange', {
+			detail: {
+			section: null,
+			gallery: null,
+			photo: null
+		}
+		}));
 	}
 	_clearImages() {
 		clearTimeout(this.closeCleanupTimer);

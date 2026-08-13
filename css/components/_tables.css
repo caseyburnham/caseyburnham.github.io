@@ -12,9 +12,10 @@
 	}
 
 	table {
-		background-color: var(--color-bg-main);
+		backdrop-filter: blur(2.5px);
+		background-color: transparent;
 		border-collapse: collapse;
-		font-size: var(--text-table);
+		font-size: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
 		inline-size: 100%;
 		table-layout: auto;
 
@@ -65,7 +66,7 @@
 	:is(th, td) {
 		border: 1px solid var(--color-border);
 		padding-block: 0.5rem;
-		padding-inline: var(--fluid-padding-table);
+		padding-inline: round(clamp(0.25rem, 2vw - 0.5rem, 0.5rem), 0.0125rem);
 	}
 
 	:is(.prod-role, .ranked) {

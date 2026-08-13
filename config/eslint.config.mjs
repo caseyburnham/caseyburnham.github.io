@@ -23,7 +23,6 @@ export default [
 			'netlify/**/*.mjs',
 			'config/playwright.config.mjs',
 			'scripts/**/*.mjs',
-			'test/**/*.mjs',
 			'tests/**/*.mjs'
 		],
 		languageOptions: {

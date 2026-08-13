@@ -23,7 +23,7 @@
 		background-image: url(/images/assets/jpeg/wood.jpg);
 		background-size: cover;
 		border-radius: var(--radius-sm);
-		box-shadow: 
+		box-shadow:
 			var(--black-0) 0 0 9px inset,
 			var(--black-1) 0 3px 5px inset;
 		outline: 1px solid var(--black-0);
@@ -52,16 +52,16 @@
 			oklch(from var(--black-0) l c h / 0.75) 0 1px 1px,
 			oklch(from var(--black-1) l c h / 0.5) 0 2px 2px,
 			oklch(from var(--black-3) l c h / 0.25) 0 3px 3px;
-		
+
 		--shadow-album-art-active:
 			var(--black-0) 0 0 1px,
 			oklch(from var(--black-1) l c h / 0.95) 6px 0 3px -6px;
-		
+
 		--shadow-album-active:
 			oklch(from var(--black-0) l c h / 0.65) 3px 1px 3px 1px,
 			oklch(from var(--black-1) l c h / 0.4) 7px 4px 7px 1px,
 			oklch(from var(--black-3) l c h / 0.15) 10px 3px 8px 2px;
-		
+
 		--shadow-cassette-active:
 			oklch(from var(--black-0) l c h / 0.65) 0 1px 3px 1px,
 			oklch(from var(--black-1) l c h / 0.4) 0 4px 7px 1px,
@@ -197,13 +197,18 @@
 	/* Record Caption */
 	.record-caption p {
 		font-size: smaller;
-		font-style: normal;
-		font-weight: lighter;
 		line-height: var(--line-height-base);
 		padding-top: 0.5rem;
 
 		& .record-title {
 			font-style: inherit;
+
+			&.is-favorite::after {
+				color: oklch(0.632 0.2406 23.18);
+				content: "★";
+				font-size: var(--text-xs);
+				margin-inline-start: 0.25rem;
+			}
 		}
 
 		& .record-artist {
@@ -211,24 +216,21 @@
 		}
 	}
 
-	.for-sale {
+	.record-caption:has(.record-price:is([hidden])) {
+		text-align: center;
+	}
+
+	.record-caption:has(.record-price:not([hidden])) {
 		align-items: baseline;
 		display: flex;
 		justify-content: space-between;
 
 		& data {
 			border-radius: 0.025em;
-			color: var(--green);
+			color: oklch(62% 34% 161deg);
 			font-size: var(--text-xs);
-			outline: 1px solid var(--green);
+			outline: 1px solid oklch(62% 34% 161deg);
 			padding: 0.125rem;
 		}
-	}
-
-	.record-title.is-favorite::after {
-		color: var(--paradise-pink);
-		content: "★";
-		font-size: var(--text-xs);
-		margin-inline-start: 0.25rem;
 	}
 }

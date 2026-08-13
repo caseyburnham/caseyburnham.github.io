@@ -38,14 +38,14 @@
 		font-family: var(--font-family-mono);
 	}
 
+	:is(caption, data, label, small, time, [popover]) {
+		color: var(--color-text-secondary);
+	}
+
 	:is(caption, label, small) {
 		font-size: smaller;
 		font-style: italic;
 		font-weight: var(--font-weight-light);
-	}
-
-	:is(caption, data, label, small, time, [popover]) {
-		color: var(--color-text-secondary);
 	}
 
 	:is(data, time, summary) {
@@ -55,6 +55,7 @@
 	}
 
 	:is(header, p) {
+		font-style: normal;
 		line-height: var(--line-height-airy);
 	}
 }

@@ -7,7 +7,8 @@
 		"SD": "✘",
 		"AD": "",
 		"LZ": "",
-		"Notes": "🛣️"
+		"Notes": "🛣️",
+		"visible": false
 	},
 	{
 		"Production": "Pete the Cat",
@@ -17,7 +18,8 @@
 		"SD": "✘",
 		"AD": "✘",
 		"LZ": "",
-		"Notes": "😸"
+		"Notes": "😸",
+		"visible": false
 	},
 	{
 		"Production": "Dear Evan Hansen",
@@ -27,7 +29,8 @@
 		"SD": "",
 		"AD": "✘",
 		"LZ": "",
-		"Notes": "📔"
+		"Notes": "📔",
+		"visible": false
 	},
 	{
 		"Production": "Misery",
@@ -37,7 +40,8 @@
 		"SD": "",
 		"AD": "✘",
 		"LZ": "",
-		"Notes": "🪓"
+		"Notes": "🪓",
+		"visible": true
 	},
 	{
 		"Production": "Junie B. Jones",
@@ -47,7 +51,8 @@
 		"SD": "✘",
 		"AD": "✘",
 		"LZ": "",
-		"Notes": "🎀"
+		"Notes": "🎀",
+		"visible": true
 	},
 	{
 		"Production": "Romeo & Juliet",
@@ -57,7 +62,8 @@
 		"SD": "",
 		"AD": "✘",
 		"LZ": "",
-		"Notes": "💔"
+		"Notes": "💔",
+		"visible": false
 	},
 	{
 		"Production": "Disney's Frozen",
@@ -67,7 +73,8 @@
 		"SD": "",
 		"AD": "✘",
 		"LZ": "",
-		"Notes": "❄️"
+		"Notes": "❄️",
+		"visible": true
 	},
 	{
 		"Production": "The Mousetrap",
@@ -77,7 +84,8 @@
 		"SD": "",
 		"AD": "✘",
 		"LZ": "",
-		"Notes": "🪤"
+		"Notes": "🪤",
+		"visible": true
 	},
 	{
 		"Production": "The Prom",
@@ -87,7 +95,8 @@
 		"SD": "✘",
 		"AD": "✘",
 		"LZ": "",
-		"Notes": "🪩"
+		"Notes": "🪩",
+		"visible": true
 	},
 	{
 		"Production": "A Gentleman's Guide to Love and Murder",
@@ -97,7 +106,8 @@
 		"SD": "",
 		"AD": "✘",
 		"LZ": "",
-		"Notes": "🔪"
+		"Notes": "🔪",
+		"visible": true
 	},
 	{
 		"Production": "Lyle the Crocodile",
@@ -107,7 +117,8 @@
 		"SD": "",
 		"AD": "✘",
 		"LZ": "",
-		"Notes": "🐊"
+		"Notes": "🐊",
+		"visible": true
 	},
 	{
 		"Production": "A Christmas Carol",
@@ -117,7 +128,8 @@
 		"SD": "✘",
 		"AD": "",
 		"LZ": "",
-		"Notes": "🎄"
+		"Notes": "🎄",
+		"visible": true
 	},
 	{
 		"Production": "The Lightning Thief",
@@ -127,7 +139,8 @@
 		"SD": "✘",
 		"AD": "",
 		"LZ": "✘",
-		"Notes": "⚡️"
+		"Notes": "⚡️",
+		"visible": true
 	},
 	{
 		"Production": "ART",
@@ -137,7 +150,8 @@
 		"SD": "✘",
 		"AD": "",
 		"LZ": "",
-		"Notes": "🖼️"
+		"Notes": "🖼️",
+		"visible": true
 	},
 	{
 		"Production": "Treasure Island",
@@ -147,7 +161,8 @@
 		"SD": "",
 		"AD": "",
 		"LZ": "",
-		"Notes": "🏴‍☠️"
+		"Notes": "🏴‍☠️",
+		"visible": true
 	},
 	{
 		"Production": "Blues in the Night",
@@ -157,7 +172,8 @@
 		"SD": "✘",
 		"AD": "",
 		"LZ": "",
-		"Notes": "📻"
+		"Notes": "📻",
+		"visible": true
 	},
 	{
 		"Production": "The Last Session",
@@ -167,7 +183,8 @@
 		"SD": "",
 		"AD": "",
 		"LZ": "",
-		"Notes": "🎙️"
+		"Notes": "🎙️",
+		"visible": true
 	},
 	{
 		"Production": "Jedi Handbook",
@@ -177,7 +194,8 @@
 		"SD": "",
 		"AD": "",
 		"LZ": "✘",
-		"Notes": "📖"
+		"Notes": "📖",
+		"visible": true
 	},
 	{
 		"Production": "Disney's Freaky Friday",
@@ -187,7 +205,8 @@
 		"SD": "",
 		"AD": "",
 		"LZ": "",
-		"Notes": "⏳"
+		"Notes": "⏳",
+		"visible": true
 	},
 	{
 		"Production": "Hurricane Diane",
@@ -197,7 +216,8 @@
 		"SD": "✘",
 		"AD": "",
 		"LZ": "",
-		"Notes": "🌀"
+		"Notes": "🌀",
+		"visible": true
 	},
 	{
 		"Production": "A Very Merry Unauthorized Children's Scientology Pageant",
@@ -207,6 +227,7 @@
 		"SD": "",
 		"AD": "",
 		"LZ": "",
-		"Notes": "🛸"
+		"Notes": "🛸",
+		"visible": false
 	}
 ]
