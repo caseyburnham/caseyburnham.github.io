@@ -11,9 +11,12 @@
 		syntax: '<percentage>';
 	}
 
+table:not(table caption) {
+	backdrop-filter: blur(2.5px);
+	background-color: transparent;
+}
 	table {
-		backdrop-filter: blur(2.5px);
-		background-color: transparent;
+		
 		border-collapse: collapse;
 		font-size: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
 		inline-size: 100%;
@@ -85,14 +88,60 @@
 		text-align: center;
 	}
 
-	.elevation-chart-cell {
+	.range-ridgeline {
+		display: grid;
+		gap: 0.5rem 1.5rem;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		list-style: none;
+		margin: 0;
 		padding: 0;
 	}
 
-	.elevation-chart {
-		--mountain-chart-color: var(--color-accent-0);
-		--mountain-chart-fill: var(--color-accent-alpha);
-		block-size: 3rem;
+	.range-ridge {
+		align-items: end;
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: minmax(7rem, auto) minmax(3rem, 1fr) 2ch;
+		line-height: 1;
+		min-inline-size: 0;
+	}
+
+	.range-ridge-name {
+		/* overflow: hidden; */
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.range-ridge-chart {
+		background: linear-gradient(to top, var(--color-border) 1px, transparent 1px);
+		block-size: 2rem;
+		display: block;
+		inline-size: 100%;
+		min-inline-size: 0;
+		overflow: visible;
+	}
+
+	.range-ridge-area {
+		fill: var(--color-accent-alpha);
+	}
+
+	.range-ridge-line {
+		fill: none;
+		filter: drop-shadow(0px 0px 2px var(--color-glow-0));
+		stroke: var(--color-accent-0);
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-width: 1.5;
+		vector-effect: non-scaling-stroke;
+	}
+
+	.range-ridge-count {
+		font-variant-numeric: tabular-nums;
+		text-align: end;
+	}
+
+	.range-ridge--zero {
+	display: none;
 	}
 
 	.sequence-group {
@@ -124,6 +173,12 @@
 		font-weight: calc(100 + 600 * var(--elevation-fraction));
 		text-shadow: var(--shadow-text-outline),
 		0 0 var(--glow-size) var(--glow-color);
+	}
+
+	@media (width < 45rem) {
+		.range-ridgeline {
+			grid-template-columns: minmax(0, 1fr);
+		}
 	}
 	
 		

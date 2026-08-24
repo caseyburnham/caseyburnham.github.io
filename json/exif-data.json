@@ -6731,6 +6731,39 @@
     "title": null,
     "caption": "Mt Audubon"
   },
+  "summits/mount-bancroft.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 8,
+      "day": 24,
+      "hour": 10,
+      "minute": 8,
+      "second": 23,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:08:24 10:08:23",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/6711",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.8374777777778,
+      "lon": -105.700469444444,
+      "latDMS": "39\u00b050'14.92\" N",
+      "lonDMS": "105\u00b042'1.69\" W",
+      "alt": 4042.573529,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Mount Bancroft",
+    "caption": null
+  },
   "summits/mount-belford.jpeg": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -7622,6 +7655,39 @@
     "title": null,
     "caption": "Mt. Evans"
   },
+  "summits/parry-peak.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 8,
+      "day": 24,
+      "hour": 10,
+      "minute": 54,
+      "second": 49,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:08:24 10:54:49",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/8000",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.8381,
+      "lon": -105.713105555556,
+      "latDMS": "39\u00b050'17.16\" N",
+      "lonDMS": "105\u00b042'47.18\" W",
+      "alt": 4070.081761,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Parry Peak",
+    "caption": null
+  },
   "summits/peak-nine.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -8206,6 +8272,39 @@
     },
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
+    "caption": null
+  },
+  "summits/un-13253.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 8,
+      "day": 16,
+      "hour": 10,
+      "minute": 28,
+      "second": 41,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:08:16 10:28:41",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/8000",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.4643055555556,
+      "lon": -106.462433333333,
+      "latDMS": "39\u00b027'51.50\" N",
+      "lonDMS": "106\u00b027'44.76\" W",
+      "alt": 4040.175824,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "UN 13253",
     "caption": null
   },
   "summits/un-13738.jpeg": {

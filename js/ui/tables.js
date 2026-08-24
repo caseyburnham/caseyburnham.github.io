@@ -13,7 +13,7 @@ import {
 	renderProductions
 }
 from './tables/production-table.js';
-const REQUIRED_TEMPLATES = ['production-row-template', 'mountain-row-template', 'summary-row-template', 'concert-row-template', 'table-tally-template'];
+const REQUIRED_TEMPLATES = ['production-row-template', 'mountain-row-template', 'summary-row-template', 'concert-row-template', 'table-tally-template', 'range-ridge-template'];
 
 function validateTemplates() {
 	const missing = REQUIRED_TEMPLATES.filter(id => !document.getElementById(id));

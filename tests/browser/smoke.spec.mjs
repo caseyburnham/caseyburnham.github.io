@@ -75,6 +75,18 @@ test('renders the primary content and data tables', async ({ page }) => {
 	await expect(page.locator('#productions-table tbody tr')).not.toHaveCount(0);
 	await expect(page.locator('#mountains tbody tr:not(.summary-row)')).not.toHaveCount(0);
 	await expect(page.locator('#concerts tbody tr:not(.summary-row)')).not.toHaveCount(0);
+	const rangeRidges = page.locator('#range-summary-row .range-ridge');
+	await expect(rangeRidges).toHaveCount(8);
+	const rangeSummary = await rangeRidges.evaluateAll(ridges => ridges.map(ridge => ({
+		count: Number.parseInt(ridge.querySelector('.range-ridge-count').textContent, 10),
+		isZero: ridge.classList.contains('range-ridge--zero'),
+		name: ridge.querySelector('.range-ridge-name').textContent,
+		points: ridge.querySelector('.range-ridge-line').getAttribute('points')
+	})));
+	expect(rangeSummary.every(range => range.name && Number.isInteger(range.count))).toBe(true);
+	expect(rangeSummary.every(range => range.isZero === (range.count === 0))).toBe(true);
+	expect(rangeSummary.every(range => Boolean(range.points) === (range.count > 0))).toBe(true);
+	await expect(page.locator('#elevationChart')).toHaveCount(0);
 
 	const hasHorizontalOverflow = await page.evaluate(() =>
 		document.documentElement.scrollWidth > document.documentElement.clientWidth

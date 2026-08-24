@@ -299,13 +299,9 @@
 							</td>
 						</tr>
 						<tr id="range-summary-row">
-							<td colspan="6"><!-- JS --></td>
-						</tr>
-						<tr>
-							<td class="elevation-chart-cell" colspan="6">
-								<div class="elevation-chart">
-									<canvas id="elevationChart" aria-label="Elevation of climbed peaks over time">Elevation history chart. The same climbs are listed in this table.</canvas>
-								</div>
+							<td colspan="6">
+								<span class="sr-only">Unique summits by mountain range</span>
+								<ul class="range-ridgeline"><!-- JS --></ul>
 							</td>
 						</tr>
 						<tr>
@@ -574,6 +570,18 @@
 		<!-- Table Footer Tallies -->
 		<template id="table-tally-template">
 			<span class="table-tally nowrap"><span class="table-tally-name"><!-- JS --></span><small> x</small><small class="table-tally-count"><!-- JS --></small></span>
+		</template>
+
+		<!-- Mountain Range Ridgeline -->
+		<template id="range-ridge-template">
+			<li class="range-ridge">
+				<span class="range-ridge-name"><!-- JS --></span>
+				<svg class="range-ridge-chart" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true">
+					<polygon class="range-ridge-area" points=""></polygon>
+					<polyline class="range-ridge-line" points=""></polyline>
+				</svg>
+				<strong class="range-ridge-count"><!-- JS --></strong>
+			</li>
 		</template>
 
 		<!-- Climbing Map -->

@@ -4,13 +4,17 @@ import {
 }
 from '../../utils/exif-utils.js';
 import {
-	createTallyList,
 	updateElement
 }
 from './table-utils.js';
 const ELEVATION = {
 	MIN: 13000,
 	MAX: 14440
+};
+const RANGE_CHART = {
+	HEIGHT: 30,
+	PADDING: 2,
+	WIDTH: 100
 };
 const RANGES_ORDERED = ['Front', 'Tenmile', 'Mosquito', 'Gore', 'Elks', 'Sawatch', 'Sangre de Cristo', 'San Juan'];
 export function processMountains(mountains, exifData) {
@@ -52,23 +56,50 @@ function calculateMountainStats(mountains) {
 }
 
 function renderRangeSummary(mountains) {
-	const cell = document.querySelector('#range-summary-row td');
-	const template = document.getElementById('table-tally-template');
-	if (!cell || !template) return;
+	const list = document.querySelector('#range-summary-row .range-ridgeline');
+	const template = document.getElementById('range-ridge-template');
+	if (!list || !template) return;
 	const seenPeaks = new Set();
-	const rangeCounts = new Map(RANGES_ORDERED.map(range => [range, 0]));
+	const rangeSummits = new Map(RANGES_ORDERED.map(range => [range, []]));
 	mountains.forEach(mountain => {
 		if (!mountain?.Peak || !mountain?.Range || seenPeaks.has(mountain.Peak)) return;
 		seenPeaks.add(mountain.Peak);
-		if (rangeCounts.has(mountain.Range)) {
-			rangeCounts.set(mountain.Range, rangeCounts.get(mountain.Range) + 1);
-		}
+		const elevation = Number.parseInt(mountain.Elevation?.replaceAll(',', ''), 10);
+		if (!rangeSummits.has(mountain.Range) || !Number.isFinite(elevation)) return;
+		rangeSummits.get(mountain.Range)
+			.push({
+				date: mountain.displayDate || mountain.Date || '',
+				elevation
+			});
 	});
-	const sorted = Array.from(rangeCounts.entries())
-		.sort((a, b) => b[1] - a[1]);
-	cell.replaceChildren(createTallyList(sorted, template, {
-		itemClass: ([, count]) => count === 0 ? 'range-tally--zero' : ''
-	}));
+	const sorted = Array.from(rangeSummits.entries())
+		.sort((a, b) => b[1].length - a[1].length);
+	const fragment = document.createDocumentFragment();
+	sorted.forEach(([range, summits]) => {
+		summits.sort((a, b) => a.date.localeCompare(b.date));
+		const count = summits.length;
+		const ridge = template.content.firstElementChild.cloneNode(true);
+		ridge.querySelector('.range-ridge-name')
+			.textContent = range;
+		ridge.querySelector('.range-ridge-count')
+			.textContent = count;
+		const points = summits.map(({ elevation }, index) => {
+			const x = count === 1 ? RANGE_CHART.WIDTH / 2 : index / (count - 1) * RANGE_CHART.WIDTH;
+			const fraction = (elevation - ELEVATION.MIN) / (ELEVATION.MAX - ELEVATION.MIN);
+			const drawableHeight = RANGE_CHART.HEIGHT - RANGE_CHART.PADDING * 2;
+			const y = RANGE_CHART.HEIGHT - RANGE_CHART.PADDING - fraction * drawableHeight;
+			return `${x.toFixed(2)},${y.toFixed(2)}`;
+		});
+		if (count === 1) points.push(`${RANGE_CHART.WIDTH / 2 + 0.01},${points[0].split(',')[1]}`);
+		const linePoints = points.join(' ');
+		ridge.querySelector('.range-ridge-line')
+			.setAttribute('points', linePoints);
+		ridge.querySelector('.range-ridge-area')
+			.setAttribute('points', count ? `0,${RANGE_CHART.HEIGHT} ${linePoints} ${RANGE_CHART.WIDTH},${RANGE_CHART.HEIGHT}` : '');
+		if (!count) ridge.classList.add('range-ridge--zero');
+		fragment.appendChild(ridge);
+	});
+	list.replaceChildren(fragment);
 }
 
 function styleSequenceGroup(rows) {

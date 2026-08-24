@@ -6,33 +6,34 @@
 
 		& button {
 			background: var(--color-bg-main);
-			border: 1px solid var(--color-border);
+			border: none;
 			border-radius: var(--radius-main);
 			font-size: var(--text-xs);
-			outline: 2px solid;
-			outline-color: transparent;
-			outline-offset: 1px;
+			outline: 1px solid var(--color-border);
 			padding: 0.5rem;
 			text-wrap: wrap;
-			transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, outline-color 0.3s ease;
+			transition: background 0.3s, color 0.3s, outline 150ms, outline-offset 150ms;
+			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 			z-index: 2;
 
 			&:hover {
 				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.05) c h), oklch(from var(--color-bg-main) calc(l + 0.15) c h));
+				outline-offset: 1px;
 			}
 
 			&:active {
 				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.2) c h), oklch(from var(--color-bg-main) calc(l + 0.25) c h));
+				outline-offset: 0px;
 			}
 
 			&.selected {
 				background: var(--color-accent-0);
-				border: 1px solid transparent;
 				box-shadow: none;
 				color: var(--color-text-selected);
 				cursor: default;
 				outline: 2px solid;
 				outline-color: var(--color-accent-0);
+				outline-offset: 1px;
 
 				&:active {
 					background: light-dark(oklch(from var(--color-accent-0) calc(l - 0.05) c h), oklch(from var(--color-accent-0) calc(l + 0.05) c h));
@@ -51,12 +52,13 @@
 			border: 0;
 			border-radius: var(--radius-md);
 			cursor: pointer;
-			outline: 0px solid;
+			outline: 1px solid;
 			outline-color: transparent;
 			outline-offset: 1px;
 			overflow: hidden;
 			padding: 0;
-			transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), outline 0.3s ease-in-out, outline-color 0.3s ease, outline-offset 0.3s ease;
+			transition: filter 300ms, outline 150ms, outline-color 300ms, outline-offset 150ms;
+			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 			will-change: outline;
 
 			& img {

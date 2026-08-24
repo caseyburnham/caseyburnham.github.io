@@ -4,7 +4,8 @@
 		background: var(--bg-glassy);
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius-md);
-		transition: box-shadow 300ms ease;
+		transition: box-shadow 300ms;
+		transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
 
 		&:hover {
 			box-shadow: var(--glass-frame);
@@ -16,7 +17,7 @@
 
 		& details {
 			.power-led {
-				background: radial-gradient(var(--color-accent-0) 55%, oklch(from var(--black-0) l c h / .95) 75%);
+				background: radial-gradient(var(--color-primary) 55%, oklch(from var(--black-0) l c h / .95) 75%);
 				border-radius: 50%;
 				box-shadow: none;
 				filter: brightness(.6);
@@ -58,9 +59,9 @@
 				}
 
 				& .power-led {
-					background: radial-gradient(var(--color-accent-0) 55%, oklch(from var(--black-0) l c h / .95) 75%);
-					box-shadow: 0 0 8px 0px oklch(from var(--color-glow-0) l c h / 0.5);
-					filter: brightness(1.8);
+					background: radial-gradient(var(--color-primary) 55%, oklch(from var(--black-0) l c h / .95) 75%);
+					box-shadow: 0 0 8px 0px oklch(from var(--color-primary-light) l c h / 0.5);
+					filter: brightness(1.2);
 				}
 
 				& li {

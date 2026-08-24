@@ -72,14 +72,6 @@ const lazyFeatures = [{
 		await galleriesPromise;
 	}
 }, {
-	selector: '#tables',
-	load: async () => {
-		const {
-			initMountainChart
-		} = await import('./ui/mountain-chart.js');
-		await initMountainChart();
-	}
-}, {
 	selector: '#map',
 	load: async () => {
 		const [{

@@ -1,5 +1,29 @@
 [
 	{
+		"Peak": "Mount Bancroft",
+		"Elevation": "13,250",
+		"Range": "Front",
+		"Date": "2026-08-24",
+		"Image": "/images/summits/mount-bancroft.avif",
+		"ranked": false
+	},
+	{
+		"Peak": "Parry Peak",
+		"Elevation": "13,367",
+		"Range": "Front",
+		"Date": "2026-08-24",
+		"Image": "/images/summits/parry-peak.avif",
+		"ranked": true
+	},
+	{
+		"Peak": "UN 13,253",
+		"Elevation": "13,253",
+		"Range": "Sawatch",
+		"Date": "2026-08-16",
+		"Image": "/images/summits/un-13253.avif",
+		"ranked": true
+	},
+	{
 		"Peak": "Iowa Peak",
 		"Elevation": "13,831",
 		"Range": "Sawatch",
