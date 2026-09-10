@@ -1,13 +1,7 @@
 import dataCache from '../utils/data-cache.js';
 
-const POPOVER_TIMEOUT = 3000;
 const GALLERY_MENU_CLOSE_DELAY = 180;
 const GALLERY_DATA_URL = '/json/gallery-data.json';
-const RACK_ANIMATION = {
-	closeDuration: 400,
-	openDuration: 420,
-	easing: 'cubic-bezier(.4, 0, .2, 1)',
-};
 /**
  * Navigation
  */
@@ -16,6 +10,7 @@ function initNavigation() {
 	const menu = wrapper?.querySelector('nav');
 	const toggle = wrapper?.querySelector('button[aria-controls="nav-main"]');
 	if (!wrapper || !menu || !toggle) return;
+	toggle.setAttribute('aria-expanded', 'false');
 	const links = [...menu.querySelectorAll(':scope > ul > li > a[href^="#"]')];
 	links.forEach((link, index) => link.parentElement.style.setProperty('--i', index));
 	const galleryLink = menu.querySelector(':scope > ul > li > a[href="#galleries"]');
@@ -74,8 +69,6 @@ function initNavigation() {
 	const closeMenu = ({
 		restoreFocus = false
 	} = {}) => {
-		menu.classList.remove('is-open');
-		wrapper.classList.remove('is-open');
 		toggle.setAttribute('aria-expanded', 'false');
 		if (restoreFocus) {
 			toggle.focus();
@@ -127,14 +120,12 @@ function initNavigation() {
 		await loadGalleryMenu();
 		const galleryPanel = galleryItem?.querySelector('.gallery-navigation');
 		if (!galleryItem?.matches(':hover, :focus-within') || !galleryPanel || getComputedStyle(galleryPanel).display === 'none') return;
-		wrapper.classList.add('is-gallery-open');
 		galleryLink?.setAttribute('aria-expanded', 'true');
 	};
 	const closeGalleryMenu = ({
 		restoreFocus = false
 	} = {}) => {
 		clearTimeout(galleryCloseTimer);
-		wrapper.classList.remove('is-gallery-open');
 		galleryLink?.setAttribute('aria-expanded', 'false');
 		if (restoreFocus) galleryLink?.focus();
 	};
@@ -165,8 +156,7 @@ function initNavigation() {
 	window.addEventListener('hashchange', updateCurrentSectionFromHash);
 	toggle.addEventListener('click', (event) => {
 		event.stopPropagation();
-		const isOpen = menu.classList.toggle('is-open');
-		wrapper.classList.toggle('is-open', isOpen);
+		const isOpen = toggle.getAttribute('aria-expanded') !== 'true';
 		toggle.setAttribute('aria-expanded', String(isOpen));
 	});
 	menu.addEventListener('click', (event) => {
@@ -193,13 +183,13 @@ function initNavigation() {
 		}
 	});
 	document.addEventListener('keydown', (event) => {
-		if (event.key === 'Escape' && wrapper.classList.contains('is-gallery-open')) {
+		if (event.key === 'Escape' && galleryLink?.getAttribute('aria-expanded') === 'true') {
 			closeGalleryMenu({
 				restoreFocus: true
 			});
 			return;
 		}
-		if (event.key === 'Escape' && menu.classList.contains('is-open')) {
+		if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
 			closeMenu({
 				restoreFocus: true
 			});
@@ -209,35 +199,6 @@ function initNavigation() {
 	document.addEventListener('gallerychange', event => {
 		updateGalleryLinkState(event.detail?.gallery);
 	});
-}
-/**
- * Native popovers
- *
- * Opening, closing, focus handling, Escape, and light dismissal are
- * handled natively. This only adds the optional automatic timeout.
- */
-function initPopoverTimeouts() {
-	const timers = new WeakMap();
-	document.addEventListener('toggle',
-		(event) => {
-			const popover = event.target;
-			if (!(popover instanceof HTMLElement) || !popover.matches('[popover]')) {
-				return;
-			}
-			const existingTimer = timers.get(popover);
-			if (existingTimer) {
-				clearTimeout(existingTimer);
-				timers.delete(popover);
-			}
-			if (event.newState !== 'open') return;
-			const timer = setTimeout(() => {
-				if (popover.matches(':popover-open')) {
-					popover.hidePopover();
-				}
-				timers.delete(popover);
-			}, POPOVER_TIMEOUT);
-			timers.set(popover, timer);
-		}, true, );
 }
 /**
  * Copyright year
@@ -264,100 +225,10 @@ function initPortraitTilt() {
 		}, );
 }
 /**
- * Animated details/channel rack
- */
-function initChannelRacks() {
-	const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)', )
-		.matches;
-	document.querySelectorAll('#skills details')
-		.forEach((details) => {
-			initChannelRack(details, reduceMotion);
-		});
-}
-
-function initChannelRack(details, reduceMotion) {
-	const summary = details.querySelector('summary');
-	const body = details.querySelector('article');
-	if (!summary || !body) return;
-	let animation = null;
-	let isClosing = false;
-	let isExpanding = false;
-	if (reduceMotion) return;
-	const animateHeight = (startHeight, endHeight, duration) => {
-		animation?.cancel();
-		animation = details.animate({
-			height: [startHeight, endHeight],
-		}, {
-			duration,
-			easing: RACK_ANIMATION.easing,
-		}, );
-		return animation;
-	};
-	const finishAnimation = (shouldOpen) => {
-		details.open = shouldOpen;
-		animation = null;
-		isClosing = false;
-		isExpanding = false;
-		details.style.height = '';
-		details.style.overflow = '';
-	};
-	const shrinkRack = () => {
-		isClosing = true;
-		isExpanding = false;
-		const startHeight = `${details.offsetHeight}px`;
-		const endHeight = `${summary.offsetHeight}px`;
-		const currentAnimation = animateHeight(startHeight, endHeight, RACK_ANIMATION.closeDuration, );
-		currentAnimation.addEventListener('finish',
-			() => finishAnimation(false), {
-				once: true
-			}, );
-		currentAnimation.addEventListener('cancel',
-			() => {
-				isClosing = false;
-			}, {
-				once: true
-			}, );
-	};
-	const expandRack = () => {
-		isExpanding = true;
-		isClosing = false;
-		const startHeight = `${details.offsetHeight}px`;
-		const endHeight = `${summary.offsetHeight + body.offsetHeight}px`;
-		const currentAnimation = animateHeight(startHeight, endHeight, RACK_ANIMATION.openDuration, );
-		currentAnimation.addEventListener('finish',
-			() => finishAnimation(true), {
-				once: true
-			}, );
-		currentAnimation.addEventListener('cancel',
-			() => {
-				isExpanding = false;
-			}, {
-				once: true
-			}, );
-	};
-	const openRack = () => {
-		details.style.height = `${details.offsetHeight}px`;
-		details.open = true;
-		requestAnimationFrame(expandRack);
-	};
-	summary.addEventListener('click', (event) => {
-		event.preventDefault();
-		details.style.overflow = 'hidden';
-		if (isClosing || !details.open) {
-			openRack();
-		}
-		else if (isExpanding || details.open) {
-			shrinkRack();
-		}
-	});
-}
-/**
  * Initialize
  */
 export function initCandy() {
 	initNavigation();
-	initPopoverTimeouts();
 	updateCopyrightYear();
 	initPortraitTilt();
-	initChannelRacks();
 }

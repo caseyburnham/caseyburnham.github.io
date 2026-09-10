@@ -158,6 +158,21 @@
 		}
 	}
 
+	@media (prefers-reduced-motion: no-preference) {
+		@supports (interpolate-size: allow-keywords) {
+			#skills details::details-content {
+				block-size: 0;
+				interpolate-size: allow-keywords;
+				overflow: clip;
+				transition: block-size 420ms cubic-bezier(.4, 0, .2, 1), content-visibility 420ms allow-discrete;
+			}
+
+			#skills details[open]::details-content {
+				block-size: auto;
+			}
+		}
+	}
+
 	@keyframes strip-in {
 		to {
 			opacity: 1;

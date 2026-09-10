@@ -102,8 +102,10 @@ test('opens the mobile navigation', async ({ page }) => {
 	await toggle.click();
 
 	await expect(toggle).toHaveAttribute('aria-expanded', 'true');
-	await expect(page.locator('#nav-main')).toHaveClass(/is-open/);
-	await expect(page.locator('.nav-wrapper')).toHaveClass(/is-open/);
+	await expect(page.locator('#nav-main')).toBeVisible();
+	await page.keyboard.press('Escape');
+	await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+	await expect(toggle).toBeFocused();
 });
 
 test('expands the desktop gallery navigation', async ({ page }) => {
@@ -449,4 +451,58 @@ test('reveals photo metadata when its link receives keyboard focus', async ({ pa
 	await expect(link).toBeFocused();
 	await expect(page.locator('dialog figcaption')).toHaveCSS('opacity', '1');
 	await expect(page.locator('dialog figcaption')).toHaveCSS('filter', 'blur(0px)');
+});
+
+test('opens details natively with keyboard and without JavaScript', async ({ browser }) => {
+	const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+	const page = await context.newPage();
+	await page.goto('http://127.0.0.1:4175/');
+	await expect(page.locator('#nav-main')).toBeVisible();
+	await expect(page.locator('#nav-main a[href="#skills"]')).toBeVisible();
+	const details = page.locator('#skills details');
+	await details.locator('summary').focus();
+	await page.keyboard.press('Enter');
+	await expect(details).toHaveAttribute('open', '');
+	await expect(details.locator('article')).toBeVisible();
+	await page.keyboard.press('Space');
+	await expect(details).not.toHaveAttribute('open', '');
+	await context.close();
+});
+
+test('keeps record nodes and keyboard focus when the shelf resizes', async ({ page }) => {
+	const records = ['Vinyl', 'CD', 'Cassette', 'Vinyl', 'CD'].map((mediaType, index) => ({
+		title: `Record ${index + 1}`, artist: 'Artist', mediaType, rating: 5,
+		url: 'https://www.discogs.com/', cover_image: '/images/assets/png/vinyl-record.png', price: '12.00'
+	}));
+	await page.route('**/api/discogs/**', route => route.fulfill({ json: records }));
+	await page.setViewportSize({ width: 1440, height: 1000 });
+	await page.goto('/');
+	await page.locator('#now-playing').scrollIntoViewIfNeeded();
+	const shelf = page.locator('#discogs-collection-wrapper');
+	await expect(shelf.locator('.discogs-record:visible')).toHaveCount(5);
+	const link = shelf.locator('.record-link').first();
+	await page.mouse.move(0, 0);
+	await link.focus();
+	await expect(shelf.locator('.discogs-record').first()).toHaveCSS('z-index', '2');
+	await expect.poll(() => shelf.locator('.album-media').first().evaluate(el => new DOMMatrix(getComputedStyle(el).transform).m41)).toBeGreaterThan(0);
+	await link.evaluate(el => { el.dataset.identityCheck = 'original'; });
+	await page.setViewportSize({ width: 800, height: 1000 });
+	await expect(shelf.locator('.discogs-record:visible')).toHaveCount(3);
+	await expect(shelf.locator('.record-caption:visible')).toHaveCount(3);
+	await expect(link).toBeFocused();
+	await page.setViewportSize({ width: 390, height: 844 });
+	await expect(shelf.locator('.discogs-record:visible')).toHaveCount(2);
+	await expect(shelf.locator('.record-caption:visible')).toHaveCount(2);
+	await expect(link).toHaveAttribute('data-identity-check', 'original');
+	await expect(link).toBeFocused();
+});
+
+test('leaves explanatory popovers open until dismissed', async ({ page }) => {
+	await page.goto('/');
+	await page.locator('[popovertarget="ucd"]').click();
+	await expect(page.locator('#ucd')).toBeVisible();
+	await page.waitForTimeout(3200);
+	await expect(page.locator('#ucd')).toBeVisible();
+	await page.keyboard.press('Escape');
+	await expect(page.locator('#ucd')).toBeHidden();
 });

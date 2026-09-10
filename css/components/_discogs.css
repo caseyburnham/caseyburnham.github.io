@@ -36,6 +36,7 @@
 
 	.discogs-status {
 		color: var(--color-text-muted);
+		grid-column: 1 / -1;
 		padding-block: 1rem;
 		text-align: center;
 	}
@@ -44,6 +45,24 @@
 		perspective: 500px;
 		position: relative;
 		z-index: 1;
+	}
+
+	.discogs-record:has(.record-link:is(:hover, :focus-within)) {
+		z-index: 2;
+	}
+
+	@media (width <= 1024px) {
+		.discogs-record:nth-of-type(n + 4),
+		.record-caption:nth-child(n + 4) {
+			display: none;
+		}
+	}
+
+	@media (width <= 640px) {
+		.discogs-record:nth-of-type(n + 3),
+		.record-caption:nth-child(n + 3) {
+			display: none;
+		}
 	}
 
 	/* Album Sleeve Base */
@@ -72,7 +91,6 @@
 		transform: translateY(0) scale(1) rotateY(0deg) rotateX(0);
 		transform-style: preserve-3d;
 		transition: box-shadow ease 0.2s, transform ease 0.3s;
-		will-change: transform;
 
 		&::before {
 			background: linear-gradient(135deg, oklch(68.30% 0 90), oklch(51.37% 0 90));
@@ -96,8 +114,8 @@
 	}
 
 	/* Active Sleeve States */
-	.album-sleeve.is-active {
-		& .album-art:not(.is-cassette) {
+	.record-link:is(:hover, :focus-within) .album-sleeve {
+		& .album-art {
 			box-shadow: var(--shadow-album-art-active);
 		}
 
@@ -115,14 +133,14 @@
 	}
 
 	/* Vinyl & CD Active States */
-	.is-vinyl .album-sleeve.is-active,
-	.is-cd .album-sleeve.is-active {
+	.is-vinyl .record-link:is(:hover, :focus-within) .album-sleeve,
+	.is-cd .record-link:is(:hover, :focus-within) .album-sleeve {
 		box-shadow: var(--shadow-album-active);
 		transform: perspective(500px) translate3d(-0.4375em, 0, 0.625em) rotateY(-1.5deg) scale(1.05);
 	}
 
 	/* Cassette Active State */
-	.is-cassette .album-sleeve.is-active {
+	.is-cassette .record-link:is(:hover, :focus-within) .album-sleeve {
 		box-shadow: var(--shadow-cassette-active);
 		transform: translateY(-0.4375em) scale(1.05) rotateY(-8deg) rotateX(1deg);
 	}
@@ -160,9 +178,6 @@
 			transition: filter ease 0.2s, transform 0.65s var(--timing-media);
 		}
 
-		&.is-active .album-media {
-			transform: scale(0.95) translateX(35%) rotate(50deg);
-		}
 	}
 
 	/* CD Styling */
@@ -174,9 +189,6 @@
 			transition: filter ease 0.2s, transform 0.65s var(--timing-media);
 		}
 
-		&.is-active .album-media {
-			transform: translateX(35%) rotate(90deg);
-		}
 	}
 
 	/* Cassette Styling */
@@ -188,10 +200,19 @@
 			transition: filter ease 0.2s, transform ease 0.3s;
 		}
 
-		&.is-active .album-media {
-			transform:
-				translateY(50%);
-		}
+	}
+
+	.is-vinyl .record-link:is(:hover, :focus-within) .album-media {
+		transform: scale(0.95) translateX(35%) rotate(50deg);
+	}
+
+	.is-cd .record-link:is(:hover, :focus-within) .album-media {
+		transform: translateX(35%) rotate(90deg);
+	}
+
+	.is-cassette .record-link:is(:hover, :focus-within) .album-media {
+		transform:
+			translateY(50%);
 	}
 
 	/* Record Caption */

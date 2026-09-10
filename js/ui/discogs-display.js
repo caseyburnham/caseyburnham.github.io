@@ -1,7 +1,3 @@
-import {
-	debounce
-}
-from '../utils/debounce.js';
 import dataCache from '../utils/data-cache.js';
 const FETCH_COUNT = 5;
 const MEDIA_IMAGES = {
@@ -19,8 +15,7 @@ const sections = [{
 		loadingMessage: 'Loading collection…',
 		emptyMessage: 'No collection records are available.',
 		errorMessage: 'Could not fetch records at this time.',
-		showPrice: false,
-		records: []
+		showPrice: false
 	}, {
 		wrapperId: 'discogs-inventory-wrapper',
 		sleeveContainerId: 'discogs-inventory-sleeve-container',
@@ -31,8 +26,7 @@ const sections = [{
 		loadingMessage: 'Loading sale items…',
 		emptyMessage: 'No records are currently for sale.',
 		errorMessage: 'Could not fetch sale items.',
-		showPrice: true,
-		records: []
+		showPrice: true
 	}].map(section => ({
 		...section,
 		wrapper: document.getElementById(section.wrapperId),
@@ -42,12 +36,6 @@ const sections = [{
 		template: document.getElementById(section.templateId)
 	}))
 	.filter(section => section.wrapper && section.sleeveContainer && section.captionContainer && section.status && section.template);
-
-function getRecordCount() {
-	if (window.innerWidth <= 640) return 2;
-	if (window.innerWidth <= 1024) return 3;
-	return FETCH_COUNT;
-}
 
 function createRecord(template, data, showPrice) {
 	const clone = template.content.cloneNode(true);
@@ -79,17 +67,17 @@ function createRecord(template, data, showPrice) {
 	return clone;
 }
 
-function renderSection(section, count) {
+function renderSection(section, records) {
 	const sleeveFragment = document.createDocumentFragment();
 	const captionFragment = document.createDocumentFragment();
-	section.records.slice(0, count)
+	records.slice(0, FETCH_COUNT)
 		.forEach(recordData => {
 			const record = createRecord(section.template, recordData, section.showPrice);
 			const [sleeve, caption] = record.children;
 			sleeveFragment.appendChild(sleeve);
 			captionFragment.appendChild(caption);
 		});
-	section.sleeveContainer.replaceChildren(sleeveFragment);
+	section.sleeveContainer.replaceChildren(section.status, sleeveFragment);
 	section.captionContainer.replaceChildren(captionFragment);
 }
 
@@ -99,15 +87,14 @@ function setStatus(section, message = '') {
 }
 async function loadSection(section) {
 	setStatus(section, section.loadingMessage);
-	section.wrapper.classList.add('is-loading');
 	section.wrapper.setAttribute('aria-busy', 'true');
 	try {
-		section.records = await dataCache.fetch(section.endpoint);
-		if (section.records.length === 0) {
+		const records = await dataCache.fetch(section.endpoint);
+		if (records.length === 0) {
 			setStatus(section, section.emptyMessage);
 			return;
 		}
-		renderSection(section, visibleRecordCount);
+		renderSection(section, records);
 		setStatus(section);
 	}
 	catch (error) {
@@ -115,67 +102,9 @@ async function loadSection(section) {
 		setStatus(section, section.errorMessage);
 	}
 	finally {
-		section.wrapper.classList.remove('is-loading');
 		section.wrapper.removeAttribute('aria-busy');
 	}
 }
-let activeZIndex = 10;
-
-function getSleeve(event) {
-	const sleeve = event.target.closest('.album-sleeve');
-	return sleeve && event.currentTarget.contains(sleeve) ? sleeve : null;
-}
-
-function activateSleeve(sleeve) {
-	sleeve.classList.add('is-active');
-	sleeve.closest('.discogs-record')
-		.style.zIndex = activeZIndex++;
-}
-
-function deactivateSleeve(sleeve) {
-	sleeve.classList.remove('is-active');
-}
-
-function initializeSleeveInteractions() {
-	const section = document.getElementById('now-playing');
-	if (!section) return;
-	section.addEventListener('mouseover', event => {
-		const sleeve = getSleeve(event);
-		if (sleeve && !sleeve.contains(event.relatedTarget)) {
-			activateSleeve(sleeve);
-		}
-	});
-	section.addEventListener('mouseout', event => {
-		const sleeve = getSleeve(event);
-		if (sleeve && !sleeve.contains(event.relatedTarget)) {
-			deactivateSleeve(sleeve);
-		}
-	});
-	section.addEventListener('focusin', event => {
-		const sleeve = getSleeve(event);
-		if (sleeve) activateSleeve(sleeve);
-	});
-	section.addEventListener('focusout', event => {
-		const sleeve = getSleeve(event);
-		if (sleeve && !sleeve.contains(event.relatedTarget)) {
-			deactivateSleeve(sleeve);
-		}
-	});
-}
-let visibleRecordCount = getRecordCount();
-const handleResize = debounce(() => {
-	const nextCount = getRecordCount();
-	if (nextCount === visibleRecordCount) return;
-	visibleRecordCount = nextCount;
-	sections.forEach(section => {
-		if (section.records.length > 0) {
-			renderSection(section, visibleRecordCount);
-		}
-	});
-}, 250);
 export async function initDiscogs() {
-	if (sections.length === 0) return;
-	initializeSleeveInteractions();
-	window.addEventListener('resize', handleResize);
 	await Promise.all(sections.map(loadSection));
 }
