@@ -31,6 +31,9 @@ void photoModalReady.catch(error => {
 let mapStylesheetPromise;
 let galleriesPromise;
 let applyingGalleryRoute = false;
+let routeVersion = 0;
+const galleryError = document.getElementById('gallery-error');
+const galleryRetry = document.getElementById('gallery-retry');
 
 function loadMapStylesheet() {
 	if (mapStylesheetPromise) return mapStylesheetPromise;
@@ -57,6 +60,7 @@ const lazyFeatures = [{
 	selector: '#galleries',
 	load: async () => {
 		if (!galleriesPromise) {
+			galleryRetry.disabled = true;
 			galleriesPromise = Promise.all([
 				import('./ui/galleries.js'),
 				photoModalReady
@@ -66,8 +70,15 @@ const lazyFeatures = [{
 				}]) => {
 					const galleries = new Galleries();
 					await galleries.init();
+					galleryError.hidden = true;
 					return galleries;
-				});
+				})
+				.catch(error => {
+					galleriesPromise = undefined;
+					galleryError.hidden = false;
+					throw error;
+				})
+				.finally(() => { galleryRetry.disabled = false; });
 		}
 		await galleriesPromise;
 	}
@@ -123,15 +134,26 @@ for (const feature of lazyFeatures) {
 	observer.observe(element);
 }
 
+galleryRetry.addEventListener('click', async () => {
+	await loadFeature(lazyFeatures[0], document.getElementById('galleries'));
+	if (galleriesPromise) await applyPhotoRoute();
+});
+
 async function applyPhotoRoute({
 	withTransition = false
 } = {}) {
+	const version = ++routeVersion;
 	const route = getPhotoRoute();
-	if (!route) return;
+	applyingGalleryRoute = false;
+	if (!route) {
+		photoModal.close();
+		return;
+	}
 	if (route.section === 'mountains') {
 		applyingGalleryRoute = true;
 		try {
 			await Promise.all([tablesReady, photoModalReady]);
+			if (version !== routeVersion) return;
 			if (!route.photo) {
 				photoModal.close();
 				return;
@@ -140,7 +162,7 @@ async function applyPhotoRoute({
 				?.click();
 		}
 		finally {
-			applyingGalleryRoute = false;
+			if (version === routeVersion) applyingGalleryRoute = false;
 		}
 		return;
 	}
@@ -151,13 +173,14 @@ async function applyPhotoRoute({
 	try {
 		await loadFeature(feature, galleriesElement);
 		const galleries = await galleriesPromise;
+		if (!galleries || version !== routeVersion) return;
 		if (!route.photo) photoModal.close();
 		galleries.applyRoute(route, {
 			withTransition
 		});
 	}
 	finally {
-		applyingGalleryRoute = false;
+		if (version === routeVersion) applyingGalleryRoute = false;
 	}
 }
 
@@ -183,7 +206,5 @@ document.addEventListener('photochange', event => {
 window.addEventListener('hashchange', () => applyPhotoRoute({
 	withTransition: true
 }));
-window.addEventListener('popstate', () => applyPhotoRoute({
-	withTransition: true
-}));
+// Hash changes also cover history traversal between photo routes.
 void applyPhotoRoute();

@@ -132,10 +132,11 @@ export class Galleries {
 		withTransition = false
 	} = {}) {
 		const galleryKey = gallery && this.#galleries.has(gallery) ? gallery : this.#currentGallery;
-		if (galleryKey !== this.#currentGallery) {
+		if (photo || galleryKey !== this.#currentGallery) {
 			this.#currentGallery = galleryKey;
 			this.#updateButtonStates(galleryKey);
-			this.#renderGallery(this.#galleries.get(galleryKey), withTransition);
+			// A photo route needs its target in the DOM before opening the viewer.
+			this.#renderGallery(this.#galleries.get(galleryKey), withTransition && !photo);
 		}
 		if (!photo) return;
 		const trigger = this.#galleryContainer.querySelector(`.photo-thumb[data-photo-id="${CSS.escape(photo)}"]`);
@@ -159,6 +160,7 @@ export class Galleries {
 			this.#transitionToNewGallery(newGridsFragment);
 		}
 		else {
+			this.#transitionVersion += 1;
 			const existingGrids = this.#galleryContainer.querySelectorAll(GALLERY_CONFIG.GRID_SELECTOR);
 			existingGrids.forEach(grid => grid.remove());
 			this.#galleryContainer.appendChild(newGridsFragment);
@@ -284,6 +286,8 @@ export class Galleries {
 	async #transitionToNewGallery(newContentFragment) {
 		const transitionVersion = ++this.#transitionVersion;
 		const existingGrids = Array.from(this.#galleryContainer.querySelectorAll(GALLERY_CONFIG.GRID_SELECTOR));
+		// Outgoing thumbnails must not open after the selected gallery changes.
+		existingGrids.forEach(grid => { grid.inert = true; });
 		const newGrids = Array.from(newContentFragment.children);
 		const shouldSkipAnimation = window.matchMedia('(prefers-reduced-motion: reduce)')
 			.matches || typeof Element.prototype.animate !== 'function';

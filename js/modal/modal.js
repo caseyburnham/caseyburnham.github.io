@@ -114,6 +114,7 @@ export class PhotoModal {
 			this._clearImages();
 			this.originalTrigger = trigger;
 		}
+		if (!this.originalTrigger?.isConnected) this.originalTrigger = trigger;
 		const itemSelector = trigger.matches('.camera-link') ? '.camera-link' : '.photo-thumb';
 		this.photos = Array.from(this.container.querySelectorAll(itemSelector));
 		this.currentIndex = this.photos.indexOf(trigger.closest(itemSelector));
@@ -207,18 +208,14 @@ export class PhotoModal {
 		} = this.elements;
 		const incoming = this.standbyImage;
 		const outgoing = this.activeImage;
-		const {
-			inlineSize,
-			blockSize
-		} = this._getRenderedImageSize(preload);
 		this._finishImageLoad();
 		content.classList.add('is-transitioning');
 		incoming.src = src;
 		incoming.alt = alt;
 		incoming.setAttribute('aria-hidden', 'true');
 		incoming.classList.remove('is-active', 'is-incoming', 'is-leaving');
-		media.style.setProperty('--modal-media-inline-size', `${inlineSize}px`);
-		media.style.setProperty('--modal-media-block-size', `${blockSize}px`);
+		media.style.setProperty('--modal-image-width', `${preload.naturalWidth}px`);
+		media.style.setProperty('--modal-image-ratio', preload.naturalWidth / preload.naturalHeight);
 		titleEl.textContent = title;
 		this._renderMetadata(src);
 		await new Promise(resolve => requestAnimationFrame(resolve));
@@ -246,17 +243,6 @@ export class PhotoModal {
 		this.activeImage = incoming;
 		this.standbyImage = outgoing;
 		this.elements.content.classList.remove('is-transitioning');
-	}
-	_getRenderedImageSize(image) {
-		const compact = matchMedia('(hover: none), (max-width: 48rem)')
-			.matches;
-		const maxInlineSize = compact ? window.innerWidth - 16 : window.innerWidth * 0.85;
-		const maxBlockSize = window.innerHeight * (compact ? 0.7 : 0.9);
-		const scale = Math.min(1, maxInlineSize / image.naturalWidth, maxBlockSize / image.naturalHeight);
-		return {
-			inlineSize: Math.round(image.naturalWidth * scale),
-			blockSize: Math.round(image.naturalHeight * scale)
-		};
 	}
 	_renderMetadata(src) {
 		const exif = findExifData(src, this.exifData);
@@ -452,8 +438,8 @@ export class PhotoModal {
 		});
 		this.activeImage.classList.add('is-active');
 		this.standbyImage.classList.remove('is-active');
-		this.elements.media.style.removeProperty('--modal-media-inline-size');
-		this.elements.media.style.removeProperty('--modal-media-block-size');
+		this.elements.media.style.removeProperty('--modal-image-width');
+		this.elements.media.style.removeProperty('--modal-image-ratio');
 		this.elements.title.textContent = '';
 		this.elements.metadata.hidden = true;
 		this.elements.copyright.hidden = true;

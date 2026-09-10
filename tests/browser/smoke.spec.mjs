@@ -370,3 +370,83 @@ test('shows an error when the map style cannot load', async ({ page }) => {
 
 	await expect(page.locator('#map .error')).toHaveText('Unable to load map data');
 });
+
+for (const failedDataset of ['exif', 'concert']) {
+	test(`keeps unrelated tables available when ${failedDataset} data fails`, async ({ page }) => {
+		await page.route(`**/json/${failedDataset}-data.json`, route => route.fulfill({ status: 503, body: '' }));
+		await page.goto('/');
+		await expect(page.locator('#productions-table tbody tr')).not.toHaveCount(0);
+		await expect(page.locator('#mountains .camera-link')).not.toHaveCount(0);
+		if (failedDataset === 'exif') {
+			await expect(page.locator('#concerts tbody tr')).not.toHaveCount(0);
+		} else {
+			await expect(page.getByRole('status').filter({ hasText: 'This table could not be loaded' })).toBeVisible();
+		}
+	});
+}
+
+test('resizes an open photo to the viewport', async ({ page }) => {
+	await page.setViewportSize({ width: 1440, height: 1000 });
+	await page.goto('/');
+	await page.locator('#mountains .camera-link').first().click();
+	await expect(page.locator('.modal-image.is-active')).toBeVisible();
+	const media = page.locator('.modal-media');
+	await expect(page.locator('dialog figure')).toHaveCSS('scale', '1');
+	const desktop = await media.boundingBox();
+	await page.setViewportSize({ width: 390, height: 844 });
+	await expect.poll(async () => (await media.boundingBox()).width).toBeLessThanOrEqual(390);
+	const mobile = await media.boundingBox();
+	expect(mobile.x).toBeGreaterThanOrEqual(0);
+	expect(mobile.x + mobile.width).toBeLessThanOrEqual(390);
+	expect(mobile.height).toBeLessThanOrEqual(844 * 0.7 + 1);
+	expect(mobile.width / mobile.height).toBeCloseTo(desktop.width / desktop.height, 2);
+	await page.setViewportSize({ width: 1440, height: 1000 });
+	await expect.poll(async () => (await media.boundingBox()).width).toBeCloseTo(desktop.width, 0);
+});
+
+test('retries a failed gallery without reloading the page', async ({ page }) => {
+	let unavailable = true;
+	await page.route('**/json/gallery-data.json', route => unavailable
+		? route.fulfill({ status: 503, body: '' })
+		: route.continue());
+	await page.goto('/');
+	await page.locator('#galleries').scrollIntoViewIfNeeded();
+	await expect(page.locator('#gallery-error')).toBeVisible();
+	unavailable = false;
+	await page.getByRole('button', { name: 'Try again', exact: true }).click();
+	await expect(page.locator('#galleries .photo-thumb').first()).toBeVisible();
+	await expect(page.locator('#gallery-error')).toBeHidden();
+	await page.locator('#galleries .photo-thumb').first().click();
+	await expect(page.locator('dialog')).toHaveAttribute('open', '');
+});
+
+test('opens the correct photo when traversing history across galleries', async ({ page }) => {
+	const data = await page.request.get('/json/gallery-data.json').then(response => response.json());
+	const routes = Object.entries(data).filter(([key]) => key !== '_config').slice(0, 2).map(([gallery, value]) => ({
+		hash: `#galleries?gallery=${gallery}&photo=${value.images[0].id}`,
+		title: value.images[0].title || value.images[0].alt
+	}));
+	await page.goto(`/${routes[0].hash}`);
+	await expect(page.locator('dialog .photo-title')).toHaveText(routes[0].title);
+	await page.evaluate(hash => { location.hash = hash; }, routes[1].hash);
+	await expect(page.locator('dialog .photo-title')).toHaveText(routes[1].title);
+	await page.goBack();
+	await expect(page.locator('dialog .photo-title')).toHaveText(routes[0].title);
+	await expect(page).toHaveURL(new RegExp(`photo=${new URLSearchParams(routes[0].hash.split('?')[1]).get('photo')}$`));
+	await page.goForward();
+	await expect(page.locator('dialog .photo-title')).toHaveText(routes[1].title);
+});
+
+
+test('reveals photo metadata when its link receives keyboard focus', async ({ page }) => {
+	await page.setViewportSize({ width: 1440, height: 1000 });
+	await page.goto('/');
+	await page.locator('#mountains .camera-link').first().click();
+	const link = page.locator('dialog .gps-link');
+	await expect(link).toHaveAttribute('href', /caltopo/);
+	await page.mouse.move(0, 0);
+	await link.focus();
+	await expect(link).toBeFocused();
+	await expect(page.locator('dialog figcaption')).toHaveCSS('opacity', '1');
+	await expect(page.locator('dialog figcaption')).toHaveCSS('filter', 'blur(0px)');
+});
