@@ -1,5 +1,29 @@
 [
 	{
+		"Peak": "Geneva Peak",
+		"Elevation": "13,266",
+		"Range": "Front",
+		"Date": "2026-09-10",
+		"Image": "/images/summits/geneva-peak.avif",
+		"ranked": true
+	},
+	{
+		"Peak": "Landslide Peak",
+		"Elevation": "13,238",
+		"Range": "Front",
+		"Date": "2026-09-10",
+		"Image": "/images/summits/landslide-peak.avif",
+		"ranked": false
+	},
+	{
+		"Peak": "\"Rocky Mountain\"",
+		"Elevation": "13,200",
+		"Range": "Front",
+		"Date": "2026-09-10",
+		"Image": "/images/summits/unnamed-13er.avif",
+		"ranked": false
+	},
+	{
 		"Peak": "Mount Bancroft",
 		"Elevation": "13,250",
 		"Range": "Front",
