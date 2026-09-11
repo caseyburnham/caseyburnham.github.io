@@ -1,8 +1,8 @@
-export function updateElement(selector, content) {
+export function updateElement(document, selector, content) {
 	const element = document.querySelector(selector);
 	if (element) element.textContent = content;
 }
-export function createTallyList(entries, template, {
+export function createTallyList(document, entries, template, {
 	itemClass = () => ''
 } = {}) {
 	const fragment = document.createDocumentFragment();

@@ -48,10 +48,11 @@
 		gap: var(--space-md);
 		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 
-		& button {
+		& .photo-thumb {
 			border: 0;
 			border-radius: var(--radius-md);
 			cursor: pointer;
+			display: block;
 			outline: 1px solid;
 			outline-color: transparent;
 			outline-offset: 1px;

@@ -2,11 +2,11 @@ import {
 	formatExifDate,
 	normalizeImagePath
 }
-from '../../utils/exif-utils.js';
+from '../../js/utils/exif-utils.js';
 import {
 	updateElement
 }
-from './table-utils.js';
+from './table-utils.mjs';
 const ELEVATION = {
 	MIN: 13000,
 	MAX: 14440
@@ -55,7 +55,7 @@ function calculateMountainStats(mountains) {
 	};
 }
 
-function renderRangeSummary(mountains) {
+function renderRangeSummary(document, mountains) {
 	const list = document.querySelector('#range-summary-row .range-ridgeline');
 	const template = document.getElementById('range-ridge-template');
 	if (!list || !template) return;
@@ -127,7 +127,7 @@ function createMountainRow(mountain, template) {
 		if (Number.isFinite(elevation) && elevationData) {
 			const fraction = Math.max(0, Math.min(1, (elevation - ELEVATION.MIN) / (ELEVATION.MAX - ELEVATION.MIN)));
 			elevationData.textContent = mountain.Elevation;
-			elevationData.value = elevation;
+			elevationData.setAttribute('value', elevation);
 			elevationData.style.setProperty('--elevation-percent', `${(fraction * 100).toFixed(2)}%`);
 			elevationData.style.setProperty('--elevation-fraction', fraction.toFixed(3));
 		}
@@ -142,7 +142,7 @@ function createMountainRow(mountain, template) {
 		.textContent = mountain.Range || '';
 	const time = tableRow.querySelector('.mtn-date time');
 	if (mountain.displayDate && time) {
-		time.dateTime = mountain.displayDate;
+		time.setAttribute('datetime', mountain.displayDate);
 		time.textContent = mountain.displayDate.substring(5);
 	}
 	else {
@@ -153,10 +153,11 @@ function createMountainRow(mountain, template) {
 		?.remove();
 	else rankCell.querySelector('.ranked')
 		?.remove();
-	const imageButton = tableRow.querySelector('.mtn-image button');
+	const imageButton = tableRow.querySelector('.camera-link');
 	if (mountain.Image && imageButton) {
 		imageButton.dataset.title = mountain.Peak;
 		imageButton.dataset.image = mountain.Image;
+		imageButton.setAttribute('href', mountain.Image);
 		imageButton.dataset.photoId = mountain.Image.split('/')
 			.at(-1)
 			.replace(/\.[^.]+$/, '');
@@ -178,15 +179,15 @@ function createYearSummary(year, count, template) {
 	return row.querySelector('tr');
 }
 
-function updateProgressBar(peakType, current) {
+function updateProgressBar(document, peakType, current) {
 	document.querySelectorAll(`progress.peak-progress[data-peak-type="${peakType}"]`)
 		.forEach(progress => {
 			const total = Number.parseInt(progress.dataset.total, 10) || 1;
-			progress.value = Math.min(current, progress.max);
+			progress.setAttribute('value', Math.min(current, Number(progress.getAttribute('max'))));
 			progress.title = `${current}/${total} ${peakType}`;
 		});
 }
-export function renderMountains(mountains) {
+export function renderMountains(document, mountains) {
 	if (!Array.isArray(mountains) || !mountains.length) return;
 	const tbody = document.querySelector('#mountains tbody');
 	const rowTemplate = document.getElementById('mountain-row-template');
@@ -200,7 +201,7 @@ export function renderMountains(mountains) {
 	const finalizeSameDayGroup = () => {
 		if (sameDayGroup.length > 1) {
 			const firstDateCell = sameDayGroup[0].querySelector('.mtn-date');
-			if (firstDateCell) firstDateCell.rowSpan = sameDayGroup.length;
+			if (firstDateCell) firstDateCell.setAttribute('rowspan', sameDayGroup.length);
 			for (const row of sameDayGroup.slice(1)) row.querySelector('.mtn-date')
 				?.remove();
 			sameDayGroup[0].classList.add('sequence-first');
@@ -234,10 +235,10 @@ export function renderMountains(mountains) {
 	});
 	tbody.replaceChildren(fragment);
 	const stats = calculateMountainStats(mountains);
-	updateElement('#totalMountains', stats.total);
-	updateElement('#thirteeners', stats.thirteeners);
-	updateElement('#fourteeners', stats.fourteeners);
-	updateProgressBar('thirteeners', stats.thirteeners);
-	updateProgressBar('fourteeners', stats.fourteeners);
-	renderRangeSummary(mountains);
+	updateElement(document, '#totalMountains', stats.total);
+	updateElement(document, '#thirteeners', stats.thirteeners);
+	updateElement(document, '#fourteeners', stats.fourteeners);
+	updateProgressBar(document, 'thirteeners', stats.thirteeners);
+	updateProgressBar(document, 'fourteeners', stats.fourteeners);
+	renderRangeSummary(document, mountains);
 }

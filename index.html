@@ -507,7 +507,7 @@
 
 		<!-- Thumbnails -->
 		<template id="photo-thumb-template">
-			<button type="button" class="photo-thumb" itemscope itemtype="https://schema.org/ImageObject">
+			<a class="photo-thumb" href="#galleries" itemscope itemtype="https://schema.org/ImageObject">
 				<link class="photo-content-url" itemprop="contentUrl" href="">
 				<meta class="photo-name" itemprop="name" content="">
 				<meta class="photo-description" itemprop="description" content="">
@@ -517,7 +517,7 @@
 					<meta itemprop="name" content="Casey Burnham">
 				</span>
 				<img src="" alt="" loading="lazy" decoding="async" itemprop="thumbnailUrl">
-			</button>
+			</a>
 		</template>
 
 		<!-- Mountain Table -->
@@ -539,7 +539,7 @@
 				</td>
 
 				<td class="mtn-image text-center">
-					<button type="button" class="camera-link" aria-label="View summit image"><!-- JS --></button>
+					<a class="camera-link" href="#mountains" aria-label="View summit image"><!-- JS --></a>
 				</td>
 			</tr>
 		</template>

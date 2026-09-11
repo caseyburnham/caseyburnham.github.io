@@ -3,10 +3,6 @@ import {
 }
 from './ui/candy.js';
 import {
-	initTables
-}
-from './ui/tables.js';
-import {
 	PhotoModal
 }
 from './modal/modal.js';
@@ -16,11 +12,9 @@ import {
 }
 from './utils/gallery-route.js';
 const MAP_STYLESHEET_URL = typeof __MAP_STYLESHEET_URL__ === 'string' ? __MAP_STYLESHEET_URL__ : '/css/dist/map.css';
+// Reserve the controls before anchor navigation; enable them when galleries are ready.
+document.querySelector('.gallery-controls').hidden = false;
 initCandy();
-const tablesReady = initTables()
-	.catch(error => {
-		console.error('Failed to initialize tables:', error);
-	});
 // Summit buttons are populated separately from the lazy gallery. Initialize the
 // shared viewer now so either image collection can open it first.
 const photoModal = new PhotoModal();
@@ -152,7 +146,7 @@ async function applyPhotoRoute({
 	if (route.section === 'mountains') {
 		applyingGalleryRoute = true;
 		try {
-			await Promise.all([tablesReady, photoModalReady]);
+			await photoModalReady;
 			if (version !== routeVersion) return;
 			if (!route.photo) {
 				photoModal.close();

@@ -37,7 +37,7 @@ table:not(table caption) {
 			text-align: left;
 		}
 
-		& button:is(.camera-link) {
+		& .camera-link {
 			background: none;
 			border: none;
 			font-size: larger;

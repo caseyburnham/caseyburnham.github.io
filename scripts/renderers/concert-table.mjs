@@ -2,7 +2,7 @@ import {
 	createTallyList,
 	updateElement
 }
-from './table-utils.js';
+from './table-utils.mjs';
 const VENUES_TO_HIGHLIGHT = [{
 	name: 'Red Rocks',
 	className: 'venue--red-rocks'
@@ -31,7 +31,7 @@ const VENUES_TO_HIGHLIGHT = [{
 	name: 'Golden Triangle',
 	className: 'venue--golden-tri'
 }];
-const ARTIST_EXCLUSIONS = new Set(['et al.', 'decadence', '(DJ Set)']);
+const ARTIST_EXCLUSIONS = new Set(['et al.', 'decadence', '(dj set)']);
 
 function countArtistsAndVenues(concerts) {
 	const artists = new Map();
@@ -53,14 +53,14 @@ function countArtistsAndVenues(concerts) {
 	};
 }
 
-function updateTopList(selector, countMap, limit) {
+function updateTopList(document, selector, countMap, limit) {
 	const element = document.querySelector(selector);
 	const template = document.getElementById('table-tally-template');
 	if (!element || !template || !countMap.size) return;
 	const sorted = Array.from(countMap.entries())
 		.sort((a, b) => b[1] - a[1])
 		.slice(0, limit);
-	element.replaceChildren(createTallyList(sorted, template, {
+	element.replaceChildren(createTallyList(document, sorted, template, {
 		itemClass: ([name]) => {
 			const venue = VENUES_TO_HIGHLIGHT.find(item => item.name.toLowerCase() === name.toLowerCase());
 			return venue?.className || '';
@@ -68,7 +68,7 @@ function updateTopList(selector, countMap, limit) {
 	}));
 }
 
-function highlightVenues() {
+function highlightVenues(document) {
 	const venueMap = new Map(VENUES_TO_HIGHLIGHT.map(venue => [venue.name.toLowerCase(), venue.className]));
 	document.querySelectorAll('.concert-venue')
 		.forEach(cell => {
@@ -77,7 +77,7 @@ function highlightVenues() {
 			if (className) cell.classList.add(className);
 		});
 }
-export function renderConcerts(concerts) {
+export function renderConcerts(document, concerts) {
 	if (!Array.isArray(concerts) || !concerts.length) return;
 	const tbody = document.querySelector('#concerts tbody');
 	const template = document.getElementById('concert-row-template');
@@ -101,7 +101,7 @@ export function renderConcerts(concerts) {
 			.textContent = concert['😃'] || '';
 		const time = row.querySelector('.concert-year time');
 		if (concert.Year && time) {
-			time.dateTime = concert.Year;
+			time.setAttribute('datetime', concert.Year);
 			time.textContent = concert.Year;
 		}
 		else {
@@ -110,12 +110,12 @@ export function renderConcerts(concerts) {
 		fragment.appendChild(row);
 	});
 	tbody.replaceChildren(fragment);
-	updateElement('#concert-count', concerts.length);
+	updateElement(document, '#concert-count', concerts.length);
 	const {
 		artists,
 		venues
 	} = countArtistsAndVenues(concerts);
-	updateTopList('#top-artists', artists, 7);
-	updateTopList('#top-venues', venues, 8);
-	highlightVenues();
+	updateTopList(document, '#top-artists', artists, 7);
+	updateTopList(document, '#top-venues', venues, 8);
+	highlightVenues(document);
 }

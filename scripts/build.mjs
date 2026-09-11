@@ -15,6 +15,7 @@ import { createRequire } from 'node:module';
 import { promisify } from 'node:util';
 import { build as bundle } from 'esbuild';
 import postcss from 'postcss';
+import { renderHtml } from './render-html.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -34,7 +35,7 @@ const cssEntries = {
 const require = createRequire(import.meta.url);
 const execFileAsync = promisify(execFile);
 const postcssConfig = require('../config/postcss.config.cjs');
-const sitemapInputs = ['index.html', 'css', 'js', 'json', 'images'];
+const sitemapInputs = ['index.html', 'css', 'js', 'shared', 'scripts', 'json', 'images'];
 const sitemapTimeZone = 'America/Denver';
 
 const toPosix = value => value.split(path.sep).join('/');
@@ -103,7 +104,7 @@ async function bundleJavaScript(mapCss) {
 }
 
 async function writeHtml({ css, js }) {
-	const source = await readFile(path.join(root, 'index.html'), 'utf8');
+	const source = await renderHtml(await readFile(path.join(root, 'index.html'), 'utf8'), root);
 	const html = source
 		.replaceAll('href="js/dist/main.js"', `href="${js}"`)
 		.replace('href="css/dist/style.css"', `href="${css}"`)

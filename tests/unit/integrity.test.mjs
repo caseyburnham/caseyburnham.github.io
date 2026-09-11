@@ -11,7 +11,7 @@ import {
 	selectRandomPage
 } from '../../netlify/lib/discogs-utils.mjs';
 import { isValidCalendarDate, isValidIsoDate } from '../../js/utils/date-utils.js';
-import { visibleProductions } from '../../js/ui/tables/production-table.js';
+import { visibleProductions } from '../../scripts/renderers/production-table.mjs';
 
 test('keeps hidden productions in data but excludes them from display', () => {
 	const productions = [

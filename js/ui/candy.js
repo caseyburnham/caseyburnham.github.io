@@ -1,7 +1,4 @@
-import dataCache from '../utils/data-cache.js';
-
 const GALLERY_MENU_CLOSE_DELAY = 180;
-const GALLERY_DATA_URL = '/json/gallery-data.json';
 /**
  * Navigation
  */
@@ -15,11 +12,8 @@ function initNavigation() {
 	links.forEach((link, index) => link.parentElement.style.setProperty('--i', index));
 	const galleryLink = menu.querySelector(':scope > ul > li > a[href="#galleries"]');
 	const galleryItem = galleryLink?.parentElement;
-	const galleryMenuTemplate = document.getElementById('gallery-nav-menu-template');
-	const galleryLinkTemplate = document.getElementById('gallery-nav-link-template');
-	let galleryMenuPromise;
 	let galleryCloseTimer;
-	let defaultGallery = null;
+	const defaultGallery = document.getElementById('galleries').dataset.gallery;
 	const sections = links.map((link) => {
 		const id = link.hash.slice(1);
 		const section = document.getElementById(id);
@@ -83,41 +77,9 @@ function initNavigation() {
 		menu.querySelectorAll('.gallery-navigation a[data-gallery]')
 			.forEach(link => link.classList.toggle('is-selected-gallery', link.dataset.gallery === gallery));
 	};
-	const loadGalleryMenu = async () => {
-		if (!galleryItem || !galleryLink || !galleryMenuTemplate || !galleryLinkTemplate) return;
-		if (galleryItem.querySelector('.gallery-navigation')) return;
-		if (galleryMenuPromise) return galleryMenuPromise;
-		galleryMenuPromise = dataCache.fetch(GALLERY_DATA_URL)
-			.then(data => {
-				defaultGallery = data._config?.defaultGallery || null;
-				const menuClone = galleryMenuTemplate.content.cloneNode(true);
-				const list = menuClone.querySelector('.gallery-navigation');
-				const linksFragment = document.createDocumentFragment();
-				Object.entries(data)
-					.filter(([key]) => key !== '_config')
-					.forEach(([key, gallery], index) => {
-						const linkClone = galleryLinkTemplate.content.cloneNode(true);
-						const item = linkClone.querySelector('li');
-						const link = linkClone.querySelector('a');
-						item.style.setProperty('--i', index);
-						link.dataset.gallery = key;
-						link.href = `#galleries?gallery=${encodeURIComponent(key)}`;
-						link.textContent = gallery.name || key;
-						linksFragment.appendChild(linkClone);
-					});
-				list.appendChild(linksFragment);
-				galleryItem.appendChild(menuClone);
-				updateGalleryLinkState();
-			})
-			.catch(error => {
-				galleryMenuPromise = undefined;
-				console.error('Failed to initialize gallery navigation:', error);
-			});
-		return galleryMenuPromise;
-	};
-	const openGalleryMenu = async () => {
+	updateGalleryLinkState();
+	const openGalleryMenu = () => {
 		clearTimeout(galleryCloseTimer);
-		await loadGalleryMenu();
 		const galleryPanel = galleryItem?.querySelector('.gallery-navigation');
 		if (!galleryItem?.matches(':hover, :focus-within') || !galleryPanel || getComputedStyle(galleryPanel).display === 'none') return;
 		galleryLink?.setAttribute('aria-expanded', 'true');

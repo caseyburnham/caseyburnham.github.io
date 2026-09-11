@@ -373,19 +373,14 @@ test('shows an error when the map style cannot load', async ({ page }) => {
 	await expect(page.locator('#map .error')).toHaveText('Unable to load map data');
 });
 
-for (const failedDataset of ['exif', 'concert']) {
-	test(`keeps unrelated tables available when ${failedDataset} data fails`, async ({ page }) => {
-		await page.route(`**/json/${failedDataset}-data.json`, route => route.fulfill({ status: 503, body: '' }));
-		await page.goto('/');
-		await expect(page.locator('#productions-table tbody tr')).not.toHaveCount(0);
-		await expect(page.locator('#mountains .camera-link')).not.toHaveCount(0);
-		if (failedDataset === 'exif') {
-			await expect(page.locator('#concerts tbody tr')).not.toHaveCount(0);
-		} else {
-			await expect(page.getByRole('status').filter({ hasText: 'This table could not be loaded' })).toBeVisible();
-		}
-	});
-}
+test('keeps static tables and the default gallery when JSON requests fail', async ({ page }) => {
+	await page.route('**/json/**', route => route.fulfill({ status: 503, body: '' }));
+	await page.goto('/');
+	await expect(page.locator('#productions-table tbody tr')).not.toHaveCount(0);
+	await expect(page.locator('#mountains .camera-link')).not.toHaveCount(0);
+	await expect(page.locator('#concerts tbody tr')).not.toHaveCount(0);
+	await expect(page.locator('#galleries .photo-thumb').first()).toBeVisible();
+});
 
 test('resizes an open photo to the viewport', async ({ page }) => {
 	await page.setViewportSize({ width: 1440, height: 1000 });
@@ -505,4 +500,28 @@ test('leaves explanatory popovers open until dismissed', async ({ page }) => {
 	await expect(page.locator('#ucd')).toBeVisible();
 	await page.keyboard.press('Escape');
 	await expect(page.locator('#ucd')).toBeHidden();
+});
+
+
+test('delivers portfolio content and working photo links without JavaScript', async ({ browser }) => {
+	const context = await browser.newContext({ javaScriptEnabled: false });
+	const page = await context.newPage();
+	const requests = [];
+	page.on('request', request => requests.push(request.url()));
+	await page.goto('http://127.0.0.1:4175/');
+	await expect(page.locator('#productions-table tbody tr')).not.toHaveCount(0);
+	await expect(page.locator('#concerts tbody tr')).not.toHaveCount(0);
+	await expect(page.locator('#mountains tbody tr')).not.toHaveCount(0);
+	await expect(page.locator('#totalMountains')).toHaveText(/\d+/);
+	await expect(page.locator('.range-ridgeline > li:not(.range-ridge--zero) .range-ridge-line[points=""]')).toHaveCount(0);
+	await expect(page.locator('#gallery-navigation a')).toHaveCount(9);
+	await expect(page.locator('.gallery-controls')).toBeHidden();
+	const image = page.locator('#galleries .photo-thumb').first();
+	await expect(image).toBeVisible();
+	const href = await image.getAttribute('href');
+	expect(href).toMatch(/^\/images\/galleries\//);
+	expect(requests.some(url => url.includes('/json/'))).toBe(false);
+	await image.click();
+	await expect(page).toHaveURL(new URL(href, 'http://127.0.0.1:4175').href);
+	await context.close();
 });

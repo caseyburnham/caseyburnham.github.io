@@ -71,7 +71,7 @@ export class PhotoModal {
 	_setupEventListeners() {
 		this.container.addEventListener('click', (e) => {
 			const trigger = e.target.closest('.photo-thumb, .camera-link');
-			if (!trigger) return;
+			if (!trigger || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 			e.preventDefault();
 			this.open(trigger);
 		});

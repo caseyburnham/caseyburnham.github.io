@@ -9,7 +9,7 @@
 - Professional background, skills, and production credits
 - Mountain, concert, and production data
 - Photography galleries with a native dialog viewer and EXIF details
-- An elevation-history chart
+- SVG summaries of summits by mountain range
 - A MapLibre map built from summit-photo GPS metadata
 - A Discogs-powered “Now Playing” and “For Sale” section
 - Responsive navigation, light and dark color schemes, and reduced-motion support
@@ -21,7 +21,8 @@ The site is intentionally framework-free. It uses semantic HTML, modular browser
 - HTML templates for data-driven interface elements
 - ES modules with lazy initialization for heavier features
 - Modern CSS with cascade layers, nesting, container queries, and shared tokens
-- [Chart.js](https://www.chartjs.org/) for elevation history
+- Build-generated tables, gallery navigation, default photo grids, and SVG summaries
+- LinkeDOM for build-only HTML template rendering; no DOM library ships to browsers
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) with MapTiler tiles for the map
 - Netlify Functions for Discogs integration
 - JSON datasets for galleries, mountains, concerts, productions, and EXIF metadata
@@ -43,12 +44,12 @@ The site is intentionally framework-free. It uses semantic HTML, modular browser
 │   ├── js-imports.js       Feature loading and initialization
 │   ├── modal/              Photo dialog
 │   ├── map/                MapLibre map
-│   ├── ui/                 Galleries, tables, chart, Discogs, and UI behavior
+│   ├── ui/                 Galleries, Discogs, and UI behavior
 │   └── utils/              Shared data, EXIF, and DOM utilities
 ├── json/                   Site content and generated metadata
 ├── images/                 Posters, gallery images, thumbnails, and summit photos
 ├── netlify/functions/      Discogs API endpoints
-├── scripts/                Repeatable build and artifact checks
+├── scripts/                HTML rendering, builds, and artifact checks
 ├── utility/                Local content-generation tools
 ├── _headers                Security and caching headers
 └── netlify.toml            Netlify configuration
@@ -100,10 +101,10 @@ every push and pull request.
 `npm run format:css` to alphabetize declarations in the authored CSS files.
 
 For fast local CSS work with live Netlify Functions, run `npm run dev` and open
-`http://localhost:8888`. Netlify Dev serves the source `index.html`, runs the
-CSS watcher and development JavaScript bundler in the background, and handles
-the `/api/discogs/*` routes without creating hashed production assets after
-every edit.
+`http://localhost:8888`. Netlify Dev serves the generated `dist/index.html`, runs the
+build watcher in the background, and handles the `/api/discogs/*` routes.
+Source changes regenerate the HTML and hashed assets through the deployment
+build; a failed rebuild leaves the last successful preview available.
 
 ### Adding gallery and summit photos
 
@@ -171,3 +172,17 @@ response caching headers.
 ## Author
 
 Built by [Casey Burnham](https://github.com/caseyburnham).
+
+## HTML-first delivery
+
+Edit `index.html` for structure and templates, and `json/` for content. The build
+renders production, concert, and mountain tables (including tallies and SVG
+summaries), the gallery navigation, and the default photo gallery into `dist/index.html`.
+The browser does not fetch production/concert data or rebuild these tables.
+Photo links work without JavaScript; the dialog, gallery switching, map, and
+Discogs sections progressively enhance the page.
+
+`npm run dev` watches source files and serves the generated `dist/` through Netlify,
+using the same rendering path as deployment. `npm run build:deploy` followed by
+`npm run preview` provides a static preview. Do not preview the source `index.html`
+directly: it contains build-time templates and asset placeholders.

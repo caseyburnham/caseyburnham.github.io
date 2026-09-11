@@ -1,61 +1,45 @@
+import { watch } from 'node:fs';
 import { spawn } from 'node:child_process';
-import { rm } from 'node:fs/promises';
 import path from 'node:path';
-import process from 'node:process';
 import { fileURLToPath } from 'node:url';
-import { context } from 'esbuild';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const output = path.join(root, 'js/dist');
+let building = false;
+let pending = false;
+let timer;
+let child;
 
-await rm(output, { force: true, recursive: true });
-
-const javascript = await context({
-	absWorkingDir: root,
-	bundle: true,
-	chunkNames: 'chunks/chunk-[hash]',
-	define: {
-		__MAP_STYLESHEET_URL__: JSON.stringify('/css/dist/map.css')
-	},
-	entryNames: 'main',
-	entryPoints: { main: 'js/js-imports.js' },
-	format: 'esm',
-	logLevel: 'info',
-	outdir: 'js/dist',
-	sourcemap: 'inline',
-	splitting: true,
-	target: ['es2022']
-});
-
-await javascript.watch();
-
-const stylesheets = spawn(
-	process.execPath,
-	[path.join(root, 'scripts/watch-css.mjs')],
-	{ cwd: root, stdio: 'inherit' }
-);
-
-let stopping = false;
-
-async function stop(signal = 'SIGTERM') {
-	if (stopping) return;
-	stopping = true;
-	stylesheets.kill(signal);
-	await javascript.dispose();
+function rebuild() {
+	pending = true;
+	if (building) return;
+	pending = false;
+	building = true;
+	child = spawn(process.execPath, ['scripts/build.mjs'], { cwd: root, stdio: 'inherit' });
+	child.once('exit', code => {
+		building = false;
+		if (code) console.error('Build failed; the previous preview remains available.');
+		if (pending) rebuild();
+	});
 }
 
-const exitCode = await new Promise(resolve => {
-	stylesheets.once('exit', code => {
-		if (!stopping) {
-			javascript.dispose().finally(() => resolve(code ?? 1));
-		}
+function changed(filename) {
+	if (!filename || /(^|\/)(dist|ORIGINALS|\.DS_Store)(\/|$)/.test(filename)) return;
+	clearTimeout(timer);
+	timer = setTimeout(rebuild, 150);
+}
+
+const watchers = ['css', 'js', 'shared', 'json', 'images', 'scripts', 'config'].map(directory =>
+	watch(path.join(root, directory), { recursive: true }, (_, filename) => changed(filename)));
+watchers.push(watch(root, (_, filename) => {
+	if (['index.html', '_headers', 'robots.txt', 'sitemap.xml', 'package.json'].includes(filename)) changed(filename);
+}));
+
+for (const signal of ['SIGINT', 'SIGTERM']) {
+	process.once(signal, () => {
+		clearTimeout(timer);
+		pending = false;
+		watchers.forEach(watcher => watcher.close());
+		child?.kill(signal);
 	});
-
-	for (const signal of ['SIGINT', 'SIGTERM']) {
-		process.once(signal, () => {
-			stop(signal).finally(() => resolve(0));
-		});
-	}
-});
-
-process.exitCode = exitCode;
+}
+rebuild();

@@ -7,7 +7,7 @@ export default [
 	},
 	eslint.configs.recommended,
 	{
-		files: ['js/**/*.js', 'utility/**/*.js'],
+		files: ['js/**/*.js', 'shared/**/*.js', 'utility/**/*.js'],
 		languageOptions: {
 			ecmaVersion: 'latest',
 			globals: {

@@ -4,7 +4,7 @@ export function visibleProductions(productions) {
 		: [];
 }
 
-export function renderProductions(productions) {
+export function renderProductions(document, productions) {
 	if (!Array.isArray(productions)) return;
 	const visible = visibleProductions(productions);
 	const tbody = document.querySelector('#productions tbody');
