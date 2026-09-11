@@ -10,7 +10,6 @@
 	[popover] {
 		backdrop-filter: blur(1.5px) saturate(50%);
 		background: var(--color-bg-light);
-		background-color: var(--color-bg-light);
 		border-bottom-width: 1px;
 		border-color: var(--color-border);
 		border-left-width: 0.8px;
@@ -37,10 +36,6 @@
 
 		&:popover-open {
 			opacity: 1;
-
-			/* @starting-style {
-				opacity: 1;
-			} */
 		}
 	}
 	
@@ -52,9 +47,12 @@
 
 		-webkit-appearance: none;
 		appearance: none;
+		background: var(--color-border);
+		border: 0;
 		border-radius: var(--radius-sm);
 		height: 0.25rem;
 		inline-size: 100%;
+		overflow: visible;
 		vertical-align: middle;
 	
 		&::-webkit-progress-inner-element {
@@ -75,18 +73,7 @@
 			z-index: 3;
 		}
 	
-		&::-moz-progress-inner-element {
-			border-radius: var(--radius-sm);
-			z-index: 1;
-		}
-	
 		&::-moz-progress-bar {
-			background: var(--color-border);
-			border-radius: var(--radius-sm);
-			z-index: 2;
-		}
-	
-		&::-moz-progress-value {
 			background: var(--color-accent-0);
 			border-radius: var(--radius-sm);
 			box-shadow: var(--shadow-prog);

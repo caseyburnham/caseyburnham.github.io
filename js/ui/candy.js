@@ -9,7 +9,6 @@ function initNavigation() {
 	if (!wrapper || !menu || !toggle) return;
 	toggle.setAttribute('aria-expanded', 'false');
 	const links = [...menu.querySelectorAll(':scope > ul > li > a[href^="#"]')];
-	links.forEach((link, index) => link.parentElement.style.setProperty('--i', index));
 	const galleryLink = menu.querySelector(':scope > ul > li > a[href="#galleries"]');
 	const galleryItem = galleryLink?.parentElement;
 	let galleryCloseTimer;

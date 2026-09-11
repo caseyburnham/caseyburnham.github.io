@@ -35,11 +35,11 @@ async function expectGalleryLayout(page, galleryName) {
 	await expect(button).toHaveAttribute('aria-pressed', 'true');
 
 	const newestImage = sortImagesNewestFirst(images)[0];
-	await expect(page.locator(`#galleries img[data-filename="${newestImage.id}"]`)).toHaveCount(1);
+	await expect(page.locator(`#galleries .photo-thumb[data-photo-id="${newestImage.id}"]`)).toHaveCount(1);
 
 	const rows = await page.locator('#galleries .photo-grid')
 		.evaluateAll(elements => elements.map(row => ({
-			ids: Array.from(row.querySelectorAll('img[data-filename]'), image => image.dataset.filename),
+			ids: Array.from(row.querySelectorAll('.photo-thumb[data-photo-id]'), image => image.dataset.photoId),
 			layout: row.classList.contains('landscape-row')
 				? 'landscape'
 				: row.classList.contains('portrait-row') ? 'portrait' : 'pano'
@@ -524,4 +524,62 @@ test('delivers portfolio content and working photo links without JavaScript', as
 	await image.click();
 	await expect(page).toHaveURL(new URL(href, 'http://127.0.0.1:4175').href);
 	await context.close();
+});
+
+test('loads smaller native image candidates and retains full photo links', async ({ page }) => {
+	await page.setViewportSize({ width: 390, height: 844 });
+	await page.goto('/');
+	const portrait = page.locator('.matte img');
+	await expect.poll(() => portrait.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+	await expect.poll(() => portrait.evaluate(image => image.currentSrc)).toContain('/responsive/');
+	const thumbnail = page.locator('#galleries .photo-thumb img').first();
+	await thumbnail.scrollIntoViewIfNeeded();
+	await expect.poll(() => thumbnail.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+	await expect.poll(() => thumbnail.evaluate(image => image.currentSrc)).toContain('/responsive/');
+	await expect(page.locator('#galleries .photo-thumb').first()).not.toHaveAttribute('href', /thumbnails/);
+	await expectGalleryLayout(page, 'High Country');
+	const switchedThumbnail = page.locator('#galleries .photo-thumb img').first();
+	await switchedThumbnail.scrollIntoViewIfNeeded();
+	await expect.poll(() => switchedThumbnail.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+	await expect(switchedThumbnail).toHaveAttribute('srcset', /320w/);
+});
+
+test('retains record stacking through retraction and raises the latest activation', async ({ page }) => {
+	const records = ['Vinyl', 'CD', 'Cassette'].map((mediaType, index) => ({
+		title: `Record ${index + 1}`, artist: 'Artist', mediaType,
+		url: 'https://www.discogs.com/', cover_image: '/images/assets/png/vinyl-record.png'
+	}));
+	await page.route('**/api/discogs/**', route => route.fulfill({ json: records }));
+	await page.setViewportSize({ width: 1440, height: 1000 });
+	await page.goto('/');
+	for (const selector of ['#discogs-sleeve-container', '#discogs-inventory-sleeve-container']) {
+		const shelf = page.locator(selector);
+		await shelf.scrollIntoViewIfNeeded();
+		const links = shelf.locator('.record-link');
+		const sleeves = shelf.locator('.discogs-record');
+		await links.first().hover();
+		await sleeves.first().evaluate(async element => {
+			await Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished));
+		});
+		const raisedIndex = await sleeves.first().evaluate(element => getComputedStyle(element).zIndex);
+		await page.mouse.move(0, 0);
+		await expect(sleeves.first()).toHaveCSS('z-index', raisedIndex);
+		await expect.poll(() => sleeves.first().locator('.album-media').evaluate(element =>
+			new DOMMatrix(getComputedStyle(element).transform).m41)).toBeGreaterThan(0);
+		// Move across siblings in both directions while previous discs are retracting.
+		for (const index of [1, 0, 2]) {
+			await links.nth(index).hover();
+			const indexes = await sleeves.evaluateAll(elements => elements.map(element => Number(getComputedStyle(element).zIndex)));
+			expect(indexes[index]).toBeGreaterThan(Math.max(...indexes.filter((_, other) => other !== index)));
+		}
+		await page.mouse.move(0, 0);
+		await links.first().focus();
+		const focusedIndex = await sleeves.first().evaluate(element => getComputedStyle(element).zIndex);
+		await links.first().blur();
+		await expect(sleeves.first()).toHaveCSS('z-index', focusedIndex);
+		await sleeves.first().evaluate(async element => {
+			await Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished));
+		});
+		await expect(sleeves.first()).toHaveCSS('z-index', focusedIndex);
+	}
 });

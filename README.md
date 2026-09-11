@@ -76,6 +76,11 @@ npm run check
 npm run smoke
 ```
 
+Build and check commands do not ingest media or fix source files. Run
+`npm run build:media` explicitly after adding photos, and use `npm run lint:css:fix`
+when you want automatic formatting fixes. `npm run check` reads the existing
+build, so run `npm run build` first.
+
 The build starts from an empty `dist/`, compiles the primary and lazy MapLibre
 PostCSS entry points, bundles the browser module graph and its lazy features,
 fingerprints the generated CSS and JavaScript, rewrites their references, and
@@ -125,13 +130,20 @@ images with a longest edge of at most 2560 pixels, creates 720-pixel gallery
 thumbnails (2560 pixels for full-width panoramas), preserves source EXIF
 metadata including GPS in modal and summit images, and regenerates
 `json/gallery-data.json` and `json/exif-data.json`. Generated modal images are
-kept below 2 MB and thumbnails below 500 KB.
+kept below 2 MB and thumbnails below 500 KB. Smaller responsive variants
+(320px wide for regular thumbnails; 640px and 1280px for panoramas) are generated
+only below the source width. The browser selects among these and the existing
+thumbnail using native `srcset`, with automatic lazy-image sizing and a viewport
+fallback. The portrait has 320px and 640px variants. To refresh only these
+variants without ingesting photos, run `npm run build:responsive`. Generated
+variants live in dedicated `responsive/` folders; the media builder prunes
+unused variants and checks every declared width.
 
-In Nova, select the **Gallery Build** task and use **Project → Build** or
-<kbd>Command</kbd>+<kbd>B</kbd>. That one task runs the media builder before
-building and validating the complete site. From a terminal, the equivalent is:
+First run the media builder explicitly. Then use Nova’s **Gallery Build** task
+to compile and validate the site, or run the complete sequence in a terminal:
 
 ```sh
+npm run build:media
 npm run build
 npm run check
 ```

@@ -30,16 +30,14 @@ export function renderDocument(source, productions, concerts, mountains, exif, g
 	controls.hidden = true;
 	const buttons = controls.querySelector('.gallery-buttons');
 	const menu = document.getElementById('gallery-nav-menu-template').content.firstElementChild.cloneNode(true);
-	entries.forEach(([key, gallery], index) => {
+	entries.forEach(([key, gallery]) => {
 		const button = document.getElementById('gallery-button-template').content.firstElementChild.cloneNode(true);
 		button.disabled = true;
 		button.dataset.gallery = key;
 		button.textContent = gallery.name || key;
 		button.setAttribute('aria-pressed', String(key === defaultKey));
-		button.classList.toggle('selected', key === defaultKey);
 		buttons.append(button);
 		const item = document.getElementById('gallery-nav-link-template').content.firstElementChild.cloneNode(true);
-		item.style.setProperty('--i', index);
 		const link = item.querySelector('a');
 		link.dataset.gallery = key;
 		link.setAttribute('href', `#galleries?gallery=${encodeURIComponent(key)}`);

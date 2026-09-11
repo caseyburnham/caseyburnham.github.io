@@ -117,8 +117,8 @@
 				background: var(--bg-glassy);
 				border-radius: inherit;
 				box-shadow:
-					/* var(--shadow-glass), */
 					var(--shadow-modal);
+				color: var(--color-text-primary);
 				display: grid;
 				filter: blur(20px);
 				font-size: var(--text-xs);
@@ -136,6 +136,28 @@
 				transition: backdrop-filter, filter, opacity;
 				transition-duration: 300ms;
 				transition-timing-function: ease-out;
+
+				&[data-image-palette] {
+					--color-bg-main: light-dark(hsl(var(--caption-hue) var(--caption-saturation) 94%), hsl(var(--caption-hue) var(--caption-saturation) 12%));
+					--color-text-primary: light-dark(hsl(var(--caption-hue) var(--caption-saturation) 14%), hsl(var(--caption-hue) var(--caption-saturation) 96%));
+					--color-text-secondary: oklch(from var(--color-text-primary) l c h / 0.82);
+					--color-text-muted: oklch(from var(--color-text-primary) l c h / 0.65);
+					--color-shadow-0: var(--color-text-primary);
+					--shadow-text-caption: oklch(from var(--color-bg-main) l c h / 0.25) 0 2px 3px;
+					--shadow-text-outline: var(--color-bg-main) 0 0 0.05em;
+
+					/* Keep the complementary tint behind the EXIF row as well as the title. */
+					--bg-glassy: linear-gradient(
+						to bottom,
+						color-mix(in oklch, var(--color-bg-main) 90%, transparent),
+						color-mix(in oklch, var(--color-bg-main) 70%, transparent) 35%,
+						color-mix(in oklch, var(--color-bg-main) 50%, transparent)
+					);
+				}
+
+				&[data-image-palette="color"] {
+					--color-accent-0: light-dark(hsl(calc(var(--caption-hue) + 180) 90% 25%), hsl(calc(var(--caption-hue) + 180) 90% 78%));
+				}
 
 				& h3 {
 					font-size: var(--text-md);

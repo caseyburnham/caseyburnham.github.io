@@ -133,7 +133,8 @@ test('date schemas reject impossible calendar dates', async () => {
 				copyrightNotice: 'Casey Burnham',
 				layout: 'landscape',
 				sources: { jpeg: '/images/galleries/test/jpeg/test-image.jpeg' },
-				thumbnail: '/images/galleries/test/thumbnails/test-image.jpeg'
+				thumbnail: '/images/galleries/test/thumbnails/test-image.jpeg',
+				thumbnailSources: { 720: '/images/galleries/test/thumbnails/test-image.jpeg' }
 			}]
 		}
 	};

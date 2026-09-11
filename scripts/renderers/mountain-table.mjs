@@ -75,7 +75,7 @@ function renderRangeSummary(document, mountains) {
 	const sorted = Array.from(rangeSummits.entries())
 		.sort((a, b) => b[1].length - a[1].length);
 	const fragment = document.createDocumentFragment();
-	sorted.forEach(([range, summits]) => {
+	sorted.forEach(([range, summits], rangeIndex) => {
 		summits.sort((a, b) => a.date.localeCompare(b.date));
 		const count = summits.length;
 		const ridge = template.content.firstElementChild.cloneNode(true);
@@ -91,6 +91,9 @@ function renderRangeSummary(document, mountains) {
 			return `${x.toFixed(2)},${y.toFixed(2)}`;
 		});
 		if (count === 1) points.push(`${RANGE_CHART.WIDTH / 2 + 0.01},${points[0].split(',')[1]}`);
+		const filterId = `range-ridge-glow-${rangeIndex}`;
+		ridge.querySelector('.range-ridge-filter').id = filterId;
+		ridge.querySelector('.range-ridge-line').setAttribute('filter', `url(#${filterId})`);
 		const linePoints = points.join(' ');
 		ridge.querySelector('.range-ridge-line')
 			.setAttribute('points', linePoints);
@@ -125,11 +128,9 @@ function createMountainRow(mountain, template) {
 	if (mountain.Elevation) {
 		const elevation = Number.parseInt(mountain.Elevation.replaceAll(',', ''), 10);
 		if (Number.isFinite(elevation) && elevationData) {
-			const fraction = Math.max(0, Math.min(1, (elevation - ELEVATION.MIN) / (ELEVATION.MAX - ELEVATION.MIN)));
 			elevationData.textContent = mountain.Elevation;
 			elevationData.setAttribute('value', elevation);
-			elevationData.style.setProperty('--elevation-percent', `${(fraction * 100).toFixed(2)}%`);
-			elevationData.style.setProperty('--elevation-fraction', fraction.toFixed(3));
+			elevationData.style.setProperty('--elevation', elevation);
 		}
 		else if (elevationData) {
 			elevationData.textContent = mountain.Elevation;
@@ -193,6 +194,8 @@ export function renderMountains(document, mountains) {
 	const rowTemplate = document.getElementById('mountain-row-template');
 	const summaryTemplate = document.getElementById('summary-row-template');
 	if (!tbody || !rowTemplate || !summaryTemplate) return;
+	tbody.style.setProperty('--elevation-min', ELEVATION.MIN);
+	tbody.style.setProperty('--elevation-max', ELEVATION.MAX);
 	const fragment = document.createDocumentFragment();
 	let currentYear = null;
 	let yearCount = 0;

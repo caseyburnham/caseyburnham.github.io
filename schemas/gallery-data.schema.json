@@ -33,7 +33,7 @@
 		"image": {
 			"type": "object",
 			"additionalProperties": false,
-			"required": ["id", "alt", "title", "dateCreated", "copyrightNotice", "layout", "sources", "thumbnail"],
+			"required": ["id", "alt", "title", "dateCreated", "copyrightNotice", "layout", "sources", "thumbnail", "thumbnailSources"],
 			"properties": {
 				"id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9,&@'-]*$" },
 				"alt": { "type": "string", "minLength": 1 },
@@ -50,6 +50,14 @@
 						"avif": { "type": "string", "pattern": "^/images/galleries/.+/avif/.+\\.avif$" },
 						"jpeg": { "type": "string", "pattern": "^/images/galleries/.+/jpeg/.+\\.jpe?g$" },
 						"png": { "type": "string", "pattern": "^/images/galleries/.+/png/.+\\.png$" }
+					}
+				},
+				"thumbnailSources": {
+					"type": "object",
+					"minProperties": 1,
+					"additionalProperties": false,
+					"patternProperties": {
+						"^[1-9][0-9]*$": { "type": "string", "pattern": "^/images/galleries/.+/thumbnails/(responsive/)?[^/]+\\.(avif|jpe?g|png)$" }
 					}
 				},
 				"thumbnail": { "type": "string", "pattern": "^/images/galleries/.+/thumbnails/.+\\.(avif|jpe?g|png)$" }

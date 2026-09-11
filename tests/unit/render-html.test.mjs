@@ -10,7 +10,7 @@ const galleries = {
 	_config: { defaultGallery: 'sample' },
 	sample: { name: hostileText, images: [{
 		id: 'sample', title: hostileText, alt: hostileText, layout: 'landscape',
-		thumbnail: '/images/thumb.jpeg', sources: { jpeg: '/images/full.jpeg' }, dateCreated: '2026-01-01'
+		thumbnail: '/images/thumb.jpeg', thumbnailSources: { 320: '/images/thumb,small.jpeg', 720: '/images/thumb.jpeg' }, sources: { jpeg: '/images/full.jpeg' }, dateCreated: '2026-01-01'
 	}] }
 };
 
@@ -28,6 +28,7 @@ test('renders escaped content and serialized mountain relationships at build tim
 	assert.equal(document.querySelectorAll('#productions-table tbody tr').length, 1);
 	assert.equal(document.querySelectorAll('[onerror]').length, 0);
 	assert.equal(document.querySelector('#galleries img').getAttribute('alt'), hostileText);
+	assert.equal(document.querySelector('#galleries img').getAttribute('srcset'), '/images/thumb%2Csmall.jpeg 320w, /images/thumb.jpeg 720w');
 	assert.equal(document.querySelector('#gallery-navigation a').textContent, hostileText);
 	assert.equal(document.querySelector('#mountains .mtn-date').getAttribute('rowspan'), '2');
 	assert.equal(document.querySelectorAll('#mountains .mtn-date').length, 1);

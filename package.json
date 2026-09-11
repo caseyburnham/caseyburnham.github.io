@@ -4,11 +4,11 @@
 	"private": true,
 	"description": "A framework-free personal portfolio for mountains, concerts, photography, and production work.",
 	"scripts": {
-		"build": "npm run lint:css:fix && npm run build:media && node scripts/build.mjs",
+		"build": "node scripts/build.mjs",
 		"build:deploy": "node scripts/build.mjs",
 		"build:css": "postcss css/main/_imports.css -o css/dist/style.css --config config && postcss css/maps/_imports.css -o css/dist/map.css --config config",
 		"build:media": "python3 scripts/build-media.py",
-		"check": "npm run lint:css:fix && npm run build:media && npm run validate && npm run lint && npm run test:unit && node scripts/check-build.mjs && npm run check:media",
+		"check": "npm run validate && npm run lint && npm run test:unit && node scripts/check-build.mjs && npm run check:media",
 		"check:media": "python3 scripts/build-media.py --check",
 		"dev": "netlify dev",
 		"lint": "npm run lint:js && npm run lint:css",
@@ -22,7 +22,8 @@
 		"format:css": "node scripts/sort-css.mjs",
 		"validate": "node scripts/validate-data.mjs",
 		"watch:css": "node scripts/watch-css.mjs",
-		"watch:dev": "node scripts/watch-dev.mjs"
+		"watch:dev": "node scripts/watch-dev.mjs",
+		"build:responsive": "python3 scripts/build-media.py --responsive-only"
 	},
 	"author": "Casey Burnham",
 	"license": "ISC",

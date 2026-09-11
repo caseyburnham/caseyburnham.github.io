@@ -50,6 +50,7 @@ export class PhotoModal {
 			modal: dialog,
 			content: query('.modal-content'),
 			media: query('.modal-media'),
+			caption: query('.photo-details'),
 			images,
 			loading: query('.modal-loading'),
 			loadingMessage: query('.modal-loading-message'),
@@ -220,6 +221,8 @@ export class PhotoModal {
 		this._renderMetadata(src);
 		await new Promise(resolve => requestAnimationFrame(resolve));
 		if (token !== this.renderToken) return;
+		this.captionImage = preload;
+		this._updateCaptionPalette();
 		outgoing.setAttribute('aria-hidden', 'true');
 		incoming.removeAttribute('aria-hidden');
 		outgoing.classList.add('is-leaving');
@@ -227,6 +230,54 @@ export class PhotoModal {
 		this.transitionTimer = setTimeout(() => {
 			if (token === this.renderToken) this._finishImageTransition();
 		}, 220);
+	}
+	_resetCaptionPalette() {
+		const { caption } = this.elements;
+		delete caption.dataset.imagePalette;
+		for (const property of ['color-scheme', '--caption-hue', '--caption-saturation']) caption.style.removeProperty(property);
+	}
+	_updateCaptionPalette() {
+		this._resetCaptionPalette();
+		const { modal, caption } = this.elements;
+		if (!modal.open || !this.captionImage) return;
+		const canvas = document.createElement('canvas');
+		canvas.width = 64;
+		canvas.height = 64;
+		const context = canvas.getContext('2d', { willReadFrequently: true });
+		if (!context) return;
+		try {
+			// Sample the whole photo so the palette stays consistent across caption layouts.
+			context.drawImage(this.captionImage, 0, 0, canvas.width, canvas.height);
+			const { data } = context.getImageData(0, 0, canvas.width, canvas.height);
+			const hues = Array(24).fill(0);
+			let luminance = 0;
+			let weight = 0;
+			let chromaWeight = 0;
+			const linear = channel => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+			for (let index = 0; index < data.length; index += 4) {
+				const [red, green, blue, alpha] = Array.from(data.subarray(index, index + 4), value => value / 255);
+				luminance += alpha * (0.2126 * linear(red) + 0.7152 * linear(green) + 0.0722 * linear(blue));
+				weight += alpha;
+				const max = Math.max(red, green, blue);
+				const chroma = max - Math.min(red, green, blue);
+				if (chroma < 0.1) continue;
+				const sector = max === red ? (green - blue) / chroma : max === green ? (blue - red) / chroma + 2 : (red - green) / chroma + 4;
+				const hue = (sector * 60 + 360) % 360;
+				hues[Math.round(hue / 15) % hues.length] += alpha * chroma;
+				chromaWeight += alpha * chroma;
+			}
+			if (!weight) return;
+			// Choose the most prevalent hue, rather than averaging unrelated colors into gray.
+			const dominantHue = hues.indexOf(Math.max(...hues)) * 15;
+			const colorful = chromaWeight / weight > 0.05;
+			caption.style.setProperty('--caption-hue', (dominantHue + 180) % 360);
+			caption.style.setProperty('--caption-saturation', colorful ? '28%' : '0%');
+			caption.style.setProperty('color-scheme', luminance / weight > 0.179 ? 'dark' : 'light');
+			caption.dataset.imagePalette = colorful ? 'color' : 'neutral';
+		}
+		catch {
+			// Cross-origin images may prohibit pixel access; retain the existing theme.
+		}
 	}
 	_finishImageTransition() {
 		const incoming = this.standbyImage;
@@ -428,6 +479,8 @@ export class PhotoModal {
 		}));
 	}
 	_clearImages() {
+		this.captionImage = null;
+		this._resetCaptionPalette();
 		clearTimeout(this.closeCleanupTimer);
 		this.closeCleanupTimer = null;
 		this.elements.images.forEach((image) => {

@@ -47,10 +47,6 @@
 		z-index: 1;
 	}
 
-	.discogs-record:has(.record-link:is(:hover, :focus-within)) {
-		z-index: 2;
-	}
-
 	@media (width <= 1024px) {
 		.discogs-record:nth-of-type(n + 4),
 		.record-caption:nth-child(n + 4) {

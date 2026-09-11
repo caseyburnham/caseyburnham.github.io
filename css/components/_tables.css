@@ -1,16 +1,4 @@
 @layer components.tables {
-	@property --elevation-fraction {
-		inherits: false;
-		initial-value: 0;
-		syntax: '<number>';
-	}
-
-	@property --elevation-percent {
-		inherits: false;
-		initial-value: 0%;
-		syntax: '<percentage>';
-	}
-
 table:not(table caption) {
 	backdrop-filter: blur(2.5px);
 	background-color: transparent;
@@ -40,9 +28,15 @@ table:not(table caption) {
 		& .camera-link {
 			background: none;
 			border: none;
+			display: inline-grid;
 			font-size: larger;
 			padding: 0.25rem;
-			position: relative;
+			text-decoration: none;
+
+			&::before,
+			&::after {
+				grid-area: 1 / 1;
+			}
 
 			&::before {
 				content: "📷";
@@ -52,11 +46,8 @@ table:not(table caption) {
 				animation: opacity 0.95s var(--timing-frame), filter .05s var(--timing-led);
 				content: "📸";
 				filter: brightness(1);
-				inset-inline-start: 0.25rem;
 				opacity: 0;
 				pointer-events: none;
-				position: absolute;
-				top: 0.25rem;
 			}
 
 			&:hover::after {
@@ -125,9 +116,12 @@ table:not(table caption) {
 		fill: var(--color-accent-alpha);
 	}
 
+	.range-ridge-glow {
+		flood-color: var(--color-glow-0);
+	}
+
 	.range-ridge-line {
 		fill: none;
-		filter: drop-shadow(0px 0px 2px var(--color-glow-0));
 		stroke: var(--color-accent-0);
 		stroke-linecap: round;
 		stroke-linejoin: round;
@@ -157,6 +151,13 @@ table:not(table caption) {
 	}
 
 	.mtn-elevation data {
+		--elevation-fraction: clamp(0, (var(--elevation, var(--elevation-min)) - var(--elevation-min)) / (var(--elevation-max) - var(--elevation-min)), 1);
+		--elevation-percent: calc(var(--elevation-fraction) * 100%);
+
+		@supports (opacity: progress(1, 0, 2)) {
+			--elevation-fraction: progress(var(--elevation, var(--elevation-min)), var(--elevation-min), var(--elevation-max));
+		}
+
 		--heatmap-min-color: oklch(from var(--color-accent-0)    l calc(c - 0.22) h);
 		--heatmap-max-color: oklch(from var(--color-accent-0)    l c h);
 		--heatmap-glow-min-color: oklch(from var(--color-glow-2) l c h / 0.6);
@@ -165,7 +166,7 @@ table:not(table caption) {
 		--glow-color: color-mix(in oklch,
 			var(--heatmap-glow-min-color),
 			var(--heatmap-glow-max-color) var(--elevation-percent));
-		--glow-size: calc(0px + 0.5rem * var(--elevation-fraction));
+		--glow-size: calc(0.5rem * var(--elevation-fraction));
 
 		color: color-mix(in oklch,
 			var(--heatmap-min-color),

@@ -119,7 +119,6 @@ export class Galleries {
 		const buttons = this.#galleryContainer.querySelectorAll(GALLERY_CONFIG.BUTTON_SELECTOR);
 		buttons.forEach(btn => {
 			const isActive = btn.dataset.gallery === activeKey;
-			btn.classList.toggle('selected', isActive);
 			btn.setAttribute('aria-pressed', isActive.toString());
 		});
 	}

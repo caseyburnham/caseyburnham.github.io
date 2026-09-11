@@ -7,7 +7,6 @@
 		<meta name="color-scheme" content="light dark">
 		<meta name="description" content="Casey Burnham, a professional audio engineer in Colorado specializing in live sound, theater audio, FOH mixing, sound design, audio system design, Dante networking, QLab programming, and Yamaha Rivage consoles. Serving Denver, Boulder, Fort Collins, and Colorado Springs.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-		<meta name="view-transition" content="same-origin">
 		<meta property="og:title" content="Casey Burnham — Sound Engineer">
 		<meta property="og:description" content="Colorado audio director and sound engineer specializing in live sound, theater audio, FOH mixing, sound design, Dante networking, QLab programming, and Yamaha Rivage consoles.">
 		<meta property="og:locale" content="en_US">
@@ -173,7 +172,7 @@
 				</div>
 				<figure class="portrait">
 					<div class="matte">
-						<img src="/images/posters/jpeg/casey-rocky.jpeg" alt="Casey and Rocky at Silver Dollar Lake" width="935" height="1247" fetchpriority="high">
+						<img src="/images/posters/jpeg/casey-rocky.jpeg" srcset="/images/posters/jpeg/responsive/casey-rocky-320.jpeg 320w, /images/posters/jpeg/responsive/casey-rocky-640.jpeg 640w, /images/posters/jpeg/casey-rocky.jpeg 935w" sizes="(max-width: 600px) 60vw, 400px" alt="Casey and Rocky at Silver Dollar Lake" width="935" height="1247" fetchpriority="high">
 					</div>
 					<figcaption>Casey & Rocky</figcaption>
 				</figure>
@@ -400,12 +399,12 @@
 		</footer>
 
 		<!-- Popovers -->
-		<div id="ucd" class="glass" popover="auto">University of Colorado, Denver</div>
-		<div id="a1" class="glass" popover="auto">Audio Lead / Front of House Mixer</div>
-		<div id="ad" class="glass" popover="auto">Audio Director</div>
-		<div id="sd" class="glass" popover="auto">Sound Designer</div>
-		<div id="lz" class="glass" popover="auto">Laserist</div>
-		<div id="rank" class="glass" popover="auto">Ranking requires 300' of Prominence</div>
+		<div id="ucd" popover="auto">University of Colorado, Denver</div>
+		<div id="a1" popover="auto">Audio Lead / Front of House Mixer</div>
+		<div id="ad" popover="auto">Audio Director</div>
+		<div id="sd" popover="auto">Sound Designer</div>
+		<div id="lz" popover="auto">Laserist</div>
+		<div id="rank" popover="auto">Ranking requires 300' of Prominence</div>
 
 		<!-- Templates -->
 		<!-- Modal Template-->
@@ -581,6 +580,11 @@
 			<li class="range-ridge">
 				<span class="range-ridge-name"><!-- JS --></span>
 				<svg class="range-ridge-chart" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true">
+					<defs>
+						<filter class="range-ridge-filter" filterUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="50" color-interpolation-filters="sRGB">
+							<feDropShadow class="range-ridge-glow" dx="0" dy="0" stdDeviation="2"></feDropShadow>
+						</filter>
+					</defs>
 					<polygon class="range-ridge-area" points=""></polygon>
 					<polyline class="range-ridge-line" points=""></polyline>
 				</svg>

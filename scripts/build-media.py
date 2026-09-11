@@ -59,8 +59,8 @@ EXIF_TAGS = [
     "-XMP:Description",
     "-IPTC:Caption-Abstract",
     "-EXIF:ImageDescription",
-    "-File:ImageWidth",
-    "-File:ImageHeight",
+    "-ImageWidth",
+    "-ImageHeight",
 ]
 
 logging.basicConfig(
@@ -649,6 +649,56 @@ def write_json_data() -> None:
     )
 
 
+def responsive_sources(source: Path, widths: tuple[int, ...], original_width: int) -> dict[str, str]:
+    sources = {}
+    for width in widths:
+        if width >= original_width:
+            continue
+        destination = source.parent / "responsive" / f"{source.stem}-{width}{source.suffix}"
+        if not destination.exists() or destination.stat().st_mtime < source.stat().st_mtime:
+            temporary = temporary_output(destination)
+            try:
+                run([
+                    imagemagick_command(), f"{source}[0]", "-auto-orient",
+                    "-resize", f"{width}x>", "-strip", "-quality",
+                    str(THUMBNAIL_QUALITY[normalized_extension(source).lstrip(".")]), str(temporary),
+                ])
+                temporary.replace(destination)
+            finally:
+                temporary.unlink(missing_ok=True)
+        sources[str(width)] = f"/{relative(destination)}"
+    sources[str(original_width)] = f"/{relative(source)}"
+    return sources
+
+
+def build_responsive() -> None:
+    gallery_data = json.loads(GALLERY_JSON.read_text())
+    portrait = IMAGES / "posters/jpeg/casey-rocky.jpeg"
+    thumbnails = [ROOT / image["thumbnail"].lstrip("/")
+                  for key, gallery in gallery_data.items() if key != "_config"
+                  for image in gallery["images"]]
+    metadata = read_exif([*thumbnails, portrait])
+    expected = set()
+    for key, gallery in gallery_data.items():
+        if key == "_config":
+            continue
+        for image in gallery["images"]:
+            source = ROOT / image["thumbnail"].lstrip("/")
+            widths = (640, 1280) if image["layout"] == "pano" else (320,)
+            image["thumbnailSources"] = responsive_sources(source, widths, int(metadata[source.resolve()]["ImageWidth"]))
+            expected.update(image["thumbnailSources"].values())
+        logging.info("Responsive thumbnails: %s", key)
+    expected.update(responsive_sources(portrait, (320, 640), int(metadata[portrait.resolve()]["ImageWidth"])).values())
+    # Only prune directories owned by this generator.
+    directories = [gallery / "thumbnails/responsive" for gallery in GALLERIES.iterdir() if gallery.is_dir()]
+    directories.append(portrait.parent / "responsive")
+    for directory in directories:
+        for output in image_files(directory):
+            if f"/{relative(output)}" not in expected:
+                output.unlink()
+    GALLERY_JSON.write_text(f"{json.dumps(gallery_data, indent=4)}\n")
+
+
 def validation_errors() -> list[str]:
     outputs = sorted(
         [*summit_outputs()]
@@ -728,6 +778,35 @@ def validation_errors() -> list[str]:
     except (FileNotFoundError, json.JSONDecodeError):
         errors.append(f"Missing or invalid {relative(EXIF_JSON)}")
 
+    gallery_data = json.loads(GALLERY_JSON.read_text())
+    candidates = []
+    for key, gallery in gallery_data.items():
+        if key == "_config":
+            continue
+        for image in gallery["images"]:
+            sources = image.get("thumbnailSources", {})
+            if image["thumbnail"] not in sources.values():
+                errors.append(f"Missing responsive fallback: {image['id']}")
+            for width, url in sources.items():
+                candidate = ROOT / url.lstrip("/")
+                if not candidate.is_file():
+                    errors.append(f"Missing responsive image: {url}")
+                else:
+                    candidates.append((candidate, int(width)))
+    for width in (320, 640):
+        candidate = IMAGES / f"posters/jpeg/responsive/casey-rocky-{width}.jpeg"
+        if candidate.is_file():
+            candidates.append((candidate, width))
+        else:
+            errors.append(f"Missing responsive portrait: {relative(candidate)}")
+    responsive_metadata = read_exif([candidate for candidate, _ in candidates])
+    for candidate, width in candidates:
+        actual_width = int(responsive_metadata.get(candidate.resolve(), {}).get("ImageWidth", 0))
+        if actual_width != width:
+            errors.append(f"{relative(candidate)}: declared {width}w, actual width {actual_width}")
+        if candidate.stat().st_size > MAX_THUMBNAIL_BYTES:
+            errors.append(f"Responsive image exceeds byte budget: {relative(candidate)}")
+
     return errors
 
 
@@ -749,6 +828,10 @@ def main() -> None:
         action="store_true",
         help="Validate generated media without changing files.",
     )
+    parser.add_argument(
+        "--responsive-only", action="store_true",
+        help="Regenerate responsive variants from existing web images, without ingesting originals.",
+    )
     args = parser.parse_args()
 
     missing = []
@@ -765,9 +848,15 @@ def main() -> None:
         check_media()
         return
 
+    if args.responsive_only:
+        build_responsive()
+        check_media()
+        return
+
     modal_count, thumbnail_count, archived = build_images()
     removed_thumbnail_count = remove_orphaned_thumbnails()
     write_json_data()
+    build_responsive()
     check_media()
     logging.info(
         "Done: %s source(s) archived, %s modal image(s), "

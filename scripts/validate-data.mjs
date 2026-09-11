@@ -72,7 +72,7 @@ if (galleries) {
 			}
 			ids.add(image.id);
 			referenceAsset(image.thumbnail, `gallery ${galleryName}/${image.id}`);
-			for (const source of Object.values(image.sources)) {
+			for (const source of Object.values({ ...image.sources, ...image.thumbnailSources })) {
 				referenceAsset(source, `gallery ${galleryName}/${image.id}`);
 			}
 		}
@@ -91,6 +91,11 @@ try {
 	const html = await readFile(path.join(root, 'index.html'), 'utf8');
 	for (const match of html.matchAll(/(?:href|poster|src)="([^"\n]+)"/g)) {
 		referenceAsset(match[1], 'index.html');
+	}
+	for (const match of html.matchAll(/srcset="([^"\n]+)"/g)) {
+		for (const candidate of match[1].split(', ')) {
+			referenceAsset(decodeURI(candidate.trim().split(/\s+/)[0]), 'index.html srcset');
+		}
 	}
 } catch (error) {
 	failures.push(`index.html: ${error.message}`);

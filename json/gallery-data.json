@@ -15,7 +15,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/air-bubbles.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/air-bubbles.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/air-bubbles.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/air-bubbles-320.avif",
+                    "540": "/images/galleries/abstract/thumbnails/air-bubbles.avif"
+                }
             },
             {
                 "id": "alpine-ice",
@@ -27,7 +31,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/alpine-ice.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/alpine-ice.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/alpine-ice.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/alpine-ice-320.avif",
+                    "540": "/images/galleries/abstract/thumbnails/alpine-ice.avif"
+                }
             },
             {
                 "id": "cowboy-print",
@@ -39,7 +47,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/cowboy-print.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/cowboy-print.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/cowboy-print.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/cowboy-print-320.avif",
+                    "540": "/images/galleries/abstract/thumbnails/cowboy-print.avif"
+                }
             },
             {
                 "id": "cracked-egg",
@@ -51,7 +63,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/cracked-egg.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/cracked-egg.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/cracked-egg.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/cracked-egg-320.avif",
+                    "540": "/images/galleries/abstract/thumbnails/cracked-egg.avif"
+                }
             },
             {
                 "id": "frozen-rocks",
@@ -63,7 +79,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/frozen-rocks.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/frozen-rocks.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/frozen-rocks.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/frozen-rocks-320.avif",
+                    "720": "/images/galleries/abstract/thumbnails/frozen-rocks.avif"
+                }
             },
             {
                 "id": "guinea-fowl-detail",
@@ -75,7 +95,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/guinea-fowl-detail.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/guinea-fowl-detail.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/guinea-fowl-detail.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/guinea-fowl-detail-320.avif",
+                    "540": "/images/galleries/abstract/thumbnails/guinea-fowl-detail.avif"
+                }
             },
             {
                 "id": "medano-creek",
@@ -87,7 +111,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/medano-creek.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/medano-creek.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/medano-creek.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/medano-creek-320.avif",
+                    "720": "/images/galleries/abstract/thumbnails/medano-creek.avif"
+                }
             },
             {
                 "id": "missouri-lake-reflections",
@@ -99,7 +127,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/missouri-lake-reflections.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/missouri-lake-reflections.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/missouri-lake-reflections.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/missouri-lake-reflections-320.avif",
+                    "720": "/images/galleries/abstract/thumbnails/missouri-lake-reflections.avif"
+                }
             },
             {
                 "id": "paint",
@@ -111,7 +143,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/paint.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/paint.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/paint.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/paint-320.avif",
+                    "540": "/images/galleries/abstract/thumbnails/paint.avif"
+                }
             },
             {
                 "id": "sandstone-detail",
@@ -123,7 +159,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/sandstone-detail.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/sandstone-detail.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/sandstone-detail.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/sandstone-detail-320.avif",
+                    "720": "/images/galleries/abstract/thumbnails/sandstone-detail.avif"
+                }
             },
             {
                 "id": "silver-lake-reflections",
@@ -135,7 +175,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/silver-lake-reflections.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/silver-lake-reflections.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/silver-lake-reflections.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/silver-lake-reflections-320.avif",
+                    "540": "/images/galleries/abstract/thumbnails/silver-lake-reflections.avif"
+                }
             },
             {
                 "id": "sloans-lake",
@@ -147,7 +191,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/sloans-lake.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/sloans-lake.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/sloans-lake.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/sloans-lake-320.avif",
+                    "540": "/images/galleries/abstract/thumbnails/sloans-lake.avif"
+                }
             },
             {
                 "id": "star-k-sunset",
@@ -159,7 +207,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/star-k-sunset.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/star-k-sunset.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/star-k-sunset.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/star-k-sunset-320.avif",
+                    "720": "/images/galleries/abstract/thumbnails/star-k-sunset.avif"
+                }
             },
             {
                 "id": "yellowstone",
@@ -171,7 +223,11 @@
                 "sources": {
                     "avif": "/images/galleries/abstract/avif/yellowstone.avif"
                 },
-                "thumbnail": "/images/galleries/abstract/thumbnails/yellowstone.avif"
+                "thumbnail": "/images/galleries/abstract/thumbnails/yellowstone.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/abstract/thumbnails/responsive/yellowstone-320.avif",
+                    "540": "/images/galleries/abstract/thumbnails/yellowstone.avif"
+                }
             }
         ]
     },
@@ -188,7 +244,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/central-city-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/central-city-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/central-city-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/central-city-cemetery-320.avif",
+                    "540": "/images/galleries/cemeteries/thumbnails/central-city-cemetery.avif"
+                }
             },
             {
                 "id": "como-cemetery-headstones",
@@ -200,7 +260,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/como-cemetery-headstones.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/como-cemetery-headstones.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/como-cemetery-headstones.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/como-cemetery-headstones-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/como-cemetery-headstones.avif"
+                }
             },
             {
                 "id": "crested-butte-cemetery",
@@ -212,7 +276,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/crested-butte-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/crested-butte-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/crested-butte-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/crested-butte-cemetery-320.avif",
+                    "540": "/images/galleries/cemeteries/thumbnails/crested-butte-cemetery.avif"
+                }
             },
             {
                 "id": "dawson-cemetery",
@@ -224,7 +292,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/dawson-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/dawson-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/dawson-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/dawson-cemetery-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/dawson-cemetery.avif"
+                }
             },
             {
                 "id": "elizabethtown-cemetery",
@@ -236,7 +308,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/elizabethtown-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/elizabethtown-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/elizabethtown-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/elizabethtown-cemetery-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/elizabethtown-cemetery.avif"
+                }
             },
             {
                 "id": "fairmount-obelisk",
@@ -248,7 +324,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/fairmount-obelisk.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/fairmount-obelisk.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/fairmount-obelisk.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/fairmount-obelisk-320.avif",
+                    "540": "/images/galleries/cemeteries/thumbnails/fairmount-obelisk.avif"
+                }
             },
             {
                 "id": "fisher-cemetery",
@@ -260,7 +340,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/fisher-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/fisher-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/fisher-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/fisher-cemetery-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/fisher-cemetery.avif"
+                }
             },
             {
                 "id": "henry-fischer-colored-cemetery",
@@ -272,7 +356,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/henry-fischer-colored-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/henry-fischer-colored-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/henry-fischer-colored-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/henry-fischer-colored-cemetery-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/henry-fischer-colored-cemetery.avif"
+                }
             },
             {
                 "id": "ioof-cemetery",
@@ -284,7 +372,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/ioof-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/ioof-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/ioof-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/ioof-cemetery-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/ioof-cemetery.avif"
+                }
             },
             {
                 "id": "knights-of-pythias-cemetery",
@@ -296,7 +388,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/knights-of-pythias-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/knights-of-pythias-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/knights-of-pythias-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/knights-of-pythias-cemetery-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/knights-of-pythias-cemetery.avif"
+                }
             },
             {
                 "id": "old-georgetown-cemetery",
@@ -308,7 +404,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/old-georgetown-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/old-georgetown-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/old-georgetown-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/old-georgetown-cemetery-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/old-georgetown-cemetery.avif"
+                }
             },
             {
                 "id": "poncha-springs-cemetery",
@@ -320,7 +420,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/poncha-springs-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/poncha-springs-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/poncha-springs-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/poncha-springs-cemetery-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/poncha-springs-cemetery.avif"
+                }
             },
             {
                 "id": "riverside-cemterery",
@@ -332,7 +436,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/riverside-cemterery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/riverside-cemterery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/riverside-cemterery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/riverside-cemterery-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/riverside-cemterery.avif"
+                }
             },
             {
                 "id": "silver-cliff-cemetery",
@@ -344,7 +452,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/silver-cliff-cemetery.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/silver-cliff-cemetery.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/silver-cliff-cemetery.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/silver-cliff-cemetery-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/silver-cliff-cemetery.avif"
+                }
             },
             {
                 "id": "spherical-monument",
@@ -356,7 +468,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/spherical-monument.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/spherical-monument.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/spherical-monument.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/spherical-monument-320.avif",
+                    "540": "/images/galleries/cemeteries/thumbnails/spherical-monument.avif"
+                }
             },
             {
                 "id": "the-assumption",
@@ -368,7 +484,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/the-assumption.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/the-assumption.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/the-assumption.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/the-assumption-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/the-assumption.avif"
+                }
             },
             {
                 "id": "woodlawn-obelisk",
@@ -380,7 +500,11 @@
                 "sources": {
                     "avif": "/images/galleries/cemeteries/avif/woodlawn-obelisk.avif"
                 },
-                "thumbnail": "/images/galleries/cemeteries/thumbnails/woodlawn-obelisk.avif"
+                "thumbnail": "/images/galleries/cemeteries/thumbnails/woodlawn-obelisk.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/cemeteries/thumbnails/responsive/woodlawn-obelisk-320.avif",
+                    "720": "/images/galleries/cemeteries/thumbnails/woodlawn-obelisk.avif"
+                }
             }
         ]
     },
@@ -397,7 +521,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/above-the-clouds.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/above-the-clouds.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/above-the-clouds.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/above-the-clouds-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/above-the-clouds.avif"
+                }
             },
             {
                 "id": "along-stony-pass",
@@ -409,7 +537,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/along-stony-pass.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/along-stony-pass.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/along-stony-pass.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/along-stony-pass-320.avif",
+                    "540": "/images/galleries/high-country/thumbnails/along-stony-pass.avif"
+                }
             },
             {
                 "id": "american-gulch-sky",
@@ -421,7 +553,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/american-gulch-sky.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/american-gulch-sky.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/american-gulch-sky.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/american-gulch-sky-320.avif",
+                    "540": "/images/galleries/high-country/thumbnails/american-gulch-sky.avif"
+                }
             },
             {
                 "id": "american-gulch",
@@ -433,7 +569,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/american-gulch.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/american-gulch.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/american-gulch.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/american-gulch-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/american-gulch.avif"
+                }
             },
             {
                 "id": "animas-forks",
@@ -445,7 +585,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/animas-forks.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/animas-forks.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/animas-forks.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/animas-forks-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/animas-forks.avif"
+                }
             },
             {
                 "id": "bierstadt-billy",
@@ -457,7 +601,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/bierstadt-billy.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/bierstadt-billy.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/bierstadt-billy.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/bierstadt-billy-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/bierstadt-billy.avif"
+                }
             },
             {
                 "id": "clear-lake",
@@ -469,7 +617,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/clear-lake.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/clear-lake.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/clear-lake.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/clear-lake-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/clear-lake.avif"
+                }
             },
             {
                 "id": "cloudy-ridge",
@@ -481,7 +633,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/cloudy-ridge.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/cloudy-ridge.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/cloudy-ridge.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/cloudy-ridge-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/cloudy-ridge.avif"
+                }
             },
             {
                 "id": "cronin-peak",
@@ -493,7 +649,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/cronin-peak.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/cronin-peak.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/cronin-peak.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/cronin-peak-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/cronin-peak.avif"
+                }
             },
             {
                 "id": "fall-on-jones-mountain",
@@ -505,7 +665,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/fall-on-jones-mountain.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/fall-on-jones-mountain.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/fall-on-jones-mountain.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/fall-on-jones-mountain-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/fall-on-jones-mountain.avif"
+                }
             },
             {
                 "id": "kendall-peak-from-silver-lake",
@@ -517,7 +681,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/kendall-peak-from-silver-lake.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/kendall-peak-from-silver-lake.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/kendall-peak-from-silver-lake.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/kendall-peak-from-silver-lake-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/kendall-peak-from-silver-lake.avif"
+                }
             },
             {
                 "id": "lake-haiyaha",
@@ -529,7 +697,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/lake-haiyaha.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/lake-haiyaha.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/lake-haiyaha.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/lake-haiyaha-320.avif",
+                    "540": "/images/galleries/high-country/thumbnails/lake-haiyaha.avif"
+                }
             },
             {
                 "id": "longs-peak",
@@ -541,7 +713,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/longs-peak.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/longs-peak.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/longs-peak.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/longs-peak-320.avif",
+                    "540": "/images/galleries/high-country/thumbnails/longs-peak.avif"
+                }
             },
             {
                 "id": "moonrise-kingdom",
@@ -553,7 +729,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/moonrise-kingdom.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/moonrise-kingdom.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/moonrise-kingdom.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/moonrise-kingdom-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/moonrise-kingdom.avif"
+                }
             },
             {
                 "id": "mount-audubon",
@@ -565,7 +745,12 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/mount-audubon.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/mount-audubon.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/mount-audubon.avif",
+                "thumbnailSources": {
+                    "640": "/images/galleries/high-country/thumbnails/responsive/mount-audubon-640.avif",
+                    "1280": "/images/galleries/high-country/thumbnails/responsive/mount-audubon-1280.avif",
+                    "2560": "/images/galleries/high-country/thumbnails/mount-audubon.avif"
+                }
             },
             {
                 "id": "mount-blue-sky-trail",
@@ -577,7 +762,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/mount-blue-sky-trail.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/mount-blue-sky-trail.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/mount-blue-sky-trail.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/mount-blue-sky-trail-320.avif",
+                    "540": "/images/galleries/high-country/thumbnails/mount-blue-sky-trail.avif"
+                }
             },
             {
                 "id": "mount-blue-sky",
@@ -589,7 +778,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/mount-blue-sky.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/mount-blue-sky.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/mount-blue-sky.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/mount-blue-sky-320.avif",
+                    "540": "/images/galleries/high-country/thumbnails/mount-blue-sky.avif"
+                }
             },
             {
                 "id": "mount-white",
@@ -601,7 +794,12 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/mount-white.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/mount-white.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/mount-white.avif",
+                "thumbnailSources": {
+                    "640": "/images/galleries/high-country/thumbnails/responsive/mount-white-640.avif",
+                    "1280": "/images/galleries/high-country/thumbnails/responsive/mount-white-1280.avif",
+                    "2560": "/images/galleries/high-country/thumbnails/mount-white.avif"
+                }
             },
             {
                 "id": "near-pitkin-lake",
@@ -613,7 +811,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/near-pitkin-lake.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/near-pitkin-lake.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/near-pitkin-lake.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/near-pitkin-lake-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/near-pitkin-lake.avif"
+                }
             },
             {
                 "id": "near-pomeroy-lake",
@@ -625,7 +827,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/near-pomeroy-lake.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/near-pomeroy-lake.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/near-pomeroy-lake.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/near-pomeroy-lake-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/near-pomeroy-lake.avif"
+                }
             },
             {
                 "id": "ptarmigan-lake",
@@ -637,7 +843,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/ptarmigan-lake.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/ptarmigan-lake.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/ptarmigan-lake.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/ptarmigan-lake-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/ptarmigan-lake.avif"
+                }
             },
             {
                 "id": "san-juans-sunset",
@@ -649,7 +859,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/san-juans-sunset.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/san-juans-sunset.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/san-juans-sunset.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/san-juans-sunset-320.avif",
+                    "540": "/images/galleries/high-country/thumbnails/san-juans-sunset.avif"
+                }
             },
             {
                 "id": "sheep-mountain",
@@ -661,7 +875,12 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/sheep-mountain.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/sheep-mountain.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/sheep-mountain.avif",
+                "thumbnailSources": {
+                    "640": "/images/galleries/high-country/thumbnails/responsive/sheep-mountain-640.avif",
+                    "1280": "/images/galleries/high-country/thumbnails/responsive/sheep-mountain-1280.avif",
+                    "2560": "/images/galleries/high-country/thumbnails/sheep-mountain.avif"
+                }
             },
             {
                 "id": "stoney-pass",
@@ -673,7 +892,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/stoney-pass.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/stoney-pass.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/stoney-pass.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/stoney-pass-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/stoney-pass.avif"
+                }
             },
             {
                 "id": "summit-lake",
@@ -685,7 +908,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/summit-lake.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/summit-lake.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/summit-lake.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/summit-lake-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/summit-lake.avif"
+                }
             },
             {
                 "id": "tabeguache-peak",
@@ -697,7 +924,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/tabeguache-peak.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/tabeguache-peak.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/tabeguache-peak.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/tabeguache-peak-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/tabeguache-peak.avif"
+                }
             },
             {
                 "id": "thirsty-peak",
@@ -709,7 +940,12 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/thirsty-peak.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/thirsty-peak.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/thirsty-peak.avif",
+                "thumbnailSources": {
+                    "640": "/images/galleries/high-country/thumbnails/responsive/thirsty-peak-640.avif",
+                    "1280": "/images/galleries/high-country/thumbnails/responsive/thirsty-peak-1280.avif",
+                    "2560": "/images/galleries/high-country/thumbnails/thirsty-peak.avif"
+                }
             },
             {
                 "id": "view-from-huron-peak",
@@ -721,7 +957,11 @@
                 "sources": {
                     "avif": "/images/galleries/high-country/avif/view-from-huron-peak.avif"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/view-from-huron-peak.avif"
+                "thumbnail": "/images/galleries/high-country/thumbnails/view-from-huron-peak.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/view-from-huron-peak-320.avif",
+                    "540": "/images/galleries/high-country/thumbnails/view-from-huron-peak.avif"
+                }
             },
             {
                 "id": "marmot",
@@ -733,7 +973,11 @@
                 "sources": {
                     "jpeg": "/images/galleries/high-country/jpeg/marmot.jpeg"
                 },
-                "thumbnail": "/images/galleries/high-country/thumbnails/marmot.jpeg"
+                "thumbnail": "/images/galleries/high-country/thumbnails/marmot.jpeg",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/marmot-320.jpeg",
+                    "720": "/images/galleries/high-country/thumbnails/marmot.jpeg"
+                }
             }
         ]
     },
@@ -750,7 +994,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/100-gecs-10k-tour.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs-10k-tour.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs-10k-tour.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/100-gecs-10k-tour-320.avif",
+                    "720": "/images/galleries/live-sound/thumbnails/100-gecs-10k-tour.avif"
+                }
             },
             {
                 "id": "100-gecs-dj-set",
@@ -762,7 +1010,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/100-gecs-dj-set.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs-dj-set.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs-dj-set.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/100-gecs-dj-set-320.avif",
+                    "540": "/images/galleries/live-sound/thumbnails/100-gecs-dj-set.avif"
+                }
             },
             {
                 "id": "100-gecs",
@@ -774,7 +1026,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/100-gecs.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/100-gecs.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/100-gecs-320.avif",
+                    "720": "/images/galleries/live-sound/thumbnails/100-gecs.avif"
+                }
             },
             {
                 "id": "ashnikko",
@@ -786,7 +1042,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/ashnikko.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/ashnikko.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/ashnikko.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/ashnikko-320.avif",
+                    "720": "/images/galleries/live-sound/thumbnails/ashnikko.avif"
+                }
             },
             {
                 "id": "charley-crockett",
@@ -798,7 +1058,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/charley-crockett.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/charley-crockett.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/charley-crockett.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/charley-crockett-320.avif",
+                    "720": "/images/galleries/live-sound/thumbnails/charley-crockett.avif"
+                }
             },
             {
                 "id": "dave,-glass-animals",
@@ -810,7 +1074,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/dave,-glass-animals.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/dave,-glass-animals.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/dave,-glass-animals.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/dave,-glass-animals-320.avif",
+                    "540": "/images/galleries/live-sound/thumbnails/dave,-glass-animals.avif"
+                }
             },
             {
                 "id": "dylan-brady",
@@ -822,7 +1090,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/dylan-brady.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/dylan-brady.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/dylan-brady.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/dylan-brady-320.avif",
+                    "720": "/images/galleries/live-sound/thumbnails/dylan-brady.avif"
+                }
             },
             {
                 "id": "flume-&-laurel",
@@ -834,7 +1106,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/flume-&-laurel.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-&-laurel.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-&-laurel.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/flume-&-laurel-320.avif",
+                    "540": "/images/galleries/live-sound/thumbnails/flume-&-laurel.avif"
+                }
             },
             {
                 "id": "flume-@-belly-up",
@@ -846,7 +1122,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/flume-@-belly-up.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-@-belly-up.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-@-belly-up.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/flume-@-belly-up-320.avif",
+                    "540": "/images/galleries/live-sound/thumbnails/flume-@-belly-up.avif"
+                }
             },
             {
                 "id": "flume-dj-set",
@@ -858,7 +1138,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/flume-dj-set.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-dj-set.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/flume-dj-set.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/flume-dj-set-320.avif",
+                    "540": "/images/galleries/live-sound/thumbnails/flume-dj-set.avif"
+                }
             },
             {
                 "id": "glass-animals-ilysfm",
@@ -870,7 +1154,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/glass-animals-ilysfm.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/glass-animals-ilysfm.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/glass-animals-ilysfm.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/glass-animals-ilysfm-320.avif",
+                    "720": "/images/galleries/live-sound/thumbnails/glass-animals-ilysfm.avif"
+                }
             },
             {
                 "id": "megan-thee-stallion",
@@ -882,7 +1170,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/megan-thee-stallion.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/megan-thee-stallion.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/megan-thee-stallion.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/megan-thee-stallion-320.avif",
+                    "720": "/images/galleries/live-sound/thumbnails/megan-thee-stallion.avif"
+                }
             },
             {
                 "id": "mura-masa-dj-set",
@@ -894,7 +1186,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/mura-masa-dj-set.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/mura-masa-dj-set.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/mura-masa-dj-set.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/mura-masa-dj-set-320.avif",
+                    "720": "/images/galleries/live-sound/thumbnails/mura-masa-dj-set.avif"
+                }
             },
             {
                 "id": "phantogram",
@@ -906,7 +1202,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/phantogram.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/phantogram.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/phantogram.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/phantogram-320.avif",
+                    "720": "/images/galleries/live-sound/thumbnails/phantogram.avif"
+                }
             },
             {
                 "id": "run-the-jewels",
@@ -918,7 +1218,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/run-the-jewels.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/run-the-jewels.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/run-the-jewels.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/run-the-jewels-320.avif",
+                    "540": "/images/galleries/live-sound/thumbnails/run-the-jewels.avif"
+                }
             },
             {
                 "id": "vampire-weekend",
@@ -930,7 +1234,11 @@
                 "sources": {
                     "avif": "/images/galleries/live-sound/avif/vampire-weekend.avif"
                 },
-                "thumbnail": "/images/galleries/live-sound/thumbnails/vampire-weekend.avif"
+                "thumbnail": "/images/galleries/live-sound/thumbnails/vampire-weekend.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/live-sound/thumbnails/responsive/vampire-weekend-320.avif",
+                    "720": "/images/galleries/live-sound/thumbnails/vampire-weekend.avif"
+                }
             }
         ]
     },
@@ -947,7 +1255,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/argentine-pass.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/argentine-pass.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/argentine-pass.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/argentine-pass-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/argentine-pass.avif"
+                }
             },
             {
                 "id": "buffalo-boy-trail",
@@ -959,7 +1271,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/buffalo-boy-trail.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/buffalo-boy-trail.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/buffalo-boy-trail.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/buffalo-boy-trail-320.avif",
+                    "540": "/images/galleries/off-road/thumbnails/buffalo-boy-trail.avif"
+                }
             },
             {
                 "id": "bunce-school-road",
@@ -971,7 +1287,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/bunce-school-road.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/bunce-school-road.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/bunce-school-road.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/bunce-school-road-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/bunce-school-road.avif"
+                }
             },
             {
                 "id": "cemetery-road",
@@ -983,7 +1303,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/cemetery-road.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/cemetery-road.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/cemetery-road.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/cemetery-road-320.avif",
+                    "540": "/images/galleries/off-road/thumbnails/cemetery-road.avif"
+                }
             },
             {
                 "id": "corkscrew-pass",
@@ -995,7 +1319,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/corkscrew-pass.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/corkscrew-pass.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/corkscrew-pass.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/corkscrew-pass-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/corkscrew-pass.avif"
+                }
             },
             {
                 "id": "glacier-mountain",
@@ -1007,7 +1335,12 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/glacier-mountain.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/glacier-mountain.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/glacier-mountain.avif",
+                "thumbnailSources": {
+                    "640": "/images/galleries/off-road/thumbnails/responsive/glacier-mountain-640.avif",
+                    "1280": "/images/galleries/off-road/thumbnails/responsive/glacier-mountain-1280.avif",
+                    "2560": "/images/galleries/off-road/thumbnails/glacier-mountain.avif"
+                }
             },
             {
                 "id": "hermit-pass",
@@ -1019,7 +1352,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/hermit-pass.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/hermit-pass.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/hermit-pass.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/hermit-pass-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/hermit-pass.avif"
+                }
             },
             {
                 "id": "iowa-gulch",
@@ -1031,7 +1368,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/iowa-gulch.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/iowa-gulch.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/iowa-gulch.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/iowa-gulch-320.avif",
+                    "540": "/images/galleries/off-road/thumbnails/iowa-gulch.avif"
+                }
             },
             {
                 "id": "james-peak-trail",
@@ -1043,7 +1384,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/james-peak-trail.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/james-peak-trail.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/james-peak-trail.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/james-peak-trail-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/james-peak-trail.avif"
+                }
             },
             {
                 "id": "jones-mountain-trail",
@@ -1055,7 +1400,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/jones-mountain-trail.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/jones-mountain-trail.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/jones-mountain-trail.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/jones-mountain-trail-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/jones-mountain-trail.avif"
+                }
             },
             {
                 "id": "lead-king-basin",
@@ -1067,7 +1416,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/lead-king-basin.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/lead-king-basin.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/lead-king-basin.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/lead-king-basin-320.avif",
+                    "540": "/images/galleries/off-road/thumbnails/lead-king-basin.avif"
+                }
             },
             {
                 "id": "leavenworth-creek-road",
@@ -1079,7 +1432,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/leavenworth-creek-road.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/leavenworth-creek-road.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/leavenworth-creek-road.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/leavenworth-creek-road-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/leavenworth-creek-road.avif"
+                }
             },
             {
                 "id": "mosquito-pass-shelf",
@@ -1091,7 +1448,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/mosquito-pass-shelf.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/mosquito-pass-shelf.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/mosquito-pass-shelf.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/mosquito-pass-shelf-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/mosquito-pass-shelf.avif"
+                }
             },
             {
                 "id": "mosquito-pass",
@@ -1103,7 +1464,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/mosquito-pass.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/mosquito-pass.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/mosquito-pass.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/mosquito-pass-320.avif",
+                    "540": "/images/galleries/off-road/thumbnails/mosquito-pass.avif"
+                }
             },
             {
                 "id": "mount-antero-summit",
@@ -1115,7 +1480,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/mount-antero-summit.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/mount-antero-summit.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/mount-antero-summit.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/mount-antero-summit-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/mount-antero-summit.avif"
+                }
             },
             {
                 "id": "mount-white-trail",
@@ -1127,7 +1496,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/mount-white-trail.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/mount-white-trail.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/mount-white-trail.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/mount-white-trail-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/mount-white-trail.avif"
+                }
             },
             {
                 "id": "quail-mountain",
@@ -1139,7 +1512,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/quail-mountain.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/quail-mountain.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/quail-mountain.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/quail-mountain-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/quail-mountain.avif"
+                }
             },
             {
                 "id": "round-mountain",
@@ -1151,7 +1528,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/round-mountain.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/round-mountain.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/round-mountain.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/round-mountain-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/round-mountain.avif"
+                }
             },
             {
                 "id": "saints-john-road",
@@ -1163,7 +1544,12 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/saints-john-road.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/saints-john-road.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/saints-john-road.avif",
+                "thumbnailSources": {
+                    "640": "/images/galleries/off-road/thumbnails/responsive/saints-john-road-640.avif",
+                    "1280": "/images/galleries/off-road/thumbnails/responsive/saints-john-road-1280.avif",
+                    "2560": "/images/galleries/off-road/thumbnails/saints-john-road.avif"
+                }
             },
             {
                 "id": "santa-fe-peak-trail",
@@ -1175,7 +1561,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/santa-fe-peak-trail.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/santa-fe-peak-trail.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/santa-fe-peak-trail.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/santa-fe-peak-trail-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/santa-fe-peak-trail.avif"
+                }
             },
             {
                 "id": "taylor-mountain-trail",
@@ -1187,7 +1577,11 @@
                 "sources": {
                     "avif": "/images/galleries/off-road/avif/taylor-mountain-trail.avif"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/taylor-mountain-trail.avif"
+                "thumbnail": "/images/galleries/off-road/thumbnails/taylor-mountain-trail.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/taylor-mountain-trail-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/taylor-mountain-trail.avif"
+                }
             },
             {
                 "id": "bonneville-salt-flats",
@@ -1199,7 +1593,11 @@
                 "sources": {
                     "jpeg": "/images/galleries/off-road/jpeg/bonneville-salt-flats.jpeg"
                 },
-                "thumbnail": "/images/galleries/off-road/thumbnails/bonneville-salt-flats.jpeg"
+                "thumbnail": "/images/galleries/off-road/thumbnails/bonneville-salt-flats.jpeg",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/bonneville-salt-flats-320.jpeg",
+                    "720": "/images/galleries/off-road/thumbnails/bonneville-salt-flats.jpeg"
+                }
             }
         ]
     },
@@ -1216,7 +1614,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/campanula.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/campanula.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/campanula.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/campanula-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/campanula.avif"
+                }
             },
             {
                 "id": "dahlia-pinnata",
@@ -1228,7 +1630,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/dahlia-pinnata.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/dahlia-pinnata.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/dahlia-pinnata.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/dahlia-pinnata-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/dahlia-pinnata.avif"
+                }
             },
             {
                 "id": "droplets",
@@ -1240,7 +1646,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/droplets.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/droplets.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/droplets.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/droplets-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/droplets.avif"
+                }
             },
             {
                 "id": "flowing-fronds",
@@ -1252,7 +1662,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/flowing-fronds.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/flowing-fronds.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/flowing-fronds.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/flowing-fronds-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/flowing-fronds.avif"
+                }
             },
             {
                 "id": "garden-tulip",
@@ -1264,7 +1678,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/garden-tulip.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/garden-tulip.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/garden-tulip.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/garden-tulip-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/garden-tulip.avif"
+                }
             },
             {
                 "id": "hibiscus",
@@ -1276,7 +1694,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/hibiscus.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/hibiscus.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/hibiscus.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/hibiscus-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/hibiscus.avif"
+                }
             },
             {
                 "id": "lady-tulip",
@@ -1288,7 +1710,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/lady-tulip.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/lady-tulip.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/lady-tulip.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/lady-tulip-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/lady-tulip.avif"
+                }
             },
             {
                 "id": "leaf-curl",
@@ -1300,7 +1726,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/leaf-curl.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/leaf-curl.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/leaf-curl.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/leaf-curl-320.avif",
+                    "540": "/images/galleries/plant-based/thumbnails/leaf-curl.avif"
+                }
             },
             {
                 "id": "musk-thistle",
@@ -1312,7 +1742,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/musk-thistle.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/musk-thistle.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/musk-thistle.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/musk-thistle-320.avif",
+                    "540": "/images/galleries/plant-based/thumbnails/musk-thistle.avif"
+                }
             },
             {
                 "id": "petals",
@@ -1324,7 +1758,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/petals.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/petals.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/petals.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/petals-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/petals.avif"
+                }
             },
             {
                 "id": "pistl",
@@ -1336,7 +1774,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/pistl.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/pistl.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/pistl.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/pistl-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/pistl.avif"
+                }
             },
             {
                 "id": "saguaro",
@@ -1348,7 +1790,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/saguaro.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/saguaro.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/saguaro.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/saguaro-320.avif",
+                    "540": "/images/galleries/plant-based/thumbnails/saguaro.avif"
+                }
             },
             {
                 "id": "toothwart",
@@ -1360,7 +1806,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/toothwart.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/toothwart.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/toothwart.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/toothwart-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/toothwart.avif"
+                }
             },
             {
                 "id": "trifolium-alpinum",
@@ -1372,7 +1822,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/trifolium-alpinum.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/trifolium-alpinum.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/trifolium-alpinum.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/trifolium-alpinum-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/trifolium-alpinum.avif"
+                }
             },
             {
                 "id": "tulip",
@@ -1384,7 +1838,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/tulip.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/tulip.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/tulip.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/tulip-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/tulip.avif"
+                }
             },
             {
                 "id": "viper's-bugloss",
@@ -1396,7 +1854,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/viper's-bugloss.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/viper's-bugloss.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/viper's-bugloss.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/viper's-bugloss-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/viper's-bugloss.avif"
+                }
             },
             {
                 "id": "yellow-rose",
@@ -1408,7 +1870,11 @@
                 "sources": {
                     "avif": "/images/galleries/plant-based/avif/yellow-rose.avif"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/yellow-rose.avif"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/yellow-rose.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/yellow-rose-320.avif",
+                    "540": "/images/galleries/plant-based/thumbnails/yellow-rose.avif"
+                }
             },
             {
                 "id": "aster-amellus",
@@ -1420,7 +1886,11 @@
                 "sources": {
                     "jpeg": "/images/galleries/plant-based/jpeg/aster-amellus.jpeg"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/aster-amellus.jpeg"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/aster-amellus.jpeg",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/aster-amellus-320.jpeg",
+                    "720": "/images/galleries/plant-based/thumbnails/aster-amellus.jpeg"
+                }
             },
             {
                 "id": "clematis-texensis",
@@ -1432,7 +1902,11 @@
                 "sources": {
                     "jpeg": "/images/galleries/plant-based/jpeg/clematis-texensis.jpeg"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/clematis-texensis.jpeg"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/clematis-texensis.jpeg",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/clematis-texensis-320.jpeg",
+                    "720": "/images/galleries/plant-based/thumbnails/clematis-texensis.jpeg"
+                }
             },
             {
                 "id": "dahlia",
@@ -1444,7 +1918,11 @@
                 "sources": {
                     "jpeg": "/images/galleries/plant-based/jpeg/dahlia.jpeg"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/dahlia.jpeg"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/dahlia.jpeg",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/dahlia-320.jpeg",
+                    "720": "/images/galleries/plant-based/thumbnails/dahlia.jpeg"
+                }
             },
             {
                 "id": "pollination",
@@ -1456,7 +1934,11 @@
                 "sources": {
                     "jpeg": "/images/galleries/plant-based/jpeg/pollination.jpeg"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/pollination.jpeg"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/pollination.jpeg",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/pollination-320.jpeg",
+                    "720": "/images/galleries/plant-based/thumbnails/pollination.jpeg"
+                }
             },
             {
                 "id": "rose",
@@ -1468,7 +1950,11 @@
                 "sources": {
                     "jpeg": "/images/galleries/plant-based/jpeg/rose.jpeg"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/rose.jpeg"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/rose.jpeg",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/rose-320.jpeg",
+                    "720": "/images/galleries/plant-based/thumbnails/rose.jpeg"
+                }
             },
             {
                 "id": "erythrostemon-gilliesii",
@@ -1480,7 +1966,11 @@
                 "sources": {
                     "png": "/images/galleries/plant-based/png/erythrostemon-gilliesii.png"
                 },
-                "thumbnail": "/images/galleries/plant-based/thumbnails/erythrostemon-gilliesii.png"
+                "thumbnail": "/images/galleries/plant-based/thumbnails/erythrostemon-gilliesii.png",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/erythrostemon-gilliesii-320.png",
+                    "720": "/images/galleries/plant-based/thumbnails/erythrostemon-gilliesii.png"
+                }
             }
         ]
     },
@@ -1497,7 +1987,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/alpine-tunnel.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/alpine-tunnel.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/alpine-tunnel.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/alpine-tunnel-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/alpine-tunnel.avif"
+                }
             },
             {
                 "id": "animas-forks-cabin",
@@ -1509,7 +2003,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/animas-forks-cabin.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/animas-forks-cabin.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/animas-forks-cabin.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/animas-forks-cabin-320.avif",
+                    "540": "/images/galleries/prospecting/thumbnails/animas-forks-cabin.avif"
+                }
             },
             {
                 "id": "animas-forks-mining-structure",
@@ -1521,7 +2019,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/animas-forks-mining-structure.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/animas-forks-mining-structure.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/animas-forks-mining-structure.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/animas-forks-mining-structure-320.avif",
+                    "540": "/images/galleries/prospecting/thumbnails/animas-forks-mining-structure.avif"
+                }
             },
             {
                 "id": "animas-forks",
@@ -1533,7 +2035,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/animas-forks.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/animas-forks.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/animas-forks.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/animas-forks-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/animas-forks.avif"
+                }
             },
             {
                 "id": "buffalo-boy-arial-tram",
@@ -1545,7 +2051,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/buffalo-boy-arial-tram.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/buffalo-boy-arial-tram.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/buffalo-boy-arial-tram.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/buffalo-boy-arial-tram-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/buffalo-boy-arial-tram.avif"
+                }
             },
             {
                 "id": "buffalo-boy-tram-house",
@@ -1557,7 +2067,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/buffalo-boy-tram-house.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/buffalo-boy-tram-house.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/buffalo-boy-tram-house.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/buffalo-boy-tram-house-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/buffalo-boy-tram-house.avif"
+                }
             },
             {
                 "id": "champion-mill-profile",
@@ -1569,7 +2083,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/champion-mill-profile.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/champion-mill-profile.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/champion-mill-profile.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/champion-mill-profile-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/champion-mill-profile.avif"
+                }
             },
             {
                 "id": "champion-mill",
@@ -1581,7 +2099,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/champion-mill.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/champion-mill.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/champion-mill.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/champion-mill-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/champion-mill.avif"
+                }
             },
             {
                 "id": "champion-mine",
@@ -1593,7 +2115,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/champion-mine.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/champion-mine.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/champion-mine.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/champion-mine-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/champion-mine.avif"
+                }
             },
             {
                 "id": "crystal-mill",
@@ -1605,7 +2131,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/crystal-mill.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/crystal-mill.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/crystal-mill.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/crystal-mill-320.avif",
+                    "540": "/images/galleries/prospecting/thumbnails/crystal-mill.avif"
+                }
             },
             {
                 "id": "iowa-amphitheater-mine",
@@ -1617,7 +2147,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/iowa-amphitheater-mine.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/iowa-amphitheater-mine.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/iowa-amphitheater-mine.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/iowa-amphitheater-mine-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/iowa-amphitheater-mine.avif"
+                }
             },
             {
                 "id": "mayflower-gulch-in-winter",
@@ -1629,7 +2163,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/mayflower-gulch-in-winter.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/mayflower-gulch-in-winter.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/mayflower-gulch-in-winter.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/mayflower-gulch-in-winter-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/mayflower-gulch-in-winter.avif"
+                }
             },
             {
                 "id": "mount-sherman-mine",
@@ -1641,7 +2179,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/mount-sherman-mine.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/mount-sherman-mine.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/mount-sherman-mine.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/mount-sherman-mine-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/mount-sherman-mine.avif"
+                }
             },
             {
                 "id": "pomeroy-gulch-marmot",
@@ -1653,7 +2195,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/pomeroy-gulch-marmot.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/pomeroy-gulch-marmot.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/pomeroy-gulch-marmot.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/pomeroy-gulch-marmot-320.avif",
+                    "540": "/images/galleries/prospecting/thumbnails/pomeroy-gulch-marmot.avif"
+                }
             },
             {
                 "id": "quail-mountain-cabin",
@@ -1665,7 +2211,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/quail-mountain-cabin.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/quail-mountain-cabin.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/quail-mountain-cabin.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/quail-mountain-cabin-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/quail-mountain-cabin.avif"
+                }
             },
             {
                 "id": "red-mountain-mill",
@@ -1677,7 +2227,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/red-mountain-mill.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/red-mountain-mill.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/red-mountain-mill.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/red-mountain-mill-320.avif",
+                    "540": "/images/galleries/prospecting/thumbnails/red-mountain-mill.avif"
+                }
             },
             {
                 "id": "silver-lake-cabins",
@@ -1689,7 +2243,11 @@
                 "sources": {
                     "avif": "/images/galleries/prospecting/avif/silver-lake-cabins.avif"
                 },
-                "thumbnail": "/images/galleries/prospecting/thumbnails/silver-lake-cabins.avif"
+                "thumbnail": "/images/galleries/prospecting/thumbnails/silver-lake-cabins.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/prospecting/thumbnails/responsive/silver-lake-cabins-320.avif",
+                    "720": "/images/galleries/prospecting/thumbnails/silver-lake-cabins.avif"
+                }
             }
         ]
     },
@@ -1706,7 +2264,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/alien-throne.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/alien-throne.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/alien-throne.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/alien-throne-320.avif",
+                    "540": "/images/galleries/rocks/thumbnails/alien-throne.avif"
+                }
             },
             {
                 "id": "badwater-basin",
@@ -1718,7 +2280,12 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/badwater-basin.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/badwater-basin.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/badwater-basin.avif",
+                "thumbnailSources": {
+                    "640": "/images/galleries/rocks/thumbnails/responsive/badwater-basin-640.avif",
+                    "1280": "/images/galleries/rocks/thumbnails/responsive/badwater-basin-1280.avif",
+                    "2560": "/images/galleries/rocks/thumbnails/badwater-basin.avif"
+                }
             },
             {
                 "id": "balanced-rock",
@@ -1730,7 +2297,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/balanced-rock.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/balanced-rock.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/balanced-rock.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/balanced-rock-320.avif",
+                    "540": "/images/galleries/rocks/thumbnails/balanced-rock.avif"
+                }
             },
             {
                 "id": "bryce-canyon",
@@ -1742,7 +2313,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/bryce-canyon.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/bryce-canyon.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/bryce-canyon.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/bryce-canyon-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/bryce-canyon.avif"
+                }
             },
             {
                 "id": "craters-of-the-moon",
@@ -1754,7 +2329,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/craters-of-the-moon.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/craters-of-the-moon.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/craters-of-the-moon.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/craters-of-the-moon-320.avif",
+                    "540": "/images/galleries/rocks/thumbnails/craters-of-the-moon.avif"
+                }
             },
             {
                 "id": "devil's-garden",
@@ -1766,7 +2345,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/devil's-garden.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/devil's-garden.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/devil's-garden.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/devil's-garden-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/devil's-garden.avif"
+                }
             },
             {
                 "id": "double-arches",
@@ -1778,7 +2361,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/double-arches.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/double-arches.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/double-arches.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/double-arches-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/double-arches.avif"
+                }
             },
             {
                 "id": "end-of-hole-in-the-rock-road",
@@ -1790,7 +2377,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/end-of-hole-in-the-rock-road.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/end-of-hole-in-the-rock-road.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/end-of-hole-in-the-rock-road.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/end-of-hole-in-the-rock-road-320.avif",
+                    "540": "/images/galleries/rocks/thumbnails/end-of-hole-in-the-rock-road.avif"
+                }
             },
             {
                 "id": "escalante-arch",
@@ -1802,7 +2393,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/escalante-arch.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/escalante-arch.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/escalante-arch.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/escalante-arch-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/escalante-arch.avif"
+                }
             },
             {
                 "id": "goblin-valley-buttes",
@@ -1814,7 +2409,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/goblin-valley-buttes.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/goblin-valley-buttes.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/goblin-valley-buttes.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/goblin-valley-buttes-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/goblin-valley-buttes.avif"
+                }
             },
             {
                 "id": "goose-creek-boulders",
@@ -1826,7 +2425,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/goose-creek-boulders.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/goose-creek-boulders.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/goose-creek-boulders.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/goose-creek-boulders-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/goose-creek-boulders.avif"
+                }
             },
             {
                 "id": "hole-in-the-rock-road",
@@ -1838,7 +2441,12 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/hole-in-the-rock-road.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/hole-in-the-rock-road.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/hole-in-the-rock-road.avif",
+                "thumbnailSources": {
+                    "640": "/images/galleries/rocks/thumbnails/responsive/hole-in-the-rock-road-640.avif",
+                    "1280": "/images/galleries/rocks/thumbnails/responsive/hole-in-the-rock-road-1280.avif",
+                    "2560": "/images/galleries/rocks/thumbnails/hole-in-the-rock-road.avif"
+                }
             },
             {
                 "id": "in-bryce-canyon",
@@ -1850,7 +2458,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/in-bryce-canyon.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/in-bryce-canyon.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/in-bryce-canyon.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/in-bryce-canyon-320.avif",
+                    "540": "/images/galleries/rocks/thumbnails/in-bryce-canyon.avif"
+                }
             },
             {
                 "id": "king-of-wings",
@@ -1862,7 +2474,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/king-of-wings.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/king-of-wings.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/king-of-wings.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/king-of-wings-320.avif",
+                    "540": "/images/galleries/rocks/thumbnails/king-of-wings.avif"
+                }
             },
             {
                 "id": "kodachrome-basin",
@@ -1874,7 +2490,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/kodachrome-basin.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/kodachrome-basin.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/kodachrome-basin.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/kodachrome-basin-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/kodachrome-basin.avif"
+                }
             },
             {
                 "id": "lair-of-the-goblin",
@@ -1886,7 +2506,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/lair-of-the-goblin.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/lair-of-the-goblin.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/lair-of-the-goblin.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/lair-of-the-goblin-320.avif",
+                    "540": "/images/galleries/rocks/thumbnails/lair-of-the-goblin.avif"
+                }
             },
             {
                 "id": "longs-peak",
@@ -1898,7 +2522,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/longs-peak.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/longs-peak.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/longs-peak.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/longs-peak-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/longs-peak.avif"
+                }
             },
             {
                 "id": "mormon-amphitheater",
@@ -1910,7 +2538,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/mormon-amphitheater.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/mormon-amphitheater.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/mormon-amphitheater.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/mormon-amphitheater-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/mormon-amphitheater.avif"
+                }
             },
             {
                 "id": "mount-antero-detail",
@@ -1922,7 +2554,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/mount-antero-detail.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/mount-antero-detail.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/mount-antero-detail.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/mount-antero-detail-320.avif",
+                    "540": "/images/galleries/rocks/thumbnails/mount-antero-detail.avif"
+                }
             },
             {
                 "id": "mount-antero",
@@ -1934,7 +2570,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/mount-antero.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/mount-antero.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/mount-antero.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/mount-antero-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/mount-antero.avif"
+                }
             },
             {
                 "id": "navajo-loop-feature",
@@ -1946,7 +2586,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/navajo-loop-feature.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/navajo-loop-feature.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/navajo-loop-feature.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/navajo-loop-feature-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/navajo-loop-feature.avif"
+                }
             },
             {
                 "id": "near-balanced-rock",
@@ -1958,7 +2602,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/near-balanced-rock.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/near-balanced-rock.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/near-balanced-rock.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/near-balanced-rock-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/near-balanced-rock.avif"
+                }
             },
             {
                 "id": "peak-a-boo",
@@ -1970,7 +2618,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/peak-a-boo.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/peak-a-boo.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/peak-a-boo.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/peak-a-boo-320.avif",
+                    "540": "/images/galleries/rocks/thumbnails/peak-a-boo.avif"
+                }
             },
             {
                 "id": "sandstone-handprints",
@@ -1982,7 +2634,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/sandstone-handprints.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/sandstone-handprints.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/sandstone-handprints.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/sandstone-handprints-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/sandstone-handprints.avif"
+                }
             },
             {
                 "id": "sooner-rocks",
@@ -1994,7 +2650,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/sooner-rocks.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/sooner-rocks.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/sooner-rocks.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/sooner-rocks-320.avif",
+                    "720": "/images/galleries/rocks/thumbnails/sooner-rocks.avif"
+                }
             },
             {
                 "id": "zabriskie-point",
@@ -2006,7 +2666,11 @@
                 "sources": {
                     "avif": "/images/galleries/rocks/avif/zabriskie-point.avif"
                 },
-                "thumbnail": "/images/galleries/rocks/thumbnails/zabriskie-point.avif"
+                "thumbnail": "/images/galleries/rocks/thumbnails/zabriskie-point.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/rocks/thumbnails/responsive/zabriskie-point-320.avif",
+                    "540": "/images/galleries/rocks/thumbnails/zabriskie-point.avif"
+                }
             }
         ]
     },
@@ -2023,7 +2687,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-at-pomeroy-lake.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-at-pomeroy-lake.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-at-pomeroy-lake.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-at-pomeroy-lake-320.avif",
+                    "540": "/images/galleries/summit-dog/thumbnails/rocky-at-pomeroy-lake.avif"
+                }
             },
             {
                 "id": "rocky-at-whitney-lake",
@@ -2035,7 +2703,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-at-whitney-lake.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-at-whitney-lake.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-at-whitney-lake.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-at-whitney-lake-320.avif",
+                    "720": "/images/galleries/summit-dog/thumbnails/rocky-at-whitney-lake.avif"
+                }
             },
             {
                 "id": "rocky-championing-mount-champion",
@@ -2047,7 +2719,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-championing-mount-champion.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-championing-mount-champion.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-championing-mount-champion.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-championing-mount-champion-320.avif",
+                    "720": "/images/galleries/summit-dog/thumbnails/rocky-championing-mount-champion.avif"
+                }
             },
             {
                 "id": "rocky-climbing-argentine-peak",
@@ -2059,7 +2735,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-climbing-argentine-peak.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-argentine-peak.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-argentine-peak.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-climbing-argentine-peak-320.avif",
+                    "540": "/images/galleries/summit-dog/thumbnails/rocky-climbing-argentine-peak.avif"
+                }
             },
             {
                 "id": "rocky-climbing-cottonwood-peak",
@@ -2071,7 +2751,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-climbing-cottonwood-peak.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-cottonwood-peak.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-cottonwood-peak.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-climbing-cottonwood-peak-320.avif",
+                    "720": "/images/galleries/summit-dog/thumbnails/rocky-climbing-cottonwood-peak.avif"
+                }
             },
             {
                 "id": "rocky-climbing-ptarmigan-peak",
@@ -2083,7 +2767,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-climbing-ptarmigan-peak.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-ptarmigan-peak.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-climbing-ptarmigan-peak.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-climbing-ptarmigan-peak-320.avif",
+                    "720": "/images/galleries/summit-dog/thumbnails/rocky-climbing-ptarmigan-peak.avif"
+                }
             },
             {
                 "id": "rocky-hanging-out",
@@ -2095,7 +2783,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-hanging-out.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-hanging-out.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-hanging-out.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-hanging-out-320.avif",
+                    "540": "/images/galleries/summit-dog/thumbnails/rocky-hanging-out.avif"
+                }
             },
             {
                 "id": "rocky-in-action",
@@ -2107,7 +2799,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-in-action.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-action.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-action.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-in-action-320.avif",
+                    "720": "/images/galleries/summit-dog/thumbnails/rocky-in-action.avif"
+                }
             },
             {
                 "id": "rocky-in-south-park",
@@ -2119,7 +2815,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-in-south-park.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-south-park.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-south-park.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-in-south-park-320.avif",
+                    "720": "/images/galleries/summit-dog/thumbnails/rocky-in-south-park.avif"
+                }
             },
             {
                 "id": "rocky-in-the-flowers",
@@ -2131,7 +2831,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-in-the-flowers.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-the-flowers.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-in-the-flowers.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-in-the-flowers-320.avif",
+                    "720": "/images/galleries/summit-dog/thumbnails/rocky-in-the-flowers.avif"
+                }
             },
             {
                 "id": "rocky-on-a-rock",
@@ -2143,7 +2847,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-on-a-rock.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-a-rock.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-a-rock.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-on-a-rock-320.avif",
+                    "540": "/images/galleries/summit-dog/thumbnails/rocky-on-a-rock.avif"
+                }
             },
             {
                 "id": "rocky-on-jones-mountain",
@@ -2155,7 +2863,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-on-jones-mountain.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-jones-mountain.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-jones-mountain.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-on-jones-mountain-320.avif",
+                    "540": "/images/galleries/summit-dog/thumbnails/rocky-on-jones-mountain.avif"
+                }
             },
             {
                 "id": "rocky-on-mount-sheridan",
@@ -2167,7 +2879,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-on-mount-sheridan.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-mount-sheridan.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-mount-sheridan.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-on-mount-sheridan-320.avif",
+                    "720": "/images/galleries/summit-dog/thumbnails/rocky-on-mount-sheridan.avif"
+                }
             },
             {
                 "id": "rocky-on-mount-white",
@@ -2179,7 +2895,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-on-mount-white.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-mount-white.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-mount-white.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-on-mount-white-320.avif",
+                    "720": "/images/galleries/summit-dog/thumbnails/rocky-on-mount-white.avif"
+                }
             },
             {
                 "id": "rocky-on-taylor-mountain",
@@ -2191,7 +2911,11 @@
                 "sources": {
                     "avif": "/images/galleries/summit-dog/avif/rocky-on-taylor-mountain.avif"
                 },
-                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-taylor-mountain.avif"
+                "thumbnail": "/images/galleries/summit-dog/thumbnails/rocky-on-taylor-mountain.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/summit-dog/thumbnails/responsive/rocky-on-taylor-mountain-320.avif",
+                    "540": "/images/galleries/summit-dog/thumbnails/rocky-on-taylor-mountain.avif"
+                }
             }
         ]
     }

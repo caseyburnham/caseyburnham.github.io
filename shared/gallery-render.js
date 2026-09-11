@@ -84,11 +84,15 @@ function createImageGrid(document, images, rowClass, galleryKey) {
 		const img = thumbClone.querySelector('img');
 		const source = Object.values(image.sources)[0];
 		thumbClone.querySelector('.photo-thumb').setAttribute('href', source);
+		if (image.thumbnailSources) {
+			img.setAttribute('srcset', Object.entries(image.thumbnailSources)
+				.map(([width, url]) => `${encodeURI(url).replaceAll(',', '%2C')} ${width}w`).join(', '));
+			img.setAttribute('sizes', `auto, ${Math.ceil(100 / images.length)}vw`);
+		}
 		img.src = image.thumbnail || '';
 		img.alt = image.alt || 'Untitled';
 		img.setAttribute('data-sources', JSON.stringify(image.sources));
 		img.setAttribute('data-title', image.title || image.alt || 'Untitled');
-		if (image.id) img.setAttribute('data-filename', image.id);
 		if (image.id) {
 			const trigger = thumbClone.querySelector('.photo-thumb');
 			trigger.dataset.photoId = image.id;

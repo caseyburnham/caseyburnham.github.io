@@ -68,12 +68,18 @@ function createRecord(template, data, showPrice) {
 }
 
 function renderSection(section, records) {
+	let topIndex = 1;
 	const sleeveFragment = document.createDocumentFragment();
 	const captionFragment = document.createDocumentFragment();
 	records.slice(0, FETCH_COUNT)
 		.forEach(recordData => {
 			const record = createRecord(section.template, recordData, section.showPrice);
 			const [sleeve, caption] = record.children;
+			// Retain activation order while the media retracts after hover or focus leaves.
+			const raiseRecord = () => { sleeve.style.zIndex = String(++topIndex); };
+			const link = sleeve.querySelector('.record-link');
+			link.addEventListener('pointerenter', raiseRecord);
+			link.addEventListener('focus', raiseRecord);
 			sleeveFragment.appendChild(sleeve);
 			captionFragment.appendChild(caption);
 		});

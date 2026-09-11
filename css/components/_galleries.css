@@ -26,7 +26,7 @@
 				outline-offset: 0px;
 			}
 
-			&.selected {
+			&[aria-pressed='true'] {
 				background: var(--color-accent-0);
 				box-shadow: none;
 				color: var(--color-text-selected);
@@ -60,7 +60,6 @@
 			padding: 0;
 			transition: filter 300ms, outline 150ms, outline-color 300ms, outline-offset 150ms;
 			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-			will-change: outline;
 
 			& img {
 				block-size: 100%;
