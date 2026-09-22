@@ -4,6 +4,7 @@ import {
 	access,
 	cp,
 	mkdir,
+	readdir,
 	readFile,
 	rename,
 	rm,
@@ -37,6 +38,7 @@ const execFileAsync = promisify(execFile);
 const postcssConfig = require('../config/postcss.config.cjs');
 const sitemapInputs = ['index.html', 'css', 'js', 'shared', 'scripts', 'json', 'images'];
 const sitemapTimeZone = 'America/Denver';
+const mediaInputExtensions = new Set(['.avif', '.heic', '.jpeg', '.jpg', '.png']);
 
 const toPosix = value => value.split(path.sep).join('/');
 const hash = value =>
@@ -192,6 +194,51 @@ async function pathExists(filename) {
 	}
 }
 
+async function hasPendingMedia() {
+	const summits = await readdir(path.join(root, 'images/summits'), {
+		withFileTypes: true
+	});
+	if (summits.some(entry => entry.isFile() && path.extname(entry.name).toLowerCase() === '.heic')) {
+		return true;
+	}
+
+	const galleries = await readdir(path.join(root, 'images/galleries'), {
+		withFileTypes: true
+	});
+	const pendingGalleries = await Promise.all(
+		galleries
+			.filter(entry => entry.isDirectory())
+			.map(async gallery => {
+				const files = await readdir(path.join(root, 'images/galleries', gallery.name), {
+					withFileTypes: true
+				});
+				return files.some(
+					entry => entry.isFile() && mediaInputExtensions.has(path.extname(entry.name).toLowerCase())
+				);
+			})
+	);
+	return pendingGalleries.some(Boolean);
+}
+
+async function buildPendingMedia() {
+	if (!(await hasPendingMedia())) return;
+
+	console.log('Pending source media found; generating web images and metadata.');
+	try {
+		const { stdout, stderr } = await execFileAsync(
+			'python3',
+			[path.join(root, 'scripts/build-media.py')],
+			{ cwd: root }
+		);
+		if (stdout) process.stdout.write(stdout);
+		if (stderr) process.stderr.write(stderr);
+	} catch (error) {
+		if (error.stdout) process.stdout.write(error.stdout);
+		if (error.stderr) process.stderr.write(error.stderr);
+		throw error;
+	}
+}
+
 async function publishBuild() {
 	const hasExistingDist = await pathExists(dist);
 	if (hasExistingDist) {
@@ -210,6 +257,7 @@ async function publishBuild() {
 }
 
 async function main() {
+	await buildPendingMedia();
 	await rm(staging, { force: true, recursive: true });
 	await mkdir(assets, { recursive: true });
 

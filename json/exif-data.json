@@ -7094,6 +7094,39 @@
     "title": null,
     "caption": "Mt. Democrat"
   },
+  "summits/mount-evans-2.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 9,
+      "day": 22,
+      "hour": 10,
+      "minute": 21,
+      "second": 21,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:09:22 10:21:21",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 35,
+    "aperture": 1.8,
+    "shutter": "1/8000",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.2597805555556,
+      "lon": -106.151405555556,
+      "latDMS": "39\u00b015'35.21\" N",
+      "lonDMS": "106\u00b09'5.06\" W",
+      "alt": 3898.979058,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Mount Evans 2",
+    "caption": null
+  },
   "summits/mount-evans.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -7851,6 +7884,39 @@
     },
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
+    "caption": null
+  },
+  "summits/pennsylvania-mountain.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 9,
+      "day": 22,
+      "hour": 9,
+      "minute": 49,
+      "second": 9,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:09:22 09:49:09",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 80,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/6173",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.264675,
+      "lon": -106.142197222222,
+      "latDMS": "39\u00b015'52.83\" N",
+      "lonDMS": "106\u00b08'31.91\" W",
+      "alt": 3966.265193,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Pennsylvania Mountain",
     "caption": null
   },
   "summits/ptarmigan-peak.jpeg": {

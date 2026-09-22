@@ -76,10 +76,12 @@ npm run check
 npm run smoke
 ```
 
-Build and check commands do not ingest media or fix source files. Run
-`npm run build:media` explicitly after adding photos, and use `npm run lint:css:fix`
-when you want automatic formatting fixes. `npm run check` reads the existing
-build, so run `npm run build` first.
+The build automatically ingests pending gallery source files and summit HEICs,
+converting them to web images, refreshing metadata, and archiving the originals
+before it creates `dist/`. `npm run build:media` remains available when you want
+to force a complete media synchronization. Use `npm run lint:css:fix` when you
+want automatic formatting fixes. `npm run check` reads the existing build and
+does not ingest media, so run `npm run build` first.
 
 The build starts from an empty `dist/`, compiles the primary and lazy MapLibre
 PostCSS entry points, bundles the browser module graph and its lazy features,
@@ -89,7 +91,8 @@ copies the site's stable images and JSON data. It also refreshes the sitemap's
 The map stylesheet loads with
 the lazy map module rather than blocking the initial render. Netlify runs
 `npm run build:deploy` and publishes only `dist/`; generated gallery media and
-metadata are committed after they are built locally.
+metadata should still be committed after they are built locally so they remain
+available to other environments and source control.
 
 `npm run check` validates each JSON dataset against the schemas in `schemas/`,
 checks cross-file relationships and referenced assets, lints the authored
@@ -139,11 +142,10 @@ variants without ingesting photos, run `npm run build:responsive`. Generated
 variants live in dedicated `responsive/` folders; the media builder prunes
 unused variants and checks every declared width.
 
-First run the media builder explicitly. Then use Nova’s **Gallery Build** task
-to compile and validate the site, or run the complete sequence in a terminal:
+Use Nova’s **Gallery Build** task to compile and validate the site, or run the
+complete sequence in a terminal:
 
 ```sh
-npm run build:media
 npm run build
 npm run check
 ```

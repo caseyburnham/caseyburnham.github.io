@@ -1,5 +1,21 @@
 [
 	{
+		"Peak": "Pennsylvania Mountain",
+		"Elevation": "13,021",
+		"Range": "Mosquito",
+		"Date": "2026-09-22",
+		"Image": "/images/summits/pennsylvania-mountain.avif",
+		"ranked": true
+	},
+	{
+		"Peak": "Mount Evans",
+		"Elevation": "13,591",
+		"Range": "Mosquito",
+		"Date": "2026-09-22",
+		"Image": "/images/summits/mount-evans-2.avif",
+		"ranked": true
+	},
+	{
 		"Peak": "Geneva Peak",
 		"Elevation": "13,266",
 		"Range": "Front",
