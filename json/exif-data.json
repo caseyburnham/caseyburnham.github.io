@@ -1220,6 +1220,39 @@
     "title": "Bierstadt Billy",
     "caption": "Bierstadt Billy"
   },
+  "galleries/high-country/avif/blue-lakes.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 7,
+      "day": 25,
+      "hour": 11,
+      "minute": 53,
+      "second": 32,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:07:25 11:53:32",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 32,
+    "lens": 14,
+    "aperture": 2.2,
+    "shutter": "1/770",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.0022194444444,
+      "lon": -107.813194444444,
+      "latDMS": "38\u00b00'7.99\" N",
+      "lonDMS": "107\u00b048'47.50\" W",
+      "alt": 3443.089337,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Blue Lakes",
+    "caption": null
+  },
   "galleries/high-country/avif/clear-lake.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -1351,6 +1384,39 @@
     "copyright": "\u00a9 2024 Casey Burnham",
     "title": "Fall on Jones Mountain",
     "caption": "Fall on Jones Mountain"
+  },
+  "galleries/high-country/avif/greys-torreys.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 9,
+      "day": 10,
+      "hour": 10,
+      "minute": 14,
+      "second": 43,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:09:10 10:14:43",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 20,
+    "lens": 100,
+    "aperture": 2.8,
+    "shutter": "1/644",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.5539055555556,
+      "lon": -105.823447222222,
+      "latDMS": "39\u00b033'14.06\" N",
+      "lonDMS": "105\u00b049'24.41\" W",
+      "alt": 4042.576389,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Greys & Torreys",
+    "caption": "Greys & Torreys peaks from Red Cone"
   },
   "galleries/high-country/avif/kendall-peak-from-silver-lake.avif": {
     "date": {
@@ -3068,6 +3134,39 @@
     "title": "Quail Mountain",
     "caption": "Quail Mountain"
   },
+  "galleries/off-road/avif/red-cone.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 9,
+      "day": 10,
+      "hour": 8,
+      "minute": 42,
+      "second": 8,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:09:10 08:42:08",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 64,
+    "lens": 48,
+    "aperture": 1.8,
+    "shutter": "1/7874",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.5269194444444,
+      "lon": -105.822027777778,
+      "latDMS": "39\u00b031'36.91\" N",
+      "lonDMS": "105\u00b049'19.30\" W",
+      "alt": 3894.644397,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Red Cone",
+    "caption": null
+  },
   "galleries/off-road/avif/round-mountain.avif": {
     "date": {
       "_ctor": "ExifDateTime",
@@ -3628,6 +3727,39 @@
     "copyright": "\u00a9 2022 Casey Burnham",
     "title": "Saguaro",
     "caption": "Saguaro, Saguaro National Park"
+  },
+  "galleries/plant-based/avif/star-gentian.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 8,
+      "day": 8,
+      "hour": 16,
+      "minute": 46,
+      "second": 14,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:08:08 16:46:14",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 40,
+    "lens": 25,
+    "aperture": 2.2,
+    "shutter": "1/169",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 38.9358555555556,
+      "lon": -106.405525,
+      "latDMS": "38\u00b056'9.08\" N",
+      "lonDMS": "106\u00b024'19.89\" W",
+      "alt": 3404.679443,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": "Star Gentian",
+    "caption": "Swertia perennis, or Star Gentian"
   },
   "galleries/plant-based/avif/toothwart.avif": {
     "date": {
@@ -5972,7 +6104,7 @@
     "title": null,
     "caption": null
   },
-  "summits/canby-mountain.jpeg": {
+  "summits/canby-mountain.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -5992,20 +6124,12 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 37.7995138888889,
-      "lon": -107.545875,
-      "latDMS": "37\u00b047'58.25\" N",
-      "lonDMS": "107\u00b032'45.15\" W",
-      "alt": 4116.875862,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Canby Mountain "
   },
-  "summits/cottonwood-peak.jpeg": {
+  "summits/cottonwood-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -6025,20 +6149,12 @@
     "shutter": "1/2137",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.2194277777778,
-      "lon": -105.756508333333,
-      "latDMS": "38\u00b013'9.94\" N",
-      "lonDMS": "105\u00b045'23.43\" W",
-      "alt": 4147.43295,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": null
   },
-  "summits/crystal-peak.jpeg": {
+  "summits/crystal-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2026,
@@ -6058,15 +6174,7 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 17 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.4346555555556,
-      "lon": -106.114416666667,
-      "latDMS": "39\u00b026'4.76\" N",
-      "lonDMS": "106\u00b06'51.90\" W",
-      "alt": 4218.813411,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": null
@@ -6104,7 +6212,7 @@
     "title": null,
     "caption": "Cupid Peak"
   },
-  "summits/duco-benchmark.jpeg": {
+  "summits/duco-benchmark.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2026,
@@ -6124,15 +6232,7 @@
     "shutter": "1/7353",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 17 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 37.9209555555556,
-      "lon": -107.637833333333,
-      "latDMS": "37\u00b055'15.44\" N",
-      "lonDMS": "107\u00b038'16.20\" W",
-      "alt": 4063.238372,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": null
@@ -6170,7 +6270,7 @@
     "title": "Dyer Mountain",
     "caption": "Dyer Mountain"
   },
-  "summits/father-dyer-peak.jpeg": {
+  "summits/father-dyer-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2026,
@@ -6190,15 +6290,7 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 17 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.4310694444444,
-      "lon": -106.104844444444,
-      "latDMS": "39\u00b025'51.85\" N",
-      "lonDMS": "106\u00b06'17.44\" W",
-      "alt": 4159.147773,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": "Rocky on Father Dyer Peak"
@@ -6302,7 +6394,7 @@
     "title": null,
     "caption": null
   },
-  "summits/grays-peak.jpeg": {
+  "summits/grays-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -6322,20 +6414,12 @@
     "shutter": "1/3497",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.6337777777778,
-      "lon": -105.817558333333,
-      "latDMS": "39\u00b038'1.60\" N",
-      "lonDMS": "105\u00b049'3.21\" W",
-      "alt": 4345.931925,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": null
   },
-  "summits/green-mountain.jpeg": {
+  "summits/green-mountain.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -6355,20 +6439,12 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 37.7945638888889,
-      "lon": -107.5617,
-      "latDMS": "37\u00b047'40.43\" N",
-      "lonDMS": "107\u00b033'42.12\" W",
-      "alt": 3990.861386,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Green Mountain"
   },
-  "summits/hancock-peak.jpeg": {
+  "summits/hancock-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -6388,20 +6464,12 @@
     "shutter": "1/4444",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.6171694444444,
-      "lon": -106.366836111111,
-      "latDMS": "38\u00b037'1.81\" N",
-      "lonDMS": "106\u00b022'0.61\" W",
-      "alt": 3997.745935,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Hancock Peak"
   },
-  "summits/horseshoe-mountain.jpeg": {
+  "summits/horseshoe-mountain.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -6421,20 +6489,12 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.1847638888889,
-      "lon": -106.184463888889,
-      "latDMS": "39\u00b011'5.15\" N",
-      "lonDMS": "106\u00b011'4.07\" W",
-      "alt": 4245.119417,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Horseshoe Mountain"
   },
-  "summits/huron-peak.jpeg": {
+  "summits/huron-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -6454,15 +6514,7 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.945525,
-      "lon": -106.437997222222,
-      "latDMS": "38\u00b056'43.89\" N",
-      "lonDMS": "106\u00b026'16.79\" W",
-      "alt": 4271.967619,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Huron Peak"
@@ -6632,7 +6684,7 @@
     "title": "Landslide Peak",
     "caption": null
   },
-  "summits/longs-peak.jpeg": {
+  "summits/longs-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -6652,18 +6704,43 @@
     "shutter": "1/1898",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 40.2543527777778,
-      "lon": -105.618233333333,
-      "latDMS": "40\u00b015'15.67\" N",
-      "lonDMS": "105\u00b037'5.64\" W",
-      "alt": 4235.649231,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": "Longs Peak"
+  },
+  "summits/mcclellan-mountain.avif": {
+    "date": {
+      "_ctor": "ExifDateTime",
+      "year": 2026,
+      "month": 10,
+      "day": 12,
+      "hour": 8,
+      "minute": 44,
+      "second": 23,
+      "tzoffsetMinutes": -360,
+      "rawValue": "2026:10:12 08:44:23",
+      "zoneName": "UTC-06:00",
+      "inferredZone": false
+    },
+    "iso": 100,
+    "lens": 24,
+    "aperture": 1.8,
+    "shutter": "1/4167",
+    "exposureCompensation": "0",
+    "cameraModel": "iPhone 17 Pro Max",
+    "format": "AVIF",
+    "gps": {
+      "lat": 39.6458277777778,
+      "lon": -105.778702777778,
+      "latDMS": "39\u00b038'44.98\" N",
+      "lonDMS": "105\u00b046'43.33\" W",
+      "alt": 4115.075145,
+      "altRef": 0
+    },
+    "copyright": "\u00a9 2026 Casey Burnham",
+    "title": null,
+    "caption": null
   },
   "summits/missouri-mountain.avif": {
     "date": {
@@ -6731,7 +6808,7 @@
     "title": null,
     "caption": null
   },
-  "summits/mount-antero.jpeg": {
+  "summits/mount-antero.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -6751,20 +6828,12 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.6741638888889,
-      "lon": -106.246238888889,
-      "latDMS": "38\u00b040'26.99\" N",
-      "lonDMS": "106\u00b014'46.46\" W",
-      "alt": 4352.77809,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mount Antero"
   },
-  "summits/mount-audubon.jpeg": {
+  "summits/mount-audubon.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2020,
@@ -6784,15 +6853,7 @@
     "shutter": "1/3984",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 40.0998277777778,
-      "lon": -105.615783333333,
-      "latDMS": "40\u00b05'59.38\" N",
-      "lonDMS": "105\u00b036'56.82\" W",
-      "alt": 4019.944606,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2020 Casey Burnham",
     "title": null,
     "caption": "Mt Audubon"
@@ -6830,7 +6891,7 @@
     "title": "Mount Bancroft",
     "caption": null
   },
-  "summits/mount-belford.jpeg": {
+  "summits/mount-belford.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -6850,20 +6911,12 @@
     "shutter": "1/7692",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.9607,
-      "lon": -106.360694444444,
-      "latDMS": "38\u00b057'38.52\" N",
-      "lonDMS": "106\u00b021'38.50\" W",
-      "alt": 4321.53317,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": "Mount Belford"
   },
-  "summits/mount-bierstadt.jpeg": {
+  "summits/mount-bierstadt.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -6883,20 +6936,12 @@
     "shutter": "1/3984",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.5826083333333,
-      "lon": -105.668838888889,
-      "latDMS": "39\u00b034'57.39\" N",
-      "lonDMS": "105\u00b040'7.82\" W",
-      "alt": 4282.984694,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": null
   },
-  "summits/mount-blue-sky.jpeg": {
+  "summits/mount-blue-sky.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -6916,20 +6961,12 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.5883638888889,
-      "lon": -105.643591666667,
-      "latDMS": "39\u00b035'18.11\" N",
-      "lonDMS": "105\u00b038'36.93\" W",
-      "alt": 4346.887967,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mount Blue Sky"
   },
-  "summits/mount-bross.jpeg": {
+  "summits/mount-bross.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -6949,20 +6986,12 @@
     "shutter": "1/4630",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.3349944444444,
-      "lon": -106.10785,
-      "latDMS": "39\u00b020'5.98\" N",
-      "lonDMS": "106\u00b06'28.26\" W",
-      "alt": 4326.023739,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mount Bross"
   },
-  "summits/mount-cameron.jpeg": {
+  "summits/mount-cameron.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -6982,20 +7011,12 @@
     "shutter": "1/7463",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.3473138888889,
-      "lon": -106.118736111111,
-      "latDMS": "39\u00b020'50.33\" N",
-      "lonDMS": "106\u00b07'7.45\" W",
-      "alt": 4341.093857,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mt. Cameron"
   },
-  "summits/mount-champion.jpeg": {
+  "summits/mount-champion.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -7015,20 +7036,12 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.1317777777778,
-      "lon": -106.521530555556,
-      "latDMS": "39\u00b07'54.40\" N",
-      "lonDMS": "106\u00b031'17.51\" W",
-      "alt": 4158.834808,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Mount Champion"
   },
-  "summits/mount-columbia.jpeg": {
+  "summits/mount-columbia.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -7048,20 +7061,12 @@
     "shutter": "1/4115",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.9039916666667,
-      "lon": -106.297552777778,
-      "latDMS": "38\u00b054'14.37\" N",
-      "lonDMS": "106\u00b017'51.19\" W",
-      "alt": 4284.140365,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": "Mount Columbia"
   },
-  "summits/mount-democrat.jpeg": {
+  "summits/mount-democrat.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -7081,15 +7086,7 @@
     "shutter": "1/4115",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.3396305555556,
-      "lon": -106.140013888889,
-      "latDMS": "39\u00b020'22.67\" N",
-      "lonDMS": "106\u00b08'24.05\" W",
-      "alt": 4309.27892,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mt. Democrat"
@@ -7160,7 +7157,7 @@
     "title": null,
     "caption": null
   },
-  "summits/mount-guyot.jpeg": {
+  "summits/mount-guyot.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -7180,20 +7177,12 @@
     "shutter": "1/7463",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.4586194444444,
-      "lon": -105.937744444444,
-      "latDMS": "39\u00b027'31.03\" N",
-      "lonDMS": "105\u00b056'15.88\" W",
-      "alt": 4075.363653,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Mount Guyot"
   },
-  "summits/mount-lincoln.jpeg": {
+  "summits/mount-lincoln.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -7213,15 +7202,7 @@
     "shutter": "1/5587",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.3514277777778,
-      "lon": -106.111519444444,
-      "latDMS": "39\u00b021'5.14\" N",
-      "lonDMS": "106\u00b06'41.47\" W",
-      "alt": 4347.919951,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mount Lincoln"
@@ -7259,7 +7240,7 @@
     "title": null,
     "caption": null
   },
-  "summits/mount-of-the-holy-cross.jpeg": {
+  "summits/mount-of-the-holy-cross.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -7279,20 +7260,12 @@
     "shutter": "1/5747",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.4668694444444,
-      "lon": -106.481513888889,
-      "latDMS": "39\u00b028'0.73\" N",
-      "lonDMS": "106\u00b028'53.45\" W",
-      "alt": 4249.528555,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": "Mount of the Holy Cross"
   },
-  "summits/mount-oxford.jpeg": {
+  "summits/mount-oxford.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -7312,15 +7285,7 @@
     "shutter": "1/4115",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.9648555555556,
-      "lon": -106.338822222222,
-      "latDMS": "38\u00b057'53.48\" N",
-      "lonDMS": "106\u00b020'19.76\" W",
-      "alt": 4311.327366,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": "Mount Oxford"
@@ -7358,7 +7323,7 @@
     "title": null,
     "caption": null
   },
-  "summits/mount-princeton.jpeg": {
+  "summits/mount-princeton.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -7378,20 +7343,12 @@
     "shutter": "1/6211",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.7491583333333,
-      "lon": -106.242583333333,
-      "latDMS": "38\u00b044'56.97\" N",
-      "lonDMS": "106\u00b014'33.30\" W",
-      "alt": 4328.083784,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mount Princeton "
   },
-  "summits/mount-shavano.jpeg": {
+  "summits/mount-shavano.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -7411,20 +7368,12 @@
     "shutter": "1/2817",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.6191888888889,
-      "lon": -106.239341666667,
-      "latDMS": "38\u00b037'9.08\" N",
-      "lonDMS": "106\u00b014'21.63\" W",
-      "alt": 4330.67313,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": null
   },
-  "summits/mount-sheridan.jpeg": {
+  "summits/mount-sheridan.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -7444,20 +7393,12 @@
     "shutter": "1/3831",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.2097694444444,
-      "lon": -106.185913888889,
-      "latDMS": "39\u00b012'35.17\" N",
-      "lonDMS": "106\u00b011'9.29\" W",
-      "alt": 4194.120448,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": null
   },
-  "summits/mount-sherman.jpeg": {
+  "summits/mount-sherman.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -7477,20 +7418,12 @@
     "shutter": "1/5587",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.2250972222222,
-      "lon": -106.170075,
-      "latDMS": "39\u00b013'30.35\" N",
-      "lonDMS": "106\u00b010'12.27\" W",
-      "alt": 4279.425626,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mount Sherman"
   },
-  "summits/mount-sneffels.jpeg": {
+  "summits/mount-sneffels.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2026,
@@ -7510,15 +7443,7 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 17 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.0038527777778,
-      "lon": -107.792319444444,
-      "latDMS": "38\u00b00'13.87\" N",
-      "lonDMS": "107\u00b047'32.35\" W",
-      "alt": 4318.100089,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": null
@@ -7556,7 +7481,7 @@
     "title": null,
     "caption": "Mount Sniktau"
   },
-  "summits/mount-spalding.jpeg": {
+  "summits/mount-spalding.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -7576,20 +7501,12 @@
     "shutter": "1/3571",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.5996083333333,
-      "lon": -105.656502777778,
-      "latDMS": "39\u00b035'58.59\" N",
-      "lonDMS": "105\u00b039'23.41\" W",
-      "alt": 4224.112258,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mount Spalding"
   },
-  "summits/mount-tweto.jpeg": {
+  "summits/mount-tweto.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2026,
@@ -7609,15 +7526,7 @@
     "shutter": "1/6173",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 17 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.3222583333333,
-      "lon": -106.169463888889,
-      "latDMS": "39\u00b019'20.13\" N",
-      "lonDMS": "106\u00b010'10.07\" W",
-      "alt": 4173.926761,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": null
@@ -7688,7 +7597,7 @@
     "title": null,
     "caption": null
   },
-  "summits/mount-yale.jpeg": {
+  "summits/mount-yale.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -7708,20 +7617,12 @@
     "shutter": "1/3040",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.8441694444444,
-      "lon": -106.313805555556,
-      "latDMS": "38\u00b050'39.01\" N",
-      "lonDMS": "106\u00b018'49.70\" W",
-      "alt": 4324.109684,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": "Mt. Yale"
   },
-  "summits/mt-blue-sky.jpeg": {
+  "summits/mt-blue-sky.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -7741,15 +7642,7 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.5883638888889,
-      "lon": -105.643591666667,
-      "latDMS": "39\u00b035'18.11\" N",
-      "lonDMS": "105\u00b038'36.93\" W",
-      "alt": 4346.887967,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Mt. Evans"
@@ -7853,7 +7746,7 @@
     "title": "Peak Ten",
     "caption": null
   },
-  "summits/peerless-mountain.jpeg": {
+  "summits/peerless-mountain.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -7873,15 +7766,7 @@
     "shutter": "1/3831",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.1981277777778,
-      "lon": -106.178925,
-      "latDMS": "39\u00b011'53.26\" N",
-      "lonDMS": "106\u00b010'44.13\" W",
-      "alt": 4072.051613,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": null
@@ -7919,7 +7804,7 @@
     "title": "Pennsylvania Mountain",
     "caption": null
   },
-  "summits/ptarmigan-peak.jpeg": {
+  "summits/ptarmigan-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -7939,20 +7824,12 @@
     "shutter": "1/6579",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.1503555555556,
-      "lon": -106.174116666667,
-      "latDMS": "39\u00b09'1.28\" N",
-      "lonDMS": "106\u00b010'26.82\" W",
-      "alt": 4186.485194,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Ptarmigan Peak"
   },
-  "summits/quail-mountain.jpeg": {
+  "summits/quail-mountain.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -7972,20 +7849,12 @@
     "shutter": "1/6993",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.0180888888889,
-      "lon": -106.394638888889,
-      "latDMS": "39\u00b01'5.12\" N",
-      "lonDMS": "106\u00b023'40.70\" W",
-      "alt": 4099.595547,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Quail Mountain "
   },
-  "summits/quandary-peak.jpeg": {
+  "summits/quandary-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2026,
@@ -8005,15 +7874,7 @@
     "shutter": "1/770",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 17 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.397225,
-      "lon": -106.106505555556,
-      "latDMS": "39\u00b023'50.01\" N",
-      "lonDMS": "106\u00b06'23.42\" W",
-      "alt": 4345.304527,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": null
@@ -8084,7 +7945,7 @@
     "title": "Rogers Peak",
     "caption": null
   },
-  "summits/santa-fe-peak.jpeg": {
+  "summits/santa-fe-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2023,
@@ -8104,20 +7965,12 @@
     "shutter": "1/4444",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.5689083333333,
-      "lon": -105.836891666667,
-      "latDMS": "39\u00b034'8.07\" N",
-      "lonDMS": "105\u00b050'12.81\" W",
-      "alt": 4012.05132,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2023 Casey Burnham",
     "title": null,
     "caption": "Santa Fe Peak"
   },
-  "summits/savage-peak.jpeg": {
+  "summits/savage-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -8137,20 +7990,12 @@
     "shutter": "1/6993",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.3805694444444,
-      "lon": -106.520652777778,
-      "latDMS": "39\u00b022'50.05\" N",
-      "lonDMS": "106\u00b031'14.35\" W",
-      "alt": 4004.233038,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Savage Peak"
   },
-  "summits/tabeguache-peak.jpeg": {
+  "summits/tabeguache-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -8170,15 +8015,7 @@
     "shutter": "1/1332",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.6254972222222,
-      "lon": -106.250838888889,
-      "latDMS": "38\u00b037'31.79\" N",
-      "lonDMS": "106\u00b015'3.02\" W",
-      "alt": 4309.619647,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": null
@@ -8216,7 +8053,7 @@
     "title": null,
     "caption": null
   },
-  "summits/telluride-peak.jpeg": {
+  "summits/telluride-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2026,
@@ -8236,20 +8073,12 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 17 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 37.9248694444444,
-      "lon": -107.736419444444,
-      "latDMS": "37\u00b055'29.53\" N",
-      "lonDMS": "107\u00b044'11.11\" W",
-      "alt": 4118.220238,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": null
   },
-  "summits/thirsty-peak.jpeg": {
+  "summits/thirsty-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -8269,12 +8098,12 @@
     "shutter": "1/5882",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": "Thirsty Peak"
   },
-  "summits/tincup-peak.jpeg": {
+  "summits/tincup-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2026,
@@ -8294,20 +8123,12 @@
     "shutter": "1/7353",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 17 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.7182361111111,
-      "lon": -106.422822222222,
-      "latDMS": "38\u00b043'5.65\" N",
-      "lonDMS": "106\u00b025'22.16\" W",
-      "alt": 4070.212591,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2026 Casey Burnham",
     "title": null,
     "caption": null
   },
-  "summits/torreys-peak.jpeg": {
+  "summits/torreys-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2021,
@@ -8327,15 +8148,7 @@
     "shutter": "1/8000",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 11 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.6427777777778,
-      "lon": -105.82125,
-      "latDMS": "39\u00b038'34.00\" N",
-      "lonDMS": "105\u00b049'16.50\" W",
-      "alt": 4343.431507,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2021 Casey Burnham",
     "title": null,
     "caption": "Torreys Peak"
@@ -8373,7 +8186,7 @@
     "title": null,
     "caption": null
   },
-  "summits/un-13128.jpeg": {
+  "summits/un-13128.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -8393,15 +8206,7 @@
     "shutter": "1/5587",
     "exposureCompensation": "0",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 38.2145277777778,
-      "lon": -105.744827777778,
-      "latDMS": "38\u00b012'52.30\" N",
-      "lonDMS": "105\u00b044'41.38\" W",
-      "alt": 4001.598475,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": null
@@ -8439,7 +8244,7 @@
     "title": "UN 13253",
     "caption": null
   },
-  "summits/un-13738.jpeg": {
+  "summits/un-13738.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -8459,7 +8264,7 @@
     "shutter": "1/5076",
     "exposureCompensation": "-0.00391",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": null
@@ -8497,7 +8302,7 @@
     "title": "Unnamed 13er",
     "caption": null
   },
-  "summits/weston-peak.jpeg": {
+  "summits/weston-peak.avif": {
     "date": {
       "_ctor": "ExifDateTime",
       "year": 2025,
@@ -8517,15 +8322,7 @@
     "shutter": "1/6993",
     "exposureCompensation": "0.00391",
     "cameraModel": "iPhone 13 Pro Max",
-    "format": "JPEG",
-    "gps": {
-      "lat": 39.1365305555556,
-      "lon": -106.164230555556,
-      "latDMS": "39\u00b08'11.51\" N",
-      "lonDMS": "106\u00b09'51.23\" W",
-      "alt": 4140.687523,
-      "altRef": 0
-    },
+    "format": "AVIF",
     "copyright": "\u00a9 2025 Casey Burnham",
     "title": null,
     "caption": null

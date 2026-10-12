@@ -8,7 +8,6 @@ table:not(table caption) {
 		border-collapse: collapse;
 		font-size: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
 		inline-size: 100%;
-		table-layout: auto;
 
 		& caption {
 			caption-side: bottom;
@@ -43,7 +42,7 @@ table:not(table caption) {
 			}
 
 			&::after {
-				animation: opacity 0.95s var(--timing-frame), filter .05s var(--timing-led);
+				animation: opacity 0.95s var(--timing-frame), filter .05s var(--timing-modal);
 				content: "📸";
 				filter: brightness(1);
 				opacity: 0;
@@ -51,7 +50,7 @@ table:not(table caption) {
 			}
 
 			&:hover::after {
-				animation: flash 0.5s var(--timing-led);
+				animation: flash 0.5s var(--timing-modal);
 				opacity: 1;
 			}
 		}
@@ -69,7 +68,7 @@ table:not(table caption) {
 		text-shadow: var(--shadow-glow);
 	}
 
-	:is(.unranked) {
+	.unranked {
 		color: var(--color-text-muted);
 	}
 
@@ -98,7 +97,6 @@ table:not(table caption) {
 	}
 
 	.range-ridge-name {
-		/* overflow: hidden; */
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
@@ -135,7 +133,7 @@ table:not(table caption) {
 	}
 
 	.range-ridge--zero {
-	display: none;
+		display: none;
 	}
 
 	.sequence-group {
@@ -176,7 +174,7 @@ table:not(table caption) {
 		0 0 var(--glow-size) var(--glow-color);
 	}
 
-	@media (width < 45rem) {
+	@container main (width < 45em) {
 		.range-ridgeline {
 			grid-template-columns: minmax(0, 1fr);
 		}

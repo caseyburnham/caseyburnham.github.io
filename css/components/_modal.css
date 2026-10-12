@@ -51,7 +51,7 @@
 
 		& button {
 			aspect-ratio: 1;
-			backdrop-filter: blur(2.5px);
+			backdrop-filter: var(--glass-blur);
 			background: var(--color-bg-light);
 			border: 1px solid var(--color-border);
 			border-radius: 50%;
@@ -66,11 +66,11 @@
 			translate: 0 -50%;
 
 			&:hover {
-				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.05) c h), oklch(from var(--color-bg-main) calc(l + 0.15) c h));
+				background: var(--color-surface-hover);
 			}
 
 			&:active {
-				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.2) c h), oklch(from var(--color-bg-main) calc(l + 0.25) c h));
+				background: var(--color-surface-active);
 			}
 		}
 
@@ -90,9 +90,6 @@
 			}
 
 			& img {
-				block-size: auto;
-				inline-size: auto;
-
 				inset: 0;
 				margin: auto;
 				max-block-size: 100%;
@@ -106,18 +103,13 @@
 				&.is-incoming {
 					opacity: 1;
 				}
-
-				&.is-leaving {
-					opacity: 0;
-				}
 			}
 
 			& figcaption {
 				align-items: center;
 				background: var(--bg-glassy);
 				border-radius: inherit;
-				box-shadow:
-					var(--shadow-modal);
+				box-shadow: var(--shadow-modal);
 				color: var(--color-text-primary);
 				display: grid;
 				filter: blur(20px);
@@ -354,7 +346,7 @@
 				}
 
 				& figcaption {
-					backdrop-filter: blur(8px) saturate(150%);
+					backdrop-filter: var(--glass-blur-deep);
 					box-shadow: var(--shadow-modal);
 					filter: none;
 					inset: auto;

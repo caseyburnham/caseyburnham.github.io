@@ -3,7 +3,7 @@
 		font-family: var(--font-family-ui);
 
 		& h3 {
-			margin: 0 0 0.5rem 0;
+			margin-block-end: 0.5rem;
 		}
 	}
 
@@ -13,10 +13,6 @@
 
 	#discogs-sleeve-container {
 		align-items: center;
-	}
-
-	#discogs-inventory-sleeve-container {
-		background-position: 50%;
 	}
 
 	.wood {
@@ -47,14 +43,14 @@
 		z-index: 1;
 	}
 
-	@media (width <= 1024px) {
+	@container main (max-width: 60em) {
 		.discogs-record:nth-of-type(n + 4),
 		.record-caption:nth-child(n + 4) {
 			display: none;
 		}
 	}
 
-	@media (width <= 640px) {
+	@container main (max-width: 38em) {
 		.discogs-record:nth-of-type(n + 3),
 		.record-caption:nth-child(n + 3) {
 			display: none;
@@ -84,7 +80,6 @@
 
 		box-shadow: var(--shadow-album);
 		position: relative;
-		transform: translateY(0) scale(1) rotateY(0deg) rotateX(0);
 		transform-style: preserve-3d;
 		transition: box-shadow ease 0.2s, transform ease 0.3s;
 
@@ -143,7 +138,6 @@
 
 	/* Album Art & Media Elements */
 	.album-art {
-		box-shadow: none;
 		object-fit: cover;
 		transition: box-shadow ease 0.2s;
 		z-index: 2;
@@ -215,7 +209,7 @@
 	.record-caption p {
 		font-size: smaller;
 		line-height: var(--line-height-base);
-		padding-top: 0.5rem;
+		padding-block-start: 0.5rem;
 
 		& .record-title {
 			font-style: inherit;

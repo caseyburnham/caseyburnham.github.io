@@ -13,7 +13,6 @@
 		align-items: center;
 		display: grid;
 		gap: var(--space-md);
-		grid-auto-rows: minmax(min-content, max-content);
 		grid-template-columns: 1fr 1fr;
 		justify-items: center;
 		padding-inline: clamp(0rem, 5vw - 1rem, 5rem);
@@ -62,7 +61,6 @@
 					oklch(from var(--black-0) l c h / 0.95) 0 0 2px -1px inset,
 					oklch(from var(--white-0) l c h / 0.95) -1px -1px 2px -1px inset;
 				padding: 20px;
-				position: relative;
 
 				& img {
 					aspect-ratio: 4/3;
@@ -74,16 +72,10 @@
 				}
 			}
 
+			&::before,
 			&::after {
-				background:
-					radial-gradient(140% 140% at 65% -25%,
-						oklch(from var(--black-0) l c h / .45) 0%,
-						oklch(from var(--black-1) l c h / .25) 25%,
-						oklch(from var(--black-2) l c h / .12) 45%,
-						oklch(from var(--black-3) l c h / .10) 65%);
 				content: "";
 				inset: 0;
-				mix-blend-mode: screen;
 				pointer-events: none;
 				position: absolute;
 			}
@@ -93,11 +85,17 @@
 					linear-gradient(to bottom right,
 						oklch(from var(--black-0) l c h / .1),
 						oklch(from var(--black-1) l c h / .05) 45%);
-				content: "";
-				inset: 0;
 				mix-blend-mode: multiply;
-				pointer-events: none;
-				position: absolute;
+			}
+
+			&::after {
+				background:
+					radial-gradient(140% 140% at 65% -25%,
+						oklch(from var(--black-0) l c h / .45) 0%,
+						oklch(from var(--black-1) l c h / .25) 25%,
+						oklch(from var(--black-2) l c h / .12) 45%,
+						oklch(from var(--black-3) l c h / .10) 65%);
+				mix-blend-mode: screen;
 			}
 		}
 
@@ -105,7 +103,7 @@
 			grid-template-columns: 1fr;
 
 			& p {
-				max-inline-size: min(100%);
+				max-inline-size: 100%;
 				text-align: justify;
 			}
 
@@ -116,7 +114,6 @@
 
 			& img {
 				min-block-size: 15rem;
-				position: relative;
 			}
 		}
 	}

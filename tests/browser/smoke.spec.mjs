@@ -204,7 +204,7 @@ test('opens a summit photo before the gallery has loaded', async ({ page }) => {
 
 test('hides the GPS row when a summit photo has no coordinates', async ({ page }) => {
 	await page.goto('/');
-	const button = page.locator('#mountains .camera-link[data-image="/images/summits/un-13738.jpeg"]');
+	const button = page.locator('#mountains .camera-link[data-image="/images/summits/un-13738.avif"]');
 	await expect(button).toBeAttached();
 	await button.click();
 

@@ -13,22 +13,21 @@
 			padding: 0.5rem;
 			text-wrap: wrap;
 			transition: background 0.3s, color 0.3s, outline 150ms, outline-offset 150ms;
-			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+			transition-timing-function: var(--ease-standard);
 			z-index: 2;
 
 			&:hover {
-				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.05) c h), oklch(from var(--color-bg-main) calc(l + 0.15) c h));
+				background: var(--color-surface-hover);
 				outline-offset: 1px;
 			}
 
 			&:active {
-				background: light-dark(oklch(from var(--color-bg-main) calc(l - 0.2) c h), oklch(from var(--color-bg-main) calc(l + 0.25) c h));
+				background: var(--color-surface-active);
 				outline-offset: 0px;
 			}
 
 			&[aria-pressed='true'] {
 				background: var(--color-accent-0);
-				box-shadow: none;
 				color: var(--color-text-selected);
 				cursor: default;
 				outline: 2px solid;
@@ -59,7 +58,7 @@
 			overflow: hidden;
 			padding: 0;
 			transition: filter 300ms, outline 150ms, outline-color 300ms, outline-offset 150ms;
-			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+			transition-timing-function: var(--ease-standard);
 
 			& img {
 				block-size: 100%;

@@ -7,11 +7,7 @@
 		transition: box-shadow 300ms;
 		transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
 
-		&:hover {
-			box-shadow: var(--glass-frame);
-		}
-		
-		&:has(details:open) {
+		&:is(:hover, :has(details:open)) {
 			box-shadow: var(--glass-frame);
 		}
 
@@ -27,7 +23,7 @@
 				transition: background, box-shadow, filter;
 				transition-delay: calc(var(--stagger-index) * 45ms + 120ms);
 				transition-duration: 500ms;
-				transition-timing-function: var(--timing-led);
+				transition-timing-function: var(--timing-modal);
 				width: 8px;
 			}
 
@@ -42,7 +38,7 @@
 				transform: rotate(270deg);
 				transition: border-color, color, transform;
 				transition-duration: 200ms;
-				transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+				transition-timing-function: var(--ease-standard);
 				width: 22px;
 
 				& svg {
@@ -65,7 +61,7 @@
 				}
 
 				& li {
-					animation: strip-in 0.5s cubic-bezier(.16, 1, .3, 1) forwards;
+					animation: stagger-in 0.5s var(--ease-spring) forwards;
 					animation-delay: calc(var(--stagger-index) * 45ms + 60ms);
 				}
 			}
@@ -110,10 +106,6 @@
 			}
 
 			@container main (width < 30rem) {
-				& summary {
-					padding: 1rem;
-				}
-
 				& li {
 					gap: 0.75rem;
 					padding: 0.75rem 1rem;
@@ -128,7 +120,7 @@
 				block-size: 0;
 				interpolate-size: allow-keywords;
 				overflow: clip;
-				transition: block-size 420ms cubic-bezier(.4, 0, .2, 1), content-visibility 420ms allow-discrete;
+				transition: block-size 420ms var(--ease-standard), content-visibility 420ms allow-discrete;
 			}
 
 			#skills details[open]::details-content {

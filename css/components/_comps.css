@@ -8,18 +8,11 @@
 	}
 
 	[popover] {
-		backdrop-filter: blur(1.5px) saturate(50%);
+		backdrop-filter: var(--glass-blur-light);
 		background: var(--color-bg-light);
-		border-bottom-width: 1px;
-		border-color: var(--color-border);
-		border-left-width: 0.8px;
+		border: 0 0 1px 0.8px solid var(--color-border);
 		border-radius: var(--radius-main);
-		border-right-width: 0px;
-		border-style: solid;
-		border-top-width: 0px;
-		box-shadow:
-			var(--glass-frame),
-			0 2px 10px color-mix(in oklch, var(--black-0) 15%, transparent);
+		box-shadow: var(--glass-frame), var(--shadow-lift);
 		font-size: var(--text-xs);
 		margin-block-start: 0.25rem;
 		opacity: 0;

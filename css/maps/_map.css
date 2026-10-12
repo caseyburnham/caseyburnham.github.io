@@ -38,8 +38,8 @@
 	}
 
 	.maplibregl-popup-content {
-		backdrop-filter: blur(2.5px) saturate(150%);
-		background: var(--glassy);
+		backdrop-filter: var(--glass-blur) saturate(150%);
+		background: var(--bg-glassy);
 		border-radius: var(--radius-md);
 		box-shadow:
 			var(--glass-frame),
@@ -55,8 +55,8 @@
 	}
 
 	.maplibregl-ctrl-group {
-		backdrop-filter: blur(2.5px);
-		background: var(--glassy);
+		backdrop-filter: var(--glass-blur);
+		background: var(--bg-glassy);
 		border-radius: var(--radius-sm);
 
 		&:not(:empty) {

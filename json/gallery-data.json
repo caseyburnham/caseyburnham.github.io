@@ -608,6 +608,22 @@
                 }
             },
             {
+                "id": "blue-lakes",
+                "alt": "Blue Lakes",
+                "title": "Blue Lakes",
+                "dateCreated": "2026-07-25",
+                "copyrightNotice": "\u00a9 2026 Casey Burnham",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/blue-lakes.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/blue-lakes.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/blue-lakes-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/blue-lakes.avif"
+                }
+            },
+            {
                 "id": "clear-lake",
                 "alt": "Clear Lake",
                 "title": "Clear Lake",
@@ -669,6 +685,22 @@
                 "thumbnailSources": {
                     "320": "/images/galleries/high-country/thumbnails/responsive/fall-on-jones-mountain-320.avif",
                     "720": "/images/galleries/high-country/thumbnails/fall-on-jones-mountain.avif"
+                }
+            },
+            {
+                "id": "greys-torreys",
+                "alt": "Greys & Torreys peaks from Red Cone",
+                "title": "Greys & Torreys",
+                "dateCreated": "2026-09-10",
+                "copyrightNotice": "\u00a9 2026 Casey Burnham",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/high-country/avif/greys-torreys.avif"
+                },
+                "thumbnail": "/images/galleries/high-country/thumbnails/greys-torreys.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/high-country/thumbnails/responsive/greys-torreys-320.avif",
+                    "720": "/images/galleries/high-country/thumbnails/greys-torreys.avif"
                 }
             },
             {
@@ -1519,6 +1551,22 @@
                 }
             },
             {
+                "id": "red-cone",
+                "alt": "Red Cone",
+                "title": "Red Cone",
+                "dateCreated": "2026-09-10",
+                "copyrightNotice": "\u00a9 2026 Casey Burnham",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/off-road/avif/red-cone.avif"
+                },
+                "thumbnail": "/images/galleries/off-road/thumbnails/red-cone.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/off-road/thumbnails/responsive/red-cone-320.avif",
+                    "720": "/images/galleries/off-road/thumbnails/red-cone.avif"
+                }
+            },
+            {
                 "id": "round-mountain",
                 "alt": "Round Mountain",
                 "title": "Round Mountain",
@@ -1794,6 +1842,22 @@
                 "thumbnailSources": {
                     "320": "/images/galleries/plant-based/thumbnails/responsive/saguaro-320.avif",
                     "540": "/images/galleries/plant-based/thumbnails/saguaro.avif"
+                }
+            },
+            {
+                "id": "star-gentian",
+                "alt": "Swertia perennis, or Star Gentian",
+                "title": "Star Gentian",
+                "dateCreated": "2026-08-08",
+                "copyrightNotice": "\u00a9 2026 Casey Burnham",
+                "layout": "landscape",
+                "sources": {
+                    "avif": "/images/galleries/plant-based/avif/star-gentian.avif"
+                },
+                "thumbnail": "/images/galleries/plant-based/thumbnails/star-gentian.avif",
+                "thumbnailSources": {
+                    "320": "/images/galleries/plant-based/thumbnails/responsive/star-gentian-320.avif",
+                    "720": "/images/galleries/plant-based/thumbnails/star-gentian.avif"
                 }
             },
             {

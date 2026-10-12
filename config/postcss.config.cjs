@@ -3,6 +3,7 @@ module.exports = {
 		require('postcss-import')({
 			path: ['css', 'node_modules']
 		}),
+		require('./purge-maplibre.cjs'),
 		require('postcss-sorting')({
 			'properties-order': 'alphabetical'
 		}),
